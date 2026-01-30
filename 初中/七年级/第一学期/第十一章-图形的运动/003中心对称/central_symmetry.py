@@ -238,7 +238,13 @@ class CentralSymmetry(Scene):
         
         # 定义文字框
         def_line1 = Text("定义: 如果把一个图形绕某点", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
-        def_line2 = Text("旋转180°后能与另一个图形", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        
+        # Line 2 with highlight - split into parts
+        def_line2_part1 = Text("旋转", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        def_line2_part2 = Text("180°", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        def_line2_part3 = Text("后能与另一个图形", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        def_line2 = VGroup(def_line2_part1, def_line2_part2, def_line2_part3).arrange(RIGHT, buff=0.05)
+        
         def_line3 = Text("重合, 则这两个图形", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
         def_line4 = Text("关于这点中心对称。", font="Noto Sans CJK SC", font_size=24, color=WHITE)
         
@@ -257,9 +263,7 @@ class CentralSymmetry(Scene):
         self.wait(1.5)
         
         # 高亮"180°"
-        deg_180 = Text("180°", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT)
-        deg_180.move_to(def_line2.get_center() + RIGHT * 1.2)
-        self.play(def_line2[2:6].animate.set_color(self.COLOR_HIGHLIGHT), run_time=0.5)
+        self.play(def_line2_part2.animate.set_color(self.COLOR_HIGHLIGHT), run_time=0.5)
         
         # 旋转演示
         triangle_copy = triangle_ABC.copy()
@@ -270,13 +274,13 @@ class CentralSymmetry(Scene):
         )
         
         # 对称三角形淡入（虚线）
-        triangle_sym = Polygon(
+        triangle_sym_solid = Polygon(
             self.A_sym, self.B_sym, self.C_sym,
             color=self.COLOR_SECONDARY,
             stroke_width=3,
             stroke_opacity=0.7
         )
-        triangle_sym.set_style(stroke_dasharray=[5, 5])
+        triangle_sym = DashedVMobject(triangle_sym_solid, num_dashes=20)
         
         self.play(FadeIn(triangle_sym, scale=1.05), run_time=0.8)
         self.wait(1.0)
