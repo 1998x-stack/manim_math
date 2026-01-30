@@ -1,5 +1,7 @@
 # 圆的周长 - 动画分镜脚本
 
+<!-- /root/code/sss/media/videos/circle_circumference/1920p60/CircleCircumference.mp4 -->
+
 ## 元信息
 - 目标时长: 70-85 秒
 - 场景数量: 8 个

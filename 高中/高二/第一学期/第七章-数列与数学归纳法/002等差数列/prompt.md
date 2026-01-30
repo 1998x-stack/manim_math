@@ -735,7 +735,7 @@ dot.move_to(new_circumcenter)
 ## 🚫 常见错误及修复
 
 <err_example>
-1. Chinese characters cannot be used in MathTex
+1. Chinese characters cannot be used in MathTex; Only supports LaTeX/ASCII
 2. 在LaTeX中，度数符号需要使用 ^\circ 或 ^{\circ} 表示，而不是直接使用 °。让我修复所有相关部分：
 3. 错误显示在创建 Sector 对象时出现了参数冲突：outer_radius 参数被重复赋值。这是因为 Sector 类的构造函数可能不接受 outer_radius 参数，而是使用 radius 参数。
 4. 问题仍然在LaTeX编译阶段。错误信息显示 you need another { and }，这通常表示LaTeX公式语法有问题。\over 命令在LaTeX中需要正确的分组。
