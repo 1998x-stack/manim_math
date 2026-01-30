@@ -1,5 +1,6 @@
 # 因式分解——公式法 动画分镜脚本
 
+<!-- /root/code/sss/media/videos/factorization_formulas/1920p60/FactorizationFormulas.mp4 -->
 ## 元信息
 - 目标时长: 75-90 秒
 - 场景数量: 7 个
