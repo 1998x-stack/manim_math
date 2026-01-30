@@ -1,5 +1,6 @@
 # 整式的乘法 - 动画分镜脚本
 
+<!-- /root/code/sss/media/videos/polynomial_multiplication/1920p60/PolynomialMultiplication.mp4 -->
 ## 元信息
 - 目标时长: 75-90秒
 - 场景数量: 7个

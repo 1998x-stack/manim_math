@@ -738,6 +738,7 @@ dot.move_to(new_circumcenter)
 5. 有双花括号 {{...}} 导致Manim解析错误
 6. 度数符号问题：在MathTex中，要么直接使用数字（如60），要么使用LaTeX的度数命令 ^\circ（但需要确保Manim支持）
 7. ❌ Original (causes error): Tex(r"周角 $= 360^\circ$"); ✅ Fixed: chinese = Text("周角 =", font="Noto Sans CJK SC")    math = MathTex(r"360^\circ")    VGroup(chinese, math).arrange(RIGHT)
+8. corner_radius ERROR: RoundedRectangle has corner_radius while Rectangle does not
 </err_example>
 
 <error_prevention>
