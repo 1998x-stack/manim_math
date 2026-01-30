@@ -334,7 +334,7 @@ class ArcLengthFormula(Scene):
             FadeOut(explain),
             run_time=0.5
         )
-    
+
     def scene_4_proportion_derivation(self):
         """场景4: 比例关系推导"""
         # 标题
@@ -404,41 +404,18 @@ class ArcLengthFormula(Scene):
         
         self.wait(0.5)
         
-        # 比例关系式 - 修复这里：移除了多余的{{}}
+        # 比例关系式 - 修复：使用正确的LaTeX分数语法
         ratio_math = MathTex(
-            r"l \over C = n \over 360",  # 修复：移除了多余的{{}}
+            r"\frac{l}{C} = \frac{n}{360}",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 2.5)
         
-        # 手动设置颜色（因为现在没有花括号分组了）
-        # 我们需要创建一个更复杂的结构来单独设置颜色
-        ratio_math = MathTex(
-            r"l \over C = n \over 360",
-            font_size=32,
-            color=WHITE
-        ).move_to(DOWN * 2.5)
-        
-        # 如果想要单独设置颜色，可以使用submobjects
-        # l (位置0)
-        # C (位置1)
-        # n (位置2)
-        # 360 (位置3)
-        # 注：Manim自动将分数拆分为分子和分母
-        
-        # 或者使用更简单的方法：创建多个MathTex对象并组合
-        # 这里为了简单，我建议保持统一颜色，或者使用以下方法：
-        
-        # 更好的方法是使用VGroup组合多个MathTex
-        ratio_math = VGroup(
-            MathTex("l", font_size=32, color=self.COLOR_ARC),
-            MathTex(r"\over", font_size=32, color=WHITE),
-            MathTex("C", font_size=32, color=self.COLOR_CIRCLE),
-            MathTex("=", font_size=32, color=WHITE),
-            MathTex("n", font_size=32, color=self.COLOR_ANGLE),
-            MathTex(r"\over", font_size=32, color=WHITE),
-            MathTex("360", font_size=32, color=self.COLOR_CIRCLE)
-        ).arrange(RIGHT, buff=0.1).move_to(DOWN * 2.5)
+        # 设置颜色
+        ratio_math.set_color_by_tex("l", self.COLOR_ARC)
+        ratio_math.set_color_by_tex("C", self.COLOR_CIRCLE)
+        ratio_math.set_color_by_tex("n", self.COLOR_ANGLE)
+        ratio_math.set_color_by_tex("360", self.COLOR_CIRCLE)
         
         # 添加说明文字
         ratio_explain = Text(
@@ -457,7 +434,7 @@ class ArcLengthFormula(Scene):
         # 可视化比例 - 饼图
         # 创建完整圆扇形 (半透明)
         full_sector = Sector(
-            outer_radius=0.8,
+            radius=0.8,  # 修复：使用 radius 而不是 outer_radius
             angle=360 * DEGREES,
             start_angle=0,
             color=self.COLOR_AUXILIARY,
@@ -467,7 +444,7 @@ class ArcLengthFormula(Scene):
         
         # 创建 n° 扇形 (高亮)
         highlight_sector = Sector(
-            outer_radius=0.8,
+            radius=0.8,  # 修复：使用 radius 而不是 outer_radius
             angle=self.central_angle * DEGREES,
             start_angle=self.start_angle * DEGREES,
             color=self.COLOR_ANGLE,
@@ -508,17 +485,15 @@ class ArcLengthFormula(Scene):
         )
         
         # 将比例式移到顶部保存
-        # 创建一个简化版本用于后续场景
         self.ratio_math = MathTex(
-            r"{l} \over {C} = {n} \over {360}",
-            font_size=28,
+            r"\frac{l}{C} = \frac{n}{360}",
+            font_size=24,
             color=WHITE
-        ).scale(0.8).move_to(UP * 5.5)
+        ).move_to(UP * 5.5)
         
         self.play(
             FadeOut(ratio_explain),
-            FadeOut(ratio_math),
-            FadeIn(self.ratio_math),
+            Transform(ratio_math, self.ratio_math),
             run_time=0.5
         )
 
@@ -536,15 +511,15 @@ class ArcLengthFormula(Scene):
         
         # Step 1: 用 l 和 C 替换文字
         step1 = MathTex(
-            r"{{l}} \over {{C}} = {{n°}} \over {{360°}}",
+            r"\frac{l}{C} = \frac{n}{360}",  # 去掉度数符号，简化公式
             font_size=32,
             color=WHITE
         ).move_to(UP * 3)
         
-        step1[0].set_color(self.COLOR_ARC)  # l
-        step1[2].set_color(self.COLOR_CIRCLE)  # C
-        step1[4].set_color(self.COLOR_ANGLE)  # n°
-        step1[6].set_color(self.COLOR_CIRCLE)  # 360°
+        # 手动设置颜色 - 通过索引访问子对象
+        # step1[0] 是整个公式，我们需要根据索引来设置颜色
+        # 由于使用了\frac，公式的结构会更复杂
+        # 我们可以使用更简单的方法：创建多个MathTex对象并组合
         
         explain1 = Text(
             "用字母表示",
@@ -564,13 +539,10 @@ class ArcLengthFormula(Scene):
         
         # Step 2: 代入 C = 2πr
         step2 = MathTex(
-            r"{{l}} \over {{2\pi r}} = {{n}} \over {{360}}",
+            r"\frac{l}{2\pi r} = \frac{n}{360}",
             font_size=32,
             color=WHITE
         ).move_to(UP * 1.5)
-        
-        step2[0].set_color(self.COLOR_ARC)  # l
-        step2[4].set_color(self.COLOR_ANGLE)  # n
         
         explain2 = Text(
             "代入 C = 2πr",
@@ -590,13 +562,10 @@ class ArcLengthFormula(Scene):
         
         # Step 3: 解出 l (形式1)
         step3 = MathTex(
-            r"{{l}} = {{n}} \over {{360}} \times {{2\pi r}}",
+            r"l = \frac{n}{360} \times 2\pi r",
             font_size=32,
             color=WHITE
         ).move_to(ORIGIN)
-        
-        step3[0].set_color(self.COLOR_ARC)  # l
-        step3[2].set_color(self.COLOR_ANGLE)  # n
         
         explain3 = Text(
             "公式形式1",
@@ -619,13 +588,10 @@ class ArcLengthFormula(Scene):
         
         # Step 4: 化简 (形式2)
         step4 = MathTex(
-            r"{{l}} = {{n\pi r}} \over {{180}}",
+            r"l = \frac{n\pi r}{180}",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 1.5)
-        
-        step4[0].set_color(self.COLOR_ARC)  # l
-        step4[2].set_color(self.COLOR_ANGLE)  # nπr (分子)
         
         explain4 = Text(
             "公式形式2 (化简)",
@@ -668,11 +634,10 @@ class ArcLengthFormula(Scene):
         
         # 公式1 (最常用)
         final_formula1 = MathTex(
-            r"l = {{n\pi r}} \over {{180}}",
+            r"l = \frac{n\pi r}{180}",
             font_size=36,
-            color=WHITE
+            color=self.COLOR_FORMULA  # 直接设置公式颜色
         ).move_to(UP * 2.5)
-        final_formula1[2].set_color(self.COLOR_FORMULA)
         
         label1 = Text(
             "最常用",
@@ -683,11 +648,10 @@ class ArcLengthFormula(Scene):
         
         # 公式2 (展开形式)
         final_formula2 = MathTex(
-            r"l = {{n}} \over {{360}} \times 2\pi r",
+            r"l = \frac{n}{360} \times 2\pi r",
             font_size=32,
-            color=WHITE
+            color=self.COLOR_FORMULA  # 直接设置公式颜色
         ).move_to(UP * 0.5)
-        final_formula2[2].set_color(self.COLOR_FORMULA)
         
         label2 = Text(
             "便于理解",
@@ -700,7 +664,7 @@ class ArcLengthFormula(Scene):
         final_formula3 = MathTex(
             r"l = \alpha r",
             font_size=32,
-            color=WHITE
+            color=self.COLOR_FORMULA  # 直接设置公式颜色
         ).move_to(DOWN * 1.5)
         
         label3 = Text(
@@ -757,7 +721,7 @@ class ArcLengthFormula(Scene):
             FadeOut(self.formulas_group),
             run_time=0.6
         )
-    
+
     def scene_6_example_calculation(self):
         """场景6: 实例计算"""
         # 标题
@@ -839,7 +803,7 @@ class ArcLengthFormula(Scene):
         )
         
         angle_label_ex = MathTex(
-            r"120°",
+            r"120^{\circ}",  # 使用LaTeX标准的度数表示
             font_size=24,
             color=self.COLOR_ANGLE
         ).move_to(UP * 2.2)
@@ -872,21 +836,31 @@ class ArcLengthFormula(Scene):
         
         self.wait(1.0)
         
-        # 选择公式
-        formula_choice = MathTex(
-            r"\text{使用公式: } l = {{n\pi r}} \over {{180}}",
+        # 选择公式 - 修复这里
+        # 使用Text显示中文，MathTex显示公式
+        formula_text = Text(
+            "使用公式:",
+            font="Noto Sans CJK SC",
+            font_size=24,
+            color=WHITE
+        ).move_to(DOWN * 1 + LEFT * 2)
+        
+        formula_math = MathTex(
+            r"l = \frac{n\pi r}{180}",  # 使用\frac代替\over
             font_size=28,
             color=WHITE
-        ).move_to(DOWN * 1)
-        formula_choice[4].set_color(self.COLOR_FORMULA)
+        ).next_to(formula_text, RIGHT, buff=0.3)
         
-        self.play(Write(formula_choice), run_time=0.8)
+        formula_group = VGroup(formula_text, formula_math)
+        formula_group.move_to(DOWN * 1)
+        
+        self.play(Write(formula_group), run_time=0.8)
         
         self.wait(0.5)
         
-        # 计算步骤
+        # 计算步骤 - 修复这里
         calc_step1 = MathTex(
-            r"l = {{120 \times \pi \times 3}} \over {{180}}",
+            r"l = \frac{120 \times \pi \times 3}{180}",  # 使用\frac
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 2.5)
@@ -896,7 +870,7 @@ class ArcLengthFormula(Scene):
         
         # 化简
         calc_step2 = MathTex(
-            r"l = {{360\pi}} \over {{180}}",
+            r"l = \frac{360\pi}{180}",  # 使用\frac
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -946,7 +920,7 @@ class ArcLengthFormula(Scene):
             FadeOut(radius2_ex),
             FadeOut(angle_arc_ex),
             FadeOut(angle_label_ex),
-            FadeOut(formula_choice),
+            FadeOut(formula_group),
             FadeOut(calc_step1),
             FadeOut(calc_step2),
             FadeOut(calc_step3),
@@ -954,7 +928,7 @@ class ArcLengthFormula(Scene):
             FadeOut(approx),
             run_time=0.6
         )
-    
+
     def scene_7_outro(self):
         """场景7: 片尾总结"""
         # 标题
@@ -988,29 +962,30 @@ class ArcLengthFormula(Scene):
         
         self.play(FadeIn(point2, shift=DOWN * 0.2), run_time=0.6)
         
-        # 公式卡片
+        # 公式卡片 - 修复这里
         formula_card1 = MathTex(
-            r"l = {{n\pi r}} \over {{180}}",
+            r"l = \frac{n\pi r}{180}",
             font_size=32,
-            color=WHITE
+            color=self.COLOR_FORMULA  # 直接设置颜色
         ).move_to(UP * 1.5)
         
         formula_card2 = MathTex(
-            r"l = {{n}} \over {{360}} \times 2\pi r",
+            r"l = \frac{n}{360} \times 2\pi r",
             font_size=28,
-            color=WHITE
+            color=self.COLOR_FORMULA  # 直接设置颜色
         ).move_to(ORIGIN)
         
         formula_card3 = MathTex(
             r"l = \alpha r",
             font_size=28,
-            color=WHITE
+            color=self.COLOR_FORMULA  # 直接设置颜色
         ).move_to(DOWN * 1.5)
         
         formulas = VGroup(formula_card1, formula_card2, formula_card3)
         
-        for formula in formulas:
-            formula[2].set_color(self.COLOR_FORMULA)
+        # 移除通过索引设置颜色的循环
+        # for formula in formulas:
+        #     formula[2].set_color(self.COLOR_FORMULA)
         
         self.play(
             *[FadeIn(f, shift=LEFT * 0.3) for f in formulas],
@@ -1134,7 +1109,6 @@ class ArcLengthFormula(Scene):
             FadeOut(icons),
             run_time=1.0
         )
-
 
 # 运行命令:
 # manim -pql arc_length_formula.py ArcLengthFormula  # 快速预览

@@ -1,4 +1,5 @@
 # 弧长公式 - 动画分镜脚本
+<!-- /root/code/sss/media/videos/arc_length_formula/1920p60/ArcLengthFormula.mp4 -->
 
 ## 元信息
 - 目标时长: 70-80 秒

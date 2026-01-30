@@ -1,11 +1,11 @@
 from manim import *
 
-class 组合图形面积Animation(Scene):
-    """组合图形面积的Manim动画演示"""
+class 认识半时Animation(Scene):
+    """认识半时的Manim动画演示"""
     
     def construct(self):
         # 标题
-        title = Text("组合图形面积", font_size=48)
+        title = Text("认识半时", font_size=48)
         title.to_edge(UP)
         self.play(Write(title))
         self.wait(1)
@@ -15,7 +15,7 @@ class 组合图形面积Animation(Scene):
         circle.shift(LEFT * 3)
         
         # 添加标签
-        formula = MathTex("割补法：S = S₁ + S₂ - S₃")
+        formula = MathTex("分针指6")
         formula.next_to(circle, RIGHT, buff=1)
         
         # 动画序列
@@ -24,10 +24,10 @@ class 组合图形面积Animation(Scene):
         self.wait(2)
         
         # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: Circle, Sector, Rectangle, Polygon, MathTex, VGroup, Text, Transform
+        # 使用到的Manim元素: Circle, Line, Arrow, Text, MathTex, Rotate, Indicate
         
         self.wait(1)
         
 if __name__ == "__main__":
-    # 运行命令: manim -pql 007_组合图形面积.py 组合图形面积Animation
+    # 运行命令: manim -pql 003_认识半时.py 认识半时Animation
     pass
