@@ -1,5 +1,5 @@
 # 扇形的面积 - 动画分镜脚本
-
+<!-- /root/code/sss/media/videos/sector_area/1920p60/SectorAreaAnimation.mp4 -->
 ## 元信息
 - 目标时长: 60-75 秒
 - 场景数量: 7 个
