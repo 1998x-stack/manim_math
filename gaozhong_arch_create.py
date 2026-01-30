@@ -77,8 +77,8 @@ def create_files(folder_path, item, sequence_num):
             f.write(prompt_content)
         print(f"  创建文件: {prompt_file}")
     
-    # 2. 创建storybook.md
-    story_file = folder_path / "storybook.md"
+    # 2. 创建storyboard.md
+    story_file = folder_path / "storyboard.md"
     if not story_file.exists():
         with open(story_file, 'w', encoding='utf-8') as f:
             # 创建基本的Markdown内容

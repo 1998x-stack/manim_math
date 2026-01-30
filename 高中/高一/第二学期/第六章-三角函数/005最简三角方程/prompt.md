@@ -16,7 +16,7 @@
 
 **执行流程**:
 1. **阅读技能文档** - 解压并研读 manim skill（包含 references、examples）
-2. **构建分镜脚本** - 创建 `storybook.md`，包含详细场景、几何计算、元素生命周期管理
+2. **构建分镜脚本** - 创建 `storyboard.md`，包含详细场景、几何计算、元素生命周期管理
 3. **编写动画代码** - 基于分镜脚本和技能文档生成 Python 代码
 </task_definition>
 
@@ -818,9 +818,9 @@ def setup_geometry(self):
 
 ---
 
-## 📝 分镜脚本模板 (storybook.md)
+## 📝 分镜脚本模板 (storyboard.md)
 
-<storybook_template>
+<storyboard_template>
 ```markdown
 # [题目名称] - 动画分镜脚本
 
@@ -880,7 +880,7 @@ COLOR_AUXILIARY = GRAY_B
 | aux_line | Scene 3 | Scene 3 | 临时辅助线 |
 | ... | ... | ... | ... |
 ```
-</storybook_template>
+</storyboard_template>
 
 ---
 
