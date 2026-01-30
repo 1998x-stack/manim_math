@@ -1,0 +1,18 @@
+# 最简三角方程
+
+## 概述
+最简三角方程是形如sin x=a, cos x=a, tan x=a的方程。解法：利用反三角函数写出通解。sin x=a（|a|≤1）：x=arcsin a+2kπ 或 x=π-arcsin a+2kπ，简记x=kπ+(-1)^k arcsin a。cos x=a（|a|≤1）：x=±arccos a+2kπ。tan x=a：x=arctan a+kπ。当|a|>1时sin x=a, cos x=a无解。解三角方程需注意周期性。
+
+## 数学公式
+- sin x = a: x = arcsin a + 2kπ 或 x = π - arcsin a + 2kπ
+- sin x = a: x = kπ + (-1)^k arcsin a
+- cos x = a: x = ±arccos a + 2kπ
+- tan x = a: x = arctan a + kπ
+- sin x = 0: x = kπ
+- cos x = 0: x = π/2 + kπ
+
+## 相关知识点
+- 三角方程
+- 通解
+- 反三角函数
+- 周期性

@@ -1,0 +1,1 @@
+1. Chinese characters cannot be used in MathTex
