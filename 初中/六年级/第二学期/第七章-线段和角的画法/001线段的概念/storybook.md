@@ -1,4 +1,5 @@
 # 线段的概念 - 动画分镜脚本
+<!-- /root/code/sss/media/videos/line_segment/1920p60/LineSegmentConcept.mp4 -->
 
 ## 元信息
 - 目标时长: 60-75 秒

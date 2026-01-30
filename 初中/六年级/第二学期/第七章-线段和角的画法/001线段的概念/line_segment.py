@@ -271,14 +271,7 @@ class LineSegmentConcept(Scene):
             run_time=0.8
         )
         
-        # 记号说明
-        notation = MathTex(
-            r"\text{记作: } AB \text{ 或 } |AB|",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(DOWN * 4)
-        
-        # 修正：避免中文在MathTex中
+        # 记号说明 - 避免中文在MathTex中
         notation = VGroup(
             Text("记作: ", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=GRAY_A),
             MathTex("AB", font_size=self.FONT_BODY, color=WHITE),
@@ -469,7 +462,7 @@ class LineSegmentConcept(Scene):
             run_time=0.8
         )
         
-        # 公式
+        # 公式 - 分离中文和数学符号
         formula = VGroup(
             MathTex("AM = MB = ", font_size=self.FONT_SUBTITLE),
             MathTex(r"\frac{AB}{2}", font_size=self.FONT_SUBTITLE)
@@ -676,11 +669,16 @@ class LineSegmentConcept(Scene):
             run_time=0.7
         )
         
-        # 标注长度
-        length_AB_label = Text("AB=6", font="Noto Sans CJK SC", font_size=self.FONT_BODY, 
-                              color=self.COLOR_PRIMARY).move_to(UP * 3.2 + LEFT * 2)
-        length_CD_label = Text("CD=4", font="Noto Sans CJK SC", font_size=self.FONT_BODY, 
-                              color=self.COLOR_SECONDARY).move_to(UP * 3.2 + RIGHT * 2)
+        # 标注长度 - 使用VGroup组合中文和数字
+        length_AB_label = VGroup(
+            Text("AB=", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY),
+            Text("6", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY)
+        ).arrange(RIGHT, buff=0.05).move_to(UP * 3.2 + LEFT * 2)
+        
+        length_CD_label = VGroup(
+            Text("CD=", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_SECONDARY),
+            Text("4", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_SECONDARY)
+        ).arrange(RIGHT, buff=0.05).move_to(UP * 3.2 + RIGHT * 2)
         
         self.play(
             Write(length_AB_label),
@@ -715,11 +713,10 @@ class LineSegmentConcept(Scene):
             run_time=1.0
         )
         
-        # 显示结果
+        # 显示结果 - 使用VGroup组合
         result_add = VGroup(
-            MathTex("AB + CD = ", font_size=self.FONT_SUBTITLE),
-            Text("10", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, 
-                color=self.COLOR_HIGHLIGHT)
+            Text("AB + CD = ", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=WHITE),
+            Text("10", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 4.5)
         
         self.play(Write(result_add), run_time=0.6)
@@ -764,11 +761,10 @@ class LineSegmentConcept(Scene):
         
         self.play(Create(brace_remain), Write(length_remain), run_time=0.6)
         
-        # 显示结果
+        # 显示结果 - 使用VGroup组合
         result_sub = VGroup(
-            MathTex("AB - CD = ", font_size=self.FONT_SUBTITLE),
-            Text("2", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, 
-                color=self.COLOR_HIGHLIGHT)
+            Text("AB - CD = ", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=WHITE),
+            Text("2", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 5.5)
         
         self.play(Write(result_sub), run_time=0.6)
