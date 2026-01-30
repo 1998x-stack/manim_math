@@ -1,0 +1,2 @@
+apt-get update -qq && apt-get install -y -qq libpango1.0-dev libcairo2-dev ffmpeg texlive texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-science fonts-noto-cjk 2>&1 | tail -5
+pip install manim --break-system-packages 2>&1 | tail -5

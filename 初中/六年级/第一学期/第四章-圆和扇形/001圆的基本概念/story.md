@@ -1,5 +1,5 @@
 # 圆的基本概念 - 动画分镜脚本
-
+<!-- /root/code/sss/media/videos/circle_basic_concepts/1920p60/CircleBasicConcepts.mp4 -->
 ## 元信息
 - 目标时长: 60-75 秒
 - 场景数量: 7 个
