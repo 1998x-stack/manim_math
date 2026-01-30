@@ -142,18 +142,18 @@ class MyScene(Scene):
 
 ### 2. 精确计算函数库
 ```python
-def calculate_midpoint(self, P1, P2):
+def calculate_midpoint(P1, P2):
     """计算中点"""
     return (P1 + P2) / 2
 
-def calculate_foot(self, point, line_start, line_end):
+def calculate_foot(point, line_start, line_end):
     """计算点到直线的垂足"""
     line_vec = line_end - line_start
     point_vec = point - line_start
     t = np.dot(point_vec, line_vec) / np.dot(line_vec, line_vec)
     return line_start + t * line_vec
 
-def calculate_line_intersection(self, P1, D1, P2, D2):
+def calculate_line_intersection(P1, D1, P2, D2):
     """
     计算两直线交点
     直线1: P1 + t*D1
@@ -166,24 +166,504 @@ def calculate_line_intersection(self, P1, D1, P2, D2):
     params = np.linalg.solve(A, b)
     return np.array([*(P1[:2] + params[0] * D1[:2]), 0])
 
-def calculate_circumcenter(self):
-    """计算外心 - 使用解析公式"""
-    ax, ay = self.A[0], self.A[1]
-    bx, by = self.B[0], self.B[1]
-    cx, cy = self.C[0], self.C[1]
+def calculate_circumcenter(A, B, C):
+    """计算三角形的外心 - 使用解析公式"""
+    ax, ay = A[0], A[1]
+    bx, by = B[0], B[1]
+    cx, cy = C[0], C[1]
     D = 2 * (ax*(by-cy) + bx*(cy-ay) + cx*(ay-by))
     ux = ((ax**2+ay**2)*(by-cy) + (bx**2+by**2)*(cy-ay) + (cx**2+cy**2)*(ay-by)) / D
     uy = ((ax**2+ay**2)*(cx-bx) + (bx**2+by**2)*(ax-cx) + (cx**2+cy**2)*(bx-ax)) / D
     return np.array([ux, uy, 0])
 
-def calculate_incenter(self):
-    """计算内心 - 加权平均"""
-    a, b, c = self.BC, self.CA, self.AB
-    return (a*self.A + b*self.B + c*self.C) / (a + b + c)
+def calculate_incenter(A, B, C, a=None, b=None, c=None):
+    """计算三角形的内心 - 加权平均
+    如果未提供边长，则自动计算
+    """
+    if a is None or b is None or c is None:
+        a = np.linalg.norm(B - C)  # BC
+        b = np.linalg.norm(C - A)  # CA
+        c = np.linalg.norm(A - B)  # AB
+    return (a*A + b*B + c*C) / (a + b + c)
 
-def calculate_centroid(self):
-    """计算重心"""
-    return (self.A + self.B + self.C) / 3
+def calculate_centroid(A, B, C):
+    """计算三角形的重心"""
+    return (A + B + C) / 3
+
+# 新增函数
+def calculate_orthocenter(A, B, C):
+    """计算三角形的垂心"""
+    # 垂心是三条高线的交点
+    # 可以通过顶点和外心计算：H = A + B + C - 2*O
+    O = GeometryCalculator.calculate_circumcenter(A, B, C)
+    return A + B + C - 2*O
+
+def calculate_nine_point_center(A, B, C):
+    """计算九点圆的圆心（外心与垂心连线的中点）"""
+    O = GeometryCalculator.calculate_circumcenter(A, B, C)
+    H = GeometryCalculator.calculate_orthocenter(A, B, C)
+    return (O + H) / 2
+
+def calculate_euler_line_points(A, B, C, t_range=(-2, 2)):
+    """计算欧拉线上的点（用于可视化）
+    返回欧拉线上的两个点（直线两端）
+    """
+    O = GeometryCalculator.calculate_circumcenter(A, B, C)
+    H = GeometryCalculator.calculate_orthocenter(A, B, C)
+    
+    # 欧拉线方向向量
+    direction = H - O
+    direction = direction / np.linalg.norm(direction)  # 单位化
+    
+    # 返回两个点以绘制直线
+    return [O + t_range[0] * direction, O + t_range[1] * direction]
+
+def calculate_angle(A, B, C):
+    """计算∠ABC的角度（弧度）"""
+    BA = A - B
+    BC = C - B
+    cos_angle = np.dot(BA, BC) / (np.linalg.norm(BA) * np.linalg.norm(BC))
+    # 处理数值误差
+    cos_angle = np.clip(cos_angle, -1.0, 1.0)
+    return np.arccos(cos_angle)
+
+def calculate_triangle_area(A, B, C):
+    """计算三角形面积"""
+    return 0.5 * np.abs(
+        A[0]*(B[1]-C[1]) + 
+        B[0]*(C[1]-A[1]) + 
+        C[0]*(A[1]-B[1])
+    )
+
+def calculate_distance_point_to_line(point, line_start, line_end):
+    """计算点到直线的距离"""
+    # 使用叉积公式：|(p - a) × (b - a)| / |b - a|
+    line_vec = line_end - line_start
+    point_vec = point - line_start
+    cross_product = np.cross(point_vec[:2], line_vec[:2])
+    return np.abs(cross_product) / np.linalg.norm(line_vec)
+
+def calculate_angle_bisector(A, B, C):
+    """计算∠ABC的角平分线与AC的交点"""
+    # 角平分线定理：AB/BC = AD/DC
+    AB = np.linalg.norm(B - A)
+    BC = np.linalg.norm(B - C)
+    ratio = AB / BC
+    
+    # 在AC上找到分割点
+    D = (C * ratio + A) / (1 + ratio)
+    return np.array([*D[:2], 0])
+
+def calculate_perpendicular_bisector(P1, P2):
+    """计算线段P1P2的垂直平分线
+    返回：中点、方向向量
+    """
+    midpoint = GeometryCalculator.calculate_midpoint(P1, P2)
+    segment = P2 - P1
+    # 垂直向量（旋转90度）
+    perpendicular = np.array([-segment[1], segment[0], 0])
+    return midpoint, perpendicular
+
+def is_point_in_triangle(P, A, B, C):
+    """判断点P是否在三角形ABC内部（含边界）"""
+    # 使用重心坐标法
+    def sign(p1, p2, p3):
+        return (p1[0] - p3[0]) * (p2[1] - p3[1]) - (p2[0] - p3[0]) * (p1[1] - p3[1])
+    
+    d1 = sign(P, A, B)
+    d2 = sign(P, B, C)
+    d3 = sign(P, C, A)
+    
+    has_neg = (d1 < 0) or (d2 < 0) or (d3 < 0)
+    has_pos = (d1 > 0) or (d2 > 0) or (d3 > 0)
+    
+    return not (has_neg and has_pos)  # 点在三角形内或边界上
+
+def calculate_circle_center_from_points(P1, P2, P3):
+    """通过三点计算圆的圆心"""
+    # 使用垂直平分线的交点
+    mid1, dir1 = GeometryCalculator.calculate_perpendicular_bisector(P1, P2)
+    mid2, dir2 = GeometryCalculator.calculate_perpendicular_bisector(P2, P3)
+    
+    return GeometryCalculator.calculate_line_intersection(mid1, dir1, mid2, dir2)
+
+def calculate_reflection_point(point, line_start, line_end):
+    """计算点关于直线的对称点"""
+    foot = GeometryCalculator.calculate_foot(point, line_start, line_end)
+    return 2 * foot - point
+
+def calculate_parallel_line(point, direction):
+    """通过点和方向计算平行线
+    返回：点、方向向量
+    """
+    return point, direction
+
+def calculate_median_intersection(A, B, C, vertex_index=0):
+    """计算中线上的点（用于绘制中线）
+    vertex_index: 0->A, 1->B, 2->C
+    """
+    vertices = [A, B, C]
+    vertex = vertices[vertex_index]
+    opposite_midpoint = GeometryCalculator.calculate_midpoint(
+        vertices[(vertex_index + 1) % 3],
+        vertices[(vertex_index + 2) % 3]
+    )
+    return vertex, opposite_midpoint
+    
+def circle_intersection(c1, r1, c2, r2):
+    """
+    计算两个圆的交点
+    c1, c2: 圆心坐标 [x, y, z]
+    r1, r2: 半径
+    返回: 交点列表 (可能为0,1,2个交点)
+    """
+    # 转换为2D计算
+    x1, y1 = c1[0], c1[1]
+    x2, y2 = c2[0], c2[1]
+    
+    # 计算圆心距离
+    d = np.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    
+    # 检查是否相交
+    if d > r1 + r2 or d < abs(r1 - r2) or d == 0 and r1 != r2:
+        return []  # 无交点
+    
+    # 计算交点
+    a = (r1**2 - r2**2 + d**2) / (2 * d)
+    h = np.sqrt(r1**2 - a**2)
+    
+    x0 = x1 + a * (x2 - x1) / d
+    y0 = y1 + a * (y2 - y1) / d
+    
+    if h < 1e-10:  # 相切，一个交点
+        return [np.array([x0, y0, 0])]
+    
+    # 两个交点
+    rx = -h * (y2 - y1) / d
+    ry = h * (x2 - x1) / d
+    
+    return [
+        np.array([x0 + rx, y0 + ry, 0]),
+        np.array([x0 - rx, y0 - ry, 0])
+    ]
+
+def line_circle_intersection(line_start, line_end, circle_center, radius):
+    """
+    计算直线与圆的交点
+    直线: 从line_start到line_end
+    圆: 圆心circle_center，半径radius
+    返回: 交点列表
+    """
+    # 转换为2D
+    A = np.array(line_start[:2])
+    B = np.array(line_end[:2])
+    C = np.array(circle_center[:2])
+    
+    # 直线方向向量
+    AB = B - A
+    AB_norm = AB / np.linalg.norm(AB) if np.linalg.norm(AB) > 0 else AB
+    
+    # 直线参数方程: A + t*AB
+    # 计算t使得距离圆心为radius
+    AC = C - A
+    
+    # 解二次方程: ||A + t*AB - C||^2 = radius^2
+    a = np.dot(AB, AB)
+    b = 2 * np.dot(AB, AC)
+    c = np.dot(AC, AC) - radius**2
+    
+    discriminant = b**2 - 4*a*c
+    
+    if discriminant < 0:
+        return []  # 无交点
+    
+    t1 = (-b + np.sqrt(discriminant)) / (2*a)
+    t2 = (-b - np.sqrt(discriminant)) / (2*a)
+    
+    intersections = []
+    if 0 <= t1 <= 1:
+        intersections.append(np.array([*(A + t1*AB), 0]))
+    if 0 <= t2 <= 1 and abs(t1 - t2) > 1e-10:
+        intersections.append(np.array([*(A + t2*AB), 0]))
+    
+    return intersections
+
+def calculate_arc_parameters(center, start_point, end_point, angle=None):
+    """
+    计算圆弧的参数
+    返回: 圆心, 半径, 起始角度(弧度), 终止角度(弧度)
+    """
+    # 计算半径
+    radius = np.linalg.norm(start_point[:2] - center[:2])
+    
+    # 计算角度
+    start_angle = atan2(start_point[1] - center[1], start_point[0] - center[0])
+    end_angle = atan2(end_point[1] - center[1], end_point[0] - center[0])
+    
+    # 如果提供了角度，直接使用
+    if angle is not None:
+        end_angle = start_angle + angle
+    
+    # 确保角度在[0, 2π)范围内
+    start_angle = start_angle % (2*pi)
+    end_angle = end_angle % (2*pi)
+    
+    return center, radius, start_angle, end_angle
+
+def calculate_arc_points(center, radius, start_angle, end_angle, num_points=100):
+    """
+    生成圆弧上的点
+    用于在manim中绘制精确的圆弧
+    """
+    # 确保角度方向正确
+    if end_angle < start_angle:
+        end_angle += 2*pi
+    
+    angles = np.linspace(start_angle, end_angle, num_points)
+    points = []
+    for angle in angles:
+        x = center[0] + radius * cos(angle)
+        y = center[1] + radius * sin(angle)
+        z = center[2] if len(center) > 2 else 0
+        points.append(np.array([x, y, z]))
+    
+    return points
+
+def calculate_tangent_points(point, circle_center, radius):
+    """
+    计算从一点到圆的切线切点
+    返回: 切点列表 (0,1,2个)
+    """
+    # 转换为2D
+    P = np.array(point[:2])
+    C = np.array(circle_center[:2])
+    
+    # 计算点到圆心的距离
+    d = np.linalg.norm(P - C)
+    
+    if d < radius:  # 点在圆内，无切线
+        return []
+    elif abs(d - radius) < 1e-10:  # 点在圆上，一个切点
+        return [np.array([*P, 0])]
+    
+    # 计算切点
+    # 使用相似三角形：PT^2 = d^2 - r^2
+    PT = np.sqrt(d**2 - radius**2)
+    
+    # 计算角度
+    alpha = acos(radius / d)
+    beta = atan2(P[1] - C[1], P[0] - C[0])
+    
+    # 两个切点
+    angle1 = beta + alpha
+    angle2 = beta - alpha
+    
+    return [
+        np.array([C[0] + radius * cos(angle1), C[1] + radius * sin(angle1), 0]),
+        np.array([C[0] + radius * cos(angle2), C[1] + radius * sin(angle2), 0])
+    ]
+
+def calculate_common_tangent_lines(c1, r1, c2, r2):
+    """
+    计算两个圆的公切线
+    返回: 每条切线由两个切点定义 [(切点1在圆1, 切点2在圆2), ...]
+    """
+    # 转换为2D
+    x1, y1 = c1[0], c1[1]
+    x2, y2 = c2[0], c2[1]
+    
+    d = np.sqrt((x2-x1)**2 + (y2-y1)**2)
+    
+    if d < abs(r1 - r2):  # 内含，无公切线
+        return []
+    
+    results = []
+    
+    # 处理外切线
+    if d > abs(r1 - r2):
+        # 外切线条数: 2
+        if abs(r1 - r2) < 1e-10:  # 半径相等
+            # 平行切线
+            angle = atan2(y2-y1, x2-x1)
+            perp_angle = angle + pi/2
+            
+            for sign in [1, -1]:
+                dx1 = r1 * cos(perp_angle) * sign
+                dy1 = r1 * sin(perp_angle) * sign
+                dx2 = r2 * cos(perp_angle) * sign
+                dy2 = r2 * sin(perp_angle) * sign
+                
+                results.append((
+                    np.array([x1+dx1, y1+dy1, 0]),
+                    np.array([x2+dx2, y2+dy2, 0])
+                ))
+        else:
+            # 一般情况外切线
+            # 计算相似中心
+            if r1 > r2:
+                k = r1 / (r1 - r2)
+                center = np.array([x1 + k*(x2-x1), y1 + k*(y2-y1)])
+            else:
+                k = r2 / (r2 - r1)
+                center = np.array([x2 + k*(x1-x2), y2 + k*(y1-y2)])
+            
+            # 从相似中心向两个圆作切线
+            points1 = EnhancedGeometryCalculator.calculate_tangent_points(center, c1, r1)
+            points2 = EnhancedGeometryCalculator.calculate_tangent_points(center, c2, r2)
+            
+            # 配对切线
+            for i, p1 in enumerate(points1[:2]):
+                for j, p2 in enumerate(points2[:2]):
+                    # 检查是否在同一条直线上（通过相似中心）
+                    if abs(np.cross(p1[:2]-center, p2[:2]-center)) < 1e-10:
+                        results.append((p1, p2))
+    
+    # 处理内切线
+    if d > r1 + r2:
+        # 内切线条数: 2
+        # 计算内相似中心
+        k = r1 / (r1 + r2)
+        center = np.array([x1 + k*(x2-x1), y1 + k*(y2-y1)])
+        
+        # 从内相似中心向两个圆作切线
+        points1 = EnhancedGeometryCalculator.calculate_tangent_points(center, c1, r1)
+        points2 = EnhancedGeometryCalculator.calculate_tangent_points(center, c2, r2)
+        
+        # 配对切线
+        for i, p1 in enumerate(points1[:2]):
+            for j, p2 in enumerate(points2[:2]):
+                if abs(np.cross(p1[:2]-center, p2[:2]-center)) < 1e-10:
+                    results.append((p1, p2))
+    
+    return results
+
+def calculate_angle_arc_center(vertex, point1, point2, radius):
+    """
+    计算角度的圆弧的圆心和参数
+    vertex: 角的顶点
+    point1, point2: 角的两边上的一点
+    radius: 圆弧半径
+    返回: 圆心, 起始角度, 终止角度
+    """
+    # 计算角的两边方向
+    v1 = point1[:2] - vertex[:2]
+    v2 = point2[:2] - vertex[:2]
+    
+    v1_norm = v1 / np.linalg.norm(v1)
+    v2_norm = v2 / np.linalg.norm(v2)
+    
+    # 计算角平分线方向
+    bisector = v1_norm + v2_norm
+    if np.linalg.norm(bisector) < 1e-10:  # 180度角
+        bisector = np.array([-v1_norm[1], v1_norm[0]])  # 垂直方向
+    
+    bisector_norm = bisector / np.linalg.norm(bisector)
+    
+    # 计算圆心（沿着角平分线）
+    # 需要计算圆心到两边的距离等于radius
+    # 使用公式: distance = radius / sin(angle/2)
+    angle = EnhancedGeometryCalculator.calculate_angle(point1, vertex, point2)
+    d = radius / sin(angle/2)
+    
+    center_2d = vertex[:2] + d * bisector_norm
+    center = np.array([center_2d[0], center_2d[1], vertex[2] if len(vertex)>2 else 0])
+    
+    # 计算圆弧起始和终止角度
+    start_angle = atan2(point1[1] - center[1], point1[0] - center[0])
+    end_angle = atan2(point2[1] - center[1], point2[0] - center[0])
+    
+    return center, start_angle, end_angle
+
+def calculate_sector_area(center, radius, start_angle, end_angle):
+    """计算扇形面积"""
+    if end_angle < start_angle:
+        end_angle += 2*pi
+    
+    angle = end_angle - start_angle
+    return 0.5 * radius**2 * angle
+
+def calculate_segment_area(center, radius, start_angle, end_angle):
+    """计算弓形面积"""
+    sector_area = EnhancedGeometryCalculator.calculate_sector_area(center, radius, start_angle, end_angle)
+    
+    if end_angle < start_angle:
+        end_angle += 2*pi
+    
+    angle = end_angle - start_angle
+    triangle_area = 0.5 * radius**2 * sin(angle)
+    
+    return sector_area - triangle_area
+
+def create_parallel_line(point, line_start, line_end):
+    """创建通过一点且平行于给定直线的直线
+    返回: 新直线上的两个点
+    """
+    direction = line_end - line_start
+    return point, point + direction
+
+def create_perpendicular_line(point, line_start, line_end):
+    """创建通过一点且垂直于给定直线的直线
+    返回: 垂足, 垂线的另一个点
+    """
+    foot = EnhancedGeometryCalculator.calculate_foot(point, line_start, line_end)
+    # 垂直方向
+    direction = line_end - line_start
+    perpendicular = np.array([-direction[1], direction[0], 0])
+    
+    return foot, foot + perpendicular
+
+def create_angle_bisector_line(vertex, point1, point2, length=2):
+    """创建角的平分线
+    返回: 平分线上的两个点
+    """
+    v1 = point1 - vertex
+    v2 = point2 - vertex
+    
+    # 角平分线方向
+    v1_norm = v1 / np.linalg.norm(v1)
+    v2_norm = v2 / np.linalg.norm(v2)
+    bisector_dir = v1_norm + v2_norm
+    
+    if np.linalg.norm(bisector_dir) < 1e-10:  # 180度角
+        bisector_dir = np.array([-v1_norm[1], v1_norm[0], 0])
+    
+    bisector_dir = bisector_dir / np.linalg.norm(bisector_dir)
+    
+    return vertex, vertex + length * bisector_dir
+
+def calculate_inscribed_circle(triangle_points):
+    """计算三角形的内切圆
+    返回: 圆心, 半径
+    """
+    A, B, C = triangle_points
+    
+    # 计算边长
+    a = np.linalg.norm(B - C)
+    b = np.linalg.norm(C - A)
+    c = np.linalg.norm(A - B)
+    
+    # 内心
+    incenter = (a*A + b*B + c*C) / (a + b + c)
+    
+    # 内切圆半径: r = 2S / (a+b+c)
+    area = EnhancedGeometryCalculator.calculate_triangle_area(A, B, C)
+    radius = 2 * area / (a + b + c)
+    
+    return incenter, radius
+
+def calculate_circumcircle(triangle_points):
+    """计算三角形的外接圆
+    返回: 圆心, 半径
+    """
+    A, B, C = triangle_points
+    
+    # 外心
+    circumcenter = EnhancedGeometryCalculator.calculate_circumcenter(A, B, C)
+    
+    # 半径
+    radius = np.linalg.norm(A - circumcenter)
+    
+    return circumcenter, radius
 ```
 
 ### 3. 几何验证函数
@@ -228,6 +708,7 @@ dot.move_to(new_circumcenter)
 4. 问题仍然在LaTeX编译阶段。错误信息显示 you need another { and }，这通常表示LaTeX公式语法有问题。\over 命令在LaTeX中需要正确的分组。
 5. 有双花括号 {{...}} 导致Manim解析错误
 6. 度数符号问题：在MathTex中，要么直接使用数字（如60），要么使用LaTeX的度数命令 ^\circ（但需要确保Manim支持）
+7. ❌ Original (causes error): Tex(r"周角 $= 360^\circ$"); ✅ Fixed: chinese = Text("周角 =", font="Noto Sans CJK SC")    math = MathTex(r"360^\circ")    VGroup(chinese, math).arrange(RIGHT)
 </err_example>
 
 <error_prevention>

@@ -5,7 +5,7 @@ from pathlib import Path
 
 # 原始JSON数据
 
-with open("docs/grade2.json", 'r') as f:
+with open("docs/grade6-0.json", 'r') as f:
     data = json.load(f)
 
 with open("docs/manim.md", 'r') as f:
