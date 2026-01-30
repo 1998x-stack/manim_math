@@ -490,14 +490,15 @@ class CircleArea(Scene):
         )
         
         # 公式演变
-        # Step 1: 长方形面积
-        formula_1 = MathTex(
-            r"S", r"=", r"\text{长}", r"\times", r"\text{宽}",
-            font_size=32
-        ).move_to(DOWN * 1)
+        # Step 1: 长方形面积 (使用 Text 代替 MathTex 中的中文)
+        s_part = MathTex("S", font_size=32).set_color(self.COLOR_FORMULA)
+        eq_part = MathTex("=", font_size=32)
+        length_part = Text("长", font="Noto Sans CJK SC", font_size=28)
+        times_part = MathTex(r"\times", font_size=32)
+        width_part = Text("宽", font="Noto Sans CJK SC", font_size=28)
         
-        # 设置颜色
-        formula_1[0].set_color(self.COLOR_FORMULA)  # S
+        formula_1 = VGroup(s_part, eq_part, length_part, times_part, width_part).arrange(RIGHT, buff=0.2)
+        formula_1.move_to(DOWN * 1)
         
         self.play(Write(formula_1), run_time=1.2)
         self.wait(0.8)
@@ -512,7 +513,7 @@ class CircleArea(Scene):
         formula_2[2].set_color(self.COLOR_HIGHLIGHT)  # πr
         formula_2[4].set_color(self.COLOR_HIGHLIGHT)  # r
         
-        self.play(TransformMatchingTex(formula_1, formula_2), run_time=1.2)
+        self.play(ReplacementTransform(formula_1, formula_2), run_time=1.2)
         self.wait(1.0)
         
         # Step 3: 简化

@@ -5,10 +5,10 @@ from pathlib import Path
 
 # 原始JSON数据
 
-with open("chuzhong1.json", 'r') as f:
+with open("docs/chuzhong.json", 'r') as f:
     data = json.load(f)
 
-with open("manim.md", 'r') as f:
+with open("docs/manim.md", 'r') as f:
     template = ''.join(f.readlines())
 
 def create_directory_structure(data):
