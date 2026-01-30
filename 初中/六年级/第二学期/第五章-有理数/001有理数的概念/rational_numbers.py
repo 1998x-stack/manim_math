@@ -865,7 +865,7 @@ class RationalNumbers(Scene):
         self.wait(0.4)
         self.play(FadeIn(point3, shift=RIGHT * 0.3), run_time=0.6)
         
-        # 公式回顾
+        # 公式回顾 - FIXED: Using English text in MathTex
         formula_label = Text(
             "集合表示:",
             font="Noto Sans CJK SC",
@@ -874,7 +874,7 @@ class RationalNumbers(Scene):
         ).move_to(DOWN * 0.8 + LEFT * 2.5)
         
         formula = MathTex(
-            r"Q = \mathbb{Z} \cup \text{分数}",
+            r"Q = \mathbb{Z} \cup \text{fractions}",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).next_to(formula_label, RIGHT, buff=0.3)
