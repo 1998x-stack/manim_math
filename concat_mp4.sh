@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-BACKGROUND_MP3="background.mp3"
+BACKGROUND_MP3="files/background.mp3"
 
 # 确保背景音乐文件存在
 if [[ ! -f "$BACKGROUND_MP3" ]]; then
