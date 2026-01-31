@@ -1,5 +1,7 @@
 # 分数的基本性质 - Manim动画分镜脚本
 
+<!-- /root/code/sss/media/videos/fraction_properties/1920p60/FractionProperties.mp4 -->
+
 ## 元信息
 - **目标时长**: 60-75秒
 - **场景数量**: 7个主要场景
