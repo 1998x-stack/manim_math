@@ -271,7 +271,8 @@ class FractionComparison(Scene):
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN + DOWN * 0.3)
         
-        arrow = MathTex(
+        # 修复：这里用Write代替GrowArrow
+        arrow_symbol = MathTex(
             r"\Downarrow",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
@@ -281,10 +282,10 @@ class FractionComparison(Scene):
             r"\frac{3}{7} < \frac{5}{7}",
             font_size=36,
             color=self.COLOR_CORRECT
-        ).next_to(arrow, DOWN, buff=0.3)
+        ).next_to(arrow_symbol, DOWN, buff=0.3)
         
         self.play(Write(comparison), run_time=0.5)
-        self.play(GrowArrow(arrow), run_time=0.3)
+        self.play(Write(arrow_symbol), run_time=0.3)  # 改为Write
         self.play(Write(conclusion), run_time=0.8)
         
         # 底部说明
@@ -311,7 +312,7 @@ class FractionComparison(Scene):
             FadeOut(filled_sectors1),
             FadeOut(filled_sectors2),
             FadeOut(comparison),
-            FadeOut(arrow),
+            FadeOut(arrow_symbol),
             FadeOut(conclusion),
             FadeOut(rule),
             run_time=0.6
@@ -434,7 +435,8 @@ class FractionComparison(Scene):
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN + DOWN * 1.8)
         
-        arrow = MathTex(
+        # 修复：这里用Write代替GrowArrow
+        arrow_symbol = MathTex(
             r"\Downarrow",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
@@ -444,10 +446,10 @@ class FractionComparison(Scene):
             r"\frac{2}{5} > \frac{2}{7}",
             font_size=36,
             color=self.COLOR_CORRECT
-        ).next_to(arrow, DOWN, buff=0.3)
+        ).next_to(arrow_symbol, DOWN, buff=0.3)
         
         self.play(Write(comparison), run_time=0.5)
-        self.play(GrowArrow(arrow), run_time=0.3)
+        self.play(Write(arrow_symbol), run_time=0.3)  # 改为Write
         self.play(Write(conclusion), run_time=0.8)
         
         # 底部说明
@@ -474,7 +476,7 @@ class FractionComparison(Scene):
             FadeOut(filled1),
             FadeOut(filled2),
             FadeOut(comparison),
-            FadeOut(arrow),
+            FadeOut(arrow_symbol),
             FadeOut(conclusion),
             FadeOut(rule),
             run_time=0.6
@@ -588,7 +590,7 @@ class FractionComparison(Scene):
             buff=0
         )
         
-        self.play(GrowArrow(arrow1), GrowArrow(arrow2), run_time=0.6)
+        self.play(Create(arrow1), Create(arrow2), run_time=0.6)  # 改为Create
         
         # 显示转换过程
         conv1_text = Text(
@@ -630,7 +632,8 @@ class FractionComparison(Scene):
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
         
-        arrow_down = MathTex(
+        # 修复：这里用Write代替GrowArrow
+        arrow_symbol = MathTex(
             r"\Downarrow",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
@@ -640,10 +643,10 @@ class FractionComparison(Scene):
             r"\frac{2}{3} < \frac{3}{4}",
             font_size=36,
             color=self.COLOR_CORRECT
-        ).next_to(arrow_down, DOWN, buff=0.3)
+        ).next_to(arrow_symbol, DOWN, buff=0.3)
         
         self.play(Write(comparison), run_time=0.5)
-        self.play(GrowArrow(arrow_down), run_time=0.3)
+        self.play(Write(arrow_symbol), run_time=0.3)  # 改为Write
         self.play(Write(conclusion), run_time=0.8)
         
         # 底部说明
@@ -671,7 +674,7 @@ class FractionComparison(Scene):
             FadeOut(result1),
             FadeOut(result2),
             FadeOut(comparison),
-            FadeOut(arrow_down),
+            FadeOut(arrow_symbol),
             FadeOut(conclusion),
             FadeOut(rule),
             run_time=0.6
@@ -771,7 +774,7 @@ class FractionComparison(Scene):
             color=self.COLOR_HIGHLIGHT
         ).next_to(comparison_arrow, DOWN, buff=0.2)
         
-        self.play(GrowArrow(comparison_arrow), run_time=0.6)
+        self.play(Create(comparison_arrow), run_time=0.6)  # 改为Create
         self.play(FadeIn(arrow_label), run_time=0.4)
         
         # 显示结论

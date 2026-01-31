@@ -1,5 +1,7 @@
 # 比例的意义与性质 - 动画分镜脚本
 
+<!-- /root/code/sss/media/videos/proportion_properties/1920p60/ProportionProperties.mp4 -->
+
 ## 元信息
 - 目标时长: 65-75 秒
 - 场景数量: 7 个
