@@ -1,5 +1,7 @@
 # 分解素因数 - Manim动画分镜脚本
 
+<!-- /root/code/sss/media/videos/prime_factorization/1920p60/PrimeFactorization.mp4 -->
+
 ## 元信息
 - 目标时长: 75-85秒
 - 场景数量: 6个
