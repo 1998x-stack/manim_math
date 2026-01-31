@@ -191,15 +191,25 @@ class RatioMeaning(Scene):
         
         self.play(Write(format_1), run_time=0.8)
         
-        # 写法2: a/b
+        # 写法2: a/b - 修复这里：使用带有颜色的MathTex
         format_2 = VGroup(
             Text("方法2:", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A),
             MathTex(r"\frac{a}{b}", font_size=50, color=WHITE)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 1)
         
-        # 手动设置颜色
-        format_2[1][0].set_color(self.COLOR_PRIMARY)  # a
-        format_2[1][2].set_color(self.COLOR_SECONDARY)  # b
+        # 修复：直接设置整个分数的颜色，或者使用substrings_to_isolate
+        # 更好的方法是创建单独的Text对象来构建分数
+        fraction_parts = VGroup(
+            Text("a", font_size=self.FONT_RATIO_NORMAL, color=self.COLOR_PRIMARY),
+            Text("/", font_size=self.FONT_RATIO_NORMAL, color=WHITE),
+            Text("b", font_size=self.FONT_RATIO_NORMAL, color=self.COLOR_SECONDARY)
+        ).arrange(RIGHT, buff=0.1)
+        
+        # 替换format_2的第二个元素
+        format_2 = VGroup(
+            Text("方法2:", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A),
+            fraction_parts
+        ).arrange(DOWN, buff=0.3).move_to(DOWN * 1)
         
         self.play(Write(format_2), run_time=0.8)
         
@@ -447,16 +457,15 @@ class RatioMeaning(Scene):
         )
         self.wait(0.5)
         
-        # 变换为分数
-        fraction_form = MathTex(
-            r"\frac{a}{b}",
-            font_size=50
-        ).move_to(UP * 4.5)
-        fraction_form[0][0].set_color(self.COLOR_PRIMARY)  # a
-        fraction_form[0][2].set_color(self.COLOR_SECONDARY)  # b
+        # 变换为分数 - 修复这里：使用Text对象构建分数
+        fraction_parts = VGroup(
+            Text("a", font_size=30, color=self.COLOR_PRIMARY),
+            Text("—", font_size=40, color=WHITE).shift(UP * 0.05),
+            Text("b", font_size=30, color=self.COLOR_SECONDARY)
+        ).arrange(DOWN, buff=0).move_to(UP * 4.5)
         
         self.play(
-            Transform(division_form, fraction_form),
+            Transform(division_form, fraction_parts),
             run_time=1.5
         )
         self.wait(0.5)
@@ -474,9 +483,11 @@ class RatioMeaning(Scene):
             Text("b", font_size=32, color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.15)
         
-        fraction_final = MathTex(r"\frac{a}{b}", font_size=40)
-        fraction_final[0][0].set_color(self.COLOR_PRIMARY)
-        fraction_final[0][2].set_color(self.COLOR_SECONDARY)
+        fraction_final = VGroup(
+            Text("a", font_size=24, color=self.COLOR_PRIMARY),
+            Text("—", font_size=32, color=WHITE).shift(UP * 0.03),
+            Text("b", font_size=24, color=self.COLOR_SECONDARY)
+        ).arrange(DOWN, buff=0)
         
         equals_1 = Text("=", font_size=32, color=WHITE)
         equals_2 = Text("=", font_size=32, color=WHITE)
@@ -541,9 +552,11 @@ class RatioMeaning(Scene):
         
         # 等于分数
         ex_eq2 = Text("=", font_size=32, color=WHITE).next_to(ex_div, RIGHT, buff=0.3)
-        ex_frac = MathTex(r"\frac{4}{5}", font_size=40).next_to(ex_eq2, RIGHT, buff=0.3)
-        ex_frac[0][0].set_color(self.COLOR_PRIMARY)
-        ex_frac[0][2].set_color(self.COLOR_SECONDARY)
+        ex_frac = VGroup(
+            Text("4", font_size=24, color=self.COLOR_PRIMARY),
+            Text("—", font_size=32, color=WHITE).shift(UP * 0.03),
+            Text("5", font_size=24, color=self.COLOR_SECONDARY)
+        ).arrange(DOWN, buff=0).next_to(ex_eq2, RIGHT, buff=0.3)
         
         self.play(
             FadeIn(ex_eq2),
