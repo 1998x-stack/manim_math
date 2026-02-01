@@ -18,7 +18,8 @@
 1. **阅读技能文档** - 解压并研读 manim skill（包含 references、examples）
 2. **构建分镜脚本** - 创建 `storyboard.md`，包含详细场景、几何计算、元素生命周期管理
 3. **编写动画代码** - 基于分镜脚本和技能文档生成 Python 代码
-4. **verify_geometry.py本地运行获取反馈** - verify_geometry.py本地运行获取反馈，然后fix&repair python code(notice: use only numpy package, do not use manim package)
+4. **verify_geometry.py本地运行获取反馈** - verify_geometry.py本地运行获取反馈，然后fix&repair python code
+    - notice: use only numpy package, do not use manim package; 注意涉及的angle，如果大于90度，需要稍微分析一下；如果大于180度，要加强注意⚠️，可能angle方向错了！
 </task_definition>
 
 ---
