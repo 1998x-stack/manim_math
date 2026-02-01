@@ -107,13 +107,12 @@ class VectorScalarMult(Scene):
     # =========================================================
     # 辅助函数
     # =========================================================
-    def make_arrow(self, start, end, color, stroke_width=3, tip_width=0.25):
+    def make_arrow(self, start, end, color, stroke_width=3):
         """创建向量箭头"""
         return Arrow(
             start, end,
             color=color,
             stroke_width=stroke_width,
-            tip_width=tip_width,
             buff=0
         )
 
@@ -272,7 +271,7 @@ class VectorScalarMult(Scene):
             end = self.vec_origin + l * self.vec_a_dir
             return Arrow(
                 self.vec_origin, end,
-                color=self.C_SCALED, stroke_width=3.5, tip_width=0.22, buff=0
+                color=self.C_SCALED, stroke_width=3.5, buff=0
             )
 
         def make_dynamic_label():
@@ -393,7 +392,7 @@ class VectorScalarMult(Scene):
                 return Dot(self.vec_origin, radius=0.06, color=self.C_SCALED)
             return Arrow(
                 self.vec_origin, end,
-                color=self.C_SCALED, stroke_width=3.5, tip_width=0.22, buff=0
+                color=self.C_SCALED, stroke_width=3.5, buff=0
             )
 
         def make_neg_label():
@@ -497,7 +496,7 @@ class VectorScalarMult(Scene):
             end = self.vec_origin + l * self.vec_a_dir
             return Arrow(
                 self.vec_origin, end,
-                color=self.C_SCALED, stroke_width=3, tip_width=0.2 * l + 0.05, buff=0
+                color=self.C_SCALED, stroke_width=3, buff=0
             )
 
         # 先淡出原来的 a
@@ -684,8 +683,8 @@ class VectorScalarMult(Scene):
 
         # 四条要点
         pts = [
-            (r"\lambda > 0 \Rightarrow \lambda\vec{a} 与 \vec{a} 同向", self.C_POS),
-            (r"\lambda < 0 \Rightarrow \lambda\vec{a} 与 \vec{a} 反向", self.C_NEG),
+            (r"\lambda > 0 \Rightarrow \lambda\vec{a} vs \vec{a} ->->", self.C_POS),
+            (r"\lambda < 0 \Rightarrow \lambda\vec{a} vs \vec{a} -><-", self.C_NEG),
             (r"\lambda = 0 \Rightarrow \lambda\vec{a} = \vec{0}", self.C_ZERO),
             (r"|\lambda\vec{a}| = |\lambda| \cdot |\vec{a}|", self.C_HIGHLIGHT),
         ]
@@ -738,7 +737,7 @@ class VectorScalarMult(Scene):
             pos = np.array([1.8 * np.cos(angle), -2.5 + 0.8 * np.sin(angle), 0])
             arrow_dec = Arrow(
                 pos, pos + np.array([0.4 * np.cos(angle + 0.5), 0.4 * np.sin(angle + 0.5), 0]),
-                color=self.C_HIGHLIGHT, stroke_width=2, tip_width=0.12, buff=0
+                color=self.C_HIGHLIGHT, stroke_width=2, buff=0
             )
             decorations.add(arrow_dec)
 
