@@ -2555,7 +2555,8 @@ class TriangleFiveCenters(Scene):
 
 # 运行命令:
 # manim -pql triangle_five_centers.py TriangleFiveCenters  # 快速预览
-# manim -qh triangle_five_centers.py TriangleFiveCenters   # 高质量渲染
+# manim -qh triangle_five_centers.py TriangleFiveCenters   # 高质量
+# manim -qh triangle_five_centers.py TriangleFiveCenters   # 4K质量
 </good_template>
 
 </manim_video_generation_prompt>
