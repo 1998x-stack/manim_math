@@ -1,5 +1,7 @@
 # 向量数乘运算 - 动画分镜脚本
 
+<!-- /root/code/sss/media/videos/vector_scalar_mult/1920p60/VectorScalarMult.mp4 -->
+
 ## 元信息
 - 目标时长: ~75 秒
 - 场景数量: 8 个
