@@ -1,8 +1,8 @@
 """
-全等三角形的概念与性质 - Manim教学动画
-Congruent Triangles: Concept and Properties
+全等三角形的概念与性质 - Congruent Triangles Concept and Properties
+使用 Manim 创建的中学几何教学视频
 
-内容: 全等三角形的定义、符号、对应边相等、对应角相等
+内容: 全等三角形的定义、符号、对应关系、性质
 目标观众: 七年级学生
 格式: TikTok竖屏 (1080×1920)
 作者: 上海初高中数学直通车 @emptyandcalm
@@ -25,12 +25,13 @@ class CongruentTriangles(Scene):
     
     场景顺序:
     1. 开场钩子
-    2. 定义介绍
-    3. 重合演示
-    4. 全等符号
-    5. 对应边相等
-    6. 对应角相等
-    7. 总结片尾
+    2. 定义全等三角形
+    3. 演示重合过程
+    4. 介绍全等符号
+    5. 标注对应关系
+    6. 性质1 - 对应边相等
+    7. 性质2 - 对应角相等
+    8. 总结与片尾
     """
     
     def construct(self):
@@ -38,22 +39,12 @@ class CongruentTriangles(Scene):
         self.camera.background_color = "#1a1a2e"
         
         # 配色方案
-        self.COLOR_TRIANGLE_1 = "#3498db"      # 蓝色
-        self.COLOR_TRIANGLE_2 = "#e74c3c"      # 红色
-        self.COLOR_HIGHLIGHT = YELLOW
-        self.COLOR_AUXILIARY = GRAY_B
-        self.COLOR_EQUAL_MARK = "#2ecc71"      # 绿色
-        
-        # 字体大小
-        self.FONT_SIZES = {
-            "title": 36,
-            "subtitle": 28,
-            "body": 22,
-            "label": 24,
-            "small": 18,
-            "author": 20,
-            "formula": 32,
-        }
+        self.COLOR_TRIANGLE_1 = "#3498db"       # 蓝色 - ABC
+        self.COLOR_TRIANGLE_2 = "#e74c3c"       # 红色 - DEF
+        self.COLOR_CONGRUENT = "#2ecc71"        # 绿色 - 重合
+        self.COLOR_HIGHLIGHT = YELLOW           # 高亮
+        self.COLOR_AUXILIARY = GRAY_B           # 辅助
+        self.COLOR_CORRESPONDENCE = "#f39c12"   # 橙色 - 对应关系
         
         # 初始化几何数据
         self.setup_geometry()
@@ -63,825 +54,599 @@ class CongruentTriangles(Scene):
         self.scene_2_definition()
         self.scene_3_overlap()
         self.scene_4_symbol()
-        self.scene_5_equal_sides()
-        self.scene_6_equal_angles()
-        self.scene_7_outro()
+        self.scene_5_correspondence()
+        self.scene_6_property_sides()
+        self.scene_7_property_angles()
+        self.scene_8_outro()
     
     def setup_geometry(self):
         """初始化所有几何数据"""
-        print("\n" + "="*50)
-        print("初始化几何数据...")
-        print("="*50)
-        
         # 基准参数
-        self.SCALE = 0.85
+        self.SCALE = 0.9
         self.OFFSET = UP * 1.5
         
-        # ========== 三角形1 (ABC) - 左侧 ==========
-        # 定义一个锐角三角形
-        self.A1 = np.array([-3.5, -1.0, 0]) * self.SCALE + self.OFFSET
-        self.B1 = np.array([-1.0, -1.0, 0]) * self.SCALE + self.OFFSET
-        self.C1 = np.array([-2.0, 1.2, 0]) * self.SCALE + self.OFFSET
+        # 三角形ABC顶点（基准三角形）
+        self.A = np.array([-2.5, 0.5, 0]) * self.SCALE + self.OFFSET
+        self.B = np.array([1.0, -1.5, 0]) * self.SCALE + self.OFFSET
+        self.C = np.array([-0.5, 2.0, 0]) * self.SCALE + self.OFFSET
+        
+        # 三角形DEF初始位置（右侧）
+        offset_right = RIGHT * 5
+        self.D_init = self.A + offset_right
+        self.E_init = self.B + offset_right
+        self.F_init = self.C + offset_right
+        
+        # 三角形DEF目标位置（与ABC重合）
+        self.D_target = self.A
+        self.E_target = self.B
+        self.F_target = self.C
         
         # 计算边长
-        self.AB1_length = np.linalg.norm(self.B1 - self.A1)
-        self.BC1_length = np.linalg.norm(self.C1 - self.B1)
-        self.CA1_length = np.linalg.norm(self.A1 - self.C1)
+        self.AB = np.linalg.norm(self.B - self.A)
+        self.BC = np.linalg.norm(self.C - self.B)
+        self.CA = np.linalg.norm(self.A - self.C)
         
         # 计算角度（弧度）
-        self.angle_A1 = self.calculate_angle(self.C1, self.A1, self.B1)
-        self.angle_B1 = self.calculate_angle(self.A1, self.B1, self.C1)
-        self.angle_C1 = self.calculate_angle(self.B1, self.C1, self.A1)
+        self.angle_A = self.calculate_angle(self.C, self.A, self.B)
+        self.angle_B = self.calculate_angle(self.A, self.B, self.C)
+        self.angle_C = self.calculate_angle(self.B, self.C, self.A)
         
-        print(f"\n三角形1 (ABC):")
-        print(f"  顶点A1: {self.A1[:2]}")
-        print(f"  顶点B1: {self.B1[:2]}")
-        print(f"  顶点C1: {self.C1[:2]}")
-        print(f"  边长: AB={self.AB1_length:.4f}, BC={self.BC1_length:.4f}, CA={self.CA1_length:.4f}")
-        print(f"  角度: ∠A={np.degrees(self.angle_A1):.2f}°, ∠B={np.degrees(self.angle_B1):.2f}°, ∠C={np.degrees(self.angle_C1):.2f}°")
+        # 验证几何
+        self.verify_geometry()
         
-        # ========== 三角形2 (DEF) - 使用旋转+平移确保全等 ==========
-        # 旋转角度和平移向量
-        rotation_angle = 25 * DEGREES  # 旋转25度
-        translation = np.array([4.5, 0.3, 0])
-        
-        # 使用旋转矩阵生成全等三角形
-        vertices_1 = [self.A1, self.B1, self.C1]
-        vertices_2 = self.create_congruent_triangle(vertices_1, rotation_angle, translation)
-        
-        self.D2, self.E2, self.F2 = vertices_2
-        
-        print(f"\n三角形2 (DEF):")
-        print(f"  顶点D2: {self.D2[:2]}")
-        print(f"  顶点E2: {self.E2[:2]}")
-        print(f"  顶点F2: {self.F2[:2]}")
-        
-        # ========== 验证全等性 ==========
-        self.verify_congruence()
-        
-        # ========== 创建Manim对象（但不添加到场景）==========
-        self.triangle_1 = Polygon(
-            self.A1, self.B1, self.C1,
-            color=self.COLOR_TRIANGLE_1,
-            stroke_width=3
-        )
-        
-        self.triangle_2 = Polygon(
-            self.D2, self.E2, self.F2,
-            color=self.COLOR_TRIANGLE_2,
-            stroke_width=3
-        )
-        
-        print("\n✓ 几何初始化完成")
-        print("="*50 + "\n")
+        print("✓ 几何初始化完成")
+        print(f"  边长: AB={self.AB:.3f}, BC={self.BC:.3f}, CA={self.CA:.3f}")
+        print(f"  角度: ∠A={np.degrees(self.angle_A):.1f}°, ∠B={np.degrees(self.angle_B):.1f}°, ∠C={np.degrees(self.angle_C):.1f}°")
     
-    def create_congruent_triangle(self, original_vertices, rotation_angle, translation):
-        """
-        创建全等三角形
-        
-        参数:
-            original_vertices: 原三角形顶点列表 [A, B, C]
-            rotation_angle: 旋转角度（弧度）
-            translation: 平移向量
-        """
-        # 计算原三角形中心
-        center = np.mean(original_vertices, axis=0)
-        
-        # 2D旋转矩阵
-        cos_a = np.cos(rotation_angle)
-        sin_a = np.sin(rotation_angle)
-        
-        new_vertices = []
-        for vertex in original_vertices:
-            # 移到原点
-            centered = vertex - center
-            
-            # 旋转（只旋转x和y）
-            rotated_x = centered[0] * cos_a - centered[1] * sin_a
-            rotated_y = centered[0] * sin_a + centered[1] * cos_a
-            rotated = np.array([rotated_x, rotated_y, 0])
-            
-            # 移回并平移
-            translated = rotated + center + translation
-            new_vertices.append(translated)
-        
-        return new_vertices
-    
-    def calculate_angle(self, point1, vertex, point2):
-        """
-        计算∠point1-vertex-point2的角度（弧度）
-        顶点是vertex
-        """
-        v1 = point1 - vertex
-        v2 = point2 - vertex
-        
-        # 使用atan2计算角度
-        cos_angle = np.dot(v1[:2], v2[:2]) / (np.linalg.norm(v1) * np.linalg.norm(v2))
+    def calculate_angle(self, P1, vertex, P2):
+        """计算角度（以vertex为顶点）"""
+        v1 = P1 - vertex
+        v2 = P2 - vertex
+        cos_angle = np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
         cos_angle = np.clip(cos_angle, -1.0, 1.0)
-        
         return np.arccos(cos_angle)
     
-    def verify_congruence(self):
-        """验证两个三角形全等"""
-        epsilon = 1e-5
-        errors = []
+    def verify_geometry(self):
+        """验证几何计算"""
+        epsilon = 1e-6
         
-        # 验证边长
-        DE_length = np.linalg.norm(self.E2 - self.D2)
-        EF_length = np.linalg.norm(self.F2 - self.E2)
-        FD_length = np.linalg.norm(self.D2 - self.F2)
+        # 验证角度和
+        angle_sum = self.angle_A + self.angle_B + self.angle_C
+        if abs(angle_sum - np.pi) > epsilon:
+            print(f"WARNING: 角度和 = {np.degrees(angle_sum):.2f}° (应为180°)")
         
-        if abs(self.AB1_length - DE_length) > epsilon:
-            errors.append(f"边长AB≠DE: {self.AB1_length:.6f} vs {DE_length:.6f}")
+        # 验证DEF与ABC全等（目标位置）
+        DE = np.linalg.norm(self.E_target - self.D_target)
+        EF = np.linalg.norm(self.F_target - self.E_target)
+        FD = np.linalg.norm(self.D_target - self.F_target)
         
-        if abs(self.BC1_length - EF_length) > epsilon:
-            errors.append(f"边长BC≠EF: {self.BC1_length:.6f} vs {EF_length:.6f}")
+        if abs(self.AB - DE) > epsilon or abs(self.BC - EF) > epsilon or abs(self.CA - FD) > epsilon:
+            print("WARNING: DEF与ABC边长不一致")
         
-        if abs(self.CA1_length - FD_length) > epsilon:
-            errors.append(f"边长CA≠FD: {self.CA1_length:.6f} vs {FD_length:.6f}")
-        
-        # 验证角度
-        angle_D2 = self.calculate_angle(self.F2, self.D2, self.E2)
-        angle_E2 = self.calculate_angle(self.D2, self.E2, self.F2)
-        angle_F2 = self.calculate_angle(self.E2, self.F2, self.D2)
-        
-        if abs(self.angle_A1 - angle_D2) > epsilon:
-            errors.append(f"角度A≠D: {np.degrees(self.angle_A1):.2f}° vs {np.degrees(angle_D2):.2f}°")
-        
-        if abs(self.angle_B1 - angle_E2) > epsilon:
-            errors.append(f"角度B≠E: {np.degrees(self.angle_B1):.2f}° vs {np.degrees(angle_E2):.2f}°")
-        
-        if abs(self.angle_C1 - angle_F2) > epsilon:
-            errors.append(f"角度C≠F: {np.degrees(self.angle_C1):.2f}° vs {np.degrees(angle_F2):.2f}°")
-        
-        # 输出结果
-        if errors:
-            print("\n❌ 全等性验证失败:")
-            for e in errors:
-                print(f"  - {e}")
-            raise ValueError("三角形不全等！")
-        else:
-            print("✓ 全等性验证通过: 所有对应边和对应角相等")
+        print("✓ 几何验证通过")
     
     def scene_1_opening(self):
         """场景1: 开场钩子"""
-        print("\n[Scene 1] 开场钩子")
-        
-        # 作者信息
+        # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
             font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["author"],
-            color=self.COLOR_AUXILIARY
+            font_size=20,
+            color=GRAY_B
         ).move_to(UP * 7)
         
         self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
         
         # 钩子问题
         hook_text = Text(
-            "这两个三角形一样吗？",
+            "这两个三角形有什么关系?",
             font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["title"],
+            font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         self.play(Write(hook_text), run_time=0.8)
         
-        # 两个三角形轮廓闪现
-        tri1_outline = self.triangle_1.copy().set_fill(opacity=0.2)
-        tri2_outline = self.triangle_2.copy().set_fill(opacity=0.2)
+        # 创建三角形ABC（左侧）
+        self.triangle_ABC = Polygon(
+            self.A, self.B, self.C,
+            color=self.COLOR_TRIANGLE_1,
+            stroke_width=4
+        ).shift(LEFT * 2)
+        
+        # 创建三角形DEF（右侧）
+        self.triangle_DEF = Polygon(
+            self.D_init, self.E_init, self.F_init,
+            color=self.COLOR_TRIANGLE_2,
+            stroke_width=4
+        ).shift(LEFT * 2)
+        
+        self.play(Create(self.triangle_ABC), run_time=1.0)
+        self.play(Create(self.triangle_DEF), run_time=1.0)
+        
+        self.wait(0.8)
+        
+        # 清理
+        self.play(FadeOut(hook_text), run_time=0.4)
+    
+    def scene_2_definition(self):
+        """场景2: 定义全等三角形"""
+        # 标题
+        title = Text(
+            "全等三角形",
+            font="Noto Sans CJK SC",
+            font_size=44,
+            color=WHITE,
+            weight=BOLD
+        ).move_to(UP * 5)
+        
+        self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.5)
+        
+        # 定义
+        definition = Text(
+            "能够完全重合的两个三角形",
+            font="Noto Sans CJK SC",
+            font_size=28,
+            color=GRAY_A
+        ).move_to(UP * 4)
+        
+        self.play(Write(definition), run_time=1.2)
+        
+        # 强调"完全重合"
+        key_words = definition[4:8]  # "完全重合"
+        self.play(
+            Indicate(key_words, color=self.COLOR_HIGHLIGHT, scale_factor=1.2),
+            run_time=1.0
+        )
+        
+        self.wait(1.5)
+        
+        # 标题缩小并移到顶部
+        self.title_small = Text(
+            "全等三角形",
+            font="Noto Sans CJK SC",
+            font_size=28,
+            color=WHITE
+        ).move_to(UP * 6.5)
         
         self.play(
-            FadeIn(tri1_outline, shift=DOWN * 0.5),
-            FadeIn(tri2_outline, shift=DOWN * 0.5),
-            lag_ratio=0.3,
+            Transform(title, self.title_small),
+            FadeOut(definition),
             run_time=0.6
         )
         
-        # 问号
-        question_mark = Text(
-            "?",
-            font_size=72,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(ORIGIN + DOWN * 0.5)
+        self.title = title  # 保存引用
+    
+    def scene_3_overlap(self):
+        """场景3: 演示重合过程"""
+        # 提示文字
+        hint_text = Text(
+            "让我们试试能否重合",
+            font="Noto Sans CJK SC",
+            font_size=26,
+            color=GRAY_A
+        ).move_to(DOWN * 4.5)
         
-        self.play(Flash(question_mark, color=self.COLOR_HIGHLIGHT, flash_radius=0.5), run_time=0.3)
-        self.play(FadeIn(question_mark, scale=1.2), run_time=0.2)
+        self.play(FadeIn(hint_text), run_time=0.8)
+        
+        # DEF平移到ABC位置
+        target_center = self.triangle_ABC.get_center()
+        self.play(
+            self.triangle_DEF.animate.move_to(target_center),
+            run_time=1.5
+        )
+        
+        # 计算需要的旋转角度
+        # 使用AB和DE的方向向量
+        AB_vec = self.B - self.A
+        current_D = self.triangle_DEF.get_vertices()[0]
+        current_E = self.triangle_DEF.get_vertices()[1]
+        DE_vec = current_E - current_D
+        
+        # 计算旋转角度
+        angle_AB = np.arctan2(AB_vec[1], AB_vec[0])
+        angle_DE = np.arctan2(DE_vec[1], DE_vec[0])
+        rotation_angle = angle_AB - angle_DE
+        
+        # 旋转对齐
+        self.play(
+            Rotate(self.triangle_DEF, rotation_angle, about_point=target_center),
+            run_time=1.7
+        )
+        
+        # 完全重合闪光效果
+        self.play(
+            Flash(target_center, color=self.COLOR_CONGRUENT, flash_radius=1.5),
+            run_time=0.5
+        )
+        
+        # 改变颜色表示重合
+        self.play(
+            self.triangle_DEF.animate.set_color(self.COLOR_CONGRUENT).set_opacity(0.7),
+            run_time=1.0
+        )
+        
+        success_text = Text(
+            "完全重合!",
+            font="Noto Sans CJK SC",
+            font_size=36,
+            color=self.COLOR_CONGRUENT,
+            weight=BOLD
+        ).move_to(DOWN * 4.5)
+        
+        self.play(
+            FadeOut(hint_text),
+            FadeIn(success_text, scale=1.2),
+            run_time=0.5
+        )
+        
+        self.wait(1.0)
+        
+        # 清理
+        self.play(FadeOut(success_text), run_time=0.4)
+    
+    def scene_4_symbol(self):
+        """场景4: 介绍全等符号"""
+        # 将两三角形分开
+        self.play(
+            self.triangle_ABC.animate.shift(LEFT * 2),
+            self.triangle_DEF.animate.shift(RIGHT * 2).set_color(self.COLOR_TRIANGLE_2).set_opacity(1.0),
+            run_time=1.2
+        )
+        
+        # 全等符号公式
+        congruence_formula = MathTex(
+            r"\triangle ABC \cong \triangle DEF",
+            font_size=38
+        ).move_to(ORIGIN)
+        
+        self.play(Write(congruence_formula), run_time=1.5)
+        
+        # 读法说明
+        reading_text = Text(
+            "读作：三角形ABC全等于三角形DEF",
+            font="Noto Sans CJK SC",
+            font_size=22,
+            color=GRAY_A
+        ).move_to(DOWN * 1.5)
+        
+        self.play(FadeIn(reading_text), run_time=0.5)
+        
+        self.wait(1.2)
+        
+        # 清理
+        self.play(FadeOut(reading_text), run_time=0.4)
+        
+        # 公式移到顶部
+        self.congruence_small = MathTex(
+            r"\triangle ABC \cong \triangle DEF",
+            font_size=26
+        ).move_to(UP * 5.8)
+        
+        self.play(
+            Transform(congruence_formula, self.congruence_small),
+            run_time=0.6
+        )
+        
+        self.congruence_formula = congruence_formula
+    
+    def scene_5_correspondence(self):
+        """场景5: 标注对应关系"""
+        # 调整三角形位置
+        self.play(
+            self.triangle_ABC.animate.shift(UP * 0.5),
+            self.triangle_DEF.animate.shift(UP * 0.5),
+            run_time=0.6
+        )
+        
+        # 获取当前顶点位置
+        vertices_ABC = self.triangle_ABC.get_vertices()
+        vertices_DEF = self.triangle_DEF.get_vertices()
+        
+        # 顶点标签
+        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_ABC[0], LEFT, buff=0.2)
+        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_ABC[1], RIGHT, buff=0.2)
+        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_ABC[2], UP, buff=0.2)
+        
+        label_D = Text("D", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_DEF[0], LEFT, buff=0.2)
+        label_E = Text("E", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_DEF[1], RIGHT, buff=0.2)
+        label_F = Text("F", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_DEF[2], UP, buff=0.2)
+        
+        self.labels_ABC = VGroup(label_A, label_B, label_C)
+        self.labels_DEF = VGroup(label_D, label_E, label_F)
+        
+        self.play(
+            FadeIn(self.labels_ABC, lag_ratio=0.2),
+            FadeIn(self.labels_DEF, lag_ratio=0.2),
+            run_time=1.0
+        )
+        
+        # 说明文字
+        correspondence_text = Text(
+            "确定对应关系很重要!",
+            font="Noto Sans CJK SC",
+            font_size=28,
+            color=self.COLOR_HIGHLIGHT
+        ).move_to(DOWN * 3.5)
+        
+        self.play(FadeIn(correspondence_text), run_time=0.5)
+        self.wait(0.5)
+        
+        # 对应关系箭头
+        arrow_AD = CurvedArrow(
+            label_A.get_right() + DOWN * 0.1,
+            label_D.get_left() + DOWN * 0.1,
+            color=self.COLOR_CORRESPONDENCE,
+            angle=-TAU / 8
+        )
+        
+        arrow_BE = CurvedArrow(
+            label_B.get_left() + DOWN * 0.1,
+            label_E.get_right() + DOWN * 0.1,
+            color=self.COLOR_CORRESPONDENCE,
+            angle=-TAU / 8
+        )
+        
+        arrow_CF = CurvedArrow(
+            label_C.get_bottom() + RIGHT * 0.1,
+            label_F.get_bottom() + LEFT * 0.1,
+            color=self.COLOR_CORRESPONDENCE,
+            angle=-TAU / 12
+        )
+        
+        self.play(Create(arrow_AD), run_time=0.7)
+        self.play(Create(arrow_BE), run_time=0.7)
+        self.play(Create(arrow_CF), run_time=0.7)
+        
+        # 高亮对应关系
+        self.play(
+            Indicate(VGroup(label_A, label_D), color=self.COLOR_HIGHLIGHT),
+            Indicate(VGroup(label_B, label_E), color=self.COLOR_HIGHLIGHT),
+            Indicate(VGroup(label_C, label_F), color=self.COLOR_HIGHLIGHT),
+            run_time=1.5
+        )
         
         self.wait(1.0)
         
         # 清理
         self.play(
-            FadeOut(hook_text),
-            FadeOut(question_mark),
-            FadeOut(tri1_outline),
-            FadeOut(tri2_outline),
-            run_time=0.5
+            FadeOut(arrow_AD),
+            FadeOut(arrow_BE),
+            FadeOut(arrow_CF),
+            FadeOut(correspondence_text),
+            run_time=0.6
         )
     
-    def scene_2_definition(self):
-        """场景2: 定义介绍"""
-        print("\n[Scene 2] 定义介绍")
-        
-        # 定义文字
-        definition = Text(
-            "能够完全重合的两个三角形",
+    def scene_6_property_sides(self):
+        """场景6: 性质1 - 对应边相等"""
+        # 性质标题
+        property_title = Text(
+            "性质1：对应边相等",
             font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["subtitle"],
-            color=WHITE
-        ).move_to(UP * 5.5)
+            font_size=32,
+            color=self.COLOR_CONGRUENT
+        ).move_to(DOWN * 3)
         
-        definition_2 = Text(
-            "叫做全等三角形",
-            font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["subtitle"],
-            color=self.COLOR_HIGHLIGHT
-        ).next_to(definition, DOWN, buff=0.3)
+        self.play(FadeIn(property_title, shift=UP * 0.3), run_time=0.8)
         
-        self.play(FadeIn(definition), run_time=0.5)
-        self.play(FadeIn(definition_2), run_time=0.5)
+        # 获取当前顶点
+        vertices_ABC = self.triangle_ABC.get_vertices()
+        vertices_DEF = self.triangle_DEF.get_vertices()
         
-        # 三角形1
-        self.play(Create(self.triangle_1), run_time=1.0)
+        # 边AB和DE
+        self.play(
+            self.triangle_ABC.animate.set_color(self.COLOR_TRIANGLE_1),
+            run_time=0.3
+        )
         
-        # 标签A, B, C
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE).next_to(self.A1, LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE).next_to(self.B1, RIGHT, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE).next_to(self.C1, UP, buff=0.15)
+        line_AB = Line(vertices_ABC[0], vertices_ABC[1], color=self.COLOR_HIGHLIGHT, stroke_width=6)
+        line_DE = Line(vertices_DEF[0], vertices_DEF[1], color=self.COLOR_HIGHLIGHT, stroke_width=6)
         
-        self.labels_1 = VGroup(label_A, label_B, label_C)
+        self.play(Create(line_AB), Create(line_DE), run_time=0.5)
         
-        self.play(Write(self.labels_1), run_time=0.6)
-        
-        # 三角形2
-        self.play(Create(self.triangle_2), run_time=1.0)
-        
-        # 标签D, E, F
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE).next_to(self.D2, LEFT, buff=0.15)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE).next_to(self.E2, RIGHT, buff=0.15)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE).next_to(self.F2, UP, buff=0.15)
-        
-        self.labels_2 = VGroup(label_D, label_E, label_F)
-        
-        self.play(Write(self.labels_2), run_time=0.6)
-        
+        eq1 = MathTex(r"AB = DE", font_size=28).move_to(DOWN * 4)
+        self.play(Write(eq1), run_time=0.5)
         self.wait(0.5)
         
-        # 清理定义文字
-        self.play(
-            FadeOut(definition),
-            FadeOut(definition_2),
-            run_time=0.4
-        )
-    
-    def scene_3_overlap(self):
-        """场景3: 重合演示"""
-        print("\n[Scene 3] 重合演示")
+        self.play(FadeOut(line_AB), FadeOut(line_DE), run_time=0.3)
         
-        # 说明文字
-        overlap_text = Text(
-            "看！它们可以完全重合",
-            font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["body"],
-            color=self.COLOR_AUXILIARY
-        ).move_to(UP * 5.5)
+        # 边BC和EF
+        line_BC = Line(vertices_ABC[1], vertices_ABC[2], color=self.COLOR_HIGHLIGHT, stroke_width=6)
+        line_EF = Line(vertices_DEF[1], vertices_DEF[2], color=self.COLOR_HIGHLIGHT, stroke_width=6)
         
-        self.play(FadeIn(overlap_text), run_time=0.4)
+        self.play(Create(line_BC), Create(line_EF), run_time=0.5)
         
-        # 高亮三角形2
-        self.play(
-            self.triangle_2.animate.set_stroke(self.COLOR_HIGHLIGHT, width=5),
-            run_time=0.3
-        )
+        eq2 = MathTex(r"BC = EF", font_size=28).next_to(eq1, DOWN, buff=0.3)
+        self.play(Write(eq2), run_time=0.5)
+        self.wait(0.5)
         
-        # 创建三角形2的副本用于移动
-        tri2_copy = self.triangle_2.copy()
-        labels_2_copy = self.labels_2.copy()
+        self.play(FadeOut(line_BC), FadeOut(line_EF), run_time=0.3)
         
-        self.add(tri2_copy, labels_2_copy)
+        # 边CA和FD
+        line_CA = Line(vertices_ABC[2], vertices_ABC[0], color=self.COLOR_HIGHLIGHT, stroke_width=6)
+        line_FD = Line(vertices_DEF[2], vertices_DEF[0], color=self.COLOR_HIGHLIGHT, stroke_width=6)
         
-        # 计算变换参数
-        center_1 = (self.A1 + self.B1 + self.C1) / 3
-        center_2 = (self.D2 + self.E2 + self.F2) / 3
+        self.play(Create(line_CA), Create(line_FD), run_time=0.5)
         
-        # Step 1: 移动到三角形1的中心
-        translation = center_1 - center_2
+        eq3 = MathTex(r"CA = FD", font_size=28).next_to(eq2, DOWN, buff=0.3)
+        self.play(Write(eq3), run_time=0.5)
+        self.wait(0.5)
         
-        self.play(
-            tri2_copy.animate.shift(translation),
-            labels_2_copy.animate.shift(translation),
-            run_time=1.5
-        )
+        self.play(FadeOut(line_CA), FadeOut(line_FD), run_time=0.3)
         
-        # Step 2: 旋转对齐
-        # 计算需要的旋转角度
-        vec_AB = self.B1 - self.A1
-        D2_new = self.D2 + translation
-        E2_new = self.E2 + translation
-        vec_DE = E2_new - D2_new
+        # 组合展示
+        equations = VGroup(eq1, eq2, eq3)
+        self.play(Indicate(equations, color=self.COLOR_CONGRUENT, scale_factor=1.1), run_time=0.8)
         
-        # 计算旋转角度
-        angle_AB = np.arctan2(vec_AB[1], vec_AB[0])
-        angle_DE = np.arctan2(vec_DE[1], vec_DE[0])
-        rotation_needed = angle_AB - angle_DE
-        
-        print(f"  旋转角度: {np.degrees(rotation_needed):.2f}°")
-        
-        self.play(
-            Rotate(tri2_copy, rotation_needed, about_point=center_1),
-            Rotate(labels_2_copy, rotation_needed, about_point=center_1),
-            run_time=1.0
-        )
-        
-        # Step 3: 完全重合效果
-        self.play(
-            Flash(tri2_copy, color=self.COLOR_HIGHLIGHT, flash_radius=0.5, line_length=0.3),
-            run_time=0.4
-        )
-        
-        # 改变副本颜色以显示重合
-        self.play(
-            tri2_copy.animate.set_stroke(self.COLOR_TRIANGLE_1, width=3),
-            run_time=0.3
-        )
-        
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(tri2_copy),
-            FadeOut(labels_2_copy),
-            FadeOut(overlap_text),
-            self.triangle_2.animate.set_stroke(self.COLOR_TRIANGLE_2, width=3),
-            run_time=0.6
-        )
-    
-    def scene_4_symbol(self):
-        """场景4: 全等符号"""
-        print("\n[Scene 4] 全等符号")
-        
-        # 标题
-        title = Text(
-            "全等符号",
-            font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["title"],
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 5.5)
-        
-        self.play(FadeIn(title), run_time=0.4)
-        
-        # 全等表达式
-        congruent_expr = MathTex(
-            r"\triangle", "ABC", r"\cong", r"\triangle", "DEF",
-            font_size=self.FONT_SIZES["formula"]
-        ).move_to(UP * 4.2)
-        
-        # 分步书写
-        self.play(Write(congruent_expr[0:2]), run_time=0.8)  # △ABC
-        self.wait(0.2)
-        self.play(Write(congruent_expr[2]), run_time=0.5)    # ≌
-        self.wait(0.2)
-        self.play(Write(congruent_expr[3:5]), run_time=0.8)  # △DEF
-        
-        # 对应关系箭头
-        # 需要获取标签位置
-        label_A_pos = self.labels_1[0].get_center()
-        label_B_pos = self.labels_1[1].get_center()
-        label_C_pos = self.labels_1[2].get_center()
-        label_D_pos = self.labels_2[0].get_center()
-        label_E_pos = self.labels_2[1].get_center()
-        label_F_pos = self.labels_2[2].get_center()
-        
-        arrow_A_D = Arrow(
-            label_A_pos, label_D_pos,
-            buff=0.2,
-            color=self.COLOR_EQUAL_MARK,
-            stroke_width=2,
-            max_tip_length_to_length_ratio=0.15
-        )
-        
-        arrow_B_E = Arrow(
-            label_B_pos, label_E_pos,
-            buff=0.2,
-            color=self.COLOR_EQUAL_MARK,
-            stroke_width=2,
-            max_tip_length_to_length_ratio=0.15
-        )
-        
-        arrow_C_F = Arrow(
-            label_C_pos, label_F_pos,
-            buff=0.2,
-            color=self.COLOR_EQUAL_MARK,
-            stroke_width=2,
-            max_tip_length_to_length_ratio=0.15
-        )
-        
-        arrows = VGroup(arrow_A_D, arrow_B_E, arrow_C_F)
-        
-        self.play(Create(arrows), run_time=1.2)
-        
-        # 强调提示
-        warning_text = Text(
-            "注意: 对应顺序很重要！",
-            font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["body"],
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 4.5)
-        
-        self.play(FadeIn(warning_text, shift=UP * 0.3), run_time=0.5)
-        
-        self.wait(1.5)
-        
-        # 清理（保留全等表达式，移到顶部）
-        self.play(
-            FadeOut(title),
-            FadeOut(arrows),
-            FadeOut(warning_text),
-            congruent_expr.animate.scale(0.7).move_to(UP * 6.5),
-            run_time=0.6
-        )
-        
-        # 保存表达式供后续使用
-        self.congruent_expr = congruent_expr
-    
-    def scene_5_equal_sides(self):
-        """场景5: 对应边相等"""
-        print("\n[Scene 5] 对应边相等")
-        
-        # 标题
-        property_title = Text(
-            "性质1: 对应边相等",
-            font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["subtitle"],
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 5.5)
-        
-        self.play(FadeIn(property_title), run_time=0.4)
-        
-        # 等式组（放在底部）
-        equations_group = VGroup()
-        
-        # ===== 边AB和DE =====
-        self.play(
-            Indicate(Line(self.A1, self.B1), color=self.COLOR_HIGHLIGHT, scale_factor=1.1),
-            Indicate(Line(self.D2, self.E2), color=self.COLOR_HIGHLIGHT, scale_factor=1.1),
-            run_time=0.8
-        )
-        
-        # 添加刻度标记
-        tick_AB = self.create_tick_marks(self.A1, self.B1, num_ticks=1, color=self.COLOR_EQUAL_MARK)
-        tick_DE = self.create_tick_marks(self.D2, self.E2, num_ticks=1, color=self.COLOR_EQUAL_MARK)
-        
-        self.play(Create(tick_AB), Create(tick_DE), run_time=0.5)
-        
-        # 等式
-        eq1 = MathTex("AB", "=", "DE", font_size=self.FONT_SIZES["body"]).move_to(DOWN * 4.0)
-        equations_group.add(eq1)
-        
-        self.play(Write(eq1), run_time=0.6)
-        self.wait(0.3)
-        
-        # ===== 边BC和EF =====
-        self.play(
-            Indicate(Line(self.B1, self.C1), color=self.COLOR_HIGHLIGHT, scale_factor=1.1),
-            Indicate(Line(self.E2, self.F2), color=self.COLOR_HIGHLIGHT, scale_factor=1.1),
-            run_time=0.8
-        )
-        
-        # 添加双刻度标记
-        tick_BC = self.create_tick_marks(self.B1, self.C1, num_ticks=2, color=self.COLOR_EQUAL_MARK)
-        tick_EF = self.create_tick_marks(self.E2, self.F2, num_ticks=2, color=self.COLOR_EQUAL_MARK)
-        
-        self.play(Create(tick_BC), Create(tick_EF), run_time=0.5)
-        
-        # 等式
-        eq2 = MathTex("BC", "=", "EF", font_size=self.FONT_SIZES["body"]).next_to(eq1, DOWN, buff=0.3)
-        equations_group.add(eq2)
-        
-        self.play(Write(eq2), run_time=0.6)
-        self.wait(0.3)
-        
-        # ===== 边CA和FD =====
-        self.play(
-            Indicate(Line(self.C1, self.A1), color=self.COLOR_HIGHLIGHT, scale_factor=1.1),
-            Indicate(Line(self.F2, self.D2), color=self.COLOR_HIGHLIGHT, scale_factor=1.1),
-            run_time=0.8
-        )
-        
-        # 添加三刻度标记
-        tick_CA = self.create_tick_marks(self.C1, self.A1, num_ticks=3, color=self.COLOR_EQUAL_MARK)
-        tick_FD = self.create_tick_marks(self.F2, self.D2, num_ticks=3, color=self.COLOR_EQUAL_MARK)
-        
-        self.play(Create(tick_CA), Create(tick_FD), run_time=0.5)
-        
-        # 等式
-        eq3 = MathTex("CA", "=", "FD", font_size=self.FONT_SIZES["body"]).next_to(eq2, DOWN, buff=0.3)
-        equations_group.add(eq3)
-        
-        self.play(Write(eq3), run_time=0.6)
-        
-        self.wait(1.5)
-        
-        # 保存刻度标记
-        self.tick_marks = VGroup(tick_AB, tick_DE, tick_BC, tick_EF, tick_CA, tick_FD)
+        self.wait(0.8)
         
         # 清理
         self.play(
             FadeOut(property_title),
-            FadeOut(equations_group),
-            run_time=0.5
+            FadeOut(equations),
+            run_time=0.6
         )
     
-    def create_tick_marks(self, line_start, line_end, num_ticks=1, color=GREEN):
-        """
-        在线段上创建垂直刻度标记
-        
-        参数:
-            line_start, line_end: 线段端点
-            num_ticks: 刻度数量 (1, 2, 3)
-            color: 颜色
-        """
-        direction = line_end - line_start
-        direction_normalized = direction / np.linalg.norm(direction)
-        perpendicular = np.array([-direction_normalized[1], direction_normalized[0], 0])
-        
-        tick_length = 0.15
-        midpoint = (line_start + line_end) / 2
-        
-        ticks = VGroup()
-        spacing = 0.12
-        
-        for i in range(num_ticks):
-            offset = (i - (num_ticks - 1) / 2) * spacing * direction_normalized
-            tick = Line(
-                midpoint + offset - perpendicular * tick_length / 2,
-                midpoint + offset + perpendicular * tick_length / 2,
-                color=color,
-                stroke_width=3
-            )
-            ticks.add(tick)
-        
-        return ticks
-    
-    def scene_6_equal_angles(self):
-        """场景6: 对应角相等"""
-        print("\n[Scene 6] 对应角相等")
-        
-        # 标题
-        angle_title = Text(
-            "性质2: 对应角相等",
+    def scene_7_property_angles(self):
+        """场景7: 性质2 - 对应角相等"""
+        # 性质标题
+        property_title = Text(
+            "性质2：对应角相等",
             font="Noto Sans CJK SC",
-            font_size=self.FONT_SIZES["subtitle"],
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 5.5)
+            font_size=32,
+            color=self.COLOR_CONGRUENT
+        ).move_to(DOWN * 3)
         
-        self.play(FadeIn(angle_title), run_time=0.4)
+        self.play(FadeIn(property_title, shift=UP * 0.3), run_time=0.8)
         
-        # 等式组
-        angle_equations = VGroup()
+        # 获取当前顶点
+        vertices_ABC = self.triangle_ABC.get_vertices()
+        vertices_DEF = self.triangle_DEF.get_vertices()
         
-        # ===== 角A和角D =====
-        # 创建角度弧
-        arc_A, arc_D = self.create_angle_arcs_pair(
-            self.C1, self.A1, self.B1,  # 角A
-            self.F2, self.D2, self.E2,  # 角D
-            radius=0.35,
-            num_arcs=1
+        # 角A和角D
+        angle_A_arc = Angle.from_three_points(
+            vertices_ABC[2], vertices_ABC[0], vertices_ABC[1],
+            radius=0.4,
+            color=self.COLOR_HIGHLIGHT,
+            other_angle=True  # 顺时针方向
         )
         
-        self.play(Create(arc_A), Create(arc_D), run_time=0.8)
-        
-        # 等式
-        angle_eq1 = MathTex(r"\angle A", "=", r"\angle D", font_size=self.FONT_SIZES["body"]).move_to(DOWN * 4.0)
-        angle_equations.add(angle_eq1)
-        
-        self.play(Write(angle_eq1), run_time=0.6)
-        self.wait(0.3)
-        
-        # ===== 角B和角E =====
-        arc_B, arc_E = self.create_angle_arcs_pair(
-            self.A1, self.B1, self.C1,  # 角B
-            self.D2, self.E2, self.F2,  # 角E
-            radius=0.35,
-            num_arcs=2
+        angle_D_arc = Angle.from_three_points(
+            vertices_DEF[2], vertices_DEF[0], vertices_DEF[1],
+            radius=0.4,
+            color=self.COLOR_HIGHLIGHT,
+            other_angle=True  # 顺时针方向
         )
         
-        self.play(Create(arc_B), Create(arc_E), run_time=0.8)
+        self.play(Create(angle_A_arc), Create(angle_D_arc), run_time=0.5)
         
-        # 等式
-        angle_eq2 = MathTex(r"\angle B", "=", r"\angle E", font_size=self.FONT_SIZES["body"]).next_to(angle_eq1, DOWN, buff=0.3)
-        angle_equations.add(angle_eq2)
+        eq1 = MathTex(r"\angle A = \angle D", font_size=28).move_to(DOWN * 4)
+        self.play(Write(eq1), run_time=0.5)
+        self.wait(0.5)
         
-        self.play(Write(angle_eq2), run_time=0.6)
-        self.wait(0.3)
+        self.play(FadeOut(angle_A_arc), FadeOut(angle_D_arc), run_time=0.3)
         
-        # ===== 角C和角F =====
-        arc_C, arc_F = self.create_angle_arcs_pair(
-            self.B1, self.C1, self.A1,  # 角C
-            self.E2, self.F2, self.D2,  # 角F
-            radius=0.35,
-            num_arcs=3
+        # 角B和角E
+        angle_B_arc = Angle.from_three_points(
+            vertices_ABC[0], vertices_ABC[1], vertices_ABC[2],
+            radius=0.4,
+            color=self.COLOR_HIGHLIGHT,
+            other_angle=True  # 顺时针方向
         )
         
-        self.play(Create(arc_C), Create(arc_F), run_time=0.8)
+        angle_E_arc = Angle.from_three_points(
+            vertices_DEF[0], vertices_DEF[1], vertices_DEF[2],
+            radius=0.4,
+            color=self.COLOR_HIGHLIGHT,
+            other_angle=True  # 顺时针方向
+        )
         
-        # 等式
-        angle_eq3 = MathTex(r"\angle C", "=", r"\angle F", font_size=self.FONT_SIZES["body"]).next_to(angle_eq2, DOWN, buff=0.3)
-        angle_equations.add(angle_eq3)
+        self.play(Create(angle_B_arc), Create(angle_E_arc), run_time=0.5)
         
-        self.play(Write(angle_eq3), run_time=0.6)
+        eq2 = MathTex(r"\angle B = \angle E", font_size=28).next_to(eq1, DOWN, buff=0.3)
+        self.play(Write(eq2), run_time=0.5)
+        self.wait(0.5)
         
-        self.wait(1.5)
+        self.play(FadeOut(angle_B_arc), FadeOut(angle_E_arc), run_time=0.3)
         
-        # 保存角度弧
-        self.angle_arcs = VGroup(arc_A, arc_D, arc_B, arc_E, arc_C, arc_F)
+        # 角C和角F
+        angle_C_arc = Angle.from_three_points(
+            vertices_ABC[1], vertices_ABC[2], vertices_ABC[0],
+            radius=0.4,
+            color=self.COLOR_HIGHLIGHT,
+            other_angle=True  # 顺时针方向
+        )
+        
+        angle_F_arc = Angle.from_three_points(
+            vertices_DEF[1], vertices_DEF[2], vertices_DEF[0],
+            radius=0.4,
+            color=self.COLOR_HIGHLIGHT,
+            other_angle=True  # 顺时针方向
+        )
+        
+        self.play(Create(angle_C_arc), Create(angle_F_arc), run_time=0.5)
+        
+        eq3 = MathTex(r"\angle C = \angle F", font_size=28).next_to(eq2, DOWN, buff=0.3)
+        self.play(Write(eq3), run_time=0.5)
+        self.wait(0.5)
+        
+        self.play(FadeOut(angle_C_arc), FadeOut(angle_F_arc), run_time=0.3)
+        
+        # 组合展示
+        equations = VGroup(eq1, eq2, eq3)
+        self.play(Indicate(equations, color=self.COLOR_CONGRUENT, scale_factor=1.1), run_time=0.8)
+        
+        self.wait(0.8)
         
         # 清理
         self.play(
-            FadeOut(angle_title),
-            FadeOut(angle_equations),
-            run_time=0.5
+            FadeOut(property_title),
+            FadeOut(equations),
+            run_time=0.6
         )
     
-    def create_angle_arcs_pair(self, point1_a, vertex_a, point2_a, point1_b, vertex_b, point2_b, radius=0.4, num_arcs=1):
-        """
-        创建一对对应角的角度弧（带多重弧标记）
+    def scene_8_outro(self):
+        """场景8: 总结与片尾"""
+        # 重点提示
+        warning_text = Text(
+            "重要提示",
+            font="Noto Sans CJK SC",
+            font_size=36,
+            color=self.COLOR_HIGHLIGHT,
+            weight=BOLD
+        ).move_to(UP * 3)
         
-        参数:
-            point1_a, vertex_a, point2_a: 第一个角的三个点
-            point1_b, vertex_b, point2_b: 第二个角的三个点
-            radius: 弧半径
-            num_arcs: 弧的数量 (1=单弧, 2=双弧, 3=三弧)
-        """
-        arc_a = self.create_angle_arc_safe(point1_a, vertex_a, point2_a, radius, self.COLOR_HIGHLIGHT)
-        arc_b = self.create_angle_arc_safe(point1_b, vertex_b, point2_b, radius, self.COLOR_HIGHLIGHT)
+        self.play(FadeIn(warning_text, scale=1.1), run_time=0.5)
         
-        # 创建多重弧
-        if num_arcs > 1:
-            arc_a = self.create_multi_arc_mark(arc_a, num_arcs, spacing=0.08)
-            arc_b = self.create_multi_arc_mark(arc_b, num_arcs, spacing=0.08)
+        note = Text(
+            "对应顶点的书写顺序要对应!",
+            font="Noto Sans CJK SC",
+            font_size=28,
+            color=GRAY_A
+        ).move_to(UP * 2)
         
-        return arc_a, arc_b
-    
-    def create_angle_arc_safe(self, point1, vertex, point2, radius, color):
-        """
-        安全创建角度弧，自动处理方向问题
+        self.play(FadeIn(note), run_time=0.5)
+        self.wait(0.5)
         
-        ⚠️ 重点：处理大于90度和大于180度的角
-        """
-        # 计算两个向量
-        v1 = point1 - vertex
-        v2 = point2 - vertex
+        # 正确示例
+        correct_example = VGroup(
+            Text("✓ 正确:", font="Noto Sans CJK SC", font_size=24, color=GREEN),
+            MathTex(r"\triangle ABC \cong \triangle DEF", font_size=26, color=GREEN)
+        ).arrange(RIGHT, buff=0.3).move_to(UP * 0.5)
         
-        # 计算夹角
-        dot_product = np.dot(v1[:2], v2[:2])
-        cross_product = v1[0] * v2[1] - v1[1] * v2[0]  # z分量
+        # 错误示例
+        wrong_example = VGroup(
+            Text("✗ 错误:", font="Noto Sans CJK SC", font_size=24, color=RED),
+            MathTex(r"\triangle ABC \cong \triangle EDF", font_size=26, color=RED)
+        ).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.5)
         
-        angle_rad = np.arctan2(cross_product, dot_product)
+        self.play(FadeIn(correct_example), run_time=0.5)
+        self.wait(0.5)
+        self.play(FadeIn(wrong_example), run_time=0.5)
         
-        # 标准化到 [0, 2π)
-        if angle_rad < 0:
-            angle_rad += 2 * PI
-        
-        # 判断是否需要使用 other_angle
-        use_other_angle = False
-        
-        if angle_rad > PI:
-            # 角度大于180度
-            print(f"  ⚠️ WARNING: 角度 {np.degrees(angle_rad):.1f}° > 180°，使用补角")
-            use_other_angle = True
-        elif angle_rad > PI / 2:
-            # 角度在90-180度之间
-            print(f"  INFO: 角度 {np.degrees(angle_rad):.1f}° 在90-180度之间")
-            use_other_angle = False
-        
-        # 创建角度弧
-        line1 = Line(vertex, point1)
-        line2 = Line(vertex, point2)
-        
-        try:
-            arc = Angle(
-                line1, line2,
-                radius=radius,
-                quadrant=(1, 1),
-                other_angle=use_other_angle,
-                color=color,
-                stroke_width=3
-            )
-        except Exception as e:
-            print(f"  ❌ 创建角度弧失败: {e}")
-            # 降级方案：使用 Arc
-            start_angle = np.arctan2(v1[1], v1[0])
-            arc = Arc(
-                radius=radius,
-                start_angle=start_angle,
-                angle=angle_rad if not use_other_angle else (2*PI - angle_rad),
-                color=color,
-                stroke_width=3
-            ).move_to(vertex)
-        
-        return arc
-    
-    def create_multi_arc_mark(self, arc, num_arcs, spacing=0.08):
-        """
-        创建多重弧标记
-        
-        参数:
-            arc: 原始弧
-            num_arcs: 弧的数量
-            spacing: 弧之间的间距
-        """
-        arcs = VGroup()
-        
-        for i in range(num_arcs):
-            arc_copy = arc.copy()
-            # 缩放以创建多重效果
-            scale_factor = 1 + i * spacing / 0.4  # 假设原始半径为0.4
-            arc_copy.scale(scale_factor, about_point=arc.get_arc_center())
-            arcs.add(arc_copy)
-        
-        return arcs
-    
-    def scene_7_outro(self):
-        """场景7: 总结和片尾"""
-        print("\n[Scene 7] 总结和片尾")
-        
-        # 三角形和标记缩小到角落
-        all_elements = VGroup(
-            self.triangle_1,
-            self.triangle_2,
-            self.labels_1,
-            self.labels_2,
-            self.tick_marks,
-            self.angle_arcs
-        )
-        
+        # 对比闪烁
         self.play(
-            all_elements.animate.scale(0.4).to_corner(UL, buff=0.5),
-            run_time=0.8
+            Flash(correct_example, color=GREEN),
+            Indicate(wrong_example, color=RED, scale_factor=1.1),
+            run_time=1.0
         )
-        
-        # 知识点卡片
-        cards = VGroup()
-        
-        card_1 = self.create_summary_card(
-            "定义",
-            "能完全重合的两个三角形",
-            self.COLOR_TRIANGLE_1,
-            UP * 1.5
-        )
-        cards.add(card_1)
-        
-        card_2 = self.create_summary_card(
-            "符号",
-            "△ABC ≌ △DEF",
-            self.COLOR_TRIANGLE_2,
-            UP * 0.3
-        )
-        cards.add(card_2)
-        
-        card_3 = self.create_summary_card(
-            "性质1",
-            "对应边相等",
-            self.COLOR_EQUAL_MARK,
-            DOWN * 0.9
-        )
-        cards.add(card_3)
-        
-        card_4 = self.create_summary_card(
-            "性质2",
-            "对应角相等",
-            self.COLOR_HIGHLIGHT,
-            DOWN * 2.1
-        )
-        cards.add(card_4)
-        
-        card_5 = self.create_summary_card(
-            "关键",
-            "对应顺序很重要！",
-            "#9b59b6",
-            DOWN * 3.3
-        )
-        cards.add(card_5)
-        
-        # 卡片从左侧滑入
-        for card in cards:
-            card.shift(LEFT * 10)
-        
-        # 依次滑入
-        for i, card in enumerate(cards):
-            self.play(card.animate.shift(RIGHT * 10), run_time=0.4)
-            if i < len(cards) - 1:
-                self.wait(0.2)
-        
-        # 高亮每张卡片
-        for card in cards:
-            self.play(Indicate(card, scale_factor=1.05), run_time=0.3)
         
         self.wait(1.0)
         
-        # 清理卡片
-        self.play(FadeOut(cards), FadeOut(all_elements), run_time=0.5)
+        # 清理所有三角形和标签
+        self.play(
+            FadeOut(self.triangle_ABC),
+            FadeOut(self.triangle_DEF),
+            FadeOut(self.labels_ABC),
+            FadeOut(self.labels_DEF),
+            FadeOut(self.title),
+            FadeOut(self.congruence_formula),
+            FadeOut(warning_text),
+            FadeOut(note),
+            FadeOut(correct_example),
+            FadeOut(wrong_example),
+            run_time=0.5
+        )
         
         # 作者信息放大
         author_name = Text(
@@ -895,7 +660,7 @@ class CongruentTriangles(Scene):
             "@emptyandcalm",
             font="Noto Sans CJK SC",
             font_size=32,
-            color=self.COLOR_AUXILIARY
+            color=GRAY_B
         ).move_to(UP * 0.5)
         
         self.play(
@@ -906,7 +671,7 @@ class CongruentTriangles(Scene):
         
         # 关注提示
         follow_text = Text(
-            "关注我，学更多几何知识！",
+            "关注我，学更多几何技巧!",
             font="Noto Sans CJK SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
@@ -914,27 +679,23 @@ class CongruentTriangles(Scene):
         
         self.play(FadeIn(follow_text, shift=UP * 0.3, scale=1.1), run_time=0.6)
         
-        # 三角形装饰
-        triangles_deco = VGroup(*[
-            Polygon(ORIGIN, RIGHT * 0.3, UP * 0.3, color=self.COLOR_EQUAL_MARK, fill_opacity=0.8)
-            .scale(0.5)
-            .move_to(follow_text.get_center() + 2 * np.array([np.cos(i * PI / 3), np.sin(i * PI / 3), 0]))
+        # 小三角形装饰
+        triangles = VGroup(*[
+            Polygon(
+                ORIGIN, RIGHT * 0.3, UP * 0.3,
+                color=self.COLOR_CONGRUENT,
+                fill_opacity=0.8
+            ).scale(0.5).move_to(
+                follow_text.get_center() + 2 * np.array([np.cos(i * PI / 3), np.sin(i * PI / 3), 0])
+            )
             for i in range(6)
         ])
         
         self.play(
-            *[FadeIn(tri, scale=0.5) for tri in triangles_deco],
+            *[FadeIn(tri, scale=0.5) for tri in triangles],
             run_time=0.6
         )
-        self.play(Rotate(triangles_deco, angle=PI, run_time=1.5))
-        
-        # 全等符号闪烁
-        if hasattr(self, 'congruent_expr'):
-            self.play(
-                self.congruent_expr.animate.scale(1.5).move_to(DOWN * 2.5),
-                run_time=0.5
-            )
-            self.play(Flash(self.congruent_expr, color=self.COLOR_HIGHLIGHT), run_time=0.4)
+        self.play(Rotate(triangles, angle=PI, run_time=1.5))
         
         self.wait(1.0)
         
@@ -943,42 +704,11 @@ class CongruentTriangles(Scene):
             FadeOut(self.author_info),
             FadeOut(author_id),
             FadeOut(follow_text),
-            FadeOut(triangles_deco),
-            FadeOut(self.congruent_expr) if hasattr(self, 'congruent_expr') else Wait(0),
+            FadeOut(triangles),
             run_time=1.0
         )
-        
-        print("\n✓ 动画渲染完成")
-    
-    def create_summary_card(self, title, content, color, position):
-        """创建知识点卡片"""
-        # 图标
-        icon = Circle(radius=0.2, fill_color=color, fill_opacity=1, stroke_width=0)
-        
-        # 标题
-        title_text = Text(
-            title,
-            font="Noto Sans CJK SC",
-            font_size=24,
-            color=WHITE
-        )
-        
-        # 内容
-        content_text = Text(
-            content,
-            font="Noto Sans CJK SC",
-            font_size=18,
-            color=self.COLOR_AUXILIARY
-        )
-        
-        # 组合
-        card = VGroup(icon, title_text, content_text).arrange(RIGHT, buff=0.3)
-        card.move_to(position)
-        
-        return card
 
 
 # 运行命令:
 # manim -pql congruent_triangles.py CongruentTriangles  # 快速预览
-# manim -qh congruent_triangles.py CongruentTriangles   # 高质量 1080p
-# manim -qk congruent_triangles.py CongruentTriangles   # 4K质量
+# manim -qh congruent_triangles.py CongruentTriangles   # 高质量渲染

@@ -1,2 +1,11 @@
 .DS_store
 __pycache__
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
+*/*/*/*/__pycache__
+media
+*/media
+*/*/media
+*/*/*/media
+*/*/*/*/media
