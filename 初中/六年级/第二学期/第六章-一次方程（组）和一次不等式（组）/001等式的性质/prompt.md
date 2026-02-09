@@ -21,6 +21,7 @@
 4. **verify_geometry.py本地运行获取反馈** - verify_geometry.py本地运行获取反馈，然后fix&repair python code
     - notice: use only numpy package, do not use manim package; 
     - build def verify_angles() function in verify_geometry.py: 注意涉及的angle，如果大于90度，需要稍微分析一下；如果大于180度，要加强注意⚠️，非常非常可能angle方向错了！（ Manim 的 Angle.from_three_points 默认是逆时针。需要添加 other_angle=True 参数。让我修复：）
+    - build def grep_MathTex() function: avoid for LaTeX compilation error(such as LaTeX Error: Unicode character 乘 (U+4E58) )
 </task_definition>
 
 ---
