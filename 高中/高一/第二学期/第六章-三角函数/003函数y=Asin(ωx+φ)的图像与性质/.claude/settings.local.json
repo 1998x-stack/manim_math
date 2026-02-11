@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python verify_geometry.py)",
+      "Bash(python -c \"from manim import *; exec\\(open\\(''003_函数y=Asin\\(ωx+φ\\)的图像与性质.py''\\).read\\(\\)\\); scene = 函数yAsinωxφ的图像与性质\\(\\); print\\(''Animation class loaded successfully''\\)\")"
+    ]
+  }
+}
