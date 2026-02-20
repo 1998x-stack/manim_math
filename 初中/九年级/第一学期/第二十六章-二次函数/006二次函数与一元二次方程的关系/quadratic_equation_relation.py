@@ -747,7 +747,7 @@ class QuadraticEquationRelation(Scene):
         table_data = [
             ["两个交点", "一个交点", "无交点"],
             ["两个不等实根", "两个相等实根", "无实根"],
-            [r"x_1 \neq x_2", r"x_1 = x_2", "-"]
+            ["x₁ ≠ x₂", "x₁ = x₂", "-"]
         ]
         
         row_y_positions = [1.2, 0, -1.2]

@@ -225,15 +225,15 @@ class SpecialAngleTrigonometry(Scene):
             run_time=1.0
         )
         
-        # 高亮30°角
+        # 高亮30°角 (在点C，等边三角形被高线分割后的角度)
         angle_30 = Angle.from_three_points(
-            self.D_30, self.A_30, self.C_30,
+            self.A_30, self.C_30, self.D_30,
             radius=0.4,
             color=self.COLOR_30
         )
         angle_label = MathTex(r"30^\circ", font_size=20, color=self.COLOR_30).next_to(
-            self.A_30 + 0.6 * (self.C_30 - self.A_30) / np.linalg.norm(self.C_30 - self.A_30),
-            UR,
+            self.C_30 + 0.3 * (self.A_30 - self.C_30) / np.linalg.norm(self.A_30 - self.C_30) + 0.3 * (self.D_30 - self.C_30) / np.linalg.norm(self.D_30 - self.C_30),
+            LEFT,
             buff=0.05
         )
         
@@ -278,28 +278,23 @@ class SpecialAngleTrigonometry(Scene):
         formula_spacing = 0.8
         
         # sin30°
-        sin_formula = MathTex(
-            r"\sin 30^\circ = \frac{\text{对边}}{\text{斜边}} = \frac{CD}{AC}",
-            font_size=26
-        ).move_to(formula_y_start)
-        
         # 修正：MathTex中不能有中文，需要分离
         sin_label = Text("sin 30° = 对边/斜边 = ", font="Noto Sans CJK SC", font_size=20)
-        sin_calc = MathTex(r"\frac{\sqrt{3}}{2}", font_size=26)
+        sin_calc = MathTex(r"\frac{1}{2}", font_size=26)
         sin_group = VGroup(sin_label, sin_calc).arrange(RIGHT, buff=0.1).move_to(formula_y_start)
         
         self.play(Write(sin_group), run_time=0.8)
         
         # 高亮对边和斜边
-        cd_highlight = DashedLine(self.C_30, self.D_30, color=self.COLOR_30, stroke_width=5)
+        ad_highlight = Line(self.A_30, self.D_30, color=self.COLOR_30, stroke_width=5)
         ac_highlight = Line(self.A_30, self.C_30, color=self.COLOR_30, stroke_width=5)
         
-        self.play(ShowPassingFlash(cd_highlight), ShowPassingFlash(ac_highlight), run_time=0.6)
+        self.play(ShowPassingFlash(ad_highlight), ShowPassingFlash(ac_highlight), run_time=0.6)
         self.wait(0.3)
         
         # cos30°
         cos_label = Text("cos 30° = 邻边/斜边 = ", font="Noto Sans CJK SC", font_size=20)
-        cos_calc = MathTex(r"\frac{1}{2}", font_size=26)
+        cos_calc = MathTex(r"\frac{\sqrt{3}}{2}", font_size=26)
         cos_group = VGroup(cos_label, cos_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing
         )
@@ -307,9 +302,9 @@ class SpecialAngleTrigonometry(Scene):
         self.play(Write(cos_group), run_time=0.8)
         
         # 高亮邻边和斜边
-        ad_highlight = Line(self.A_30, self.D_30, color=self.COLOR_30, stroke_width=5)
+        cd_highlight = DashedLine(self.C_30, self.D_30, color=self.COLOR_30, stroke_width=5)
         
-        self.play(ShowPassingFlash(ad_highlight), ShowPassingFlash(ac_highlight), run_time=0.6)
+        self.play(ShowPassingFlash(cd_highlight), ShowPassingFlash(ac_highlight), run_time=0.6)
         self.wait(0.3)
         
         # tan30°
@@ -530,17 +525,16 @@ class SpecialAngleTrigonometry(Scene):
         
         self.play(Create(altitude_CD), run_time=0.8)
         
-        # 高亮60°角 (在点A，∠CAD右侧的角，即∠DAC的补角方向)
-        # 实际上我们要的是∠DCA (在C点的60°角)
+        # 高亮60°角 (在点A，由AD和AC形成的角)
         angle_60 = Angle.from_three_points(
-            self.D_30, self.C_30, self.A_30,
+            self.D_30, self.A_30, self.C_30,
             radius=0.4,
             color=self.COLOR_60
         )
         angle_label = MathTex(r"60^\circ", font_size=20, color=self.COLOR_60).next_to(
-            self.C_30 + 0.5 * DOWN + 0.3 * LEFT,
-            DOWN,
-            buff=0
+            self.A_30 + 0.3 * (self.D_30 - self.A_30) / np.linalg.norm(self.D_30 - self.A_30) + 0.3 * (self.C_30 - self.A_30) / np.linalg.norm(self.C_30 - self.A_30),
+            LEFT,
+            buff=0.05
         )
         
         self.play(Create(angle_60), Write(angle_label), run_time=0.8)
@@ -661,22 +655,35 @@ class SpecialAngleTrigonometry(Scene):
         
         self.play(FadeIn(title), run_time=0.4)
         
-        # 创建表格
-        table_data = [
-            ["角度", "sin", "cos", "tan"],
+        # 创建表格 - 使用 Table 类的 element_to_mobject 参数处理文本和公式
+        from manim import Table, MathTex
+        
+        # 表头
+        headers = ["角度", "sin", "cos", "tan"]
+        
+        # 数据 - 使用字符串 and let Table handle conversion
+        table_raw_data = [
+            headers,
             [r"30^\circ", r"\frac{1}{2}", r"\frac{\sqrt{3}}{2}", r"\frac{\sqrt{3}}{3}"],
             [r"45^\circ", r"\frac{\sqrt{2}}{2}", r"\frac{\sqrt{2}}{2}", "1"],
             [r"60^\circ", r"\frac{\sqrt{3}}{2}", r"\frac{1}{2}", r"\sqrt{3}"],
         ]
         
-        # 使用Table类 (Manim 0.19.2)
-        from manim import Table
+        # 自定义元素转换函数
+        def element_to_mobject(element):
+            # 如果包含LaTeX特殊字符，使用MathTex，否则使用Text
+            if any(char in element for char in ['^', '_', '\\', '{', '}']) and ('\\' in element or '^' in element or '_' in element):
+                return MathTex(element, font_size=24)
+            elif element == "角度":
+                return Text(element, font="Noto Sans CJK SC", font_size=24)
+            else:
+                return MathTex(element, font_size=24)
         
         table = Table(
-            table_data,
+            table_raw_data,
             include_outer_lines=True,
             line_config={"stroke_width": 2, "color": WHITE},
-            element_to_mobject_config={"font_size": 24}
+            element_to_mobject=element_to_mobject
         ).scale(0.7).move_to(UP * 1.5)
         
         # 表格框架

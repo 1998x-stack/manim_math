@@ -28,6 +28,10 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+
+
+
+
 class QuadraticFunctionApplication(Scene):
     """
     二次函数应用教学动画场景
@@ -321,10 +325,46 @@ class QuadraticFunctionApplication(Scene):
         
         self.play(Write(general_formula), run_time=1.0)
         
-        # 标注系数
-        a_box = SurroundingRectangle(general_formula[0][4], color=RED, buff=0.1)
-        b_box = SurroundingRectangle(general_formula[0][7], color=BLUE, buff=0.1)
-        c_box = SurroundingRectangle(general_formula[0][9], color=GREEN, buff=0.1)
+        # 标注系数 - 安全地处理MathTex结构以避免索引错误
+        # 先检查是否有足够的子对象
+        try:
+            # 检查general_formula结构
+            if hasattr(general_formula, 'submobjects') and len(general_formula.submobjects) > 0:
+                first_part = general_formula.submobjects[0]
+                if hasattr(first_part, '__len__'):
+                    num_elements = len(first_part)
+                    if num_elements > 10:
+                        a_box = SurroundingRectangle(first_part[2], color=RED, buff=0.1)   # 'a' coefficient
+                        b_box = SurroundingRectangle(first_part[6], color=BLUE, buff=0.1)  # 'b' coefficient
+                        c_box = SurroundingRectangle(first_part[10], color=GREEN, buff=0.1) # 'c' coefficient
+                    elif num_elements > 6:
+                        a_box = SurroundingRectangle(first_part[2], color=RED, buff=0.1)   # 'a' coefficient
+                        b_box = SurroundingRectangle(first_part[4], color=BLUE, buff=0.1)  # estimate 'b' position
+                        c_box = SurroundingRectangle(first_part[6], color=GREEN, buff=0.1)  # estimate 'c' position
+                    elif num_elements > 2:
+                        a_box = SurroundingRectangle(first_part[0], color=RED, buff=0.1)   # estimate positions
+                        b_box = SurroundingRectangle(first_part[1], color=BLUE, buff=0.1)
+                        c_box = SurroundingRectangle(first_part[2], color=GREEN, buff=0.1)
+                    else:
+                        # 如果仍然没有足够的元素，使用整个公式作为后备
+                        a_box = SurroundingRectangle(general_formula, color=RED, buff=0.1)
+                        b_box = SurroundingRectangle(general_formula, color=BLUE, buff=0.1)
+                        c_box = SurroundingRectangle(general_formula, color=GREEN, buff=0.1)
+                else:
+                    # 如果first_part没有长度属性，使用整个公式
+                    a_box = SurroundingRectangle(general_formula, color=RED, buff=0.1)
+                    b_box = SurroundingRectangle(general_formula, color=BLUE, buff=0.1)
+                    c_box = SurroundingRectangle(general_formula, color=GREEN, buff=0.1)
+            else:
+                # 如果没有子对象，使用整个公式
+                a_box = SurroundingRectangle(general_formula, color=RED, buff=0.1)
+                b_box = SurroundingRectangle(general_formula, color=BLUE, buff=0.1)
+                c_box = SurroundingRectangle(general_formula, color=GREEN, buff=0.1)
+        except (IndexError, AttributeError):
+            # 捕获任何可能的索引或属性错误，使用安全后备
+            a_box = SurroundingRectangle(general_formula, color=RED, buff=0.1)
+            b_box = SurroundingRectangle(general_formula, color=BLUE, buff=0.1)
+            c_box = SurroundingRectangle(general_formula, color=GREEN, buff=0.1)
         
         self.play(
             Create(a_box),
@@ -336,13 +376,13 @@ class QuadraticFunctionApplication(Scene):
         self.play(FadeOut(a_box), FadeOut(b_box), FadeOut(c_box), run_time=0.3)
         
         # 顶点x坐标公式
-        vertex_x_formula = MathTex(
-            r"x_{\text{顶点}} = -\frac{b}{2a}",
-            font_size=self.FONT_SIZES["formula"],
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 3.5)
+        vertex_formula_parts = VGroup(
+            MathTex("x", font_size=self.FONT_SIZES["formula"], color=self.COLOR_SECONDARY),
+            Text("顶点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=self.COLOR_SECONDARY),
+            MathTex("= -\\frac{b}{2a}", font_size=self.FONT_SIZES["formula"], color=self.COLOR_SECONDARY)
+        ).arrange(RIGHT, buff=0.1).move_to(UP * 3.5)
         
-        self.play(TransformFromCopy(general_formula, vertex_x_formula), run_time=1.0)
+        self.play(TransformFromCopy(general_formula, vertex_formula_parts), run_time=1.0)
         
         # 代入示例数值
         example_text = Text(
@@ -355,22 +395,22 @@ class QuadraticFunctionApplication(Scene):
         self.play(Write(example_text), run_time=0.8)
         
         # 计算步骤
-        calc_step1 = MathTex(
-            r"x_{\text{顶点}} = -\frac{4}{2 \times (-1)} = 2",
-            font_size=self.FONT_SIZES["body"],
-            color=WHITE
-        ).move_to(UP * 1.2)
+        calc_step1_parts = VGroup(
+            MathTex("x", font_size=self.FONT_SIZES["body"], color=WHITE),
+            Text("顶点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE),
+            MathTex("= -\\frac{4}{2 \\times (-1)} = 2", font_size=self.FONT_SIZES["body"], color=WHITE)
+        ).arrange(RIGHT, buff=0.1).move_to(UP * 1.2)
         
-        self.play(Write(calc_step1), run_time=0.8)
+        self.play(Write(calc_step1_parts), run_time=0.8)
         
         # y坐标计算
-        y_calc = MathTex(
-            r"y_{\text{顶点}} = -(2)^2 + 4(2) + 5 = 9",
-            font_size=self.FONT_SIZES["body"],
-            color=WHITE
-        ).move_to(ORIGIN)
+        y_calc_parts = VGroup(
+            MathTex("y", font_size=self.FONT_SIZES["body"], color=WHITE),
+            Text("顶点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE),
+            MathTex("= -(2)^2 + 4(2) + 5 = 9", font_size=self.FONT_SIZES["body"], color=WHITE)
+        ).arrange(RIGHT, buff=0.1).move_to(ORIGIN)
         
-        self.play(Write(y_calc), run_time=1.0)
+        self.play(Write(y_calc_parts), run_time=1.0)
         
         # 最终顶点
         final_vertex = Text(
@@ -394,10 +434,10 @@ class QuadraticFunctionApplication(Scene):
         # 清理
         self.play(
             FadeOut(general_formula),
-            FadeOut(vertex_x_formula),
+            FadeOut(vertex_formula_parts),
             FadeOut(example_text),
-            FadeOut(calc_step1),
-            FadeOut(y_calc),
+            FadeOut(calc_step1_parts),
+            FadeOut(y_calc_parts),
             FadeOut(final_vertex),
             FadeOut(box),
             FadeOut(self.axes_ref),
@@ -486,16 +526,12 @@ class QuadraticFunctionApplication(Scene):
         self.play(Write(derivation_title), run_time=0.6)
         
         # 推导步骤
-        step1 = MathTex(
-            r"P = (\text{售价} - \text{成本}) \times \text{销量}",
-            font_size=self.FONT_SIZES["body"],
-            color=WHITE
-        ).move_to(UP * 5)
-        step1[0][2:6].set_color(YELLOW)   # 售价
-        step1[0][7:11].set_color(BLUE)    # 成本
-        step1[0][13:17].set_color(GREEN)  # 销量
+        step1_parts = VGroup(
+            MathTex("P =", font_size=self.FONT_SIZES["body"], color=WHITE),
+            Text("(售价 - 成本) × 销量", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"], color=WHITE)
+        ).arrange(RIGHT, buff=0.2).move_to(UP * 5)
         
-        self.play(Write(step1), run_time=1.5)
+        self.play(Write(step1_parts), run_time=1.5)
         
         step2 = MathTex(
             r"P = (x - 30)(100 - 2x)",
@@ -503,7 +539,7 @@ class QuadraticFunctionApplication(Scene):
             color=WHITE
         ).move_to(UP * 3.8)
         
-        self.play(TransformFromCopy(step1, step2), run_time=1.0)
+        self.play(TransformFromCopy(step1_parts, step2), run_time=1.0)
         
         step3 = MathTex(
             r"P = -2x^2 + 160x - 3000",
@@ -538,7 +574,7 @@ class QuadraticFunctionApplication(Scene):
         )
         
         self.play(
-            FadeOut(step1),
+            FadeOut(step1_parts),
             FadeOut(step2),
             Create(profit_axes),
             Write(x_label),

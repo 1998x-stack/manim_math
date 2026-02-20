@@ -10,3 +10,5 @@ media
 */*/*/media
 */*/*/*/media
 doc.md
+.claude
+.opencode

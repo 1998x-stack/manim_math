@@ -50,6 +50,8 @@ class GeometryCalculator:
         c = np.linalg.norm(A - B)  # AB边长
         return (a * A + b * B + c * C) / (a + b + c)
     
+
+    
     @staticmethod
     def centroid(A, B, C):
         """计算重心 - 简单平均"""
@@ -60,8 +62,11 @@ class GeometryCalculator:
         """计算点到直线的距离 - 使用叉积"""
         line_vec = line_end - line_start
         point_vec = point - line_start
-        cross_product = np.cross(point_vec[:2], line_vec[:2])
-        return np.abs(cross_product) / np.linalg.norm(line_vec)
+        # Use 3D vectors to avoid deprecation warning
+        line_vec_3d = np.array([line_vec[0], line_vec[1], 0])
+        point_vec_3d = np.array([point_vec[0], point_vec[1], 0])
+        cross_product = np.cross(point_vec_3d, line_vec_3d)
+        return np.abs(cross_product[2]) / np.linalg.norm(line_vec)
     
     @staticmethod
     def perpendicular_foot(point, line_start, line_end):
@@ -75,19 +80,22 @@ class GeometryCalculator:
     def nagel_point(A, B, C):
         """
         计算奈格尔点
-        公式: Na = (s-a)*A + (s-b)*B + (s-c)*C / (s-a + s-b + s-c)
+        公式: Na = (s-a)*A + (s-b)*B + (s-c)*C / ((s-a) + (s-b) + (s-c))
         其中 s = (a+b+c)/2 是半周长
-        简化: Na = ((b+c-a)*A + (c+a-b)*B + (a+b-c)*C) / (a+b+c)
+        简化: Na = ((s-a)*A + (s-b)*B + (s-c)*C) / s
         """
         a = np.linalg.norm(B - C)
         b = np.linalg.norm(C - A)
         c = np.linalg.norm(A - B)
         
-        weight_A = b + c - a
-        weight_B = c + a - b
-        weight_C = a + b - c
+        s = (a + b + c) / 2  # 半周长
         
-        total_weight = weight_A + weight_B + weight_C
+        weight_A = s - a
+        weight_B = s - b
+        weight_C = s - c
+        
+        # Total weight = (s-a) + (s-b) + (s-c) = 3s - (a+b+c) = 3s - 2s = s
+        total_weight = s
         
         return (weight_A * A + weight_B * B + weight_C * C) / total_weight
 
@@ -191,6 +199,11 @@ class SpiekerPointScene(Scene):
         
         print(f"重心 G = {self.G[:2]}")
         
+        # ========== 内心 ==========
+        self.I = GeometryCalculator.incenter(self.A, self.B, self.C)
+        
+        print(f"内心 I = {self.I[:2]}")
+        
         # ========== 奈格尔点 ==========
         self.Na = GeometryCalculator.nagel_point(self.A, self.B, self.C)
         
@@ -240,29 +253,35 @@ class SpiekerPointScene(Scene):
         if abs(dist_to_FD - dist_to_DE) > epsilon:
             errors.append(f"斯皮克点错误: 到FD={dist_to_FD:.6f}, 到DE={dist_to_DE:.6f}")
         
-        # ===== 2. 验证 Sp = (G + Na) / 2 =====
-        midpoint_G_Na = (self.G + self.Na) / 2
-        diff = np.linalg.norm(self.Sp - midpoint_G_Na)
+        # ===== 2. 验证 Sp = (I + Na) / 2 (Spieker点是内心和奈格尔点的中点) =====
+        midpoint_I_Na = (self.I + self.Na) / 2
+        diff = np.linalg.norm(self.Sp - midpoint_I_Na)
         
         print(f"  Sp = {self.Sp[:2]}")
-        print(f"  (G+Na)/2 = {midpoint_G_Na[:2]}")
+        print(f"  (I+Na)/2 = {midpoint_I_Na[:2]}")
         print(f"  差值: {diff:.6f}")
         
         if diff > epsilon:
-            errors.append(f"中点关系错误: ||Sp - (G+Na)/2|| = {diff:.6f}")
+            errors.append(f"中点关系错误: ||Sp - (I+Na)/2|| = {diff:.6f}")
         
-        # ===== 3. 验证中点三角形边长 = 原三角形边长 × 0.5 =====
-        # EF 应该平行于 AB 且长度为 AB/2
-        ratio_EF_AB = self.d_ef / self.c
-        ratio_FD_BC = self.d_fd / self.a
-        ratio_DE_CA = self.d_de / self.b
+        # ===== 3. 验证中点三角形边长 = 原三角形对应边长 × 0.5 (中位线定理) =====
+        # EF连接CA和AB中点，应平行于BC且长度为BC/2
+        ratio_EF_BC = self.d_ef / self.a
+        # FD连接AB和BC中点，应平行于CA且长度为CA/2  
+        ratio_FD_CA = self.d_fd / self.b
+        # DE连接BC和CA中点，应平行于AB且长度为AB/2
+        ratio_DE_AB = self.d_de / self.c
         
-        print(f"  EF/AB = {ratio_EF_AB:.6f} (理论值 0.5)")
-        print(f"  FD/BC = {ratio_FD_BC:.6f} (理论值 0.5)")
-        print(f"  DE/CA = {ratio_DE_CA:.6f} (理论值 0.5)")
+        print(f"  EF/BC = {ratio_EF_BC:.6f} (理论值 0.5)")
+        print(f"  FD/CA = {ratio_FD_CA:.6f} (理论值 0.5)")
+        print(f"  DE/AB = {ratio_DE_AB:.6f} (理论值 0.5)")
         
-        if abs(ratio_EF_AB - 0.5) > epsilon:
-            errors.append(f"中点三角形边长错误: EF/AB = {ratio_EF_AB:.6f}")
+        if abs(ratio_EF_BC - 0.5) > epsilon:
+            errors.append(f"中点三角形边长错误: EF/BC = {ratio_EF_BC:.6f}")
+        if abs(ratio_FD_CA - 0.5) > epsilon:
+            errors.append(f"中点三角形边长错误: FD/CA = {ratio_FD_CA:.6f}")
+        if abs(ratio_DE_AB - 0.5) > epsilon:
+            errors.append(f"中点三角形边长错误: DE/AB = {ratio_DE_AB:.6f}")
         
         # ===== 输出结果 =====
         if errors:

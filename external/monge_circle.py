@@ -415,7 +415,7 @@ class MongeCircle(Scene):
         
         # 切线方程
         tangent_eq = MathTex(
-            r"\text{切线: } \frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1",
+            r"\text{Tangent: } \frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1",
             font_size=28
         ).move_to(UP * 4)
         

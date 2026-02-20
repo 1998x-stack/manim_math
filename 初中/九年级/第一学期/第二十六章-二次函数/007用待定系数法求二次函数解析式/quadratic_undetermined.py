@@ -631,6 +631,8 @@ class QuadraticUndeterminedCoefficients(Scene):
         """场景6: 三种方法对比"""
         # 淡出抛物线
         self.play(FadeOut(self.parabola_reference), run_time=0.5)
+        # 淡出坐标系
+        self.play(FadeOut(self.axes), run_time=0.5)
         
         # 标题
         title = Text(
@@ -669,36 +671,126 @@ class QuadraticUndeterminedCoefficients(Scene):
         )
         
         # 卡片依次滑入
-        for card in [card1, card2, card3]:
-            self.play(card.animate.shift(RIGHT * 0), run_time=0.5)
-            self.wait(0.2)
+        cards = VGroup(card1, card2, card3)
+        for i, card in enumerate(cards):
+            self.play(
+                card.animate.shift(RIGHT * 12),  # Slide from left
+                run_time=0.6
+            )
+            self.play(
+                card.animate.scale(1.05).set_stroke(width=4),  # Brief highlight
+                run_time=0.2
+            )
+            self.play(
+                card.animate.scale(1/1.05).set_stroke(width=3),  # Return to normal
+                run_time=0.1
+            )
+            if i < len(cards) - 1:  # Don't wait after the last card
+                self.wait(0.3)
         
-        # 高亮适用条件
+        # Animate connections between cards (showing relationships)
+        connections = VGroup()
+        for i in range(len(cards)-1):
+            start_pos = cards[i].get_right()
+            end_pos = cards[i+1].get_left()
+            connection_line = DashedLine(
+                start_pos, end_pos,
+                color=GRAY_B,
+                dash_length=0.1
+            )
+            connections.add(connection_line)
+        
+        self.play(
+            Create(connections),
+            run_time=0.8
+        )
+        
+        # Highlight key elements in each card
+        self.wait(0.5)
+        
+        # Highlight titles
+        titles = [card[1][0] for card in cards]  # Extract title texts
+        for title in titles:
+            self.play(
+                title.animate.set_color(YELLOW).scale(1.1),
+                run_time=0.4
+            )
+            self.wait(0.1)
+            self.play(
+                title.animate.set_color(WHITE).scale(1/1.1),
+                run_time=0.2
+            )
+        
         self.wait(0.3)
-        conditions = [card1[2], card2[2], card3[2]]
-        for cond in conditions:
-            self.play(Indicate(cond, color=self.COLOR_HIGHLIGHT, scale_factor=1.1), run_time=0.4)
         
-        # 重点提示
+        # Highlight formulas
+        formulas = [card[1][1] for card in cards]  # Extract formula texts
+        for formula in formulas:
+            self.play(
+                Indicate(formula, color=self.COLOR_HIGHLIGHT, scale_factor=1.05),
+                run_time=0.5
+            )
+        
+        self.wait(0.3)
+        
+        # Highlight conditions with different animation
+        conditions = [card[1][2] for card in cards]  # Extract condition texts
+        for cond in conditions:
+            self.play(
+                Flash(cond, color=self.COLOR_HIGHLIGHT, flash_radius=0.3),
+                run_time=0.4
+            )
+        
+        # Emphasize the decision-making process
+        decision_text = Text(
+            "根据已知条件选择合适的方法",
+            font="Noto Sans CJK SC",
+            font_size=24,
+            color=self.COLOR_HIGHLIGHT
+        ).move_to(DOWN * 4.2)
+        
+        self.play(
+            Write(decision_text),
+            run_time=0.8
+        )
+        
+        # Highlight the decision process
+        self.play(
+            Indicate(decision_text, color=YELLOW, scale_factor=1.05),
+            run_time=0.6
+        )
+        
+        # Final emphasis
         hint = Text(
             "选对方法，事半功倍！",
             font="Noto Sans CJK SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
-        ).move_to(DOWN * 4.5)
+        ).move_to(DOWN * 5.5)
         
-        self.play(FadeIn(hint, shift=UP * 0.3, scale=1.1), run_time=0.6)
+        self.play(
+            FadeIn(hint, shift=UP * 0.3, scale=1.1),
+            run_time=0.6
+        )
+        
+        # Final highlight on all cards
+        self.play(
+            *[card.animate.set_fill(opacity=0.25) for card in cards],
+            run_time=0.5
+        )
+        
         self.wait(1.5)
         
-        # 清理
+        # Clean up with coordinated fadeout
         self.play(
             FadeOut(title),
-            FadeOut(card1),
-            FadeOut(card2),
-            FadeOut(card3),
+            FadeOut(cards),
+            FadeOut(connections),
+            FadeOut(decision_text),
             FadeOut(hint),
-            run_time=0.6
+            FadeOut(self.axes),  # Fade out axes as well
+            run_time=0.8
         )
     
     def create_method_card(self, title, formula, condition, color, position):
@@ -706,40 +798,39 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 背景框
         bg = RoundedRectangle(
             width=7.5,
-            height=1.4,
-            corner_radius=0.15,
+            height=1.6,
+            corner_radius=0.2,
             fill_color=color,
             fill_opacity=0.15,
             stroke_color=color,
-            stroke_width=2.5
+            stroke_width=3
         )
         
         # 标题
         title_text = Text(
             title,
             font="Noto Sans CJK SC",
-            font_size=26,
+            font_size=28,
             color=WHITE,
             weight=BOLD
         )
         
         # 公式
-        formula_tex = MathTex(formula, font_size=28, color=color)
+        formula_tex = MathTex(formula, font_size=30, color=color)
         
         # 适用条件
         condition_text = Text(
             condition,
             font="Noto Sans CJK SC",
-            font_size=20,
+            font_size=22,
             color=GRAY_A
         )
         
         # 组合内容
-        content = VGroup(title_text, formula_tex, condition_text).arrange(DOWN, buff=0.12)
+        content = VGroup(title_text, formula_tex, condition_text).arrange(DOWN, buff=0.15)
         
         # 组合卡片
-        card = VGroup(bg, content)
-        card.move_to(position)
+        card = VGroup(bg, content).move_to(position)
         
         # 初始位置在左侧外
         card.shift(LEFT * 12)
@@ -748,8 +839,6 @@ class QuadraticUndeterminedCoefficients(Scene):
     
     def show_outro(self):
         """场景7: 片尾关注"""
-        # 淡出坐标系
-        self.play(FadeOut(self.axes), run_time=0.5)
         
         # 作者名放大
         author_name = Text(

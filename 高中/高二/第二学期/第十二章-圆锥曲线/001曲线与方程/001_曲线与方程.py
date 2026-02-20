@@ -15,7 +15,7 @@ class 曲线与方程Animation(Scene):
         circle.shift(LEFT * 3)
         
         # 添加标签
-        formula = MathTex("曲线C ⟺ 方程F(x,y) = 0")
+        formula = MathTex(r"\text{Curve C} \iff \text{Equation F(x,y) = 0}")
         formula.next_to(circle, RIGHT, buff=1)
         
         # 动画序列
