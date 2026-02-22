@@ -306,7 +306,7 @@ cos(θ) = l / d
 | 2.5s | 作者信息放大 | `Transform(author_info, author_large)` | 变换 |
 | 3.5s | 关注提示 | `FadeIn(follow_text, shift=UP*0.3)` | 创建 |
 | 4.5s | 装饰动画 | `Rotate(decorations)` | 创建 |
-| 5.5s | 全部淡出 | `FadeOut(VGroup(*self.mobjects))` | 销毁全部 |
+| 5.5s | 全部淡出 | `self.play(*[FadeOut(m) for m in self.mobjects])` | 销毁全部 |
 
 ---
 

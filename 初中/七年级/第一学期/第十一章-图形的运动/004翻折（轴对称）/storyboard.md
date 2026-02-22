@@ -224,7 +224,7 @@ COLOR_CONNECTING = "#9b59b6"     # 紫色 - 连接线
 | 62.0s | 关注文字 | `FadeIn(follow_text)` |
 | 63.0s | 装饰动画（对称图形旋转） | `Rotate(decoration)` |
 | 66.0s | 等待 | `Wait(2.0)` |
-| 68.0s | 全部淡出 | `FadeOut(VGroup(*self.mobjects))` |
+| 68.0s | 全部淡出 | `self.play(*[FadeOut(m) for m in self.mobjects])` |
 
 ### 清理
 - 全部淡出

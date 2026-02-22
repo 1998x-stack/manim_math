@@ -347,7 +347,7 @@ reflected_ray = Arrow(P, self.F, color=YELLOW)
 | 61.6s | 抛物线装饰 | `旋转动画` | 2.0s |
 | 63.6s | 小图标 | `FadeIn(icons)` | 0.8s |
 | 64.4s | 等待 | `self.wait(2.0)` | 2.0s |
-| 66.4s | 全部淡出 | `FadeOut(VGroup(*self.mobjects))` | 1.5s |
+| 66.4s | 全部淡出 | `self.play(*[FadeOut(m) for m in self.mobjects])` | 1.5s |
 
 ---
 

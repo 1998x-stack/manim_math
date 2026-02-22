@@ -468,7 +468,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         self.play(
             FadeOut(self.formula_keep),
             FadeOut(self.full_formula),
-            FadeOut(VGroup(*self.mobjects)),  # 清理所有其他元素
+            self.play(*[FadeOut(m) for m in self.mobjects]),  # 清理所有其他元素
             run_time=0.8
         )
 
@@ -528,7 +528,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
     def show_outro(self):
         """场景9: 片尾关注"""
         # 清理之前的元素
-        self.play(FadeOut(VGroup(*self.mobjects)), run_time=1.0)
+        self.play(self.play(*[FadeOut(m) for m in self.mobjects]), run_time=1.0)
 
         # 作者信息
         author_name = Text(

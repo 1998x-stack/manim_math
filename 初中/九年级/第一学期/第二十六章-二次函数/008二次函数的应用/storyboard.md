@@ -286,7 +286,7 @@ P = -2x² + 160x - 3000
 ### 动画序列
 | 时间 | 动作 | 代码参考 | 运行时间 |
 |------|------|---------|---------|
-| 58.0s | 清空场景 | `FadeOut(VGroup(*self.mobjects))` | 0.8s |
+| 58.0s | 清空场景 | `self.play(*[FadeOut(m) for m in self.mobjects])` | 0.8s |
 | 58.8s | 总结标题 | `Write(summary_title)` | 0.6s |
 | 59.4s | 步骤1 | `FadeIn(step1, shift=RIGHT)` | 0.5s |
 | 59.9s | 步骤2 | `FadeIn(step2, shift=RIGHT)` | 0.5s |

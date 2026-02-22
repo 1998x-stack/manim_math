@@ -1028,7 +1028,7 @@ class TangentProperties(Scene):
         
         # 全部淡出
         self.play(
-            FadeOut(VGroup(*self.mobjects)),
+            self.play(*[FadeOut(m) for m in self.mobjects]),
             run_time=1.0
         )
 
