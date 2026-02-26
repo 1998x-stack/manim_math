@@ -1,5 +1,4 @@
-"""
-分式的基本性质 - 七年级数学教学动画
+"""分式的基本性质 - 七年级数学教学动画
 格式: TikTok 竖屏 1080×1920
 作者: 上海初高中数学直通车 @emptyandcalm
 
@@ -44,7 +43,6 @@ FS_SMALL = 20
 FS_FORM  = 36
 FS_BIG   = 52
 FS_AUTH  = 20
-
 
 # ══════════════════════════════════════════════════
 #  主场景
@@ -162,9 +160,18 @@ class FenshiJibenXingzhi(Scene):
         successful_animation = False
         
         c_elements = []
-        for mob in rhs[0]:
-            if hasattr(mob, 'get_tex_string') and mob.get_tex_string() == 'C':
-                c_elements.append(mob)
+        for i, mob in enumerate(rhs[0]):
+            # Try to get the tex_string attribute safely
+            if hasattr(mob, 'tex_string') and mob.tex_string:
+                if 'C' in mob.tex_string:
+                    c_elements.append(mob)
+            elif hasattr(mob, 'get_tex_string'):
+                try:
+                    if mob.get_tex_string() == 'C':
+                        c_elements.append(mob)
+                except (AttributeError, TypeError):
+                    # Some objects might not have get_tex_string implemented or may raise errors
+                    continue
         
         if c_elements:
             self.play(*[mob.animate.set_color(C_MULTIPLY) for mob in c_elements], run_time=0.4)

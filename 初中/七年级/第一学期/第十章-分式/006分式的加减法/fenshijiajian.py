@@ -373,17 +373,15 @@ class FenshiJiaJian(Scene):
         lbl1 = self.step_lbl("第①步：找公分母")
         self.play(Transform(lbl, lbl1), run_time=0.3)
 
-        lcd_text = MathTex(
-            r"\text{公分母} = x(x+1)",
-            font_size=36, color=C_LCD
-        )
-        # 注意：\text{公分母} 用 Tex+ctex 会更安全，但 \text 内只含 ASCII 时可用
-        # 这里用中文 Text + MathTex 并排更保险：
+        # Step 1 — 找公分母
+        lbl1 = self.step_lbl("第①步：找公分母")
+        self.play(Transform(lbl, lbl1), run_time=0.3)
+
+        # Fixed: Use Text + MathTex separately to avoid LaTeX Unicode issues
         lcd_lbl  = self.t("公分母 =", size=26, color=C_LCD)
         lcd_form = MathTex(r"x(x+1)", font_size=36, color=C_LCD)
         lcd_row  = VGroup(lcd_lbl, lcd_form).arrange(RIGHT, buff=0.25)
         lcd_row.move_to(UP * self.Y_F2)
-
         lcd_box = self.hbox(lcd_row, color=C_LCD, buff=0.18)
         self.play(Write(lcd_lbl), Write(lcd_form),
                   Create(lcd_box), run_time=0.8)

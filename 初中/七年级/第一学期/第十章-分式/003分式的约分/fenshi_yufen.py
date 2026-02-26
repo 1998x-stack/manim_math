@@ -244,21 +244,48 @@ class FenshiYufen(Scene):
 
         # 重新写一遍，分子 (x+1) 标黄，分母 (x+1) 标黄
         factored_hl = MathTex(
-            r"\dfrac{(x+1)(x-1)}{(x+1)}",
+            r"\\dfrac{(x+1)(x-1)}{(x+1)}",
             font_size=58,
         ).move_to(UP * 1.3)
-        factored_hl[1].set_color(C_FACTOR)
-        factored_hl[3].set_color(C_FACTOR)
+        
+        # 高亮显示公因式 (x+1)，但要确保索引有效
+        # 为了安全访问，检查长度并使用正确的索引
+        if len(factored_hl) >= 6:  # 通常分子部分会占据多个索引
+            # 找到分子中的第一个(x+1)和分母中的(x+1)
+            factored_hl[1].set_color(C_FACTOR)  # 第一个(x+1)在分子中
+            factored_hl[5].set_color(C_FACTOR)  # 第二个(x+1)在分母中
+        elif len(factored_hl) >= 4:
+            factored_hl[1].set_color(C_FACTOR)
+            factored_hl[3].set_color(C_FACTOR)
+        else:
+            # 如果结构不同，则尝试其他方式
+            # 找出所有包含'x+1'的部分并着色
+            for part in factored_hl:
+                if hasattr(part, 'string'):
+                    if 'x+1' in part.string:
+                        part.set_color(C_FACTOR)
+                elif hasattr(part, '__str__'):
+                    if 'x+1' in str(part):
+                        part.set_color(C_FACTOR)
 
         # 把 factored 变换到 factored_hl
         self.play(ReplacementTransform(factored.copy(), factored_hl), run_time=0.6)
         self.wait(0.2)
 
         # 框住公因式
-        box_num = SurroundingRectangle(factored_hl[1], color=C_FACTOR, buff=0.08, stroke_width=2)
-        box_den = SurroundingRectangle(factored_hl[3], color=C_FACTOR, buff=0.08, stroke_width=2)
+        if len(factored_hl) >= 6:
+            box_num = SurroundingRectangle(factored_hl[1], color=C_FACTOR, buff=0.08, stroke_width=2)
+            box_den = SurroundingRectangle(factored_hl[5], color=C_FACTOR, buff=0.08, stroke_width=2)
+        elif len(factored_hl) >= 4:
+            box_num = SurroundingRectangle(factored_hl[1], color=C_FACTOR, buff=0.08, stroke_width=2)
+            box_den = SurroundingRectangle(factored_hl[3], color=C_FACTOR, buff=0.08, stroke_width=2)
+        else:
+            # 使用更通用的方法来确定包围框位置
+            box_num = SurroundingRectangle(factored_hl[1] if len(factored_hl) > 1 else factored_hl[0], color=C_FACTOR, buff=0.08, stroke_width=2)
+            box_den = SurroundingRectangle(factored_hl[-1], color=C_FACTOR, buff=0.08, stroke_width=2)
         cf_label = Text("公因式！", font=FONT, font_size=FS_SM, color=C_FACTOR).next_to(box_num, RIGHT, buff=0.2)
         self.play(Create(box_num), Create(box_den), FadeIn(cf_label), run_time=0.5)
+        self.wait(0.3)
         self.wait(0.3)
 
         # ── STEP 3：划去公因式 ──
@@ -266,8 +293,16 @@ class FenshiYufen(Scene):
         self.play(FadeIn(step3_tag, shift=RIGHT * 0.3), run_time=0.4)
 
         # 划去 (x+1)
-        strike_num = strikethrough(factored_hl[1], C_CANCEL)
-        strike_den = strikethrough(factored_hl[3], C_CANCEL)
+        if len(factored_hl) >= 6:
+            strike_num = strikethrough(factored_hl[1], C_CANCEL)
+            strike_den = strikethrough(factored_hl[5], C_CANCEL)
+        elif len(factored_hl) >= 4:
+            strike_num = strikethrough(factored_hl[1], C_CANCEL)
+            strike_den = strikethrough(factored_hl[3], C_CANCEL)
+        else:
+            # 使用相对安全的方式获取元素
+            strike_num = strikethrough(factored_hl[1] if len(factored_hl) > 1 else factored_hl[0], C_CANCEL)
+            strike_den = strikethrough(factored_hl[-1], C_CANCEL)
         self.play(Create(strike_num), Create(strike_den), run_time=0.5)
         self.wait(0.2)
 
@@ -378,16 +413,25 @@ class FenshiYufen(Scene):
             r"}",
             font_size=54,
         ).move_to(DOWN * 2.4)
-        step2b_hl[1].set_color(C_FACTOR)
-        step2b_hl[3].set_color(C_FACTOR)
+        # Safely access the elements
+        if len(step2b_hl) >= 4:
+            step2b_hl[1].set_color(C_FACTOR)
+            step2b_hl[3].set_color(C_FACTOR)
+        elif len(step2b_hl) >= 2:
+            step2b_hl[1].set_color(C_FACTOR)
+            # Try to color the last element
+            step2b_hl[-1].set_color(C_FACTOR)
+        else:
+            # If all else fails, just color the available parts
+            for part in step2b_hl:
+                part.set_color(C_FACTOR)
         self.play(ReplacementTransform(step2b.copy(), step2b_hl), run_time=0.5)
 
-        strike_n2 = strikethrough(step2b_hl[1], C_CANCEL)
+        strike_n2 = strikethrough(step2b_hl[1] if len(step2b_hl) > 1 else step2b_hl[0], C_CANCEL)
         # 分母 "-x(x-2)" 里只划去 "x(x-2)" 部分（近似处理：划整体）
-        strike_d2 = strikethrough(step2b_hl[3], C_CANCEL)
+        strike_d2 = strikethrough(step2b_hl[3] if len(step2b_hl) > 3 else step2b_hl[-1], C_CANCEL)
         self.play(Create(strike_n2), Create(strike_d2), run_time=0.5)
         self.wait(0.2)
-
         # 结果 -1
         result2 = MathTex(r"= -1", font_size=72, color=C_RESULT).move_to(DOWN * 3.7)
         result2_rect = SurroundingRectangle(result2, color=C_RESULT, buff=0.28,

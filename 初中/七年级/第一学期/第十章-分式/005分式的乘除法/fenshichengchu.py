@@ -1,4 +1,4 @@
-"""
+""" 
 分式乘除法 - 七年级数学教学动画
 TikTok竖屏格式 (1080×1920)
 
@@ -183,22 +183,40 @@ class FenshiChengChu(Scene):
         self.play(Write(mul_formula), run_time=1.0)
         self.wait(0.5)
 
+        # 分子箭头标注
+        num_arrow = Arrow(
+            start=mul_formula.get_top() + UP * 0.1,
+            end=mul_formula.get_top() + UP * 0.8,
+            color=COLOR_NUMERATOR,
+            buff=0,
+            max_stroke_width_to_length_ratio=4
+        )
+        
         # 分子标注
         num_label = self.cn("↑ 分子×分子 ↑", size=22, color=COLOR_NUMERATOR)
         num_label.next_to(mul_formula, UP, buff=0.25)
-
+        
         self.play(
+            Create(num_arrow),
             FadeIn(num_label, shift=DOWN * 0.2),
-            mul_formula.animate.set_color(WHITE),
             run_time=0.7
         )
 
+        # 分母箭头标注
+        den_arrow = Arrow(
+            start=mul_formula.get_bottom() + DOWN * 0.1,
+            end=mul_formula.get_bottom() + DOWN * 0.8,
+            color=COLOR_DENOMINATOR,
+            buff=0,
+            max_stroke_width_to_length_ratio=4
+        )
+        
         # 分母标注
         den_label = self.cn("↓ 分母×分母 ↓", size=22, color=COLOR_DENOMINATOR)
         den_label.next_to(mul_formula, DOWN, buff=0.25)
-
+        
         self.play(
-            GrowArrow(den_arrow),
+            Create(den_arrow),
             FadeIn(den_label),
             run_time=0.8
         )
@@ -310,11 +328,13 @@ class FenshiChengChu(Scene):
         # 高亮可约分的因子
         # 用颜色标记 (x+2) 和 (x+3)
         f_cancel = MathTex(
-            r"= \frac{\cancel{(x+2)}(x-2)\cancel{(x+3)}^2}{\cancel{(x+3)}\cancel{(x+2)}}",
+            r"= \frac{(x+2)(x-2)(x+3)^2}{(x+3)(x+2)}",
             font_size=34,
             color=WHITE
         ).move_to(UP * 0.2)
-        f_cancel.set_color_by_tex(r"\cancel", COLOR_CANCEL)
+        # Highlight the terms that cancel
+        f_cancel.set_color_by_tex("(x+2)", COLOR_CANCEL)
+        f_cancel.set_color_by_tex("(x+3)", COLOR_CANCEL)
 
         cancel_note = self.cn("消去公因式 (x+2) 和 (x+3)", size=20, color=COLOR_CANCEL)
         cancel_note.move_to(UP * -1.0)
@@ -521,11 +541,13 @@ class FenshiChengChu(Scene):
 
         # 展示完整连乘（a²=a·a）
         f_cancel = MathTex(
-            r"= \frac{\cancel{(a+1)}(a-1)}{\cancel{a} \cdot a} \times \frac{\cancel{a}}{\cancel{(a+1)}}",
+            r"= \frac{(a+1)(a-1)}{a \cdot a} \times \frac{a}{(a+1)}",
             font_size=33,
             color=WHITE
         ).move_to(UP * -1.2)
-        f_cancel.set_color_by_tex(r"\cancel", COLOR_CANCEL)
+        # Highlight the terms that cancel
+        f_cancel.set_color_by_tex("(a+1)", COLOR_CANCEL)
+        f_cancel.set_color_by_tex("a", COLOR_CANCEL)
 
         cancel_hint = self.cn("消去公因式 (a+1) 和 a", size=20, color=COLOR_CANCEL)
         cancel_hint.move_to(UP * -2.3)
@@ -664,15 +686,14 @@ class FenshiChengChu(Scene):
 
         # 数学符号装饰
         decorations = VGroup()
-        symbols = [r"\frac{A}{B}", r"\times", r"\div", r"=", r"\cancel{x}"]
+        symbols = [r"\frac{A}{B}", r"\times", r"\div", r"="]  # Removed \cancel{x}
         positions = [
             LEFT * 3.0 + DOWN * 1.8,
             LEFT * 1.5 + DOWN * 2.2,
             ORIGIN + DOWN * 1.8,
             RIGHT * 1.5 + DOWN * 2.2,
-            RIGHT * 3.0 + DOWN * 1.8,
         ]
-        colors = [COLOR_NUMERATOR, WHITE, COLOR_DENOMINATOR, GOLD, COLOR_CANCEL]
+        colors = [COLOR_NUMERATOR, WHITE, COLOR_DENOMINATOR, GOLD]
 
         for sym, pos, col in zip(symbols, positions, colors):
             d = MathTex(sym, font_size=28, color=col).move_to(pos)
