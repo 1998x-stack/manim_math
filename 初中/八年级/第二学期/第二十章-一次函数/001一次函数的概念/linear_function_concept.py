@@ -508,7 +508,7 @@ class LinearFunctionConcept(Scene):
         # k 的说明
         k_box = VGroup(
             SurroundingRectangle(
-                formula_complete[0][2],
+                formula_complete[1][0],
                 color=self.COLOR_SLOPE,
                 buff=0.15,
                 corner_radius=0.1
@@ -527,7 +527,7 @@ class LinearFunctionConcept(Scene):
         # b 的说明
         b_box = VGroup(
             SurroundingRectangle(
-                formula_complete[0][4],
+                formula_complete[3][0],
                 color=self.COLOR_INTERCEPT,
                 buff=0.15,
                 corner_radius=0.1
@@ -553,7 +553,7 @@ class LinearFunctionConcept(Scene):
                 color=GRAY_A
             ),
             MathTex(
-                r"b = 0 \text{ 时}",
+                r"b = 0",
                 font_size=self.FONT_SIZE_BODY,
                 color=self.COLOR_INTERCEPT
             ),

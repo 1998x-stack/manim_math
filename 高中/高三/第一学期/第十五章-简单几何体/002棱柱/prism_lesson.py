@@ -203,11 +203,10 @@ class PrismLesson(ThreeDScene):
             font_size=20,
             color=GRAY_B
         )
-        self.author_info.fix_in_frame()
         self.author_info.to_edge(UP, buff=0.3)
-        
-        self.add(self.author_info)
-        self.wait(0.3)
+        self.author_info.set_opacity(0)          # 初始透明
+        self.add_fixed_in_frame_mobjects(self.author_info)
+        self.play(FadeIn(self.author_info), run_time=0.3)
         
         # 钩子问题
         hook_text = Text(
@@ -216,10 +215,10 @@ class PrismLesson(ThreeDScene):
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         )
-        hook_text.fix_in_frame()
         hook_text.move_to(UP * 2)
-        
-        self.play(Write(hook_text), run_time=0.8)
+        hook_text.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(hook_text)
+        self.play(FadeIn(hook_text), run_time=0.8)
         self.wait(0.5)
         
         # 创建主三棱柱
@@ -264,10 +263,10 @@ class PrismLesson(ThreeDScene):
             font_size=36,
             color=WHITE
         )
-        title.fix_in_frame()
         title.to_edge(UP, buff=1.5)
-        
-        self.play(FadeIn(title, shift=DOWN*0.2), run_time=0.6)
+        title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(title)
+        self.play(FadeIn(title), run_time=0.6)
         self.wait(0.5)
         
         # 要素1: 两底面
@@ -277,8 +276,9 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=self.COLOR_BASE
         )
-        explain_1.fix_in_frame()
         explain_1.to_edge(DOWN, buff=3.5)
+        explain_1.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(explain_1)
         
         # 高亮底面
         bottom_face = self.main_prism[0]
@@ -289,7 +289,7 @@ class PrismLesson(ThreeDScene):
             top_face.animate.set_color(self.COLOR_BASE).set_fill_opacity(0.6),
             run_time=0.8
         )
-        self.play(FadeIn(explain_1, shift=UP*0.2), run_time=0.5)
+        self.play(FadeIn(explain_1), run_time=0.5)
         self.wait(1.2)
         
         # 要素2: 侧面
@@ -299,8 +299,9 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=self.COLOR_LATERAL
         )
-        explain_2.fix_in_frame()
         explain_2.to_edge(DOWN, buff=2.5)
+        explain_2.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(explain_2)
         
         # 创建侧面（示例：一个侧面）
         side_face_1 = Polygon(
@@ -322,7 +323,7 @@ class PrismLesson(ThreeDScene):
         
         self.play(
             FadeIn(side_face_1),
-            FadeIn(explain_2, shift=UP*0.2),
+            FadeIn(explain_2),
             run_time=0.8
         )
         self.wait(1.2)
@@ -334,8 +335,9 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=self.COLOR_SECONDARY
         )
-        explain_3.fix_in_frame()
         explain_3.to_edge(DOWN, buff=1.5)
+        explain_3.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(explain_3)
         
         # 高亮侧棱
         edges = self.main_prism[2]
@@ -348,7 +350,7 @@ class PrismLesson(ThreeDScene):
         
         self.play(
             edges.animate.set_color(self.COLOR_SECONDARY).set_stroke_width(4),
-            FadeIn(explain_3, shift=UP*0.2),
+            FadeIn(explain_3),
             run_time=0.8
         )
         self.wait(1.5)
@@ -371,10 +373,10 @@ class PrismLesson(ThreeDScene):
             font_size=32,
             color=WHITE
         )
-        title.fix_in_frame()
         title.to_edge(UP, buff=1.5)
-        
-        self.play(FadeIn(title, shift=DOWN*0.2), run_time=0.6)
+        title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(title)
+        self.play(FadeIn(title), run_time=0.6)
         
         # 将主三棱柱移至左侧
         self.play(
@@ -414,16 +416,19 @@ class PrismLesson(ThreeDScene):
         
         # 标签
         label_tri = Text("三棱柱", font="Noto Sans CJK SC", font_size=18, color=WHITE)
-        label_tri.fix_in_frame()
         label_tri.move_to(LEFT * 3 + DOWN * 2)
+        label_tri.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(label_tri)
         
         label_quad = Text("四棱柱", font="Noto Sans CJK SC", font_size=18, color=WHITE)
-        label_quad.fix_in_frame()
         label_quad.move_to(DOWN * 2)
+        label_quad.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(label_quad)
         
         label_penta = Text("五棱柱", font="Noto Sans CJK SC", font_size=18, color=WHITE)
-        label_penta.fix_in_frame()
         label_penta.move_to(RIGHT * 3 + DOWN * 2)
+        label_penta.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(label_penta)
         
         self.play(
             FadeIn(label_tri),
@@ -439,10 +444,11 @@ class PrismLesson(ThreeDScene):
             font_size=22,
             color=GRAY_A
         )
-        formula.fix_in_frame()
         formula.to_edge(DOWN, buff=1.5)
+        formula.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(formula)
         
-        self.play(FadeIn(formula, shift=UP*0.2), run_time=0.6)
+        self.play(FadeIn(formula), run_time=0.6)
         self.wait(2.0)
         
         # 清理
@@ -468,10 +474,10 @@ class PrismLesson(ThreeDScene):
             font_size=32,
             color=WHITE
         )
-        title.fix_in_frame()
         title.to_edge(UP, buff=1.5)
-        
-        self.play(FadeIn(title, shift=DOWN*0.2), run_time=0.6)
+        title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(title)
+        self.play(FadeIn(title), run_time=0.6)
         
         # 直棱柱移至左侧
         self.play(
@@ -494,8 +500,9 @@ class PrismLesson(ThreeDScene):
         
         # 直棱柱标注
         label_straight = Text("直棱柱", font="Noto Sans CJK SC", font_size=20, color=WHITE)
-        label_straight.fix_in_frame()
         label_straight.move_to(LEFT * 2.5 + DOWN * 3)
+        label_straight.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(label_straight)
         
         explain_straight = Text(
             "侧棱⊥底面",
@@ -503,13 +510,15 @@ class PrismLesson(ThreeDScene):
             font_size=18,
             color=GRAY_A
         )
-        explain_straight.fix_in_frame()
         explain_straight.move_to(LEFT * 2.5 + DOWN * 3.8)
+        explain_straight.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(explain_straight)
         
         # 斜棱柱标注
         label_oblique = Text("斜棱柱", font="Noto Sans CJK SC", font_size=20, color=WHITE)
-        label_oblique.fix_in_frame()
         label_oblique.move_to(RIGHT * 2.5 + DOWN * 3)
+        label_oblique.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(label_oblique)
         
         explain_oblique = Text(
             "侧棱与底面成角",
@@ -517,8 +526,9 @@ class PrismLesson(ThreeDScene):
             font_size=18,
             color=GRAY_A
         )
-        explain_oblique.fix_in_frame()
         explain_oblique.move_to(RIGHT * 2.5 + DOWN * 3.8)
+        explain_oblique.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(explain_oblique)
         
         self.play(
             FadeIn(label_straight),
@@ -551,10 +561,10 @@ class PrismLesson(ThreeDScene):
             font_size=36,
             color=GOLD
         )
-        title.fix_in_frame()
         title.to_edge(UP, buff=1.5)
-        
-        self.play(FadeIn(title, shift=DOWN*0.2), run_time=0.6)
+        title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(title)
+        self.play(FadeIn(title), run_time=0.6)
         
         # 定义1
         definition_1 = Text(
@@ -563,15 +573,16 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=self.COLOR_BASE
         )
-        definition_1.fix_in_frame()
         definition_1.to_edge(DOWN, buff=3.5)
+        definition_1.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(definition_1)
         
         # 高亮底面
         bottom_face = self.main_prism[0]
         
         self.play(
             bottom_face.animate.set_color(self.COLOR_BASE).set_fill_opacity(0.6),
-            FadeIn(definition_1, shift=UP*0.2),
+            FadeIn(definition_1),
             run_time=0.8
         )
         self.wait(1.2)
@@ -583,8 +594,9 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=self.COLOR_SECONDARY
         )
-        definition_2.fix_in_frame()
         definition_2.to_edge(DOWN, buff=2.5)
+        definition_2.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(definition_2)
         
         # 高亮侧棱
         edges = self.main_prism[2]
@@ -593,7 +605,7 @@ class PrismLesson(ThreeDScene):
             FadeOut(definition_1),
             bottom_face.animate.set_color(self.COLOR_PRIMARY).set_fill_opacity(0.3),
             edges.animate.set_color(self.COLOR_SECONDARY).set_stroke_width(4),
-            FadeIn(definition_2, shift=UP*0.2),
+            FadeIn(definition_2),
             run_time=0.8
         )
         self.wait(1.2)
@@ -605,13 +617,14 @@ class PrismLesson(ThreeDScene):
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         )
-        full_definition.fix_in_frame()
         full_definition.to_edge(DOWN, buff=1.5)
+        full_definition.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(full_definition)
         
         self.play(
             FadeOut(definition_2),
             edges.animate.set_color(self.COLOR_PRIMARY).set_stroke_width(2),
-            FadeIn(full_definition, shift=UP*0.2),
+            FadeIn(full_definition),
             run_time=0.8
         )
         self.wait(1.5)
@@ -633,10 +646,10 @@ class PrismLesson(ThreeDScene):
             font_size=36,
             color=WHITE
         )
-        title.fix_in_frame()
         title.to_edge(UP, buff=1.5)
-        
-        self.play(FadeIn(title, shift=DOWN*0.2), run_time=0.6)
+        title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(title)
+        self.play(FadeIn(title), run_time=0.6)
         
         # 体积公式
         volume_title = Text(
@@ -645,19 +658,21 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=GRAY_A
         )
-        volume_title.fix_in_frame()
         volume_title.to_edge(DOWN, buff=5.5).shift(LEFT * 2)
+        volume_title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(volume_title)
         
         volume_formula = MathTex(
             r"V = S_{\text{底}} \cdot h",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         )
-        volume_formula.fix_in_frame()
         volume_formula.next_to(volume_title, RIGHT, buff=0.5)
+        volume_formula.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(volume_formula)
         
         self.play(
-            FadeIn(volume_title, shift=UP*0.2),
+            FadeIn(volume_title),
             Write(volume_formula),
             run_time=1.0
         )
@@ -668,10 +683,11 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=GRAY_A
         )
-        volume_value.fix_in_frame()
         volume_value.next_to(volume_formula, DOWN, buff=0.3, aligned_edge=LEFT)
+        volume_value.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(volume_value)
         
-        self.play(FadeIn(volume_value, shift=UP*0.2), run_time=0.8)
+        self.play(FadeIn(volume_value), run_time=0.8)
         self.wait(1.5)
         
         # 表面积公式
@@ -681,19 +697,21 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=GRAY_A
         )
-        surface_title.fix_in_frame()
         surface_title.to_edge(DOWN, buff=3.5).shift(LEFT * 1.8)
+        surface_title.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(surface_title)
         
         surface_formula = MathTex(
             r"S = 2S_{\text{底}} + S_{\text{侧}}",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         )
-        surface_formula.fix_in_frame()
         surface_formula.next_to(surface_title, RIGHT, buff=0.5)
+        surface_formula.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(surface_formula)
         
         self.play(
-            FadeIn(surface_title, shift=UP*0.2),
+            FadeIn(surface_title),
             Write(surface_formula),
             run_time=1.0
         )
@@ -704,10 +722,11 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=GRAY_A
         )
-        lateral_formula.fix_in_frame()
         lateral_formula.next_to(surface_formula, DOWN, buff=0.3, aligned_edge=LEFT)
+        lateral_formula.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(lateral_formula)
         
-        self.play(FadeIn(lateral_formula, shift=UP*0.2), run_time=0.8)
+        self.play(FadeIn(lateral_formula), run_time=0.8)
         
         # 数值示例
         surface_value = MathTex(
@@ -715,10 +734,11 @@ class PrismLesson(ThreeDScene):
             font_size=20,
             color=GRAY_A
         )
-        surface_value.fix_in_frame()
         surface_value.next_to(lateral_formula, DOWN, buff=0.2, aligned_edge=LEFT)
+        surface_value.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(surface_value)
         
-        self.play(FadeIn(surface_value, shift=UP*0.2), run_time=0.8)
+        self.play(FadeIn(surface_value), run_time=0.8)
         self.wait(2.5)
         
         # 清理
@@ -780,14 +800,15 @@ class PrismLesson(ThreeDScene):
             
             # 组合
             card = VGroup(icon, content).arrange(RIGHT, buff=0.4)
-            card.fix_in_frame()
             card.move_to(UP * (1 - i * 1.2))
             card.shift(LEFT * 10)  # 初始在左侧外
-            
+            card.set_opacity(0)
+            self.add_fixed_in_frame_mobjects(card)
             cards.add(card)
         
         # 卡片依次滑入
         for card in cards:
+            card.set_opacity(1)
             self.play(card.animate.shift(RIGHT * 10), run_time=0.5)
             self.wait(0.3)
         
@@ -800,8 +821,9 @@ class PrismLesson(ThreeDScene):
             font_size=32,
             color=WHITE
         )
-        author_large.fix_in_frame()
         author_large.move_to(DOWN * 3.5)
+        author_large.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(author_large)
         
         author_id = Text(
             "@emptyandcalm",
@@ -809,13 +831,14 @@ class PrismLesson(ThreeDScene):
             font_size=26,
             color=GRAY_B
         )
-        author_id.fix_in_frame()
         author_id.next_to(author_large, DOWN, buff=0.3)
+        author_id.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(author_id)
         
         self.play(
             FadeOut(self.author_info),
-            FadeIn(author_large, shift=UP*0.3),
-            FadeIn(author_id, shift=UP*0.3),
+            FadeIn(author_large),
+            FadeIn(author_id),
             run_time=0.8
         )
         
@@ -826,10 +849,11 @@ class PrismLesson(ThreeDScene):
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         )
-        follow_text.fix_in_frame()
         follow_text.next_to(author_id, DOWN, buff=0.8)
+        follow_text.set_opacity(0)
+        self.add_fixed_in_frame_mobjects(follow_text)
         
-        self.play(FadeIn(follow_text, shift=UP*0.3, scale=1.1), run_time=0.8)
+        self.play(FadeIn(follow_text), run_time=0.8)
         
         # 装饰图标
         icons = VGroup()
@@ -837,11 +861,12 @@ class PrismLesson(ThreeDScene):
             color = [self.COLOR_PRIMARY, self.COLOR_BASE, self.COLOR_HIGHLIGHT, 
                     self.COLOR_SECONDARY, self.COLOR_LATERAL][i]
             icon = Circle(radius=0.2, color=color, fill_opacity=0.8)
-            icon.fix_in_frame()
             icon.move_to(DOWN * 6 + (i - 2) * RIGHT * 1.2)
+            icon.set_opacity(0)
+            self.add_fixed_in_frame_mobjects(icon)
             icons.add(icon)
         
-        self.play(*[FadeIn(icon, scale=0.5) for icon in icons], run_time=0.6)
+        self.play(*[FadeIn(icon) for icon in icons], run_time=0.6)
         self.wait(2.0)
         
         # 最终淡出

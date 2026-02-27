@@ -512,7 +512,7 @@ class SlopeAndInclinationAngle(Scene):
             self._make_case_card("k > 0", "锐角 (α < 90°)", "左下→右上", C_POS),
             self._make_case_card("k < 0", "钝角 (α > 90°)", "左上→右下", C_NEG),
             self._make_case_card("k = 0", "水平 (α = 0°)", "沿x轴", C_ZERO),
-            self._make_case_card("无斜率", "垂直 (α = 90°)", "沿y轴方向", C_INF),
+            self._make_case_card("undefined", "垂直 (α = 90°)", "沿y轴方向", C_INF),  # Fixed: replaced "无斜率" to avoid LaTeX error in MathTex
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.35).move_to(DOWN * 1.5)
 
         # 逐条展示

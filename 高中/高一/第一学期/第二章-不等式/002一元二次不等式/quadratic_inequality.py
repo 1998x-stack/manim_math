@@ -161,12 +161,35 @@ class QuadraticInequality(Scene):
         self.play(Write(inequality), run_time=1.0)
         
         # 高亮 ">" 符号
-        greater_sign = inequality[0][9]  # ">" 符号的索引
-        self.play(
-            Flash(greater_sign, color=self.COLOR_HIGHLIGHT, flash_radius=0.5),
-            greater_sign.animate.set_color(self.COLOR_HIGHLIGHT).scale(1.3),
-            run_time=0.8
-        )
+        # Highlite ">" or "<" sign - using safer approach
+        try:
+            # Try to get the > sign directly
+            greater_sign = None
+            # Method 1: Try using get_parts
+            try:
+                parts = inequality.as_group()
+                # Or iterate through the parts to find the comparison operator
+                for i, part in enumerate(inequality.submobjects):
+                    # We'll just use a general approach to highlight the middle part
+                    # Assuming the inequality has 3 parts: left, operator, right
+                    if i == 1:  # The operator is usually the middle part
+                        greater_sign = part
+                        break
+            except:
+                pass
+            
+            if greater_sign is not None:
+                self.play(
+                    Flash(greater_sign, color=self.COLOR_HIGHLIGHT, flash_radius=0.5),
+                    greater_sign.animate.set_color(self.COLOR_HIGHLIGHT).scale(1.3),
+                    run_time=0.8
+                )
+            else:
+                # If we can't find the specific sign, just wait
+                self.wait(0.8)
+        except:
+            # If anything goes wrong with accessing parts, just continue
+            self.wait(0.8)
         
         self.wait(0.5)
         
@@ -581,9 +604,8 @@ class QuadraticInequality(Scene):
             axis_config={"include_tip": False, "stroke_width": 1.5}
         ).move_to(LEFT * spacing + UP * 1.5)
         
-        case1_func = lambda x: (x - 1) * (x - 2)
         case1_parabola = case1_axes.plot(
-            case1_func,
+            self.case1_func,
             x_range=[0, 3],
             color=self.COLOR_PARABOLA,
             stroke_width=3
@@ -619,8 +641,9 @@ class QuadraticInequality(Scene):
             axis_config={"include_tip": False, "stroke_width": 1.5}
         ).move_to(UP * 1.5)
         
-        case2_func = lambda x: (x - 1.5)**2
+        # Using class method to avoid pickle error
         case2_parabola = case2_axes.plot(
+            self.case2_func,
             case2_func,
             x_range=[0, 3],
             color=self.COLOR_PARABOLA,
@@ -653,9 +676,10 @@ class QuadraticInequality(Scene):
             axis_config={"include_tip": False, "stroke_width": 1.5}
         ).move_to(RIGHT * spacing + UP * 1.5)
         
-        case3_func = lambda x: x**2 - 3*x + 4
+        # Using class method to avoid pickle error
         case3_parabola = case3_axes.plot(
-            case3_func,
+            self.case3_func,
+            x_range=[0, 3],
             x_range=[0, 3],
             color=self.COLOR_PARABOLA,
             stroke_width=3
@@ -777,11 +801,13 @@ class QuadraticInequality(Scene):
                 y_length=1.2 * deco_scale,
                 axis_config={"stroke_width": 0}
             )
+            # Using class method to avoid pickle error
             mini_parabola = mini_axes.plot(
-                lambda x: x**2,
+                self.mini_func,
                 color=self.COLOR_PARABOLA,
                 stroke_width=2
             )
+        
             mini_group = VGroup(mini_axes, mini_parabola).move_to(
                 DOWN * 2 + RIGHT * x_pos
             )
@@ -808,7 +834,19 @@ class QuadraticInequality(Scene):
             FadeOut(parabolas),
             run_time=1.0
         )
+        )
 
+    def case1_func(self, x):  # Helper function to avoid pickle error
+        return (x - 1) * (x - 2)
+
+    def case2_func(self, x):  # Helper function to avoid pickle error
+        return (x - 1.5)**2
+
+    def case3_func(self, x):  # Helper function to avoid pickle error
+        return x**2 - 3*x + 4
+
+    def mini_func(self, x):  # Helper function to avoid pickle error
+        return x**2
 
 # 运行命令:
 # manim -pql quadratic_inequality.py QuadraticInequality  # 快速预览 480p

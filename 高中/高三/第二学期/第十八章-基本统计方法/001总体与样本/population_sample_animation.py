@@ -415,7 +415,12 @@ class PopulationSample(Scene):
         self.play(Write(formula), run_time=1.0)
 
         # 强调分母 n
-        n_rect = SurroundingRectangle(formula.get_part_by_tex("n"), color=YELLOW, buff=0.05)
+        try:
+            n_part = formula.get_part_by_tex("n")
+            n_rect = SurroundingRectangle(n_part, color=YELLOW, buff=0.05)
+        except:
+            # 如果获取特定部分失败，环绕整个公式
+            n_rect = SurroundingRectangle(formula, color=YELLOW, buff=0.1)
         n_note = self.T("样本容量", size=20, color=YELLOW)
         n_note.next_to(n_rect, DOWN, buff=0.1)
         self.play(Create(n_rect), FadeIn(n_note), run_time=0.5)

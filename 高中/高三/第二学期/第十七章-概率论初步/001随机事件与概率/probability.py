@@ -679,7 +679,7 @@ class ProbabilityScene(Scene):
         # 五彩圆点（代表概率 0~1）
         n = 6
         deco_dots = VGroup(*[
-            Dot(radius=0.2, color=interpolate_color(C_IMPOS, C_CERTAIN, i / (n - 1)),
+            Dot(radius=0.2, color=interpolate_color(ManimColor(C_IMPOS), ManimColor(C_CERTAIN), i / (n - 1)),
                 fill_opacity=0.9)
             for i in range(n)
         ]).arrange(RIGHT, buff=0.42).move_to(DOWN * 1.8)

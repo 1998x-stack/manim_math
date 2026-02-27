@@ -270,7 +270,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         self.wait(0.5)
         
         # 高亮 k
-        k_index = formula_general.index_of_part(MathTex(r"k"))
+        k_index = 1
         self.play(formula_general[k_index].animate.set_color(self.COLOR_HIGHLIGHT), run_time=0.3)
         
         k_explain = Text(
@@ -291,7 +291,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         )
         
         # 高亮 b
-        b_index = formula_general.index_of_part(MathTex(r"b"))
+        b_index = 3
         self.play(formula_general[b_index].animate.set_color(self.COLOR_HIGHLIGHT), run_time=0.3)
         
         b_explain = Text(

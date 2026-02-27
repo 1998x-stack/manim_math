@@ -1,0 +1,1021 @@
+Manim Community v0.20.0
+
+[02/27/26 12:07:11] WARNING  Font Noto Sans CJK SC not in    text_mobject.py:464
+                             ['.AppleSystemUIFont', 'Academy                    
+                             Engraved LET', 'Al Bayan', 'Al                     
+                             Nile', 'Al Tarikh', 'American                      
+                             Typewriter', 'Andale Mono',                        
+                             'Apple Braille', 'Apple                            
+                             Chancery', 'Apple Color Emoji',                    
+                             'Apple LiGothic', 'Apple                           
+                             LiSung', 'Apple SD Gothic Neo',                    
+                             'Apple Symbols', 'AppleGothic',                    
+                             'AppleMyungjo', 'Arial', 'Arial                    
+                             Black', 'Arial Hebrew', 'Arial                     
+                             Hebrew Scholar', 'Arial                            
+                             Narrow', 'Arial Rounded MT                         
+                             Bold', 'Arial Unicode MS',                         
+                             'Avenir', 'Avenir Next',                           
+                             'Avenir Next Condensed',                           
+                             'Ayuthaya', 'BIZ UDGothic',                        
+                             'BIZ UDMincho', 'BM Dohyeon',                      
+                             'BM Hanna 11yrs Old', 'BM Hanna                    
+                             Air', 'BM Hanna Pro', 'BM Jua',                    
+                             'BM Kirang Haerang', 'BM                           
+                             Yeonsung', 'Baghdad', 'Bangla                      
+                             MN', 'Bangla Sangam MN', 'Baoli                    
+                             SC', 'Baoli TC', 'Baskerville',                    
+                             'Beirut', 'BiauKaiHK',                             
+                             'BiauKaiTC', 'Big Caslon',                         
+                             'Bodoni 72', 'Bodoni 72                            
+                             Oldstyle', 'Bodoni 72                              
+                             Smallcaps', 'Bodoni Ornaments',                    
+                             'Bradley Hand', 'Brush Script                      
+                             MT', 'Chalkboard', 'Chalkboard                     
+                             SE', 'Chalkduster', 'Charter',                     
+                             'Cochin', 'Comic Sans MS',                         
+                             'Copperplate', 'Corsiva                            
+                             Hebrew', 'Courier New', 'DIN                       
+                             Alternate', 'DIN Condensed',                       
+                             'Damascus', 'DecoType Naskh',                      
+                             'Devanagari MT', 'Devanagari                       
+                             Sangam MN', 'Didot', 'Diwan                        
+                             Kufi', 'Diwan Thuluth',                            
+                             'Euphemia UCAS', 'Farah',                          
+                             'Farisi', 'Futura', 'GB18030                       
+                             Bitmap', 'Galvji', 'Geeza Pro',                    
+                             'Geneva', 'Georgia', 'Gill                         
+                             Sans', 'Grantha Sangam MN',                        
+                             'Gujarati MT', 'Gujarati Sangam                    
+                             MN', 'GungSeo', 'Gurmukhi MN',                     
+                             'Gurmukhi MT', 'Gurmukhi Sangam                    
+                             MN', 'Hannotate SC', 'Hannotate                    
+                             TC', 'HanziPen SC', 'HanziPen                      
+                             TC', 'HeadLineA', 'Hei', 'Heiti                    
+                             SC', 'Heiti TC', 'Helvetica',                      
+                             'Helvetica Neue', 'Herculanum',                    
+                             'Hiragino Maru Gothic ProN',                       
+                             'Hiragino Mincho ProN',                            
+                             'Hiragino Sans', 'Hiragino Sans                    
+                             GB', 'Hoefler Text', 'ITF                          
+                             Devanagari', 'ITF Devanagari                       
+                             Marathi', 'Impact',                                
+                             'InaiMathi', 'Kai', 'Kailasa',                     
+                             'Kaiti SC', 'Kaiti TC',                            
+                             'Kannada MN', 'Kannada Sangam                      
+                             MN', 'Kefa III', 'Khmer MN',                       
+                             'Khmer Sangam MN', 'Klee',                         
+                             'Kohinoor Bangla', 'Kohinoor                       
+                             Devanagari', 'Kohinoor                             
+                             Gujarati', 'Kohinoor Telugu',                      
+                             'Kokonor', 'Krungthep',                            
+                             'KufiStandardGK', 'LXGW                            
+                             ZhenKai', 'Lantinghei SC',                         
+                             'Lantinghei TC', 'Lao MN', 'Lao                    
+                             Sangam MN', 'LiHei Pro',                           
+                             'LiSong Pro', 'Libian SC',                         
+                             'Libian TC', 'LingWai SC',                         
+                             'LingWai TC', 'Lucida Grande',                     
+                             'Luminari', 'Malayalam MN',                        
+                             'Malayalam Sangam MN', 'Marker                     
+                             Felt', 'Menlo', 'Microsoft Sans                    
+                             Serif', 'Mishafi', 'Mishafi                        
+                             Gold', 'Monaco', 'Monospace',                      
+                             'Mshtakan', 'Mukta Mahee',                         
+                             'Muna', 'Myanmar MN', 'Myanmar                     
+                             Sangam MN', 'Nadeem', 'Nanum                       
+                             Brush Script', 'Nanum Gothic',                     
+                             'Nanum Myeongjo', 'Nanum Pen                       
+                             Script', 'New Peninim MT',                         
+                             'Noteworthy', 'Noto Nastaliq                       
+                             Urdu', 'Noto Sans Batak', 'Noto                    
+                             Sans Kannada', 'Noto Sans                          
+                             Myanmar', 'Noto Sans NKo',                         
+                             'Noto Sans Oriya', 'Noto Sans                      
+                             Syriac', 'Noto Sans Tagalog',                      
+                             'Noto Serif Myanmar', 'Optima',                    
+                             'Oriya MN', 'Oriya Sangam MN',                     
+                             'Osaka', 'PCMyungjo', 'PT                          
+                             Mono', 'PT Sans', 'PT Sans                         
+                             Caption', 'PT Sans Narrow', 'PT                    
+                             Serif', 'PT Serif Caption',                        
+                             'Palatino', 'Papyrus', 'Party                      
+                             LET', 'Phosphate', 'PilGi',                        
+                             'PingFang HK', 'PingFang MO',                      
+                             'PingFang SC', 'PingFang TC',                      
+                             'Plantagenet Cherokee',                            
+                             'Raanana', 'Rockwell',                             
+                             'STFangsong', 'STHeiti', 'STIX                     
+                             Two Math', 'STIX Two Text',                        
+                             'STKaiti', 'STSong', 'Sana',                       
+                             'Sans', 'Sathu', 'Savoye LET',                     
+                             'Serif', 'Shree Devanagari                         
+                             714', 'SignPainter', 'Silom',                      
+                             'SimSong', 'Sinhala MN',                           
+                             'Sinhala Sangam MN', 'Skia',                       
+                             'Snell Roundhand', 'Songti SC',                    
+                             'Songti TC', 'Sukhumvit Set',                      
+                             'Symbol', 'Tahoma', 'Tamil MN',                    
+                             'Tamil Sangam MN', 'Telugu MN',                    
+                             'Telugu Sangam MN', 'Thonburi',                    
+                             'Times New Roman', 'Toppan                         
+                             Bunkyu Gothic', 'Toppan Bunkyu                     
+                             Midashi Gothic', 'Toppan Bunkyu                    
+                             Midashi Mincho', 'Toppan Bunkyu                    
+                             Mincho', 'Trattatello',                            
+                             'Trebuchet MS', 'Tsukushi A                        
+                             Round Gothic', 'Tsukushi B                         
+                             Round Gothic', 'Verdana',                          
+                             'Waseem', 'Wawati SC', 'Wawati                     
+                             TC', 'Webdings', 'Weibei SC',                      
+                             'Weibei TC', 'Wingdings',                          
+                             'Wingdings 2', 'Wingdings 3',                      
+                             'Xingkai SC', 'Xingkai TC',                        
+                             'YuGothic', 'YuKyokasho',                          
+                             'YuKyokasho Yoko', 'YuMincho',                     
+                             'YuMincho +36p Kana', 'Yuanti                      
+                             SC', 'Yuanti TC', 'Yuppy SC',                      
+                             'Yuppy TC', 'Zapf Dingbats',                       
+                             'Zapfino', 'cursive',                              
+                             'fantasy', 'system-ui'].                           
+Animation 0: FadeIn(Text('上海初高中数学直通车 @emptyandcalm')):   0%|          | 0/18 [00:00<?, ?it/s]Animation 0: FadeIn(Text('上海初高中数学直通车 @emptyandcalm')):  22%|██▏       | 4/18 [00:00<00:00, 33.74it/s]Animation 0: FadeIn(Text('上海初高中数学直通车 @emptyandcalm')):  50%|█████     | 9/18 [00:00<00:00, 39.32it/s]Animation 0: FadeIn(Text('上海初高中数学直通车 @emptyandcalm')):  83%|████████▎ | 15/18 [00:00<00:00, 46.39it/s]                                                                                                                [02/27/26 12:07:12] INFO     Animation 0 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/3748413652_                         
+                             3730466761_223132457.mp4'                          
+                    WARNING  Font Noto Sans CJK SC not in    text_mobject.py:464
+                             ['.AppleSystemUIFont', 'Academy                    
+                             Engraved LET', 'Al Bayan', 'Al                     
+                             Nile', 'Al Tarikh', 'American                      
+                             Typewriter', 'Andale Mono',                        
+                             'Apple Braille', 'Apple                            
+                             Chancery', 'Apple Color Emoji',                    
+                             'Apple LiGothic', 'Apple                           
+                             LiSung', 'Apple SD Gothic Neo',                    
+                             'Apple Symbols', 'AppleGothic',                    
+                             'AppleMyungjo', 'Arial', 'Arial                    
+                             Black', 'Arial Hebrew', 'Arial                     
+                             Hebrew Scholar', 'Arial                            
+                             Narrow', 'Arial Rounded MT                         
+                             Bold', 'Arial Unicode MS',                         
+                             'Avenir', 'Avenir Next',                           
+                             'Avenir Next Condensed',                           
+                             'Ayuthaya', 'BIZ UDGothic',                        
+                             'BIZ UDMincho', 'BM Dohyeon',                      
+                             'BM Hanna 11yrs Old', 'BM Hanna                    
+                             Air', 'BM Hanna Pro', 'BM Jua',                    
+                             'BM Kirang Haerang', 'BM                           
+                             Yeonsung', 'Baghdad', 'Bangla                      
+                             MN', 'Bangla Sangam MN', 'Baoli                    
+                             SC', 'Baoli TC', 'Baskerville',                    
+                             'Beirut', 'BiauKaiHK',                             
+                             'BiauKaiTC', 'Big Caslon',                         
+                             'Bodoni 72', 'Bodoni 72                            
+                             Oldstyle', 'Bodoni 72                              
+                             Smallcaps', 'Bodoni Ornaments',                    
+                             'Bradley Hand', 'Brush Script                      
+                             MT', 'Chalkboard', 'Chalkboard                     
+                             SE', 'Chalkduster', 'Charter',                     
+                             'Cochin', 'Comic Sans MS',                         
+                             'Copperplate', 'Corsiva                            
+                             Hebrew', 'Courier New', 'DIN                       
+                             Alternate', 'DIN Condensed',                       
+                             'Damascus', 'DecoType Naskh',                      
+                             'Devanagari MT', 'Devanagari                       
+                             Sangam MN', 'Didot', 'Diwan                        
+                             Kufi', 'Diwan Thuluth',                            
+                             'Euphemia UCAS', 'Farah',                          
+                             'Farisi', 'Futura', 'GB18030                       
+                             Bitmap', 'Galvji', 'Geeza Pro',                    
+                             'Geneva', 'Georgia', 'Gill                         
+                             Sans', 'Grantha Sangam MN',                        
+                             'Gujarati MT', 'Gujarati Sangam                    
+                             MN', 'GungSeo', 'Gurmukhi MN',                     
+                             'Gurmukhi MT', 'Gurmukhi Sangam                    
+                             MN', 'Hannotate SC', 'Hannotate                    
+                             TC', 'HanziPen SC', 'HanziPen                      
+                             TC', 'HeadLineA', 'Hei', 'Heiti                    
+                             SC', 'Heiti TC', 'Helvetica',                      
+                             'Helvetica Neue', 'Herculanum',                    
+                             'Hiragino Maru Gothic ProN',                       
+                             'Hiragino Mincho ProN',                            
+                             'Hiragino Sans', 'Hiragino Sans                    
+                             GB', 'Hoefler Text', 'ITF                          
+                             Devanagari', 'ITF Devanagari                       
+                             Marathi', 'Impact',                                
+                             'InaiMathi', 'Kai', 'Kailasa',                     
+                             'Kaiti SC', 'Kaiti TC',                            
+                             'Kannada MN', 'Kannada Sangam                      
+                             MN', 'Kefa III', 'Khmer MN',                       
+                             'Khmer Sangam MN', 'Klee',                         
+                             'Kohinoor Bangla', 'Kohinoor                       
+                             Devanagari', 'Kohinoor                             
+                             Gujarati', 'Kohinoor Telugu',                      
+                             'Kokonor', 'Krungthep',                            
+                             'KufiStandardGK', 'LXGW                            
+                             ZhenKai', 'Lantinghei SC',                         
+                             'Lantinghei TC', 'Lao MN', 'Lao                    
+                             Sangam MN', 'LiHei Pro',                           
+                             'LiSong Pro', 'Libian SC',                         
+                             'Libian TC', 'LingWai SC',                         
+                             'LingWai TC', 'Lucida Grande',                     
+                             'Luminari', 'Malayalam MN',                        
+                             'Malayalam Sangam MN', 'Marker                     
+                             Felt', 'Menlo', 'Microsoft Sans                    
+                             Serif', 'Mishafi', 'Mishafi                        
+                             Gold', 'Monaco', 'Monospace',                      
+                             'Mshtakan', 'Mukta Mahee',                         
+                             'Muna', 'Myanmar MN', 'Myanmar                     
+                             Sangam MN', 'Nadeem', 'Nanum                       
+                             Brush Script', 'Nanum Gothic',                     
+                             'Nanum Myeongjo', 'Nanum Pen                       
+                             Script', 'New Peninim MT',                         
+                             'Noteworthy', 'Noto Nastaliq                       
+                             Urdu', 'Noto Sans Batak', 'Noto                    
+                             Sans Kannada', 'Noto Sans                          
+                             Myanmar', 'Noto Sans NKo',                         
+                             'Noto Sans Oriya', 'Noto Sans                      
+                             Syriac', 'Noto Sans Tagalog',                      
+                             'Noto Serif Myanmar', 'Optima',                    
+                             'Oriya MN', 'Oriya Sangam MN',                     
+                             'Osaka', 'PCMyungjo', 'PT                          
+                             Mono', 'PT Sans', 'PT Sans                         
+                             Caption', 'PT Sans Narrow', 'PT                    
+                             Serif', 'PT Serif Caption',                        
+                             'Palatino', 'Papyrus', 'Party                      
+                             LET', 'Phosphate', 'PilGi',                        
+                             'PingFang HK', 'PingFang MO',                      
+                             'PingFang SC', 'PingFang TC',                      
+                             'Plantagenet Cherokee',                            
+                             'Raanana', 'Rockwell',                             
+                             'STFangsong', 'STHeiti', 'STIX                     
+                             Two Math', 'STIX Two Text',                        
+                             'STKaiti', 'STSong', 'Sana',                       
+                             'Sans', 'Sathu', 'Savoye LET',                     
+                             'Serif', 'Shree Devanagari                         
+                             714', 'SignPainter', 'Silom',                      
+                             'SimSong', 'Sinhala MN',                           
+                             'Sinhala Sangam MN', 'Skia',                       
+                             'Snell Roundhand', 'Songti SC',                    
+                             'Songti TC', 'Sukhumvit Set',                      
+                             'Symbol', 'Tahoma', 'Tamil MN',                    
+                             'Tamil Sangam MN', 'Telugu MN',                    
+                             'Telugu Sangam MN', 'Thonburi',                    
+                             'Times New Roman', 'Toppan                         
+                             Bunkyu Gothic', 'Toppan Bunkyu                     
+                             Midashi Gothic', 'Toppan Bunkyu                    
+                             Midashi Mincho', 'Toppan Bunkyu                    
+                             Mincho', 'Trattatello',                            
+                             'Trebuchet MS', 'Tsukushi A                        
+                             Round Gothic', 'Tsukushi B                         
+                             Round Gothic', 'Verdana',                          
+                             'Waseem', 'Wawati SC', 'Wawati                     
+                             TC', 'Webdings', 'Weibei SC',                      
+                             'Weibei TC', 'Wingdings',                          
+                             'Wingdings 2', 'Wingdings 3',                      
+                             'Xingkai SC', 'Xingkai TC',                        
+                             'YuGothic', 'YuKyokasho',                          
+                             'YuKyokasho Yoko', 'YuMincho',                     
+                             'YuMincho +36p Kana', 'Yuanti                      
+                             SC', 'Yuanti TC', 'Yuppy SC',                      
+                             'Yuppy TC', 'Zapf Dingbats',                       
+                             'Zapfino', 'cursive',                              
+                             'fantasy', 'system-ui'].                           
+Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):   0%|          | 0/72 [00:00<?, ?it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):   7%|▋         | 5/72 [00:00<00:01, 42.69it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  15%|█▌        | 11/72 [00:00<00:01, 50.03it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  24%|██▎       | 17/72 [00:00<00:01, 46.93it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  33%|███▎      | 24/72 [00:00<00:00, 54.06it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  43%|████▎     | 31/72 [00:00<00:00, 58.50it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  53%|█████▎    | 38/72 [00:00<00:00, 60.12it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  62%|██████▎   | 45/72 [00:00<00:00, 62.55it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  75%|███████▌  | 54/72 [00:00<00:00, 69.59it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  86%|████████▌ | 62/72 [00:01<00:00, 55.07it/s]Animation 1: Write(Text('如果命题是真的\n反过来说还是真的吗?')):  96%|█████████▌| 69/72 [00:01<00:00, 55.72it/s]                                                                                                                [02/27/26 12:07:15] INFO     Animation 1 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/656162490_6                         
+                             03326326_3950130755.mp4'                           
+                    WARNING  Font Noto Sans CJK SC not in    text_mobject.py:464
+                             ['.AppleSystemUIFont', 'Academy                    
+                             Engraved LET', 'Al Bayan', 'Al                     
+                             Nile', 'Al Tarikh', 'American                      
+                             Typewriter', 'Andale Mono',                        
+                             'Apple Braille', 'Apple                            
+                             Chancery', 'Apple Color Emoji',                    
+                             'Apple LiGothic', 'Apple                           
+                             LiSung', 'Apple SD Gothic Neo',                    
+                             'Apple Symbols', 'AppleGothic',                    
+                             'AppleMyungjo', 'Arial', 'Arial                    
+                             Black', 'Arial Hebrew', 'Arial                     
+                             Hebrew Scholar', 'Arial                            
+                             Narrow', 'Arial Rounded MT                         
+                             Bold', 'Arial Unicode MS',                         
+                             'Avenir', 'Avenir Next',                           
+                             'Avenir Next Condensed',                           
+                             'Ayuthaya', 'BIZ UDGothic',                        
+                             'BIZ UDMincho', 'BM Dohyeon',                      
+                             'BM Hanna 11yrs Old', 'BM Hanna                    
+                             Air', 'BM Hanna Pro', 'BM Jua',                    
+                             'BM Kirang Haerang', 'BM                           
+                             Yeonsung', 'Baghdad', 'Bangla                      
+                             MN', 'Bangla Sangam MN', 'Baoli                    
+                             SC', 'Baoli TC', 'Baskerville',                    
+                             'Beirut', 'BiauKaiHK',                             
+                             'BiauKaiTC', 'Big Caslon',                         
+                             'Bodoni 72', 'Bodoni 72                            
+                             Oldstyle', 'Bodoni 72                              
+                             Smallcaps', 'Bodoni Ornaments',                    
+                             'Bradley Hand', 'Brush Script                      
+                             MT', 'Chalkboard', 'Chalkboard                     
+                             SE', 'Chalkduster', 'Charter',                     
+                             'Cochin', 'Comic Sans MS',                         
+                             'Copperplate', 'Corsiva                            
+                             Hebrew', 'Courier New', 'DIN                       
+                             Alternate', 'DIN Condensed',                       
+                             'Damascus', 'DecoType Naskh',                      
+                             'Devanagari MT', 'Devanagari                       
+                             Sangam MN', 'Didot', 'Diwan                        
+                             Kufi', 'Diwan Thuluth',                            
+                             'Euphemia UCAS', 'Farah',                          
+                             'Farisi', 'Futura', 'GB18030                       
+                             Bitmap', 'Galvji', 'Geeza Pro',                    
+                             'Geneva', 'Georgia', 'Gill                         
+                             Sans', 'Grantha Sangam MN',                        
+                             'Gujarati MT', 'Gujarati Sangam                    
+                             MN', 'GungSeo', 'Gurmukhi MN',                     
+                             'Gurmukhi MT', 'Gurmukhi Sangam                    
+                             MN', 'Hannotate SC', 'Hannotate                    
+                             TC', 'HanziPen SC', 'HanziPen                      
+                             TC', 'HeadLineA', 'Hei', 'Heiti                    
+                             SC', 'Heiti TC', 'Helvetica',                      
+                             'Helvetica Neue', 'Herculanum',                    
+                             'Hiragino Maru Gothic ProN',                       
+                             'Hiragino Mincho ProN',                            
+                             'Hiragino Sans', 'Hiragino Sans                    
+                             GB', 'Hoefler Text', 'ITF                          
+                             Devanagari', 'ITF Devanagari                       
+                             Marathi', 'Impact',                                
+                             'InaiMathi', 'Kai', 'Kailasa',                     
+                             'Kaiti SC', 'Kaiti TC',                            
+                             'Kannada MN', 'Kannada Sangam                      
+                             MN', 'Kefa III', 'Khmer MN',                       
+                             'Khmer Sangam MN', 'Klee',                         
+                             'Kohinoor Bangla', 'Kohinoor                       
+                             Devanagari', 'Kohinoor                             
+                             Gujarati', 'Kohinoor Telugu',                      
+                             'Kokonor', 'Krungthep',                            
+                             'KufiStandardGK', 'LXGW                            
+                             ZhenKai', 'Lantinghei SC',                         
+                             'Lantinghei TC', 'Lao MN', 'Lao                    
+                             Sangam MN', 'LiHei Pro',                           
+                             'LiSong Pro', 'Libian SC',                         
+                             'Libian TC', 'LingWai SC',                         
+                             'LingWai TC', 'Lucida Grande',                     
+                             'Luminari', 'Malayalam MN',                        
+                             'Malayalam Sangam MN', 'Marker                     
+                             Felt', 'Menlo', 'Microsoft Sans                    
+                             Serif', 'Mishafi', 'Mishafi                        
+                             Gold', 'Monaco', 'Monospace',                      
+                             'Mshtakan', 'Mukta Mahee',                         
+                             'Muna', 'Myanmar MN', 'Myanmar                     
+                             Sangam MN', 'Nadeem', 'Nanum                       
+                             Brush Script', 'Nanum Gothic',                     
+                             'Nanum Myeongjo', 'Nanum Pen                       
+                             Script', 'New Peninim MT',                         
+                             'Noteworthy', 'Noto Nastaliq                       
+                             Urdu', 'Noto Sans Batak', 'Noto                    
+                             Sans Kannada', 'Noto Sans                          
+                             Myanmar', 'Noto Sans NKo',                         
+                             'Noto Sans Oriya', 'Noto Sans                      
+                             Syriac', 'Noto Sans Tagalog',                      
+                             'Noto Serif Myanmar', 'Optima',                    
+                             'Oriya MN', 'Oriya Sangam MN',                     
+                             'Osaka', 'PCMyungjo', 'PT                          
+                             Mono', 'PT Sans', 'PT Sans                         
+                             Caption', 'PT Sans Narrow', 'PT                    
+                             Serif', 'PT Serif Caption',                        
+                             'Palatino', 'Papyrus', 'Party                      
+                             LET', 'Phosphate', 'PilGi',                        
+                             'PingFang HK', 'PingFang MO',                      
+                             'PingFang SC', 'PingFang TC',                      
+                             'Plantagenet Cherokee',                            
+                             'Raanana', 'Rockwell',                             
+                             'STFangsong', 'STHeiti', 'STIX                     
+                             Two Math', 'STIX Two Text',                        
+                             'STKaiti', 'STSong', 'Sana',                       
+                             'Sans', 'Sathu', 'Savoye LET',                     
+                             'Serif', 'Shree Devanagari                         
+                             714', 'SignPainter', 'Silom',                      
+                             'SimSong', 'Sinhala MN',                           
+                             'Sinhala Sangam MN', 'Skia',                       
+                             'Snell Roundhand', 'Songti SC',                    
+                             'Songti TC', 'Sukhumvit Set',                      
+                             'Symbol', 'Tahoma', 'Tamil MN',                    
+                             'Tamil Sangam MN', 'Telugu MN',                    
+                             'Telugu Sangam MN', 'Thonburi',                    
+                             'Times New Roman', 'Toppan                         
+                             Bunkyu Gothic', 'Toppan Bunkyu                     
+                             Midashi Gothic', 'Toppan Bunkyu                    
+                             Midashi Mincho', 'Toppan Bunkyu                    
+                             Mincho', 'Trattatello',                            
+                             'Trebuchet MS', 'Tsukushi A                        
+                             Round Gothic', 'Tsukushi B                         
+                             Round Gothic', 'Verdana',                          
+                             'Waseem', 'Wawati SC', 'Wawati                     
+                             TC', 'Webdings', 'Weibei SC',                      
+                             'Weibei TC', 'Wingdings',                          
+                             'Wingdings 2', 'Wingdings 3',                      
+                             'Xingkai SC', 'Xingkai TC',                        
+                             'YuGothic', 'YuKyokasho',                          
+                             'YuKyokasho Yoko', 'YuMincho',                     
+                             'YuMincho +36p Kana', 'Yuanti                      
+                             SC', 'Yuanti TC', 'Yuppy SC',                      
+                             'Yuppy TC', 'Zapf Dingbats',                       
+                             'Zapfino', 'cursive',                              
+                             'fantasy', 'system-ui'].                           
+                    WARNING  Font Noto Sans CJK SC not in    text_mobject.py:464
+                             ['.AppleSystemUIFont', 'Academy                    
+                             Engraved LET', 'Al Bayan', 'Al                     
+                             Nile', 'Al Tarikh', 'American                      
+                             Typewriter', 'Andale Mono',                        
+                             'Apple Braille', 'Apple                            
+                             Chancery', 'Apple Color Emoji',                    
+                             'Apple LiGothic', 'Apple                           
+                             LiSung', 'Apple SD Gothic Neo',                    
+                             'Apple Symbols', 'AppleGothic',                    
+                             'AppleMyungjo', 'Arial', 'Arial                    
+                             Black', 'Arial Hebrew', 'Arial                     
+                             Hebrew Scholar', 'Arial                            
+                             Narrow', 'Arial Rounded MT                         
+                             Bold', 'Arial Unicode MS',                         
+                             'Avenir', 'Avenir Next',                           
+                             'Avenir Next Condensed',                           
+                             'Ayuthaya', 'BIZ UDGothic',                        
+                             'BIZ UDMincho', 'BM Dohyeon',                      
+                             'BM Hanna 11yrs Old', 'BM Hanna                    
+                             Air', 'BM Hanna Pro', 'BM Jua',                    
+                             'BM Kirang Haerang', 'BM                           
+                             Yeonsung', 'Baghdad', 'Bangla                      
+                             MN', 'Bangla Sangam MN', 'Baoli                    
+                             SC', 'Baoli TC', 'Baskerville',                    
+                             'Beirut', 'BiauKaiHK',                             
+                             'BiauKaiTC', 'Big Caslon',                         
+                             'Bodoni 72', 'Bodoni 72                            
+                             Oldstyle', 'Bodoni 72                              
+                             Smallcaps', 'Bodoni Ornaments',                    
+                             'Bradley Hand', 'Brush Script                      
+                             MT', 'Chalkboard', 'Chalkboard                     
+                             SE', 'Chalkduster', 'Charter',                     
+                             'Cochin', 'Comic Sans MS',                         
+                             'Copperplate', 'Corsiva                            
+                             Hebrew', 'Courier New', 'DIN                       
+                             Alternate', 'DIN Condensed',                       
+                             'Damascus', 'DecoType Naskh',                      
+                             'Devanagari MT', 'Devanagari                       
+                             Sangam MN', 'Didot', 'Diwan                        
+                             Kufi', 'Diwan Thuluth',                            
+                             'Euphemia UCAS', 'Farah',                          
+                             'Farisi', 'Futura', 'GB18030                       
+                             Bitmap', 'Galvji', 'Geeza Pro',                    
+                             'Geneva', 'Georgia', 'Gill                         
+                             Sans', 'Grantha Sangam MN',                        
+                             'Gujarati MT', 'Gujarati Sangam                    
+                             MN', 'GungSeo', 'Gurmukhi MN',                     
+                             'Gurmukhi MT', 'Gurmukhi Sangam                    
+                             MN', 'Hannotate SC', 'Hannotate                    
+                             TC', 'HanziPen SC', 'HanziPen                      
+                             TC', 'HeadLineA', 'Hei', 'Heiti                    
+                             SC', 'Heiti TC', 'Helvetica',                      
+                             'Helvetica Neue', 'Herculanum',                    
+                             'Hiragino Maru Gothic ProN',                       
+                             'Hiragino Mincho ProN',                            
+                             'Hiragino Sans', 'Hiragino Sans                    
+                             GB', 'Hoefler Text', 'ITF                          
+                             Devanagari', 'ITF Devanagari                       
+                             Marathi', 'Impact',                                
+                             'InaiMathi', 'Kai', 'Kailasa',                     
+                             'Kaiti SC', 'Kaiti TC',                            
+                             'Kannada MN', 'Kannada Sangam                      
+                             MN', 'Kefa III', 'Khmer MN',                       
+                             'Khmer Sangam MN', 'Klee',                         
+                             'Kohinoor Bangla', 'Kohinoor                       
+                             Devanagari', 'Kohinoor                             
+                             Gujarati', 'Kohinoor Telugu',                      
+                             'Kokonor', 'Krungthep',                            
+                             'KufiStandardGK', 'LXGW                            
+                             ZhenKai', 'Lantinghei SC',                         
+                             'Lantinghei TC', 'Lao MN', 'Lao                    
+                             Sangam MN', 'LiHei Pro',                           
+                             'LiSong Pro', 'Libian SC',                         
+                             'Libian TC', 'LingWai SC',                         
+                             'LingWai TC', 'Lucida Grande',                     
+                             'Luminari', 'Malayalam MN',                        
+                             'Malayalam Sangam MN', 'Marker                     
+                             Felt', 'Menlo', 'Microsoft Sans                    
+                             Serif', 'Mishafi', 'Mishafi                        
+                             Gold', 'Monaco', 'Monospace',                      
+                             'Mshtakan', 'Mukta Mahee',                         
+                             'Muna', 'Myanmar MN', 'Myanmar                     
+                             Sangam MN', 'Nadeem', 'Nanum                       
+                             Brush Script', 'Nanum Gothic',                     
+                             'Nanum Myeongjo', 'Nanum Pen                       
+                             Script', 'New Peninim MT',                         
+                             'Noteworthy', 'Noto Nastaliq                       
+                             Urdu', 'Noto Sans Batak', 'Noto                    
+                             Sans Kannada', 'Noto Sans                          
+                             Myanmar', 'Noto Sans NKo',                         
+                             'Noto Sans Oriya', 'Noto Sans                      
+                             Syriac', 'Noto Sans Tagalog',                      
+                             'Noto Serif Myanmar', 'Optima',                    
+                             'Oriya MN', 'Oriya Sangam MN',                     
+                             'Osaka', 'PCMyungjo', 'PT                          
+                             Mono', 'PT Sans', 'PT Sans                         
+                             Caption', 'PT Sans Narrow', 'PT                    
+                             Serif', 'PT Serif Caption',                        
+                             'Palatino', 'Papyrus', 'Party                      
+                             LET', 'Phosphate', 'PilGi',                        
+                             'PingFang HK', 'PingFang MO',                      
+                             'PingFang SC', 'PingFang TC',                      
+                             'Plantagenet Cherokee',                            
+                             'Raanana', 'Rockwell',                             
+                             'STFangsong', 'STHeiti', 'STIX                     
+                             Two Math', 'STIX Two Text',                        
+                             'STKaiti', 'STSong', 'Sana',                       
+                             'Sans', 'Sathu', 'Savoye LET',                     
+                             'Serif', 'Shree Devanagari                         
+                             714', 'SignPainter', 'Silom',                      
+                             'SimSong', 'Sinhala MN',                           
+                             'Sinhala Sangam MN', 'Skia',                       
+                             'Snell Roundhand', 'Songti SC',                    
+                             'Songti TC', 'Sukhumvit Set',                      
+                             'Symbol', 'Tahoma', 'Tamil MN',                    
+                             'Tamil Sangam MN', 'Telugu MN',                    
+                             'Telugu Sangam MN', 'Thonburi',                    
+                             'Times New Roman', 'Toppan                         
+                             Bunkyu Gothic', 'Toppan Bunkyu                     
+                             Midashi Gothic', 'Toppan Bunkyu                    
+                             Midashi Mincho', 'Toppan Bunkyu                    
+                             Mincho', 'Trattatello',                            
+                             'Trebuchet MS', 'Tsukushi A                        
+                             Round Gothic', 'Tsukushi B                         
+                             Round Gothic', 'Verdana',                          
+                             'Waseem', 'Wawati SC', 'Wawati                     
+                             TC', 'Webdings', 'Weibei SC',                      
+                             'Weibei TC', 'Wingdings',                          
+                             'Wingdings 2', 'Wingdings 3',                      
+                             'Xingkai SC', 'Xingkai TC',                        
+                             'YuGothic', 'YuKyokasho',                          
+                             'YuKyokasho Yoko', 'YuMincho',                     
+                             'YuMincho +36p Kana', 'Yuanti                      
+                             SC', 'Yuanti TC', 'Yuppy SC',                      
+                             'Yuppy TC', 'Zapf Dingbats',                       
+                             'Zapfino', 'cursive',                              
+                             'fantasy', 'system-ui'].                           
+Animation 2: FadeIn(VGroup of 2 submobjects):   0%|          | 0/30 [00:00<?, ?it/s]Animation 2: FadeIn(VGroup of 2 submobjects):  40%|████      | 12/30 [00:00<00:00, 115.22it/s]Animation 2: FadeIn(VGroup of 2 submobjects):  80%|████████  | 24/30 [00:00<00:00, 113.88it/s]                                                                                              [02/27/26 12:07:16] INFO     Animation 2 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/656162490_1                         
+                             46564248_520601141.mp4'                            
+Animation 3: Flash(VGroup of 12 submobjects), etc.:   0%|          | 0/24 [00:00<?, ?it/s]Animation 3: Flash(VGroup of 12 submobjects), etc.:  46%|████▌     | 11/24 [00:00<00:00, 109.71it/s]Animation 3: Flash(VGroup of 12 submobjects), etc.: 100%|██████████| 24/24 [00:00<00:00, 117.44it/s]                                                                                                    [02/27/26 12:07:17] INFO     Animation 3 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/656162490_1                         
+                             428119065_2622951401.mp4'                          
+[02/27/26 12:07:18] INFO     Animation 4 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/656162490_1                         
+                             433877407_4269161401.mp4'                          
+Animation 5: FadeOut(Text('如果命题是真的\n反过来说还是真的吗?')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]Animation 5: FadeOut(Text('如果命题是真的\n反过来说还是真的吗?')), etc.:  20%|██        | 6/30 [00:00<00:00, 54.90it/s]Animation 5: FadeOut(Text('如果命题是真的\n反过来说还是真的吗?')), etc.:  40%|████      | 12/30 [00:00<00:00, 55.04it/s]Animation 5: FadeOut(Text('如果命题是真的\n反过来说还是真的吗?')), etc.:  60%|██████    | 18/30 [00:00<00:00, 54.38it/s]Animation 5: FadeOut(Text('如果命题是真的\n反过来说还是真的吗?')), etc.:  80%|████████  | 24/30 [00:00<00:00, 52.71it/s]                                                                                                                        [02/27/26 12:07:20] INFO     Animation 5 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/656162490_3                         
+                             761539388_3872910545.mp4'                          
+                    WARNING  Font Noto Sans CJK SC not in    text_mobject.py:464
+                             ['.AppleSystemUIFont', 'Academy                    
+                             Engraved LET', 'Al Bayan', 'Al                     
+                             Nile', 'Al Tarikh', 'American                      
+                             Typewriter', 'Andale Mono',                        
+                             'Apple Braille', 'Apple                            
+                             Chancery', 'Apple Color Emoji',                    
+                             'Apple LiGothic', 'Apple                           
+                             LiSung', 'Apple SD Gothic Neo',                    
+                             'Apple Symbols', 'AppleGothic',                    
+                             'AppleMyungjo', 'Arial', 'Arial                    
+                             Black', 'Arial Hebrew', 'Arial                     
+                             Hebrew Scholar', 'Arial                            
+                             Narrow', 'Arial Rounded MT                         
+                             Bold', 'Arial Unicode MS',                         
+                             'Avenir', 'Avenir Next',                           
+                             'Avenir Next Condensed',                           
+                             'Ayuthaya', 'BIZ UDGothic',                        
+                             'BIZ UDMincho', 'BM Dohyeon',                      
+                             'BM Hanna 11yrs Old', 'BM Hanna                    
+                             Air', 'BM Hanna Pro', 'BM Jua',                    
+                             'BM Kirang Haerang', 'BM                           
+                             Yeonsung', 'Baghdad', 'Bangla                      
+                             MN', 'Bangla Sangam MN', 'Baoli                    
+                             SC', 'Baoli TC', 'Baskerville',                    
+                             'Beirut', 'BiauKaiHK',                             
+                             'BiauKaiTC', 'Big Caslon',                         
+                             'Bodoni 72', 'Bodoni 72                            
+                             Oldstyle', 'Bodoni 72                              
+                             Smallcaps', 'Bodoni Ornaments',                    
+                             'Bradley Hand', 'Brush Script                      
+                             MT', 'Chalkboard', 'Chalkboard                     
+                             SE', 'Chalkduster', 'Charter',                     
+                             'Cochin', 'Comic Sans MS',                         
+                             'Copperplate', 'Corsiva                            
+                             Hebrew', 'Courier New', 'DIN                       
+                             Alternate', 'DIN Condensed',                       
+                             'Damascus', 'DecoType Naskh',                      
+                             'Devanagari MT', 'Devanagari                       
+                             Sangam MN', 'Didot', 'Diwan                        
+                             Kufi', 'Diwan Thuluth',                            
+                             'Euphemia UCAS', 'Farah',                          
+                             'Farisi', 'Futura', 'GB18030                       
+                             Bitmap', 'Galvji', 'Geeza Pro',                    
+                             'Geneva', 'Georgia', 'Gill                         
+                             Sans', 'Grantha Sangam MN',                        
+                             'Gujarati MT', 'Gujarati Sangam                    
+                             MN', 'GungSeo', 'Gurmukhi MN',                     
+                             'Gurmukhi MT', 'Gurmukhi Sangam                    
+                             MN', 'Hannotate SC', 'Hannotate                    
+                             TC', 'HanziPen SC', 'HanziPen                      
+                             TC', 'HeadLineA', 'Hei', 'Heiti                    
+                             SC', 'Heiti TC', 'Helvetica',                      
+                             'Helvetica Neue', 'Herculanum',                    
+                             'Hiragino Maru Gothic ProN',                       
+                             'Hiragino Mincho ProN',                            
+                             'Hiragino Sans', 'Hiragino Sans                    
+                             GB', 'Hoefler Text', 'ITF                          
+                             Devanagari', 'ITF Devanagari                       
+                             Marathi', 'Impact',                                
+                             'InaiMathi', 'Kai', 'Kailasa',                     
+                             'Kaiti SC', 'Kaiti TC',                            
+                             'Kannada MN', 'Kannada Sangam                      
+                             MN', 'Kefa III', 'Khmer MN',                       
+                             'Khmer Sangam MN', 'Klee',                         
+                             'Kohinoor Bangla', 'Kohinoor                       
+                             Devanagari', 'Kohinoor                             
+                             Gujarati', 'Kohinoor Telugu',                      
+                             'Kokonor', 'Krungthep',                            
+                             'KufiStandardGK', 'LXGW                            
+                             ZhenKai', 'Lantinghei SC',                         
+                             'Lantinghei TC', 'Lao MN', 'Lao                    
+                             Sangam MN', 'LiHei Pro',                           
+                             'LiSong Pro', 'Libian SC',                         
+                             'Libian TC', 'LingWai SC',                         
+                             'LingWai TC', 'Lucida Grande',                     
+                             'Luminari', 'Malayalam MN',                        
+                             'Malayalam Sangam MN', 'Marker                     
+                             Felt', 'Menlo', 'Microsoft Sans                    
+                             Serif', 'Mishafi', 'Mishafi                        
+                             Gold', 'Monaco', 'Monospace',                      
+                             'Mshtakan', 'Mukta Mahee',                         
+                             'Muna', 'Myanmar MN', 'Myanmar                     
+                             Sangam MN', 'Nadeem', 'Nanum                       
+                             Brush Script', 'Nanum Gothic',                     
+                             'Nanum Myeongjo', 'Nanum Pen                       
+                             Script', 'New Peninim MT',                         
+                             'Noteworthy', 'Noto Nastaliq                       
+                             Urdu', 'Noto Sans Batak', 'Noto                    
+                             Sans Kannada', 'Noto Sans                          
+                             Myanmar', 'Noto Sans NKo',                         
+                             'Noto Sans Oriya', 'Noto Sans                      
+                             Syriac', 'Noto Sans Tagalog',                      
+                             'Noto Serif Myanmar', 'Optima',                    
+                             'Oriya MN', 'Oriya Sangam MN',                     
+                             'Osaka', 'PCMyungjo', 'PT                          
+                             Mono', 'PT Sans', 'PT Sans                         
+                             Caption', 'PT Sans Narrow', 'PT                    
+                             Serif', 'PT Serif Caption',                        
+                             'Palatino', 'Papyrus', 'Party                      
+                             LET', 'Phosphate', 'PilGi',                        
+                             'PingFang HK', 'PingFang MO',                      
+                             'PingFang SC', 'PingFang TC',                      
+                             'Plantagenet Cherokee',                            
+                             'Raanana', 'Rockwell',                             
+                             'STFangsong', 'STHeiti', 'STIX                     
+                             Two Math', 'STIX Two Text',                        
+                             'STKaiti', 'STSong', 'Sana',                       
+                             'Sans', 'Sathu', 'Savoye LET',                     
+                             'Serif', 'Shree Devanagari                         
+                             714', 'SignPainter', 'Silom',                      
+                             'SimSong', 'Sinhala MN',                           
+                             'Sinhala Sangam MN', 'Skia',                       
+                             'Snell Roundhand', 'Songti SC',                    
+                             'Songti TC', 'Sukhumvit Set',                      
+                             'Symbol', 'Tahoma', 'Tamil MN',                    
+                             'Tamil Sangam MN', 'Telugu MN',                    
+                             'Telugu Sangam MN', 'Thonburi',                    
+                             'Times New Roman', 'Toppan                         
+                             Bunkyu Gothic', 'Toppan Bunkyu                     
+                             Midashi Gothic', 'Toppan Bunkyu                    
+                             Midashi Mincho', 'Toppan Bunkyu                    
+                             Mincho', 'Trattatello',                            
+                             'Trebuchet MS', 'Tsukushi A                        
+                             Round Gothic', 'Tsukushi B                         
+                             Round Gothic', 'Verdana',                          
+                             'Waseem', 'Wawati SC', 'Wawati                     
+                             TC', 'Webdings', 'Weibei SC',                      
+                             'Weibei TC', 'Wingdings',                          
+                             'Wingdings 2', 'Wingdings 3',                      
+                             'Xingkai SC', 'Xingkai TC',                        
+                             'YuGothic', 'YuKyokasho',                          
+                             'YuKyokasho Yoko', 'YuMincho',                     
+                             'YuMincho +36p Kana', 'Yuanti                      
+                             SC', 'Yuanti TC', 'Yuppy SC',                      
+                             'Yuppy TC', 'Zapf Dingbats',                       
+                             'Zapfino', 'cursive',                              
+                             'fantasy', 'system-ui'].                           
+Animation 6: FadeIn(Text('逆命题的定义')):   0%|          | 0/30 [00:00<?, ?it/s]Animation 6: FadeIn(Text('逆命题的定义')):  17%|█▋        | 5/30 [00:00<00:00, 49.68it/s]Animation 6: FadeIn(Text('逆命题的定义')):  50%|█████     | 15/30 [00:00<00:00, 77.42it/s]Animation 6: FadeIn(Text('逆命题的定义')):  93%|█████████▎| 28/30 [00:00<00:00, 100.66it/s]                                                                                           [02/27/26 12:07:21] INFO     Animation 6 : Partial      scene_file_writer.py:590
+                             movie file written in                              
+                             '/Users/mx/Desktop/manim_m                         
+                             ath/初中/八年级/第一学期/                          
+                             第十九章-几何证明/002逆命                          
+                             题与逆定理/media/videos/in                         
+                             verse_propositions/1920p60                         
+                             /partial_movie_files/Inver                         
+                             sePropositions/656162490_1                         
+                             730661061_439091960.mp4'                           
+                    WARNING  Font Noto Sans CJK SC not in    text_mobject.py:464
+                             ['.AppleSystemUIFont', 'Academy                    
+                             Engraved LET', 'Al Bayan', 'Al                     
+                             Nile', 'Al Tarikh', 'American                      
+                             Typewriter', 'Andale Mono',                        
+                             'Apple Braille', 'Apple                            
+                             Chancery', 'Apple Color Emoji',                    
+                             'Apple LiGothic', 'Apple                           
+                             LiSung', 'Apple SD Gothic Neo',                    
+                             'Apple Symbols', 'AppleGothic',                    
+                             'AppleMyungjo', 'Arial', 'Arial                    
+                             Black', 'Arial Hebrew', 'Arial                     
+                             Hebrew Scholar', 'Arial                            
+                             Narrow', 'Arial Rounded MT                         
+                             Bold', 'Arial Unicode MS',                         
+                             'Avenir', 'Avenir Next',                           
+                             'Avenir Next Condensed',                           
+                             'Ayuthaya', 'BIZ UDGothic',                        
+                             'BIZ UDMincho', 'BM Dohyeon',                      
+                             'BM Hanna 11yrs Old', 'BM Hanna                    
+                             Air', 'BM Hanna Pro', 'BM Jua',                    
+                             'BM Kirang Haerang', 'BM                           
+                             Yeonsung', 'Baghdad', 'Bangla                      
+                             MN', 'Bangla Sangam MN', 'Baoli                    
+                             SC', 'Baoli TC', 'Baskerville',                    
+                             'Beirut', 'BiauKaiHK',                             
+                             'BiauKaiTC', 'Big Caslon',                         
+                             'Bodoni 72', 'Bodoni 72                            
+                             Oldstyle', 'Bodoni 72                              
+                             Smallcaps', 'Bodoni Ornaments',                    
+                             'Bradley Hand', 'Brush Script                      
+                             MT', 'Chalkboard', 'Chalkboard                     
+                             SE', 'Chalkduster', 'Charter',                     
+                             'Cochin', 'Comic Sans MS',                         
+                             'Copperplate', 'Corsiva                            
+                             Hebrew', 'Courier New', 'DIN                       
+                             Alternate', 'DIN Condensed',                       
+                             'Damascus', 'DecoType Naskh',                      
+                             'Devanagari MT', 'Devanagari                       
+                             Sangam MN', 'Didot', 'Diwan                        
+                             Kufi', 'Diwan Thuluth',                            
+                             'Euphemia UCAS', 'Farah',                          
+                             'Farisi', 'Futura', 'GB18030                       
+                             Bitmap', 'Galvji', 'Geeza Pro',                    
+                             'Geneva', 'Georgia', 'Gill                         
+                             Sans', 'Grantha Sangam MN',                        
+                             'Gujarati MT', 'Gujarati Sangam                    
+                             MN', 'GungSeo', 'Gurmukhi MN',                     
+                             'Gurmukhi MT', 'Gurmukhi Sangam                    
+                             MN', 'Hannotate SC', 'Hannotate                    
+                             TC', 'HanziPen SC', 'HanziPen                      
+                             TC', 'HeadLineA', 'Hei', 'Heiti                    
+                             SC', 'Heiti TC', 'Helvetica',                      
+                             'Helvetica Neue', 'Herculanum',                    
+                             'Hiragino Maru Gothic ProN',                       
+                             'Hiragino Mincho ProN',                            
+                             'Hiragino Sans', 'Hiragino Sans                    
+                             GB', 'Hoefler Text', 'ITF                          
+                             Devanagari', 'ITF Devanagari                       
+                             Marathi', 'Impact',                                
+                             'InaiMathi', 'Kai', 'Kailasa',                     
+                             'Kaiti SC', 'Kaiti TC',                            
+                             'Kannada MN', 'Kannada Sangam                      
+                             MN', 'Kefa III', 'Khmer MN',                       
+                             'Khmer Sangam MN', 'Klee',                         
+                             'Kohinoor Bangla', 'Kohinoor                       
+                             Devanagari', 'Kohinoor                             
+                             Gujarati', 'Kohinoor Telugu',                      
+                             'Kokonor', 'Krungthep',                            
+                             'KufiStandardGK', 'LXGW                            
+                             ZhenKai', 'Lantinghei SC',                         
+                             'Lantinghei TC', 'Lao MN', 'Lao                    
+                             Sangam MN', 'LiHei Pro',                           
+                             'LiSong Pro', 'Libian SC',                         
+                             'Libian TC', 'LingWai SC',                         
+                             'LingWai TC', 'Lucida Grande',                     
+                             'Luminari', 'Malayalam MN',                        
+                             'Malayalam Sangam MN', 'Marker                     
+                             Felt', 'Menlo', 'Microsoft Sans                    
+                             Serif', 'Mishafi', 'Mishafi                        
+                             Gold', 'Monaco', 'Monospace',                      
+                             'Mshtakan', 'Mukta Mahee',                         
+                             'Muna', 'Myanmar MN', 'Myanmar                     
+                             Sangam MN', 'Nadeem', 'Nanum                       
+                             Brush Script', 'Nanum Gothic',                     
+                             'Nanum Myeongjo', 'Nanum Pen                       
+                             Script', 'New Peninim MT',                         
+                             'Noteworthy', 'Noto Nastaliq                       
+                             Urdu', 'Noto Sans Batak', 'Noto                    
+                             Sans Kannada', 'Noto Sans                          
+                             Myanmar', 'Noto Sans NKo',                         
+                             'Noto Sans Oriya', 'Noto Sans                      
+                             Syriac', 'Noto Sans Tagalog',                      
+                             'Noto Serif Myanmar', 'Optima',                    
+                             'Oriya MN', 'Oriya Sangam MN',                     
+                             'Osaka', 'PCMyungjo', 'PT                          
+                             Mono', 'PT Sans', 'PT Sans                         
+                             Caption', 'PT Sans Narrow', 'PT                    
+                             Serif', 'PT Serif Caption',                        
+                             'Palatino', 'Papyrus', 'Party                      
+                             LET', 'Phosphate', 'PilGi',                        
+                             'PingFang HK', 'PingFang MO',                      
+                             'PingFang SC', 'PingFang TC',                      
+                             'Plantagenet Cherokee',                            
+                             'Raanana', 'Rockwell',                             
+                             'STFangsong', 'STHeiti', 'STIX                     
+                             Two Math', 'STIX Two Text',                        
+                             'STKaiti', 'STSong', 'Sana',                       
+                             'Sans', 'Sathu', 'Savoye LET',                     
+                             'Serif', 'Shree Devanagari                         
+                             714', 'SignPainter', 'Silom',                      
+                             'SimSong', 'Sinhala MN',                           
+                             'Sinhala Sangam MN', 'Skia',                       
+                             'Snell Roundhand', 'Songti SC',                    
+                             'Songti TC', 'Sukhumvit Set',                      
+                             'Symbol', 'Tahoma', 'Tamil MN',                    
+                             'Tamil Sangam MN', 'Telugu MN',                    
+                             'Telugu Sangam MN', 'Thonburi',                    
+                             'Times New Roman', 'Toppan                         
+                             Bunkyu Gothic', 'Toppan Bunkyu                     
+                             Midashi Gothic', 'Toppan Bunkyu                    
+                             Midashi Mincho', 'Toppan Bunkyu                    
+                             Mincho', 'Trattatello',                            
+                             'Trebuchet MS', 'Tsukushi A                        
+                             Round Gothic', 'Tsukushi B                         
+                             Round Gothic', 'Verdana',                          
+                             'Waseem', 'Wawati SC', 'Wawati                     
+                             TC', 'Webdings', 'Weibei SC',                      
+                             'Weibei TC', 'Wingdings',                          
+                             'Wingdings 2', 'Wingdings 3',                      
+                             'Xingkai SC', 'Xingkai TC',                        
+                             'YuGothic', 'YuKyokasho',                          
+                             'YuKyokasho Yoko', 'YuMincho',                     
+                             'YuMincho +36p Kana', 'Yuanti                      
+                             SC', 'Yuanti TC', 'Yuppy SC',                      
+                             'Yuppy TC', 'Zapf Dingbats',                       
+                             'Zapfino', 'cursive',                              
+                             'fantasy', 'system-ui'].                           
+                    INFO     Writing                     tex_file_writing.py:110
+                             \special{dvisvgm:raw <g                            
+                             id='unique000'>}\text{若}                          
+                             \, p \, \text{则} \,                               
+                             q\special{dvisvgm:raw </g>}                        
+                             to                                                 
+                             media/Tex/18576c7ce8b84123.                        
+                             tex                                                
+                    ERROR    LaTeX compilation error:    tex_file_writing.py:313
+                             LaTeX Error: Unicode                               
+                             character 若 (U+82E5)                              
+                                                                                
+                    ERROR    Context of error:           tex_file_writing.py:347
+                             -> \special{dvisvgm:raw <g                         
+                             id='unique000'>}\text{若}                          
+                             \, p \, \text{则} \,                               
+                             q\special{dvisvgm:raw </g>}                        
+                             \end{align*}                                       
+                             \end{document}                                     
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/cli │
+│ /render/commands.py:125 in render                                            │
+│                                                                              │
+│   122 │   │   │   try:                                                       │
+│   123 │   │   │   │   with tempconfig({}):                                   │
+│   124 │   │   │   │   │   scene = SceneClass()                               │
+│ ❱ 125 │   │   │   │   │   scene.render()                                     │
+│   126 │   │   │   except Exception:                                          │
+│   127 │   │   │   │   error_console.print_exception()                        │
+│   128 │   │   │   │   sys.exit(1)                                            │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/sce │
+│ ne/scene.py:259 in render                                                    │
+│                                                                              │
+│    256 │   │   """                                                           │
+│    257 │   │   self.setup()                                                  │
+│    258 │   │   try:                                                          │
+│ ❱  259 │   │   │   self.construct()                                          │
+│    260 │   │   except EndSceneEarlyException:                                │
+│    261 │   │   │   pass                                                      │
+│    262 │   │   except RerunSceneException:                                   │
+│                                                                              │
+│ /Users/mx/Desktop/manim_math/初中/八年级/第一学期/第十九章-几何证明/002逆命  │
+│ 题与逆定理/inverse_propositions.py:51 in construct                           │
+│                                                                              │
+│    48 │   │                                                                  │
+│    49 │   │   # 执行动画序列                                                 │
+│    50 │   │   self.show_opening()                                            │
+│ ❱  51 │   │   self.show_definition()                                         │
+│    52 │   │   self.show_example_isosceles()                                  │
+│    53 │   │   self.show_key_relationship()                                   │
+│    54 │   │   self.show_counter_example()                                    │
+│                                                                              │
+│ /Users/mx/Desktop/manim_math/初中/八年级/第一学期/第十九章-几何证明/002逆命  │
+│ 题与逆定理/inverse_propositions.py:127 in show_definition                    │
+│                                                                              │
+│   124 │   │                                                                  │
+│   125 │   │   prop_text = VGroup(                                            │
+│   126 │   │   │   Text("原命题:", font="Noto Sans CJK SC", font_size=24, col │
+│ ❱ 127 │   │   │   MathTex(r"\text{若} \, p \, \text{则} \, q", font_size=32, │
+│   128 │   │   ).arrange(RIGHT, buff=0.3).move_to(prop_box.get_center())      │
+│   129 │   │                                                                  │
+│   130 │   │   self.play(Create(prop_box), run_time=0.5)                      │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/mob │
+│ ject/text/tex_mobject.py:309 in __init__                                     │
+│                                                                              │
+│   306 │   │   │   │   │   │   """,                                           │
+│   307 │   │   │   │   │   ),                                                 │
+│   308 │   │   │   │   )                                                      │
+│ ❱ 309 │   │   │   raise compilation_error                                    │
+│   310 │   │   self.set_color_by_tex_to_color_map(self.tex_to_color_map)      │
+│   311 │   │                                                                  │
+│   312 │   │   if self.organize_left_to_right:                                │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/mob │
+│ ject/text/tex_mobject.py:286 in __init__                                     │
+│                                                                              │
+│   283 │   │   │   joined_string = self._join_tex_strings_with_unique_delimin │
+│   284 │   │   │   │   self.tex_strings, self.substrings_to_isolate           │
+│   285 │   │   │   )                                                          │
+│ ❱ 286 │   │   │   super().__init__(                                          │
+│   287 │   │   │   │   joined_string,                                         │
+│   288 │   │   │   │   tex_environment=self.tex_environment,                  │
+│   289 │   │   │   │   tex_template=self.tex_template,                        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/mob │
+│ ject/text/tex_mobject.py:81 in __init__                                      │
+│                                                                              │
+│    78 │   │   self.tex_template: TexTemplate = tex_template                  │
+│    79 │   │                                                                  │
+│    80 │   │   self.tex_string = tex_string                                   │
+│ ❱  81 │   │   file_name = tex_to_svg_file(                                   │
+│    82 │   │   │   self._get_modified_expression(tex_string),                 │
+│    83 │   │   │   environment=self.tex_environment,                          │
+│    84 │   │   │   tex_template=self.tex_template,                            │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/uti │
+│ ls/tex_file_writing.py:65 in tex_to_svg_file                                 │
+│                                                                              │
+│    62 │   if svg_file.exists():                                              │
+│    63 │   │   return svg_file                                                │
+│    64 │                                                                      │
+│ ❱  65 │   dvi_file = compile_tex(                                            │
+│    66 │   │   tex_file,                                                      │
+│    67 │   │   tex_template.tex_compiler,                                     │
+│    68 │   │   tex_template.output_format,                                    │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/uti │
+│ ls/tex_file_writing.py:211 in compile_tex                                    │
+│                                                                              │
+│   208 │   │   if cp.returncode != 0:                                         │
+│   209 │   │   │   log_file = tex_file.with_suffix(".log")                    │
+│   210 │   │   │   print_all_tex_errors(log_file, tex_compiler, tex_file)     │
+│ ❱ 211 │   │   │   raise ValueError(                                          │
+│   212 │   │   │   │   f"{tex_compiler} error converting to"                  │
+│   213 │   │   │   │   f" {output_format[1:]}. See log output above or"       │
+│   214 │   │   │   │   f" the log file: {log_file}",                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ValueError: latex error converting to dvi. See log output above or the log file:
+media/Tex/18576c7ce8b84123.log

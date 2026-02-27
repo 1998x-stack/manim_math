@@ -1,0 +1,18 @@
+{
+  "todo_files": [
+    {
+      "filename": "TODO1.md",
+      "category": "python_files_over_200_lines",
+      "description": "Directories with Python files over 200 lines that need manim execution and error fixing",
+      "count": 61,
+      "next_step": "Read TODO2.md"
+    },
+    {
+      "filename": "TODO2.md",
+      "category": "python_files_under_or_equal_200_lines_or_no_python",
+      "description": "Directories with Python files under 200 lines or no Python files that need regeneration via manim skill",
+      "count": 21,
+      "next_step": "Read TODO3.md"
+    }
+  ]
+}

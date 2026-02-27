@@ -16,3 +16,13 @@ Process prompts.md files one by one to create math animations using Manim, verif
 - [ ] Update storyboards and Python files for each
 - [ ] Verify generated code
 - [ ] Generate final MP4 files
+
+## Updated Status (Feb 27, 2026)
+- Video 1 (PropositionAndProof): ✅ Completed successfully
+- Video 2 (PopulationSample): ✅ Completed after code fix
+- Video 3 (LinearFunctionConcept): 🔄 Retried after LaTeX error (nohup_retry.log)
+- Video 4 (Probability): 🔄 Retried after partial completion (nohup_retry.log)
+- Videos 5+: Pending completion of current processes
+
+## Current Concurrent Processing Limit
+Maintaining maximum 2 concurrent manim processes as specified

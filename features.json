@@ -1,0 +1,807 @@
+{
+  "directories_over_200_lines": [
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/001命题与证明",
+      "total_lines": 918,
+      "python_files": [
+        {
+          "name": "proposition_and_proof.py",
+          "lines": 918
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/001总体与样本",
+      "total_lines": 591,
+      "python_files": [
+        {
+          "name": "population_sample_animation.py",
+          "lines": 591
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/001一次函数的概念",
+      "total_lines": 882,
+      "python_files": [
+        {
+          "name": "linear_function_concept.py",
+          "lines": 882
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/001随机事件与概率",
+      "total_lines": 722,
+      "python_files": [
+        {
+          "name": "probability.py",
+          "lines": 722
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/001长方体的基本元素",
+      "total_lines": 1249,
+      "python_files": [
+        {
+          "name": "cuboid_elements.py",
+          "lines": 1249
+        }
+      ]
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/001直线的倾斜角与斜率",
+      "total_lines": 636,
+      "python_files": [
+        {
+          "name": "slope_inclination.py",
+          "lines": 636
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算",
+      "total_lines": 847,
+      "python_files": [
+        {
+          "name": "logarithm_concepts.py",
+          "lines": 847
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/002棱柱",
+      "total_lines": 895,
+      "python_files": [
+        {
+          "name": "002_棱柱.py",
+          "lines": 33
+        },
+        {
+          "name": "prism_lesson.py",
+          "lines": 862
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/002一元二次不等式",
+      "total_lines": 1122,
+      "python_files": [
+        {
+          "name": "verify_geometry.py",
+          "lines": 307
+        },
+        {
+          "name": "quadratic_inequality.py",
+          "lines": 815
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/002任意角的三角比",
+      "total_lines": 1067,
+      "python_files": [
+        {
+          "name": "any_angle_trigonometry.py",
+          "lines": 1067
+        }
+      ]
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/002统计图表",
+      "total_lines": 912,
+      "python_files": [
+        {
+          "name": "statistical_charts.py",
+          "lines": 912
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第一章-集合与命题/002集合间的关系",
+      "total_lines": 1193,
+      "python_files": [
+        {
+          "name": "verify_sets.py",
+          "lines": 215
+        },
+        {
+          "name": "set_relations.py",
+          "lines": 978
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/002抽样技术",
+      "total_lines": 644,
+      "python_files": [
+        {
+          "name": "sampling_techniques_animation.py",
+          "lines": 644
+        }
+      ]
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/002圆的确定",
+      "total_lines": 797,
+      "python_files": [
+        {
+          "name": "circle_determination.py",
+          "lines": 797
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/002逆命题与逆定理",
+      "total_lines": 880,
+      "python_files": [
+        {
+          "name": "inverse_propositions.py",
+          "lines": 880
+        }
+      ]
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/002直线的方程",
+      "total_lines": 632,
+      "python_files": [
+        {
+          "name": "line_equations.py",
+          "lines": 632
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/002反函数",
+      "total_lines": 908,
+      "python_files": [
+        {
+          "name": "inverse_functions.py",
+          "lines": 908
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/003分式不等式",
+      "total_lines": 736,
+      "python_files": [
+        {
+          "name": "fractional_inequalities.py",
+          "lines": 564
+        },
+        {
+          "name": "verify_geometry.py",
+          "lines": 172
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/003频率与概率",
+      "total_lines": 722,
+      "python_files": [
+        {
+          "name": "freq_prob_animation.py",
+          "lines": 722
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/003频率分布与统计图表",
+      "total_lines": 753,
+      "python_files": [
+        {
+          "name": "freq_dist_animation.py",
+          "lines": 753
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十八章-正比例函数和反比例函数/003反比例函数",
+      "total_lines": 372,
+      "python_files": [
+        {
+          "name": "inverse_proportion.py",
+          "lines": 372
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/003对数函数",
+      "total_lines": 657,
+      "python_files": [
+        {
+          "name": "logarithm_function.py",
+          "lines": 657
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/004棱台",
+      "total_lines": 703,
+      "python_files": [
+        {
+          "name": "frustum_lesson.py",
+          "lines": 703
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/004含绝对值不等式",
+      "total_lines": 1900,
+      "python_files": [
+        {
+          "name": "absolute_value_inequalities.py",
+          "lines": 523
+        },
+        {
+          "name": "verify_geometry.py",
+          "lines": 331
+        },
+        {
+          "name": "AbsoluteValueInequalitiesAnimation.py",
+          "lines": 527
+        },
+        {
+          "name": "AbsoluteValueInequalities.py",
+          "lines": 519
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/004两角和与差的三角函数",
+      "total_lines": 863,
+      "python_files": [
+        {
+          "name": "sum_difference_angles.py",
+          "lines": 863
+        }
+      ]
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根",
+      "total_lines": 552,
+      "python_files": [
+        {
+          "name": "complex_roots.py",
+          "lines": 552
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/004矩形的性质与判定",
+      "total_lines": 456,
+      "python_files": [
+        {
+          "name": "rectangle_properties.py",
+          "lines": 456
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/004数据的集中趋势",
+      "total_lines": 795,
+      "python_files": [
+        {
+          "name": "central_tendency_animation.py",
+          "lines": 795
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十八章-正比例函数和反比例函数/004待定系数法",
+      "total_lines": 396,
+      "python_files": [
+        {
+          "name": "undetermined_coeff.py",
+          "lines": 396
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/004线段垂直平分线的性质与判定",
+      "total_lines": 693,
+      "python_files": [
+        {
+          "name": "perpendicular_bisector.py",
+          "lines": 693
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式",
+      "total_lines": 812,
+      "python_files": [
+        {
+          "name": "linear_function_undetermined_coefficients.py",
+          "lines": 812
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/004一元一次不等式",
+      "total_lines": 718,
+      "python_files": [
+        {
+          "name": "linear_inequality.py",
+          "lines": 718
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程",
+      "total_lines": 773,
+      "python_files": [
+        {
+          "name": "exponential_logarithmic.py",
+          "lines": 773
+        }
+      ]
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/005实数的运算",
+      "total_lines": 567,
+      "python_files": [
+        {
+          "name": "real_number_ops.py",
+          "lines": 567
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第六章-三角函数/005最简三角方程",
+      "total_lines": 786,
+      "python_files": [
+        {
+          "name": "simplest_trig_equations.py",
+          "lines": 786
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/005二倍角与半角公式",
+      "total_lines": 839,
+      "python_files": [
+        {
+          "name": "double_angle_formulas.py",
+          "lines": 839
+        }
+      ]
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/005实系数一元二次方程",
+      "total_lines": 541,
+      "python_files": [
+        {
+          "name": "complex_quadratic.py",
+          "lines": 541
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/005函数的奇偶性",
+      "total_lines": 1177,
+      "python_files": [
+        {
+          "name": "function_parity.py",
+          "lines": 1177
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/005菱形的性质与判定",
+      "total_lines": 528,
+      "python_files": [
+        {
+          "name": "rhombus_properties.py",
+          "lines": 528
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/005基本不等式（均值不等式）",
+      "total_lines": 827,
+      "python_files": [
+        {
+          "name": "005_基本不等式（均值不等式）.py",
+          "lines": 514
+        },
+        {
+          "name": "verify_geometry.py",
+          "lines": 313
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/005条件概率与独立事件",
+      "total_lines": 705,
+      "python_files": [
+        {
+          "name": "cond_prob_animation.py",
+          "lines": 705
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/005角平分线的性质与判定",
+      "total_lines": 702,
+      "python_files": [
+        {
+          "name": "angle_bisector.py",
+          "lines": 702
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/005平面与平面的位置关系",
+      "total_lines": 353,
+      "python_files": [
+        {
+          "name": "verify_geometry.py",
+          "lines": 223
+        },
+        {
+          "name": "005_平面与平面的位置关系.py",
+          "lines": 130
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/005一次函数与方程、不等式的关系",
+      "total_lines": 756,
+      "python_files": [
+        {
+          "name": "linear_function_equation_inequality.py",
+          "lines": 756
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/006正弦定理",
+      "total_lines": 715,
+      "python_files": [
+        {
+          "name": "006_正弦定理.py",
+          "lines": 715
+        }
+      ]
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/006分数指数幂",
+      "total_lines": 592,
+      "python_files": [
+        {
+          "name": "frac_exponent.py",
+          "lines": 592
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/006不等式的证明",
+      "total_lines": 825,
+      "python_files": [
+        {
+          "name": "verify_geometry.py",
+          "lines": 304
+        },
+        {
+          "name": "InequalityProofsAnimation.py",
+          "lines": 521
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/006统计估计",
+      "total_lines": 668,
+      "python_files": [
+        {
+          "name": "stat_estimation.py",
+          "lines": 668
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/006函数的最值",
+      "total_lines": 661,
+      "python_files": [
+        {
+          "name": "function_max_min.py",
+          "lines": 661
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/006根的判别式",
+      "total_lines": 951,
+      "python_files": [
+        {
+          "name": "quadratic_discriminant.py",
+          "lines": 951
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/007分数的乘法",
+      "total_lines": 945,
+      "python_files": [
+        {
+          "name": "fraction_multiplication.py",
+          "lines": 945
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/007线性回归",
+      "total_lines": 636,
+      "python_files": [
+        {
+          "name": "linear_regression.py",
+          "lines": 636
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/007根与系数的关系（韦达定理）",
+      "total_lines": 742,
+      "python_files": [
+        {
+          "name": "vieta_formulas.py",
+          "lines": 742
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/008统计案例分析",
+      "total_lines": 792,
+      "python_files": [
+        {
+          "name": "chi_square.py",
+          "lines": 792
+        }
+      ]
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/008抛物线的几何性质",
+      "total_lines": 910,
+      "python_files": [
+        {
+          "name": "parabola_properties.py",
+          "lines": 910
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/009有理数的除法",
+      "total_lines": 844,
+      "python_files": [
+        {
+          "name": "rational_division.py",
+          "lines": 844
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/009分数与小数的互化",
+      "total_lines": 965,
+      "python_files": [
+        {
+          "name": "fraction_decimal.py",
+          "lines": 965
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/010有理数的乘方",
+      "total_lines": 756,
+      "python_files": [
+        {
+          "name": "power_of_numbers.py",
+          "lines": 756
+        }
+      ]
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/010向量的加法与减法",
+      "total_lines": 989,
+      "python_files": [
+        {
+          "name": "vector_addition_subtraction.py",
+          "lines": 989
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/011有理数混合运算",
+      "total_lines": 950,
+      "python_files": [
+        {
+          "name": "rational_number_mixed_operations.py",
+          "lines": 950
+        }
+      ]
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/011弧长与扇形面积",
+      "total_lines": 1068,
+      "python_files": [
+        {
+          "name": "arc_length_sector_area.py",
+          "lines": 1068
+        }
+      ]
+    }
+  ],
+  "directories_under_or_equal_200_lines": [
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/001对顶角与邻补角",
+      "total_lines": 0,
+      "has_python_files": false
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/002垂线及其性质",
+      "total_lines": 0,
+      "has_python_files": false
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/003三线八角模型",
+      "total_lines": 0,
+      "has_python_files": false
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/004平行线的判定",
+      "total_lines": 0,
+      "has_python_files": false
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/005平行线的性质",
+      "total_lines": 0,
+      "has_python_files": false
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/002长方体的直观图画法",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "002_长方体的直观图画法.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/003同角三角比的关系与诱导公式",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "003_同角三角比的关系与诱导公式.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/003空间直线与直线的位置关系",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "003_空间直线与直线的位置关系.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/004直线与平面的位置关系",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "004_直线与平面的位置关系.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/005圆柱",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "005_圆柱.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/006圆锥",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "006_圆锥.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/006长方体的棱长和、表面积和体积",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "006_长方体的棱长和、表面积和体积.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/007圆台",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "007_圆台.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/008球",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "008_球.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/009球面距离",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "009_球面距离.py",
+          "lines": 33
+        }
+      ]
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/010直观图画法",
+      "total_lines": 33,
+      "has_python_files": true,
+      "python_files": [
+        {
+          "name": "010_直观图画法.py",
+          "lines": 33
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_directories_without_mp4": 82,
+    "directories_with_python_over_200_lines": 61,
+    "directories_with_python_under_or_equal_200_lines": 21
+  }
+}

@@ -334,14 +334,14 @@ class AnyAngleTrigonometry(Scene):
         proj_x = DashedLine(
             self.P_Q1,
             x_proj_point,
-            color=self.COLOR_AUXILIARY,
+            color=self.COLOR_CIRCLE,  # Fixed: COLOR_AUXILIARY was not defined
             dash_length=0.08
         )
         
         proj_y = DashedLine(
             self.P_Q1,
             y_proj_point,
-            color=self.COLOR_AUXILIARY,
+            color=self.COLOR_CIRCLE,  # Fixed: COLOR_AUXILIARY was not defined
             dash_length=0.08
         )
         
@@ -351,10 +351,24 @@ class AnyAngleTrigonometry(Scene):
         x_value = np.cos(self.angle_Q1)
         y_value = np.sin(self.angle_Q1)
         
-        x_brace = Brace(Line(self.center, x_proj_point), DOWN, buff=0.1, color=self.COLOR_Q1)
-        x_label_val = MathTex(f"x > 0", font_size=22, color=self.COLOR_POSITIVE).next_to(x_brace, DOWN, buff=0.1)
+        # 替换Brace为简单的线条和括号
+        x_brace_start = x_proj_point
+        x_brace_end = self.center
+        x_brace = VGroup(
+            Line(x_brace_start + DOWN*0.1, x_brace_start + DOWN*0.2),  # 小竖线
+            Line(x_brace_start + DOWN*0.2, x_brace_end + DOWN*0.2),   # 横线
+            Line(x_brace_end + DOWN*0.2, x_brace_end + DOWN*0.1),   # 右竖线
+        ).set_color(self.COLOR_Q1)
         
-        y_brace = Brace(Line(y_proj_point, self.P_Q1), RIGHT, buff=0.1, color=self.COLOR_Q1)
+        y_brace_start = self.P_Q1
+        y_brace_end = y_proj_point
+        y_brace = VGroup(
+            Line(y_brace_start + RIGHT*0.1, y_brace_start + RIGHT*0.2),  # 小竖线
+            Line(y_brace_start + RIGHT*0.2, y_brace_end + RIGHT*0.2), # 横线
+            Line(y_brace_end + RIGHT*0.2, y_brace_end + RIGHT*0.1),   # 右竖线
+        ).set_color(self.COLOR_Q1)
+        
+        x_label_val = MathTex(f"x > 0", font_size=22, color=self.COLOR_POSITIVE).next_to(x_brace, DOWN, buff=0.1)
         y_label_val = MathTex(f"y > 0", font_size=22, color=self.COLOR_POSITIVE).next_to(y_brace, RIGHT, buff=0.1)
         
         self.play(
@@ -449,11 +463,11 @@ class AnyAngleTrigonometry(Scene):
         # 投影
         x_proj_point = self.center + np.array([self.P_Q2[0] - self.center[0], 0, 0])
         
-        proj_x = DashedLine(self.P_Q2, x_proj_point, color=self.COLOR_AUXILIARY, dash_length=0.08)
+        proj_x = DashedLine(self.P_Q2, x_proj_point, color=self.COLOR_CIRCLE, dash_length=0.08)
         proj_y = DashedLine(
             self.P_Q2,
             self.center + np.array([0, self.P_Q2[1] - self.center[1], 0]),
-            color=self.COLOR_AUXILIARY,
+            color=self.COLOR_CIRCLE,
             dash_length=0.08
         )
         
@@ -561,11 +575,11 @@ class AnyAngleTrigonometry(Scene):
         # 投影
         x_proj_point = self.center + np.array([self.P_Q3[0] - self.center[0], 0, 0])
         
-        proj_x = DashedLine(self.P_Q3, x_proj_point, color=self.COLOR_AUXILIARY, dash_length=0.08)
+        proj_x = DashedLine(self.P_Q3, x_proj_point, color=self.COLOR_CIRCLE, dash_length=0.08)
         proj_y = DashedLine(
             self.P_Q3,
             self.center + np.array([0, self.P_Q3[1] - self.center[1], 0]),
-            color=self.COLOR_AUXILIARY,
+            color=self.COLOR_CIRCLE,
             dash_length=0.08
         )
         
@@ -673,11 +687,11 @@ class AnyAngleTrigonometry(Scene):
         # 投影
         x_proj_point = self.center + np.array([self.P_Q4[0] - self.center[0], 0, 0])
         
-        proj_x = DashedLine(self.P_Q4, x_proj_point, color=self.COLOR_AUXILIARY, dash_length=0.08)
+        proj_x = DashedLine(self.P_Q4, x_proj_point, color=self.COLOR_CIRCLE, dash_length=0.08)
         proj_y = DashedLine(
             self.P_Q4,
             self.center + np.array([0, self.P_Q4[1] - self.center[1], 0]),
-            color=self.COLOR_AUXILIARY,
+            color=self.COLOR_CIRCLE,
             dash_length=0.08
         )
         
@@ -881,7 +895,7 @@ class AnyAngleTrigonometry(Scene):
         return card
     
     def show_rotation_demo(self):
-        """场景8: 旋转演示动画"""
+        """场景8: 旋转演示动画 (简化版避免复杂路径问题)"""
         # 标题
         title = Text(
             "角度旋转演示",
@@ -892,112 +906,81 @@ class AnyAngleTrigonometry(Scene):
         
         self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.6)
         
-        # 创建动态追踪器
-        angle_tracker = ValueTracker(0)
-        
-        # 动态点P
-        dot_P = always_redraw(lambda: Dot(
-            self.center + self.RADIUS * np.array([
-                np.cos(angle_tracker.get_value()),
-                np.sin(angle_tracker.get_value()),
-                0
-            ]),
-            color=self.COLOR_HIGHLIGHT,
-            radius=0.1
-        ))
-        
-        # 动态终边
-        terminal_line = always_redraw(lambda: Line(
-            self.center,
-            self.center + self.RADIUS * np.array([
-                np.cos(angle_tracker.get_value()),
-                np.sin(angle_tracker.get_value()),
-                0
-            ]),
-            color=self.COLOR_HIGHLIGHT,
+        # 显示单位圆和坐标轴
+        unit_circle = Circle(
+            radius=self.RADIUS,
+            color=self.COLOR_CIRCLE,
             stroke_width=3
-        ))
+        ).move_to(self.center)
         
-        # 动态角度弧
-        angle_arc = always_redraw(lambda: Arc(
-            radius=0.5,
-            start_angle=0,
-            angle=angle_tracker.get_value(),
-            arc_center=self.center,
-            color=self.COLOR_HIGHLIGHT,
-            stroke_width=2
-        ))
+        axes = Axes(
+            x_range=[-1.5, 1.5, 1],
+            y_range=[-1.5, 1.5, 1],
+            x_length=6,
+            y_length=6,
+            axis_config={"include_tip": False, "stroke_width": 2}
+        ).move_to(self.center)
         
-        # 动态投影线
-        proj_x = always_redraw(lambda: DashedLine(
-            self.center + self.RADIUS * np.array([
-                np.cos(angle_tracker.get_value()),
-                np.sin(angle_tracker.get_value()),
-                0
-            ]),
-            self.center + np.array([
-                self.RADIUS * np.cos(angle_tracker.get_value()),
-                0,
-                0
-            ]),
-            color=GRAY_B,
-            dash_length=0.08
-        ))
+        self.play(Create(axes), run_time=0.8)
+        self.play(Create(unit_circle), run_time=0.8)
         
-        proj_y = always_redraw(lambda: DashedLine(
-            self.center + self.RADIUS * np.array([
-                np.cos(angle_tracker.get_value()),
-                np.sin(angle_tracker.get_value()),
-                0
-            ]),
-            self.center + np.array([
-                0,
-                self.RADIUS * np.sin(angle_tracker.get_value()),
-                0
-            ]),
-            color=GRAY_B,
-            dash_length=0.08
-        ))
+        # 静态示例 - 显示几个关键角度的三角比
+        key_angles = [PI/6, PI/4, PI/3, PI/2, 2*PI/3, 3*PI/4, 5*PI/6, PI]
+        colors = [BLUE, GREEN, YELLOW, RED, PURPLE, ORANGE, MAROON, TEAL]
         
-        # 动态坐标值显示
-        coords_display = always_redraw(lambda: VGroup(
-            MathTex(
-                f"x = {np.cos(angle_tracker.get_value()):.2f}",
-                font_size=24,
-                color=self.COLOR_POSITIVE if np.cos(angle_tracker.get_value()) >= 0 else self.COLOR_NEGATIVE
-            ),
-            MathTex(
-                f"y = {np.sin(angle_tracker.get_value()):.2f}",
-                font_size=24,
-                color=self.COLOR_POSITIVE if np.sin(angle_tracker.get_value()) >= 0 else self.COLOR_NEGATIVE
+        # 逐步展示关键角度
+        for i, angle in enumerate(key_angles):
+            # 计算点坐标
+            point = self.center + self.RADIUS * np.array([
+                np.cos(angle),
+                np.sin(angle),
+                0
+            ])
+            
+            # 绘制从中心到该点的线
+            radial_line = Line(self.center, point, color=colors[i % len(colors)], stroke_width=3)
+            
+            # 绘制点
+            dot = Dot(point, color=colors[i % len(colors)], radius=0.1)
+            
+            # 添加角度标签
+            angle_label = MathTex(f"{int(angle*180/PI)}°", font_size=20, color=colors[i % len(colors)]).next_to(point, UR, buff=0.1)
+            
+            # 添加三角比值标签
+            sin_val = np.sin(angle)
+            cos_val = np.cos(angle)
+            ratio_labels = MathTex(
+                f"sin={sin_val:.2f}", f"cos={cos_val:.2f}",
+                font_size=16, color=colors[i % len(colors)]).next_to(dot, DR, buff=0.1)
+            
+            self.play(
+                Create(radial_line),
+                FadeIn(dot),
+                Write(angle_label),
+                Write(ratio_labels),
+                run_time=0.6
             )
-        ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 5.5)
-        )
         
-        # 添加元素
-        self.add(terminal_line, angle_arc, dot_P, proj_x, proj_y, coords_display)
         
-        # 旋转一圈
-        self.play(
-            angle_tracker.animate.set_value(2 * PI),
-            run_time=8,
-            rate_func=linear
-        )
+        # 总结文本
+        summary = Text(
+            "随着角度变化，三角比也在周期性变化",
+            font="Noto Sans CJK SC",
+            font_size=24,
+            color=WHITE
+        ).move_to(DOWN * 5)
         
-        self.wait(0.5)
+        self.play(Write(summary), run_time=1.0)
         
-        # 清理
+        # 等待一下
+        self.wait(1.5)
+        
+        # 清理 - 淡出演示元素
         self.play(
             FadeOut(title),
-            FadeOut(terminal_line),
-            FadeOut(angle_arc),
-            FadeOut(dot_P),
-            FadeOut(proj_x),
-            FadeOut(proj_y),
-            FadeOut(coords_display),
-            run_time=0.6
+            FadeOut(summary),
+            run_time=0.8
         )
-    
     def show_outro(self):
         """场景9: 片尾关注"""
         # 淡出圆和坐标系

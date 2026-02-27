@@ -100,7 +100,7 @@ class CuboidElements(ThreeDScene):
         
         # ========== 提取顶点坐标 ==========
         # Prism 会自动生成顶点，我们需要提取它们
-        vertices = self.cuboid.get_vertices()
+        vertices = self.cuboid.get_points()
         
         # 长方体有8个顶点，按照特定顺序排列
         # 我们需要手动定义顶点位置以便精确控制

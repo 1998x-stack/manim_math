@@ -1,0 +1,72 @@
+Manim Community v0.20.0
+
+/Users/mx/Desktop/manim_math/初中/六年级/第二学期/第八章-长方体的再认识/001长方体的基本元素/cuboid_elements.py:103: DeprecationWarning: This method is not guaranteed to stay around. Please prefer getting the attribute normally.
+  vertices = self.cuboid.get_vertices()
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/cli │
+│ /render/commands.py:125 in render                                            │
+│                                                                              │
+│   122 │   │   │   try:                                                       │
+│   123 │   │   │   │   with tempconfig({}):                                   │
+│   124 │   │   │   │   │   scene = SceneClass()                               │
+│ ❱ 125 │   │   │   │   │   scene.render()                                     │
+│   126 │   │   │   except Exception:                                          │
+│   127 │   │   │   │   error_console.print_exception()                        │
+│   128 │   │   │   │   sys.exit(1)                                            │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/sce │
+│ ne/scene.py:259 in render                                                    │
+│                                                                              │
+│    256 │   │   """                                                           │
+│    257 │   │   self.setup()                                                  │
+│    258 │   │   try:                                                          │
+│ ❱  259 │   │   │   self.construct()                                          │
+│    260 │   │   except EndSceneEarlyException:                                │
+│    261 │   │   │   pass                                                      │
+│    262 │   │   except RerunSceneException:                                   │
+│                                                                              │
+│ /Users/mx/Desktop/manim_math/初中/六年级/第二学期/第八章-长方体的再认识/001  │
+│ 长方体的基本元素/cuboid_elements.py:47 in construct                          │
+│                                                                              │
+│     44 │   │   self.setup_colors()                                           │
+│     45 │   │                                                                 │
+│     46 │   │   # 初始化几何数据                                              │
+│ ❱   47 │   │   self.setup_geometry()                                         │
+│     48 │   │                                                                 │
+│     49 │   │   # 设置3D摄像机                                                │
+│     50 │   │   self.set_camera_orientation(phi=70*DEGREES, theta=-45*DEGREES │
+│                                                                              │
+│ /Users/mx/Desktop/manim_math/初中/六年级/第二学期/第八章-长方体的再认识/001  │
+│ 长方体的基本元素/cuboid_elements.py:103 in setup_geometry                    │
+│                                                                              │
+│    100 │   │                                                                 │
+│    101 │   │   # ========== 提取顶点坐标 ==========                          │
+│    102 │   │   # Prism 会自动生成顶点，我们需要提取它们                      │
+│ ❱  103 │   │   vertices = self.cuboid.get_vertices()                         │
+│    104 │   │                                                                 │
+│    105 │   │   # 长方体有8个顶点，按照特定顺序排列                           │
+│    106 │   │   # 我们需要手动定义顶点位置以便精确控制                        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/mob │
+│ ject/mobject.py:735 in getter                                                │
+│                                                                              │
+│    732 │   │   │   │   │   stacklevel=2,                                     │
+│    733 │   │   │   │   )                                                     │
+│    734 │   │   │   │                                                         │
+│ ❱  735 │   │   │   │   return getattr(self, to_get)                          │
+│    736 │   │   │                                                             │
+│    737 │   │   │   # Return a bound method                                   │
+│    738 │   │   │   return types.MethodType(getter, self)                     │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniconda/base/lib/python3.11/site-packages/manim/mob │
+│ ject/mobject.py:760 in __getattr__                                           │
+│                                                                              │
+│    757 │   │   │   return types.MethodType(setter, self)                     │
+│    758 │   │                                                                 │
+│    759 │   │   # Unhandled attribute, therefore error                        │
+│ ❱  760 │   │   raise AttributeError(f"{type(self).__name__} object has no at │
+│    761 │                                                                     │
+│    762 │   @property                                                         │
+│    763 │   def width(self) -> float:                                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AttributeError: Prism object has no attribute 'vertices'

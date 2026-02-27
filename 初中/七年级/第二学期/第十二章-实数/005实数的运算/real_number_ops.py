@@ -207,7 +207,11 @@ class RealNumberOperations(Scene):
         ).move_to(UP * 5.8)
         rule_1 = MathTex(r"\sqrt{a} \times \sqrt{b} = \sqrt{ab}", font_size=34, color=COLOR_MUL)
         rule_sep = Text("  |  ", font=FONT, font_size=28, color=GRAY)
-        rule_2 = MathTex(r"\frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}}", font_size=34, color=COLOR_MUL)
+        rule_2 = MathTex(
+            r"\frac{\sqrt{a} }{\sqrt{b} } = \sqrt{ \frac{a}{b} }",
+            font_size=34,
+            color=COLOR_MUL
+        )
         rule_row = VGroup(rule_1, rule_sep, rule_2).arrange(RIGHT, buff=0.3)
         rule_row.move_to(rule_box.get_center())
         cond = Text("(a≥0, b>0)", font=FONT, font_size=20, color=GRAY_A)
@@ -220,17 +224,17 @@ class RealNumberOperations(Scene):
         examples = [
             # (左式, 右式, 过程色)
             (r"\sqrt{2} \times \sqrt{3}",
-             r"= \sqrt{2 \times 3} = \sqrt{6}",
-             COLOR_MUL),
+            r"= \sqrt{2 \times 3} = \sqrt{6}",
+            COLOR_MUL),
             (r"\sqrt{3} \times \sqrt{3}",
-             r"= \sqrt{9} = 3",
-             COLOR_RESULT),
-            (r"\frac{\sqrt{12}}{\sqrt{3}}",
-             r"= \sqrt{\frac{12}{3}} = \sqrt{4} = 2",
-             COLOR_MUL),
+            r"= \sqrt{9} = 3",
+            COLOR_RESULT),
+            (r"\frac{\sqrt{12} }{\sqrt{3} }",  # Added spaces between braces
+            r"= \sqrt{\frac{12}{3}} = \sqrt{4} = 2",
+            COLOR_MUL),
             (r"2\sqrt{5} \times 3\sqrt{5}",
-             r"= 6 \times 5 = 30",
-             COLOR_RESULT),
+            r"= 6 \times 5 = 30",
+            COLOR_RESULT),
         ]
 
         all_ex = VGroup()
