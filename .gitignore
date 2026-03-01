@@ -9,6 +9,11 @@ media
 */*/media
 */*/*/media
 */*/*/*/media
+*.log
+*/*.log
+*/*/*.log
+*/*/*/*.log
+*/*/*/*/*.log
 doc.md
 .claude
 .opencode

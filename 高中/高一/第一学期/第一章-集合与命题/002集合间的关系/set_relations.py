@@ -219,7 +219,7 @@ class SetRelationsAnimation(Scene):
         self.play(Write(self.label_B), run_time=0.4)
         
         # 绘制小圆A（在B内）
-        self.circle_A = Circle(
+        self.CIRCLE_A = Circle(
             radius=self.CIRCLE_A_RADIUS_SUBSET,
             color=self.COLOR_SET_A,
             stroke_width=4,
@@ -231,7 +231,7 @@ class SetRelationsAnimation(Scene):
             self.CIRCLE_A_CENTER_SUBSET + UP * (self.CIRCLE_A_RADIUS_SUBSET + 0.3)
         )
         
-        self.play(Create(self.circle_A), run_time=1.0)
+        self.play(Create(self.CIRCLE_A), run_time=1.0)
         self.play(Write(self.label_A), run_time=0.4)
         
         # 添加元素点
@@ -416,7 +416,7 @@ class SetRelationsAnimation(Scene):
         
         # 圆A移动到与B重合
         self.play(
-            self.circle_A.animate.move_to(self.CIRCLE_B_CENTER_SUBSET).set_fill(opacity=0),
+            self.CIRCLE_A.animate.move_to(self.CIRCLE_B_CENTER_SUBSET).set_fill(opacity=0),
             self.label_A.animate.move_to(
                 self.CIRCLE_B_CENTER_SUBSET + UP * (self.CIRCLE_A_RADIUS_SUBSET + 0.3) + LEFT * 0.5
             ),
@@ -428,7 +428,7 @@ class SetRelationsAnimation(Scene):
         
         # 两圆变同色
         self.play(
-            self.circle_A.animate.set_color(PURPLE),
+            self.CIRCLE_A.animate.set_color(PURPLE),
             self.circle_B.animate.set_color(PURPLE),
             run_time=0.5
         )
@@ -500,7 +500,7 @@ class SetRelationsAnimation(Scene):
         
         # 恢复原状
         self.play(
-            self.circle_A.animate.move_to(self.CIRCLE_A_CENTER_SUBSET).set_color(
+            self.CIRCLE_A.animate.move_to(self.CIRCLE_A_CENTER_SUBSET).set_color(
                 self.COLOR_SET_A
             ).set_fill(opacity=0.1),
             self.circle_B.animate.set_color(self.COLOR_SET_B),
@@ -529,7 +529,7 @@ class SetRelationsAnimation(Scene):
         # 清空圆A
         self.play(
             FadeOut(self.dots_A),
-            self.circle_A.animate.set_fill(opacity=0),
+            self.CIRCLE_A.animate.set_fill(opacity=0),
             run_time=0.8
         )
         
@@ -602,7 +602,7 @@ class SetRelationsAnimation(Scene):
         """场景6: 子集个数公式"""
         # 清空Venn图
         self.play(
-            FadeOut(self.circle_A),
+            FadeOut(self.CIRCLE_A),
             FadeOut(self.circle_B),
             FadeOut(self.label_A),
             FadeOut(self.label_B),
@@ -680,10 +680,7 @@ class SetRelationsAnimation(Scene):
         )
         
         # 公式
-        formula = MathTex(
-            "2", "^", "3", "=", "8",
-            font_size=44
-        ).move_to(DOWN * self.FORMULA_Y)
+        formula = MathTex("2^3 = 8", font_size=44).move_to(DOWN * self.FORMULA_Y)
         
         self.play(Write(formula), run_time=1.0)
         
@@ -776,19 +773,12 @@ class SetRelationsAnimation(Scene):
         self.play(Indicate(remaining, color=YELLOW, scale_factor=1.1), run_time=1.0)
         
         # 公式
-        formula = MathTex(
-            "2", "^", "3", "-", "1", "=", "7",
-            font_size=44
-        ).move_to(DOWN * self.FORMULA_Y)
+        formula = MathTex("2^3 - 1 = 7", font_size=44).move_to(DOWN * self.FORMULA_Y)
         
         self.play(Write(formula), run_time=1.0)
         
         # 一般公式
-        general_formula = MathTex(
-            r"\text{Proper Subsets: }", "2", "^", "n", "-", "1",
-            font_size=36,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * self.EXPLANATION_Y)
+        general_formula = MathTex(r"\text{Proper Subsets: }2^n - 1", font_size=36).move_to(DOWN * self.EXPLANATION_Y)
         
         self.play(TransformMatchingTex(formula.copy(), general_formula), run_time=1.0)
         self.wait(2.0)
