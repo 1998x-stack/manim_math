@@ -151,13 +151,14 @@ class LinearFunctionEquationInequality(Scene):
         self.play(Write(formula), run_time=0.8)
         
         # 绘制函数图像
+        k, b = self.k, self.b
         self.graph = self.axes.plot(
-            self.func,
+            lambda x: k * x + b,
             x_range=[-1, 4],
             color=self.COLOR_FUNCTION,
             stroke_width=4
         )
-        
+                
         self.play(Create(self.graph), run_time=1.5)
         self.wait(1.0)
         
@@ -298,8 +299,9 @@ class LinearFunctionEquationInequality(Scene):
         self.play(FadeIn(region_above), run_time=1.0)
         
         # 图像上方部分高亮
+        k, b = self.k, self.b
         graph_above = self.axes.plot(
-            self.func,
+            lambda x: k * x + b,
             x_range=[x_int, 4],
             color=self.COLOR_ABOVE,
             stroke_width=7
@@ -407,8 +409,9 @@ class LinearFunctionEquationInequality(Scene):
         self.play(FadeIn(region_below), run_time=1.0)
         
         # 图像下方部分高亮
+        k, b = self.k, self.b
         graph_below = self.axes.plot(
-            self.func,
+            lambda x: k * x + b,
             x_range=[-1, x_int],
             color=self.COLOR_BELOW,
             stroke_width=7

@@ -514,8 +514,8 @@ class ChiSquareScene(Scene):
 
         # 临界值表格
         crit_info = VGroup(
-            self._crit_row("P(χ² ≥ 3.841) ≈ 0.05", "α=0.05 临界值: 3.841", COLOR_CRIT),
-            self._crit_row("P(χ² ≥ 6.635) ≈ 0.01", "α=0.01 临界值: 6.635", RED),
+            self._crit_row(r"P(\chi^2 \geq 3.841) \approx 0.05", "α=0.05 临界值: 3.841", COLOR_CRIT),
+            self._crit_row(r"P(\chi^2 \geq 6.635) \approx 0.01", "α=0.01 临界值: 6.635", RED),
         ).arrange(DOWN, buff=0.3).move_to(UP * 0.0)
 
         self.play(*[FadeIn(r, shift=RIGHT * 0.3) for r in crit_info], run_time=0.6)
@@ -659,7 +659,7 @@ class ChiSquareScene(Scene):
         )
 
     def _crit_row(self, formula, desc, color):
-        f = MathTex(formula, font_size=24, color=color)
+        f = MathTex(formula, font_size=24, color=color)  # ❌ 原来是 formula_tex
         d = Text(desc, font=FONT_CN, font_size=20, color=color)
         return VGroup(f, d).arrange(RIGHT, buff=0.4)
 
@@ -734,33 +734,38 @@ class ChiSquareScene(Scene):
     # Scene 8: 总结片尾
     # --------------------------------------------------------
     def scene_8_outro(self):
-        # 知识要点
         summary_title = Text("独立性检验 · 核心要点",
-                             font=FONT_CN, font_size=34, color=YELLOW).move_to(UP * 4.5)
+                            font=FONT_CN, font_size=34, color=YELLOW).move_to(UP * 4.5)
         self.play(Write(summary_title), run_time=0.6)
 
-        points = [
-            (r"\chi^2 = \frac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}",  "卡方公式",  36),
-            (r"\chi^2 \geq 6.635 \Rightarrow \text{99\%把握}",        "强相关判断", 30),
-            (r"\chi^2 \geq 3.841 \Rightarrow \text{95\%把握}",        "中等判断",   30),
-        ]
-
-        point_group = VGroup()
-        for tex, note, fs in points:
+        # ❌ 原来含中文的 MathTex：
+        # r"\chi^2 \geq 6.635 \Rightarrow \text{99\%把握}"
+        # ✅ 改为 VGroup 拆分：
+        def make_point_row(tex, note_cn, fs=30):
             f = MathTex(tex, font_size=fs, color=WHITE)
-            n = Text(note, font=FONT_CN, font_size=20, color=GRAY_A)
-            row = VGroup(f, n).arrange(RIGHT, buff=0.4)
-            point_group.add(row)
+            n = Text(note_cn, font=FONT_CN, font_size=20, color=GRAY_A)
+            return VGroup(f, n).arrange(RIGHT, buff=0.4)
 
-        point_group.arrange(DOWN, buff=0.55, aligned_edge=LEFT
-                            ).move_to(UP * 2.5 + LEFT * 0.3)
+        point_group = VGroup(
+            make_point_row(
+                r"\chi^2 = \frac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}",
+                "卡方公式", fs=28
+            ),
+            make_point_row(
+                r"\chi^2 \geq 6.635",
+                "→ 有99%把握认为相关", fs=30
+            ),
+            make_point_row(
+                r"\chi^2 \geq 3.841",
+                "→ 有95%把握认为相关", fs=30
+            ),
+        ).arrange(DOWN, buff=0.55, aligned_edge=LEFT).move_to(UP * 2.5 + LEFT * 0.3)
 
         for row in point_group:
             self.play(FadeIn(row, shift=RIGHT * 0.3), run_time=0.35)
 
         self.wait(0.4)
 
-        # 作者大字
         author_big = Text(
             "上海初高中数学直通车",
             font=FONT_CN, font_size=38, color=WHITE

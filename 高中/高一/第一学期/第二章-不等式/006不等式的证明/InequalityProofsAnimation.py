@@ -274,12 +274,18 @@ class InequalityProofsAnimation(Scene):
         self.play(Write(principle), run_time=0.6)
         
         # 待证结论
-        target = MathTex(
-            "\\frac{a}{b} + \\frac{b}{a} \\geq 2", 
-            "\\quad (a,b同号)",
+        target_formula = MathTex(
+            "\\frac{a}{b} + \\frac{b}{a} \\geq 2",
             color=WHITE,
             font_size=28
-        ).move_to(UP * 3.5)
+        )
+        target_note = Text(
+            "（a, b同号）",
+            font="Noto Sans CJK SC",
+            font_size=24,
+            color=WHITE
+        )
+        target = VGroup(target_formula, target_note).arrange(RIGHT, buff=0.2).move_to(UP * 3.5)
         
         self.play(Write(target), run_time=0.8)
         
@@ -290,7 +296,7 @@ class InequalityProofsAnimation(Scene):
             font_size=28
         ).move_to(UP * 2.5)
         
-        self.play(TransformMatchingTex(target.copy(), transformed), run_time=0.8)
+        self.play(Write(transformed), run_time=0.8)
         
         # 乘以ab（同号）
         multiplied = MathTex(
@@ -299,7 +305,7 @@ class InequalityProofsAnimation(Scene):
             font_size=28
         ).move_to(UP * 1.5)
         
-        self.play(TransformMatchingTex(transformed.copy(), multiplied), run_time=0.8)
+        self.play(Write(multiplied), run_time=0.8)
         
         # 移项
         rearranged = MathTex(
@@ -308,7 +314,7 @@ class InequalityProofsAnimation(Scene):
             font_size=28
         ).move_to(UP * 0.5)
         
-        self.play(TransformMatchingTex(multiplied.copy(), rearranged), run_time=0.8)
+        self.play(Write(rearranged), run_time=0.8)
         
         # 因式分解
         factored = MathTex(
@@ -317,7 +323,7 @@ class InequalityProofsAnimation(Scene):
             font_size=28
         ).move_to(DOWN * 0.5)
         
-        self.play(TransformMatchingTex(rearranged.copy(), factored), run_time=0.8)
+        self.play(Write(factored), run_time=0.8)
         
         self.wait(2)
         
@@ -354,11 +360,9 @@ class InequalityProofsAnimation(Scene):
         self.play(Write(principle), run_time=0.6)
         
         # 假设相反
-        assumption = MathTex(
-            "\\text{假设: } a^2 + b^2 < 2ab",
-            color=RED,
-            font_size=28
-        ).move_to(UP * 3.5)
+        assume_text = Text("假设：", font="Noto Sans CJK SC", font_size=26, color=RED)
+        assume_math = MathTex("a^2 + b^2 < 2ab", font_size=28, color=RED)
+        assumption = VGroup(assume_text, assume_math).arrange(RIGHT, buff=0.15).move_to(UP * 3.5)
         
         self.play(Write(assumption), run_time=0.8)
         
@@ -369,7 +373,7 @@ class InequalityProofsAnimation(Scene):
             font_size=28
         ).move_to(UP * 2.5)
         
-        self.play(TransformMatchingTex(assumption.copy(), rearranged), run_time=0.8)
+        self.play(Write(rearranged), run_time=0.8)
         
         # 因式分解
         factored = MathTex(
@@ -378,7 +382,7 @@ class InequalityProofsAnimation(Scene):
             font_size=28
         ).move_to(UP * 1.5)
         
-        self.play(TransformMatchingTex(rearranged.copy(), factored), run_time=0.8)
+        self.play(Write(factored), run_time=0.8)
         
         # 显示矛盾
         contradiction = Text(
@@ -518,5 +522,5 @@ class InequalityProofsAnimation(Scene):
 
 
 if __name__ == "__main__":
-    # 运行命令: manim -pql InequalityProofsAnimation.py InequalityProofsAnimation
+    # 运行命令: manim -qh InequalityProofsAnimation.py InequalityProofsAnimation
     pass

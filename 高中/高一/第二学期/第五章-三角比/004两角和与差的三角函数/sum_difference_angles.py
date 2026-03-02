@@ -47,6 +47,7 @@ class SumDifferenceAngles(Scene):
         self.COLOR_HIGHLIGHT = YELLOW         # 黄色 - 高亮
         self.COLOR_AUXILIARY = GRAY_B         # 灰色 - 辅助线
         self.COLOR_FORMULA = "#f39c12"        # 橙色 - 公式
+        self.COLOR_WARNING = "#e67e22"        # 橙红色 - 警告
         
         # 初始化几何数据
         self.setup_geometry()
@@ -490,7 +491,7 @@ class SumDifferenceAngles(Scene):
         )
         
         # 移动结论到顶部列表
-        self.cos_diff_formula = conclusion.copy()
+        # self.cos_diff_formula = conclusion.copy()
         self.play(
             conclusion.animate.scale(0.6).move_to(UP * 5.5).shift(LEFT * 1),
             run_time=0.4

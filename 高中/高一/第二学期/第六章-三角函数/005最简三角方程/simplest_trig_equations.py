@@ -123,7 +123,7 @@ class SimplestTrigEquations(Scene):
         # 添加x轴标签
         x_labels = VGroup()
         x_positions = [-2*PI, -PI, 0, PI, 2*PI]
-        x_labels_text = ["-2π", "-π", "0", "π", "2π"]
+        x_labels_text = [r"-2\pi", r"-\pi", r"0", r"\pi", r"2\pi"]
         
         for pos, label_text in zip(x_positions, x_labels_text):
             label = MathTex(label_text, font_size=FONT_SIZE_SMALL, color=GRAY_B)

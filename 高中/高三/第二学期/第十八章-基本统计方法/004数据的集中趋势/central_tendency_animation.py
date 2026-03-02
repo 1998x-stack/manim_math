@@ -420,10 +420,17 @@ class CentralTendency(Scene):
         self.play(GrowArrow(med_ind[0]), FadeIn(med_ind[1]), run_time=0.4)
 
         # 公式框 (奇数)
-        fbox1 = self.formula_box(
-            r"M = x_{\frac{n+1}{2}} \quad (n\text{ 为奇数})",
-            label="中位数公式 (奇数)", color=C_MED
-        )
+        f1_tex = MathTex(r"M = x_{\frac{n+1}{2}}", font_size=36, color=C_MED)
+        f1_cn  = Text("（n 为奇数）", font=FONT, font_size=26, color=C_MED)
+        f1_row = VGroup(f1_tex, f1_cn).arrange(RIGHT, buff=0.25).move_to(UP * (-5.4))
+        f1_bg  = RoundedRectangle(
+            width=7.4, height=1.05, corner_radius=0.18,
+            fill_color=C_MED, fill_opacity=0.12,
+            stroke_color=C_MED, stroke_width=1.8
+        ).move_to(f1_row.get_center())
+        f1_lbl = self.T("中位数公式 (奇数)", size=19, color=C_MED)
+        f1_lbl.next_to(f1_bg, UP, buff=0.1)
+        fbox1  = VGroup(f1_bg, f1_row, f1_lbl)
         self.play(FadeIn(fbox1), run_time=0.4)
         self.wait(0.7)
 
@@ -473,10 +480,20 @@ class CentralTendency(Scene):
 
         self.play(Create(brace_grp), FadeIn(brace_lbl), run_time=0.5)
 
-        fbox2 = self.formula_box(
-            r"M = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2}+1}}{2} \quad (n\text{ 为偶数})",
-            label="中位数公式 (偶数)", color=C_MED
+        f2_tex = MathTex(
+            r"M = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2}+1}}{2}",
+            font_size=34, color=C_MED
         )
+        f2_cn  = Text("（n 为偶数）", font=FONT, font_size=26, color=C_MED)
+        f2_row = VGroup(f2_tex, f2_cn).arrange(RIGHT, buff=0.2).move_to(UP * (-5.4))
+        f2_bg  = RoundedRectangle(
+            width=7.4, height=1.05, corner_radius=0.18,
+            fill_color=C_MED, fill_opacity=0.12,
+            stroke_color=C_MED, stroke_width=1.8
+        ).move_to(f2_row.get_center())
+        f2_lbl = self.T("中位数公式 (偶数)", size=19, color=C_MED)
+        f2_lbl.next_to(f2_bg, UP, buff=0.1)
+        fbox2  = VGroup(f2_bg, f2_row, f2_lbl)
         self.play(FadeIn(fbox2), run_time=0.4)
         self.wait(0.9)
 

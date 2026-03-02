@@ -341,12 +341,8 @@ class QuadraticInequality(Scene):
     def show_parabola(self):
         """场景4: 绘制抛物线"""
         # 绘制抛物线
-        self.parabola = self.axes.plot(
-            self.parabola_func,
-            x_range=[-0.5, 3.5],
-            color=self.COLOR_PARABOLA,
-            stroke_width=4
-        )
+        a, b, c = self.a, self.b, self.c
+        self.parabola = self.axes.plot(lambda x: a*x**2 + b*x + c, x_range=[-0.5, 3.5], color=self.COLOR_PARABOLA, stroke_width=4)
         
         self.play(Create(self.parabola), run_time=2.5)
         
@@ -530,11 +526,11 @@ class QuadraticInequality(Scene):
         self.wait(0.8)
         
         # 显示解集
-        solution = MathTex(
-            r"x < 1 \text{ 或 } x > 2",
-            font_size=40,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 6.2)
+        solution = VGroup(
+            MathTex(r"x < 1", font_size=40, color=self.COLOR_HIGHLIGHT),
+            Text("或", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_HIGHLIGHT),
+            MathTex(r"x > 2", font_size=40, color=self.COLOR_HIGHLIGHT),
+        ).arrange(RIGHT, buff=0.2).move_to(DOWN * 6.2)
         
         self.play(Write(solution), run_time=1.0)
         
@@ -605,10 +601,8 @@ class QuadraticInequality(Scene):
         ).move_to(LEFT * spacing + UP * 1.5)
         
         case1_parabola = case1_axes.plot(
-            self.case1_func,
-            x_range=[0, 3],
-            color=self.COLOR_PARABOLA,
-            stroke_width=3
+            lambda x: (x - 1) * (x - 2),
+            x_range=[0, 3], color=self.COLOR_PARABOLA, stroke_width=3
         )
         
         case1_dots = VGroup(
@@ -643,11 +637,8 @@ class QuadraticInequality(Scene):
         
         # Using class method to avoid pickle error
         case2_parabola = case2_axes.plot(
-            self.case2_func,
-            case2_func,
-            x_range=[0, 3],
-            color=self.COLOR_PARABOLA,
-            stroke_width=3
+            lambda x: (x - 1.5)**2,
+            x_range=[0, 3], color=self.COLOR_PARABOLA, stroke_width=3
         )
         
         case2_dot = Dot(case2_axes.c2p(1.5, 0), color=self.COLOR_ROOT, radius=0.06)
@@ -678,11 +669,8 @@ class QuadraticInequality(Scene):
         
         # Using class method to avoid pickle error
         case3_parabola = case3_axes.plot(
-            self.case3_func,
-            x_range=[0, 3],
-            x_range=[0, 3],
-            color=self.COLOR_PARABOLA,
-            stroke_width=3
+            lambda x: x**2 - 3*x + 4,
+            x_range=[0, 3], color=self.COLOR_PARABOLA, stroke_width=3
         )
         
         case3_title = Text(
@@ -802,11 +790,7 @@ class QuadraticInequality(Scene):
                 axis_config={"stroke_width": 0}
             )
             # Using class method to avoid pickle error
-            mini_parabola = mini_axes.plot(
-                self.mini_func,
-                color=self.COLOR_PARABOLA,
-                stroke_width=2
-            )
+            mini_parabola = mini_axes.plot(lambda x: x**2, color=self.COLOR_PARABOLA, stroke_width=2)
         
             mini_group = VGroup(mini_axes, mini_parabola).move_to(
                 DOWN * 2 + RIGHT * x_pos
@@ -833,7 +817,6 @@ class QuadraticInequality(Scene):
             FadeOut(follow_text),
             FadeOut(parabolas),
             run_time=1.0
-        )
         )
 
     def case1_func(self, x):  # Helper function to avoid pickle error

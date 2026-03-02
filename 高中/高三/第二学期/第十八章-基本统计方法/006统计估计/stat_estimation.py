@@ -350,9 +350,10 @@ class StatEstimation(Scene):
         mean_lbls = VGroup()
 
         for i, xm in enumerate(self.multi_means):
-            sx = d2sx(xm)
-            col = interpolate_color(COLOR_SAMPLE, COLOR_INTERVAL, i / len(self.multi_means))
-            d = Dot(np.array([sx, multi_mean_y, 0]), radius=0.10, color=col)
+            sx    = d2sx(xm)
+            alpha = i / (len(self.multi_means) - 1)  # 防止除以0，改为 len-1
+            col   = interpolate_color(ManimColor(COLOR_SAMPLE), ManimColor(COLOR_INTERVAL), alpha)
+            d     = Dot(np.array([sx, multi_mean_y, 0]), radius=0.10, color=col)
             mean_dots.add(d)
 
         self.play(FadeIn(mean_dots, lag_ratio=0.08), run_time=1.2)

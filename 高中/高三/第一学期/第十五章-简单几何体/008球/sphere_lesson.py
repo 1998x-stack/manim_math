@@ -2,6 +2,8 @@
 球 (Sphere) - 高三数学教学动画
 3D TikTok 竖屏教学视频
 
+manim -qh sphere_lesson.py SphereLesson
+
 知识点: 球的定义、截面、表面积、体积、外接球与内切球
 目标: 高三学生
 作者: 上海初高中数学直通车 @emptyandcalm
@@ -590,12 +592,15 @@ class SphereLesson(ThreeDScene):
         ).move_to(UP * (-4.8))
         ratio_title = Text("正方体外接球 vs 内切球", font=FONT, font_size=20, color=WHITE
                            ).move_to(UP * (-4.2))
-        ratio_body = MathTex(
-            r"R_{\text{外}} : R_{\text{内}} = \dfrac{\sqrt{3}}{2}s : \dfrac{s}{2} = \sqrt{3} : 1",
-            font_size=22, color=GRAY_A
-        ).move_to(UP * (-5.3))
-        self.add_fixed_in_frame_mobjects(ratio_bg, ratio_title, ratio_body)
-        self.play(FadeIn(ratio_bg), Write(ratio_title), Write(ratio_body), run_time=0.8)
+        ratio_body = VGroup(
+            Text("R外 : R内 = ", font=FONT, font_size=22, color=GRAY_A),
+            MathTex(
+                r"\dfrac{\sqrt{3}}{2}s\;:\;\dfrac{s}{2}\;=\;\sqrt{3}:1",
+                font_size=22, color=GRAY_A
+            ),
+        ).arrange(RIGHT, buff=0.12).move_to(UP * (-5.3))
+        self.add_fixed_in_frame_mobjects(ratio_body)
+        self.play(FadeIn(ratio_body), run_time=0.8)
 
         self.begin_ambient_camera_rotation(rate=0.2)
         self.wait(2.0)
@@ -625,12 +630,21 @@ class SphereLesson(ThreeDScene):
         t_title = Text("球 — 公式总结", font=FONT, font_size=34, color=C_GOLD
                        ).move_to(UP * 4.8)
 
+        row_circum = VGroup(
+            Text("外接球:", font=FONT, font_size=22, color=GRAY_A),
+            VGroup(
+                Text("R外", font=FONT, font_size=26, color=C_GREEN),
+                MathTex(r"\geq", font_size=26, color=C_GREEN),
+                Text("R内", font=FONT, font_size=26, color=C_GREEN),
+            ).arrange(RIGHT, buff=0.15),
+        ).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.9)
+
         rows = VGroup(
-            self._summary_row("表面积", r"S = 4\pi R^2", C_PINK,   UP * 3.5),
-            self._summary_row("体积",   r"V = \dfrac{4}{3}\pi R^3", C_GREEN, UP * 2.4),
-            self._summary_row("截面半径", r"r = \sqrt{R^2 - d^2}", C_SPHERE, UP * 1.3),
-            self._summary_row("大圆面积", r"S = \pi R^2",           C_GOLD,  UP * 0.2),
-            self._summary_row("外接球",  r"R_{\text{外}} \geq R_{\text{内}}", C_GREEN, DOWN * 0.9),
+            self._summary_row("表面积",  r"S = 4\pi R^2",               C_PINK,   UP * 3.5),
+            self._summary_row("体积",    r"V = \dfrac{4}{3}\pi R^3",    C_GREEN,  UP * 2.4),
+            self._summary_row("截面半径", r"r = \sqrt{R^2 - d^2}",      C_SPHERE, UP * 1.3),
+            self._summary_row("大圆面积", r"S = \pi R^2",               C_GOLD,   UP * 0.2),
+            row_circum,   # ← 替换原来含CJK的行
         )
 
         self.add_fixed_in_frame_mobjects(bg, t_title, rows)

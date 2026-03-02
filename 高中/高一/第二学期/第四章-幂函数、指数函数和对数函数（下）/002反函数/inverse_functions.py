@@ -437,11 +437,10 @@ class InverseFunctions(Scene):
             pairs.add(pair_group)
         
         # 一般公式
-        general_formula = MathTex(
-            r"(a, b) \text{ 在 } f \text{ 上}",
-            font_size=FONT_SIZE_BODY + 2,
-            color=WHITE
-        ).move_to(DOWN * 2)
+        general_formula_cn = VGroup(
+            MathTex(r"(a,\, b)", font_size=FONT_SIZE_BODY + 2, color=WHITE),
+            Text("在 f 上", font=AUTHOR_FONT, font_size=FONT_SIZE_BODY + 2, color=WHITE),
+        ).arrange(RIGHT, buff=0.25).move_to(DOWN * 2)
         
         general_formula_cn = Text(
             "若 (a,b) 在 f 上",

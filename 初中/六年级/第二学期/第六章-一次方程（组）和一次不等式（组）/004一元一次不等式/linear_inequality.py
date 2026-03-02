@@ -281,9 +281,8 @@ class LinearInequality(Scene):
             MathTex(r"c", font_size=32, color=COLOR_POS),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 3.5)
         add_arrow = MathTex(r"\Downarrow", font_size=38, color=COLOR_POS).move_to(UP * 2.9)
-        add_result = MathTex(r"a+c > b+c", font_size=52).move_to(UP * 2.2)
-        add_result[0][3].set_color(COLOR_POS)
-        add_result[0][7].set_color(COLOR_POS)
+        add_result = MathTex(r"a+{{c}} > b+{{c}}", font_size=52).move_to(UP * 2.2)
+        add_result.set_color_by_tex("c", COLOR_POS)
 
         add_ok = VGroup(
             MathTex(r"\checkmark", font_size=36, color=COLOR_OK),
@@ -305,9 +304,8 @@ class LinearInequality(Scene):
             MathTex(r"c", font_size=32, color=COLOR_POS),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 0.2)
         sub_arrow  = MathTex(r"\Downarrow", font_size=38, color=COLOR_POS).move_to(DOWN * 0.8)
-        sub_result = MathTex(r"a-c > b-c", font_size=52).move_to(DOWN * 1.5)
-        sub_result[0][3].set_color(COLOR_POS)
-        sub_result[0][7].set_color(COLOR_POS)
+        sub_result = MathTex(r"a-{{c}} > b-{{c}}", font_size=52).move_to(DOWN * 1.5)
+        sub_result.set_color_by_tex("c", COLOR_POS)
 
         sub_ok = VGroup(
             MathTex(r"\checkmark", font_size=36, color=COLOR_OK),

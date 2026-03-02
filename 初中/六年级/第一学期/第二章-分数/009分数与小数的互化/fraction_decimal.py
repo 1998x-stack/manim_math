@@ -212,7 +212,11 @@ class FractionDecimalConversion(Scene):
         self.wait(0.5)
         
         # 步骤2: 30÷4=7余2
-        step2_calc = MathTex(r"30 \div 4 = 7", r"\text{ 余 }", r"2", font_size=24, color=self.COLOR_DIVISION)
+        step2_calc = VGroup(
+            MathTex(r"30 \div 4 = 7", font_size=24, color=self.COLOR_DIVISION),
+            Text("余", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_DIVISION),
+            MathTex(r"2", font_size=24, color=self.COLOR_DIVISION),
+        ).arrange(RIGHT, buff=0.15)
         step2_calc.move_to(DOWN * 1.2)
         
         quotient_7 = MathTex(r"7", font_size=36, color=self.COLOR_DECIMAL).next_to(quotient_0, RIGHT, buff=0.05)
@@ -670,11 +674,10 @@ class FractionDecimalConversion(Scene):
             fill_opacity=0.15
         ).move_to(DOWN * 3)
         
-        formula_text = MathTex(
-            r"\text{分母} = 2^m \times 5^n",
-            font_size=32,
-            color=YELLOW
-        ).move_to(formula_box.get_center())
+        formula_text = VGroup(
+            Text("分母", font="Noto Sans CJK SC", font_size=32, color=YELLOW),
+            MathTex(r"= 2^m \times 5^n", font_size=32, color=YELLOW)
+        ).arrange(RIGHT, buff=0.2).move_to(formula_box.get_center())
         
         formula_group = VGroup(formula_box, formula_text)
         

@@ -488,7 +488,6 @@ class ComplexRoots(Scene):
     # Scene 6: 片尾
     # ══════════════════════════════════════════
     def scene_6_outro(self):
-        # 作者大名
         author_big = Text(
             "上海初高中数学直通车",
             font=FONT, font_size=40, color=WHITE
@@ -502,40 +501,33 @@ class ComplexRoots(Scene):
             font=FONT, font_size=28, color=COL_YELLOW
         ).move_to(UP * 0.7)
 
-        # 总结三条
+        # ✅ 修复：summary_items 全部拆成 VGroup(MathTex, Text)，不再传 Unicode 进 MathTex
         summary_items = [
-            ("√(-a) = ±√a·i",   "负数的平方根", COL_BLUE),
-            ("设 w=x+yi 求解",   "一般复数平方根", COL_PURPLE),
-            ("ω, ω², 1",         "1的三个立方根", COL_RED),
+            (r"\sqrt{-a} = \pm\sqrt{a}\,i",  "负数的平方根", COL_BLUE),
+            (r"w = x + yi",                   "一般复数平方根", COL_PURPLE),
+            (r"\omega,\; \omega^2,\; 1",      "1的三个立方根", COL_RED),
         ]
         rows = VGroup()
         for tex_str, cn_str, col in summary_items:
-            t1 = MathTex(tex_str if 'w=' not in tex_str else r"w=x+yi",
-                         font_size=24, color=col)
-            if tex_str == "设 w=x+yi 求解":
-                t1 = Text(tex_str, font=FONT, font_size=20, color=col)
+            t1 = MathTex(tex_str, font_size=24, color=col)
             t2 = Text(cn_str, font=FONT, font_size=18, color=col)
             row = VGroup(t1, t2).arrange(RIGHT, buff=0.35)
             rows.add(row)
         rows.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         rows.move_to(DOWN * 2.0)
 
-        self.play(
-            Transform(self.author_mob, author_big),
-            run_time=0.6
-        )
+        self.play(Transform(self.author_mob, author_big), run_time=0.6)
         self.play(FadeIn(author_id, shift=UP * 0.2), run_time=0.4)
         self.play(FadeIn(follow_text, shift=UP * 0.15), run_time=0.5)
         self.play(FadeIn(rows, shift=UP * 0.2), run_time=0.7)
 
-        # 单位圆装饰
         deco_circle = Circle(
             radius=0.6, color=COL_GOLD,
             stroke_width=2, fill_opacity=0
         ).move_to(DOWN * 4.5)
         deco_pts = [
             deco_circle.get_center() + 0.6 * np.array([np.cos(2*np.pi*k/3),
-                                                         np.sin(2*np.pi*k/3), 0])
+                                                        np.sin(2*np.pi*k/3), 0])
             for k in range(3)
         ]
         deco_dots = VGroup(*[

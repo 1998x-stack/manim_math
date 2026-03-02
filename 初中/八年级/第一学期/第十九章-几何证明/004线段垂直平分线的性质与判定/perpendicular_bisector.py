@@ -685,7 +685,7 @@ class PerpendicularBisector(Scene):
         )
         self.wait(1.5)
 
-        self.play(self.play(*[FadeOut(m) for m in self.mobjects]), run_time=0.8)
+        self.play(*[FadeOut(m) for m in self.mobjects.copy()], run_time=0.8)
 
 # # 快速预览
 # manim -pql perpendicular_bisector.py PerpendicularBisector

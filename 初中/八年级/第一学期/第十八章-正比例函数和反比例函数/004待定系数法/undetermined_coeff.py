@@ -6,7 +6,7 @@ undetermined_coeff.py
 时长: ~60s  |  年级: 八年级
 
 运行:
-    manim -pqh --resolution 1080,1920 undetermined_coeff.py UndeterminedCoeff
+    manim -qh --resolution 1080,1920 undetermined_coeff.py UndeterminedCoeff
 """
 
 from manim import *

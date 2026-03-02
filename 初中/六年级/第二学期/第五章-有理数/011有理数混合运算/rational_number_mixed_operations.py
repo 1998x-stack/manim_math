@@ -135,7 +135,7 @@ class RationalNumberMixedOperations(Scene):
         # 法则卡片 - 第一级：乘方
         power_card = VGroup(
             Text("第一级", font="Noto Sans CJK SC", font_size=24, color=WHITE, weight=BOLD),
-            MathTex(r"\text{乘方}", font_size=28, color=self.COLOR_POWER),
+            Text("乘方", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_POWER),
             MathTex(r"a^n", font_size=24, color=self.COLOR_POWER)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
@@ -144,7 +144,7 @@ class RationalNumberMixedOperations(Scene):
         # 法则卡片 - 第二级：乘除
         multiply_card = VGroup(
             Text("第二级", font="Noto Sans CJK SC", font_size=24, color=WHITE, weight=BOLD),
-            MathTex(r"\text{乘除}", font_size=28, color=self.COLOR_MULTIPLY),
+            Text("乘除", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_MULTIPLY),
             MathTex(r"\times, \div", font_size=24, color=self.COLOR_MULTIPLY)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2.5)
         
@@ -153,7 +153,7 @@ class RationalNumberMixedOperations(Scene):
         # 法则卡片 - 第三级：加减
         add_card = VGroup(
             Text("第三级", font="Noto Sans CJK SC", font_size=24, color=WHITE, weight=BOLD),
-            MathTex(r"\text{加减}", font_size=28, color=self.COLOR_ADD),
+            Text("加减", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_ADD),
             MathTex(r"+, -", font_size=24, color=self.COLOR_ADD)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1)
         
@@ -425,9 +425,9 @@ class RationalNumberMixedOperations(Scene):
         formula[4:6].set_color(self.COLOR_POWER)
         
         labels = VGroup(
-            MathTex(r"\circled{1}", font_size=20, color=self.COLOR_POWER).next_to(formula[5], UR, buff=0.1),
-            MathTex(r"\circled{2}", font_size=20, color=self.COLOR_MULTIPLY).next_to(formula[3], UP, buff=0.1),
-            MathTex(r"\circled{3}", font_size=20, color=self.COLOR_ADD).next_to(formula[1], UP, buff=0.1)
+            Text("①", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_POWER).next_to(formula[5], UR, buff=0.1),
+            Text("②", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_MULTIPLY).next_to(formula[3], UP, buff=0.1),
+            Text("③", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ADD).next_to(formula[1], UP, buff=0.1)
         )
         
         self.play(FadeIn(labels), run_time=0.6)

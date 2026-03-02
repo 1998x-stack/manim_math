@@ -367,46 +367,38 @@ class RectangleLesson(Scene):
                      color=GOLD, weight=BOLD).move_to(UP*6.05)
         self.play(Write(title), run_time=0.5)
 
+        # (label, zh_prefix, math_tex, zh_suffix, color, y)
         rows = [
-            # (标签, 内容, 颜色, y中心)
-            ("性质①", r"\angle A=\angle B=\angle C=\angle D=90^{\circ}",
-             C_ANGLE,  3.35),
-            ("性质②", r"AC = BD \quad OA=OB=OC=OD",
-             C_DIAG_A, 1.85),
-            ("判定①", r"\text{平行四边形} + \angle=90^{\circ}",
-             C_DET1,   0.35),
-            ("判定②", r"\text{三个直角} \Rightarrow \text{矩形}",
-             C_DET2,  -1.15),
-            ("判定③", r"\text{平行四边形} + AC=BD",
-             C_DET3,  -2.65),
+            ("性质①", None, r"\angle A=\angle B=\angle C=\angle D=90^{\circ}", None, C_ANGLE,  3.35),
+            ("性质②", None, r"AC = BD \quad OA=OB=OC=OD",                     None, C_DIAG_A, 1.85),
+            ("判定①", "平行四边形",  r"+ \angle=90^{\circ}",                   None, C_DET1,   0.35),
+            ("判定②", "三个直角",   r"\Rightarrow",                            "矩形", C_DET2, -1.15),
+            ("判定③", "平行四边形",  r"+ AC=BD",                                None, C_DET3,  -2.65),
         ]
 
         cards = []
-        for lab, tex, col, yc in rows:
+        for lab, zh_pre, tex, zh_suf, col, yc in rows:
             bg = RoundedRectangle(
                 corner_radius=0.16, width=8.0, height=1.30,
                 color=col, fill_opacity=0.09, stroke_width=1.5
-            ).move_to(UP*yc)
+            ).move_to(UP * yc)
             lbl = Text(lab, font="Noto Sans CJK SC",
-                       font_size=24, color=col, weight=BOLD
-                       ).move_to(bg.get_left() + RIGHT*0.85)
-            fml = MathTex(tex, color=WHITE, font_size=21
-                          ).next_to(lbl, RIGHT, buff=0.35)
+                    font_size=24, color=col, weight=BOLD
+                    ).move_to(bg.get_left() + RIGHT * 0.85)
+
+            parts = []
+            if zh_pre:
+                parts.append(Text(zh_pre, font="Noto Sans CJK SC", font_size=21, color=WHITE))
+            parts.append(MathTex(tex, color=WHITE, font_size=21))
+            if zh_suf:
+                parts.append(Text(zh_suf, font="Noto Sans CJK SC", font_size=21, color=WHITE))
+
+            fml = VGroup(*parts).arrange(RIGHT, buff=0.1).next_to(lbl, RIGHT, buff=0.35)
+
             card = VGroup(bg, lbl, fml)
             cards.append(card)
-            self.play(FadeIn(card, shift=RIGHT*0.2), run_time=0.4)
+            self.play(FadeIn(card, shift=RIGHT * 0.2), run_time=0.4)
             self.wait(0.1)
-
-        tip = Text("性质 + 判定，矩形拿满分！",
-                   font="Noto Sans CJK SC", font_size=26,
-                   color=C_HL).move_to(UP*-4.2)
-        self.play(FadeIn(tip, scale=1.05), run_time=0.5)
-        self.wait(1.8)
-
-        self.play(
-            FadeOut(title), FadeOut(self.rect),
-            *[FadeOut(c) for c in cards], FadeOut(tip), run_time=0.55
-        )
 
     # ══════════════════════════════════════════
     #  片尾

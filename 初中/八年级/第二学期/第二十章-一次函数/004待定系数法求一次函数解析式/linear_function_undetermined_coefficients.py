@@ -408,7 +408,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         )
         
         # 添加编号
-        num_1 = MathTex(r"\text{①}", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_1, LEFT, buff=0.2)
+        num_1 = Text("①", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_1, LEFT, buff=0.2)
         self.play(FadeIn(num_1), run_time=0.3)
         
         self.wait(0.5)
@@ -482,7 +482,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         )
         
         # 添加编号
-        num_2 = MathTex(r"\text{②}", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_2, LEFT, buff=0.2)
+        num_2 = Text("②", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_2, LEFT, buff=0.2)
         self.play(FadeIn(num_2), run_time=0.3)
         
         # 大括号
@@ -682,51 +682,40 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         
         # 创建步骤卡片
         steps = [
-            ("① 设", r"y = kx + b"),
-            ("② 代入", "两点坐标"),
-            ("③ 建立", "方程组"),
-            ("④ 求解", r"k \text{ 和 } b")
+            ("① 设",  r"y = kx + b",  "math"),
+            ("② 代入", "两点坐标",     "text"),
+            ("③ 建立", "方程组",       "text"),
+            ("④ 求解", None,           "mixed"),   # k 和 b
         ]
-        
+
         step_cards = VGroup()
-        for i, (num, content) in enumerate(steps):
-            # 步骤编号和图标
+        for i, (num, content, mode) in enumerate(steps):   # ← 3-tuple unpack
             icon = Circle(
                 radius=0.15,
                 fill_color=self.COLOR_PRIMARY,
                 fill_opacity=1,
                 stroke_width=0
             )
-            
-            num_text = Text(
-                num,
-                font="Noto Sans CJK SC",
-                font_size=20,
-                color=WHITE
-            )
-            
-            # 内容（混合中文和数学公式）
-            if i == 0:
+            num_text = Text(num, font="Noto Sans CJK SC", font_size=20, color=WHITE)
+
+            if mode == "math":
                 content_text = MathTex(content, font_size=22)
-            elif i == 3:
-                content_text = MathTex(content, font_size=22)
+            elif mode == "mixed":
+                content_text = VGroup(
+                    MathTex(r"k", font_size=22),
+                    Text("和", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                    MathTex(r"b", font_size=22),
+                ).arrange(RIGHT, buff=0.15)
             else:
                 content_text = Text(content, font="Noto Sans CJK SC", font_size=22, color=WHITE)
-            
+
             card = VGroup(icon, num_text, content_text).arrange(RIGHT, buff=0.3)
             card.move_to(UP * (3.5 - i * 1.0))
-            
-            # 初始位置在左侧外
             card.shift(LEFT * 10)
-            
             step_cards.add(card)
-        
-        # 步骤依次滑入
+
         for i, card in enumerate(step_cards):
-            self.play(
-                card.animate.shift(RIGHT * 10),
-                run_time=0.4
-            )
+            self.play(card.animate.shift(RIGHT * 10), run_time=0.4)
             if i < len(step_cards) - 1:
                 self.wait(0.2)
         

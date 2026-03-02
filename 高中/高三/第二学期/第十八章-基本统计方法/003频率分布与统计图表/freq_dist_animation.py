@@ -306,10 +306,24 @@ class FreqDistAnimation(Scene):
         self.play(FadeIn(sum_note), Create(box_note), run_time=0.5)
 
         # 公式
-        fbox = self.formula_box(
-            r"\text{频率} = \frac{\text{频数}}{n} = \frac{\text{频数}}{40}",
-            color=C_FORMULA, cy=-5.5
-        )
+        freq_rate = Text("频率", font=FONT, font_size=32, color=C_FORMULA)
+        eq1       = MathTex(r"=", font_size=32, color=C_FORMULA)
+        freq_num1 = Text("频数", font=FONT, font_size=32, color=C_FORMULA)
+        div_n     = MathTex(r"\div\, n", font_size=32, color=C_FORMULA)
+        eq2       = MathTex(r"=", font_size=32, color=C_FORMULA)
+        freq_num2 = Text("频数", font=FONT, font_size=32, color=C_FORMULA)
+        div_40    = MathTex(r"\div\, 40", font_size=32, color=C_FORMULA)
+
+        fbox_row = VGroup(freq_rate, eq1, freq_num1, div_n,
+                        eq2, freq_num2, div_40)\
+                .arrange(RIGHT, buff=0.12)\
+                .move_to(UP * (-5.5))
+        fbox_bg = RoundedRectangle(
+            width=7.2, height=1.0, corner_radius=0.18,
+            fill_color=C_FORMULA, fill_opacity=0.12,
+            stroke_color=C_FORMULA, stroke_width=1.8
+        ).move_to(fbox_row.get_center())
+        fbox = VGroup(fbox_bg, fbox_row)
         self.play(FadeIn(fbox), run_time=0.4)
         self.wait(1.0)
 

@@ -6,7 +6,7 @@ inverse_proportion.py
 时长: ~65s  |  年级: 八年级
 
 运行:
-    manim -pqh --resolution 1080,1920 inverse_proportion.py InverseProportion
+    manim -qh --resolution 1080,1920 inverse_proportion.py InverseProportion
 """
 
 from manim import *

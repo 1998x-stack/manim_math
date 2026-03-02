@@ -597,11 +597,11 @@ class PowerOfNumbers(Scene):
                 font_size=self.FONT_SIZES["body"],
                 color=WHITE
             ),
-            MathTex(
-                r"(-a)^{\text{偶数}} = \text{正数}",
-                font_size=self.FONT_SIZES["body"],
-                color=self.COLOR_POSITIVE
-            ).shift(RIGHT * 0.5)
+            VGroup(
+                MathTex(r"(-a)^n", font_size=self.FONT_SIZES["body"], color=self.COLOR_POSITIVE),
+                Text("(n偶数) = 正数", font="Noto Sans CJK SC",
+                    font_size=self.FONT_SIZES["body"], color=self.COLOR_POSITIVE)
+            ).arrange(RIGHT, buff=0.2).shift(RIGHT * 0.5)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
         
         positive_icon = Text(
@@ -621,11 +621,11 @@ class PowerOfNumbers(Scene):
                 font_size=self.FONT_SIZES["body"],
                 color=WHITE
             ),
-            MathTex(
-                r"(-a)^{\text{奇数}} = \text{负数}",
-                font_size=self.FONT_SIZES["body"],
-                color=self.COLOR_NEGATIVE
-            ).shift(RIGHT * 0.5)
+            VGroup(
+                MathTex(r"(-a)^n", font_size=self.FONT_SIZES["body"], color=self.COLOR_NEGATIVE),
+                Text("(n奇数) = 负数", font="Noto Sans CJK SC",
+                    font_size=self.FONT_SIZES["body"], color=self.COLOR_NEGATIVE)
+            ).arrange(RIGHT, buff=0.2).shift(RIGHT * 0.5)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2)
         
         negative_icon = Text(

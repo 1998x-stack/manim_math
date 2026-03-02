@@ -124,7 +124,12 @@ class InversePropositions(Scene):
         
         prop_text = VGroup(
             Text("原命题:", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            MathTex(r"\text{若} \, p \, \text{则} \, q", font_size=32, color=WHITE)
+            VGroup(
+                Text("若", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                MathTex(r"p", font_size=32, color=WHITE),
+                Text("则", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                MathTex(r"q", font_size=32, color=WHITE),
+            ).arrange(RIGHT, buff=0.2)
         ).arrange(RIGHT, buff=0.3).move_to(prop_box.get_center())
         
         self.play(Create(prop_box), run_time=0.5)
@@ -163,7 +168,12 @@ class InversePropositions(Scene):
         
         inverse_text = VGroup(
             Text("逆命题:", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            MathTex(r"\text{若} \, q \, \text{则} \, p", font_size=32, color=WHITE)
+            VGroup(
+                Text("若", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                MathTex(r"q", font_size=32, color=WHITE),
+                Text("则", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                MathTex(r"p", font_size=32, color=WHITE),
+            ).arrange(RIGHT, buff=0.2)
         ).arrange(RIGHT, buff=0.3).move_to(inverse_box.get_center())
         
         self.play(Create(inverse_box), run_time=0.5)

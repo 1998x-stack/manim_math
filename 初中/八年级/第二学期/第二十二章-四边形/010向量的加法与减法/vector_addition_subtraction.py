@@ -172,16 +172,15 @@ class VectorAdditionSubtraction(Scene):
         )
     
     def get_vector_label_position(self, start, end, direction=UP, buff=0.2):
-        """获取向量标签的智能位置"""
         midpoint = (start + end) / 2
         vec = end - start
         perp = np.array([-vec[1], vec[0], 0])
-        perp_normalized = perp / np.linalg.norm(perp) if np.linalg.norm(perp) > 0 else UP
-        
-        # 根据direction调整
-        if direction == DOWN:
+        perp_normalized = perp / np.linalg.norm(perp) if np.linalg.norm(perp) > 0 else np.array([0, 1, 0])
+
+        # 根据direction调整 — use np.allclose to compare arrays safely
+        if np.allclose(direction, DOWN):
             perp_normalized = -perp_normalized
-        
+
         return midpoint + perp_normalized * buff
     
     def show_opening(self):
@@ -628,13 +627,12 @@ class VectorAdditionSubtraction(Scene):
         self.play(Write(vector_b_label), run_time=0.4)
         
         # 公式
-        formula_neg = MathTex(
-            r"-\vec{b}",
-            r": \text{与} \vec{b} \text{长度相等，方向相反}",
-            font_size=24,
-            color=WHITE
-        ).move_to(UP * 5.5)
-        formula_neg[0].set_color(self.COLOR_VECTOR_NEG)
+        formula_neg = VGroup(
+            MathTex(r"-\vec{b}", font_size=24, color=self.COLOR_VECTOR_NEG),
+            Text("：与", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            MathTex(r"\vec{b}", font_size=24, color=WHITE),
+            Text("长度相等，方向相反", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+        ).arrange(RIGHT, buff=0.15).move_to(UP * 5.5)
         
         self.play(Write(formula_neg), run_time=0.8)
         
@@ -872,10 +870,8 @@ class VectorAdditionSubtraction(Scene):
                 self.wait(0.2)
         
         # 公式汇总闪烁
-        self.play(
-            Flash(cards, color=self.COLOR_HIGHLIGHT, flash_radius=1.0),
-            run_time=0.6
-        )
+        for card in cards:
+            self.play(Flash(card, color=self.COLOR_HIGHLIGHT, flash_radius=0.8), run_time=0.2)
         
         self.wait(1.0)
         

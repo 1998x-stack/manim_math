@@ -1,215 +1,137 @@
 # 含绝对值不等式 - 动画分镜脚本
 
 ## 元信息
-- 目标时长: 45-60 秒
-- 场景数量: 7 个
-- 难度等级: 中等
-- 目标观众: 高一学生
+- 目标时长: ~75 秒
+- 场景数量: 6 个
+- 难度等级: 高一第一学期
 
 ## 颜色配置
 ```python
-COLOR_ABSOLUTE_VALUE = BLUE
-COLOR_NUMBER_LINE = WHITE
-COLOR_POINTS = YELLOW
-COLOR_SOLUTION_REGION = GREEN
-COLOR_AUXILIARY = GRAY_B
-BACKGROUND_COLOR = "#1a1a2e"
-COLOR_HIGHLIGHT = YELLOW
+BG_COLOR = "#1a1a2e"
+COLOR_PRIMARY = "#e74c3c"    # 红色 - 高亮区间
+COLOR_SECONDARY = "#3498db"  # 蓝色 - 数轴/公式
+COLOR_ACCENT = YELLOW        # 黄色 - 关键点
+COLOR_GREEN = "#2ecc71"      # 绿色 - 解集
+COLOR_TITLE = GOLD
 ```
 
-## 几何预计算清单
-| 元素 | 计算公式 | 存储变量 |
-|------|---------|---------|
-| 数轴原点 | n2p(0) | self.origin_pos |
-| a点位置 | n2p(a) | self.pos_a |
-| -a点位置 | n2p(-a) | self.neg_a |
-| b点位置 | n2p(b) | self.pos_b |
-| -b点位置 | n2p(-b) | self.neg_b |
-| 中心a位置 | n2p(center_a) | self.center_a_pos |
-| a-b位置 | n2p(center_a-b) | self.center_a_minus_b |
-| a+b位置 | n2p(center_a+b) | self.center_a_plus_b |
-
 ---
 
-## Scene 1: 开场 (3-4秒)
-**目的**: 钩子 + 引出绝对值不等式的概念
+## Scene 1: 开场钩子 (4秒)
+**目的**: 抛出问题，吸引学生注意
 
 ### 元素
-1. 作者标识 (顶部小字)
-2. 主标题 (含绝对值不等式)
-3. 钩子问题 ("你知道|x|<3的解是什么吗？")
+- 作者信息 (顶部)
+- 大问题文字: "你能解这道题吗？"
+- 不等式: |x-2| < 3
 
 ### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 作者信息淡入 | `FadeIn(author, shift=DOWN*0.2)` |
-| 0.3s | 标题书写 | `Write(title)` |
-| 1.1s | 钩子问题出现 | `Write(hook_question)` |
-| 2.1s | 等待 | `Wait(1.0)` |
-
-### 清理
-- FadeOut: hook_question
-- 保留: title, author_info
+| 时间 | 动作 |
+|------|------|
+| 0.0s | 作者信息 FadeIn |
+| 0.5s | 问题文字 Write |
+| 1.5s | 不等式 Write |
+| 2.5s | 等待 1.5s |
 
 ---
 
-## Scene 2: 绝对值几何意义 (6-8秒)
-**目的**: 复习绝对值的几何意义
+## Scene 2: 绝对值几何意义 (12秒)
+**目的**: 用数轴说明|x|是距离
 
 ### 元素
-1. 数轴
-2. 原点标记
-3. 正负示例点
-4. 距离可视化
+- NumberLine (x ∈ [-5, 5])
+- 原点 O 标记
+- 点 x 在数轴上移动
+- 距离箭头 + 标注 |x|
+- 文字说明
 
 ### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 绘制数轴 | `Create(number_line)` |
-| 0.5s | 标记原点 | `Dot(origin_pos), Write(origin_label)` |
-| 1.0s | 创建示例点x=2 | `Dot(x_pos), Write(x_label)` |
-| 2.0s | 绘制距离线段 | `Line(origin_pos, x_pos)` |
-| 3.0s | 显示距离值 | `Brace(distance_line), Write(distance_text)` |
-| 4.0s | 添加反向点x=-2 | `Dot(x_neg_pos), Line(origin_pos, x_neg_pos)` |
-| 5.0s | 解释几何意义 | `Write(geometric_meaning)` |
-
-### 清理
-- 保留: number_line, origin_dot
+| 时间 | 动作 |
+|------|------|
+| 0.0s | 创建数轴 |
+| 1.0s | 标记原点 O |
+| 2.0s | 点 P(x=3) 出现 |
+| 3.0s | 双向箭头显示距离=3 |
+| 4.0s | |x| = 3 公式 |
+| 5.5s | 点移到 x=-3, 距离仍为3 |
+| 7.0s | 文字: "绝对值=到原点的距离" |
 
 ---
 
-## Scene 3: |x| < a 型不等式 (8-10秒)
-**目的**: 演示|x| < a的几何解释和解法
+## Scene 3: |x|<a 型不等式 (15秒)
+**目的**: 可视化解集
 
 ### 元素
-1. 数轴
-2. -a和a点标记
-3. 区间(-a, a)高亮
-4. 等价形式公式
+- NumberLine
+- a=3 标记
+- 区间 (-3, 3) 高亮
+- 公式 |x|<a ⟺ -a<x<a
 
 ### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 保持数轴显示 | `Keep(number_line)` |
-| 0.5s | 标记-a和a点 | `Dot(neg_a_pos), Dot(pos_a_pos), Write(labels)` |
-| 1.5s | 高亮区间(-a,a) | `Line(neg_a_pos, pos_a_pos, stroke_width=8, color=green)` |
-| 2.5s | 显示等价形式 | `Write(equivalence: |x|<a ⟺ -a<x<a)` |
-| 3.5s | 几何解释动画 | `Animating solution region on number line` |
-
-### 清理
-- 保留: number_line, solution_interval
+| 时间 | 动作 |
+|------|------|
+| 0.0s | 数轴 + |x| < 3 公式 |
+| 2.0s | "距离原点<3的x" |
+| 3.5s | 区间 (-3,3) 高亮 |
+| 5.5s | 转化公式: -3<x<3 |
+| 7.0s | 通用公式 |x|<a ⟺ -a<x<a |
 
 ---
 
-## Scene 4: |x| > a 型不等式 (8-10秒)
-**目的**: 演示|x| > a的几何解释和解法
+## Scene 4: |x|>a 型不等式 (12秒)
+**目的**: 可视化两段解集
 
 ### 元素
-1. 数轴
-2. -a和a点标记
-3. 区间(-∞, -a)∪(a, +∞)高亮
-4. 等价形式公式
+- NumberLine
+- 两段高亮 x<-3 和 x>3
+- 公式 |x|>a ⟺ x<-a 或 x>a
 
 ### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 保持数轴显示 | `Keep(number_line)` |
-| 0.5s | 保留-a和a点标记 | `Keep(neg_a_dot, pos_a_dot)` |
-| 1.0s | 高亮左半部分 | `DashedLine(left_end, neg_a_pos, stroke_width=8)` |
-| 2.0s | 高亮右半部分 | `DashedLine(pos_a_pos, right_end, stroke_width=8)` |
-| 3.0s | 显示等价形式 | `Write(equivalence: |x|>a ⟺ x<-a 或 x>a)` |
-| 4.0s | 几何解释动画 | `Animating solution regions` |
-
-### 清理
-- 保留: number_line, neg_a_dot, pos_a_dot
+| 时间 | 动作 |
+|------|------|
+| 0.0s | 数轴 + |x| > 3 公式 |
+| 1.5s | "距离原点>3" |
+| 3.0s | 左段 x<-3 高亮 |
+| 4.5s | 右段 x>3 高亮 |
+| 6.0s | 转化公式 |
+| 8.0s | 通用公式 |
 
 ---
 
-## Scene 5: |x-a| < b 型不等式 (8-10秒)
-**目的**: 演示平移型绝对值不等式
+## Scene 5: 例题解析 |x-2|<3 (18秒)
+**目的**: 解题步骤 + 几何意义
 
 ### 元素
-1. 数轴
-2. 中心点a和边界点a-b, a+b
-3. 区间(a-b, a+b)高亮
-4. 等价转换公式
+- 问题: |x-2| < 3
+- 方法1: 公式法
+- 方法2: 数轴几何法 (x-2距离原点<3, 等价x到2的距离<3)
+- 解集高亮
 
 ### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 显示数轴 | `ShowCreation(number_line)` |
-| 0.5s | 标记中心点a | `Dot(center_a_pos), Write(center_label)` |
-| 1.0s | 标记边界点 | `Dot(a_minus_b_pos), Dot(a_plus_b_pos), Write(boundary_labels)` |
-| 2.0s | 高亮区间 | `Line(a_minus_b_pos, a_plus_b_pos, stroke_width=8)` |
-| 3.0s | 显示等价转换 | `Write(equivalence: |x-a|<b ⟺ a-b<x<a+b)` |
-| 4.0s | 几何解释 | `Animating distance from center point` |
-
-### 清理
-- 保留: number_line, center_a_dot
+| 时间 | 动作 |
+|------|------|
+| 0.0s | 例题显示 |
+| 2.0s | 利用公式 |
+| 4.0s | -3<x-2<3 |
+| 6.0s | 两边+2: -1<x<5 |
+| 8.0s | 数轴展示 (-1, 5) 区间 |
+| 12.0s | 几何意义: x到2距离<3 |
 
 ---
 
-## Scene 6: 三角不等式 (6-8秒)
-**目的**: 介绍重要的三角不等式
+## Scene 6: 片尾 (6秒)
+**目的**: 总结 + 关注
 
 ### 元素
-1. 三角不等式公式
-2. 举例验证
-3. 拓展公式
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 主公式出现 | `Write(main_inequality: |a+b|≤|a|+|b|)` |
-| 1.0s | 拓展公式 | `Write(extended_inequality: ||a|-|b||≤|a±b|≤|a|+|b|)` |
-| 2.0s | 举例验证 | `Write(example: a=3, b=-2)` |
-| 3.0s | 数值计算 | `Write(calculation: |3+(-2)|=1≤|3|+|-2|=5)` |
-
-### 清理
-- 保留: main_inequality
+- 两个公式卡片
+- 作者信息放大
+- 关注提示
 
 ---
 
-## Scene 7: 总结 (4-5秒)
-**目的**: 重点回顾 + 关注提示
-
-### 元素
-1. 三种主要形式总结
-2. 作者信息
-3. 关注提示
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 总结文字出现 | `Write(summary_text)` |
-| 1.0s | 作者信息出现 | `FadeIn(author_info)` |
-| 2.0s | 关注提示出现 | `Write(follow_hint)` |
-| 3.0s | 等待结束 | `Wait(1.0)` |
-
----
-
-## 元素生命周期追踪表
-| 元素 | 创建场景 | 销毁场景 | 备注 |
-|------|---------|---------|------|
-| number_line | Scene 2 | End | 主数轴 |
-| origin_dot | Scene 2 | End | 原点标记 |
-| pos_a/neg_a_dots | Scene 3 | End | a和-a点 |
-| title | Scene 1 | Scene 2 | 标题 |
-| hook_question | Scene 1 | Scene 1 | 钩子问题 |
-| solution_interval | Scene 3 | Scene 4 | 解集区间 |
-| main_inequality | Scene 6 | End | 三角不等式 |
-
----
-
-## 数学公式
-- |x| < a ⟺ -a < x < a (a > 0)
-- |x| > a ⟺ x < -a 或 x > a (a > 0)
-- |x - a| < b ⟺ a - b < x < a + b
-- |a + b| ≤ |a| + |b| (三角不等式)
-- ||a| - |b|| ≤ |a ± b| ≤ |a| + |b|
-
-## 相关知识点
-- 绝对值的几何意义
-- 数轴上的距离
-- 分类讨论思想
-- 三角不等式
+## 元素生命周期追踪
+| 元素 | 创建 | 销毁 |
+|------|------|------|
+| author_info | Scene1 | 贯穿全程 |
+| number_line | Scene2 | Scene2结束 |
+| formulas | 各场景 | 各场景清理 |

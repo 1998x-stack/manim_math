@@ -492,27 +492,24 @@ class ComplexQuadratic(Scene):
     # Scene 7: 片尾
     # ══════════════════════════════════════════
     def scene_7_outro(self):
-        # 作者大名
         author_big = Text(
             "上海初高中数学直通车",
             font=FONT, font_size=40, color=COL_WHITE
         ).move_to(UP * 2.0)
-
         author_id = Text(
             "@emptyandcalm",
             font=FONT, font_size=28, color=COL_GRAY
         ).move_to(UP * 1.1)
-
         follow_text = Text(
             "关注我，获得更多数学技巧！",
             font=FONT, font_size=28, color=COL_YELLOW
         ).move_to(UP * 0.0)
 
-        # 三条总结要点
+        # ✅ 修复：Unicode Δ → LaTeX \Delta
         summary_data = [
-            ("Δ > 0", "两不等实根", COL_GREEN),
-            ("Δ = 0", "两相等实根", COL_BLUE),
-            ("Δ < 0", "两共轭虚根", COL_RED),
+            (r"\Delta > 0", "两不等实根", COL_GREEN),
+            (r"\Delta = 0", "两相等实根", COL_BLUE),
+            (r"\Delta < 0", "两共轭虚根", COL_RED),
         ]
         rows = VGroup()
         for tex, cn, col in summary_data:
@@ -523,13 +520,9 @@ class ComplexQuadratic(Scene):
         rows.arrange(DOWN, buff=0.35, aligned_edge=LEFT)
         rows.move_to(DOWN * 2.0)
 
-        self.play(
-            Transform(self.author_mob, author_big),
-            run_time=0.6
-        )
+        self.play(Transform(self.author_mob, author_big), run_time=0.6)
         self.play(FadeIn(author_id, shift=UP * 0.2), run_time=0.4)
         self.play(FadeIn(follow_text, shift=UP * 0.15), run_time=0.5)
-
         self.play(FadeIn(rows, shift=UP * 0.2), run_time=0.7)
         self.wait(1.5)
 

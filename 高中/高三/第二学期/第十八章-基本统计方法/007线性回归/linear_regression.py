@@ -585,20 +585,28 @@ class LinearRegressionScene(Scene):
                              font=FONT_CN, font_size=36, color=YELLOW).move_to(UP * 4.5)
         self.play(Write(summary_title), run_time=0.6)
 
-        lines = [
-            (r"\hat{y} = bx + a",                           "回归直线"),
-            (r"b = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}", "斜率"),
-            (r"a = \bar{y} - b\bar{x}",                     "截距"),
-            (r"|r| \to 1 \Rightarrow \text{强线性相关}",     "相关系数"),
-        ]
-
         formula_group = VGroup()
-        for i, (tex, note) in enumerate(lines):
+        clean_lines = [
+            (r"\hat{y} = bx + a",                                                    "回归直线"),
+            (r"b = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}",    "斜率"),
+            (r"a = \bar{y} - b\bar{x}",                                              "截距"),
+        ]
+        for i, (tex, note) in enumerate(clean_lines):
             f = MathTex(tex, font_size=28, color=WHITE)
             n = Text(note, font=FONT_CN, font_size=20, color=GRAY_A)
             row = VGroup(f, n).arrange(RIGHT, buff=0.5)
             row.move_to(UP * (3.2 - i * 1.1))
             formula_group.add(row)
+
+        r_formula_part = MathTex(r"|r| \to 1 \Rightarrow", font_size=28, color=WHITE)
+        r_cn_part      = Text("强线性相关", font=FONT_CN, font_size=26, color=WHITE)
+        r_note_part    = Text("相关系数", font=FONT_CN, font_size=20, color=GRAY_A)
+        r_row = VGroup(
+            VGroup(r_formula_part, r_cn_part).arrange(RIGHT, buff=0.15),
+            r_note_part
+        ).arrange(RIGHT, buff=0.5)
+        r_row.move_to(UP * (3.2 - 3 * 1.1))
+        formula_group.add(r_row)
 
         for row in formula_group:
             self.play(FadeIn(row, shift=RIGHT * 0.3), run_time=0.35)

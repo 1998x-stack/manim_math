@@ -868,8 +868,14 @@ class FunctionParity(Scene):
         ).move_to(UP * 2.8 + LEFT * 3)
         
         proof_steps = VGroup(
-            MathTex(r"\text{已知: } f(-x) = -f(x)", font_size=24, color=WHITE, tex_template=TexTemplateLibrary.ctex),
-            MathTex(r"\text{令 } x = 0:", font_size=24, color=GRAY_A, tex_template=TexTemplateLibrary.ctex),
+            VGroup(
+                Text("已知:", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+                MathTex(r"f(-x) = -f(x)", font_size=24, color=WHITE)
+            ).arrange(RIGHT, buff=0.15),
+            VGroup(
+                Text("令", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+                MathTex(r"x = 0 :", font_size=24, color=GRAY_A)
+            ).arrange(RIGHT, buff=0.15),
             MathTex(r"f(-0) = -f(0)", font_size=24, color=WHITE),
             MathTex(r"f(0) = -f(0)", font_size=24, color=WHITE),
             MathTex(r"2f(0) = 0", font_size=24, color=YELLOW),
@@ -967,7 +973,7 @@ class FunctionParity(Scene):
             (r"f(x) = x^2", lambda x: x**2, "偶", self.COLOR_EVEN, [-1.8, 1.8], [-0.5, 3.5]),
             (r"f(x) = x^3", lambda x: x**3, "奇", self.COLOR_ODD, [-1.5, 1.5], [-3, 3]),
             (r"f(x) = |x|", lambda x: abs(x), "偶", self.COLOR_EVEN, [-1.8, 1.8], [-0.5, 2]),
-            (r"f(x) = \frac{1}{x}", lambda x: 1/x if abs(x) > 0.1 else None, "奇", self.COLOR_ODD, [-1.8, 1.8], [-3, 3]),
+            (r"f(x) = \frac{1}{x}", None, "奇", self.COLOR_ODD, [-1.8, 1.8], [-3, 3])
         ]
         
         positions = [
@@ -992,9 +998,9 @@ class FunctionParity(Scene):
             ).move_to(positions[i])
             
             # 图像
-            if i == 3:  # 1/x 需要分段
-                graph_left = ax.plot(func, color=color, stroke_width=3, x_range=[-1.8, -0.1])
-                graph_right = ax.plot(func, color=color, stroke_width=3, x_range=[0.1, 1.8])
+            if i == 3:  # 1/x 分段
+                graph_left  = ax.plot(lambda x: 1/x, color=color, stroke_width=3, x_range=[-1.8, -0.15])
+                graph_right = ax.plot(lambda x: 1/x, color=color, stroke_width=3, x_range=[0.15,  1.8])
                 graph = VGroup(graph_left, graph_right)
             else:
                 graph = ax.plot(func, color=color, stroke_width=3, x_range=x_range)

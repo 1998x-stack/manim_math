@@ -149,7 +149,7 @@ class ArcLengthAndSectorArea(Scene):
         # 披萨扇形（60度，红色填充）
         pizza_sector = Sector(
             arc_center=self.center,
-            outer_radius=self.radius,
+            radius=self.radius,
             angle=self.angle_rad,
             start_angle=0,
             color=self.COLOR_PRIMARY,
@@ -430,7 +430,7 @@ class ArcLengthAndSectorArea(Scene):
         
         sector = Sector(
             arc_center=example_center,
-            outer_radius=example_radius,
+            radius=example_radius,
             angle=np.radians(example_angle),
             start_angle=0,
             color=self.COLOR_PRIMARY,
@@ -551,7 +551,7 @@ class ArcLengthAndSectorArea(Scene):
         sector_center = self.center
         sector = Sector(
             arc_center=sector_center,
-            outer_radius=self.radius,
+            radius=self.radius,
             angle=self.angle_rad,
             start_angle=0,
             color=self.COLOR_PRIMARY,
@@ -866,7 +866,7 @@ class ArcLengthAndSectorArea(Scene):
         
         sector = Sector(
             arc_center=example_center,
-            outer_radius=example_radius,
+            radius=example_radius,
             angle=np.radians(example_angle),
             start_angle=0,
             color=self.COLOR_PRIMARY,

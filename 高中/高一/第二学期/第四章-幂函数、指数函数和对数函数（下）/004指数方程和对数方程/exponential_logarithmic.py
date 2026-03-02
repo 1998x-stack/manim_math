@@ -192,8 +192,9 @@ class ExponentialLogarithmicEquations(Scene):
         
         # 示例方程
         equation = MathTex(
-            r"2^{\color{yellow}x} = 8",
-            font_size=48
+            r"2^{x} = 8",
+            font_size=48,
+            tex_to_color_map={"x": YELLOW}
         ).move_to(UP * 3)
         
         self.play(Write(equation), run_time=1.0)
@@ -505,8 +506,9 @@ class ExponentialLogarithmicEquations(Scene):
         
         # 示例方程
         log_equation = MathTex(
-            r"\log_2 {\color{yellow}x} = 3",
-            font_size=48
+            r"\log_2 x = 3",
+            font_size=48,
+            tex_to_color_map={"x": YELLOW}
         ).move_to(UP * 3)
         
         self.play(Write(log_equation), run_time=1.0)

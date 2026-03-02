@@ -237,21 +237,12 @@ class PrismLesson(ThreeDScene):
         self.wait(0.5)
         
         # 旋转展示
-        self.play(
-            Rotate(self.main_prism, angle=PI/3, axis=UP, run_time=2),
-            self.camera.animate.set_phi(60 * DEGREES).set_theta(-30 * DEGREES),
-            run_time=2
-        )
+        self.play(Rotate(self.main_prism, angle=PI/3, axis=UP), run_time=2)
+        self.move_camera(phi=60 * DEGREES, theta=-30 * DEGREES, run_time=0.8)
         self.wait(0.5)
-        
-        # 清理
+
         self.play(FadeOut(hook_text), run_time=0.5)
-        
-        # 恢复相机
-        self.play(
-            self.camera.animate.set_phi(70 * DEGREES).set_theta(-45 * DEGREES),
-            run_time=1
-        )
+        self.move_camera(phi=70 * DEGREES, theta=-45 * DEGREES, run_time=1)
     
     def scene_2_definition(self):
         """场景2: 棱柱定义 - 三要素"""
@@ -638,182 +629,148 @@ class PrismLesson(ThreeDScene):
     
     def scene_6_volume_and_surface_area(self):
         """场景6: 体积和表面积公式"""
-        
-        # 标题
-        title = Text(
-            "体积和表面积",
-            font="Noto Sans CJK SC",
-            font_size=36,
-            color=WHITE
-        )
-        title.to_edge(UP, buff=1.5)
-        title.set_opacity(0)
-        self.add_fixed_in_frame_mobjects(title)
-        self.play(FadeIn(title), run_time=0.6)
-        
         # 体积公式
-        volume_title = Text(
-            "体积公式:",
-            font="Noto Sans CJK SC",
-            font_size=24,
-            color=GRAY_A
-        )
+        title = Text("体积与表面积", font="Noto Sans CJK SC",
+                    font_size=38, color=GOLD).move_to(UP * 6.1)
+        self.play(Write(title), run_time=0.5)
+        volume_title = Text("体积公式:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
         volume_title.to_edge(DOWN, buff=5.5).shift(LEFT * 2)
         volume_title.set_opacity(0)
         self.add_fixed_in_frame_mobjects(volume_title)
-        
-        volume_formula = MathTex(
-            r"V = S_{\text{底}} \cdot h",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        )
+
+        volume_formula = VGroup(
+            MathTex(r"V = S", font_size=32, color=self.COLOR_HIGHLIGHT),
+            Text("底", font="Noto Sans CJK SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
+            MathTex(r"\cdot\, h", font_size=32, color=self.COLOR_HIGHLIGHT),
+        ).arrange(RIGHT, buff=0.04)
         volume_formula.next_to(volume_title, RIGHT, buff=0.5)
         volume_formula.set_opacity(0)
         self.add_fixed_in_frame_mobjects(volume_formula)
-        
-        self.play(
-            FadeIn(volume_title),
-            Write(volume_formula),
-            run_time=1.0
-        )
-        
-        # 数值示例
+
+        self.play(FadeIn(volume_title), FadeIn(volume_formula), run_time=1.0)
+
         volume_value = MathTex(
             rf"= {self.base_area:.2f} \times {self.height:.1f} = {self.volume:.2f}",
-            font_size=24,
-            color=GRAY_A
+            font_size=24, color=GRAY_A
         )
         volume_value.next_to(volume_formula, DOWN, buff=0.3, aligned_edge=LEFT)
         volume_value.set_opacity(0)
         self.add_fixed_in_frame_mobjects(volume_value)
-        
         self.play(FadeIn(volume_value), run_time=0.8)
         self.wait(1.5)
-        
+
         # 表面积公式
-        surface_title = Text(
-            "表面积公式:",
-            font="Noto Sans CJK SC",
-            font_size=24,
-            color=GRAY_A
-        )
+        surface_title = Text("表面积公式:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
         surface_title.to_edge(DOWN, buff=3.5).shift(LEFT * 1.8)
         surface_title.set_opacity(0)
         self.add_fixed_in_frame_mobjects(surface_title)
-        
-        surface_formula = MathTex(
-            r"S = 2S_{\text{底}} + S_{\text{侧}}",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        )
+
+        surface_formula = VGroup(
+            MathTex(r"S = 2S", font_size=32, color=self.COLOR_HIGHLIGHT),
+            Text("底", font="Noto Sans CJK SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
+            MathTex(r"+ S", font_size=32, color=self.COLOR_HIGHLIGHT),
+            Text("侧", font="Noto Sans CJK SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
+        ).arrange(RIGHT, buff=0.04)
         surface_formula.next_to(surface_title, RIGHT, buff=0.5)
         surface_formula.set_opacity(0)
         self.add_fixed_in_frame_mobjects(surface_formula)
-        
-        self.play(
-            FadeIn(surface_title),
-            Write(surface_formula),
-            run_time=1.0
-        )
-        
+
+        self.play(FadeIn(surface_title), FadeIn(surface_formula), run_time=1.0)
+
         # 侧面积公式
-        lateral_formula = MathTex(
-            r"S_{\text{侧}} = \text{周长} \cdot h",
-            font_size=24,
-            color=GRAY_A
-        )
+        lateral_formula = VGroup(
+            MathTex(r"S", font_size=24, color=GRAY_A),
+            Text("侧", font="Noto Sans CJK SC", font_size=13, color=GRAY_A).shift(DOWN * 0.10),
+            MathTex(r"=", font_size=24, color=GRAY_A),
+            Text("周长", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            MathTex(r"\cdot\, h", font_size=24, color=GRAY_A),
+        ).arrange(RIGHT, buff=0.05)
+        
         lateral_formula.next_to(surface_formula, DOWN, buff=0.3, aligned_edge=LEFT)
         lateral_formula.set_opacity(0)
         self.add_fixed_in_frame_mobjects(lateral_formula)
-        
         self.play(FadeIn(lateral_formula), run_time=0.8)
-        
-        # 数值示例
+
         surface_value = MathTex(
             rf"= 2 \times {self.base_area:.2f} + {self.lateral_area:.1f} = {self.surface_area:.2f}",
-            font_size=20,
-            color=GRAY_A
+            font_size=20, color=GRAY_A
         )
         surface_value.next_to(lateral_formula, DOWN, buff=0.2, aligned_edge=LEFT)
         surface_value.set_opacity(0)
         self.add_fixed_in_frame_mobjects(surface_value)
-        
         self.play(FadeIn(surface_value), run_time=0.8)
         self.wait(2.5)
-        
-        # 清理
+
         self.play(
-            FadeOut(title),
-            FadeOut(volume_title),
-            FadeOut(volume_formula),
-            FadeOut(volume_value),
-            FadeOut(surface_title),
-            FadeOut(surface_formula),
-            FadeOut(lateral_formula),
-            FadeOut(surface_value),
+            FadeOut(title), FadeOut(volume_title), FadeOut(volume_formula),
+            FadeOut(volume_value), FadeOut(surface_title), FadeOut(surface_formula),
+            FadeOut(lateral_formula), FadeOut(surface_value),
             run_time=0.6
         )
     
     def scene_7_summary(self):
         """场景7: 总结与片尾"""
-        
-        # 棱柱缩小移至左上
         self.play(
             self.main_prism.animate.scale(0.4).to_corner(UL, buff=0.8),
             run_time=1.0
         )
-        
-        # 相机正面视角
-        self.play(
-            self.camera.animate.set_phi(0 * DEGREES).set_theta(0 * DEGREES),
-            run_time=1.5
-        )
-        
-        # 要点卡片
+
+        # ✅ 修复：用 move_camera 替代 camera.animate
+        self.move_camera(phi=0 * DEGREES, theta=0 * DEGREES, run_time=1.5)
+
         cards = VGroup()
-        
-        card_texts = [
-            "两底面平行全等",
-            "侧棱平行相等",
-            r"$V = S_{\text{底}} \cdot h$",
-            r"$S = 2S_{\text{底}} + S_{\text{侧}}$"
+
+        # ✅ 修复 card_texts：不用 $ 触发 MathTex，改为 VGroup
+        card_data = [
+            ("两底面平行全等", None, self.COLOR_BASE),
+            ("侧棱平行相等",   None, self.COLOR_SECONDARY),
+            ("V = S底 · h",   None, self.COLOR_HIGHLIGHT),   # 纯Text，含"底"
+            ("S = 2S底 + S侧", None, GOLD),                  # 纯Text，含"底""侧"
         ]
-        
-        card_colors = [
+
+        card_colors_list = [
             self.COLOR_BASE,
             self.COLOR_SECONDARY,
             self.COLOR_HIGHLIGHT,
             GOLD
         ]
-        
-        for i, (text, color) in enumerate(zip(card_texts, card_colors)):
-            # 检查是否包含数学公式
-            if text.startswith(r"$"):
-                # 使用MathTex
-                content = MathTex(text[1:-1], font_size=22, color=WHITE)
-            else:
-                # 使用Text
-                content = Text(text, font="Noto Sans CJK SC", font_size=22, color=WHITE)
-            
-            # 图标
+
+        card_texts_list = ["两底面平行全等", "侧棱平行相等"]
+        # 前两项用Text，后两项用VGroup混排
+        card_contents = [
+            Text("两底面平行全等", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("侧棱平行相等",   font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            # V = S底·h
+            VGroup(
+                MathTex(r"V = S", font_size=22, color=WHITE),
+                Text("底", font="Noto Sans CJK SC", font_size=13, color=WHITE).shift(DOWN*0.10),
+                MathTex(r"\cdot h", font_size=22, color=WHITE),
+            ).arrange(RIGHT, buff=0.04),
+            # S = 2S底 + S侧
+            VGroup(
+                MathTex(r"S = 2S", font_size=22, color=WHITE),
+                Text("底", font="Noto Sans CJK SC", font_size=13, color=WHITE).shift(DOWN*0.10),
+                MathTex(r"+ S", font_size=22, color=WHITE),
+                Text("侧", font="Noto Sans CJK SC", font_size=13, color=WHITE).shift(DOWN*0.10),
+            ).arrange(RIGHT, buff=0.04),
+        ]
+
+        for i, (content, color) in enumerate(zip(card_contents, card_colors_list)):
             icon = Circle(radius=0.15, fill_color=color, fill_opacity=1, stroke_width=0)
-            
-            # 组合
             card = VGroup(icon, content).arrange(RIGHT, buff=0.4)
             card.move_to(UP * (1 - i * 1.2))
-            card.shift(LEFT * 10)  # 初始在左侧外
+            card.shift(LEFT * 10)
             card.set_opacity(0)
             self.add_fixed_in_frame_mobjects(card)
             cards.add(card)
-        
-        # 卡片依次滑入
+
         for card in cards:
             card.set_opacity(1)
             self.play(card.animate.shift(RIGHT * 10), run_time=0.5)
             self.wait(0.3)
-        
+
         self.wait(1.0)
-        
+
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",

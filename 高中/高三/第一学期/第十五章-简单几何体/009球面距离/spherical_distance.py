@@ -298,10 +298,14 @@ class SphericalDistance(ThreeDScene):
         ff2=MathTex(r"\cos\theta=\cos\varphi_1\cos\varphi_2\cos(\lambda_1\!-\!\lambda_2)"
                     r"+\sin\varphi_1\sin\varphi_2",
                     font_size=23,color="#cccccc").move_to(UP*1.55)
-        ff3=MathTex(r"\text{同经线：}\; d=R|\varphi_1-\varphi_2|",
-                    font_size=26,color="#aaaaff").move_to(UP*.7)
-        ff4=MathTex(r"\text{赤道：}\; d=R|\lambda_1-\lambda_2|",
-                    font_size=26,color="#aaffaa").move_to(UP*.05)
+        ff3 = VGroup(
+            Text("同经线：", font="Noto Sans CJK SC", font_size=26, color="#aaaaff"),
+            MathTex(r"d = R|\varphi_1 - \varphi_2|", font_size=26, color="#aaaaff"),
+        ).arrange(RIGHT, buff=0.2).move_to(UP * 0.7)
+        ff4 = VGroup(
+            Text("赤道：", font="Noto Sans CJK SC", font_size=26, color="#aaffaa"),
+            MathTex(r"d = R|\lambda_1 - \lambda_2|", font_size=26, color="#aaffaa"),
+        ).arrange(RIGHT, buff=0.2).move_to(UP * 0.05)
         self.add_fixed_in_frame_mobjects(ct,ff1,ff2,ff3,ff4)
         self.play(Write(ct))
         for f in [ff1,ff2,ff3,ff4]: self.play(Write(f,run_time=0.55))

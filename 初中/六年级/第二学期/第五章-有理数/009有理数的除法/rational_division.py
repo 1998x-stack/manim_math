@@ -753,8 +753,9 @@ class RationalDivision(Scene):
             )
             
             # 内容
-            card_content = MathTex(
+            card_content = Text(
                 content,
+                font="Noto Sans CJK SC",
                 font_size=20,
                 color=color
             )

@@ -443,30 +443,36 @@ class RhombusLesson(Scene):
         self.play(Write(title), run_time=0.5)
 
         rows = [
-            ("性质①", r"AB=BC=CD=DA",            C_SIDE,  3.35),
-            ("性质②", r"AC \perp BD,\; OA=OC",   C_PERP,  1.85),
-            ("面积",   r"S=\tfrac{1}{2}\cdot AC\cdot BD",
-                                                   C_AREA,  0.35),
-            ("判定①", r"\text{平行四边形}+AB=BC", C_DET1, -1.15),
-            ("判定②", r"AB=BC=CD=DA",             C_DET2, -2.65),
-            ("判定③", r"\text{平行四边形}+AC\perp BD",
-                                                   C_DET3, -4.15),
+            ("性质①", r"AB=BC=CD=DA",                       None,           C_SIDE,  3.35),
+            ("性质②", r"AC \perp BD,\; OA=OC",              None,           C_PERP,  1.85),
+            ("面积",   r"S=\tfrac{1}{2}\cdot AC\cdot BD",   None,           C_AREA,  0.35),
+            ("判定①", r"AB=BC",                              "平行四边形+",  C_DET1, -1.15),
+            ("判定②", r"AB=BC=CD=DA",                        None,           C_DET2, -2.65),
+            ("判定③", r"AC\perp BD",                         "平行四边形+",  C_DET3, -4.15),
         ]
 
         cards = []
-        for lab, tex, col, yc in rows:
+        for lab, tex, prefix_zh, col, yc in rows:
             bg = RoundedRectangle(
                 corner_radius=0.16, width=8.0, height=1.20,
                 color=col, fill_opacity=0.09, stroke_width=1.5
-            ).move_to(UP*yc)
+            ).move_to(UP * yc)
             lbl = Text(lab, font="Noto Sans CJK SC",
-                       font_size=22, color=col, weight=BOLD
-                       ).move_to(bg.get_left() + RIGHT*0.75)
-            fml = MathTex(tex, color=WHITE, font_size=21
-                          ).next_to(lbl, RIGHT, buff=0.3)
+                    font_size=22, color=col, weight=BOLD
+                    ).move_to(bg.get_left() + RIGHT * 0.75)
+            
+            if prefix_zh:
+                fml = VGroup(
+                    Text(prefix_zh, font="Noto Sans CJK SC", font_size=21, color=WHITE),
+                    MathTex(tex, color=WHITE, font_size=21)
+                ).arrange(RIGHT, buff=0.1).next_to(lbl, RIGHT, buff=0.3)
+            else:
+                fml = MathTex(tex, color=WHITE, font_size=21
+                            ).next_to(lbl, RIGHT, buff=0.3)
+            
             card = VGroup(bg, lbl, fml)
             cards.append(card)
-            self.play(FadeIn(card, shift=RIGHT*0.2), run_time=0.38)
+            self.play(FadeIn(card, shift=RIGHT * 0.2), run_time=0.38)
             self.wait(0.08)
 
         tip = Text("三性质 + 三判定，菱形全掌握！",

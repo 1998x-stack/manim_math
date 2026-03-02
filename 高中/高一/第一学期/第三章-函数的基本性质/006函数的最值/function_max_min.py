@@ -225,7 +225,7 @@ class FunctionMaxMin(Scene):
         
         # 绘制函数曲线（闭区间 [-2, 2]）
         self.graph = self.axes.plot(
-            self.main_function,
+            lambda x: -(x - 1)**2 + 3,
             x_range=[self.DOMAIN_LEFT, self.DOMAIN_RIGHT],
             color=self.COLOR_PRIMARY,
             stroke_width=4
@@ -301,11 +301,11 @@ class FunctionMaxMin(Scene):
         # 扫描动画 - 小点沿曲线移动寻找最高点
         t = ValueTracker(self.DOMAIN_LEFT)
         
+        _f = lambda x: -(x - 1)**2 + 3
         scanning_dot = always_redraw(
             lambda: Dot(
-                self.axes.c2p(t.get_value(), self.main_function(t.get_value())),
-                color=YELLOW,
-                radius=0.06
+                self.axes.c2p(t.get_value(), _f(t.get_value())),
+                color=YELLOW, radius=0.06
             )
         )
         
@@ -540,7 +540,7 @@ class FunctionMaxMin(Scene):
         
         # 卡片依次滑入
         for i, card in enumerate(cards):
-            self.play(card.animate.shift(RIGHT * 0), run_time=0.4)
+            self.play(card.animate.shift(RIGHT * 10), run_time=0.4)
             if i < len(cards) - 1:
                 self.wait(0.2)
         

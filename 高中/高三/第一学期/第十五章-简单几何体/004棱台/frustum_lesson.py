@@ -497,20 +497,26 @@ class FrustumLesson(ThreeDScene):
         self.play(Create(h_big_line), run_time=0.4)
 
         # Brace labels via fixed-frame text
-        V_big_tex = MathTex(
-            rf"V_{{大}} = \frac{{1}}{{3}} \cdot {S2:.2f} \times {h_pyr:.1f} = {(S2*h_pyr/3):.2f}",
-            font_size=28, color=PHANTOM_COL
-        ).move_to(UP * 4.9)
+        V_big_tex = VGroup(
+            Text("V大", font="Noto Sans CJK SC", font_size=28, color=PHANTOM_COL),
+            MathTex(
+                rf"= \frac{{1}}{{3}} \cdot {S2:.2f} \times {h_pyr:.1f} = {(S2*h_pyr/3):.2f}",
+                font_size=28, color=PHANTOM_COL
+            ),
+        ).arrange(RIGHT, buff=0.15).move_to(UP * 4.9)
         self.add_ft(V_big_tex)
-        self.play(Write(V_big_tex), run_time=0.7)
+        self.play(Write(V_big_tex[1]), FadeIn(V_big_tex[0]), run_time=0.7)
         self.wait(0.4)
 
-        V_small_tex = MathTex(
-            rf"V_{{小}} = \frac{{1}}{{3}} \cdot {S1:.2f} \times {h_pyr - h:.1f} = {(S1*(h_pyr-h)/3):.2f}",
-            font_size=28, color=YELLOW
-        ).move_to(UP * 4.1)
+        V_small_tex = VGroup(
+            Text("V小", font="Noto Sans CJK SC", font_size=28, color=YELLOW),
+            MathTex(
+                rf"= \frac{{1}}{{3}} \cdot {S1:.2f} \times {h_pyr - h:.1f} = {(S1*(h_pyr-h)/3):.2f}",
+                font_size=28, color=YELLOW
+            ),
+        ).arrange(RIGHT, buff=0.15).move_to(UP * 4.1)
         self.add_ft(V_small_tex)
-        self.play(Write(V_small_tex), run_time=0.7)
+        self.play(Write(V_small_tex[1]), FadeIn(V_small_tex[0]), run_time=0.7)
         self.wait(0.5)
 
         # ── Step 3: Fade phantom, show derivation ───────────
@@ -521,19 +527,49 @@ class FrustumLesson(ThreeDScene):
             run_time=0.5
         )
 
-        V_diff = MathTex(
-            r"V = V_{大} - V_{小}",
-            font_size=36, color=WHITE
-        ).move_to(UP * 3.3)
+        V_diff = VGroup(
+            MathTex(r"V\;=\;", font_size=36, color=WHITE),
+            Text("V大", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+            MathTex(r"-", font_size=36, color=WHITE),
+            Text("V小", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+        ).arrange(RIGHT, buff=0.15).move_to(UP * 3.3)
         self.add_ft(V_diff)
-        self.play(Write(V_diff), run_time=0.5)
+        self.play(FadeIn(V_diff, shift=UP*0.2), run_time=0.5)
         self.wait(0.4)
 
         # ── Step 4: Final clean formula ─────────────────────
-        form_final = MathTex(
-            r"V = \frac{h}{3}\left(S_{\text{上}} + S_{\text{下}} + \sqrt{S_{\text{上}} \cdot S_{\text{下}}}\right)",
-            font_size=32, color=ACCENT
-        ).move_to(UP * 2.4)
+        def _make_s_label(char, fs=32, color=WHITE):
+            """辅助：带中文下标的S"""
+            s   = MathTex(r"S", font_size=fs, color=color)
+            sub = Text(char, font="Noto Sans CJK SC", font_size=int(fs * 0.52), color=color)
+            sub.next_to(s, DR, buff=-0.04).shift(UP * 0.06)
+            return VGroup(s, sub)
+
+        # 主公式行（用S_1/S_2占位，避免sqrt内出现CJK）
+        formula_line = MathTex(
+            r"V = \frac{h}{3}\left(S_1 + S_2 + \sqrt{S_1 \cdot S_2}\right)",
+            font_size=30, color=ACCENT
+        )
+
+        # 标注行：说明S₁=S上，S₂=S下
+        s1_note = VGroup(
+            MathTex(r"S_1", font_size=22, color=ACCENT),
+            Text("=", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+            Text("S", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+            Text("上", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+        ).arrange(RIGHT, buff=0.06)
+
+        s2_note = VGroup(
+            MathTex(r"S_2", font_size=22, color=ACCENT),
+            Text("=", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+            Text("S", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+            Text("下", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+        ).arrange(RIGHT, buff=0.06)
+
+        note_line = VGroup(s1_note, MathTex(r"\quad", font_size=20), s2_note).arrange(RIGHT, buff=0.3)
+
+        form_final = VGroup(formula_line, note_line).arrange(DOWN, buff=0.18).move_to(UP * 2.4)
+
         box = SurroundingRectangle(form_final, color=ACCENT, buff=0.18, corner_radius=0.12)
         self.add_ft(form_final, box)
         self.play(Write(form_final), Create(box), run_time=1.2)
@@ -569,27 +605,36 @@ class FrustumLesson(ThreeDScene):
         self.add_ft(title)
         self.play(Write(title), run_time=0.4)
 
-        # Highlight all trapezoidal faces
         for f in F["faces"]:
             f.set_fill(f.get_fill_color(), 0.80)
         self.wait(0.3)
 
-        # Key idea: unfold one face
         key_idea = self.ft("每个侧面都是等腰梯形", size=28, color=WHITE).move_to(UP * 5.6)
         self.add_ft(key_idea)
         self.play(FadeIn(key_idea, shift=UP * 0.2), run_time=0.4)
 
-        # Slant height line
         sl_line  = Line(M_AB, M_ApBp, stroke_color=SLANT_COLOR, stroke_width=6)
         dot_m1   = Dot3D(M_AB,   radius=0.08, color=SLANT_COLOR)
         dot_m2   = Dot3D(M_ApBp, radius=0.08, color=SLANT_COLOR)
         self.play(Create(sl_line), FadeIn(dot_m1, dot_m2), run_time=0.5)
 
-        # Formula
-        form = MathTex(
-            r"S_{\text{侧}} = \frac{1}{2} (C_{\text{上}} + C_{\text{下}}) \cdot l'",
-            font_size=38, color=SLANT_COLOR
-        ).move_to(UP * 4.7)
+        def _sub(char, base="S", fs=38, color=WHITE):
+            b   = MathTex(base, font_size=fs, color=color)
+            sub = Text(char, font="Noto Sans CJK SC",
+                    font_size=int(fs * 0.5), color=color)
+            sub.next_to(b, DR, buff=-0.05).shift(UP * 0.07)
+            return VGroup(b, sub)
+
+        s_ce    = _sub("侧", "S", 38, SLANT_COLOR)
+        eq_half = MathTex(r"= \frac{1}{2}\,(", font_size=38, color=SLANT_COLOR)
+        c_up    = _sub("上", "C", 38, SLANT_COLOR)
+        plus    = MathTex(r"+", font_size=38, color=SLANT_COLOR)
+        c_dn    = _sub("下", "C", 38, SLANT_COLOR)
+        tail    = MathTex(r")\cdot l'", font_size=38, color=SLANT_COLOR)
+
+        form = VGroup(s_ce, eq_half, c_up, plus, c_dn, tail)\
+            .arrange(RIGHT, buff=0.08)\
+            .move_to(UP * 4.7)
         self.add_ft(form)
         self.play(Write(form), run_time=0.9)
         self.wait(0.5)
@@ -599,24 +644,28 @@ class FrustumLesson(ThreeDScene):
         self.play(FadeIn(note), run_time=0.4)
         self.wait(0.5)
 
-        # Numbers
-        c_sum = C1 + C2
-        num_tex = MathTex(
-            rf"S_{{侧}} = \frac{{1}}{{2}} \times ({C1:.1f} + {C2:.1f}) \times {slant_h:.3f}",
+        # ✅ FIX E1: S_侧 数值行 — 用 VGroup 替代 MathTex 含中文下标
+        _s1 = MathTex("S", font_size=30, color=WHITE)
+        _sub1 = Text("侧", font="Noto Sans CJK SC", font_size=15, color=WHITE)
+        _sub1.next_to(_s1, DR, buff=-0.04).shift(UP * 0.06)
+        _eq1 = MathTex(
+            rf"= \frac{{1}}{{2}} \times ({C1:.1f} + {C2:.1f}) \times {slant_h:.3f}",
             font_size=30, color=WHITE
-        ).move_to(UP * 3.1)
+        )
+        num_tex = VGroup(VGroup(_s1, _sub1), _eq1).arrange(RIGHT, buff=0.08).move_to(UP * 3.1)
         self.add_ft(num_tex)
         self.play(Write(num_tex), run_time=0.7)
 
-        result_s = MathTex(
-            rf"S_{{侧}} \approx {S_lat:.2f}",
-            font_size=50, color=ACCENT
-        ).move_to(UP * 2.1)
+        # ✅ FIX E2: S_侧 结果行 — 用 VGroup 替代 MathTex 含中文下标
+        _s2 = MathTex("S", font_size=50, color=ACCENT)
+        _sub2 = Text("侧", font="Noto Sans CJK SC", font_size=25, color=ACCENT)
+        _sub2.next_to(_s2, DR, buff=-0.04).shift(UP * 0.06)
+        _eq2 = MathTex(rf"\approx {S_lat:.2f}", font_size=50, color=ACCENT)
+        result_s = VGroup(VGroup(_s2, _sub2), _eq2).arrange(RIGHT, buff=0.08).move_to(UP * 2.1)
         self.add_ft(result_s)
         self.play(Write(result_s), run_time=0.5)
         self.play(Indicate(result_s, scale_factor=1.12), run_time=0.5)
 
-        # Total
         total_txt = self.ft(f"全面积 S = {S_total:.2f}", size=28, color=GRAY_A).move_to(UP * 1.2)
         self.add_ft(total_txt)
         self.play(FadeIn(total_txt), run_time=0.4)
@@ -633,57 +682,66 @@ class FrustumLesson(ThreeDScene):
     def scene_7_outro(self):
         F = self._F
 
-        # ── Formula recap card ──────────────────────────────
         recap = self.ft("公式速记", size=42, color=ACCENT).move_to(UP * 6.5)
         fv = MathTex(
             r"V = \frac{h}{3}\!\left(S_1 + S_2 + \sqrt{S_1 S_2}\right)",
             font_size=34, color=HEIGHT_COLOR
         ).move_to(UP * 5.5)
-        fs = MathTex(
-            r"S_{\text{侧}} = \tfrac{1}{2}(C_1 + C_2)\,l'",
-            font_size=34, color=SLANT_COLOR
-        ).move_to(UP * 4.7)
+
+        # ✅ 修复：S_{\text{侧}} 含中文 → VGroup 拆分
+        def _sub_fixed(char, base="S", fs=34, color=WHITE):
+            b   = MathTex(base, font_size=fs, color=color)
+            sub = Text(char, font="Noto Sans CJK SC",
+                    font_size=int(fs * 0.5), color=color)
+            sub.next_to(b, DR, buff=-0.05).shift(UP * 0.07)
+            return VGroup(b, sub)
+
+        # S侧 = 1/2(C1+C2)l'
+        fs_s    = _sub_fixed("侧", "S", 34, SLANT_COLOR)
+        fs_tail = MathTex(r"= \tfrac{1}{2}(C_1 + C_2)\,l'",
+                        font_size=34, color=SLANT_COLOR)
+        fs = VGroup(fs_s, fs_tail).arrange(RIGHT, buff=0.08).move_to(UP * 4.7)
+
         fl = MathTex(
             r"l' = \sqrt{h^2 + \left(\tfrac{a_2 - a_1}{2}\right)^2}",
             font_size=30, color=GRAY_A
         ).move_to(UP * 3.9)
-        note_a = self.ft("a₁=上底边长，a₂=下底边长", size=20, color=GRAY_B).move_to(UP * 3.1)
+        note_a = self.ft("a₁=上底边长，a₂=下底边长", size=20,
+                        color=GRAY_B).move_to(UP * 3.1)
 
         self.add_ft(recap, fv, fs, fl, note_a)
         self.play(Write(recap), run_time=0.4)
-        for m in [fv, fs, fl, note_a]:
-            self.play(Write(m) if isinstance(m, MathTex) else FadeIn(m, shift=UP*0.1),
-                      run_time=0.5)
+        self.play(Write(fv), run_time=0.5)
+        self.play(FadeIn(fs_s), Write(fs_tail), run_time=0.5)   # fs 分开播
+        self.play(Write(fl), run_time=0.5)
+        self.play(FadeIn(note_a, shift=UP * 0.1), run_time=0.5)
 
-        # Ambient rotation while formulas are visible
         self.begin_ambient_camera_rotation(rate=0.18)
         self.wait(2.8)
         self.stop_ambient_camera_rotation()
         self.move_camera(phi=70 * DEGREES, theta=-45 * DEGREES, run_time=0.8)
 
-        # ── Fade out everything ─────────────────────────────
         F_all = VGroup(
             F["bot"], F["top"], F["faces_group"],
             F["bot_edges"], F["top_edges"], F["lat_edges"]
         )
         self.play(
             FadeOut(F_all),
-            FadeOut(recap), FadeOut(fv), FadeOut(fs), FadeOut(fl), FadeOut(note_a),
+            FadeOut(recap), FadeOut(fv), FadeOut(fs),
+            FadeOut(fl), FadeOut(note_a),
             run_time=0.7
         )
         for m in [recap, fv, fs, fl, note_a]:
             self.remove(m)
 
-        # ── Outro card ──────────────────────────────────────
         auth_big = self.ft("上海初高中数学直通车", size=42, color=WHITE).move_to(UP * 2.0)
-        auth_id  = self.ft("@emptyandcalm",  size=30, color=GRAY_B).move_to(UP * 0.9)
+        auth_id  = self.ft("@emptyandcalm", size=30, color=GRAY_B).move_to(UP * 0.9)
         follow   = self.ft("关注我，获得更多数学技巧！", size=30, color=ACCENT).move_to(DOWN * 0.3)
 
         self.add_ft(auth_big, auth_id, follow)
         self.play(FadeIn(auth_big, scale=1.05), FadeIn(auth_id, shift=UP*0.2), run_time=0.8)
         self.play(FadeIn(follow, shift=UP * 0.3), run_time=0.5)
 
-        # Small decorative frustum
         mini_F = self._frustum(face_op=0.65, base_op=0.80)
         mini_all = VGroup(
             mini_F["bot"], mini_F["top"], mini_F["faces_group"],

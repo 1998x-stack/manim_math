@@ -193,11 +193,26 @@ class FreqProbAnimation(Scene):
         prop_title.move_to(DOWN * 0.8)
         self.play(Write(prop_title), run_time=0.5)
 
-        props = VGroup(
-            self._make_prop("① ", r"0 \leq f_n(A) \leq 1", "频率在0到1之间"),
-            self._make_prop("② ", r"f(\text{必然事件}) = 1", "必然事件频率为1"),
-            self._make_prop("③ ", r"f(\text{不可能事件}) = 0", "不可能事件频率为0"),
-        ).arrange(DOWN, buff=0.28, aligned_edge=LEFT).move_to(DOWN * 2.6)
+        # ✅ 最简洁修复：scene_2_definition 中直接构建
+        prop1 = VGroup(
+            Text("① ", font=AUTHOR_FONT, font_size=26, color=COLOR_HIGHLIGHT),
+            MathTex(r"0 \leq f_n(A) \leq 1", font_size=30, color=WHITE),
+            Text("频率在0到1之间", font=AUTHOR_FONT, font_size=20, color=GRAY_A),
+        ).arrange(RIGHT, buff=0.2)
+
+        prop2 = VGroup(
+            Text("② ", font=AUTHOR_FONT, font_size=26, color=COLOR_HIGHLIGHT),
+            MathTex(r"f = 1", font_size=30, color=WHITE),
+            Text("必然事件频率为1", font=AUTHOR_FONT, font_size=20, color=GRAY_A),
+        ).arrange(RIGHT, buff=0.2)
+
+        prop3 = VGroup(
+            Text("③ ", font=AUTHOR_FONT, font_size=26, color=COLOR_HIGHLIGHT),
+            MathTex(r"f = 0", font_size=30, color=WHITE),
+            Text("不可能事件频率为0", font=AUTHOR_FONT, font_size=20, color=GRAY_A),
+        ).arrange(RIGHT, buff=0.2)
+
+        props = VGroup(prop1, prop2, prop3).arrange(DOWN, buff=0.28, aligned_edge=LEFT).move_to(DOWN * 2.6)
 
         for prop in props:
             self.play(FadeIn(prop, shift=RIGHT * 0.3), run_time=0.4)
@@ -222,12 +237,21 @@ class FreqProbAnimation(Scene):
             run_time=0.5
         )
 
-    def _make_prop(self, num_str, math_str, cn_str):
-        """创建一条性质行（序号 + 公式 + 说明）"""
+    def _make_prop(self, num_str, math_left, math_right_or_text, cn_str, use_text_for_middle=False):
+        """
+        创建一条性质行
+        use_text_for_middle=True 时，中间部分用 Text 而非 MathTex
+        """
         num = Text(num_str, font=AUTHOR_FONT, font_size=26, color=COLOR_HIGHLIGHT)
-        formula = MathTex(math_str, font_size=32, color=WHITE)
         desc = Text(cn_str, font=AUTHOR_FONT, font_size=22, color=GRAY_A)
-        row = VGroup(num, formula, desc).arrange(RIGHT, buff=0.2)
+
+        if use_text_for_middle:
+            # ✅ 含中文的部分用 Text，纯数学用 MathTex，再组合
+            mid = Text(math_right_or_text, font=AUTHOR_FONT, font_size=24, color=WHITE)
+            row = VGroup(num, mid, desc).arrange(RIGHT, buff=0.2)
+        else:
+            formula = MathTex(math_left, font_size=32, color=WHITE)
+            row = VGroup(num, formula, desc).arrange(RIGHT, buff=0.2)
         return row
 
     # ================================================================
@@ -491,104 +515,72 @@ class FreqProbAnimation(Scene):
     # ================================================================
     #   Scene 5: 频率与概率关系总结
     # ================================================================
-
     def scene_5_summary(self):
-        # 大标题
         title = Text("频率  vs  概率", font=AUTHOR_FONT, font_size=46,
-                     color=COLOR_HIGHLIGHT)
+                    color=COLOR_HIGHLIGHT)
         title.move_to(UP * 6.2)
         self.play(Write(title), run_time=0.5)
 
-        # ---- 对比卡片 ----
         card_freq = self._make_card(
             "频率  f_n(A)",
-            [
-                "随机的、变化的",
-                "每次试验结果不同",
-                "取决于试验次数 n",
-                "= m/n（可计算）",
-            ],
+            ["随机的、变化的", "每次试验结果不同",
+            "取决于试验次数 n", "= m/n（可计算）"],
             COLOR_FREQ, LEFT * 2.0 + UP * 2.5
         )
-
         card_prob = self._make_card(
             "概率  P(A)",
-            [
-                "确定的、稳定的",
-                "事件本身的性质",
-                "不随试验次数变化",
-                "频率的极限（稳定值）",
-            ],
+            ["确定的、稳定的", "事件本身的性质",
+            "不随试验次数变化", "频率的极限（稳定值）"],
             COLOR_PROB, RIGHT * 2.0 + UP * 2.5
         )
-
         self.play(FadeIn(card_freq, shift=RIGHT * 0.3), run_time=0.5)
         self.play(FadeIn(card_prob, shift=LEFT * 0.3), run_time=0.5)
         self.wait(0.5)
 
-        # ---- 中间箭头 n 增大 ----
         arrow_left = Arrow(ORIGIN + UP * 2.5 + LEFT * 0.5,
-                           ORIGIN + UP * 2.5 + LEFT * 0.05,
-                           buff=0, color=COLOR_HIGHLIGHT, stroke_width=2)
+                        ORIGIN + UP * 2.5 + LEFT * 0.05,
+                        buff=0, color=COLOR_HIGHLIGHT, stroke_width=2)
         arrow_right = Arrow(ORIGIN + UP * 2.5 + RIGHT * 0.05,
                             ORIGIN + UP * 2.5 + RIGHT * 0.5,
                             buff=0, color=COLOR_HIGHLIGHT, stroke_width=2)
         n_grow = Text("n↑", font=AUTHOR_FONT, font_size=22,
-                      color=COLOR_HIGHLIGHT).move_to(UP * 2.5)
-        self.play(
-            GrowArrow(arrow_left), GrowArrow(arrow_right),
-            FadeIn(n_grow),
-            run_time=0.4
-        )
+                    color=COLOR_HIGHLIGHT).move_to(UP * 2.5)
+        self.play(GrowArrow(arrow_left), GrowArrow(arrow_right),
+                FadeIn(n_grow), run_time=0.4)
 
-        # ---- 核心关系 ----
-        rel_1 = Text("概率是频率的稳定值", font=AUTHOR_FONT, font_size=30,
-                     color=WHITE)
-        rel_2 = Text("频率是概率的近似值", font=AUTHOR_FONT, font_size=30,
-                     color=WHITE)
+        rel_1 = Text("概率是频率的稳定值", font=AUTHOR_FONT, font_size=30, color=WHITE)
+        rel_2 = Text("频率是概率的近似值", font=AUTHOR_FONT, font_size=30, color=WHITE)
         VGroup(rel_1, rel_2).arrange(DOWN, buff=0.35).move_to(DOWN * 0.8)
-
         icon_1 = Text("→", font=AUTHOR_FONT, font_size=30, color=COLOR_GREEN)
         icon_2 = Text("≈", font=AUTHOR_FONT, font_size=36, color=COLOR_GREEN)
         icon_1.next_to(rel_1, LEFT, buff=0.2)
         icon_2.next_to(rel_2, LEFT, buff=0.2)
-
-        self.play(
-            FadeIn(rel_1, shift=UP * 0.2),
-            FadeIn(icon_1),
-            run_time=0.5
-        )
-        self.play(
-            FadeIn(rel_2, shift=UP * 0.2),
-            FadeIn(icon_2),
-            run_time=0.5
-        )
+        self.play(FadeIn(rel_1, shift=UP * 0.2), FadeIn(icon_1), run_time=0.5)
+        self.play(FadeIn(rel_2, shift=UP * 0.2), FadeIn(icon_2), run_time=0.5)
         self.wait(0.4)
 
-        # ---- 近似公式 ----
-        approx = MathTex(
-            r"f_n(A) \approx P(A)", r"\quad (n \text{ 足够大})",
-            font_size=42, color=COLOR_HIGHLIGHT
-        )
+        approx_math = MathTex(r"f_n(A) \approx P(A)",
+                            font_size=42, color=COLOR_HIGHLIGHT)
+        approx_note = Text("（n 足够大）", font=AUTHOR_FONT,
+                        font_size=32, color=COLOR_HIGHLIGHT)
+        approx = VGroup(approx_math, approx_note).arrange(RIGHT, buff=0.3)
         approx.move_to(DOWN * 2.3)
         approx_box = SurroundingRectangle(approx, color=COLOR_HIGHLIGHT,
-                                           buff=0.2, corner_radius=0.12)
-        self.play(Write(approx), Create(approx_box), run_time=0.7)
+                                        buff=0.2, corner_radius=0.12)
+        self.play(Write(approx_math), FadeIn(approx_note),
+                Create(approx_box), run_time=0.7)
         self.wait(0.4)
 
-        # ---- 记忆口诀 ----
         motto_bg = RoundedRectangle(width=7.5, height=1.0, corner_radius=0.2,
-                                     fill_color=COLOR_CARD, fill_opacity=0.9,
-                                     stroke_color=COLOR_GOLD, stroke_width=2)
+                                    fill_color=COLOR_CARD, fill_opacity=0.9,
+                                    stroke_color=COLOR_GOLD, stroke_width=2)
         motto_bg.move_to(DOWN * 4.0)
         motto = Text("「次数越多，频率越稳，越接近概率」",
-                     font=AUTHOR_FONT, font_size=24, color=COLOR_GOLD)
+                    font=AUTHOR_FONT, font_size=24, color=COLOR_GOLD)
         motto.move_to(DOWN * 4.0)
-
         self.play(FadeIn(motto_bg), Write(motto), run_time=0.6)
         self.wait(1.2)
 
-        # 清场
         self.play(
             FadeOut(VGroup(
                 title, card_freq, card_prob,

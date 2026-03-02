@@ -887,21 +887,8 @@ class ParabolaProperties(Scene):
         self.wait(2.0)
         
         # 全部淡出 - 过滤兼容的mobjects类型
-        compatible_mobjects = []
-        for mob in self.mobjects:
-            # 检查是否为 VMobject 类型（VGroup 只接受 VMobject 类型）
-            if hasattr(mob, '_points') or hasattr(mob, 'submobjects'):
-                compatible_mobjects.append(mob)
-        
-        if compatible_mobjects:
-            self.play(
-                FadeOut(VGroup(*compatible_mobjects)),
-                run_time=1.5
-            )
-        else:
-            # 如果没有兼容的对象，则逐个淡出        # 全部淡出
-            self.play(FadeOut(*self.mobjects), run_time=1.5)
-            # self.play(*[FadeOut(mob) for mob in self.mobjects], run_time=1.5)
+        if self.mobjects:
+            self.play(FadeOut(Group(*self.mobjects)), run_time=1.5)
 
 
 # 渲染命令:

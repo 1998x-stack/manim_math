@@ -686,7 +686,7 @@ class SetRelationsAnimation(Scene):
         
         # 一般公式
         general_formula = MathTex(
-            r"\text{Subsets: }", "2", "^", "n",
+            r"\text{Subsets: } 2^n",
             font_size=40,
             color=self.COLOR_SUBSET
         ).move_to(DOWN * self.EXPLANATION_Y)
