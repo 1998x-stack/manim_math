@@ -549,7 +549,7 @@ class GergonnePoint(Scene):
         
         # 依次滑入
         for prop in properties_group:
-            self.play(prop.animate.shift(RIGHT * 0), run_time=0.4)
+            self.play(prop.animate.shift(RIGHT * 10), run_time=0.4)
             self.wait(0.2)
         
         self.wait(2.5)

@@ -847,7 +847,7 @@ class SetRelationsAnimation(Scene):
         
         # 卡片依次滑入
         for i, card in enumerate(cards):
-            self.play(card.animate.shift(RIGHT * 0), run_time=0.5)
+            self.play(card.animate.shift(RIGHT * 10), run_time=0.5)
             if i < len(cards) - 1:
                 self.wait(0.3)
         

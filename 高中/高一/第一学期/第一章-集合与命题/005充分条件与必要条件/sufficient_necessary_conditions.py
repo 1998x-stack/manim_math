@@ -59,17 +59,27 @@ class SufficientNecessaryConditions(Scene):
         """初始化所有几何元素"""
         # 基准参数
         self.RADIUS = 1.2
-        self.SPACING = 3.0
+        self.RADIUS_Q = self.RADIUS * 1.5  # 充分/必要条件下Q的半径（大于P）
 
         # 定义集合中心点
         self.CENTER_P = np.array([-2, 0, 0])  # 命题P的集合中心
-        self.CENTER_Q = np.array([1, 0, 0])   # 命题Q的集合中心
+        # 充分/必要条件时，Q的中心应靠近P中心，使得P完全包含于Q
+        # 最大允许距离 = self.RADIUS_Q - self.RADIUS = 0.6
+        # 选择偏移量为0.4，确保包含且视觉清晰
+        self.CENTER_Q_INCLUSION = self.CENTER_P + RIGHT * 0.4
+
+        # 充要条件时，两个圆半径相同，中心完全重合
+        self.CENTER_EQUAL = ORIGIN
+        self.RADIUS_EQUAL = self.RADIUS
 
         # 验证几何计算
         self.verify_geometry()
 
     def verify_geometry(self):
         """验证几何关系"""
+        d = np.linalg.norm(self.CENTER_Q_INCLUSION - self.CENTER_P)
+        max_d = self.RADIUS_Q - self.RADIUS
+        assert d <= max_d, f"包含关系不成立：距离{d} > 最大允许{max_d}"
         print("✓ 几何验证完成")
 
 
@@ -144,6 +154,7 @@ class SufficientNecessaryConditions(Scene):
 
         self.play(Write(title), run_time=0.6)
 
+        # --- 创建集合图示，展示P⊂Q ---
         # P集合 (较小，放在左边)
         set_p = Circle(
             radius=self.RADIUS,
@@ -159,50 +170,42 @@ class SufficientNecessaryConditions(Scene):
             color=WHITE
         ).move_to(self.CENTER_P)
 
-        # Q集合 (较大，包含P)
+        # Q集合 (较大，初始放在右侧，随后移动到包含P的位置)
         set_q = Circle(
-            radius=self.RADIUS * 1.5,
+            radius=self.RADIUS_Q,
             color=self.COLOR_LOGIC,
             fill_color=self.COLOR_LOGIC,
             fill_opacity=0.15
-        ).move_to(self.CENTER_Q)
+        ).move_to(self.CENTER_P + RIGHT * 3)  # 初始远离
 
         label_q = Text(
             "Q",
             font="Noto Sans CJK SC",
             font_size=32,
             color=WHITE
-        ).move_to(self.CENTER_Q)
+        ).move_to(set_q.get_center())
 
-        # 为了表示P是Q的子集，我们将Q的中心调整到和P相同位置或靠近
-        adjusted_center_q = self.CENTER_P + RIGHT * 1.5  # 让P成为Q的子集
-        set_q_target = Circle(
-            radius=self.RADIUS * 1.5,
-            color=self.COLOR_LOGIC,
-            fill_color=self.COLOR_LOGIC,
-            fill_opacity=0.15
-        ).move_to(adjusted_center_q)
-
-        # 先创建P集合
+        # 先创建P
         self.play(Create(set_p), run_time=0.8)
         self.play(Write(label_p), run_time=0.4)
 
-        # 再创建Q集合，显示P⊂Q的关系
+        # 创建Q
         self.play(Create(set_q), run_time=0.8)
         self.play(Write(label_q), run_time=0.4)
 
-        # 调整使P成为Q的子集
+        # 动态移动Q，使其包含P（根据计算的位置 self.CENTER_Q_INCLUSION）
         self.play(
-            Transform(set_q, set_q_target),
-            label_q.animate.move_to(adjusted_center_q),
-            run_time=1.0
+            set_q.animate.move_to(self.CENTER_Q_INCLUSION),
+            label_q.animate.move_to(self.CENTER_Q_INCLUSION),
+            run_time=1.5,
+            rate_func=rate_functions.ease_in_out_sine
         )
 
         # 添加子集符号
         subset_symbol = MathTex(
             "\\subset",
             font_size=36
-        ).move_to((self.CENTER_P + adjusted_center_q) / 2)
+        ).move_to((self.CENTER_P + self.CENTER_Q_INCLUSION) / 2 + UP * 0.5)
 
         self.play(Write(subset_symbol), run_time=0.5)
 
@@ -228,9 +231,11 @@ class SufficientNecessaryConditions(Scene):
         self.play(FadeIn(sufficient_explanation), run_time=0.6)
 
         # 箭头从P指向Q
+        arrow_start = self.CENTER_P + RIGHT * self.RADIUS * 0.8
+        arrow_end = self.CENTER_Q_INCLUSION + LEFT * self.RADIUS_Q * 0.8
         arrow = Arrow(
-            start=self.CENTER_P + RIGHT * self.RADIUS * 0.8,
-            end=adjusted_center_q + LEFT * self.RADIUS * 0.8,
+            start=arrow_start,
+            end=arrow_end,
             color=self.COLOR_HIGHLIGHT,
             buff=0.1,
             max_tip_length_to_length_ratio=0.15
@@ -254,20 +259,27 @@ class SufficientNecessaryConditions(Scene):
         # 等待
         self.wait(2)
 
-        # 清理部分元素，保留集合图示
+        # 清理部分元素，保留集合图示（以便下一个场景使用）
         self.play(
             FadeOut(title),
             FadeOut(subset_symbol),
             FadeOut(sufficient_def),
             FadeOut(sufficient_explanation),
             FadeOut(arrow_label),
+            FadeOut(arrow),
             run_time=0.6
         )
+
+        # 将当前集合保存供下一个场景使用
+        self.set_p_suff = set_p
+        self.set_q_suff = set_q
+        self.label_p_suff = label_p
+        self.label_q_suff = label_q
 
 
     def show_necessary_condition(self):
         """场景3: 必要条件解释"""
-        # 使用当前的集合图示，解释必要条件
+        # 使用上一个场景保留的集合图示，解释必要条件
         necessary_title = Text(
             "必要条件",
             font="Noto Sans CJK SC",
@@ -276,6 +288,25 @@ class SufficientNecessaryConditions(Scene):
         ).move_to(UP * 6)
 
         self.play(Write(necessary_title), run_time=0.6)
+
+        # 确保之前的集合还在，如果没有则重新创建
+        if not hasattr(self, 'set_p_suff'):
+            # 重新创建包含关系的圆
+            self.set_p_suff = Circle(
+                radius=self.RADIUS,
+                color=self.COLOR_SUFFICIENT,
+                fill_color=self.COLOR_SUFFICIENT,
+                fill_opacity=0.2
+            ).move_to(self.CENTER_P)
+            self.set_q_suff = Circle(
+                radius=self.RADIUS_Q,
+                color=self.COLOR_LOGIC,
+                fill_color=self.COLOR_LOGIC,
+                fill_opacity=0.15
+            ).move_to(self.CENTER_Q_INCLUSION)
+            self.label_p_suff = Text("P", font_size=32).move_to(self.CENTER_P)
+            self.label_q_suff = Text("Q", font_size=32).move_to(self.CENTER_Q_INCLUSION)
+            self.add(self.set_p_suff, self.set_q_suff, self.label_p_suff, self.label_q_suff)
 
         # 必要条件定义
         necessary_def = Text(
@@ -298,7 +329,7 @@ class SufficientNecessaryConditions(Scene):
 
         self.play(FadeIn(necessary_explanation), run_time=0.6)
 
-        # 示例说明 - 使用Text而不是MathTex以避免LaTeX中文字符错误
+        # 示例说明
         example_part1 = Text("例如：若 ", font="Noto Sans CJK SC", font_size=26)
         example_math = MathTex("x > 2", font_size=28)
         example_part2 = Text(" ，则 ", font="Noto Sans CJK SC", font_size=26)
@@ -317,15 +348,26 @@ class SufficientNecessaryConditions(Scene):
         self.play(Write(example), run_time=0.8)
         self.play(Write(example_meaning), run_time=1.0)
 
-        # 如果箭头不存在则创建
+        # 箭头仍然从P指向Q（强调p⇒q），但可以额外添加反向标注
+        arrow_start = self.CENTER_P + RIGHT * self.RADIUS * 0.8
+        arrow_end = self.CENTER_Q_INCLUSION + LEFT * self.RADIUS_Q * 0.8
         arrow = Arrow(
-            start=self.CENTER_P + RIGHT * self.RADIUS * 0.8,
-            end=(self.CENTER_P + RIGHT * 1.5) + LEFT * self.RADIUS * 0.8,
+            start=arrow_start,
+            end=arrow_end,
             color=self.COLOR_HIGHLIGHT,
             buff=0.1,
             max_tip_length_to_length_ratio=0.15
         )
         self.play(GrowArrow(arrow), run_time=0.8)
+
+        # 添加反向小箭头或文字表示必要条件
+        necessary_arrow_label = MathTex(
+            "q \\Leftarrow p",
+            color=self.COLOR_NECESSARY,
+            font_size=28
+        ).next_to(arrow, DOWN, buff=0.1)
+
+        self.play(Write(necessary_arrow_label), run_time=0.5)
 
         # 高亮必要条件
         self.play(
@@ -343,6 +385,8 @@ class SufficientNecessaryConditions(Scene):
             FadeOut(necessary_explanation),
             FadeOut(example),
             FadeOut(example_meaning),
+            FadeOut(arrow),
+            FadeOut(necessary_arrow_label),
             run_time=0.6
         )
 
@@ -360,55 +404,60 @@ class SufficientNecessaryConditions(Scene):
         self.play(Write(equivalent_title), run_time=0.6)
 
         # 清除之前的集合图示，重新绘制以表示充要条件（P=Q）
-        # 创建两个相同的集合，表示P=Q
-        center_equal = ORIGIN
-        set_p_equal = Circle(
-            radius=self.RADIUS,
+        # 移除之前的集合（如果存在）
+        for mob in self.mobjects:
+            if isinstance(mob, (Circle, Text)) and mob in [self.set_p_suff, self.set_q_suff, self.label_p_suff, self.label_q_suff]:
+                self.remove(mob)
+
+        # 创建两个完全重合的圆，表示P=Q
+        center = self.CENTER_EQUAL
+        radius = self.RADIUS_EQUAL
+
+        # P圆（红色，半透明填充）
+        set_p_eq = Circle(
+            radius=radius,
             color=self.COLOR_SUFFICIENT,
             fill_color=self.COLOR_SUFFICIENT,
-            fill_opacity=0.2
-        ).move_to(center_equal)
+            fill_opacity=0.2,
+            stroke_width=6
+        ).move_to(center)
 
-        set_q_equal = Circle(
-            radius=self.RADIUS,
+        # Q圆（蓝色，半透明填充，与P完全重合）
+        set_q_eq = Circle(
+            radius=radius,
             color=self.COLOR_LOGIC,
             fill_color=self.COLOR_LOGIC,
-            fill_opacity=0.15
-        ).move_to(center_equal + 0.1*RIGHT)  # 微小偏移以便观察
+            fill_opacity=0.15,
+            stroke_width=6
+        ).move_to(center)
 
-        label_p_equal = Text(
+        label_p_eq = Text(
             "P",
             font="Noto Sans CJK SC",
             font_size=32,
             color=WHITE
-        ).move_to(center_equal + LEFT * 0.3)
+        ).move_to(center + LEFT * 0.3)  # 轻微偏移避免重叠
 
-        label_q_equal = Text(
+        label_q_eq = Text(
             "Q",
             font="Noto Sans CJK SC",
             font_size=32,
             color=WHITE
-        ).move_to(center_equal + RIGHT * 0.3)
+        ).move_to(center + RIGHT * 0.3)
 
-        # 清除之前的对象并展示新的等价关系
-        all_mobjects = list(self.mobjects)
-        for obj in all_mobjects:
-            if obj != equivalent_title:  # 保留标题
-                self.remove(obj)
-
-        # 添加新的等价条件表示
+        # 添加两个圆（注意顺序：先添加Q再添加P，使P描边在上层）
         self.play(
-            Create(set_p_equal),
-            Create(set_q_equal),
-            Write(label_p_equal),
-            Write(label_q_equal),
+            Create(set_q_eq),
+            Create(set_p_eq),
+            Write(label_p_eq),
+            Write(label_q_eq),
             run_time=1.2
         )
 
         # 添加双向箭头表示等价关系
         double_arrow = DoubleArrow(
-            start=center_equal + LEFT * self.RADIUS * 0.7,
-            end=center_equal + RIGHT * self.RADIUS * 0.7,
+            start=center + LEFT * radius * 0.7,
+            end=center + RIGHT * radius * 0.7,
             color=self.COLOR_HIGHLIGHT,
             buff=0.1,
             max_tip_length_to_length_ratio=0.1
@@ -421,7 +470,7 @@ class SufficientNecessaryConditions(Scene):
             "p \\iff q",
             color=self.COLOR_HIGHLIGHT,
             font_size=32
-        ).move_to(center_equal + UP * 1.5)
+        ).move_to(center + UP * 1.5)
 
         self.play(Write(equivalence_symbol), run_time=0.6)
 
@@ -462,10 +511,10 @@ class SufficientNecessaryConditions(Scene):
             FadeOut(equivalent_def),
             FadeOut(equivalent_explanation),
             FadeOut(double_arrow),
-            FadeOut(set_p_equal),
-            FadeOut(set_q_equal),
-            FadeOut(label_p_equal),
-            FadeOut(label_q_equal),
+            FadeOut(set_p_eq),
+            FadeOut(set_q_eq),
+            FadeOut(label_p_eq),
+            FadeOut(label_q_eq),
             run_time=0.6
         )
 

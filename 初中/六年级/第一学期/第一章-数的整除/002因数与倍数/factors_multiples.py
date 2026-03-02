@@ -325,23 +325,24 @@ class FactorsAndMultiples(Scene):
             (5, False, "12÷5=?"),
             (6, True, "12÷6=2"),
         ]
-        
+
+        visible_groups = []  # ✅ 收集所有仍在屏幕上的 check_group
+
         for num, is_factor, expr in checks:
-            # 显示检查
             check_text = Text(
                 expr,
                 font="Noto Sans CJK SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ).move_to(UP * check_y + LEFT * 2)
-            
+
             result = Text(
                 "✓" if is_factor else "✗",
                 font="Noto Sans CJK SC",
                 font_size=self.FONT_BODY,
                 color=self.COLOR_FACTOR if is_factor else GRAY
             ).next_to(check_text, RIGHT, buff=0.5)
-            
+
             if is_factor:
                 label = Text(
                     f"{num}是因数",
@@ -357,26 +358,30 @@ class FactorsAndMultiples(Scene):
                     font_size=self.FONT_SMALL,
                     color=GRAY
                 ).next_to(result, RIGHT, buff=0.3)
-            
+
             check_group = VGroup(check_text, result, label)
-            
             self.play(FadeIn(check_group, shift=LEFT * 0.2), run_time=0.4)
-            
-            if num <= 4:  # 只显示前几个
+
+            if num <= 4:
+                visible_groups.append(check_group)  # ✅ 记录，稍后统一淡出
                 check_y -= 0.8
+            elif num == 5:
+                self.play(FadeOut(check_group), run_time=0.2)  # ✅ 不是因数，立即淡出
+                dots_text = Text(
+                    "...",
+                    font="Noto Sans CJK SC",
+                    font_size=self.FONT_BODY,
+                    color=GRAY_A
+                ).move_to(UP * check_y)
+                self.play(FadeIn(dots_text), run_time=0.3)
+                self.wait(0.3)
+                self.play(FadeOut(dots_text), run_time=0.2)
             else:
-                # 快速淡出前面的，显示后面的
-                self.play(FadeOut(check_group), run_time=0.2)
-                if num == 5:
-                    dots_text = Text(
-                        "...",
-                        font="Noto Sans CJK SC",
-                        font_size=self.FONT_BODY,
-                        color=GRAY_A
-                    ).move_to(UP * check_y)
-                    self.play(FadeIn(dots_text), run_time=0.3)
-                    self.wait(0.3)
-                    self.play(FadeOut(dots_text), run_time=0.2)
+                self.play(FadeOut(check_group), run_time=0.2)  # ✅ num==6，淡出
+
+        # ✅ 统一淡出 1-4 所有残留行，再展示结果
+        if visible_groups:
+            self.play(*[FadeOut(g) for g in visible_groups], run_time=0.4)
         
         # 结果表格
         result_title = Text(

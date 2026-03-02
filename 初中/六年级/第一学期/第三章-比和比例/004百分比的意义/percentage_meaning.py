@@ -365,19 +365,19 @@ class PercentageMeaning(Scene):
             stroke_width=3,
             stroke_color=WHITE,
             fill_opacity=0
-        ).move_to(UP * 2)
+        ).shift(UP * 2)
         
         self.play(Create(circle), run_time=1.0)
         
         # 25%扇形 (从12点位置开始,顺时针90度)
         sector_25 = Sector(
             radius=circle_radius,
-            angle=90 * DEGREES,
+            angle=-90 * DEGREES,          # 顺时针90度
             start_angle=90 * DEGREES,
             color=self.COLOR_FILLED,
             fill_opacity=0,
             stroke_width=3
-        ).move_to(UP * 2)
+        ).shift(UP * 2)
         
         self.play(Create(sector_25), run_time=1.5)
         
@@ -457,29 +457,31 @@ class PercentageMeaning(Scene):
             Text("a", font_size=36, color=self.COLOR_PERCENT),
             Text("%", font_size=36, color=self.COLOR_PERCENT)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 4.2)
-        
-        self.play(Write(percent_form), run_time=1.0)
-        
-        # 变换为分数
+        self.play(Write(percent_form))
+
+        # 变换为分数（旧对象被替换，自动清理）
         fraction_form = MathTex(r"\frac{a}{100}", font_size=45).move_to(UP * 4.2)
         fraction_form[0][0].set_color(self.COLOR_FRACTION)
-        
-        self.play(
-            TransformMatchingShapes(percent_form.copy(), fraction_form),
-            run_time=1.5
-        )
-        self.wait(0.5)
-        
-        # 变换为小数
+        self.play(ReplacementTransform(percent_form, fraction_form))
+
+        # 变换为小数（再次替换）
         decimal_form = VGroup(
             Text("0.01", font_size=36, color=self.COLOR_DECIMAL),
             Text("a", font_size=36, color=self.COLOR_DECIMAL)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 4.2)
+        self.play(ReplacementTransform(fraction_form, decimal_form))
+        self.wait(0.5)
         
-        self.play(
-            Transform(fraction_form, decimal_form),
-            run_time=1.5
-        )
+        # # 变换为小数
+        # decimal_form = VGroup(
+        #     Text("0.01", font_size=36, color=self.COLOR_DECIMAL),
+        #     Text("a", font_size=36, color=self.COLOR_DECIMAL)
+        # ).arrange(RIGHT, buff=0.1).move_to(UP * 4.2)
+        
+        # self.play(
+        #     Transform(fraction_form, decimal_form),
+        #     run_time=1.5
+        # )
         self.wait(0.5)
         
         # 三者并列
@@ -499,19 +501,8 @@ class PercentageMeaning(Scene):
         equals_1 = Text("=", font_size=30, color=WHITE)
         equals_2 = Text("=", font_size=30, color=WHITE)
         
-        all_forms = VGroup(
-            percent_final,
-            equals_1,
-            fraction_final,
-            equals_2,
-            decimal_final
-        ).arrange(RIGHT, buff=0.25).move_to(UP * 3.8)
-        
-        self.play(
-            FadeOut(fraction_form),
-            FadeIn(all_forms),
-            run_time=1.0
-        )
+        all_forms = VGroup(percent_final, equals_1, fraction_final, equals_2, decimal_final).move_to(UP * 3.8)
+        self.play(FadeOut(decimal_form), FadeIn(all_forms))
         
         # 框选强调
         box = SurroundingRectangle(
