@@ -143,6 +143,8 @@ class SumDifferenceAngles(Scene):
     
     def show_opening(self):
         """场景1: 开场钩子"""
+        opening_group = VGroup()
+        
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
@@ -150,6 +152,7 @@ class SumDifferenceAngles(Scene):
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
+        opening_group.add(self.author_info)
         
         self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
         
@@ -159,6 +162,7 @@ class SumDifferenceAngles(Scene):
             font_size=52,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4)
+        opening_group.add(hook_question)
         
         self.play(Write(hook_question), run_time=1.2)
         
@@ -169,19 +173,19 @@ class SumDifferenceAngles(Scene):
             font_size=28,
             color=GRAY_A
         ).next_to(hook_question, DOWN, buff=0.8)
+        opening_group.add(hint_text)
         
         self.play(FadeIn(hint_text, shift=UP * 0.3), run_time=0.6)
         self.wait(1.0)
         
-        # 清理
-        self.play(
-            FadeOut(hook_question),
-            FadeOut(hint_text),
-            run_time=0.5
-        )
+        # 清理开场除作者信息外的所有元素
+        opening_group.remove(self.author_info)
+        self.play(FadeOut(opening_group), run_time=0.5)
     
     def show_unit_circle(self):
         """场景2: 单位圆介绍"""
+        unit_circle_group = VGroup()
+        
         # 标题
         title = Text(
             "单位圆",
@@ -189,6 +193,7 @@ class SumDifferenceAngles(Scene):
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
+        unit_circle_group.add(title)
         
         self.play(FadeIn(title), run_time=0.6)
         
@@ -205,6 +210,7 @@ class SumDifferenceAngles(Scene):
                 "tip_height": 0.15
             }
         ).move_to(self.circle_center)
+        unit_circle_group.add(axes)
         
         self.play(Create(axes), run_time=1.0)
         
@@ -214,6 +220,7 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_UNIT_CIRCLE,
             stroke_width=2.5
         ).move_to(self.circle_center)
+        unit_circle_group.add(unit_circle)
         
         self.play(Create(unit_circle), run_time=1.5)
         
@@ -238,6 +245,9 @@ class SumDifferenceAngles(Scene):
             self.circle_center + self.radius * DOWN, DOWN, buff=0.15
         )
         
+        angle_labels = VGroup(label_0, label_90, label_180, label_270)
+        unit_circle_group.add(angle_labels)
+        
         self.play(
             FadeIn(label_0),
             FadeIn(label_90),
@@ -253,24 +263,25 @@ class SumDifferenceAngles(Scene):
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5)
+        unit_circle_group.add(explanation)
         
         self.play(Write(explanation), run_time=0.8)
         self.wait(1.0)
         
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(explanation),
-            run_time=0.4
-        )
+        # 清理标题和说明，保留坐标轴、单位圆和角度标签
+        unit_circle_group.remove(title, explanation)
+        self.play(FadeOut(title, explanation), run_time=0.4)
         
         # 保存元素供后续使用
         self.axes = axes
         self.unit_circle = unit_circle
-        self.angle_labels = VGroup(label_0, label_90, label_180, label_270)
+        self.angle_labels = angle_labels
+        self.unit_circle_core = VGroup(axes, unit_circle, angle_labels)
     
     def show_angles_visualization(self):
         """场景3: 角α和角β的可视化"""
+        angles_group = VGroup()
+        
         # 标题
         title = Text(
             "两个角",
@@ -278,6 +289,7 @@ class SumDifferenceAngles(Scene):
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
+        angles_group.add(title)
         
         self.play(Write(title), run_time=0.6)
         
@@ -291,6 +303,7 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_ALPHA,
             stroke_width=2
         )
+        angles_group.add(angle_alpha)
         
         self.play(Create(angle_alpha), run_time=1.0)
         
@@ -301,6 +314,7 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_ALPHA,
             stroke_width=2.5
         )
+        angles_group.add(radius_OA)
         
         self.play(Create(radius_OA), run_time=0.6)
         
@@ -310,12 +324,14 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_ALPHA,
             radius=0.08
         )
+        angles_group.add(point_A_dot)
         
         label_alpha = MathTex(
             r"\alpha = 45^\circ",
             font_size=26,
             color=self.COLOR_ALPHA
         ).next_to(angle_alpha, RIGHT, buff=0.3).shift(UP * 0.2)
+        angles_group.add(label_alpha)
         
         self.play(
             FadeIn(point_A_dot, scale=0.5),
@@ -335,6 +351,7 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_BETA,
             stroke_width=2
         )
+        angles_group.add(angle_beta)
         
         self.play(Create(angle_beta), run_time=1.0)
         
@@ -345,6 +362,7 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_BETA,
             stroke_width=2.5
         )
+        angles_group.add(radius_OB)
         
         self.play(Create(radius_OB), run_time=0.6)
         
@@ -354,12 +372,14 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_BETA,
             radius=0.08
         )
+        angles_group.add(point_B_dot)
         
         label_beta = MathTex(
             r"\beta = 30^\circ",
             font_size=26,
             color=self.COLOR_BETA
         ).next_to(angle_beta, RIGHT, buff=0.2).shift(DOWN * 0.1)
+        angles_group.add(label_beta)
         
         self.play(
             FadeIn(point_B_dot, scale=0.5),
@@ -373,12 +393,14 @@ class SumDifferenceAngles(Scene):
             font_size=18,
             color=self.COLOR_ALPHA
         ).next_to(point_A_dot, UR, buff=0.15)
+        angles_group.add(coord_A)
         
         coord_B = MathTex(
             r"(\cos\beta, \sin\beta)",
             font_size=18,
             color=self.COLOR_BETA
         ).next_to(point_B_dot, UR, buff=0.15)
+        angles_group.add(coord_B)
         
         self.play(
             FadeIn(coord_A),
@@ -388,26 +410,20 @@ class SumDifferenceAngles(Scene):
         
         self.wait(1.0)
         
-        # 清理坐标标注和标题
-        self.play(
-            FadeOut(title),
-            FadeOut(coord_A),
-            FadeOut(coord_B),
-            run_time=0.4
-        )
+        # 清理标题和坐标标注，保留角度相关元素
+        angles_group.remove(title, coord_A, coord_B)
+        self.play(FadeOut(title, coord_A, coord_B), run_time=0.4)
         
         # 保存元素
-        self.angle_alpha = angle_alpha
-        self.angle_beta = angle_beta
-        self.radius_OA = radius_OA
-        self.radius_OB = radius_OB
-        self.point_A_dot = point_A_dot
-        self.point_B_dot = point_B_dot
-        self.label_alpha = label_alpha
-        self.label_beta = label_beta
+        self.angle_elements = VGroup(
+            angle_alpha, angle_beta, radius_OA, radius_OB,
+            point_A_dot, point_B_dot, label_alpha, label_beta
+        )
     
     def show_cosine_difference_proof(self):
         """场景4: cos(α-β) 几何证明（简化版）"""
+        cos_diff_group = VGroup()
+        
         # 标题
         title = Text(
             "余弦差角公式",
@@ -415,6 +431,7 @@ class SumDifferenceAngles(Scene):
             font_size=32,
             color=self.COLOR_DIFF
         ).move_to(UP * 6)
+        cos_diff_group.add(title)
         
         self.play(Write(title), run_time=0.6)
         
@@ -425,6 +442,7 @@ class SumDifferenceAngles(Scene):
             color=self.COLOR_AUXILIARY,
             stroke_width=2
         )
+        cos_diff_group.add(line_AB)
         
         self.play(Create(line_AB), run_time=0.8)
         
@@ -435,6 +453,7 @@ class SumDifferenceAngles(Scene):
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5)
+        cos_diff_group.add(explanation)
         
         self.play(FadeIn(explanation), run_time=0.5)
         self.wait(0.8)
@@ -444,6 +463,7 @@ class SumDifferenceAngles(Scene):
             r"|AB|^2 = (\cos\alpha - \cos\beta)^2 + (\sin\alpha - \sin\beta)^2",
             font_size=20
         ).move_to(UP * 4)
+        cos_diff_group.add(distance_formula)
         
         self.play(Write(distance_formula), run_time=1.5)
         self.wait(1.0)
@@ -453,6 +473,7 @@ class SumDifferenceAngles(Scene):
             r"= 2 - 2(\cos\alpha\cos\beta + \sin\alpha\sin\beta)",
             font_size=20
         ).next_to(distance_formula, DOWN, buff=0.3)
+        cos_diff_group.add(expanded)
         
         self.play(Write(expanded), run_time=1.2)
         self.wait(0.8)
@@ -463,6 +484,7 @@ class SumDifferenceAngles(Scene):
             font_size=28,
             color=self.COLOR_DIFF
         ).move_to(UP * 2.5)
+        cos_diff_group.add(conclusion)
         
         conclusion_box = SurroundingRectangle(
             conclusion,
@@ -470,6 +492,7 @@ class SumDifferenceAngles(Scene):
             buff=0.2,
             corner_radius=0.1
         )
+        cos_diff_group.add(conclusion_box)
         
         self.play(
             Write(conclusion),
@@ -479,26 +502,13 @@ class SumDifferenceAngles(Scene):
         
         self.wait(1.5)
         
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(explanation),
-            FadeOut(distance_formula),
-            FadeOut(expanded),
-            FadeOut(line_AB),
-            FadeOut(conclusion_box),
-            run_time=0.5
-        )
-        
-        # 移动结论到顶部列表
-        # self.cos_diff_formula = conclusion.copy()
-        self.play(
-            conclusion.animate.scale(0.6).move_to(UP * 5.5).shift(LEFT * 1),
-            run_time=0.4
-        )
+        # 清理当前场景所有元素
+        self.play(FadeOut(cos_diff_group), run_time=0.5)
     
     def show_cosine_sum(self):
         """场景5: 余弦和角公式"""
+        cos_sum_group = VGroup()
+        
         # 标题
         title = Text(
             "余弦和角公式",
@@ -506,6 +516,7 @@ class SumDifferenceAngles(Scene):
             font_size=32,
             color=self.COLOR_SUM
         ).move_to(UP * 6)
+        cos_sum_group.add(title)
         
         self.play(Write(title), run_time=0.6)
         
@@ -516,6 +527,7 @@ class SumDifferenceAngles(Scene):
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5)
+        cos_sum_group.add(explanation)
         
         self.play(FadeIn(explanation), run_time=0.6)
         self.wait(1.0)
@@ -525,6 +537,7 @@ class SumDifferenceAngles(Scene):
             r"\cos(\alpha + \beta) = \cos\alpha\cos(-\beta) + \sin\alpha\sin(-\beta)",
             font_size=22
         ).move_to(UP * 3.8)
+        cos_sum_group.add(step1)
         
         self.play(Write(step1), run_time=1.5)
         self.wait(0.8)
@@ -535,6 +548,7 @@ class SumDifferenceAngles(Scene):
             font_size=28,
             color=self.COLOR_SUM
         ).move_to(UP * 2.5)
+        cos_sum_group.add(final_formula)
         
         final_box = SurroundingRectangle(
             final_formula,
@@ -542,6 +556,7 @@ class SumDifferenceAngles(Scene):
             buff=0.2,
             corner_radius=0.1
         )
+        cos_sum_group.add(final_box)
         
         self.play(
             Write(final_formula),
@@ -551,24 +566,13 @@ class SumDifferenceAngles(Scene):
         
         self.wait(1.5)
         
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(explanation),
-            FadeOut(step1),
-            FadeOut(final_box),
-            run_time=0.5
-        )
-        
-        # 移动到列表
-        self.cos_sum_formula = final_formula.copy()
-        self.play(
-            final_formula.animate.scale(0.6).move_to(UP * 5).shift(LEFT * 1),
-            run_time=0.4
-        )
+        # 清理当前场景所有元素
+        self.play(FadeOut(cos_sum_group), run_time=0.5)
     
     def show_sine_formulas(self):
         """场景6: 正弦和差公式"""
+        sine_group = VGroup()
+        
         # 标题
         title = Text(
             "正弦和差公式",
@@ -576,6 +580,7 @@ class SumDifferenceAngles(Scene):
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
+        sine_group.add(title)
         
         self.play(Write(title), run_time=0.6)
         
@@ -586,6 +591,7 @@ class SumDifferenceAngles(Scene):
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5)
+        sine_group.add(explanation)
         
         self.play(FadeIn(explanation), run_time=0.5)
         self.wait(0.8)
@@ -596,6 +602,7 @@ class SumDifferenceAngles(Scene):
             font_size=26,
             color=self.COLOR_SUM
         ).move_to(UP * 3.5)
+        sine_group.add(sin_sum)
         
         sin_sum_box = SurroundingRectangle(
             sin_sum,
@@ -603,6 +610,7 @@ class SumDifferenceAngles(Scene):
             buff=0.15,
             corner_radius=0.1
         )
+        sine_group.add(sin_sum_box)
         
         self.play(
             Write(sin_sum),
@@ -618,6 +626,7 @@ class SumDifferenceAngles(Scene):
             font_size=26,
             color=self.COLOR_DIFF
         ).move_to(UP * 2.2)
+        sine_group.add(sin_diff)
         
         sin_diff_box = SurroundingRectangle(
             sin_diff,
@@ -625,6 +634,7 @@ class SumDifferenceAngles(Scene):
             buff=0.15,
             corner_radius=0.1
         )
+        sine_group.add(sin_diff_box)
         
         self.play(
             Write(sin_diff),
@@ -644,26 +654,13 @@ class SumDifferenceAngles(Scene):
         
         self.wait(1.0)
         
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(explanation),
-            FadeOut(sin_sum_box),
-            FadeOut(sin_diff_box),
-            run_time=0.5
-        )
-        
-        # 移动到列表
-        self.sin_sum_formula = sin_sum.copy()
-        self.sin_diff_formula = sin_diff.copy()
-        self.play(
-            sin_sum.animate.scale(0.55).move_to(UP * 4.5).shift(LEFT * 1.2),
-            sin_diff.animate.scale(0.55).move_to(UP * 4).shift(LEFT * 1.2),
-            run_time=0.4
-        )
+        # 清理当前场景所有元素
+        self.play(FadeOut(sine_group), run_time=0.5)
     
     def show_tangent_formulas(self):
         """场景7: 正切和差公式"""
+        tangent_group = VGroup()
+        
         # 标题
         title = Text(
             "正切和差公式",
@@ -671,6 +668,7 @@ class SumDifferenceAngles(Scene):
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
+        tangent_group.add(title)
         
         self.play(Write(title), run_time=0.6)
         
@@ -680,6 +678,7 @@ class SumDifferenceAngles(Scene):
             font_size=26,
             color=self.COLOR_SUM
         ).move_to(UP * 3.5)
+        tangent_group.add(tan_sum)
         
         tan_sum_box = SurroundingRectangle(
             tan_sum,
@@ -687,6 +686,7 @@ class SumDifferenceAngles(Scene):
             buff=0.15,
             corner_radius=0.1
         )
+        tangent_group.add(tan_sum_box)
         
         self.play(
             Write(tan_sum),
@@ -702,6 +702,7 @@ class SumDifferenceAngles(Scene):
             font_size=26,
             color=self.COLOR_DIFF
         ).move_to(UP * 2)
+        tangent_group.add(tan_diff)
         
         tan_diff_box = SurroundingRectangle(
             tan_diff,
@@ -709,6 +710,7 @@ class SumDifferenceAngles(Scene):
             buff=0.15,
             corner_radius=0.1
         )
+        tangent_group.add(tan_diff_box)
         
         self.play(
             Write(tan_diff),
@@ -725,44 +727,23 @@ class SumDifferenceAngles(Scene):
             font_size=20,
             color=self.COLOR_WARNING
         ).move_to(UP * 0.5)
+        tangent_group.add(condition)
         
         self.play(FadeIn(condition), run_time=0.5)
         
         self.wait(1.2)
         
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(condition),
-            FadeOut(tan_sum_box),
-            FadeOut(tan_diff_box),
-            run_time=0.5
-        )
-        
-        # 移动到列表
-        self.tan_sum_formula = tan_sum.copy()
-        self.tan_diff_formula = tan_diff.copy()
-        self.play(
-            tan_sum.animate.scale(0.5).move_to(UP * 3.5).shift(LEFT * 1.5),
-            tan_diff.animate.scale(0.5).move_to(UP * 3).shift(LEFT * 1.5),
-            run_time=0.4
-        )
+        # 清理当前场景所有元素
+        self.play(FadeOut(tangent_group), run_time=0.5)
     
     def show_summary_outro(self):
         """场景8: 公式总结 + 片尾"""
-        # 清理圆形和角度
+        summary_group = VGroup()
+        
+        # 先清理之前保留的所有几何元素
         self.play(
-            FadeOut(self.unit_circle),
-            FadeOut(self.axes),
-            FadeOut(self.angle_labels),
-            FadeOut(self.angle_alpha),
-            FadeOut(self.angle_beta),
-            FadeOut(self.radius_OA),
-            FadeOut(self.radius_OB),
-            FadeOut(self.point_A_dot),
-            FadeOut(self.point_B_dot),
-            FadeOut(self.label_alpha),
-            FadeOut(self.label_beta),
+            FadeOut(self.unit_circle_core),
+            FadeOut(self.angle_elements),
             run_time=0.6
         )
         
@@ -773,6 +754,7 @@ class SumDifferenceAngles(Scene):
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
+        summary_group.add(title)
         
         self.play(Write(title), run_time=0.8)
         
@@ -791,6 +773,7 @@ class SumDifferenceAngles(Scene):
             MathTex(r"\tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta}", 
                    font_size=22, color=self.COLOR_DIFF),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.4).move_to(UP * 1.5)
+        summary_group.add(formula_list)
         
         self.play(FadeIn(formula_list, shift=UP * 0.5), run_time=1.2)
         
@@ -801,12 +784,9 @@ class SumDifferenceAngles(Scene):
         
         self.wait(1.0)
         
-        # 淡出公式
-        self.play(
-            FadeOut(title),
-            FadeOut(formula_list),
-            run_time=0.6
-        )
+        # 淡出标题和公式列表
+        summary_group.remove(title, formula_list)
+        self.play(FadeOut(title, formula_list), run_time=0.6)
         
         # 作者信息放大
         author_name = Text(
@@ -815,6 +795,7 @@ class SumDifferenceAngles(Scene):
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
+        summary_group.add(author_name)
         
         author_id = Text(
             "@emptyandcalm",
@@ -822,6 +803,7 @@ class SumDifferenceAngles(Scene):
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 1)
+        summary_group.add(author_id)
         
         self.play(
             Transform(self.author_info, author_name),
@@ -836,6 +818,7 @@ class SumDifferenceAngles(Scene):
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
+        summary_group.add(follow_text)
         
         self.play(FadeIn(follow_text, shift=UP * 0.3, scale=1.1), run_time=0.6)
         
@@ -845,19 +828,15 @@ class SumDifferenceAngles(Scene):
             MathTex(r"\cos", font_size=40, color=self.COLOR_DIFF),
             MathTex(r"\tan", font_size=40, color=self.COLOR_FORMULA),
         ).arrange(RIGHT, buff=1.2).move_to(DOWN * 2.5)
+        summary_group.add(icons)
         
         self.play(*[FadeIn(icon, scale=0.5) for icon in icons], run_time=0.6)
         
         self.wait(1.0)
         
         # 全部淡出
-        self.play(
-            FadeOut(self.author_info),
-            FadeOut(author_id),
-            FadeOut(follow_text),
-            FadeOut(icons),
-            run_time=1.0
-        )
+        summary_group.add(self.author_info)
+        self.play(FadeOut(summary_group), run_time=1.0)
 
 
 # 渲染命令:

@@ -806,11 +806,11 @@ class FunctionConcepts(Scene):
         )
         
         # 卡片依次滑入
-        self.play(card_1.animate.shift(RIGHT * 0), run_time=0.5)
+        self.play(card_1.animate.shift(RIGHT * 10), run_time=0.5)
         self.wait(0.3)
-        self.play(card_2.animate.shift(RIGHT * 0), run_time=0.5)
+        self.play(card_2.animate.shift(RIGHT * 10), run_time=0.5)
         self.wait(0.3)
-        self.play(card_3.animate.shift(RIGHT * 0), run_time=0.5)
+        self.play(card_3.animate.shift(RIGHT * 10), run_time=0.5)
         
         # 核心公式
         core_formula = MathTex(

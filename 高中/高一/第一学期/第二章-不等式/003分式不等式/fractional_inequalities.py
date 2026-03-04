@@ -37,12 +37,12 @@ class FractionalInequalities(Scene):
         self.camera.background_color = "#1a1a2e"
 
         # 配色方案
-        self.COLOR_PRIMARY = "#3498db"  # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#2ecc71"  # 绿色 - 次要元素
-        self.COLOR_HIGHLIGHT = YELLOW  # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = GRAY_B  # 灰色 - 辅助线
-        self.COLOR_NEGATIVE = RED  # 红色 - 负值区域
-        self.COLOR_POSITIVE = GREEN  # 绿色 - 正值区域
+        self.COLOR_PRIMARY = "#3498db"
+        self.COLOR_SECONDARY = "#2ecc71"
+        self.COLOR_HIGHLIGHT = YELLOW
+        self.COLOR_AUXILIARY = GRAY_B
+        self.COLOR_NEGATIVE = RED
+        self.COLOR_POSITIVE = GREEN
 
         # 初始化几何数据
         self.setup_geometry()
@@ -72,7 +72,7 @@ class FractionalInequalities(Scene):
 
     def show_opening(self):
         """场景1: 开场介绍 (3-4秒)"""
-        # 作者信息 (顶部)
+        # 作者信息 (顶部，一直保留到结束)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
             font="Noto Sans CJK SC",
@@ -119,7 +119,7 @@ class FractionalInequalities(Scene):
         self.play(FadeIn(hook_text, shift=DOWN * 0.3), run_time=0.5)
         self.wait(0.8)
 
-        # 清理
+        # 清理开场临时元素，保留作者信息和不等式
         self.play(
             FadeOut(title),
             FadeOut(subtitle),
@@ -194,18 +194,21 @@ class FractionalInequalities(Scene):
         self.play(Write(condition), run_time=0.6)
         self.wait(1.0)
 
-        # 清理部分元素
+        # 清理部分元素，保留等价形式和条件
         self.play(
-            FadeOut(cross_multiply_warning),
+            FadeOut(cross_multiply_warning),  # 此时它已变为 equivalence_step1
             FadeOut(arrow1),
             run_time=0.5
         )
 
-        # 保留关键元素到后续场景
+        # 保留等价形式（乘积不等式 + 分母不为0条件）供后续场景使用
         self.equivalence_form = VGroup(equivalence_step2, condition)
 
     def show_solution_steps(self):
         """场景3: 解题步骤演示 (8-10秒)"""
+        # 移除上一场景保留的等价形式（不再需要）
+        self.play(FadeOut(self.equivalence_form), run_time=0.5)
+
         # 原始不等式
         original_inequality = MathTex(
             r"\frac{x-1}{x+2} > 0",
@@ -253,7 +256,7 @@ class FractionalInequalities(Scene):
 
         self.wait(1.0)
 
-        # 清理部分元素
+        # 清理本场景临时元素，保留乘积形式
         self.play(
             FadeOut(transform_step1),
             FadeOut(condition_note),
@@ -261,11 +264,14 @@ class FractionalInequalities(Scene):
             run_time=0.6
         )
 
-        # 保留乘积形式到后续场景
+        # 保留乘积形式到后续场景（用于过渡到数轴）
         self.product_form = product_form
 
     def show_number_line_method(self):
         """场景4: 数轴标根法 (12-15秒)"""
+        # 移除上一场景的乘积形式（不再需要）
+        self.play(FadeOut(self.product_form), run_time=0.5)
+
         # 绘制数轴
         number_line = NumberLine(
             x_range=self.number_line_range,
@@ -276,7 +282,7 @@ class FractionalInequalities(Scene):
         ).move_to(self.number_line_position)
 
         # 标出关键点
-        critical_points = [-2, 1]  # 分子分母零点
+        critical_points = [-2, 1]
         dots = VGroup()
         labels = VGroup()
 
@@ -307,14 +313,13 @@ class FractionalInequalities(Scene):
 
         # 从右上方开始标正负（"奇穿偶不穿"的演示）
         intervals = [
-            (2, 5, "+"),  # x > 1, 右侧为正
-            (-2, 1, "-"), # -2 < x < 1, 中间为负
-            (-5, -2, "+") # x < -2, 左侧为正
+            (2, 5, "+"),   # x > 1
+            (-2, 1, "-"),  # -2 < x < 1
+            (-5, -2, "+")  # x < -2
         ]
 
         signs = VGroup()
         for start, end, sign in intervals:
-            # 找到区间中点来放置符号
             mid_point = (start + end) / 2
             sign_text = Text(
                 sign,
@@ -324,7 +329,6 @@ class FractionalInequalities(Scene):
             ).move_to(number_line.n2p(mid_point) + UP * 0.5)
             signs.add(sign_text)
 
-        # 逐个显示正负号
         for i, sign in enumerate(signs):
             self.play(Write(sign), run_time=0.5)
             self.wait(0.2)
@@ -339,7 +343,6 @@ class FractionalInequalities(Scene):
 
         self.play(Write(explanation), run_time=0.8)
 
-        # 箭头指向关键点
         arrow1 = Arrow(
             explanation.get_top(),
             dots[0].get_bottom() + DOWN * 0.2,
@@ -361,7 +364,7 @@ class FractionalInequalities(Scene):
 
         self.wait(1.5)
 
-        # 清理部分元素
+        # 清理解释文本和箭头，保留数轴、关键点和正负号
         self.play(
             FadeOut(explanation),
             FadeOut(arrow1),
@@ -369,12 +372,12 @@ class FractionalInequalities(Scene):
             run_time=0.6
         )
 
-        # 保留数轴、关键点和正负号到后续场景
+        # 保留数轴元素供后续场景使用
         self.number_line_elements = VGroup(number_line, dots, labels, signs)
 
     def show_example_demonstration(self):
         """场景5: 实例演示 (15-18秒)"""
-        # 具体例子
+        # 具体例子（不等号变为≥）
         example_inequality = MathTex(
             r"\frac{x-1}{x+2} \geq 0",
             font_size=32
@@ -382,7 +385,7 @@ class FractionalInequalities(Scene):
 
         self.play(Transform(self.inequality_general, example_inequality), run_time=0.8)
 
-        # 因式分解（这个例子已经是最简形式）
+        # 因式分解说明
         factorization_note = Text(
             "分子: x-1, 分母: x+2",
             font="Noto Sans CJK SC",
@@ -392,7 +395,7 @@ class FractionalInequalities(Scene):
 
         self.play(Write(factorization_note), run_time=0.6)
 
-        # 找到关键点
+        # 关键点说明
         key_points_note = Text(
             "关键点: x = -2 (分母为0), x = 1 (分子为0)",
             font="Noto Sans CJK SC",
@@ -402,10 +405,11 @@ class FractionalInequalities(Scene):
 
         self.play(Write(key_points_note), run_time=0.6)
 
-        # 重新显示数轴（可能需要重新创建以保持最新状态）
-        self.play(FadeIn(self.number_line_elements), run_time=0.8)
+        # 数轴已经存在，直接使用（无需再次FadeIn）
+        # 如果需要确保数轴在最上层，可以调用 bring_to_front
+        self.bring_to_front(self.number_line_elements)
 
-        # 突出显示解集（由于是≥0，所以包含分子为0的点但排除分母为0的点）
+        # 解集
         solution_intervals = Text(
             "解集: x ∈ (-∞, -2) ∪ [1, +∞)",
             font="Noto Sans CJK SC",
@@ -413,8 +417,6 @@ class FractionalInequalities(Scene):
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
 
-        # 高亮显示解集区间
-        # 创建区间表示
         interval_notation = MathTex(
             r"(-\infty, -2) \cup [1, +\infty)",
             font_size=32,
@@ -424,7 +426,6 @@ class FractionalInequalities(Scene):
         self.play(Write(solution_intervals), run_time=0.8)
         self.play(Write(interval_notation), run_time=0.8)
 
-        # 高亮关键信息
         self.play(
             Indicate(solution_intervals),
             Indicate(interval_notation),
@@ -432,7 +433,7 @@ class FractionalInequalities(Scene):
             run_time=1.0
         )
 
-        # 强调分母不为0的约束
+        # 分母不为0的约束
         constraint_note = Text(
             "注意：x ≠ -2 (分母不能为0)",
             font="Noto Sans CJK SC",
@@ -444,7 +445,14 @@ class FractionalInequalities(Scene):
 
         self.wait(1.5)
 
-        # 保留解集到最终场景
+        # 清理本场景的临时说明文本，保留解集、数轴和不等式
+        self.play(
+            FadeOut(factorization_note),
+            FadeOut(key_points_note),
+            run_time=0.6
+        )
+
+        # 保留解集用于总结场景
         self.solution = VGroup(solution_intervals, interval_notation, constraint_note)
 
     def show_summary_and_reminder(self):
@@ -467,7 +475,6 @@ class FractionalInequalities(Scene):
 
         self.play(Write(steps_title), run_time=0.5)
 
-        # 逐步显示步骤
         for step in steps:
             self.play(FadeIn(step, shift=RIGHT * 0.3), run_time=0.4)
             self.wait(0.2)
@@ -486,7 +493,7 @@ class FractionalInequalities(Scene):
             run_time=0.8
         )
 
-        # 最终解的再次展示
+        # 将解集移动到合适位置
         self.play(
             self.solution.animate.move_to(DOWN * 1.5),
             run_time=0.8
@@ -502,7 +509,7 @@ class FractionalInequalities(Scene):
 
         self.play(FadeIn(follow_message, shift=UP * 0.3, scale=1.1), run_time=0.6)
 
-        # 添加装饰元素
+        # 添加装饰星星
         stars = VGroup(*[
             Star(color=YELLOW, fill_opacity=1)
             .scale(0.2)
@@ -518,22 +525,27 @@ class FractionalInequalities(Scene):
 
         self.wait(2.0)
 
-        # 最终清理和结束
+        # 最终淡出所有元素（除了作者信息，若希望保留可添加）
         self.play(
             FadeOut(steps_title),
             *[FadeOut(step) for step in steps],
             FadeOut(denominator_warning),
             FadeOut(follow_message),
             FadeOut(stars),
+            FadeOut(self.inequality_general),
+            FadeOut(self.number_line_elements),
+            FadeOut(self.solution),
             run_time=1.0
         )
+        # 作者信息也淡出，结束
+        self.play(FadeOut(self.author_info), run_time=0.5)
 
 
 class Star(VMobject):
     """自定义星形类"""
     def __init__(self, color=YELLOW, fill_opacity=1, **kwargs):
         super().__init__(**kwargs)
-        n = 5  # 五角星
+        n = 5
         outer_radius = 1
         inner_radius = 0.4
 
@@ -561,5 +573,5 @@ class Star(VMobject):
 
 
 # 运行命令:
-# manim -pql fractional_inequalities.py FractionalInequalities  # 快速预览
-# manim -qh fractional_inequalities.py FractionalInequalities   # 高质量
+# manim -pql fractional_inequalities.py FractionalInequalities
+# manim -qh fractional_inequalities.py FractionalInequalities

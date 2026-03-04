@@ -390,7 +390,7 @@ class InequalityPropertiesFull(Scene):
             ("3. 加法", "a>b => a+c>b+c", WHITE),
             ("4. 乘正数", "a>b, c>0 => ac>bc", self.C_POSITIVE),
             ("5. 乘负数", "a>b, c<0 => ac<bc", self.C_NEGATIVE),
-            ("6. 平方", "a>b>0 => a²>b²", WHITE),
+            ("6. 平方", "a>b>0 => a^2>b^2", WHITE),
         ]
         
         cards = VGroup()

@@ -326,6 +326,16 @@ class QuadraticInequality(Scene):
             self.axes.y_axis.get_end(), UP, buff=0.2
         )
         
+        # 将所有坐标轴相关对象放入一个组
+        self.coordinate_group = VGroup(
+            self.axes,
+            x_labels,
+            y_labels,
+            origin_label,
+            x_axis_label,
+            y_axis_label
+        )
+
         # 动画
         self.play(Create(self.axes), run_time=1.5)
         self.play(
@@ -561,7 +571,7 @@ class QuadraticInequality(Scene):
         """场景7: 三种情况总结"""
         # 清屏
         self.play(
-            FadeOut(self.axes),
+            FadeOut(self.coordinate_group),
             FadeOut(self.parabola),
             FadeOut(self.root_dots),
             FadeOut(self.function_label),

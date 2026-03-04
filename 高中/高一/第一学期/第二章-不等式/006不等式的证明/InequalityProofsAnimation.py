@@ -71,6 +71,9 @@ class InequalityProofsAnimation(Scene):
     
     def show_opening(self):
         """场景1: 开场介绍"""
+        # 创建场景组统一管理
+        opening_group = VGroup()
+        
         # 作者信息 (顶部)
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
@@ -78,6 +81,7 @@ class InequalityProofsAnimation(Scene):
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
+        opening_group.add(author_info)
         
         self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.3)
         
@@ -88,6 +92,7 @@ class InequalityProofsAnimation(Scene):
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
+        opening_group.add(title)
         
         # 钩子问题
         hook_question = Text(
@@ -96,16 +101,19 @@ class InequalityProofsAnimation(Scene):
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.2)
+        opening_group.add(hook_question)
         
         self.play(Write(title), run_time=0.8)
         self.play(FadeIn(hook_question), run_time=0.4)
         self.wait(1)
         
-        # 清理钩子问题
-        self.play(FadeOut(hook_question), run_time=0.5)
+        # 彻底清理开场所有元素
+        self.play(FadeOut(opening_group), run_time=0.5)
     
     def show_comparison_method(self):
         """场景2: 比较法证明"""
+        comparison_group = VGroup()
+        
         # 标题
         title = Text(
             "比较法证明",
@@ -113,6 +121,7 @@ class InequalityProofsAnimation(Scene):
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
+        comparison_group.add(title)
         
         self.play(Write(title), run_time=0.8)
         
@@ -122,6 +131,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=32
         ).move_to(UP * 4)
+        comparison_group.add(principle)
         
         self.play(Write(principle), run_time=0.8)
         
@@ -131,6 +141,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=32
         ).move_to(UP * 3)
+        comparison_group.add(inequality_to_prove)
         
         self.play(Write(inequality_to_prove), run_time=0.8)
         
@@ -140,6 +151,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=32
         ).move_to(UP * 2)
+        comparison_group.add(diff_step)
         
         self.play(Write(diff_step), run_time=0.8)
         
@@ -149,6 +161,7 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=32
         ).next_to(diff_step, DOWN, buff=0.3)
+        comparison_group.add(factored)
         
         self.play(Write(factored), run_time=0.8)
         
@@ -158,6 +171,7 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=32
         ).next_to(factored, DOWN, buff=0.3)
+        comparison_group.add(non_negative)
         
         self.play(Write(non_negative), run_time=0.8)
         
@@ -167,23 +181,19 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=32
         ).move_to(DOWN * 1)
+        comparison_group.add(conclusion)
         
         self.play(Write(conclusion), run_time=1.0)
         
         self.wait(2)
         
-        # 清理部分元素，保留标题和核心结论
-        self.play(
-            FadeOut(principle),
-            FadeOut(inequality_to_prove),
-            FadeOut(diff_step),
-            FadeOut(factored),
-            FadeOut(non_negative),
-            run_time=0.5
-        )
+        # 彻底清理当前场景所有元素
+        self.play(FadeOut(comparison_group), run_time=0.5)
     
     def show_synthetic_method(self):
         """场景3: 综合法证明"""
+        synthetic_group = VGroup()
+        
         # 标题
         title = Text(
             "综合法证明",
@@ -191,6 +201,7 @@ class InequalityProofsAnimation(Scene):
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
+        synthetic_group.add(title)
         
         self.play(Write(title), run_time=0.8)
         
@@ -201,6 +212,7 @@ class InequalityProofsAnimation(Scene):
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
+        synthetic_group.add(principle)
         
         self.play(Write(principle), run_time=0.6)
         
@@ -210,6 +222,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=32
         ).move_to(UP * 3.5)
+        synthetic_group.add(basic_inequality)
         
         self.play(Write(basic_inequality), run_time=0.8)
         
@@ -219,6 +232,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=32
         ).move_to(UP * 2.5)
+        synthetic_group.add(expanded)
         
         self.play(Write(expanded), run_time=0.8)
         
@@ -228,6 +242,7 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=32
         ).move_to(UP * 1.5)
+        synthetic_group.add(rearranged)
         
         self.play(Write(rearranged), run_time=0.8)
         
@@ -237,22 +252,19 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=32
         ).move_to(UP * 0.5)
+        synthetic_group.add(general)
         
         self.play(Write(general), run_time=0.8)
         
         self.wait(2)
         
-        # 清理部分元素
-        self.play(
-            FadeOut(principle),
-            FadeOut(basic_inequality),
-            FadeOut(expanded),
-            FadeOut(rearranged),
-            run_time=0.5
-        )
+        # 彻底清理当前场景所有元素
+        self.play(FadeOut(synthetic_group), run_time=0.5)
     
     def show_analytic_method(self):
         """场景4: 分析法证明"""
+        analytic_group = VGroup()
+        
         # 标题
         title = Text(
             "分析法证明",
@@ -260,6 +272,7 @@ class InequalityProofsAnimation(Scene):
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
+        analytic_group.add(title)
         
         self.play(Write(title), run_time=0.8)
         
@@ -270,6 +283,7 @@ class InequalityProofsAnimation(Scene):
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
+        analytic_group.add(principle)
         
         self.play(Write(principle), run_time=0.6)
         
@@ -286,6 +300,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE
         )
         target = VGroup(target_formula, target_note).arrange(RIGHT, buff=0.2).move_to(UP * 3.5)
+        analytic_group.add(target)
         
         self.play(Write(target), run_time=0.8)
         
@@ -295,6 +310,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=28
         ).move_to(UP * 2.5)
+        analytic_group.add(transformed)
         
         self.play(Write(transformed), run_time=0.8)
         
@@ -304,6 +320,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=28
         ).move_to(UP * 1.5)
+        analytic_group.add(multiplied)
         
         self.play(Write(multiplied), run_time=0.8)
         
@@ -313,6 +330,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=28
         ).move_to(UP * 0.5)
+        analytic_group.add(rearranged)
         
         self.play(Write(rearranged), run_time=0.8)
         
@@ -322,23 +340,19 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=28
         ).move_to(DOWN * 0.5)
+        analytic_group.add(factored)
         
         self.play(Write(factored), run_time=0.8)
         
         self.wait(2)
         
-        # 清理部分元素
-        self.play(
-            FadeOut(principle),
-            FadeOut(target),
-            FadeOut(transformed),
-            FadeOut(multiplied),
-            FadeOut(rearranged),
-            run_time=0.5
-        )
+        # 彻底清理当前场景所有元素
+        self.play(FadeOut(analytic_group), run_time=0.5)
     
     def show_proof_by_contradiction(self):
         """场景5: 反证法证明"""
+        contradiction_group = VGroup()
+        
         # 标题
         title = Text(
             "反证法证明",
@@ -346,6 +360,7 @@ class InequalityProofsAnimation(Scene):
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
+        contradiction_group.add(title)
         
         self.play(Write(title), run_time=0.8)
         
@@ -356,6 +371,7 @@ class InequalityProofsAnimation(Scene):
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
+        contradiction_group.add(principle)
         
         self.play(Write(principle), run_time=0.6)
         
@@ -363,6 +379,7 @@ class InequalityProofsAnimation(Scene):
         assume_text = Text("假设：", font="Noto Sans CJK SC", font_size=26, color=RED)
         assume_math = MathTex("a^2 + b^2 < 2ab", font_size=28, color=RED)
         assumption = VGroup(assume_text, assume_math).arrange(RIGHT, buff=0.15).move_to(UP * 3.5)
+        contradiction_group.add(assumption)
         
         self.play(Write(assumption), run_time=0.8)
         
@@ -372,6 +389,7 @@ class InequalityProofsAnimation(Scene):
             color=RED,
             font_size=28
         ).move_to(UP * 2.5)
+        contradiction_group.add(rearranged)
         
         self.play(Write(rearranged), run_time=0.8)
         
@@ -381,18 +399,20 @@ class InequalityProofsAnimation(Scene):
             color=RED,
             font_size=28
         ).move_to(UP * 1.5)
+        contradiction_group.add(factored)
         
         self.play(Write(factored), run_time=0.8)
         
         # 显示矛盾
-        contradiction = Text(
+        contradiction_text = Text(
             "但这与 (a-b)² ≥ 0 矛盾!",
             font="Noto Sans CJK SC",
             font_size=28,
             color=RED
         ).move_to(UP * 0.5)
+        contradiction_group.add(contradiction_text)
         
-        self.play(Write(contradiction), run_time=0.8)
+        self.play(Write(contradiction_text), run_time=0.8)
         
         # 得出原结论
         original_conclusion = MathTex(
@@ -400,23 +420,19 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=28
         ).move_to(DOWN * 0.5)
+        contradiction_group.add(original_conclusion)
         
         self.play(Write(original_conclusion), run_time=1.0)
         
         self.wait(2)
         
-        # 清理部分元素
-        self.play(
-            FadeOut(principle),
-            FadeOut(assumption),
-            FadeOut(rearranged),
-            FadeOut(factored),
-            FadeOut(contradiction),
-            run_time=0.5
-        )
+        # 彻底清理当前场景所有元素
+        self.play(FadeOut(contradiction_group), run_time=0.5)
     
     def show_estimation_method(self):
         """场景6: 放缩法证明"""
+        estimation_group = VGroup()
+        
         # 标题
         title = Text(
             "放缩法证明",
@@ -424,6 +440,7 @@ class InequalityProofsAnimation(Scene):
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
+        estimation_group.add(title)
         
         self.play(Write(title), run_time=0.8)
         
@@ -434,6 +451,7 @@ class InequalityProofsAnimation(Scene):
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
+        estimation_group.add(principle)
         
         self.play(Write(principle), run_time=0.6)
         
@@ -444,6 +462,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=28
         ).move_to(UP * 3.5)
+        estimation_group.add(example)
         
         self.play(Write(example), run_time=0.8)
         
@@ -453,6 +472,7 @@ class InequalityProofsAnimation(Scene):
             color=WHITE,
             font_size=28
         ).move_to(UP * 2.5)
+        estimation_group.add(equivalent)
         
         self.play(Write(equivalent), run_time=0.8)
         
@@ -463,6 +483,7 @@ class InequalityProofsAnimation(Scene):
             font_size=24,
             color=WHITE
         ).move_to(UP * 1.5)
+        estimation_group.add(technique)
         
         self.play(Write(technique), run_time=0.6)
         
@@ -472,22 +493,19 @@ class InequalityProofsAnimation(Scene):
             color=self.COLOR_HIGHLIGHT,
             font_size=28
         ).move_to(UP * 0.5)
+        estimation_group.add(sum_result)
         
         self.play(Write(sum_result), run_time=1.0)
         
         self.wait(2)
         
-        # 清理部分元素
-        self.play(
-            FadeOut(principle),
-            FadeOut(example),
-            FadeOut(equivalent),
-            FadeOut(technique),
-            run_time=0.5
-        )
+        # 彻底清理当前场景所有元素
+        self.play(FadeOut(estimation_group), run_time=0.5)
     
     def show_summary(self):
         """场景7: 总结回顾"""
+        summary_group = VGroup()
+        
         # 总结文字
         method_summary = Text(
             "不等式证明的五种方法:\n\n1. 比较法: 作差a-b≥0或作商a/b≥1\n2. 综合法: 由因导果\n3. 分析法: 执果索因\n4. 反证法: 假设结论不成立推出矛盾\n5. 放缩法: 适当放大/缩小",
@@ -495,6 +513,7 @@ class InequalityProofsAnimation(Scene):
             font_size=22,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 1)
+        summary_group.add(method_summary)
         
         self.play(Write(method_summary), run_time=1.5)
         
@@ -505,6 +524,7 @@ class InequalityProofsAnimation(Scene):
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
+        summary_group.add(author_info)
         
         self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.3)
         
@@ -515,10 +535,14 @@ class InequalityProofsAnimation(Scene):
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
+        summary_group.add(follow_hint)
         
         self.play(Write(follow_hint), run_time=0.8)
         
         self.wait(2)
+        
+        # 清理总结场景元素（可选，若为最后一个场景可保留）
+        self.play(FadeOut(summary_group), run_time=0.5)
 
 
 if __name__ == "__main__":

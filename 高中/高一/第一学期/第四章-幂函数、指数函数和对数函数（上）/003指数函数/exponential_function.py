@@ -1,6 +1,7 @@
 """
 指数函数 - Exponential Functions Teaching Animation
 高一数学第四章
+manim -qh exponential_function.py ExponentialFunctions
 
 TikTok 竖屏格式 (1080×1920)
 作者: 上海初高中数学直通车 @emptyandcalm
@@ -89,20 +90,25 @@ class ExponentialFunctions(Scene):
     # Scene 1: 开场
     # ═══════════════════════════════════════════
     def scene_1_opening(self):
+        opening_group = VGroup()
+        
         self.author = Text(
             "上海初高中数学直通车  @emptyandcalm",
             font="Noto Sans CJK SC", font_size=20, color=self.C_AUX,
         ).move_to(UP * 7.2)
+        opening_group.add(self.author)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
 
         title = Text("指数函数", font="Noto Sans CJK SC",
                       font_size=52, color=GOLD).move_to(UP * 6.2)
+        opening_group.add(title)
         self.play(Write(title), run_time=0.7)
 
         hook = Text(
             "为什么细菌 24 小时能繁殖万亿个？",
             font="Noto Sans CJK SC", font_size=25, color=WHITE,
         ).move_to(UP * 5.2)
+        opening_group.add(hook)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.5)
 
         # 快速展示指数爆炸
@@ -110,6 +116,7 @@ class ExponentialFunctions(Scene):
         self.play(Create(axes), run_time=0.7)
 
         g2 = self._plot(axes, "a2", self.C_A2)
+        opening_group.add(g2)
         self.play(Create(g2), run_time=0.8)
 
         # 指数增长感受：标注几个值
@@ -118,23 +125,25 @@ class ExponentialFunctions(Scene):
             dot = Dot(axes.c2p(x, y), color=YELLOW, radius=0.07)
             lab  = Text(label_str, font="Noto Sans CJK SC",
                          font_size=18, color=YELLOW).next_to(dot, UR, buff=0.05)
+            opening_group.add(dot, lab)
             self.play(FadeIn(dot), FadeIn(lab), run_time=0.25)
 
         self.wait(0.8)
-        self.play(FadeOut(title), FadeOut(hook), run_time=0.4)
-        # 清除标注，保留坐标轴和图像（下一幕要用）
+        # 清除开场除坐标轴外的所有元素
+        opening_group.remove(axes)
+        self.play(FadeOut(opening_group), run_time=0.4)
+        # 保留坐标轴给下一幕
         self.axes = axes
-        self.g2_opening = g2
 
     # ═══════════════════════════════════════════
     # Scene 2: 定义
     # ═══════════════════════════════════════════
     def scene_2_definition(self):
-        # 清除开场图
-        self.play(FadeOut(self.g2_opening), run_time=0.3)
+        definition_group = VGroup()
 
         sc_title = Text("指数函数的定义", font="Noto Sans CJK SC",
                          font_size=32, color=GOLD).move_to(UP * 6.2)
+        definition_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
 
         def_formula = MathTex(r"y = a^x", font_size=60, color=WHITE
@@ -143,6 +152,7 @@ class ExponentialFunctions(Scene):
                         ).next_to(def_formula, DOWN, buff=0.3)
         box = SurroundingRectangle(
             VGroup(def_formula, cond), color=GOLD, buff=0.3, corner_radius=0.15)
+        definition_group.add(def_formula, cond, box)
         self.play(Write(def_formula), run_time=0.7)
         self.play(FadeIn(cond), Create(box), run_time=0.5)
 
@@ -153,6 +163,7 @@ class ExponentialFunctions(Scene):
         why_ans  = Text("因为 1^x = 1，是常数函数，不是指数函数",
                          font="Noto Sans CJK SC", font_size=20, color=WHITE
                          ).move_to(UP * 2.8)
+        definition_group.add(why_text, why_ans)
         self.play(FadeIn(why_text), run_time=0.4)
         self.play(FadeIn(why_ans), run_time=0.4)
 
@@ -160,42 +171,45 @@ class ExponentialFunctions(Scene):
         why2 = Text("为何 a > 0？  保证实数域内有意义",
                      font="Noto Sans CJK SC", font_size=20, color=WHITE
                      ).move_to(UP * 2.1)
+        definition_group.add(why2)
         self.play(FadeIn(why2), run_time=0.4)
         self.wait(1.5)
 
-        self.play(
-            FadeOut(sc_title), FadeOut(def_formula), FadeOut(cond), FadeOut(box),
-            FadeOut(why_text), FadeOut(why_ans), FadeOut(why2),
-            run_time=0.4,
-        )
+        # 彻底清理定义场景所有元素
+        self.play(FadeOut(definition_group), run_time=0.4)
 
     # ═══════════════════════════════════════════
     # Scene 3: a>1 递增情形
     # ═══════════════════════════════════════════
     def scene_3_increasing(self):
+        increasing_group = VGroup()
         axes = self.axes
 
         sc_title = Text("当 a > 1：单调递增",
                          font="Noto Sans CJK SC", font_size=30, color=self.C_A2
                          ).move_to(UP * 6.2)
+        increasing_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
 
         # y=2^x
         g2 = self._plot(axes, "a2", self.C_A2, stroke_width=3.5)
         lab_2 = MathTex(r"y = 2^x", font_size=26, color=self.C_A2
                          ).next_to(axes.c2p(2.0, 4.0), RIGHT, buff=0.1)
+        increasing_group.add(g2, lab_2)
         self.play(Create(g2), Write(lab_2), run_time=0.8)
 
         # y=3^x
         g3 = self._plot(axes, "a3", self.C_A3, stroke_width=3.5)
         lab_3 = MathTex(r"y = 3^x", font_size=26, color=self.C_A3
                          ).next_to(axes.c2p(1.0, 3.0), LEFT, buff=0.1)
+        increasing_group.add(g3, lab_3)
         self.play(Create(g3), Write(lab_3), run_time=0.8)
 
         # 公共点 (0,1)
         common = Dot(axes.c2p(0, 1), color=self.C_PT, radius=0.13)
         lab_pt = MathTex(r"(0,\ 1)", font_size=24, color=self.C_PT
                           ).next_to(axes.c2p(0, 1), UL, buff=0.12)
+        increasing_group.add(common, lab_pt)
         self.play(FadeIn(common, scale=0.4), Write(lab_pt), run_time=0.5)
         self.play(Flash(common, color=self.C_PT, flash_radius=0.3), run_time=0.4)
 
@@ -206,6 +220,7 @@ class ExponentialFunctions(Scene):
         )
         asy_lab = MathTex(r"y = 0", font_size=22, color=self.C_ASY
                            ).next_to(axes.c2p(2.2, 0), DOWN, buff=0.12)
+        increasing_group.add(asy_line, asy_lab)
         self.play(Create(asy_line), Write(asy_lab), run_time=0.5)
 
         # 说明箭头（从左到右，图像上升）
@@ -214,6 +229,7 @@ class ExponentialFunctions(Scene):
             end=axes.c2p(2, 4.0),
             color=self.C_A2, buff=0, stroke_width=2,
         )
+        increasing_group.add(arrow)
         self.play(GrowArrow(arrow), run_time=0.5)
 
         notes = VGroup(
@@ -224,27 +240,24 @@ class ExponentialFunctions(Scene):
             Text("x→-∞，y→0⁺（趋近 x 轴）",
                   font="Noto Sans CJK SC", font_size=22, color=WHITE),
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 3.5)
+        increasing_group.add(notes)
         self.play(Write(notes), run_time=0.7)
         self.wait(2.0)
 
-        self.play(
-            FadeOut(sc_title), FadeOut(g2), FadeOut(g3),
-            FadeOut(lab_2), FadeOut(lab_3),
-            FadeOut(common), FadeOut(lab_pt),
-            FadeOut(asy_line), FadeOut(asy_lab),
-            FadeOut(arrow), FadeOut(notes),
-            run_time=0.5,
-        )
+        # 彻底清理递增场景所有元素
+        self.play(FadeOut(increasing_group), run_time=0.5)
 
     # ═══════════════════════════════════════════
     # Scene 4: 0<a<1 递减情形
     # ═══════════════════════════════════════════
     def scene_4_decreasing(self):
+        decreasing_group = VGroup()
         axes = self.axes
 
         sc_title = Text("当 0 < a < 1：单调递减",
                          font="Noto Sans CJK SC", font_size=30, color=self.C_AH
                          ).move_to(UP * 6.2)
+        decreasing_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
 
         # y=(1/2)^x
@@ -252,6 +265,7 @@ class ExponentialFunctions(Scene):
         lab_h = MathTex(r"y = \left(\tfrac{1}{2}\right)^x",
                          font_size=26, color=self.C_AH
                          ).next_to(axes.c2p(-2, 4.0), RIGHT, buff=0.1)
+        decreasing_group.add(gh, lab_h)
         self.play(Create(gh), Write(lab_h), run_time=0.8)
 
         # y=(1/3)^x
@@ -259,12 +273,14 @@ class ExponentialFunctions(Scene):
         lab_th = MathTex(r"y = \left(\tfrac{1}{3}\right)^x",
                           font_size=26, color=self.C_ATH
                           ).next_to(axes.c2p(-1.0, 3.5), LEFT, buff=0.05)
+        decreasing_group.add(gth, lab_th)
         self.play(Create(gth), Write(lab_th), run_time=0.8)
 
         # 公共点
         common = Dot(axes.c2p(0, 1), color=self.C_PT, radius=0.13)
         lab_pt = MathTex(r"(0,\ 1)", font_size=24, color=self.C_PT
                           ).next_to(axes.c2p(0, 1), UR, buff=0.12)
+        decreasing_group.add(common, lab_pt)
         self.play(FadeIn(common, scale=0.4), Write(lab_pt), run_time=0.5)
 
         # 渐近线
@@ -272,6 +288,7 @@ class ExponentialFunctions(Scene):
             axes.c2p(-3, 0), axes.c2p(3, 0),
             color=self.C_ASY, dash_length=0.12, stroke_width=1.5,
         )
+        decreasing_group.add(asy_line)
         self.play(Create(asy_line), run_time=0.4)
 
         # 下降箭头
@@ -280,6 +297,7 @@ class ExponentialFunctions(Scene):
             end=axes.c2p(2, 0.25),
             color=self.C_AH, buff=0, stroke_width=2,
         )
+        decreasing_group.add(arrow)
         self.play(GrowArrow(arrow), run_time=0.5)
 
         notes = VGroup(
@@ -290,26 +308,24 @@ class ExponentialFunctions(Scene):
             Text("x→+∞，y→0⁺（趋近 x 轴）",
                   font="Noto Sans CJK SC", font_size=22, color=WHITE),
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 3.5)
+        decreasing_group.add(notes)
         self.play(Write(notes), run_time=0.7)
         self.wait(2.0)
 
-        self.play(
-            FadeOut(sc_title), FadeOut(gh), FadeOut(gth),
-            FadeOut(lab_h), FadeOut(lab_th),
-            FadeOut(common), FadeOut(lab_pt),
-            FadeOut(asy_line), FadeOut(arrow), FadeOut(notes),
-            run_time=0.5,
-        )
+        # 彻底清理递减场景所有元素
+        self.play(FadeOut(decreasing_group), run_time=0.5)
 
     # ═══════════════════════════════════════════
     # Scene 5: 对比：互为镜像
     # ═══════════════════════════════════════════
     def scene_5_compare(self):
+        compare_group = VGroup()
         axes = self.axes
 
         sc_title = Text("a > 1 与 0 < a < 1 的关系",
                          font="Noto Sans CJK SC", font_size=28, color=GOLD
                          ).move_to(UP * 6.2)
+        compare_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
 
         g2  = self._plot(axes, "a2",   self.C_A2,  stroke_width=2.5)
@@ -319,6 +335,7 @@ class ExponentialFunctions(Scene):
         lab_h = MathTex(r"y = \left(\tfrac{1}{2}\right)^x",
                          font_size=22, color=self.C_AH
                          ).next_to(axes.c2p(-1.8, 3.5), LEFT, buff=0.08)
+        compare_group.add(g2, gh, lab_2, lab_h)
 
         self.play(Create(g2), Create(gh), Write(lab_2), Write(lab_h), run_time=0.8)
 
@@ -330,31 +347,33 @@ class ExponentialFunctions(Scene):
         sym_label = Text("关于 y 轴对称",
                           font="Noto Sans CJK SC", font_size=22, color=YELLOW
                           ).move_to(DOWN * 1.5)
+        compare_group.add(yaxis_dashed, sym_label)
         self.play(Create(yaxis_dashed), FadeIn(sym_label), run_time=0.6)
 
         relation = MathTex(
             r"\left(\tfrac{1}{2}\right)^x = 2^{-x}",
             font_size=30, color=self.C_RULE,
         ).move_to(DOWN * 2.4)
+        compare_group.add(relation)
         self.play(Write(relation), run_time=0.6)
         self.wait(1.5)
 
-        self.play(
-            FadeOut(sc_title), FadeOut(g2), FadeOut(gh),
-            FadeOut(lab_2), FadeOut(lab_h),
-            FadeOut(yaxis_dashed), FadeOut(sym_label), FadeOut(relation),
-            run_time=0.5,
-        )
+        # 彻底清理对比场景所有元素
+        self.play(FadeOut(compare_group), run_time=0.5)
 
     # ═══════════════════════════════════════════
     # Scene 6: 性质总结表
     # ═══════════════════════════════════════════
     def scene_6_properties(self):
+        properties_group = VGroup()
+        
+        # 先清理之前保留的坐标轴
         self.play(FadeOut(self.axes), run_time=0.4)
 
         sc_title = Text("指数函数性质总结",
                          font="Noto Sans CJK SC", font_size=32, color=GOLD
                          ).move_to(UP * 6.2)
+        properties_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
 
         # 两列对比表
@@ -363,10 +382,12 @@ class ExponentialFunctions(Scene):
             MathTex(r"a > 1",            font_size=26, color=self.C_A2),
             MathTex(r"0 < a < 1",        font_size=26, color=self.C_AH),
         ).arrange(RIGHT, buff=1.0).move_to(UP * 5.3)
+        properties_group.add(headers)
         self.play(FadeIn(headers), run_time=0.4)
 
         divider = Line(LEFT * 4, RIGHT * 4, color=GRAY_B, stroke_width=1
                         ).next_to(headers, DOWN, buff=0.15)
+        properties_group.add(divider)
         self.play(Create(divider), run_time=0.3)
 
         rows_data = [
@@ -399,21 +420,21 @@ class ExponentialFunctions(Scene):
                 v2_m = Text(v2, font="Noto Sans CJK SC", font_size=22, color=self.C_AH)
 
             row = VGroup(prop_m, v1_m, v2_m).arrange(RIGHT, buff=0.9).move_to(UP * y_pos)
+            properties_group.add(row)
             self.play(FadeIn(row, shift=RIGHT * 0.2), run_time=0.4)
             row_mobs.append(row)
 
         self.wait(2.0)
 
-        self.play(
-            FadeOut(sc_title), FadeOut(headers), FadeOut(divider),
-            *[FadeOut(r) for r in row_mobs],
-            run_time=0.5,
-        )
+        # 彻底清理性质总结场景所有元素
+        self.play(FadeOut(properties_group), run_time=0.5)
 
     # ═══════════════════════════════════════════
     # Scene 7: 片尾
     # ═══════════════════════════════════════════
     def scene_7_outro(self):
+        outro_group = VGroup()
+        
         name_big = Text("上海初高中数学直通车",
                          font="Noto Sans CJK SC", font_size=40, color=WHITE
                          ).move_to(UP * 1.5)
@@ -423,6 +444,7 @@ class ExponentialFunctions(Scene):
         call     = Text("关注我，获得更多数学技巧！",
                          font="Noto Sans CJK SC", font_size=28, color=GOLD
                          ).move_to(DOWN * 0.3)
+        outro_group.add(name_big, id_text, call)
 
         self.play(Transform(self.author, name_big), run_time=0.7)
         self.play(FadeIn(id_text, shift=UP * 0.3), run_time=0.4)
@@ -437,13 +459,11 @@ class ExponentialFunctions(Scene):
 
         gup   = mini_axes.plot(lambda x: 2**x,   x_range=[-2, 2], color=self.C_A2)
         gdown = mini_axes.plot(lambda x: 0.5**x, x_range=[-2, 2], color=self.C_AH)
+        outro_group.add(mini_axes, gup, gdown)
 
         self.play(Create(mini_axes), run_time=0.5)
         self.play(Create(gup), Create(gdown), run_time=0.8)
         self.wait(1.2)
 
-        self.play(
-            FadeOut(self.author), FadeOut(id_text), FadeOut(call),
-            FadeOut(mini_axes), FadeOut(gup), FadeOut(gdown),
-            run_time=0.8,
-        )
+        # 彻底清理片尾所有元素
+        self.play(FadeOut(outro_group), run_time=0.8)
