@@ -2,6 +2,8 @@
 数一数 - Counting Animation
 使用 Manim 创建的小学一年级数学教学视频
 
+manim -qh counting_animation.py CountingAnimation
+
 内容: 通过实物学习'点数法'（指一个数一个），做到手口一致，不重复不遗漏
 目标观众: 一年级学生
 格式: TikTok竖屏 (1080×1920)
