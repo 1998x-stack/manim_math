@@ -66,10 +66,10 @@ class SineLawAnimation(Scene):
         self.B = self.B * self.SCALE + self.OFFSET
         self.C = self.C * self.SCALE + self.OFFSET
 
-        # 计算边长
-        self.a = np.linalg.norm(self.B - self.C)  # BC
-        self.b = np.linalg.norm(self.C - self.A)  # CA
-        self.c = np.linalg.norm(self.A - self.B)  # AB
+        # 计算边长 (a=BC, b=AC, c=AB)
+        self.a = np.linalg.norm(self.B - self.C)  # BC, 对应角A
+        self.b = np.linalg.norm(self.C - self.A)  # AC, 对应角B
+        self.c = np.linalg.norm(self.A - self.B)  # AB, 对应角C
 
         # 计算角度
         self.angle_A = self.calculate_angle_at_vertex(self.A, self.B, self.C)
@@ -246,7 +246,7 @@ class SineLawAnimation(Scene):
         )
 
     def show_sine_law_derivation(self):
-        """场景3: 正弦定理推导"""
+        """场景3: 正弦定理推导 (修正版)"""
         # 标题
         derivation_title = Text(
             "正弦定理推导",
@@ -257,18 +257,15 @@ class SineLawAnimation(Scene):
 
         self.play(Write(derivation_title), run_time=0.5)
 
-        # 选择直径的一端和另一顶点构成直角三角形来推导
-        # 将顶点C连接到外心，并继续延长到圆上形成直径
-        diameter_end = self.circumcenter + (self.circumcenter - self.A)  # A对面的点
-        # extended_triangle = Polygon(self.B, self.C, diameter_end, color=PURPLE, stroke_width=2)
-
-        # 高亮三角形ABC中边a的对角A
+        # --- 核心修正区域开始 ---
+        
+        # 1. 标注角A (顶点A) 和 对边a (边BC)
         angle_a_arc = Angle.from_three_points(self.B, self.A, self.C, radius=0.3, color=self.COLOR_ANGLE)
         angle_a_label = Text("A", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_a_arc, LEFT, buff=0.2)
-
-        # 标注边长
+        
+        # 边a (BC) 的标签
         a_label = MathTex("a", color=self.COLOR_TRIANGLE).move_to(
-            (self.B + self.C) / 2 + np.array([0, 0.3, 0])
+            (self.B + self.C) / 2 + np.array([0.2, 0.1, 0])
         )
 
         self.play(
@@ -278,10 +275,12 @@ class SineLawAnimation(Scene):
             run_time=0.8
         )
 
-        # 绘制直径及其对应的圆周角
-        diameter_line = Line(self.A, diameter_end, color=BLUE, stroke_width=3)
-        diameter_dot = Dot(diameter_end, color=BLUE, radius=0.08)
-        diameter_label = Text("A'", font="Noto Sans CJK SC", font_size=24, color=BLUE).next_to(diameter_dot, DOWN, buff=0.15)
+        # 2. 构造直径：过B点作直径BD，D为B的对径点
+        diameter_end_D = self.circumcenter + (self.circumcenter - self.B)
+        
+        diameter_line = Line(self.B, diameter_end_D, color=BLUE, stroke_width=3)
+        diameter_dot = Dot(diameter_end_D, color=BLUE, radius=0.08)
+        diameter_label = Text("D", font="Noto Sans CJK SC", font_size=24, color=BLUE).next_to(diameter_dot, UP, buff=0.15)
 
         self.play(
             Create(diameter_line),
@@ -290,37 +289,42 @@ class SineLawAnimation(Scene):
             run_time=1.0
         )
 
-        # 构造三角形BCA'，其中角BCA'是直角（圆周角对直径）
-        right_angle = self.create_right_angle_mark(self.C, self.B, diameter_end, size=0.15)
+        # 3. 连接CD，构造三角形BCD
+        line_CD = Line(self.C, diameter_end_D, color=PURPLE, stroke_width=2)
+        self.play(Create(line_CD), run_time=0.5)
 
+        # 4. 标记直角：直径所对的圆周角 ∠BCD 为直角
+        right_angle = self.create_right_angle_mark(self.C, self.B, diameter_end_D, size=0.15)
         self.play(Create(right_angle), run_time=0.5)
 
-        # 说明角A = 角A'（同弧所对的圆周角相等）
-        angle_ap_arc = Angle.from_three_points(self.B, diameter_end, self.C, radius=0.25, color=self.COLOR_ANGLE)
-        angle_ap_label = Text("A'", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_ap_arc, LEFT, buff=0.2)
+        # 5. 标记角D (∠CDB)，并说明 ∠A = ∠D (同弧BC所对圆周角)
+        angle_d_arc = Angle.from_three_points(self.C, diameter_end_D, self.B, radius=0.25, color=self.COLOR_ANGLE)
+        angle_d_label = Text("D", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_d_arc, RIGHT, buff=0.2)
 
         self.play(
-            Create(angle_ap_arc),
-            Write(angle_ap_label),
+            Create(angle_d_arc),
+            Write(angle_d_label),
             run_time=0.5
         )
 
-        # 推导过程
+        # --- 核心修正区域结束 ---
+
+        # 推导过程文字
         step1 = VGroup(
-            MathTex(r"\because \angle A = \angle A'", font_size=24),
+            MathTex(r"\because \angle A = \angle D", font_size=24),
             Text("（同弧所对圆周角）", font="Noto Sans CJK SC", font_size=22, color=WHITE),
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 1)
 
         step2 = VGroup(
             Text("且", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            MathTex(r"\angle BCA' = 90^\circ", font_size=24),
+            MathTex(r"\angle BCD = 90^\circ", font_size=24),
             Text("（直径所对圆周角）", font="Noto Sans CJK SC", font_size=22, color=WHITE),
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 2)
 
         step3 = MathTex(
-            r"\therefore \sin A' = \sin A = {a \over 2R}",
+            r"\therefore \sin D = \sin A = {a \over 2R}",
             font_size=24
-        ).move_to(DOWN * 3)  # No Chinese — this line is fine as-is
+        ).move_to(DOWN * 3)
 
         step4 = MathTex(
             r"\Rightarrow {a \over \sin A} = 2R",
@@ -352,9 +356,10 @@ class SineLawAnimation(Scene):
             FadeOut(diameter_line),
             FadeOut(diameter_dot),
             FadeOut(diameter_label),
+            FadeOut(line_CD),
             FadeOut(right_angle),
-            FadeOut(angle_ap_arc),
-            FadeOut(angle_ap_label),
+            FadeOut(angle_d_arc),
+            FadeOut(angle_d_label),
             FadeOut(step1),
             FadeOut(step2),
             FadeOut(step3),
@@ -696,8 +701,7 @@ class SineLawAnimation(Scene):
         self.play(Write(formula_decoration), run_time=0.8)
 
         # 让三角形旋转
-        self.play(Rotate(final_triangle, angle=PI, run_time=2))
-
+        self.play(Rotate(final_triangle, angle=PI), run_time=2)
         # 等待
         self.wait(2.0)
 
