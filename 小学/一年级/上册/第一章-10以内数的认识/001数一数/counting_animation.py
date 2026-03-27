@@ -175,7 +175,7 @@ class CountingAnimation(Scene):
             apple = Circle(radius=0.35, color="#e74c3c", fill_opacity=0.8)
             apple.move_to(self.grid_positions[i])
             
-            stem = Line(apple.get_top(), apple.get_top() + UP * 0.2, color=BROWN)
+            stem = Line(apple.get_top(), apple.get_top() + UP * 0.2, color="#8B4513")
             leaf = Circle(radius=0.1, color=GREEN).move_to(apple.get_top() + UP * 0.15 + RIGHT * 0.1)
             
             apple_group = VGroup(apple, stem, leaf)

@@ -251,13 +251,13 @@ class AdditionIntro(Scene):
         # 大算式逐步显示
         formula = MathTex(r"2 + 1 = 3", font_size=80, color=WHITE)
         formula[0][0].set_color(C_LEFT)
-        formula[0][2].set_color(C_PLUS)
-        formula[0][4].set_color(C_RIGHT)
-        formula[0][6].set_color(C_SUM)
+        formula[0][1].set_color(C_PLUS)
+        formula[0][2].set_color(C_RIGHT)
+        formula[0][4].set_color(C_SUM)
         formula.move_to(DOWN * 1.0)
 
         self.play(Write(formula), run_time=1.0)
-        self.play(Indicate(formula[0][6], scale_factor=1.5, color=C_SUM), run_time=0.5)
+        self.play(Indicate(formula[0][4], scale_factor=1.5, color=C_SUM), run_time=0.5)
 
         # 读法
         reading = VGroup(
@@ -307,9 +307,9 @@ class AdditionIntro(Scene):
             )
             formula = MathTex(formula_str, font_size=40, color=WHITE)
             formula[0][0].set_color(C_LEFT)
-            formula[0][2].set_color(C_PLUS)
-            formula[0][4].set_color(C_RIGHT)
-            formula[0][6].set_color(C_SUM)
+            formula[0][1].set_color(C_PLUS)
+            formula[0][2].set_color(C_RIGHT)
+            formula[0][4].set_color(C_SUM)
             formula.move_to(np.array([2.8, y, 0]))
 
             row = VGroup(dots_a, plus_s, dots_b, formula)
@@ -322,7 +322,7 @@ class AdditionIntro(Scene):
                 run_time=0.4,
             )
             self.play(Write(formula), run_time=0.35)
-            self.play(Indicate(formula[0][6], color=C_SUM, scale_factor=1.3),
+            self.play(Indicate(formula[0][4], color=C_SUM, scale_factor=1.3),
                       run_time=0.25)
 
         self.wait(0.8)
@@ -339,9 +339,9 @@ class AdditionIntro(Scene):
         # 公式行
         formula = MathTex(r"2 + 1 = 3", font_size=80, color=WHITE)
         formula[0][0].set_color(C_LEFT)
-        formula[0][2].set_color(C_PLUS)
-        formula[0][4].set_color(C_RIGHT)
-        formula[0][6].set_color(C_SUM)
+        formula[0][1].set_color(C_PLUS)
+        formula[0][2].set_color(C_RIGHT)
+        formula[0][4].set_color(C_SUM)
         formula.move_to(UP * 4.0)
         self.play(Write(formula), run_time=0.6)
 
@@ -353,19 +353,19 @@ class AdditionIntro(Scene):
         self.play(GrowFromCenter(b1), FadeIn(l1), run_time=0.4)
 
         # 加号
-        b2 = Brace(formula[0][2], direction=DOWN, color=C_PLUS)
+        b2 = Brace(formula[0][1], direction=DOWN, color=C_PLUS)
         l2 = Text("加号", font=FONT, font_size=26, color=C_PLUS)
         l2.next_to(b2, DOWN, buff=0.1)
         self.play(GrowFromCenter(b2), FadeIn(l2), run_time=0.4)
 
         # 加数2
-        b3 = Brace(formula[0][4], direction=DOWN, color=C_RIGHT)
+        b3 = Brace(formula[0][2], direction=DOWN, color=C_RIGHT)
         l3 = Text("加数", font=FONT, font_size=26, color=C_RIGHT)
         l3.next_to(b3, DOWN, buff=0.1)
         self.play(GrowFromCenter(b3), FadeIn(l3), run_time=0.4)
 
         # 和
-        b4 = Brace(formula[0][6], direction=DOWN, color=C_SUM)
+        b4 = Brace(formula[0][4], direction=DOWN, color=C_SUM)
         l4 = Text("和", font=FONT, font_size=26, color=C_SUM)
         l4.next_to(b4, DOWN, buff=0.1)
         self.play(GrowFromCenter(b4), FadeIn(l4), run_time=0.4)
@@ -428,9 +428,9 @@ class AdditionIntro(Scene):
             MathTex(r"2 + 1 = 3", font_size=56, color=WHITE),
         )
         lines[2][0][0].set_color(C_LEFT)
-        lines[2][0][2].set_color(C_PLUS)
-        lines[2][0][4].set_color(C_RIGHT)
-        lines[2][0][6].set_color(C_SUM)
+        lines[2][0][1].set_color(C_PLUS)
+        lines[2][0][2].set_color(C_RIGHT)
+        lines[2][0][4].set_color(C_SUM)
         lines.arrange(DOWN, buff=0.4).move_to(card)
 
         self.play(Create(card), FadeIn(card_title), run_time=0.4)

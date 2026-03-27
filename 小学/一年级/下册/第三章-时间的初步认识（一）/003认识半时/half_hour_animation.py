@@ -88,14 +88,14 @@ def make_hour_hand(center=CLOCK_CENTER):
     """创建时针（初始指12=UP）"""
     tip = center + np.array([0, HOUR_LEN, 0])
     return Line(center, tip, stroke_width=11,
-                color=COLOR_HOUR, stroke_linecap=CapStyleType.ROUND)
+                color=COLOR_HOUR)
 
 
 def make_min_hand(center=CLOCK_CENTER):
     """创建分针（初始指12=UP）"""
     tip = center + np.array([0, MIN_LEN, 0])
     return Line(center, tip, stroke_width=5,
-                color=COLOR_MIN, stroke_linecap=CapStyleType.ROUND)
+                color=COLOR_MIN)
 
 
 def build_half_clock(hour, center=CLOCK_CENTER):

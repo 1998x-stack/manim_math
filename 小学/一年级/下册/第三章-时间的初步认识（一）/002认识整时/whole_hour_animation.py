@@ -94,14 +94,12 @@ def build_clock(center=CLOCK_CENTER, show_hands=True, hour=12):
     # 时针（初始指12，然后在函数外用 Rotate 转到目标位置）
     h_tip = center + np.array([0, HOUR_LEN, 0])
     hour_hand = Line(center, h_tip,
-                     stroke_width=11, color=COLOR_HOUR,
-                     stroke_linecap=CapStyleType.ROUND)
+                     stroke_width=11, color=COLOR_HOUR)
 
     # 分针（整时恒指12）
     m_tip = center + np.array([0, MIN_LEN, 0])
     min_hand = Line(center, m_tip,
-                    stroke_width=5, color=COLOR_MIN,
-                    stroke_linecap=CapStyleType.ROUND)
+                    stroke_width=5, color=COLOR_MIN)
 
     # 中心帽
     cap = Dot(center, radius=0.13, color=COLOR_RIM)

@@ -28,7 +28,7 @@ COLOR_HIGHLIGHT  = "#f9ca24"
 COLOR_LABEL_H    = "#1565c0"
 COLOR_LABEL_M    = "#b71c1c"
 
-AUTHOR_FONT = "Noto Sans CJK SC"
+AUTHOR_FONT = "PingFang SC"
 
 # ===== 钟面几何参数（已由 verify_clock_face.py 验证）=====
 CLOCK_CENTER = np.array([0.0, 1.2, 0.0])
@@ -135,7 +135,7 @@ class ClockFaceAnimation(Scene):
         self.hour_hand = Line(
             cx, cx + np.array([0, HOUR_LEN, 0]),
             stroke_width=11, color=COLOR_HOUR_HAND,
-            stroke_linecap=CapStyleType.ROUND
+            cap_style=CapStyleType.ROUND
         )
         # 加圆头（视觉感）
         self.hour_tip = Dot(cx + np.array([0, HOUR_LEN, 0]),
@@ -145,7 +145,7 @@ class ClockFaceAnimation(Scene):
         self.min_hand = Line(
             cx, cx + np.array([0, MIN_LEN, 0]),
             stroke_width=5, color=COLOR_MIN_HAND,
-            stroke_linecap=CapStyleType.ROUND
+            cap_style=CapStyleType.ROUND
         )
         self.min_tip = Dot(cx + np.array([0, MIN_LEN, 0]),
                            radius=0.07, color=COLOR_MIN_HAND)

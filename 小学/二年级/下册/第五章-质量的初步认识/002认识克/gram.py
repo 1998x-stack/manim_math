@@ -49,7 +49,7 @@ class UnderstandGram(Scene):
         self.C_GRAM      = "#80DEEA"      # 克单位颜色
         self.C_GREEN     = "#A5D6A7"
         self.C_HIGHLIGHT = "#FFD700"
-        self.FONT        = "Noto Sans CJK SC"
+        self.FONT        = "PingFang SC"
 
         # ── 执行场景 ──────────────────────────
         self.scene_1_hook()
@@ -380,7 +380,7 @@ class UnderstandGram(Scene):
         self.add(coin)
         self.play(
             coin.animate.move_to(UP * 3.5),
-            rate_func=bounce,
+            rate_func=rush_into,
             run_time=0.9
         )
 
@@ -426,7 +426,7 @@ class UnderstandGram(Scene):
         explain_bg.move_to(DOWN * 2.8)
         e1 = Text("硬币很轻，只有1克哦！", font=self.FONT,
                   font_size=28, color=WHITE)
-        e2 = Text("💡 捏一枚硬币，感受1克！", font=self.FONT,
+        e2 = Text("小贴士：捏一枚硬币，感受1克！", font=self.FONT,
                   font_size=24, color=GRAY_A)
         VGroup(e1, e2).arrange(DOWN, buff=0.3).move_to(explain_bg.get_center())
 
@@ -577,7 +577,7 @@ class UnderstandGram(Scene):
         )
         explain_bg.move_to(DOWN * 2.0)
 
-        e1 = Text("📺 指针刻度 = 物品质量", font=self.FONT,
+        e1 = Text("指针刻度 = 物品质量", font=self.FONT,
                   font_size=26, color=WHITE)
         e2_row = VGroup(
             Text("单位是", font=self.FONT, font_size=26, color=WHITE),
