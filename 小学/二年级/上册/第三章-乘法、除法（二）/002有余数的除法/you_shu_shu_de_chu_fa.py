@@ -18,7 +18,7 @@ config.frame_height = 16
 # 字体配置
 AUTHOR_NAME = "上海初高中数学直通车"
 AUTHOR_ID = "@emptyandcalm"
-AUTHOR_FONT = "Noto Sans CJK SC"  # 或 "SimHei"
+AUTHOR_FONT = "PingFang SC"  # 或 "SimHei"
 
 
 class YouShuShuDeChuFa(Scene):
@@ -98,7 +98,7 @@ class YouShuShuDeChuFa(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -108,14 +108,14 @@ class YouShuShuDeChuFa(Scene):
         # 标题
         title = Text(
             "有余数的除法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
 
         subtitle = Text(
             "平均分时的剩余问题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -134,7 +134,7 @@ class YouShuShuDeChuFa(Scene):
         # 提示文字
         hint = Text(
             "13个苹果，平均分给4个小朋友，会怎样？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -155,14 +155,14 @@ class YouShuShuDeChuFa(Scene):
         # 标题
         title = Text(
             "平均分演示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
 
         definition = Text(
             "每个小朋友分到同样多的苹果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -201,7 +201,7 @@ class YouShuShuDeChuFa(Scene):
 
         # 显示余数
         self.remainder_circle = Circle(radius=0.2, color=self.COLOR_WARNING, fill_opacity=0.8).move_to(self.remainder_pos)
-        self.remainder_label = Text("剩余", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_WARNING).next_to(self.remainder_circle, DOWN, buff=0.1)
+        self.remainder_label = Text("剩余", font="PingFang SC", font_size=20, color=self.COLOR_WARNING).next_to(self.remainder_circle, DOWN, buff=0.1)
 
         self.play(FadeIn(self.remainder_circle, scale=0.5), FadeIn(self.remainder_label), run_time=0.5)
         self.play(Flash(self.remainder_circle, color=self.COLOR_WARNING, flash_radius=0.3), run_time=0.4)
@@ -209,7 +209,7 @@ class YouShuShuDeChuFa(Scene):
         # 解释文字
         explain = Text(
             "还剩1个，不够再分一份！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_WARNING
         ).move_to(DOWN * 5)
@@ -235,7 +235,7 @@ class YouShuShuDeChuFa(Scene):
         # 标题
         title = Text(
             "数学算式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 5.5)
@@ -268,7 +268,7 @@ class YouShuShuDeChuFa(Scene):
         # 关系说明：余数 < 除数
         relation = Text(
             "余数必须比除数小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 3)
@@ -277,7 +277,7 @@ class YouShuShuDeChuFa(Scene):
 
         # 用Brace连接余数和除数
         brace = Brace(VGroup(self.formula[2], self.formula[6]), direction=DOWN, buff=0.2, color=YELLOW)
-        brace_text = Text("1 < 4", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace, DOWN, buff=0.1)
+        brace_text = Text("1 < 4", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace, DOWN, buff=0.1)
 
         self.play(Create(brace), Write(brace_text), run_time=0.6)
 
@@ -297,7 +297,7 @@ class YouShuShuDeChuFa(Scene):
         # 标题
         title = Text(
             "概念解释",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -307,7 +307,7 @@ class YouShuShuDeChuFa(Scene):
         # 定义文字
         definition = Text(
             "平均分时，有剩余且不够再分一份，剩下的数叫做'余数'",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -325,14 +325,14 @@ class YouShuShuDeChuFa(Scene):
         self.play(Create(arrow), run_time=0.4)
 
         # 错误示例：尝试将余数再分
-        cross = Text("×", font="Noto Sans CJK SC", font_size=36, color=RED).move_to(self.remainder_pos + RIGHT * 1.5)
+        cross = Text("×", font="PingFang SC", font_size=36, color=RED).move_to(self.remainder_pos + RIGHT * 1.5)
 
         self.play(FadeIn(cross), run_time=0.3)
 
         # 正确总结
         summary = Text(
             "余数是不够再分一份的剩余数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 3)
@@ -358,20 +358,20 @@ class YouShuShuDeChuFa(Scene):
 
         # 卡片1: 什么是余数
         card1 = VGroup(
-            Text("什么是余数？", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("平均分后剩下的数", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text("什么是余数？", font="PingFang SC", font_size=20, color=WHITE),
+            Text("平均分后剩下的数", font="PingFang SC", font_size=18, color=GRAY_A)
         ).arrange(DOWN, buff=0.2)
 
         # 卡片2: 余数特点
         card2 = VGroup(
-            Text("余数特点", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("余数 < 除数", font="Noto Sans CJK SC", font_size=20, color=GREEN)
+            Text("余数特点", font="PingFang SC", font_size=20, color=WHITE),
+            Text("余数 < 除数", font="PingFang SC", font_size=20, color=GREEN)
         ).arrange(DOWN, buff=0.2)
 
         # 卡片3: 算式格式
         card3 = VGroup(
-            Text("算式格式", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("被除数÷除数=商…余数", font="Noto Sans CJK SC", font_size=18, color=BLUE)
+            Text("算式格式", font="PingFang SC", font_size=20, color=WHITE),
+            Text("被除数÷除数=商…余数", font="PingFang SC", font_size=18, color=BLUE)
         ).arrange(DOWN, buff=0.2)
 
         cards.add(card1)
@@ -391,7 +391,7 @@ class YouShuShuDeChuFa(Scene):
         # 练习题
         exercise = Text(
             "练习题：17 ÷ 5 = ? … ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -404,7 +404,7 @@ class YouShuShuDeChuFa(Scene):
         # 显示答案
         answer = Text(
             "17 ÷ 5 = 3 … 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 3)
@@ -414,14 +414,14 @@ class YouShuShuDeChuFa(Scene):
         # 作者信息
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_B
         ).move_to(DOWN * 6)
@@ -435,7 +435,7 @@ class YouShuShuDeChuFa(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7)

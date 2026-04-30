@@ -119,7 +119,7 @@ class ParallelogramLesson(Scene):
     def _make_author(self):
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -177,11 +177,11 @@ class ParallelogramLesson(Scene):
         self.author = author
 
         # 标题
-        title = Text("平行四边形", font="Noto Sans CJK SC",
+        title = Text("平行四边形", font="PingFang SC",
                      font_size=52, color=self.COLOR_SHAPE)
         title.move_to(UP * 5.8)
 
-        hook = Text("你能找出它的秘密吗？", font="Noto Sans CJK SC",
+        hook = Text("你能找出它的秘密吗？", font="PingFang SC",
                     font_size=30, color="#ffd54f")
         hook.move_to(UP * 4.9)
 
@@ -193,10 +193,10 @@ class ParallelogramLesson(Scene):
         pg.move_to(ORIGIN + DOWN * 0.5)
 
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE)
+        label_D = Text("D", font="PingFang SC", font_size=24, color=WHITE)
         label_A.next_to(self.A + DOWN * 0.5, DL, buff=0.08)
         label_B.next_to(self.B + DOWN * 0.5, DR, buff=0.08)
         label_C.next_to(self.C + DOWN * 0.5, UR, buff=0.08)
@@ -225,16 +225,16 @@ class ParallelogramLesson(Scene):
     # ──────────────────────────────────────────────
     def scene_2_definition(self):
         # 场景标题
-        scene_title = Text("定义", font="Noto Sans CJK SC",
+        scene_title = Text("定义", font="PingFang SC",
                            font_size=36, color=self.COLOR_PARALLEL)
         scene_title.move_to(UP * 4.8)
         self.play(Write(scene_title), run_time=0.6)
 
         # 定义文字第一行
         def_line1 = Text("两组对边分别平行的四边形",
-                         font="Noto Sans CJK SC", font_size=26, color=WHITE)
+                         font="PingFang SC", font_size=26, color=WHITE)
         def_line2 = Text("叫做平行四边形",
-                         font="Noto Sans CJK SC", font_size=26, color=self.COLOR_SHAPE)
+                         font="PingFang SC", font_size=26, color=self.COLOR_SHAPE)
         def_group = VGroup(def_line1, def_line2).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
         def_group.move_to(UP * 3.8)
 
@@ -256,7 +256,7 @@ class ParallelogramLesson(Scene):
         tick_dc = self._parallel_tick(self.D, self.C, count=1)
         self.play(FadeIn(tick_ab), FadeIn(tick_dc), run_time=0.4)
 
-        label_parallel1 = Text("AB // DC", font="Noto Sans CJK SC",
+        label_parallel1 = Text("AB // DC", font="PingFang SC",
                                font_size=26, color=self.COLOR_PARALLEL)
         label_parallel1.move_to(DOWN * 2.8)
         self.play(Write(label_parallel1), run_time=0.5)
@@ -277,7 +277,7 @@ class ParallelogramLesson(Scene):
         tick_bc = self._parallel_tick(self.B, self.C, count=2, color="#ef9a9a")
         self.play(FadeIn(tick_ad), FadeIn(tick_bc), run_time=0.4)
 
-        label_parallel2 = Text("AD // BC", font="Noto Sans CJK SC",
+        label_parallel2 = Text("AD // BC", font="PingFang SC",
                                font_size=26, color="#ef9a9a")
         label_parallel2.next_to(label_parallel1, DOWN, buff=0.18)
         self.play(Write(label_parallel2), run_time=0.5)
@@ -298,7 +298,7 @@ class ParallelogramLesson(Scene):
     # Scene 3: 底和高
     # ──────────────────────────────────────────────
     def scene_3_height(self):
-        scene_title = Text("底 和 高", font="Noto Sans CJK SC",
+        scene_title = Text("底 和 高", font="PingFang SC",
                            font_size=38, color=self.COLOR_HEIGHT)
         scene_title.move_to(UP * 4.8)
         self.play(Write(scene_title), run_time=0.6)
@@ -309,7 +309,7 @@ class ParallelogramLesson(Scene):
         ab_highlight = Line(self.A, self.B, color=self.COLOR_HEIGHT, stroke_width=5)
         self.play(Create(ab_highlight), run_time=0.5)
 
-        label_base = Text("底", font="Noto Sans CJK SC",
+        label_base = Text("底", font="PingFang SC",
                           font_size=28, color=self.COLOR_HEIGHT)
         mid_AB = (self.A + self.B) / 2
         label_base.next_to(mid_AB + DOWN * 0.5, DOWN, buff=0.1)
@@ -334,7 +334,7 @@ class ParallelogramLesson(Scene):
         self.play(FadeIn(right_angle), run_time=0.3)
 
         # 高标注
-        label_h = Text("高", font="Noto Sans CJK SC",
+        label_h = Text("高", font="PingFang SC",
                         font_size=28, color=self.COLOR_HEIGHT)
         mid_height = (self.D + foot) / 2
         label_h.next_to(mid_height, RIGHT, buff=0.15)
@@ -342,9 +342,9 @@ class ParallelogramLesson(Scene):
 
         # 解释文字
         explain1 = Text("从一条边上的点向对边作垂线",
-                        font="Noto Sans CJK SC", font_size=22, color=WHITE)
+                        font="PingFang SC", font_size=22, color=WHITE)
         explain2 = Text("垂足之间的距离叫做高",
-                        font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HEIGHT)
+                        font="PingFang SC", font_size=22, color=self.COLOR_HEIGHT)
         explains = VGroup(explain1, explain2).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
         explains.move_to(DOWN * 3.2)
 
@@ -354,9 +354,9 @@ class ParallelogramLesson(Scene):
 
         # 公式：高 ⊥ 底
         formula_row = VGroup(
-            Text("高", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HEIGHT),
+            Text("高", font="PingFang SC", font_size=28, color=self.COLOR_HEIGHT),
             MathTex(r"\perp", font_size=36, color=WHITE),
-            Text("底", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HEIGHT),
+            Text("底", font="PingFang SC", font_size=28, color=self.COLOR_HEIGHT),
         ).arrange(RIGHT, buff=0.15)
         formula_row.move_to(DOWN * 4.2)
 
@@ -398,7 +398,7 @@ class ParallelogramLesson(Scene):
     # Scene 4: 对边相等
     # ──────────────────────────────────────────────
     def scene_4_equal_sides(self):
-        scene_title = Text("对边相等", font="Noto Sans CJK SC",
+        scene_title = Text("对边相等", font="PingFang SC",
                            font_size=40, color=self.COLOR_EQUAL)
         scene_title.move_to(UP * 4.8)
         self.play(Write(scene_title), run_time=0.6)
@@ -415,7 +415,7 @@ class ParallelogramLesson(Scene):
         tick_dc = self._equal_tick(self.D, self.C, count=1)
         self.play(FadeIn(tick_ab), FadeIn(tick_dc), run_time=0.4)
 
-        label_eq1 = Text("AB = DC", font="Noto Sans CJK SC",
+        label_eq1 = Text("AB = DC", font="PingFang SC",
                          font_size=28, color=self.COLOR_EQUAL)
         label_eq1.move_to(DOWN * 2.8)
         self.play(Write(label_eq1), run_time=0.5)
@@ -436,7 +436,7 @@ class ParallelogramLesson(Scene):
         tick_bc = self._equal_tick(self.B, self.C, count=2, color="#a5d6a7")
         self.play(FadeIn(tick_ad), FadeIn(tick_bc), run_time=0.4)
 
-        label_eq2 = Text("AD = BC", font="Noto Sans CJK SC",
+        label_eq2 = Text("AD = BC", font="PingFang SC",
                          font_size=28, color="#a5d6a7")
         label_eq2.next_to(label_eq1, DOWN, buff=0.18)
         self.play(Write(label_eq2), run_time=0.5)
@@ -444,7 +444,7 @@ class ParallelogramLesson(Scene):
 
         # 总结
         summary = Text("平行四边形对边相等！",
-                       font="Noto Sans CJK SC", font_size=26, color=YELLOW)
+                       font="PingFang SC", font_size=26, color=YELLOW)
         summary.next_to(label_eq2, DOWN, buff=0.3)
         self.play(FadeIn(summary, scale=1.1), run_time=0.5)
         self.wait(1.5)
@@ -465,7 +465,7 @@ class ParallelogramLesson(Scene):
     # Scene 5: 对角相等
     # ──────────────────────────────────────────────
     def scene_5_equal_angles(self):
-        scene_title = Text("对角相等", font="Noto Sans CJK SC",
+        scene_title = Text("对角相等", font="PingFang SC",
                            font_size=40, color=self.COLOR_ANGLE)
         scene_title.move_to(UP * 4.8)
         self.play(Write(scene_title), run_time=0.6)
@@ -481,16 +481,16 @@ class ParallelogramLesson(Scene):
 
         self.play(Create(arc_A), Create(arc_C), run_time=0.7)
 
-        label_A_text = Text("∠A", font="Noto Sans CJK SC",
+        label_A_text = Text("∠A", font="PingFang SC",
                             font_size=22, color=self.COLOR_ANGLE)
-        label_C_text = Text("∠C", font="Noto Sans CJK SC",
+        label_C_text = Text("∠C", font="PingFang SC",
                             font_size=22, color=self.COLOR_ANGLE)
         label_A_text.move_to(self.A + np.array([0.05, -0.55, 0]))
         label_C_text.move_to(self.C + np.array([0.05, 0.55, 0]))
 
         self.play(FadeIn(label_A_text), FadeIn(label_C_text), run_time=0.4)
 
-        eq_label1 = Text("∠A = ∠C", font="Noto Sans CJK SC",
+        eq_label1 = Text("∠A = ∠C", font="PingFang SC",
                          font_size=28, color=self.COLOR_ANGLE)
         eq_label1.move_to(DOWN * 2.8)
         self.play(Write(eq_label1), run_time=0.5)
@@ -504,23 +504,23 @@ class ParallelogramLesson(Scene):
 
         self.play(Create(arc_B), Create(arc_D), run_time=0.7)
 
-        label_B_text = Text("∠B", font="Noto Sans CJK SC",
+        label_B_text = Text("∠B", font="PingFang SC",
                             font_size=22, color="#f48fb1")
-        label_D_text = Text("∠D", font="Noto Sans CJK SC",
+        label_D_text = Text("∠D", font="PingFang SC",
                             font_size=22, color="#f48fb1")
         label_B_text.move_to(self.B + np.array([0.6, -0.4, 0]))
         label_D_text.move_to(self.D + np.array([-0.5, 0.45, 0]))
 
         self.play(FadeIn(label_B_text), FadeIn(label_D_text), run_time=0.4)
 
-        eq_label2 = Text("∠B = ∠D", font="Noto Sans CJK SC",
+        eq_label2 = Text("∠B = ∠D", font="PingFang SC",
                          font_size=28, color="#f48fb1")
         eq_label2.next_to(eq_label1, DOWN, buff=0.18)
         self.play(Write(eq_label2), run_time=0.5)
         self.wait(0.6)
 
         summary = Text("平行四边形对角相等！",
-                       font="Noto Sans CJK SC", font_size=26, color=YELLOW)
+                       font="PingFang SC", font_size=26, color=YELLOW)
         summary.next_to(eq_label2, DOWN, buff=0.3)
         self.play(FadeIn(summary, scale=1.1), run_time=0.5)
         self.wait(1.5)
@@ -566,7 +566,7 @@ class ParallelogramLesson(Scene):
         )
 
         # 总结卡
-        summary_title = Text("平行四边形的性质", font="Noto Sans CJK SC",
+        summary_title = Text("平行四边形的性质", font="PingFang SC",
                              font_size=38, color=self.COLOR_SHAPE)
         summary_title.move_to(UP * 5.5)
         self.play(Write(summary_title), run_time=0.7)
@@ -580,7 +580,7 @@ class ParallelogramLesson(Scene):
 
         items = VGroup()
         for text, color in props:
-            item = Text(text, font="Noto Sans CJK SC", font_size=24, color=color)
+            item = Text(text, font="PingFang SC", font_size=24, color=color)
             items.add(item)
 
         items.arrange(DOWN, aligned_edge=LEFT, buff=0.35)
@@ -623,15 +623,15 @@ class ParallelogramLesson(Scene):
 
         # 关注提示
         follow = Text("关注我，获得更多数学技巧！",
-                      font="Noto Sans CJK SC", font_size=28, color=YELLOW)
+                      font="PingFang SC", font_size=28, color=YELLOW)
         follow.move_to(DOWN * 4.2)
         self.play(FadeIn(follow, scale=1.05), run_time=0.6)
 
         # 作者大字
         author_big = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC", font_size=30, color=WHITE)
+                          font="PingFang SC", font_size=30, color=WHITE)
         author_id = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=24, color="#6b7280")
+                         font="PingFang SC", font_size=24, color="#6b7280")
         author_group = VGroup(author_big, author_id).arrange(DOWN, buff=0.1)
         author_group.move_to(DOWN * 5.5)
 

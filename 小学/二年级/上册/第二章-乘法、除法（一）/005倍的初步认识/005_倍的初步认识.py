@@ -41,7 +41,7 @@ COLOR_DIV   = "#a78bfa"   # 紫 — 除法
 COLOR_RULE  = "#f472b6"   # 粉 — 规则
 COLOR_CARD  = "#0f172a"
 COLOR_AUTHOR = "#6b7280"
-FONT        = "Noto Sans CJK SC"
+FONT        = "PingFang SC"
 
 
 class MultipleIntroLesson(Scene):

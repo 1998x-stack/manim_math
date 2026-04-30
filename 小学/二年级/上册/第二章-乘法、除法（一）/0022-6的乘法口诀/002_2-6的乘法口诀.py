@@ -48,7 +48,7 @@ class MultiplicationTableLesson(Scene):
         # 作者信息 (顶部，贯穿全程)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -85,14 +85,14 @@ class MultiplicationTableLesson(Scene):
 
         chant = Text(
             chant_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).next_to(left_accent, RIGHT, buff=0.25)
 
         eq = Text(
             equation_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=color
         ).align_to(bg, RIGHT).shift(LEFT * 0.3)
@@ -119,21 +119,21 @@ class MultiplicationTableLesson(Scene):
     def scene_opening(self):
         title = Text(
             "2-6 的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=GOLD
         ).move_to(UP * 5.8)
 
         subtitle = Text(
             "背熟口诀，计算更快！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A
         ).move_to(UP * 4.9)
 
         hook = Text(
             "你能背出六六三十六吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_HIGHLIGHT
         ).move_to(UP * 3.8)
@@ -144,7 +144,7 @@ class MultiplicationTableLesson(Scene):
         colors = [COLOR_TWO, COLOR_FIVE, COLOR_FOUR, COLOR_THREE, COLOR_SIX]
         for i, (n, c) in enumerate(zip(nums, colors)):
             circ = Circle(radius=0.45, color=c, fill_color=c, fill_opacity=0.85)
-            label = Text(n, font="Noto Sans CJK SC", font_size=28, color=WHITE)
+            label = Text(n, font="PingFang SC", font_size=28, color=WHITE)
             label.move_to(circ.get_center())
             circles.add(VGroup(circ, label))
         circles.arrange(RIGHT, buff=0.45).move_to(UP * 2.2)
@@ -172,9 +172,9 @@ class MultiplicationTableLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_two_table(self):
         color = COLOR_TWO
-        header = Text("2 的乘法口诀", font="Noto Sans CJK SC",
+        header = Text("2 的乘法口诀", font="PingFang SC",
                       font_size=40, color=color).move_to(UP * 6.2)
-        tip = Text("规律：结果都是偶数", font="Noto Sans CJK SC",
+        tip = Text("规律：结果都是偶数", font="PingFang SC",
                    font_size=22, color=GRAY_A).move_to(UP * 5.4)
 
         self.play(Write(header), run_time=0.6)
@@ -197,7 +197,7 @@ class MultiplicationTableLesson(Scene):
 
         # 先展示点阵说明 2 的含义
         dot_demo = self.make_dot_array(2, 2, color).scale(0.9).move_to(RIGHT * 2.5 + UP * 3.5)
-        demo_label = Text("2×2=4", font="Noto Sans CJK SC", font_size=22, color=color)
+        demo_label = Text("2×2=4", font="PingFang SC", font_size=22, color=color)
         demo_label.next_to(dot_demo, DOWN, buff=0.2)
 
         self.play(Create(dot_demo), FadeIn(demo_label), run_time=0.8)
@@ -220,9 +220,9 @@ class MultiplicationTableLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_five_table(self):
         color = COLOR_FIVE
-        header = Text("5 的乘法口诀", font="Noto Sans CJK SC",
+        header = Text("5 的乘法口诀", font="PingFang SC",
                       font_size=40, color=color).move_to(UP * 6.2)
-        tip = Text("规律：结果末尾是 0 或 5", font="Noto Sans CJK SC",
+        tip = Text("规律：结果末尾是 0 或 5", font="PingFang SC",
                    font_size=22, color=GRAY_A).move_to(UP * 5.4)
 
         self.play(Write(header), run_time=0.6)
@@ -251,7 +251,7 @@ class MultiplicationTableLesson(Scene):
         self.play(Indicate(cards[4], color=COLOR_HIGHLIGHT, scale_factor=1.05), run_time=0.6)
 
         # 展示末尾规律
-        pattern = Text("5, 10, 15, 20, 25, 30 …", font="Noto Sans CJK SC",
+        pattern = Text("5, 10, 15, 20, 25, 30 …", font="PingFang SC",
                        font_size=24, color=COLOR_HIGHLIGHT).move_to(DOWN * 4.5)
         self.play(FadeIn(pattern, shift=UP * 0.3), run_time=0.5)
         self.wait(1.5)
@@ -263,9 +263,9 @@ class MultiplicationTableLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_four_table(self):
         color = COLOR_FOUR
-        header = Text("4 的乘法口诀", font="Noto Sans CJK SC",
+        header = Text("4 的乘法口诀", font="PingFang SC",
                       font_size=40, color=color).move_to(UP * 6.2)
-        tip = Text("重点：四六二十四", font="Noto Sans CJK SC",
+        tip = Text("重点：四六二十四", font="PingFang SC",
                    font_size=22, color=GRAY_A).move_to(UP * 5.4)
 
         self.play(Write(header), run_time=0.6)
@@ -296,7 +296,7 @@ class MultiplicationTableLesson(Scene):
         # 点阵演示 4×4
         dot_demo = self.make_dot_array(4, 4, color, dot_radius=0.10, gap=0.28)
         dot_demo.scale(0.85).move_to(LEFT * 2.8 + DOWN * 3.8)
-        dot_label = Text("4×4=16", font="Noto Sans CJK SC", font_size=22, color=color)
+        dot_label = Text("4×4=16", font="PingFang SC", font_size=22, color=color)
         dot_label.next_to(dot_demo, DOWN, buff=0.18)
         self.play(Create(dot_demo), FadeIn(dot_label), run_time=0.8)
         self.wait(1.2)
@@ -309,9 +309,9 @@ class MultiplicationTableLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_three_table(self):
         color = COLOR_THREE
-        header = Text("3 的乘法口诀", font="Noto Sans CJK SC",
+        header = Text("3 的乘法口诀", font="PingFang SC",
                       font_size=40, color=color).move_to(UP * 6.2)
-        tip = Text("重点：三六十八", font="Noto Sans CJK SC",
+        tip = Text("重点：三六十八", font="PingFang SC",
                    font_size=22, color=GRAY_A).move_to(UP * 5.4)
 
         self.play(Write(header), run_time=0.6)
@@ -340,7 +340,7 @@ class MultiplicationTableLesson(Scene):
         self.play(Indicate(cards[5], color=COLOR_HIGHLIGHT, scale_factor=1.05), run_time=0.6)
 
         # 口诀关联说明
-        note = Text("三六十八 = 六三十八", font="Noto Sans CJK SC",
+        note = Text("三六十八 = 六三十八", font="PingFang SC",
                     font_size=24, color=COLOR_HIGHLIGHT).move_to(DOWN * 4.5)
         self.play(FadeIn(note, shift=UP * 0.3), run_time=0.5)
         self.wait(1.5)
@@ -352,11 +352,11 @@ class MultiplicationTableLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_six_table(self):
         color = COLOR_SIX
-        header = Text("6 的乘法口诀", font="Noto Sans CJK SC",
+        header = Text("6 的乘法口诀", font="PingFang SC",
                       font_size=40, color=color).move_to(UP * 6.2)
-        hard_label = Text("★ 难点", font="Noto Sans CJK SC",
+        hard_label = Text("★ 难点", font="PingFang SC",
                           font_size=22, color=RED).next_to(header, RIGHT, buff=0.3)
-        tip = Text("逆背挑战：几六二十四？→ 四六二十四", font="Noto Sans CJK SC",
+        tip = Text("逆背挑战：几六二十四？→ 四六二十四", font="PingFang SC",
                    font_size=20, color=GRAY_A).move_to(UP * 5.4)
 
         self.play(Write(header), FadeIn(hard_label), run_time=0.7)
@@ -388,9 +388,9 @@ class MultiplicationTableLesson(Scene):
             self.wait(0.3)
 
         # 逆背互动提示
-        question = Text("几 × 6 = 36 ？", font="Noto Sans CJK SC",
+        question = Text("几 × 6 = 36 ？", font="PingFang SC",
                         font_size=30, color=COLOR_HIGHLIGHT).move_to(DOWN * 4.2)
-        answer = Text("→ 6！（六六三十六）", font="Noto Sans CJK SC",
+        answer = Text("→ 6！（六六三十六）", font="PingFang SC",
                       font_size=26, color=WHITE).move_to(DOWN * 5.0)
 
         self.play(FadeIn(question, shift=UP * 0.3), run_time=0.5)
@@ -401,7 +401,7 @@ class MultiplicationTableLesson(Scene):
         # 点阵演示 6×6
         dot_demo = self.make_dot_array(6, 6, color, dot_radius=0.09, gap=0.26)
         dot_demo.scale(0.75).move_to(LEFT * 2.8 + DOWN * 4.5)
-        dot_label = Text("6×6=36", font="Noto Sans CJK SC", font_size=22, color=color)
+        dot_label = Text("6×6=36", font="PingFang SC", font_size=22, color=color)
         dot_label.next_to(dot_demo, DOWN, buff=0.15)
         self.play(Create(dot_demo), FadeIn(dot_label), run_time=1.0)
         self.wait(1.0)
@@ -417,7 +417,7 @@ class MultiplicationTableLesson(Scene):
     # 场景 7：总结回顾
     # ─────────────────────────────────────────────
     def scene_summary(self):
-        title = Text("核心口诀总回顾", font="Noto Sans CJK SC",
+        title = Text("核心口诀总回顾", font="PingFang SC",
                      font_size=38, color=GOLD).move_to(UP * 6.3)
         self.play(Write(title), run_time=0.7)
 
@@ -456,7 +456,7 @@ class MultiplicationTableLesson(Scene):
         ).move_to(DOWN * 4.2)
         banner_text = Text(
             "记正背，也要练逆背！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GOLD
         ).move_to(banner.get_center())
@@ -475,21 +475,21 @@ class MultiplicationTableLesson(Scene):
     def scene_outro(self):
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.8)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 0.8)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.3)
@@ -517,7 +517,7 @@ class MultiplicationTableLesson(Scene):
         flash_chants = ["二二得四", "五五二十五", "六六三十六"]
         flash_colors = [COLOR_TWO, COLOR_FIVE, COLOR_SIX]
         for chant, col in zip(flash_chants, flash_colors):
-            ft = Text(chant, font="Noto Sans CJK SC", font_size=32, color=col)
+            ft = Text(chant, font="PingFang SC", font_size=32, color=col)
             ft.move_to(DOWN * 3.0)
             self.play(FadeIn(ft, scale=1.2), run_time=0.35)
             self.wait(0.25)

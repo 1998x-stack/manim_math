@@ -22,7 +22,7 @@ config.frame_height = 16
 class ReadWriteNumbers(Scene):
     def construct(self):
         self.camera.background_color = "#1a1a2e"
-        self.F    = "Noto Sans CJK SC"
+        self.F    = "PingFang SC"
         self.CB   = "#42A5F5"   # 百位色
         self.CT   = "#66BB6A"   # 十位色
         self.CO   = "#CE93D8"   # 个位色

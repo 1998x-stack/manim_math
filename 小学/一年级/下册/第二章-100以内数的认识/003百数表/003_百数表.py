@@ -47,7 +47,7 @@ class HundredChartLesson(Scene):
         # 作者信息（常驻顶部）
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -99,7 +99,7 @@ class HundredChartLesson(Scene):
 
                 label = Text(
                     str(num),
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=22,
                     color=COLOR_TEXT_NORMAL
                 ).move_to([cx, cy, 0])
@@ -135,7 +135,7 @@ class HundredChartLesson(Scene):
     def scene_1_opening(self):
         title = Text(
             "百数表",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=COLOR_TITLE,
             weight=BOLD
@@ -143,7 +143,7 @@ class HundredChartLesson(Scene):
 
         subtitle = Text(
             "1 到 100，藏着什么秘密？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=COLOR_TEXT_NORMAL
         ).move_to(UP * 4.3)
@@ -163,7 +163,7 @@ class HundredChartLesson(Scene):
         for txt, pos, col in sample_data:
             t = Text(
                 txt,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=36,
                 color=col
             ).move_to(pos)
@@ -171,7 +171,7 @@ class HundredChartLesson(Scene):
 
         hook = Text(
             "找规律，数学不再难！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=COLOR_GOLD
         ).move_to(DOWN * 1.5)
@@ -199,14 +199,14 @@ class HundredChartLesson(Scene):
     def scene_2_build_chart(self):
         title = Text(
             "百数表",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=COLOR_TITLE
         ).move_to(UP * 6.8)
 
         subtitle = Text(
             "把 1～100 排成 10 行 × 10 列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_TEXT_NORMAL
         ).move_to(UP * 6.0)
@@ -232,13 +232,13 @@ class HundredChartLesson(Scene):
 
         row_label = Text(
             "→ 每行10个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_ROW_HIGHLIGHT
         ).move_to(DOWN * 5.8)
         col_label = Text(
             "↓ 共10行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_COL_HIGHLIGHT
         ).move_to(DOWN * 6.5)
@@ -266,14 +266,14 @@ class HundredChartLesson(Scene):
 
         scene_title = Text(
             "横着看 →",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_ROW_HIGHLIGHT
         ).move_to(UP * 6.2)
 
         desc = Text(
             "同一行：十位数字相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_TEXT_NORMAL
         ).move_to(UP * 5.5)
@@ -300,7 +300,7 @@ class HundredChartLesson(Scene):
 
             tip = Text(
                 tip_text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=21,
                 color=COLOR_GOLD
             ).move_to(DOWN * 5.8)
@@ -320,7 +320,7 @@ class HundredChartLesson(Scene):
 
         row_tip_big = Text(
             "41, 42, 43 ... 50  十位都是 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_GOLD
         ).move_to(DOWN * 5.8)
@@ -340,14 +340,14 @@ class HundredChartLesson(Scene):
 
         scene_title = Text(
             "竖着看 ↓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_COL_HIGHLIGHT
         ).move_to(UP * 6.2)
 
         desc = Text(
             "同一列：个位数字相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_TEXT_NORMAL
         ).move_to(UP * 5.5)
@@ -375,7 +375,7 @@ class HundredChartLesson(Scene):
 
             tip = Text(
                 tip_text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=21,
                 color=COLOR_GOLD
             ).move_to(DOWN * 5.8)
@@ -395,7 +395,7 @@ class HundredChartLesson(Scene):
 
         col_tip_big = Text(
             "2, 12, 22, 32, 42 ...  个位都是 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_GOLD
         ).move_to(DOWN * 5.8)
@@ -415,14 +415,14 @@ class HundredChartLesson(Scene):
 
         scene_title = Text(
             "斜着看 ↘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_DIAG_HIGHLIGHT
         ).move_to(UP * 6.2)
 
         desc = Text(
             "斜线上：每个数差 11！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_TEXT_NORMAL
         ).move_to(UP * 5.5)
@@ -441,7 +441,7 @@ class HundredChartLesson(Scene):
 
         main_tip = Text(
             "1 → 12 → 23 → ... → 100  每次 +11",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_GOLD
         ).move_to(DOWN * 5.8)
@@ -459,7 +459,7 @@ class HundredChartLesson(Scene):
 
         tip2 = Text(
             "2 → 13 → 24 → ... → 90  也差 11！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_GOLD
         ).move_to(DOWN * 5.8)
@@ -474,7 +474,7 @@ class HundredChartLesson(Scene):
 
         rule_title = Text(
             "百数表的规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=COLOR_TITLE
         ).move_to(UP * 6.5)
@@ -498,13 +498,13 @@ class HundredChartLesson(Scene):
     def _make_rule_card(self, arrow_text, detail_text, color):
         arrow = Text(
             arrow_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=color
         )
         detail = Text(
             detail_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_TEXT_NORMAL
         )
@@ -533,28 +533,28 @@ class HundredChartLesson(Scene):
 
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color="#6b7280"
         ).move_to(UP * 1.0)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=COLOR_GOLD
         ).move_to(DOWN * 0.2)
 
         summary = Text(
             "百数表：横同十位，竖同个位，斜差11",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_TEXT_NORMAL
         ).move_to(DOWN * 1.5)
@@ -579,7 +579,7 @@ class HundredChartLesson(Scene):
         bubbles = VGroup()
         for txt, pos, col in bubble_data:
             circle = Circle(radius=0.35, fill_color=col, fill_opacity=0.7, stroke_width=0)
-            label = Text(txt, font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            label = Text(txt, font="PingFang SC", font_size=22, color=WHITE)
             bubble = VGroup(circle, label).move_to(pos)
             bubbles.add(bubble)
 

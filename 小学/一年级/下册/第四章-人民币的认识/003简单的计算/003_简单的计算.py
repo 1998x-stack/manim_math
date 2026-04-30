@@ -30,7 +30,7 @@ def make_coin(label_text, color, radius=0.55, font_size=28):
     """创建硬币图形"""
     circle = Circle(radius=radius, color=color, fill_color=color,
                     fill_opacity=0.25, stroke_width=3)
-    label = Text(label_text, font="Noto Sans CJK SC",
+    label = Text(label_text, font="PingFang SC",
                  font_size=font_size, color=color)
     return VGroup(circle, label)
 
@@ -40,9 +40,9 @@ def make_bill_card(amount_text, unit_text, color, width=1.8, height=1.0):
     rect = Rectangle(width=width, height=height, color=color,
                      fill_color=COLOR_CARD, fill_opacity=0.9,
                      stroke_width=2.5)
-    amount = Text(amount_text, font="Noto Sans CJK SC",
+    amount = Text(amount_text, font="PingFang SC",
                   font_size=36, color=color)
-    unit = Text(unit_text, font="Noto Sans CJK SC",
+    unit = Text(unit_text, font="PingFang SC",
                 font_size=20, color=color)
     label_group = VGroup(amount, unit).arrange(RIGHT, buff=0.08)
     label_group.move_to(rect.get_center())
@@ -77,26 +77,26 @@ class SimpleMoneyCalcLesson(Scene):
         # 作者信息（固定顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
         self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.4)
 
         # 章节标题
-        chapter = Text("人民币的认识", font="Noto Sans CJK SC",
+        chapter = Text("人民币的认识", font="PingFang SC",
                        font_size=26, color=COLOR_HINT).move_to(UP * 6.0)
         self.play(FadeIn(chapter), run_time=0.4)
 
         # 大标题
-        title = Text("简单的计算", font="Noto Sans CJK SC",
+        title = Text("简单的计算", font="PingFang SC",
                      font_size=52, color=COLOR_YUAN).move_to(UP * 5.0)
         self.play(Write(title), run_time=0.8)
 
         # 钩子问题
-        hook_line1 = Text("买东西怎么算钱？", font="Noto Sans CJK SC",
+        hook_line1 = Text("买东西怎么算钱？", font="PingFang SC",
                           font_size=34, color=WHITE).move_to(UP * 3.8)
-        hook_line2 = Text("元和角怎么相加？", font="Noto Sans CJK SC",
+        hook_line2 = Text("元和角怎么相加？", font="PingFang SC",
                           font_size=34, color=COLOR_HIGHLIGHT).move_to(UP * 3.1)
         self.play(FadeIn(hook_line1, shift=UP * 0.3), run_time=0.5)
         self.play(FadeIn(hook_line2, shift=UP * 0.3), run_time=0.5)
@@ -104,7 +104,7 @@ class SimpleMoneyCalcLesson(Scene):
 
         # 硬币示例
         coin_3 = make_coin("3角", COLOR_JIAO).move_to(LEFT * 2.5 + UP * 1.5)
-        plus_sign = Text("+", font="Noto Sans CJK SC",
+        plus_sign = Text("+", font="PingFang SC",
                          font_size=44, color=WHITE).move_to(UP * 1.5)
         coin_5 = make_coin("5角", COLOR_JIAO).move_to(RIGHT * 2.5 + UP * 1.5)
 
@@ -129,11 +129,11 @@ class SimpleMoneyCalcLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_2_same_unit(self):
         scene_title = Text("单位相同  直接加",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=34, color=COLOR_JIAO).move_to(UP * 5.8)
         self.play(Write(scene_title), run_time=0.7)
 
-        example_label = Text("例题 1", font="Noto Sans CJK SC",
+        example_label = Text("例题 1", font="PingFang SC",
                               font_size=24, color=COLOR_HINT).move_to(UP * 4.9)
         self.play(FadeIn(example_label), run_time=0.3)
 
@@ -152,9 +152,9 @@ class SimpleMoneyCalcLesson(Scene):
             for _ in range(5)
         ]).arrange(RIGHT, buff=0.18).move_to(RIGHT * 1.5 + UP * coin_y)
 
-        label_3 = Text("3角", font="Noto Sans CJK SC",
+        label_3 = Text("3角", font="PingFang SC",
                        font_size=30, color=COLOR_JIAO).next_to(coins_3, DOWN, buff=0.15)
-        label_5 = Text("5角", font="Noto Sans CJK SC",
+        label_5 = Text("5角", font="PingFang SC",
                        font_size=30, color=COLOR_JIAO).next_to(coins_5, DOWN, buff=0.15)
 
         self.play(Create(coins_3), run_time=0.7)
@@ -166,15 +166,15 @@ class SimpleMoneyCalcLesson(Scene):
         # 计算公式
         eq_y = 1.8
 
-        t_3jiao = Text("3角", font="Noto Sans CJK SC",
+        t_3jiao = Text("3角", font="PingFang SC",
                        font_size=44, color=COLOR_JIAO)
-        t_plus = Text("+", font="Noto Sans CJK SC",
+        t_plus = Text("+", font="PingFang SC",
                       font_size=44, color=WHITE)
-        t_5jiao = Text("5角", font="Noto Sans CJK SC",
+        t_5jiao = Text("5角", font="PingFang SC",
                        font_size=44, color=COLOR_JIAO)
-        t_eq = Text("=", font="Noto Sans CJK SC",
+        t_eq = Text("=", font="PingFang SC",
                     font_size=44, color=WHITE)
-        t_q = Text("?", font="Noto Sans CJK SC",
+        t_q = Text("?", font="PingFang SC",
                    font_size=44, color=COLOR_HINT)
 
         formula = VGroup(t_3jiao, t_plus, t_5jiao, t_eq, t_q).arrange(
@@ -191,10 +191,10 @@ class SimpleMoneyCalcLesson(Scene):
             fill_opacity=0.85, stroke_width=2
         ).move_to(UP * 0.5)
         hint_text1 = Text("单位相同（都是角）",
-                          font="Noto Sans CJK SC",
+                          font="PingFang SC",
                           font_size=24, color=COLOR_JIAO)
         hint_text2 = Text("直接把数字相加：3 + 5 = 8",
-                          font="Noto Sans CJK SC",
+                          font="PingFang SC",
                           font_size=24, color=WHITE)
         hint_group = VGroup(hint_text1, hint_text2).arrange(
             DOWN, buff=0.1).move_to(hint_box.get_center())
@@ -204,7 +204,7 @@ class SimpleMoneyCalcLesson(Scene):
         self.wait(0.6)
 
         # 替换 "?" 为 "8角"
-        t_8jiao = Text("8角", font="Noto Sans CJK SC",
+        t_8jiao = Text("8角", font="PingFang SC",
                        font_size=44, color=COLOR_RESULT)
         t_8jiao.move_to(t_q.get_center())
 
@@ -214,7 +214,7 @@ class SimpleMoneyCalcLesson(Scene):
         self.wait(0.4)
 
         # 结论
-        conclusion = Text("3角 + 5角 = 8角", font="Noto Sans CJK SC",
+        conclusion = Text("3角 + 5角 = 8角", font="PingFang SC",
                           font_size=30, color=COLOR_RESULT).move_to(DOWN * 0.8)
         self.play(FadeIn(conclusion, shift=UP * 0.2), run_time=0.5)
         self.wait(1.2)
@@ -235,26 +235,26 @@ class SimpleMoneyCalcLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_3_different_unit(self):
         scene_title = Text("单位不同  先换算",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=34, color=COLOR_YUAN).move_to(UP * 5.8)
         self.play(Write(scene_title), run_time=0.7)
 
-        example_label = Text("例题 2", font="Noto Sans CJK SC",
+        example_label = Text("例题 2", font="PingFang SC",
                               font_size=24, color=COLOR_HINT).move_to(UP * 4.9)
         self.play(FadeIn(example_label), run_time=0.3)
 
         # 问题展示
         prob_y = 4.0
 
-        t_1y2j = Text("1元2角", font="Noto Sans CJK SC",
+        t_1y2j = Text("1元2角", font="PingFang SC",
                       font_size=42, color=WHITE)
-        t_plus = Text("+", font="Noto Sans CJK SC",
+        t_plus = Text("+", font="PingFang SC",
                       font_size=42, color=WHITE)
-        t_5j = Text("5角", font="Noto Sans CJK SC",
+        t_5j = Text("5角", font="PingFang SC",
                     font_size=42, color=COLOR_JIAO)
-        t_eq = Text("=", font="Noto Sans CJK SC",
+        t_eq = Text("=", font="PingFang SC",
                     font_size=42, color=WHITE)
-        t_q = Text("?", font="Noto Sans CJK SC",
+        t_q = Text("?", font="PingFang SC",
                    font_size=42, color=COLOR_HINT)
 
         problem = VGroup(t_1y2j, t_plus, t_5j, t_eq, t_q).arrange(
@@ -274,9 +274,9 @@ class SimpleMoneyCalcLesson(Scene):
         coin_5j = make_coin("5角", COLOR_JIAO, radius=0.40, font_size=22)
         coin_5j.move_to(RIGHT * 0.4 + UP * wallet_y)
 
-        plus1 = Text("+", font="Noto Sans CJK SC",
+        plus1 = Text("+", font="PingFang SC",
                      font_size=28, color=WHITE).move_to(LEFT * 2.2 + UP * wallet_y)
-        plus2 = Text("+", font="Noto Sans CJK SC",
+        plus2 = Text("+", font="PingFang SC",
                      font_size=28, color=WHITE).move_to(LEFT * 0.5 + UP * wallet_y)
 
         self.play(GrowFromCenter(bill_1yuan), run_time=0.5)
@@ -286,7 +286,7 @@ class SimpleMoneyCalcLesson(Scene):
 
         # 步骤1：换算单位
         step1_title = Text("第一步：换算单位",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=26, color=COLOR_YUAN).move_to(UP * 1.3)
         self.play(Write(step1_title), run_time=0.5)
 
@@ -298,10 +298,10 @@ class SimpleMoneyCalcLesson(Scene):
         ).move_to(UP * 0.1)
 
         conv_line1 = Text("1元 = 10角",
-                          font="Noto Sans CJK SC",
+                          font="PingFang SC",
                           font_size=26, color=COLOR_YUAN)
         conv_line2 = Text("1元2角 = 10角 + 2角 = 12角",
-                          font="Noto Sans CJK SC",
+                          font="PingFang SC",
                           font_size=26, color=WHITE)
         conv_group = VGroup(conv_line1, conv_line2).arrange(
             DOWN, buff=0.15).move_to(convert_box.get_center())
@@ -313,7 +313,7 @@ class SimpleMoneyCalcLesson(Scene):
 
         # 步骤2：角与角相加
         step2_title = Text("第二步：角 + 角",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=26, color=COLOR_JIAO).move_to(DOWN * 1.4)
         self.play(Write(step2_title), run_time=0.5)
 
@@ -325,10 +325,10 @@ class SimpleMoneyCalcLesson(Scene):
         ).move_to(DOWN * 2.5)
 
         add_line1 = Text("12角 + 5角 = 17角",
-                         font="Noto Sans CJK SC",
+                         font="PingFang SC",
                          font_size=28, color=WHITE)
         add_line2 = Text("（12 + 5 = 17，单位都是角）",
-                         font="Noto Sans CJK SC",
+                         font="PingFang SC",
                          font_size=22, color=COLOR_HINT)
         add_group = VGroup(add_line1, add_line2).arrange(
             DOWN, buff=0.12).move_to(add_box.get_center())
@@ -347,10 +347,10 @@ class SimpleMoneyCalcLesson(Scene):
         ).move_to(DOWN * 4.2)
 
         step3_line1 = Text("17角 = 10角 + 7角 = 1元7角",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=26, color=WHITE)
         step3_line2 = Text("（满10角进1元）",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=22, color=COLOR_RESULT)
         step3_group = VGroup(step3_line1, step3_line2).arrange(
             DOWN, buff=0.12).move_to(step3_box.get_center())
@@ -361,7 +361,7 @@ class SimpleMoneyCalcLesson(Scene):
         self.wait(0.8)
 
         # 替换问号为答案
-        t_answer = Text("1元7角", font="Noto Sans CJK SC",
+        t_answer = Text("1元7角", font="PingFang SC",
                         font_size=42, color=COLOR_RESULT)
         t_answer.move_to(t_q.get_center())
         self.play(ReplacementTransform(t_q, t_answer), run_time=0.6)
@@ -387,12 +387,12 @@ class SimpleMoneyCalcLesson(Scene):
     def scene_4_carry_concept(self):
         # 标题
         concept_title = Text("满十进一",
-                             font="Noto Sans CJK SC",
+                             font="PingFang SC",
                              font_size=50, color=COLOR_YUAN).move_to(UP * 5.8)
         self.play(Write(concept_title), run_time=0.7)
 
         sub_title = Text("进位规则",
-                         font="Noto Sans CJK SC",
+                         font="PingFang SC",
                          font_size=28, color=COLOR_HINT).move_to(UP * 5.0)
         self.play(FadeIn(sub_title), run_time=0.4)
 
@@ -403,7 +403,7 @@ class SimpleMoneyCalcLesson(Scene):
             for _ in range(10)
         ]).arrange(RIGHT, buff=0.06).move_to(UP * coins_y)
 
-        label_10jiao = Text("10角", font="Noto Sans CJK SC",
+        label_10jiao = Text("10角", font="PingFang SC",
                             font_size=26, color=COLOR_JIAO).next_to(
             coins_row, DOWN, buff=0.15)
 
@@ -420,7 +420,7 @@ class SimpleMoneyCalcLesson(Scene):
             color=COLOR_ARROW, buff=0.1, stroke_width=6,
             max_tip_length_to_length_ratio=0.25
         )
-        arrow_label = Text("换成", font="Noto Sans CJK SC",
+        arrow_label = Text("换成", font="PingFang SC",
                            font_size=24, color=COLOR_ARROW).next_to(
             arrow_down, RIGHT, buff=0.15)
 
@@ -438,7 +438,7 @@ class SimpleMoneyCalcLesson(Scene):
         self.play(GrowFromCenter(bill_1y), run_time=0.6)
 
         rule_text = Text("10角 = 1元",
-                         font="Noto Sans CJK SC",
+                         font="PingFang SC",
                          font_size=34, color=COLOR_RESULT).move_to(DOWN * 1.0)
         self.play(FadeIn(rule_text, shift=UP * 0.2), run_time=0.5)
         self.wait(0.8)
@@ -454,16 +454,16 @@ class SimpleMoneyCalcLesson(Scene):
         ).move_to(DOWN * 3.0)
 
         slogan1 = Text("口诀记住：",
-                       font="Noto Sans CJK SC",
+                       font="PingFang SC",
                        font_size=26, color=COLOR_HINT)
         slogan2 = Text("单位相同，直接相加",
-                       font="Noto Sans CJK SC",
+                       font="PingFang SC",
                        font_size=28, color=COLOR_JIAO)
         slogan3 = Text("单位不同，先换算再加",
-                       font="Noto Sans CJK SC",
+                       font="PingFang SC",
                        font_size=28, color=COLOR_YUAN)
         slogan4 = Text("满 10 角 = 1 元（进一位）",
-                       font="Noto Sans CJK SC",
+                       font="PingFang SC",
                        font_size=28, color=COLOR_RESULT)
 
         slogan_group = VGroup(slogan1, slogan2, slogan3, slogan4).arrange(
@@ -499,10 +499,10 @@ class SimpleMoneyCalcLesson(Scene):
         ).move_to(UP * 2.5)
 
         ex1_title_t = Text("例 1  同单位",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=24, color=COLOR_JIAO)
         ex1_formula_t = Text("3角 + 5角 = 8角",
-                             font="Noto Sans CJK SC",
+                             font="PingFang SC",
                              font_size=30, color=COLOR_RESULT)
         VGroup(ex1_title_t, ex1_formula_t).arrange(
             DOWN, buff=0.15).move_to(ex1_box.get_center())
@@ -517,16 +517,16 @@ class SimpleMoneyCalcLesson(Scene):
         ).move_to(DOWN * 0.2)
 
         ex2_title_t = Text("例 2  不同单位",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=24, color=COLOR_YUAN)
         ex2_step1_t = Text("1元2角 = 12角",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=24, color=COLOR_HINT)
         ex2_step2_t = Text("12角 + 5角 = 17角",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=24, color=WHITE)
         ex2_step3_t = Text("17角 = 1元7角",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=24, color=COLOR_RESULT)
         VGroup(ex2_title_t, ex2_step1_t, ex2_step2_t, ex2_step3_t).arrange(
             DOWN, buff=0.12).move_to(ex2_box.get_center())
@@ -553,14 +553,14 @@ class SimpleMoneyCalcLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_5_outro(self):
         author_big = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC",
+                          font="PingFang SC",
                           font_size=36, color=WHITE).move_to(UP * 1.5)
         author_id = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC",
+                         font="PingFang SC",
                          font_size=28, color=COLOR_HINT).move_to(UP * 0.6)
 
         follow_text = Text("关注我，学更多数学知识！",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=30, color=COLOR_HIGHLIGHT).move_to(DOWN * 0.4)
 
         self.play(Transform(self.author_info, author_big), run_time=0.7)

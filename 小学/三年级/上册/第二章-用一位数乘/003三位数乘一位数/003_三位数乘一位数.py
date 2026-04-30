@@ -29,7 +29,7 @@ COLOR_BODY     = "#d0d0d0"    # 正文
 COLOR_HINT     = "#a0aec0"    # 提示小字
 COLOR_HL       = YELLOW       # 高亮
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class ThreeDigitMultiplyLesson(Scene):

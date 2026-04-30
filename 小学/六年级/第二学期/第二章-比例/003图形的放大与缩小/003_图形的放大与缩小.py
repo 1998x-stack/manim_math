@@ -122,7 +122,7 @@ class ScalingShapesLesson(Scene):
         # 作者信息
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -132,7 +132,7 @@ class ScalingShapesLesson(Scene):
         # 钩子问题
         hook = Text(
             "一张地图, 怎么把真实世界\n装进口袋?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.4
@@ -151,7 +151,7 @@ class ScalingShapesLesson(Scene):
 
         big_label = Text(
             "真实世界",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ORIGINAL
         ).move_to(big_rect.get_center())
@@ -165,7 +165,7 @@ class ScalingShapesLesson(Scene):
 
         small_label = Text(
             "地图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=self.COLOR_SCALED
         ).move_to(small_rect.get_center())
@@ -181,7 +181,7 @@ class ScalingShapesLesson(Scene):
         )
         shrink_text = Text(
             "按比例缩小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ACCENT
         ).next_to(arrow_down, RIGHT, buff=0.2)
@@ -197,7 +197,7 @@ class ScalingShapesLesson(Scene):
         # 引出主题
         title = Text(
             "图形的放大与缩小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(DOWN * 6.5)
@@ -221,7 +221,7 @@ class ScalingShapesLesson(Scene):
         """概念引入"""
         title = Text(
             "什么是图形的放大与缩小?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -231,21 +231,21 @@ class ScalingShapesLesson(Scene):
         # 核心概念分点展示
         point_1 = Text(
             "把图形的每条边按相同的比放大或缩小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 4.0)
 
         point_2 = Text(
             "对应边的比相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_FORMULA
         ).move_to(UP * 3.2)
 
         point_3 = Text(
             "形状不变, 大小改变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ACCENT
         ).move_to(UP * 2.4)
@@ -268,7 +268,7 @@ class ScalingShapesLesson(Scene):
 
         sq_orig_label = Text(
             "原图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ORIGINAL
         ).next_to(sq_orig, DOWN, buff=0.2)
@@ -283,7 +283,7 @@ class ScalingShapesLesson(Scene):
 
         sq_big_label = Text(
             "按 2:1 放大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_SCALED
         ).next_to(sq_big, DOWN, buff=0.2)
@@ -318,7 +318,7 @@ class ScalingShapesLesson(Scene):
 
         ratio_explain = Text(
             "每条边都变为原来的 2 倍",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -344,7 +344,7 @@ class ScalingShapesLesson(Scene):
         """三角形按 2:1 放大演示"""
         title = Text(
             "三角形按 2:1 放大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -372,7 +372,7 @@ class ScalingShapesLesson(Scene):
 
         orig_label = Text(
             "原图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ORIGINAL
         ).next_to(tri_orig, DOWN, buff=0.3)
@@ -431,7 +431,7 @@ class ScalingShapesLesson(Scene):
 
         big_label = Text(
             "放大后",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_SCALED
         ).next_to(tri_big, DOWN, buff=0.3)
@@ -472,7 +472,7 @@ class ScalingShapesLesson(Scene):
         ratio_box = VGroup()
         ratio_title = Text(
             "对应边的比:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -498,7 +498,7 @@ class ScalingShapesLesson(Scene):
         # 关键结论
         conclusion = Text(
             "每条边都变为原来的 2 倍!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)
@@ -526,7 +526,7 @@ class ScalingShapesLesson(Scene):
         """矩形按 1:2 缩小演示"""
         title = Text(
             "矩形按 1:2 缩小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -543,7 +543,7 @@ class ScalingShapesLesson(Scene):
 
         orig_label = Text(
             "原图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ORIGINAL
         ).next_to(rect_orig, DOWN, buff=0.3)
@@ -570,7 +570,7 @@ class ScalingShapesLesson(Scene):
 
         small_label = Text(
             "缩小后",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_SCALED
         ).next_to(rect_small, DOWN, buff=0.3)
@@ -606,7 +606,7 @@ class ScalingShapesLesson(Scene):
         )
         ratio_label = Text(
             "1 : 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ACCENT
         ).next_to(arrow_r, UP, buff=0.1)
@@ -631,7 +631,7 @@ class ScalingShapesLesson(Scene):
         area_info = VGroup()
         area_title = Text(
             "面积变化:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -667,7 +667,7 @@ class ScalingShapesLesson(Scene):
         """关键规律: 边长与面积的变化"""
         title = Text(
             "关键规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -685,14 +685,14 @@ class ScalingShapesLesson(Scene):
 
         card_title_1 = Text(
             "按比例 k 放大 (k > 1)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ORIGINAL
         ).move_to(card_bg_1.get_top() + DOWN * 0.5)
 
         rule_1a_label = Text(
             "边长:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -706,7 +706,7 @@ class ScalingShapesLesson(Scene):
 
         rule_1b_label = Text(
             "面积:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -738,14 +738,14 @@ class ScalingShapesLesson(Scene):
 
         card_title_2 = Text(
             "按比例 k 缩小 (0 < k < 1)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SCALED
         ).move_to(card_bg_2.get_top() + DOWN * 0.5)
 
         rule_2a_label = Text(
             "边长:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -759,7 +759,7 @@ class ScalingShapesLesson(Scene):
 
         rule_2b_label = Text(
             "面积:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -791,14 +791,14 @@ class ScalingShapesLesson(Scene):
 
         emphasis_1 = Text(
             "形状不变, 大小改变!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(emphasis_box.get_center() + UP * 0.25)
 
         emphasis_2 = Text(
             "对应角的度数不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(emphasis_box.get_center() + DOWN * 0.35)
@@ -814,14 +814,14 @@ class ScalingShapesLesson(Scene):
         # 具体例子: k=2 时
         example_title = Text(
             "例: k = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ACCENT
         ).move_to(DOWN * 6.0)
 
         example_detail_label = Text(
             "边长变为 2 倍, 面积变为 ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -831,7 +831,7 @@ class ScalingShapesLesson(Scene):
         )
         example_detail_suffix = Text(
             " 倍",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -862,7 +862,7 @@ class ScalingShapesLesson(Scene):
         """应用举例"""
         title = Text(
             "生活中的应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -896,14 +896,14 @@ class ScalingShapesLesson(Scene):
 
         app1_label = Text(
             "地图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(app1_icon, RIGHT, buff=0.4)
 
         app1_desc = Text(
             "把真实距离按比例缩小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(app1_label, DOWN, buff=0.15, aligned_edge=LEFT)
@@ -936,14 +936,14 @@ class ScalingShapesLesson(Scene):
 
         app2_label = Text(
             "建筑模型",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(app2_icon, RIGHT, buff=0.4)
 
         app2_desc = Text(
             "把建筑按比例缩小制作模型",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(app2_label, DOWN, buff=0.15, aligned_edge=LEFT)
@@ -974,14 +974,14 @@ class ScalingShapesLesson(Scene):
 
         app3_label = Text(
             "放大镜/设计图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(app3_group, RIGHT, buff=0.4)
 
         app3_desc = Text(
             "把细节按比例放大观察",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(app3_label, DOWN, buff=0.15, aligned_edge=LEFT)
@@ -996,7 +996,7 @@ class ScalingShapesLesson(Scene):
         # 总结文字
         summary_text = Text(
             "图形的放大与缩小无处不在!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -1025,7 +1025,7 @@ class ScalingShapesLesson(Scene):
         # 快速回顾
         review_title = Text(
             "今天学到了什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.0)
@@ -1035,19 +1035,19 @@ class ScalingShapesLesson(Scene):
         points = VGroup(
             Text(
                 "1. 放大与缩小保持形状不变",
-                font="Noto Sans CJK SC", font_size=22, color=WHITE
+                font="PingFang SC", font_size=22, color=WHITE
             ),
             Text(
                 "2. 对应边的比相等",
-                font="Noto Sans CJK SC", font_size=22, color=WHITE
+                font="PingFang SC", font_size=22, color=WHITE
             ),
             Text(
                 "3. 边长变 k 倍, 面积变 k\u00b2 倍",
-                font="Noto Sans CJK SC", font_size=22, color=WHITE
+                font="PingFang SC", font_size=22, color=WHITE
             ),
             Text(
                 "4. 各角的度数不变",
-                font="Noto Sans CJK SC", font_size=22, color=WHITE
+                font="PingFang SC", font_size=22, color=WHITE
             ),
         ).arrange(DOWN, buff=0.6, aligned_edge=LEFT).move_to(UP * 2.0)
 
@@ -1087,21 +1087,21 @@ class ScalingShapesLesson(Scene):
         # 作者片尾
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.5)
 
         follow_text = Text(
             "关注我, 获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.0)

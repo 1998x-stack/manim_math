@@ -98,7 +98,7 @@ class AxisymmetricFigures(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -108,7 +108,7 @@ class AxisymmetricFigures(Scene):
         # 钩子问题
         hook_text = Text(
             "这些图形藏着什么秘密?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -185,7 +185,7 @@ class AxisymmetricFigures(Scene):
         # 显示“完全重合”
         coincide_text = Text(
             "完全重合!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -196,14 +196,14 @@ class AxisymmetricFigures(Scene):
         # 显示定义
         def_text_1 = Text(
             "轴对称图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 5.5)
         
         def_text_2 = Text(
             "对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).next_to(axis_v, RIGHT, buff=0.3)
@@ -235,7 +235,7 @@ class AxisymmetricFigures(Scene):
         
         count_text_1 = Text(
             "2条对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -264,7 +264,7 @@ class AxisymmetricFigures(Scene):
         
         count_text_2 = Text(
             "4条对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -288,7 +288,7 @@ class AxisymmetricFigures(Scene):
         
         count_text_3 = Text(
             "无数条对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -311,7 +311,7 @@ class AxisymmetricFigures(Scene):
         
         count_text_4 = Text(
             "1条对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -334,7 +334,7 @@ class AxisymmetricFigures(Scene):
         
         question_text = Text(
             "它是轴对称图形吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -370,14 +370,14 @@ class AxisymmetricFigures(Scene):
         # 显示答案
         answer_text = Text(
             "不是!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=RED
         ).move_to(DOWN * 4)
         
         explanation_text = Text(
             "对折后不能完全重合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -415,21 +415,21 @@ class AxisymmetricFigures(Scene):
         # 总结文字
         summary_text_1 = Text(
             "对折后完全重合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1)
         
         summary_text_2 = Text(
             "轴对称图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 1)
         
         summary_text_3 = Text(
             "对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 2.5)
@@ -458,14 +458,14 @@ class AxisymmetricFigures(Scene):
         # 作者信息放大
         big_author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -479,7 +479,7 @@ class AxisymmetricFigures(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

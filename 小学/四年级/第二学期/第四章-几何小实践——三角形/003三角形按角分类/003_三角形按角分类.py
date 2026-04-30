@@ -158,7 +158,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 品牌
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=C_DIM
+            font="PingFang SC", font_size=18, color=C_DIM
         ).move_to(UP * 7.0)
         self.play(FadeIn(author, shift=DOWN * 0.2), run_time=0.4)
         self.author = author  # 保留到结尾
@@ -166,12 +166,12 @@ class TriangleAngleClassifyLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "三角形有几种？",
-            font="Noto Sans CJK SC", font_size=52, color=C_HIGHLIGHT,
+            font="PingFang SC", font_size=52, color=C_HIGHLIGHT,
             weight=BOLD
         ).move_to(UP * 5.2)
         hook_line2 = Text(
             "按角来分一分！",
-            font="Noto Sans CJK SC", font_size=38, color=C_LABEL
+            font="PingFang SC", font_size=38, color=C_LABEL
         ).move_to(UP * 4.2)
 
         self.play(Write(hook_line1), run_time=0.8)
@@ -213,9 +213,9 @@ class TriangleAngleClassifyLesson(Scene):
         )
 
         # 三种名称
-        lbl_a = Text("锐角", font="Noto Sans CJK SC", font_size=26, color=C_ACUTE)
-        lbl_r = Text("直角", font="Noto Sans CJK SC", font_size=26, color=C_RIGHT)
-        lbl_o = Text("钝角", font="Noto Sans CJK SC", font_size=26, color=C_OBTUSE)
+        lbl_a = Text("锐角", font="PingFang SC", font_size=26, color=C_ACUTE)
+        lbl_r = Text("直角", font="PingFang SC", font_size=26, color=C_RIGHT)
+        lbl_o = Text("钝角", font="PingFang SC", font_size=26, color=C_OBTUSE)
 
         lbl_a.next_to(tri_acute, DOWN, buff=0.15)
         lbl_r.next_to(tri_right, DOWN, buff=0.15)
@@ -240,7 +240,7 @@ class TriangleAngleClassifyLesson(Scene):
     def scene_2_angle_review(self):
         title = Text(
             "先来复习一下角",
-            font="Noto Sans CJK SC", font_size=40, color=C_HIGHLIGHT
+            font="PingFang SC", font_size=40, color=C_HIGHLIGHT
         ).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.7)
 
@@ -254,9 +254,9 @@ class TriangleAngleClassifyLesson(Scene):
         ray1_a = Line(v_acute, p1_acute, color=C_ACUTE, stroke_width=3)
         ray2_a = Line(v_acute, p2_acute, color=C_ACUTE, stroke_width=3)
         arc_a = self._make_angle_arc(p1_acute, v_acute, p2_acute, radius=0.32, color=C_ACUTE)
-        lbl_acute = Text("锐角", font="Noto Sans CJK SC", font_size=26, color=C_ACUTE)
+        lbl_acute = Text("锐角", font="PingFang SC", font_size=26, color=C_ACUTE)
         lbl_acute.next_to(v_acute, DOWN, buff=0.8)
-        sub_acute = Text("小于90°", font="Noto Sans CJK SC", font_size=20, color=C_DIM)
+        sub_acute = Text("小于90°", font="PingFang SC", font_size=20, color=C_DIM)
         sub_acute.next_to(lbl_acute, DOWN, buff=0.1)
 
         # ── 直角 ──
@@ -266,9 +266,9 @@ class TriangleAngleClassifyLesson(Scene):
         ray1_r = Line(v_right, p1_right, color=C_RIGHT, stroke_width=3)
         ray2_r = Line(v_right, p2_right, color=C_RIGHT, stroke_width=3)
         mark_r = self._right_angle_mark(v_right, p1_right, p2_right, size=0.22, color=C_RIGHT)
-        lbl_right = Text("直角", font="Noto Sans CJK SC", font_size=26, color=C_RIGHT)
+        lbl_right = Text("直角", font="PingFang SC", font_size=26, color=C_RIGHT)
         lbl_right.next_to(v_right, DOWN, buff=0.8)
-        sub_right = Text("等于90°", font="Noto Sans CJK SC", font_size=20, color=C_DIM)
+        sub_right = Text("等于90°", font="PingFang SC", font_size=20, color=C_DIM)
         sub_right.next_to(lbl_right, DOWN, buff=0.1)
 
         # ── 钝角 ──
@@ -278,9 +278,9 @@ class TriangleAngleClassifyLesson(Scene):
         ray1_o = Line(v_obtuse, p1_obtuse, color=C_OBTUSE, stroke_width=3)
         ray2_o = Line(v_obtuse, p2_obtuse, color=C_OBTUSE, stroke_width=3)
         arc_o = self._make_angle_arc(p1_obtuse, v_obtuse, p2_obtuse, radius=0.32, color=C_OBTUSE)
-        lbl_obtuse = Text("钝角", font="Noto Sans CJK SC", font_size=26, color=C_OBTUSE)
+        lbl_obtuse = Text("钝角", font="PingFang SC", font_size=26, color=C_OBTUSE)
         lbl_obtuse.next_to(v_obtuse, DOWN, buff=0.8)
-        sub_obtuse = Text("大于90°", font="Noto Sans CJK SC", font_size=20, color=C_DIM)
+        sub_obtuse = Text("大于90°", font="PingFang SC", font_size=20, color=C_DIM)
         sub_obtuse.next_to(lbl_obtuse, DOWN, buff=0.1)
 
         # 动画
@@ -310,7 +310,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 分类提示
         classify_text = Text(
             "三角形的角也有这三种！",
-            font="Noto Sans CJK SC", font_size=34, color=C_HIGHLIGHT
+            font="PingFang SC", font_size=34, color=C_HIGHLIGHT
         ).move_to(DOWN * 0.5)
         self.play(FadeIn(classify_text, shift=UP * 0.3), run_time=0.6)
         self.wait(0.8)
@@ -327,7 +327,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 标题
         sec_title = Text(
             "锐角三角形",
-            font="Noto Sans CJK SC", font_size=46, color=C_ACUTE, weight=BOLD
+            font="PingFang SC", font_size=46, color=C_ACUTE, weight=BOLD
         ).move_to(UP * 5.8)
         self.play(Write(sec_title), run_time=0.6)
 
@@ -342,9 +342,9 @@ class TriangleAngleClassifyLesson(Scene):
         self.play(Create(tri), run_time=1.0)
 
         # 顶点标签
-        lA = Text("A", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(A, DL, buff=0.12)
-        lB = Text("B", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(B, DR, buff=0.12)
-        lC = Text("C", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(C, UP, buff=0.12)
+        lA = Text("A", font="PingFang SC", font_size=24, color=C_LABEL).next_to(A, DL, buff=0.12)
+        lB = Text("B", font="PingFang SC", font_size=24, color=C_LABEL).next_to(B, DR, buff=0.12)
+        lC = Text("C", font="PingFang SC", font_size=24, color=C_LABEL).next_to(C, UP, buff=0.12)
         self.play(FadeIn(lA), FadeIn(lB), FadeIn(lC), run_time=0.4)
 
         # 三个角弧 + 高亮逐一展示
@@ -357,7 +357,7 @@ class TriangleAngleClassifyLesson(Scene):
         deg_C = int(round(np.degrees(self._angle_at(A, C, B))))
 
         def make_deg_label(vertex, direction, deg, color=C_ANGLE_ARC):
-            t = Text(f"{deg}°", font="Noto Sans CJK SC", font_size=22, color=color)
+            t = Text(f"{deg}°", font="PingFang SC", font_size=22, color=color)
             t.next_to(vertex, direction, buff=0.5)
             return t
 
@@ -373,11 +373,11 @@ class TriangleAngleClassifyLesson(Scene):
         # 说明文字
         def_text = Text(
             "三个角都是锐角",
-            font="Noto Sans CJK SC", font_size=32, color=C_LABEL
+            font="PingFang SC", font_size=32, color=C_LABEL
         ).move_to(DOWN * 3.5)
         sub_text = Text(
             "（每个角都小于90°）",
-            font="Noto Sans CJK SC", font_size=24, color=C_DIM
+            font="PingFang SC", font_size=24, color=C_DIM
         ).next_to(def_text, DOWN, buff=0.15)
 
         self.play(FadeIn(def_text), run_time=0.5)
@@ -400,7 +400,7 @@ class TriangleAngleClassifyLesson(Scene):
     def scene_4_right(self):
         sec_title = Text(
             "直角三角形",
-            font="Noto Sans CJK SC", font_size=46, color=C_RIGHT, weight=BOLD
+            font="PingFang SC", font_size=46, color=C_RIGHT, weight=BOLD
         ).move_to(UP * 5.8)
         self.play(Write(sec_title), run_time=0.6)
 
@@ -413,9 +413,9 @@ class TriangleAngleClassifyLesson(Scene):
         tri = self._make_triangle(A, B, C, color=C_RIGHT, fill_opacity=0.08, fill_color=C_RIGHT)
         self.play(Create(tri), run_time=1.0)
 
-        lA = Text("A", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(A, LEFT, buff=0.12)
-        lB = Text("B", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(B, DOWN+RIGHT*0.2, buff=0.12)
-        lC = Text("C", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(C, RIGHT, buff=0.12)
+        lA = Text("A", font="PingFang SC", font_size=24, color=C_LABEL).next_to(A, LEFT, buff=0.12)
+        lB = Text("B", font="PingFang SC", font_size=24, color=C_LABEL).next_to(B, DOWN+RIGHT*0.2, buff=0.12)
+        lC = Text("C", font="PingFang SC", font_size=24, color=C_LABEL).next_to(C, RIGHT, buff=0.12)
         self.play(FadeIn(lA), FadeIn(lB), FadeIn(lC), run_time=0.4)
 
         # 直角标记在 B
@@ -428,7 +428,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 直角标注
         right_label = Text(
             "直角 90°",
-            font="Noto Sans CJK SC", font_size=24, color=C_ANGLE_ARC
+            font="PingFang SC", font_size=24, color=C_ANGLE_ARC
         ).next_to(B, DOWN + LEFT*0.5, buff=0.45)
         self.play(FadeIn(right_label), run_time=0.4)
 
@@ -437,8 +437,8 @@ class TriangleAngleClassifyLesson(Scene):
         arc_C = self._make_angle_arc(A, C, B, radius=0.35, color=C_DIM)
         deg_A = int(round(np.degrees(self._angle_at(B, A, C))))
         deg_C = int(round(np.degrees(self._angle_at(A, C, B))))
-        lbl_A = Text(f"{deg_A}°", font="Noto Sans CJK SC", font_size=22, color=C_DIM)
-        lbl_C = Text(f"{deg_C}°", font="Noto Sans CJK SC", font_size=22, color=C_DIM)
+        lbl_A = Text(f"{deg_A}°", font="PingFang SC", font_size=22, color=C_DIM)
+        lbl_C = Text(f"{deg_C}°", font="PingFang SC", font_size=22, color=C_DIM)
         lbl_A.next_to(A, RIGHT + UP * 0.3, buff=0.45)
         lbl_C.next_to(C, LEFT + DOWN * 0.3, buff=0.45)
 
@@ -451,11 +451,11 @@ class TriangleAngleClassifyLesson(Scene):
         # 说明
         def_text = Text(
             "有一个直角",
-            font="Noto Sans CJK SC", font_size=32, color=C_LABEL
+            font="PingFang SC", font_size=32, color=C_LABEL
         ).move_to(DOWN * 3.5)
         sub_text = Text(
             "另外两个角都是锐角",
-            font="Noto Sans CJK SC", font_size=24, color=C_DIM
+            font="PingFang SC", font_size=24, color=C_DIM
         ).next_to(def_text, DOWN, buff=0.15)
 
         self.play(FadeIn(def_text), run_time=0.5)
@@ -464,7 +464,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 斜边标注
         hyp_label = Text(
             "斜边（最长边）",
-            font="Noto Sans CJK SC", font_size=20, color=C_HIGHLIGHT
+            font="PingFang SC", font_size=20, color=C_HIGHLIGHT
         )
         mid_AC = (A + C) / 2
         hyp_label.next_to(mid_AC, RIGHT, buff=0.1)
@@ -490,7 +490,7 @@ class TriangleAngleClassifyLesson(Scene):
     def scene_5_obtuse(self):
         sec_title = Text(
             "钝角三角形",
-            font="Noto Sans CJK SC", font_size=46, color=C_OBTUSE, weight=BOLD
+            font="PingFang SC", font_size=46, color=C_OBTUSE, weight=BOLD
         ).move_to(UP * 5.8)
         self.play(Write(sec_title), run_time=0.6)
 
@@ -503,15 +503,15 @@ class TriangleAngleClassifyLesson(Scene):
         tri = self._make_triangle(A, B, C, color=C_OBTUSE, fill_opacity=0.08, fill_color=C_OBTUSE)
         self.play(Create(tri), run_time=1.0)
 
-        lA = Text("A", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(A, UL, buff=0.12)
-        lB = Text("B", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(B, DOWN, buff=0.12)
-        lC = Text("C", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(C, RIGHT, buff=0.12)
+        lA = Text("A", font="PingFang SC", font_size=24, color=C_LABEL).next_to(A, UL, buff=0.12)
+        lB = Text("B", font="PingFang SC", font_size=24, color=C_LABEL).next_to(B, DOWN, buff=0.12)
+        lC = Text("C", font="PingFang SC", font_size=24, color=C_LABEL).next_to(C, RIGHT, buff=0.12)
         self.play(FadeIn(lA), FadeIn(lB), FadeIn(lC), run_time=0.4)
 
         # 钝角弧在 B
         arc_B = self._make_angle_arc(A, B, C, radius=0.42, color=C_ANGLE_ARC)
         deg_B = int(round(np.degrees(self._angle_at(A, B, C))))
-        lbl_B = Text(f"{deg_B}°", font="Noto Sans CJK SC", font_size=24, color=C_ANGLE_ARC)
+        lbl_B = Text(f"{deg_B}°", font="PingFang SC", font_size=24, color=C_ANGLE_ARC)
         lbl_B.next_to(B, UP * 0.6, buff=0.45)
 
         self.play(Create(arc_B), FadeIn(lbl_B), run_time=0.6)
@@ -519,7 +519,7 @@ class TriangleAngleClassifyLesson(Scene):
 
         obtuse_label = Text(
             "钝角 > 90°",
-            font="Noto Sans CJK SC", font_size=24, color=C_ANGLE_ARC
+            font="PingFang SC", font_size=24, color=C_ANGLE_ARC
         ).next_to(lbl_B, UP, buff=0.1)
         self.play(FadeIn(obtuse_label), run_time=0.4)
 
@@ -528,8 +528,8 @@ class TriangleAngleClassifyLesson(Scene):
         arc_C = self._make_angle_arc(A, C, B, radius=0.35, color=C_DIM)
         deg_A = int(round(np.degrees(self._angle_at(B, A, C))))
         deg_C = int(round(np.degrees(self._angle_at(A, C, B))))
-        lbl_A2 = Text(f"{deg_A}°", font="Noto Sans CJK SC", font_size=22, color=C_DIM)
-        lbl_C2 = Text(f"{deg_C}°", font="Noto Sans CJK SC", font_size=22, color=C_DIM)
+        lbl_A2 = Text(f"{deg_A}°", font="PingFang SC", font_size=22, color=C_DIM)
+        lbl_C2 = Text(f"{deg_C}°", font="PingFang SC", font_size=22, color=C_DIM)
         lbl_A2.next_to(A, RIGHT + DOWN * 0.2, buff=0.45)
         lbl_C2.next_to(C, LEFT + UP * 0.2, buff=0.45)
 
@@ -541,11 +541,11 @@ class TriangleAngleClassifyLesson(Scene):
 
         def_text = Text(
             "有一个钝角",
-            font="Noto Sans CJK SC", font_size=32, color=C_LABEL
+            font="PingFang SC", font_size=32, color=C_LABEL
         ).move_to(DOWN * 3.5)
         sub_text = Text(
             "另外两个角都是锐角",
-            font="Noto Sans CJK SC", font_size=24, color=C_DIM
+            font="PingFang SC", font_size=24, color=C_DIM
         ).next_to(def_text, DOWN, buff=0.15)
 
         self.play(FadeIn(def_text), run_time=0.5)
@@ -568,7 +568,7 @@ class TriangleAngleClassifyLesson(Scene):
     def scene_6_summary(self):
         title = Text(
             "三类三角形总结",
-            font="Noto Sans CJK SC", font_size=40, color=C_HIGHLIGHT, weight=BOLD
+            font="PingFang SC", font_size=40, color=C_HIGHLIGHT, weight=BOLD
         ).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
@@ -578,8 +578,8 @@ class TriangleAngleClassifyLesson(Scene):
         def make_card(A, B, C, tri_color, name, rule):
             tri = self._make_triangle(A * s, B * s, C * s,
                                       color=tri_color, fill_opacity=0.12, fill_color=tri_color)
-            name_t = Text(name, font="Noto Sans CJK SC", font_size=28, color=tri_color, weight=BOLD)
-            rule_t = Text(rule, font="Noto Sans CJK SC", font_size=20, color=C_DIM)
+            name_t = Text(name, font="PingFang SC", font_size=28, color=tri_color, weight=BOLD)
+            rule_t = Text(rule, font="PingFang SC", font_size=20, color=C_DIM)
             card = VGroup(tri, name_t, rule_t).arrange(DOWN, buff=0.25)
             return card
 
@@ -609,7 +609,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 行标题
         row_title = Text(
             "类型     角的情况",
-            font="Noto Sans CJK SC", font_size=22, color=C_LABEL
+            font="PingFang SC", font_size=22, color=C_LABEL
         ).move_to(DOWN * 1.5)
 
         rows = VGroup()
@@ -620,8 +620,8 @@ class TriangleAngleClassifyLesson(Scene):
         ]
         y_start = -2.3
         for i, (name, desc, color) in enumerate(data):
-            n_t = Text(name, font="Noto Sans CJK SC", font_size=22, color=color)
-            d_t = Text(desc, font="Noto Sans CJK SC", font_size=22, color=C_LABEL)
+            n_t = Text(name, font="PingFang SC", font_size=22, color=color)
+            d_t = Text(desc, font="PingFang SC", font_size=22, color=C_LABEL)
             row = VGroup(n_t, d_t).arrange(RIGHT, buff=0.6)
             row.move_to(UP * (y_start - i * 0.85))
             rows.add(row)
@@ -645,22 +645,22 @@ class TriangleAngleClassifyLesson(Scene):
     def scene_7_warning(self):
         warn_title = Text(
             "重要提醒！",
-            font="Noto Sans CJK SC", font_size=44, color=C_OBTUSE, weight=BOLD
+            font="PingFang SC", font_size=44, color=C_OBTUSE, weight=BOLD
         ).move_to(UP * 5.5)
         self.play(Write(warn_title), run_time=0.6)
 
         # 提醒1
         msg1_line1 = Text(
             "一个三角形",
-            font="Noto Sans CJK SC", font_size=32, color=C_LABEL
+            font="PingFang SC", font_size=32, color=C_LABEL
         )
         msg1_line2 = Text(
             "最多只有一个直角",
-            font="Noto Sans CJK SC", font_size=32, color=C_RIGHT, weight=BOLD
+            font="PingFang SC", font_size=32, color=C_RIGHT, weight=BOLD
         )
         msg1_line3 = Text(
             "或一个钝角",
-            font="Noto Sans CJK SC", font_size=32, color=C_OBTUSE, weight=BOLD
+            font="PingFang SC", font_size=32, color=C_OBTUSE, weight=BOLD
         )
         msg1 = VGroup(msg1_line1, msg1_line2, msg1_line3).arrange(DOWN, buff=0.2)
         msg1.move_to(UP * 3.5)
@@ -671,32 +671,32 @@ class TriangleAngleClassifyLesson(Scene):
         # 为什么：角度和 = 180°
         why_title = Text(
             "为什么？",
-            font="Noto Sans CJK SC", font_size=30, color=C_HIGHLIGHT
+            font="PingFang SC", font_size=30, color=C_HIGHLIGHT
         ).move_to(UP * 1.8)
         self.play(FadeIn(why_title), run_time=0.4)
 
         why_formula = VGroup(
             Text("三角形三个角之和 = 180°",
-                 font="Noto Sans CJK SC", font_size=26, color=C_LABEL),
+                 font="PingFang SC", font_size=26, color=C_LABEL),
         ).move_to(UP * 1.0)
         self.play(FadeIn(why_formula), run_time=0.5)
 
         # 演示：若有两个直角
         demo_text = Text(
             "如果有两个直角：",
-            font="Noto Sans CJK SC", font_size=26, color=C_DIM
+            font="PingFang SC", font_size=26, color=C_DIM
         ).move_to(UP * 0.1)
 
         eq_parts = VGroup(
-            Text("90°", font="Noto Sans CJK SC", font_size=28, color=C_RIGHT),
-            Text("+", font="Noto Sans CJK SC", font_size=28, color=C_LABEL),
-            Text("90°", font="Noto Sans CJK SC", font_size=28, color=C_RIGHT),
-            Text("= 180°", font="Noto Sans CJK SC", font_size=28, color=C_LABEL),
+            Text("90°", font="PingFang SC", font_size=28, color=C_RIGHT),
+            Text("+", font="PingFang SC", font_size=28, color=C_LABEL),
+            Text("90°", font="PingFang SC", font_size=28, color=C_RIGHT),
+            Text("= 180°", font="PingFang SC", font_size=28, color=C_LABEL),
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 0.7)
 
         cross = Text(
             "第三个角只能是0°，不是三角形！",
-            font="Noto Sans CJK SC", font_size=24, color=C_OBTUSE
+            font="PingFang SC", font_size=24, color=C_OBTUSE
         ).move_to(DOWN * 1.5)
 
         self.play(FadeIn(demo_text), run_time=0.4)
@@ -707,7 +707,7 @@ class TriangleAngleClassifyLesson(Scene):
         # 结论框
         concl = Text(
             "不可能有两个或三个直角/钝角！",
-            font="Noto Sans CJK SC", font_size=26, color=C_HIGHLIGHT, weight=BOLD
+            font="PingFang SC", font_size=26, color=C_HIGHLIGHT, weight=BOLD
         ).move_to(DOWN * 2.8)
         border = SurroundingRectangle(concl, color=C_HIGHLIGHT, buff=0.18, stroke_width=2.5)
         self.play(FadeIn(concl), Create(border), run_time=0.6)
@@ -751,16 +751,16 @@ class TriangleAngleClassifyLesson(Scene):
 
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=38, color=WHITE
+            font="PingFang SC", font_size=38, color=WHITE
         ).move_to(DOWN * 1.0)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color=C_DIM
+            font="PingFang SC", font_size=28, color=C_DIM
         ).next_to(author_large, DOWN, buff=0.2)
 
         follow = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC", font_size=30, color=C_HIGHLIGHT
+            font="PingFang SC", font_size=30, color=C_HIGHLIGHT
         ).move_to(DOWN * 2.8)
 
         self.play(

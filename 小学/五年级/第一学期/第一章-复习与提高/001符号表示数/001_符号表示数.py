@@ -34,7 +34,7 @@ COLOR_LETTER = "#f59e0b"     # 橙色字母
 COLOR_FORMULA = "#8b5cf6"    # 紫色公式
 COLOR_HL = "#fbbf24"         # 黄色高亮
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class SymbolRepresentNumberLesson(Scene):

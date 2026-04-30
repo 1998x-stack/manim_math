@@ -50,7 +50,7 @@ class LargeNumberCompareLesson(Scene):
         # 作者品牌（全程保留）
         self.author_tag = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=COLOR_GRAY,
         ).move_to(UP * 7.0)
@@ -71,7 +71,7 @@ class LargeNumberCompareLesson(Scene):
 
     def make_number_card(self, num_str, color=COLOR_BLUE, font_size=36):
         """创建数字卡片（圆角矩形背景 + 数字）"""
-        num_text = Text(num_str, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        num_text = Text(num_str, font="PingFang SC", font_size=font_size, color=color)
         bg = RoundedRectangle(
             corner_radius=0.2,
             width=num_text.width + 0.5,
@@ -91,7 +91,7 @@ class LargeNumberCompareLesson(Scene):
         boxes = VGroup()
         for i, ch in enumerate(num_str):
             c = colors[i] if colors else COLOR_WHITE
-            txt = Text(ch, font="Noto Sans CJK SC", font_size=32, color=c)
+            txt = Text(ch, font="PingFang SC", font_size=32, color=c)
             box = Square(side_length=0.55, fill_color=COLOR_CARD_BG,
                          fill_opacity=1, stroke_color=c, stroke_width=1.5)
             boxes.add(VGroup(box, txt))
@@ -100,10 +100,10 @@ class LargeNumberCompareLesson(Scene):
 
     def section_title(self, text_str, color=COLOR_GOLD):
         """创建区块小标题"""
-        return Text(text_str, font="Noto Sans CJK SC", font_size=30, color=color)
+        return Text(text_str, font="PingFang SC", font_size=30, color=color)
 
     def body_text(self, text_str, font_size=24, color=COLOR_WHITE):
-        return Text(text_str, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        return Text(text_str, font="PingFang SC", font_size=font_size, color=color)
 
     def highlight_box(self, mob, color=COLOR_HIGHLIGHT, buff=0.15):
         """在 mob 周围画高亮矩形"""
@@ -118,13 +118,13 @@ class LargeNumberCompareLesson(Scene):
         # 主标题
         title_line1 = Text(
             "大数的",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=COLOR_GOLD,
         )
         title_line2 = Text(
             "比较与改写",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=COLOR_GOLD,
         )
@@ -134,22 +134,22 @@ class LargeNumberCompareLesson(Scene):
         # 钩子问题
         hook_q = Text(
             "你能比较下面哪个数更大吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_WHITE,
         ).move_to(UP * 3.5)
 
         # 两个大数
-        num_a = Text("9980000", font="Noto Sans CJK SC", font_size=44, color=COLOR_BLUE)
-        vs = Text("VS", font="Noto Sans CJK SC", font_size=32, color=COLOR_GRAY)
-        num_b = Text("10000000", font="Noto Sans CJK SC", font_size=44, color=COLOR_ORANGE)
+        num_a = Text("9980000", font="PingFang SC", font_size=44, color=COLOR_BLUE)
+        vs = Text("VS", font="PingFang SC", font_size=32, color=COLOR_GRAY)
+        num_b = Text("10000000", font="PingFang SC", font_size=44, color=COLOR_ORANGE)
         nums_group = VGroup(num_a, vs, num_b).arrange(RIGHT, buff=0.5)
         nums_group.move_to(UP * 2.2)
 
         # 小提示
         hint = Text(
             "学完这节课你就会啦！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_GREEN,
         ).move_to(UP * 0.8)
@@ -185,14 +185,14 @@ class LargeNumberCompareLesson(Scene):
         # ── 标题 ──
         rule_title = Text(
             "比较大小 · 方法一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=COLOR_GOLD,
         ).move_to(UP * 6.2)
 
         rule_text = Text(
             "位数不同时，位数多的那个数更大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_WHITE,
         ).move_to(UP * 5.4)
@@ -205,8 +205,8 @@ class LargeNumberCompareLesson(Scene):
         n_large = "10000000"  # 8位
 
         # 数字文本
-        txt_a = Text(n_small, font="Noto Sans CJK SC", font_size=40, color=COLOR_BLUE)
-        txt_b = Text(n_large, font="Noto Sans CJK SC", font_size=40, color=COLOR_ORANGE)
+        txt_a = Text(n_small, font="PingFang SC", font_size=40, color=COLOR_BLUE)
+        txt_b = Text(n_large, font="PingFang SC", font_size=40, color=COLOR_ORANGE)
 
         txt_a.move_to(UP * 4.0)
         txt_b.move_to(UP * 2.8)
@@ -216,11 +216,11 @@ class LargeNumberCompareLesson(Scene):
 
         # ── 计数位数（Brace 标注）──
         brace_a = Brace(txt_a, direction=DOWN, color=COLOR_BLUE)
-        brace_a_lbl = Text("7位", font="Noto Sans CJK SC", font_size=22, color=COLOR_BLUE)
+        brace_a_lbl = Text("7位", font="PingFang SC", font_size=22, color=COLOR_BLUE)
         brace_a_lbl.next_to(brace_a, DOWN, buff=0.12)
 
         brace_b = Brace(txt_b, direction=DOWN, color=COLOR_ORANGE)
-        brace_b_lbl = Text("8位", font="Noto Sans CJK SC", font_size=22, color=COLOR_ORANGE)
+        brace_b_lbl = Text("8位", font="PingFang SC", font_size=22, color=COLOR_ORANGE)
         brace_b_lbl.next_to(brace_b, DOWN, buff=0.12)
 
         self.play(
@@ -243,13 +243,13 @@ class LargeNumberCompareLesson(Scene):
 
         conclusion_line1 = Text(
             "8位 > 7位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_GREEN,
         )
         conclusion_line2 = Text(
             "所以  10000000 > 9980000",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_GREEN,
         )
@@ -283,14 +283,14 @@ class LargeNumberCompareLesson(Scene):
         # ── 标题 ──
         rule_title = Text(
             "比较大小 · 方法二",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=COLOR_GOLD,
         ).move_to(UP * 6.2)
 
         rule_text = Text(
             "位数相同时，从最高位开始逐位比较",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=23,
             color=COLOR_WHITE,
         ).move_to(UP * 5.4)
@@ -313,7 +313,7 @@ class LargeNumberCompareLesson(Scene):
         pos_labels_str = ["千", "百", "十", "万", "千", "百", "十", "个"]
         pos_label_group = VGroup()
         for lbl_str in pos_labels_str:
-            lbl = Text(lbl_str, font="Noto Sans CJK SC", font_size=14, color=COLOR_GRAY)
+            lbl = Text(lbl_str, font="PingFang SC", font_size=14, color=COLOR_GRAY)
             pos_label_group.add(lbl)
         pos_label_group.arrange(RIGHT, buff=0.18)
         pos_label_group.move_to(UP * 4.85)
@@ -352,7 +352,7 @@ class LargeNumberCompareLesson(Scene):
             step_note_str = f"最高位: {na[idx]} > {nb[idx]}"
             step_note = Text(
                 step_note_str,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=COLOR_GREEN,
             ).move_to(UP * 1.8)
@@ -363,8 +363,8 @@ class LargeNumberCompareLesson(Scene):
         # ── 结论 ──
         conclusion_str1 = f"最高位  3 > 2"
         conclusion_str2 = f"所以  31500000 > 28700000"
-        c1 = Text(conclusion_str1, font="Noto Sans CJK SC", font_size=25, color=COLOR_GREEN)
-        c2 = Text(conclusion_str2, font="Noto Sans CJK SC", font_size=23, color=COLOR_GREEN)
+        c1 = Text(conclusion_str1, font="PingFang SC", font_size=25, color=COLOR_GREEN)
+        c2 = Text(conclusion_str2, font="PingFang SC", font_size=23, color=COLOR_GREEN)
         conclusion = VGroup(c1, c2).arrange(DOWN, buff=0.2)
         conclusion.move_to(UP * 0.5)
 
@@ -376,7 +376,7 @@ class LargeNumberCompareLesson(Scene):
         # 补充说明：继续往后比
         note = Text(
             "若最高位相同，则继续比下一位，以此类推",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21,
             color=COLOR_GRAY,
         ).move_to(DOWN * 0.8)
@@ -398,14 +398,14 @@ class LargeNumberCompareLesson(Scene):
         # ── 标题 ──
         sec_title = Text(
             "改写成「万」作单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=COLOR_GOLD,
         ).move_to(UP * 6.2)
 
         key_rule = Text(
             "整万的数 ÷ 10000，再写上「万」字",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=23,
             color=COLOR_WHITE,
         ).move_to(UP * 5.3)
@@ -416,14 +416,14 @@ class LargeNumberCompareLesson(Scene):
         # ── 例题1: 250000 = 25万 ──
         eg1_label = Text(
             "例1:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_GRAY,
         ).move_to(UP * 4.4 + LEFT * 3.2)
 
-        num1 = Text("250000", font="Noto Sans CJK SC", font_size=42, color=COLOR_BLUE)
-        eq1 = Text("=", font="Noto Sans CJK SC", font_size=42, color=COLOR_WHITE)
-        result1 = Text("25万", font="Noto Sans CJK SC", font_size=42, color=COLOR_GREEN)
+        num1 = Text("250000", font="PingFang SC", font_size=42, color=COLOR_BLUE)
+        eq1 = Text("=", font="PingFang SC", font_size=42, color=COLOR_WHITE)
+        result1 = Text("25万", font="PingFang SC", font_size=42, color=COLOR_GREEN)
         row1 = VGroup(num1, eq1, result1).arrange(RIGHT, buff=0.4)
         row1.move_to(UP * 3.8)
 
@@ -433,7 +433,7 @@ class LargeNumberCompareLesson(Scene):
         # 找到末尾4个0的位置范围
         brace_zeros = Brace(
             VGroup(*[
-                Text(c, font="Noto Sans CJK SC", font_size=42, color=COLOR_BLUE)
+                Text(c, font="PingFang SC", font_size=42, color=COLOR_BLUE)
                 for c in "0000"
             ]).arrange(RIGHT, buff=0.03).move_to(
                 num1.get_right() + LEFT * (num1.width * 4 / 6) + DOWN * 0.05
@@ -443,7 +443,7 @@ class LargeNumberCompareLesson(Scene):
         # 简化：用文字说明
         zeros_hint = Text(
             "末尾有4个0，去掉4个0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_RED,
         ).next_to(row1, DOWN, buff=0.35)
@@ -462,20 +462,20 @@ class LargeNumberCompareLesson(Scene):
         # ── 例题2: 3680000 = 368万 ──
         eg2_label = Text(
             "例2:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_GRAY,
         ).move_to(UP * 2.5 + LEFT * 3.2)
 
-        num2 = Text("3680000", font="Noto Sans CJK SC", font_size=40, color=COLOR_BLUE)
-        eq2 = Text("=", font="Noto Sans CJK SC", font_size=40, color=COLOR_WHITE)
-        result2 = Text("368万", font="Noto Sans CJK SC", font_size=40, color=COLOR_GREEN)
+        num2 = Text("3680000", font="PingFang SC", font_size=40, color=COLOR_BLUE)
+        eq2 = Text("=", font="PingFang SC", font_size=40, color=COLOR_WHITE)
+        result2 = Text("368万", font="PingFang SC", font_size=40, color=COLOR_GREEN)
         row2 = VGroup(num2, eq2, result2).arrange(RIGHT, buff=0.4)
         row2.move_to(UP * 2.0)
 
         zeros_hint2 = Text(
             "末尾有4个0，去掉4个0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_RED,
         ).next_to(row2, DOWN, buff=0.3)
@@ -497,9 +497,9 @@ class LargeNumberCompareLesson(Scene):
             stroke_width=2,
         ).move_to(DOWN * 0.6)
 
-        formula_txt_l = Text("整万数", font="Noto Sans CJK SC", font_size=26, color=COLOR_BLUE)
-        formula_arrow_sym = Text("÷ 10000 →", font="Noto Sans CJK SC", font_size=24, color=COLOR_WHITE)
-        formula_txt_r = Text("数字 + 万", font="Noto Sans CJK SC", font_size=26, color=COLOR_GREEN)
+        formula_txt_l = Text("整万数", font="PingFang SC", font_size=26, color=COLOR_BLUE)
+        formula_arrow_sym = Text("÷ 10000 →", font="PingFang SC", font_size=24, color=COLOR_WHITE)
+        formula_txt_r = Text("数字 + 万", font="PingFang SC", font_size=26, color=COLOR_GREEN)
         formula_content = VGroup(formula_txt_l, formula_arrow_sym, formula_txt_r).arrange(RIGHT, buff=0.3)
         formula_content.move_to(formula_bg.get_center())
 
@@ -524,14 +524,14 @@ class LargeNumberCompareLesson(Scene):
         # ── 标题 ──
         sec_title = Text(
             "改写成「亿」作单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=COLOR_GOLD,
         ).move_to(UP * 6.2)
 
         key_rule = Text(
             "整亿的数 ÷ 100000000，再写上「亿」字",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_WHITE,
         ).move_to(UP * 5.3)
@@ -542,20 +542,20 @@ class LargeNumberCompareLesson(Scene):
         # ── 例题1: 500000000 = 5亿 ──
         eg1_label = Text(
             "例1:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_GRAY,
         ).move_to(UP * 4.4 + LEFT * 3.5)
 
-        num1 = Text("500000000", font="Noto Sans CJK SC", font_size=36, color=COLOR_PURPLE)
-        eq1 = Text("=", font="Noto Sans CJK SC", font_size=36, color=COLOR_WHITE)
-        result1 = Text("5亿", font="Noto Sans CJK SC", font_size=36, color=COLOR_GREEN)
+        num1 = Text("500000000", font="PingFang SC", font_size=36, color=COLOR_PURPLE)
+        eq1 = Text("=", font="PingFang SC", font_size=36, color=COLOR_WHITE)
+        result1 = Text("5亿", font="PingFang SC", font_size=36, color=COLOR_GREEN)
         row1 = VGroup(num1, eq1, result1).arrange(RIGHT, buff=0.35)
         row1.move_to(UP * 3.7)
 
         hint1 = Text(
             "末尾有8个0，去掉8个0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_RED,
         ).next_to(row1, DOWN, buff=0.3)
@@ -568,20 +568,20 @@ class LargeNumberCompareLesson(Scene):
         # ── 例题2: 3000000000 = 30亿 ──
         eg2_label = Text(
             "例2:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_GRAY,
         ).move_to(UP * 2.5 + LEFT * 3.5)
 
-        num2 = Text("3000000000", font="Noto Sans CJK SC", font_size=33, color=COLOR_PURPLE)
-        eq2 = Text("=", font="Noto Sans CJK SC", font_size=33, color=COLOR_WHITE)
-        result2 = Text("30亿", font="Noto Sans CJK SC", font_size=33, color=COLOR_GREEN)
+        num2 = Text("3000000000", font="PingFang SC", font_size=33, color=COLOR_PURPLE)
+        eq2 = Text("=", font="PingFang SC", font_size=33, color=COLOR_WHITE)
+        result2 = Text("30亿", font="PingFang SC", font_size=33, color=COLOR_GREEN)
         row2 = VGroup(num2, eq2, result2).arrange(RIGHT, buff=0.35)
         row2.move_to(UP * 2.0)
 
         hint2 = Text(
             "末尾有8个0，去掉8个0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_RED,
         ).next_to(row2, DOWN, buff=0.3)
@@ -603,9 +603,9 @@ class LargeNumberCompareLesson(Scene):
             stroke_width=2,
         ).move_to(DOWN * 0.8)
 
-        formula_txt_l = Text("整亿数", font="Noto Sans CJK SC", font_size=26, color=COLOR_PURPLE)
-        formula_arrow_sym = Text("÷ 亿 →", font="Noto Sans CJK SC", font_size=24, color=COLOR_WHITE)
-        formula_txt_r = Text("数字 + 亿", font="Noto Sans CJK SC", font_size=26, color=COLOR_GREEN)
+        formula_txt_l = Text("整亿数", font="PingFang SC", font_size=26, color=COLOR_PURPLE)
+        formula_arrow_sym = Text("÷ 亿 →", font="PingFang SC", font_size=24, color=COLOR_WHITE)
+        formula_txt_r = Text("数字 + 亿", font="PingFang SC", font_size=26, color=COLOR_GREEN)
         formula_content = VGroup(formula_txt_l, formula_arrow_sym, formula_txt_r).arrange(RIGHT, buff=0.3)
         formula_content.move_to(formula_bg.get_center())
 
@@ -630,7 +630,7 @@ class LargeNumberCompareLesson(Scene):
         # ── 标题 ──
         prac_title = Text(
             "综合练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=COLOR_GOLD,
         ).move_to(UP * 6.2)
@@ -640,16 +640,16 @@ class LargeNumberCompareLesson(Scene):
         # ── 练习 A: 比较大小填 > 或 < ──
         a_title = Text(
             "① 比一比，填 > 或 <",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_BLUE,
         ).move_to(UP * 5.2)
         self.play(FadeIn(a_title), run_time=0.4)
 
         # A1: 9000000  _  10000000
-        q1_a = Text("9000000", font="Noto Sans CJK SC", font_size=32, color=COLOR_BLUE)
-        q1_blank = Text("  ?  ", font="Noto Sans CJK SC", font_size=32, color=COLOR_GRAY)
-        q1_b = Text("10000000", font="Noto Sans CJK SC", font_size=32, color=COLOR_ORANGE)
+        q1_a = Text("9000000", font="PingFang SC", font_size=32, color=COLOR_BLUE)
+        q1_blank = Text("  ?  ", font="PingFang SC", font_size=32, color=COLOR_GRAY)
+        q1_b = Text("10000000", font="PingFang SC", font_size=32, color=COLOR_ORANGE)
         q1 = VGroup(q1_a, q1_blank, q1_b).arrange(RIGHT, buff=0.2)
         q1.move_to(UP * 4.3)
 
@@ -657,12 +657,12 @@ class LargeNumberCompareLesson(Scene):
         self.wait(0.5)
 
         # 答案揭示
-        ans1 = Text("<", font="Noto Sans CJK SC", font_size=36, color=COLOR_GREEN)
+        ans1 = Text("<", font="PingFang SC", font_size=36, color=COLOR_GREEN)
         ans1.move_to(q1_blank.get_center())
         self.play(Transform(q1_blank, ans1), run_time=0.5)
         reason1 = Text(
             "（7位 < 8位，所以 9000000 < 10000000）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=19,
             color=COLOR_GRAY,
         ).next_to(q1, DOWN, buff=0.2)
@@ -670,21 +670,21 @@ class LargeNumberCompareLesson(Scene):
         self.wait(0.6)
 
         # A2: 56700000  _  56900000
-        q2_a = Text("56700000", font="Noto Sans CJK SC", font_size=30, color=COLOR_BLUE)
-        q2_blank = Text("  ?  ", font="Noto Sans CJK SC", font_size=30, color=COLOR_GRAY)
-        q2_b = Text("56900000", font="Noto Sans CJK SC", font_size=30, color=COLOR_ORANGE)
+        q2_a = Text("56700000", font="PingFang SC", font_size=30, color=COLOR_BLUE)
+        q2_blank = Text("  ?  ", font="PingFang SC", font_size=30, color=COLOR_GRAY)
+        q2_b = Text("56900000", font="PingFang SC", font_size=30, color=COLOR_ORANGE)
         q2 = VGroup(q2_a, q2_blank, q2_b).arrange(RIGHT, buff=0.2)
         q2.move_to(UP * 3.0)
 
         self.play(FadeIn(q2), run_time=0.4)
         self.wait(0.5)
 
-        ans2 = Text("<", font="Noto Sans CJK SC", font_size=34, color=COLOR_GREEN)
+        ans2 = Text("<", font="PingFang SC", font_size=34, color=COLOR_GREEN)
         ans2.move_to(q2_blank.get_center())
         self.play(Transform(q2_blank, ans2), run_time=0.5)
         reason2 = Text(
             "（位数同，千万位同=5，百万位 6 < 9）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=19,
             color=COLOR_GRAY,
         ).next_to(q2, DOWN, buff=0.2)
@@ -694,36 +694,36 @@ class LargeNumberCompareLesson(Scene):
         # ── 练习 B: 改写 ──
         b_title = Text(
             "② 改写成万或亿作单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_PURPLE,
         ).move_to(UP * 1.6)
         self.play(FadeIn(b_title), run_time=0.4)
 
         # B1: 60000000 = ? 万
-        b1_q = Text("60000000 =", font="Noto Sans CJK SC", font_size=30, color=COLOR_BLUE)
-        b1_blank = Text("___", font="Noto Sans CJK SC", font_size=30, color=COLOR_GRAY)
-        b1_unit = Text("万", font="Noto Sans CJK SC", font_size=30, color=COLOR_WHITE)
+        b1_q = Text("60000000 =", font="PingFang SC", font_size=30, color=COLOR_BLUE)
+        b1_blank = Text("___", font="PingFang SC", font_size=30, color=COLOR_GRAY)
+        b1_unit = Text("万", font="PingFang SC", font_size=30, color=COLOR_WHITE)
         b1_row = VGroup(b1_q, b1_blank, b1_unit).arrange(RIGHT, buff=0.2)
         b1_row.move_to(UP * 0.8)
 
         self.play(FadeIn(b1_row), run_time=0.4)
         self.wait(0.4)
-        b1_ans = Text("6000", font="Noto Sans CJK SC", font_size=30, color=COLOR_GREEN)
+        b1_ans = Text("6000", font="PingFang SC", font_size=30, color=COLOR_GREEN)
         b1_ans.move_to(b1_blank.get_center())
         self.play(Transform(b1_blank, b1_ans), run_time=0.4)
         self.wait(0.5)
 
         # B2: 2000000000 = ? 亿
-        b2_q = Text("2000000000 =", font="Noto Sans CJK SC", font_size=28, color=COLOR_PURPLE)
-        b2_blank = Text("___", font="Noto Sans CJK SC", font_size=28, color=COLOR_GRAY)
-        b2_unit = Text("亿", font="Noto Sans CJK SC", font_size=28, color=COLOR_WHITE)
+        b2_q = Text("2000000000 =", font="PingFang SC", font_size=28, color=COLOR_PURPLE)
+        b2_blank = Text("___", font="PingFang SC", font_size=28, color=COLOR_GRAY)
+        b2_unit = Text("亿", font="PingFang SC", font_size=28, color=COLOR_WHITE)
         b2_row = VGroup(b2_q, b2_blank, b2_unit).arrange(RIGHT, buff=0.2)
         b2_row.move_to(DOWN * 0.3)
 
         self.play(FadeIn(b2_row), run_time=0.4)
         self.wait(0.4)
-        b2_ans = Text("20", font="Noto Sans CJK SC", font_size=28, color=COLOR_GREEN)
+        b2_ans = Text("20", font="PingFang SC", font_size=28, color=COLOR_GREEN)
         b2_ans.move_to(b2_blank.get_center())
         self.play(Transform(b2_blank, b2_ans), run_time=0.4)
         self.wait(0.8)
@@ -739,13 +739,13 @@ class LargeNumberCompareLesson(Scene):
             stroke_width=2,
         ).move_to(DOWN * 2.3)
 
-        sum_title = Text("记住这两条规则！", font="Noto Sans CJK SC",
+        sum_title = Text("记住这两条规则！", font="PingFang SC",
                          font_size=26, color=COLOR_GOLD).move_to(DOWN * 1.4)
-        sum_r1 = Text("① 位数多的数更大", font="Noto Sans CJK SC",
+        sum_r1 = Text("① 位数多的数更大", font="PingFang SC",
                       font_size=22, color=COLOR_GREEN).move_to(DOWN * 2.0)
-        sum_r2 = Text("② 位数同，从最高位逐位比", font="Noto Sans CJK SC",
+        sum_r2 = Text("② 位数同，从最高位逐位比", font="PingFang SC",
                       font_size=22, color=COLOR_GREEN).move_to(DOWN * 2.55)
-        sum_r3 = Text("③ 整万整亿数可改写成万/亿作单位", font="Noto Sans CJK SC",
+        sum_r3 = Text("③ 整万整亿数可改写成万/亿作单位", font="PingFang SC",
                       font_size=20, color=COLOR_BLUE).move_to(DOWN * 3.1)
 
         self.play(FadeIn(summary_bg), run_time=0.4)
@@ -772,21 +772,21 @@ class LargeNumberCompareLesson(Scene):
         # 大号作者名
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_WHITE,
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_GRAY,
         ).move_to(UP * 0.7)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.3)

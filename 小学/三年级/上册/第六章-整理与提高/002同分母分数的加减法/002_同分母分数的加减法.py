@@ -34,7 +34,7 @@ COLOR_RULE  = "#a78bfa"   # 紫色  — 规则框
 COLOR_DENOM = "#6b7280"   # 灰色  — 分母(不变)
 COLOR_NUMER = "#f43f5e"   # 红色  — 分子(相加减)
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

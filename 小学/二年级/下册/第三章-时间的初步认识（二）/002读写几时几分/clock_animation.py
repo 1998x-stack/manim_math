@@ -18,7 +18,7 @@ CLOCK_CENTER   = np.array([0.0, 3.0, 0.0])
 CLOCK_RADIUS   = 2.0
 HOUR_HAND_LEN  = 1.1
 MIN_HAND_LEN   = 1.7
-FONT           = "Noto Sans CJK SC"
+FONT           = "PingFang SC"
 BG_COLOR       = "#1a1a2e"
 
 

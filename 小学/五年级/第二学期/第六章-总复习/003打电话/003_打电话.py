@@ -36,7 +36,7 @@ COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_STEP = "#a78bfa"        # 紫色步骤
 COLOR_SLOW = "#6b7280"        # 灰色低效
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class PhoneCallLesson(Scene):

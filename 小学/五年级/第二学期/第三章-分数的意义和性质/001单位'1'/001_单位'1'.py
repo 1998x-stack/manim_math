@@ -28,7 +28,7 @@ COLOR_FRAC = "#f59e0b"
 COLOR_HL = "#fbbf24"
 COLOR_STEP = "#a78bfa"
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class UnitOneLesson(Scene):

@@ -37,7 +37,7 @@ COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_RULE = "#94a3b8"        # 灰色 竖式线
 COLOR_AUTHOR = "#6b7280"      # 灰色作者信息
 COLOR_STEP = "#e2e8f0"        # 浅灰步骤说明
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

@@ -57,7 +57,7 @@ class DivisionIntroLesson(Scene):
         # 品牌标识（常驻顶部）
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=C_DIM,
         ).move_to(UP * 7.0)
@@ -102,11 +102,11 @@ class DivisionIntroLesson(Scene):
     # ══════════════════════════════════════════════════
     def scene_opening(self):
         # 大标题
-        title = Text("除法的引入", font="Noto Sans CJK SC",
+        title = Text("除法的引入", font="PingFang SC",
                      font_size=52, color=C_TITLE)
         title.move_to(UP * 5.5)
 
-        hook = Text("12个苹果，怎么分？", font="Noto Sans CJK SC",
+        hook = Text("12个苹果，怎么分？", font="PingFang SC",
                     font_size=36, color=WHITE)
         hook.move_to(UP * 4.3)
 
@@ -114,7 +114,7 @@ class DivisionIntroLesson(Scene):
         apples = self.make_apple_group(12, cols=6, h_buff=0.65, v_buff=0.7)
         apples.move_to(UP * 2.3)
 
-        question_mark = Text("?", font="Noto Sans CJK SC",
+        question_mark = Text("?", font="PingFang SC",
                              font_size=80, color=C_TITLE)
         question_mark.move_to(DOWN * 0.2)
 
@@ -138,15 +138,15 @@ class DivisionIntroLesson(Scene):
     # ══════════════════════════════════════════════════
     def scene_equal_division(self):
         # ── 标题 ──
-        sec_title = Text("等分除", font="Noto Sans CJK SC",
+        sec_title = Text("等分除", font="PingFang SC",
                          font_size=44, color=C_TITLE)
         sec_title.move_to(UP * 6.5)
 
-        desc = Text("把12个苹果平均分给3个小朋友", font="Noto Sans CJK SC",
+        desc = Text("把12个苹果平均分给3个小朋友", font="PingFang SC",
                     font_size=28, color=C_HINT)
         desc.move_to(UP * 5.5)
 
-        question = Text("每人分几个？", font="Noto Sans CJK SC",
+        question = Text("每人分几个？", font="PingFang SC",
                         font_size=32, color=C_APPLE_HL)
         question.move_to(UP * 4.7)
 
@@ -179,7 +179,7 @@ class DivisionIntroLesson(Scene):
                             fill_opacity=0.25, stroke_width=3)
             plate.move_to(center)
             plates.add(plate)
-            lbl = Text(f"小朋友{idx+1}", font="Noto Sans CJK SC",
+            lbl = Text(f"小朋友{idx+1}", font="PingFang SC",
                        font_size=20, color=col)
             lbl.next_to(plate, DOWN, buff=0.12)
             plate_labels.add(lbl)
@@ -221,7 +221,7 @@ class DivisionIntroLesson(Scene):
         # ── 标注每盘4个 ──
         count_labels = VGroup()
         for p_idx, center in enumerate(plate_centers):
-            lbl = Text("4个", font="Noto Sans CJK SC",
+            lbl = Text("4个", font="PingFang SC",
                        font_size=26, color=C_TITLE)
             lbl.move_to(center + UP * 0.5)
             count_labels.add(lbl)
@@ -234,7 +234,7 @@ class DivisionIntroLesson(Scene):
         self.wait(1.0)
 
         # ── 结论 ──
-        conclusion = Text("每人分到 4 个！", font="Noto Sans CJK SC",
+        conclusion = Text("每人分到 4 个！", font="PingFang SC",
                           font_size=34, color=C_FORMULA)
         conclusion.move_to(DOWN * 2.2)
         self.play(Write(conclusion), run_time=0.7)
@@ -253,18 +253,18 @@ class DivisionIntroLesson(Scene):
     # ══════════════════════════════════════════════════
     def scene_division_symbol(self):
         # ── 标题 ──
-        sec_title = Text("认识除号  ÷", font="Noto Sans CJK SC",
+        sec_title = Text("认识除号  ÷", font="PingFang SC",
                          font_size=44, color=C_TITLE)
         sec_title.move_to(UP * 6.5)
         self.play(Write(sec_title), run_time=0.6)
 
         # ── 除号放大展示 ──
-        div_big = Text("÷", font="Noto Sans CJK SC",
+        div_big = Text("÷", font="PingFang SC",
                        font_size=140, color=C_DIV_SIGN)
         div_big.move_to(UP * 4.0)
         self.play(GrowFromCenter(div_big), run_time=0.8)
 
-        read_hint = Text("读作：除以", font="Noto Sans CJK SC",
+        read_hint = Text("读作：除以", font="PingFang SC",
                          font_size=30, color=C_HINT)
         read_hint.next_to(div_big, DOWN, buff=0.3)
         self.play(FadeIn(read_hint), run_time=0.5)
@@ -273,11 +273,11 @@ class DivisionIntroLesson(Scene):
         # ── 算式结构图解 ──
         #   被除数  ÷  除数  =  商
         parts = VGroup(
-            Text("被除数", font="Noto Sans CJK SC", font_size=28, color=C_APPLE_HL),
-            Text("÷",     font="Noto Sans CJK SC", font_size=36, color=C_DIV_SIGN),
-            Text("除数",   font="Noto Sans CJK SC", font_size=28, color=C_PLATE),
-            Text("=",     font="Noto Sans CJK SC", font_size=36, color=WHITE),
-            Text("商",    font="Noto Sans CJK SC", font_size=28, color=C_FORMULA),
+            Text("被除数", font="PingFang SC", font_size=28, color=C_APPLE_HL),
+            Text("÷",     font="PingFang SC", font_size=36, color=C_DIV_SIGN),
+            Text("除数",   font="PingFang SC", font_size=28, color=C_PLATE),
+            Text("=",     font="PingFang SC", font_size=36, color=WHITE),
+            Text("商",    font="PingFang SC", font_size=28, color=C_FORMULA),
         )
         parts.arrange(RIGHT, buff=0.35)
         parts.move_to(UP * 2.0)
@@ -293,11 +293,11 @@ class DivisionIntroLesson(Scene):
 
         # ── 对应到具体算式 12 ÷ 3 = 4 ──
         formula_row = VGroup(
-            Text("12", font="Noto Sans CJK SC", font_size=48, color=C_APPLE_HL),
-            Text("÷",  font="Noto Sans CJK SC", font_size=48, color=C_DIV_SIGN),
-            Text("3",  font="Noto Sans CJK SC", font_size=48, color=C_PLATE),
-            Text("=",  font="Noto Sans CJK SC", font_size=48, color=WHITE),
-            Text("4",  font="Noto Sans CJK SC", font_size=48, color=C_FORMULA),
+            Text("12", font="PingFang SC", font_size=48, color=C_APPLE_HL),
+            Text("÷",  font="PingFang SC", font_size=48, color=C_DIV_SIGN),
+            Text("3",  font="PingFang SC", font_size=48, color=C_PLATE),
+            Text("=",  font="PingFang SC", font_size=48, color=WHITE),
+            Text("4",  font="PingFang SC", font_size=48, color=C_FORMULA),
         )
         formula_row.arrange(RIGHT, buff=0.45)
         formula_row.move_to(UP * 0.5)
@@ -334,7 +334,7 @@ class DivisionIntroLesson(Scene):
             boxes.add(box)
 
         for box, fpart, col, lbl_text in zip(boxes, formula_row, colors, labels):
-            lbl = Text(lbl_text, font="Noto Sans CJK SC",
+            lbl = Text(lbl_text, font="PingFang SC",
                        font_size=20, color=col)
             lbl.next_to(fpart, DOWN, buff=1.0)
             self.play(Create(box), FadeIn(lbl), run_time=0.4)
@@ -356,7 +356,7 @@ class DivisionIntroLesson(Scene):
     # 场景 4：包含除演示
     # ══════════════════════════════════════════════════
     def scene_containing_division(self):
-        sec_title = Text("包含除", font="Noto Sans CJK SC",
+        sec_title = Text("包含除", font="PingFang SC",
                          font_size=44, color=C_TITLE)
         sec_title.move_to(UP * 6.5)
 
@@ -367,10 +367,10 @@ class DivisionIntroLesson(Scene):
             run_time=0.6,
         )
 
-        desc = Text("12个苹果，每3个装一袋", font="Noto Sans CJK SC",
+        desc = Text("12个苹果，每3个装一袋", font="PingFang SC",
                     font_size=28, color=C_HINT)
         desc.move_to(UP * 5.0)
-        question2 = Text("能装几袋？", font="Noto Sans CJK SC",
+        question2 = Text("能装几袋？", font="PingFang SC",
                          font_size=32, color=C_BAG)
         question2.move_to(UP * 4.3)
         self.play(FadeIn(desc), FadeIn(question2, shift=UP * 0.1), run_time=0.6)
@@ -398,7 +398,7 @@ class DivisionIntroLesson(Scene):
         for bag_i in range(bag_count):
             group_apples = apples2[bag_i * apples_per_bag:(bag_i + 1) * apples_per_bag]
             brace = Brace(group_apples, direction=DOWN, color=bag_color, buff=0.08)
-            b_lbl = Text(f"第{bag_i+1}袋", font="Noto Sans CJK SC",
+            b_lbl = Text(f"第{bag_i+1}袋", font="PingFang SC",
                          font_size=20, color=bag_color)
             b_lbl.next_to(brace, DOWN, buff=0.08)
             brackets.add(brace)
@@ -420,14 +420,14 @@ class DivisionIntroLesson(Scene):
         self.wait(0.8)
 
         # ── 标注共4袋 ──
-        result_text = Text("共装了 4 袋！", font="Noto Sans CJK SC",
+        result_text = Text("共装了 4 袋！", font="PingFang SC",
                            font_size=34, color=C_FORMULA)
         result_text.move_to(DOWN * 1.2)
         self.play(Write(result_text), run_time=0.7)
         self.wait(1.0)
 
         # ── 同样是 12 ÷ 3 = 4 ──
-        same_formula = Text("同样是  12 ÷ 3 = 4", font="Noto Sans CJK SC",
+        same_formula = Text("同样是  12 ÷ 3 = 4", font="PingFang SC",
                             font_size=32, color=C_TITLE)
         same_formula.move_to(DOWN * 2.2)
         self.play(Write(same_formula), run_time=0.7)
@@ -448,7 +448,7 @@ class DivisionIntroLesson(Scene):
         # 清掉悬浮算式
         self.play(FadeOut(self.formula_row), run_time=0.3)
 
-        sec_title = Text("总结", font="Noto Sans CJK SC",
+        sec_title = Text("总结", font="PingFang SC",
                          font_size=44, color=C_TITLE)
         sec_title.move_to(UP * 6.5)
         self.play(Write(sec_title), run_time=0.5)
@@ -462,16 +462,16 @@ class DivisionIntroLesson(Scene):
         )
         card_bg1.move_to(UP * 4.3)
 
-        card1_type  = Text("等分除", font="Noto Sans CJK SC",
+        card1_type  = Text("等分除", font="PingFang SC",
                            font_size=32, color=C_PLATE)
         card1_type.move_to(card_bg1.get_top() + DOWN * 0.45)
 
         card1_desc  = Text("已知总数和份数，求每份数",
-                           font="Noto Sans CJK SC", font_size=24, color=C_HINT)
+                           font="PingFang SC", font_size=24, color=C_HINT)
         card1_desc.next_to(card1_type, DOWN, buff=0.2)
 
         card1_ex    = Text("12个苹果平均分给3人 → 每人4个",
-                           font="Noto Sans CJK SC", font_size=22, color=C_APPLE_HL)
+                           font="PingFang SC", font_size=22, color=C_APPLE_HL)
         card1_ex.next_to(card1_desc, DOWN, buff=0.18)
 
         card1 = VGroup(card_bg1, card1_type, card1_desc, card1_ex)
@@ -484,16 +484,16 @@ class DivisionIntroLesson(Scene):
         )
         card_bg2.move_to(UP * 1.0)
 
-        card2_type  = Text("包含除", font="Noto Sans CJK SC",
+        card2_type  = Text("包含除", font="PingFang SC",
                            font_size=32, color=C_BAG)
         card2_type.move_to(card_bg2.get_top() + DOWN * 0.45)
 
         card2_desc  = Text("已知总数和每份数，求份数",
-                           font="Noto Sans CJK SC", font_size=24, color=C_HINT)
+                           font="PingFang SC", font_size=24, color=C_HINT)
         card2_desc.next_to(card2_type, DOWN, buff=0.2)
 
         card2_ex    = Text("12个苹果每3个一袋 → 共4袋",
-                           font="Noto Sans CJK SC", font_size=22, color=C_BAG)
+                           font="PingFang SC", font_size=22, color=C_BAG)
         card2_ex.next_to(card2_desc, DOWN, buff=0.18)
 
         card2 = VGroup(card_bg2, card2_type, card2_desc, card2_ex)
@@ -518,15 +518,15 @@ class DivisionIntroLesson(Scene):
         formula_box_bg.move_to(DOWN * 1.8)
 
         formula_label = Text("统一用除法算式表示：",
-                             font="Noto Sans CJK SC", font_size=24, color=C_HINT)
+                             font="PingFang SC", font_size=24, color=C_HINT)
         formula_label.move_to(formula_box_bg.get_top() + DOWN * 0.4)
 
         formula_parts = VGroup(
-            Text("12", font="Noto Sans CJK SC", font_size=40, color=C_APPLE_HL),
-            Text("÷",  font="Noto Sans CJK SC", font_size=40, color=C_DIV_SIGN),
-            Text("3",  font="Noto Sans CJK SC", font_size=40, color=C_PLATE),
-            Text("=",  font="Noto Sans CJK SC", font_size=40, color=WHITE),
-            Text("4",  font="Noto Sans CJK SC", font_size=40, color=C_FORMULA),
+            Text("12", font="PingFang SC", font_size=40, color=C_APPLE_HL),
+            Text("÷",  font="PingFang SC", font_size=40, color=C_DIV_SIGN),
+            Text("3",  font="PingFang SC", font_size=40, color=C_PLATE),
+            Text("=",  font="PingFang SC", font_size=40, color=WHITE),
+            Text("4",  font="PingFang SC", font_size=40, color=C_FORMULA),
         )
         formula_parts.arrange(RIGHT, buff=0.4)
         formula_parts.next_to(formula_label, DOWN, buff=0.15)
@@ -539,16 +539,16 @@ class DivisionIntroLesson(Scene):
         # 名称卡片：被除数 除数 商
         term_row = VGroup(
             VGroup(
-                Text("12", font="Noto Sans CJK SC", font_size=28, color=C_APPLE_HL),
-                Text("被除数", font="Noto Sans CJK SC", font_size=20, color=C_DIM),
+                Text("12", font="PingFang SC", font_size=28, color=C_APPLE_HL),
+                Text("被除数", font="PingFang SC", font_size=20, color=C_DIM),
             ).arrange(DOWN, buff=0.08),
             VGroup(
-                Text("3",  font="Noto Sans CJK SC", font_size=28, color=C_PLATE),
-                Text("除数", font="Noto Sans CJK SC", font_size=20, color=C_DIM),
+                Text("3",  font="PingFang SC", font_size=28, color=C_PLATE),
+                Text("除数", font="PingFang SC", font_size=20, color=C_DIM),
             ).arrange(DOWN, buff=0.08),
             VGroup(
-                Text("4",  font="Noto Sans CJK SC", font_size=28, color=C_FORMULA),
-                Text("商",  font="Noto Sans CJK SC", font_size=20, color=C_DIM),
+                Text("4",  font="PingFang SC", font_size=28, color=C_FORMULA),
+                Text("商",  font="PingFang SC", font_size=20, color=C_DIM),
             ).arrange(DOWN, buff=0.08),
         )
         term_row.arrange(RIGHT, buff=1.8)
@@ -575,17 +575,17 @@ class DivisionIntroLesson(Scene):
     def scene_outro(self):
         # 大作者名
         outro_name = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC",
+                          font="PingFang SC",
                           font_size=42, color=WHITE)
         outro_name.move_to(UP * 2.0)
 
         outro_id = Text("@emptyandcalm",
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=32, color=C_DIM)
         outro_id.next_to(outro_name, DOWN, buff=0.3)
 
         follow = Text("关注我，获得更多数学技巧！",
-                      font="Noto Sans CJK SC",
+                      font="PingFang SC",
                       font_size=30, color=C_TITLE)
         follow.move_to(DOWN * 0.2)
 

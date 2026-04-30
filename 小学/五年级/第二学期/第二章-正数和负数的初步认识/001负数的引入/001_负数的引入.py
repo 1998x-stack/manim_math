@@ -31,7 +31,7 @@ COLOR_HL     = "#fbbf24"   # 黄色高亮
 COLOR_RED    = "#ef4444"   # 红色强调
 COLOR_PURPLE = "#a78bfa"   # 紫色装饰
 COLOR_AUTHOR = "#6b7280"   # 灰色作者
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

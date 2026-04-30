@@ -139,7 +139,7 @@ class CubeRecognitionLesson(Scene):
         # 作者信息（顶部常驻）
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_AUTHOR
         ).move_to(UP * 7.0)
@@ -148,7 +148,7 @@ class CubeRecognitionLesson(Scene):
         # 钩子问题
         hook = Text(
             "你认识正方体吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -164,9 +164,9 @@ class CubeRecognitionLesson(Scene):
 
         # 问号装饰
         q_marks = VGroup(
-            Text("?", font="Noto Sans CJK SC", font_size=60,
+            Text("?", font="PingFang SC", font_size=60,
                  color=self.COLOR_HIGHLIGHT).move_to(LEFT * 3.2 + DOWN * 0.3),
-            Text("?", font="Noto Sans CJK SC", font_size=48,
+            Text("?", font="PingFang SC", font_size=48,
                  color=self.COLOR_HIGHLIGHT).move_to(RIGHT * 3.3 + UP * 1.0),
         )
         self.play(
@@ -191,7 +191,7 @@ class CubeRecognitionLesson(Scene):
         # 大标题
         title = Text(
             "正方体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=64,
             color=self.COLOR_TITLE,
             weight=BOLD
@@ -199,7 +199,7 @@ class CubeRecognitionLesson(Scene):
 
         subtitle = Text(
             "立体图形的一种",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_TEXT
         ).move_to(UP * 4.9)
@@ -221,7 +221,7 @@ class CubeRecognitionLesson(Scene):
         # 标注：生活中的例子
         rubik_label = Text(
             "生活中的正方体：魔方、骰子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TEXT
         ).move_to(DOWN * 2.8)
@@ -251,7 +251,7 @@ class CubeRecognitionLesson(Scene):
         # 场景标题
         face_title = Text(
             "正方体有 6 个面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.6)
@@ -275,7 +275,7 @@ class CubeRecognitionLesson(Scene):
         # 左侧面名列表
         name_items = VGroup()
         for name, col in zip(face_names, face_colors_list):
-            t = Text(name, font="Noto Sans CJK SC", font_size=28, color=col)
+            t = Text(name, font="PingFang SC", font_size=28, color=col)
             name_items.add(t)
         name_items.arrange(DOWN, buff=0.30, aligned_edge=LEFT)
         name_items.move_to(LEFT * 2.5 + DOWN * 2.2)
@@ -289,7 +289,7 @@ class CubeRecognitionLesson(Scene):
         # 计数器
         count_text = Text(
             "共 6 个面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -314,7 +314,7 @@ class CubeRecognitionLesson(Scene):
         # 场景标题
         sq_title = Text(
             "每个面都是正方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.6)
@@ -348,7 +348,7 @@ class CubeRecognitionLesson(Scene):
             sq.move_to(pos)
             squares_group.add(sq)
 
-            lbl_text = Text(lbl, font="Noto Sans CJK SC",
+            lbl_text = Text(lbl, font="PingFang SC",
                             font_size=24, color=col)
             lbl_text.next_to(sq, DOWN, buff=0.18)
             label_group.add(lbl_text)
@@ -365,7 +365,7 @@ class CubeRecognitionLesson(Scene):
         # 标注"每个面 = 正方形"
         sq_annot = Text(
             "每个面 = 正方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -373,7 +373,7 @@ class CubeRecognitionLesson(Scene):
         # 勾选标记
         checks = VGroup()
         for sq in squares_group:
-            ck = Text("✓", font="Noto Sans CJK SC",
+            ck = Text("✓", font="PingFang SC",
                       font_size=40, color=self.COLOR_HIGHLIGHT)
             ck.move_to(sq.get_center())
             checks.add(ck)
@@ -409,7 +409,7 @@ class CubeRecognitionLesson(Scene):
         # 场景标题
         same_title = Text(
             "6个面，大小完全相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.6)
@@ -445,11 +445,11 @@ class CubeRecognitionLesson(Scene):
                 sq.move_to(np.array([x, y, 0]))
                 grid_squares.add(sq)
 
-                num_t = Text(str(idx + 1), font="Noto Sans CJK SC",
+                num_t = Text(str(idx + 1), font="PingFang SC",
                              font_size=26, color=WHITE, weight=BOLD)
                 num_t.move_to(sq.get_center() + UP * 0.18)
 
-                name_t = Text(face_names_all[idx], font="Noto Sans CJK SC",
+                name_t = Text(face_names_all[idx], font="PingFang SC",
                               font_size=18, color="#a0c4ff")
                 name_t.move_to(sq.get_center() + DOWN * 0.22)
 
@@ -467,7 +467,7 @@ class CubeRecognitionLesson(Scene):
         # 强调"一样大"
         same_annot = Text(
             "一样大！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -501,7 +501,7 @@ class CubeRecognitionLesson(Scene):
 
         summary_text = Text(
             "正方体 = 6个面  每面正方形  大小相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(summary_box.get_center())
@@ -541,7 +541,7 @@ class CubeRecognitionLesson(Scene):
         # 总结卡片
         recap_title = Text(
             "今天学了什么？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -559,7 +559,7 @@ class CubeRecognitionLesson(Scene):
 
         point_group = VGroup()
         for pt, col in zip(points, point_colors):
-            t = Text(pt, font="Noto Sans CJK SC", font_size=34, color=col)
+            t = Text(pt, font="PingFang SC", font_size=34, color=col)
             point_group.add(t)
         point_group.arrange(DOWN, buff=0.55, aligned_edge=LEFT)
         point_group.move_to(UP * 2.8)
@@ -591,21 +591,21 @@ class CubeRecognitionLesson(Scene):
         # 作者信息（放大版）
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 4.6)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_AUTHOR
         ).next_to(author_big, DOWN, buff=0.25)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.3)

@@ -25,7 +25,7 @@ CELL = 0.58
 class UnderstandThousand(Scene):
     def construct(self):
         self.camera.background_color = "#1a1a2e"
-        self.F   = "Noto Sans CJK SC"
+        self.F   = "PingFang SC"
         self.C1  = "#42A5F5"   # 单个方块色
         self.C10 = "#26C6DA"   # 十方块色
         self.C100 = "#66BB6A"  # 百方块色

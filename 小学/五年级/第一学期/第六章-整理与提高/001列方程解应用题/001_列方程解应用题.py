@@ -36,7 +36,7 @@ COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_CHECK = "#a78bfa"       # 紫色检验
 COLOR_WARN = "#ef4444"        # 红色重点
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class EquationWordProblemLesson(Scene):

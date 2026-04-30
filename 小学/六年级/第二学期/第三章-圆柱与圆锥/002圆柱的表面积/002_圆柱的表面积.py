@@ -42,7 +42,7 @@ COLOR_RESULT = "#22c55e"
 COLOR_ACCENT = "#ef4444"
 COLOR_AUTHOR = "#6b7280"
 COLOR_FORMULA = "#38bdf8"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

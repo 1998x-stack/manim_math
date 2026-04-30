@@ -44,7 +44,7 @@ class AdditionLawLesson(Scene):
         # 品牌标识 (顶部固定)
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -66,14 +66,14 @@ class AdditionLawLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "25 + 37 + 75",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
 
         hook_line2 = Text(
             "你能秒算吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -85,7 +85,7 @@ class AdditionLawLesson(Scene):
         # 副标题
         subtitle = Text(
             "用加法定律，轻松搞定！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_C
         ).move_to(UP * 2.5)
@@ -95,7 +95,7 @@ class AdditionLawLesson(Scene):
         # 主标题
         main_title = Text(
             "加法交换律 & 结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.3)
@@ -119,7 +119,7 @@ class AdditionLawLesson(Scene):
         # 标题
         title = Text(
             "加法交换律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.0)
@@ -129,13 +129,13 @@ class AdditionLawLesson(Scene):
         # 定义文字
         def_text = Text(
             "两个数相加，交换加数的位置，",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.0)
         def_text2 = Text(
             "和不变。",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.4)
@@ -175,7 +175,7 @@ class AdditionLawLesson(Scene):
         # 具体示例: 3 + 5 = 5 + 3
         example_label = Text(
             "举例：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 1.7 + LEFT * 2.8)
@@ -199,7 +199,7 @@ class AdditionLawLesson(Scene):
         # 结果标注
         result_text = Text(
             "= 8        = 8",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_RESULT
         ).move_to(UP * 0.1)
@@ -227,7 +227,7 @@ class AdditionLawLesson(Scene):
         # 保留标题
         section_label = Text(
             "图形演示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.0)
@@ -241,7 +241,7 @@ class AdditionLawLesson(Scene):
             fill_opacity=0.9,
             stroke_width=0
         )
-        label_a = Text("a = 3", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+        label_a = Text("a = 3", font="PingFang SC", font_size=28, color=WHITE)
 
         block_b = RoundedRectangle(
             corner_radius=0.2,
@@ -250,7 +250,7 @@ class AdditionLawLesson(Scene):
             fill_opacity=0.9,
             stroke_width=0
         )
-        label_b = Text("b = 5", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+        label_b = Text("b = 5", font="PingFang SC", font_size=28, color=WHITE)
 
         # 初始排列: [A] + [B]
         group_a = VGroup(block_a, label_a).arrange(DOWN, buff=0)
@@ -311,7 +311,7 @@ class AdditionLawLesson(Scene):
         # 显示结果相同
         result_same = Text(
             "和不变！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.1)
@@ -340,7 +340,7 @@ class AdditionLawLesson(Scene):
         # 标题
         title = Text(
             "加法结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_C
         ).move_to(UP * 6.0)
@@ -351,13 +351,13 @@ class AdditionLawLesson(Scene):
         # 定义文字
         def_text = Text(
             "三个数相加，先加前两个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.0)
         def_text2 = Text(
             "或先加后两个，和不变。",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.4)
@@ -397,7 +397,7 @@ class AdditionLawLesson(Scene):
 
         # 括号高亮: 先框住 (a+b)
         brace_ab = Brace(VGroup(lp1, la, lplus, lb, lp2), direction=DOWN, color=self.COLOR_HIGHLIGHT)
-        brace_ab_label = Text("先加", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HIGHLIGHT)
+        brace_ab_label = Text("先加", font="PingFang SC", font_size=22, color=self.COLOR_HIGHLIGHT)
         brace_ab_label.next_to(brace_ab, DOWN, buff=0.1)
 
         self.play(Create(brace_ab), FadeIn(brace_ab_label), run_time=0.6)
@@ -405,7 +405,7 @@ class AdditionLawLesson(Scene):
 
         # 括号高亮: 右边 (b+c)
         brace_bc = Brace(VGroup(rp1, rb, rplus2, rc, rp2), direction=DOWN, color=self.COLOR_B)
-        brace_bc_label = Text("也可先加", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_B)
+        brace_bc_label = Text("也可先加", font="PingFang SC", font_size=22, color=self.COLOR_B)
         brace_bc_label.next_to(brace_bc, DOWN, buff=0.1)
 
         self.play(Create(brace_bc), FadeIn(brace_bc_label), run_time=0.6)
@@ -414,7 +414,7 @@ class AdditionLawLesson(Scene):
         # 具体示例: (2+3)+4 = 2+(3+4)
         example_label = Text(
             "举例：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 0.7 + LEFT * 2.8)
@@ -451,7 +451,7 @@ class AdditionLawLesson(Scene):
     def scene_5_associative_visual(self):
         section_label = Text(
             "图形演示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.0)
@@ -466,7 +466,7 @@ class AdditionLawLesson(Scene):
                 fill_opacity=0.85,
                 stroke_width=0
             )
-            lbl = Text(label_str, font="Noto Sans CJK SC", font_size=26, color=WHITE)
+            lbl = Text(label_str, font="PingFang SC", font_size=26, color=WHITE)
             lbl.move_to(rect.get_center())
             return VGroup(rect, lbl)
 
@@ -494,7 +494,7 @@ class AdditionLawLesson(Scene):
         )
         label_first = Text(
             "先加这两个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).next_to(bracket_ab, UP, buff=0.15)
@@ -523,7 +523,7 @@ class AdditionLawLesson(Scene):
         )
         label_second = Text(
             "换成先加这两个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_B
         ).next_to(bracket_bc, DOWN, buff=0.15)
@@ -550,7 +550,7 @@ class AdditionLawLesson(Scene):
         # 结论
         conclusion = Text(
             "和都是 9，不变！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.7)
@@ -575,7 +575,7 @@ class AdditionLawLesson(Scene):
         # 标题
         title = Text(
             "简便运算示例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.0)
@@ -584,7 +584,7 @@ class AdditionLawLesson(Scene):
         # 问题展示
         question_label = Text(
             "计算：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A
         ).move_to(UP * 5.0 + LEFT * 2.5)
@@ -601,7 +601,7 @@ class AdditionLawLesson(Scene):
         # 提示: 直接算很麻烦
         hint = Text(
             "直接按顺序算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 3.3)
@@ -616,7 +616,7 @@ class AdditionLawLesson(Scene):
         # 标注"麻烦"
         tedious = Text(
             "有点麻烦……",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_RESULT
         ).move_to(UP * 1.9)
@@ -629,7 +629,7 @@ class AdditionLawLesson(Scene):
         # 巧妙方法: 用交换律+结合律
         smart_label = Text(
             "用加法交换律+结合律！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_C
         ).move_to(UP * 3.3)
@@ -638,7 +638,7 @@ class AdditionLawLesson(Scene):
         # Step 1: 交换 37 和 75 (交换律)
         step1_label = Text(
             "第一步：交换律，交换37和75",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.6)
@@ -667,7 +667,7 @@ class AdditionLawLesson(Scene):
         # Step 2: 结合律，先算 (25+75)
         step2_label = Text(
             "第二步：结合律，先算(25+75)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 1.0)
@@ -715,14 +715,14 @@ class AdditionLawLesson(Scene):
         # Key takeaway
         takeaway = Text(
             "凑整再算，又快又准！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.0)
 
         takeaway2 = Text(
             "25 + 75 = 100  整百好计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.8)
@@ -750,7 +750,7 @@ class AdditionLawLesson(Scene):
         # 总结标题
         sum_title = Text(
             "知识小结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.8)
@@ -759,7 +759,7 @@ class AdditionLawLesson(Scene):
         # 交换律卡片
         card1_title = Text(
             "加法交换律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_A
         )
@@ -770,7 +770,7 @@ class AdditionLawLesson(Scene):
         card1_formula[0][6].set_color(self.COLOR_A)
         card1_desc = Text(
             "交换加数位置，和不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -793,14 +793,14 @@ class AdditionLawLesson(Scene):
         # 结合律卡片
         card2_title = Text(
             "加法结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_C
         )
         card2_formula = MathTex(r"(a+b)+c = a+(b+c)", font_size=36, color=WHITE)
         card2_desc = Text(
             "改变括号位置，和不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -822,7 +822,7 @@ class AdditionLawLesson(Scene):
         # 妙用卡片
         card3_title = Text(
             "结合使用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         )
@@ -855,7 +855,7 @@ class AdditionLawLesson(Scene):
         # 结尾关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.8)
@@ -865,13 +865,13 @@ class AdditionLawLesson(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 4.0)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color="#6b7280"
         ).move_to(DOWN * 4.7)

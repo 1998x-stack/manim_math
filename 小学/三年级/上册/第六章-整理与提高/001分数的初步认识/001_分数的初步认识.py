@@ -48,7 +48,7 @@ class FractionBasicLesson(Scene):
         # 作者信息 (顶部常驻)
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -124,12 +124,12 @@ class FractionBasicLesson(Scene):
     # ───────────────────────────────────────────────
     def scene_01_opening(self):
         # 标题
-        title = Text("分数的初步认识", font="Noto Sans CJK SC",
+        title = Text("分数的初步认识", font="PingFang SC",
                      font_size=44, color=self.COLOR_MAIN)
         title.move_to(UP * 5.8)
 
         question = Text("分蛋糕，怎么表示一半？",
-                        font="Noto Sans CJK SC", font_size=30,
+                        font="PingFang SC", font_size=30,
                         color=WHITE)
         question.move_to(UP * 4.8)
 
@@ -146,7 +146,7 @@ class FractionBasicLesson(Scene):
         self.play(Create(cake), run_time=0.7)
 
         # 问号
-        q_mark = Text("?", font="Noto Sans CJK SC",
+        q_mark = Text("?", font="PingFang SC",
                        font_size=72, color=self.COLOR_MAIN)
         q_mark.move_to(cake_center)
         self.play(FadeIn(q_mark, scale=0.5), run_time=0.4)
@@ -180,10 +180,10 @@ class FractionBasicLesson(Scene):
             run_time=0.8
         )
 
-        label_left = Text("一半", font="Noto Sans CJK SC",
+        label_left = Text("一半", font="PingFang SC",
                           font_size=28, color=YELLOW)
         label_left.next_to(left_half, DOWN, buff=0.2)
-        label_right = Text("一半", font="Noto Sans CJK SC",
+        label_right = Text("一半", font="PingFang SC",
                            font_size=28, color=YELLOW)
         label_right.next_to(right_half, DOWN, buff=0.2)
 
@@ -191,7 +191,7 @@ class FractionBasicLesson(Scene):
         self.wait(0.3)
 
         hint = Text("用什么数字来表示这一半？",
-                    font="Noto Sans CJK SC", font_size=26, color=GRAY_A)
+                    font="PingFang SC", font_size=26, color=GRAY_A)
         hint.move_to(DOWN * 1.5)
         self.play(FadeIn(hint, shift=UP * 0.2), run_time=0.5)
         self.wait(1.0)
@@ -209,7 +209,7 @@ class FractionBasicLesson(Scene):
     # Scene 2: 认识 1/2
     # ───────────────────────────────────────────────
     def scene_02_half(self):
-        title = Text("认识二分之一", font="Noto Sans CJK SC",
+        title = Text("认识二分之一", font="PingFang SC",
                      font_size=40, color=self.COLOR_MAIN)
         title.move_to(UP * 6.0)
         self.play(Write(title), run_time=0.6)
@@ -228,7 +228,7 @@ class FractionBasicLesson(Scene):
         self.play(Create(line_v), run_time=0.5)
 
         equal_label = Text("平均分成2份",
-                           font="Noto Sans CJK SC", font_size=26, color=GRAY_A)
+                           font="PingFang SC", font_size=26, color=GRAY_A)
         equal_label.move_to(UP * 1.9)
         self.play(FadeIn(equal_label), run_time=0.4)
         self.wait(0.3)
@@ -248,7 +248,7 @@ class FractionBasicLesson(Scene):
         )
 
         one_label = Text("取其中 1 份",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=YELLOW)
         one_label.move_to(UP * 1.3)
         self.play(FadeIn(one_label), run_time=0.4)
@@ -262,13 +262,13 @@ class FractionBasicLesson(Scene):
         self.play(Write(frac_half), run_time=1.0)
 
         # 读法 & 写法
-        read_label = Text("读作：二分之一", font="Noto Sans CJK SC",
+        read_label = Text("读作：二分之一", font="PingFang SC",
                           font_size=28, color=WHITE)
         read_label.move_to(DOWN * 1.8)
         self.play(FadeIn(read_label, shift=UP * 0.2), run_time=0.5)
 
         meaning = Text("表示把蛋糕平均分成2份，取其中1份",
-                       font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+                       font="PingFang SC", font_size=22, color=GRAY_A)
         meaning.move_to(DOWN * 2.6)
         self.play(FadeIn(meaning), run_time=0.4)
         self.wait(1.8)
@@ -285,7 +285,7 @@ class FractionBasicLesson(Scene):
     # Scene 3: 分子与分母的含义
     # ───────────────────────────────────────────────
     def scene_03_numerator_denominator(self):
-        title = Text("分子和分母", font="Noto Sans CJK SC",
+        title = Text("分子和分母", font="PingFang SC",
                      font_size=42, color=self.COLOR_MAIN)
         title.move_to(UP * 6.0)
         self.play(Write(title), run_time=0.6)
@@ -299,7 +299,7 @@ class FractionBasicLesson(Scene):
 
         # 分数线标注（向右引出）
         line_tip = frac.get_center() + DOWN * 0.0
-        line_label = Text("分数线", font="Noto Sans CJK SC",
+        line_label = Text("分数线", font="PingFang SC",
                           font_size=28, color=YELLOW)
         line_label.move_to(UP * 3.8 + RIGHT * 2.8)
         line_arrow = Arrow(
@@ -313,7 +313,7 @@ class FractionBasicLesson(Scene):
 
         # 分母标注（向下引）
         den_label = Text("分母：平均分成几份",
-                         font="Noto Sans CJK SC", font_size=25,
+                         font="PingFang SC", font_size=25,
                          color=self.COLOR_BLUE)
         den_label.move_to(UP * 2.3 + RIGHT * 1.8)
         den_arrow = Arrow(
@@ -327,7 +327,7 @@ class FractionBasicLesson(Scene):
 
         # 分子标注（向上引）
         num_label = Text("分子：取了几份",
-                         font="Noto Sans CJK SC", font_size=25,
+                         font="PingFang SC", font_size=25,
                          color=self.COLOR_ACCENT)
         num_label.move_to(UP * 5.2 + RIGHT * 1.8)
         num_arrow = Arrow(
@@ -341,7 +341,7 @@ class FractionBasicLesson(Scene):
 
         # 口诀框
         rule = Text("分母在下，分子在上\n中间一横是分数线",
-                    font="Noto Sans CJK SC", font_size=24,
+                    font="PingFang SC", font_size=24,
                     color=YELLOW, line_spacing=1.4)
         rule_box = SurroundingRectangle(rule, color=YELLOW,
                                         buff=0.3, corner_radius=0)
@@ -364,14 +364,14 @@ class FractionBasicLesson(Scene):
     # Scene 4: 认识几分之一 (1/4, 1/3)
     # ───────────────────────────────────────────────
     def scene_04_unit_fractions(self):
-        title = Text("几分之一", font="Noto Sans CJK SC",
+        title = Text("几分之一", font="PingFang SC",
                      font_size=42, color=self.COLOR_MAIN)
         title.move_to(UP * 6.2)
         self.play(Write(title), run_time=0.5)
 
         # ---- 四分之一 ----
         subtitle_4 = Text("平均分成4份，取1份  →  四分之一",
-                          font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+                          font="PingFang SC", font_size=24, color=GRAY_A)
         subtitle_4.move_to(UP * 5.4)
         self.play(FadeIn(subtitle_4), run_time=0.4)
 
@@ -397,7 +397,7 @@ class FractionBasicLesson(Scene):
         frac_q.move_to(UP * 1.8)
         self.play(Write(frac_q), run_time=0.7)
 
-        read_4 = Text("读作：四分之一", font="Noto Sans CJK SC",
+        read_4 = Text("读作：四分之一", font="PingFang SC",
                       font_size=26, color=WHITE)
         read_4.move_to(UP * 1.0)
         self.play(FadeIn(read_4), run_time=0.4)
@@ -411,7 +411,7 @@ class FractionBasicLesson(Scene):
 
         # ---- 三分之一 ----
         subtitle_3 = Text("平均分成3份，取1份  →  三分之一",
-                          font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+                          font="PingFang SC", font_size=24, color=GRAY_A)
         subtitle_3.move_to(UP * 5.4)
         self.play(FadeIn(subtitle_3), run_time=0.4)
 
@@ -436,7 +436,7 @@ class FractionBasicLesson(Scene):
         frac_t.move_to(UP * 1.8)
         self.play(Write(frac_t), run_time=0.7)
 
-        read_3 = Text("读作：三分之一", font="Noto Sans CJK SC",
+        read_3 = Text("读作：三分之一", font="PingFang SC",
                       font_size=26, color=WHITE)
         read_3.move_to(UP * 1.0)
         self.play(FadeIn(read_3), run_time=0.4)
@@ -444,7 +444,7 @@ class FractionBasicLesson(Scene):
 
         # 规律提示
         rule = Text("分成几份 → 分母写几",
-                    font="Noto Sans CJK SC", font_size=26,
+                    font="PingFang SC", font_size=26,
                     color=self.COLOR_GREEN)
         rule_box = SurroundingRectangle(rule, color=self.COLOR_GREEN,
                                         buff=0.2, corner_radius=0)
@@ -466,13 +466,13 @@ class FractionBasicLesson(Scene):
     # Scene 5: 认识几分之几 (2/3)
     # ───────────────────────────────────────────────
     def scene_05_non_unit_fraction(self):
-        title = Text("几分之几", font="Noto Sans CJK SC",
+        title = Text("几分之几", font="PingFang SC",
                      font_size=42, color=self.COLOR_MAIN)
         title.move_to(UP * 6.2)
         self.play(Write(title), run_time=0.5)
 
         subtitle = Text("平均分成3份，取其中2份",
-                        font="Noto Sans CJK SC", font_size=26, color=GRAY_A)
+                        font="PingFang SC", font_size=26, color=GRAY_A)
         subtitle.move_to(UP * 5.4)
         self.play(FadeIn(subtitle), run_time=0.4)
 
@@ -503,7 +503,7 @@ class FractionBasicLesson(Scene):
         label_colors = [WHITE, WHITE, GRAY_B]
         lbl_group = VGroup()
         for ang, txt, col in zip(angles_label, labels_text, label_colors):
-            lbl = Text(txt, font="Noto Sans CJK SC", font_size=30, color=col)
+            lbl = Text(txt, font="PingFang SC", font_size=30, color=col)
             lbl.move_to(cake_c + 0.72 * np.array([np.cos(ang), np.sin(ang), 0]))
             lbl_group.add(lbl)
         self.play(FadeIn(lbl_group), run_time=0.4)
@@ -515,15 +515,15 @@ class FractionBasicLesson(Scene):
         frac_23.move_to(UP * 1.7)
         self.play(Write(frac_23), run_time=0.8)
 
-        read_label = Text("读作：三分之二", font="Noto Sans CJK SC",
+        read_label = Text("读作：三分之二", font="PingFang SC",
                           font_size=28, color=WHITE)
         read_label.move_to(UP * 0.7)
         self.play(FadeIn(read_label, shift=UP * 0.2), run_time=0.5)
 
         # 解读
-        explain_num = Text("分子 2 → 取了 2 份", font="Noto Sans CJK SC",
+        explain_num = Text("分子 2 → 取了 2 份", font="PingFang SC",
                            font_size=24, color=self.COLOR_ACCENT)
-        explain_den = Text("分母 3 → 总共 3 份", font="Noto Sans CJK SC",
+        explain_den = Text("分母 3 → 总共 3 份", font="PingFang SC",
                            font_size=24, color=self.COLOR_BLUE)
         explain_group = VGroup(explain_num, explain_den).arrange(DOWN, buff=0.2)
         explain_group.move_to(DOWN * 0.5)
@@ -545,13 +545,13 @@ class FractionBasicLesson(Scene):
     # ───────────────────────────────────────────────
     def scene_06_compare_same_denominator(self):
         title = Text("比较大小（同分母）",
-                     font="Noto Sans CJK SC", font_size=36,
+                     font="PingFang SC", font_size=36,
                      color=self.COLOR_MAIN)
         title.move_to(UP * 6.2)
         self.play(Write(title), run_time=0.6)
 
         rule_intro = Text("分母相同时，怎么比大小？",
-                          font="Noto Sans CJK SC", font_size=26,
+                          font="PingFang SC", font_size=26,
                           color=GRAY_A)
         rule_intro.move_to(UP * 5.4)
         self.play(FadeIn(rule_intro), run_time=0.4)
@@ -586,10 +586,10 @@ class FractionBasicLesson(Scene):
         self.wait(0.3)
 
         # 对比箭头 + 说明
-        more_lbl = Text("多！", font="Noto Sans CJK SC",
+        more_lbl = Text("多！", font="PingFang SC",
                         font_size=24, color=self.COLOR_ACCENT)
         more_lbl.next_to(bar_34[1], DOWN, buff=0.08)
-        less_lbl = Text("少", font="Noto Sans CJK SC",
+        less_lbl = Text("少", font="PingFang SC",
                         font_size=24, color=self.COLOR_BLUE)
         less_lbl.next_to(bar_14[1], DOWN, buff=0.08)
 
@@ -604,7 +604,7 @@ class FractionBasicLesson(Scene):
 
         # 规律框
         rule_text = Text("分母相同：分子越大，分数越大",
-                         font="Noto Sans CJK SC", font_size=25,
+                         font="PingFang SC", font_size=25,
                          color=self.COLOR_GREEN)
         rule_box = SurroundingRectangle(rule_text, color=self.COLOR_GREEN,
                                         buff=0.2, corner_radius=0)
@@ -628,13 +628,13 @@ class FractionBasicLesson(Scene):
     # ───────────────────────────────────────────────
     def scene_07_compare_same_numerator(self):
         title = Text("比较大小（同分子）",
-                     font="Noto Sans CJK SC", font_size=36,
+                     font="PingFang SC", font_size=36,
                      color=self.COLOR_MAIN)
         title.move_to(UP * 6.2)
         self.play(Write(title), run_time=0.6)
 
         rule_intro = Text("分子相同时，分母大的分数反而小！",
-                          font="Noto Sans CJK SC", font_size=24,
+                          font="PingFang SC", font_size=24,
                           color=GRAY_A)
         rule_intro.move_to(UP * 5.4)
         self.play(FadeIn(rule_intro), run_time=0.4)
@@ -663,10 +663,10 @@ class FractionBasicLesson(Scene):
         self.wait(0.3)
 
         # 视觉说明
-        big_lbl = Text("份大！", font="Noto Sans CJK SC",
+        big_lbl = Text("份大！", font="PingFang SC",
                        font_size=24, color=self.COLOR_BLUE)
         big_lbl.next_to(bar_12[1], DOWN, buff=0.08)
-        small_lbl = Text("份小", font="Noto Sans CJK SC",
+        small_lbl = Text("份小", font="PingFang SC",
                          font_size=24, color=self.COLOR_ACCENT)
         small_lbl.next_to(bar_14[1], DOWN, buff=0.08)
         self.play(FadeIn(big_lbl), FadeIn(small_lbl), run_time=0.4)
@@ -679,7 +679,7 @@ class FractionBasicLesson(Scene):
 
         # 规律框
         rule_text = Text("分子相同：分母越大，每份越小\n所以分数反而越小",
-                         font="Noto Sans CJK SC", font_size=23,
+                         font="PingFang SC", font_size=23,
                          color=self.COLOR_ORANGE, line_spacing=1.4)
         rule_box = SurroundingRectangle(rule_text, color=self.COLOR_ORANGE,
                                         buff=0.2, corner_radius=0)
@@ -689,7 +689,7 @@ class FractionBasicLesson(Scene):
 
         # 记忆技巧
         tip = Text("记：分的份数越多，每份就越小！",
-                   font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+                   font="PingFang SC", font_size=22, color=GRAY_A)
         tip.move_to(DOWN * 1.2)
         self.play(FadeIn(tip, shift=UP * 0.2), run_time=0.4)
         self.wait(2.2)
@@ -710,7 +710,7 @@ class FractionBasicLesson(Scene):
     # ───────────────────────────────────────────────
     def scene_08_outro(self):
         # 总结标题
-        summary_title = Text("今日小结", font="Noto Sans CJK SC",
+        summary_title = Text("今日小结", font="PingFang SC",
                              font_size=48, color=self.COLOR_MAIN)
         summary_title.move_to(UP * 5.8)
         self.play(Write(summary_title), run_time=0.6)
@@ -725,9 +725,9 @@ class FractionBasicLesson(Scene):
 
         point_rows = VGroup()
         for num_str, text_str, col in points_data:
-            num_t = Text(num_str, font="Noto Sans CJK SC",
+            num_t = Text(num_str, font="PingFang SC",
                          font_size=28, color=col)
-            txt_t = Text(text_str, font="Noto Sans CJK SC",
+            txt_t = Text(text_str, font="PingFang SC",
                          font_size=24, color=WHITE)
             row = VGroup(num_t, txt_t).arrange(RIGHT, buff=0.25,
                                                aligned_edge=UP)
@@ -760,17 +760,17 @@ class FractionBasicLesson(Scene):
 
         # 关注提示
         follow = Text("关注我，获得更多数学技巧！",
-                      font="Noto Sans CJK SC", font_size=30,
+                      font="PingFang SC", font_size=30,
                       color=YELLOW)
         follow.move_to(DOWN * 1.2)
         self.play(FadeIn(follow, shift=UP * 0.3, scale=1.1), run_time=0.6)
 
         # 作者信息
         author_big = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC", font_size=34,
+                          font="PingFang SC", font_size=34,
                           color=WHITE)
         author_id = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=GRAY_B)
         author_group = VGroup(author_big, author_id).arrange(DOWN, buff=0.2)
         author_group.move_to(DOWN * 3.0)

@@ -37,7 +37,7 @@ COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_EXAMPLE = "#a78bfa"     # 紫色示例
 COLOR_WARN = "#f97316"        # 橙色警告
 COLOR_AUTHOR = "#6b7280"      # 灰色作者
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

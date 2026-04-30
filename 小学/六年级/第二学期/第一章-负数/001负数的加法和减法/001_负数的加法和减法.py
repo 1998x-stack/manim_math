@@ -116,7 +116,7 @@ class NegativeAddSubLesson(Scene):
 
         if label_text:
             label = Text(
-                label_text, font="Noto Sans CJK SC", font_size=18, color=color
+                label_text, font="PingFang SC", font_size=18, color=color
             )
             label.next_to(arrow, UP, buff=0.1)
             result.add(label)
@@ -130,7 +130,7 @@ class NegativeAddSubLesson(Scene):
         # Author
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -139,14 +139,14 @@ class NegativeAddSubLesson(Scene):
         # Hook question
         hook = Text(
             "5 - (-3) = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 3)
 
         hook_sub = Text(
             "减去一个负数会怎样?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A,
         ).move_to(UP * 1.5)
@@ -177,7 +177,7 @@ class NegativeAddSubLesson(Scene):
     def scene_2_number_line_review(self):
         title = Text(
             "数轴回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 5.5)
@@ -190,7 +190,7 @@ class NegativeAddSubLesson(Scene):
         # Mark origin
         origin_dot = self._make_dot(nl, 0, color=WHITE)
         origin_label = Text(
-            "原点", font="Noto Sans CJK SC", font_size=20, color=WHITE
+            "原点", font="PingFang SC", font_size=20, color=WHITE
         ).next_to(origin_dot, DOWN, buff=0.3)
 
         self.play(FadeIn(origin_dot), FadeIn(origin_label), run_time=0.5)
@@ -205,7 +205,7 @@ class NegativeAddSubLesson(Scene):
         )
         pos_label = Text(
             "正方向 (向右)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_POS,
         ).next_to(pos_arrow, UP, buff=0.1)
@@ -222,7 +222,7 @@ class NegativeAddSubLesson(Scene):
         )
         neg_label = Text(
             "负方向 (向左)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_NEG,
         ).next_to(neg_arrow, UP, buff=0.1)
@@ -232,7 +232,7 @@ class NegativeAddSubLesson(Scene):
         # Key concept
         key_text = Text(
             "加法 = 在数轴上移动!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3)
@@ -259,7 +259,7 @@ class NegativeAddSubLesson(Scene):
     def scene_3_add_positive(self):
         title = Text(
             "加正数: 向右移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_POS,
         ).move_to(UP * 5.5)
@@ -287,7 +287,7 @@ class NegativeAddSubLesson(Scene):
         # Move right by 3
         move_text = Text(
             "+3 : 向右移动3格",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_POS,
         ).move_to(DOWN * 2)
@@ -337,7 +337,7 @@ class NegativeAddSubLesson(Scene):
     def scene_4_add_negative(self):
         title = Text(
             "加负数: 向左移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_NEG,
         ).move_to(UP * 5.5)
@@ -363,7 +363,7 @@ class NegativeAddSubLesson(Scene):
         # Explanation
         explain = Text(
             "+(-3) : 加负数 = 向左移动3格",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NEG,
         ).move_to(DOWN * 2)
@@ -402,7 +402,7 @@ class NegativeAddSubLesson(Scene):
         # Key insight
         insight = Text(
             "加上一个负数 = 减去它的绝对值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4)
@@ -421,7 +421,7 @@ class NegativeAddSubLesson(Scene):
     def scene_5_rule_summary_1(self):
         title = Text(
             "规则一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -445,7 +445,7 @@ class NegativeAddSubLesson(Scene):
 
         rule_text = Text(
             "加上一个负数，等于减去这个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 2.0)
@@ -456,7 +456,7 @@ class NegativeAddSubLesson(Scene):
 
         # Examples
         ex1_label = Text(
-            "例1:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "例1:", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(UP * 0.5 + LEFT * 2.5)
 
         ex1 = MathTex(
@@ -464,7 +464,7 @@ class NegativeAddSubLesson(Scene):
         ).next_to(ex1_label, RIGHT, buff=0.3)
 
         ex2_label = Text(
-            "例2:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "例2:", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(DOWN * 0.5 + LEFT * 2.5)
 
         ex2 = MathTex(
@@ -472,7 +472,7 @@ class NegativeAddSubLesson(Scene):
         ).next_to(ex2_label, RIGHT, buff=0.3)
 
         ex3_label = Text(
-            "例3:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "例3:", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(DOWN * 1.5 + LEFT * 2.5)
 
         ex3 = MathTex(
@@ -497,7 +497,7 @@ class NegativeAddSubLesson(Scene):
     def scene_6_sub_positive(self):
         title = Text(
             "减正数: 向左移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_NEG,
         ).move_to(UP * 5.5)
@@ -521,7 +521,7 @@ class NegativeAddSubLesson(Scene):
 
         explain = Text(
             "-3 : 减去正数 = 向左移动3格",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NEG,
         ).move_to(DOWN * 2)
@@ -556,7 +556,7 @@ class NegativeAddSubLesson(Scene):
         # Comparison note
         compare = Text(
             "和 5+(-3) 结果一样!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4)
@@ -575,7 +575,7 @@ class NegativeAddSubLesson(Scene):
     def scene_7_sub_negative(self):
         title = Text(
             "减负数: 向右移动!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_POS,
         ).move_to(UP * 5.5)
@@ -600,14 +600,14 @@ class NegativeAddSubLesson(Scene):
         # Key explanation
         explain_1 = Text(
             "减去(-3)  =  加上(+3)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.5)
 
         explain_2 = Text(
             "减去负数 = 加上它的相反数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 2.2)
@@ -672,7 +672,7 @@ class NegativeAddSubLesson(Scene):
     def scene_8_rule_summary_2(self):
         title = Text(
             "规则二",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -696,7 +696,7 @@ class NegativeAddSubLesson(Scene):
 
         rule_text = Text(
             "减去一个负数，等于加上这个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 2.0)
@@ -707,7 +707,7 @@ class NegativeAddSubLesson(Scene):
 
         # Examples
         ex1_label = Text(
-            "例1:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "例1:", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(UP * 0.5 + LEFT * 2.5)
 
         ex1 = MathTex(
@@ -715,7 +715,7 @@ class NegativeAddSubLesson(Scene):
         ).next_to(ex1_label, RIGHT, buff=0.3)
 
         ex2_label = Text(
-            "例2:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "例2:", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(DOWN * 0.5 + LEFT * 2.5)
 
         ex2 = MathTex(
@@ -723,7 +723,7 @@ class NegativeAddSubLesson(Scene):
         ).next_to(ex2_label, RIGHT, buff=0.3)
 
         ex3_label = Text(
-            "例3:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "例3:", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(DOWN * 1.5 + LEFT * 2.5)
 
         ex3 = MathTex(
@@ -748,7 +748,7 @@ class NegativeAddSubLesson(Scene):
     def scene_9_full_summary(self):
         title = Text(
             "总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -768,7 +768,7 @@ class NegativeAddSubLesson(Scene):
 
         header_text = Text(
             "负数加减法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 4.0)
@@ -791,19 +791,19 @@ class NegativeAddSubLesson(Scene):
         ).move_to(UP * 2.8 + LEFT * 2)
 
         row1_arrow = Text(
-            "-->", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "-->", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(UP * 2.8)
 
         row1_desc = Text(
             "向右移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_POS,
         ).move_to(UP * 2.8 + RIGHT * 2)
 
         row1_note = Text(
             "b > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B,
         ).move_to(UP * 2.2)
@@ -834,14 +834,14 @@ class NegativeAddSubLesson(Scene):
 
         row2_desc = Text(
             "向左移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NEG,
         ).move_to(UP * 1.2 + RIGHT * 2.5)
 
         row2_note = Text(
             "加负数 = 减正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B,
         ).move_to(UP * 0.6)
@@ -871,19 +871,19 @@ class NegativeAddSubLesson(Scene):
         ).move_to(DOWN * 0.4 + LEFT * 2)
 
         row3_arrow = Text(
-            "-->", font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            "-->", font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(DOWN * 0.4)
 
         row3_desc = Text(
             "向左移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NEG,
         ).move_to(DOWN * 0.4 + RIGHT * 2)
 
         row3_note = Text(
             "b > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B,
         ).move_to(DOWN * 1.0)
@@ -914,14 +914,14 @@ class NegativeAddSubLesson(Scene):
 
         row4_desc = Text(
             "向右移动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_POS,
         ).move_to(DOWN * 2.0 + RIGHT * 2.5)
 
         row4_note = Text(
             "减负数 = 加正数 (核心!)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.6)
@@ -943,7 +943,7 @@ class NegativeAddSubLesson(Scene):
         # Memory tip
         tip = Text(
             "口诀: 负负得正, 加减互换!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.5)
@@ -963,14 +963,14 @@ class NegativeAddSubLesson(Scene):
         # Author info
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B,
         ).move_to(UP * 0.5)
@@ -984,7 +984,7 @@ class NegativeAddSubLesson(Scene):
 
         follow = Text(
             "关注我, 获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.0)

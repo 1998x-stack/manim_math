@@ -34,7 +34,7 @@ COLOR_RESULT  = "#a78bfa"   # 紫色   — 最终结果
 COLOR_AUTHOR  = "#6b7280"   # 灰色   — 作者信息
 COLOR_BG_CARD = "#16213e"   # 深蓝   — 卡片背景
 COLOR_ACCENT  = "#ef4444"   # 红色   — 强调
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

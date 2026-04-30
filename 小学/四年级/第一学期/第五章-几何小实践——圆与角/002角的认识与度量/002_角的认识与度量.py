@@ -36,7 +36,7 @@ COLOR_HL          = "#fbbf24"      # 黄  — 高亮
 COLOR_CIRCLE      = "#a78bfa"      # 紫  — 圆
 COLOR_PROTRACTOR  = "#06b6d4"      # 青  — 量角器
 COLOR_AUTHOR      = "#6b7280"
-FONT              = "Noto Sans CJK SC"
+FONT              = "PingFang SC"
 
 
 # ======================================================================

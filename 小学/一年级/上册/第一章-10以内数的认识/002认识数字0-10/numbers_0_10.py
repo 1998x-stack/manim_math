@@ -28,7 +28,7 @@ COLOR_DOT = "#f39c12"
 COLOR_TEXT = WHITE
 COLOR_DIM = "#888888"
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 def make_dot_array(n, dot_radius=0.16, spacing=0.45, color=COLOR_DOT):

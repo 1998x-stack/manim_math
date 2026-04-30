@@ -39,7 +39,7 @@ COLOR_RULE = "#a78bfa"          # 紫色简写规则
 COLOR_WARN = "#ef4444"          # 红色重点
 COLOR_AUTHOR = "#6b7280"        # 灰色作者信息
 COLOR_ARROW = "#ec4899"         # 粉色箭头
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class LetterRepresentLesson(Scene):

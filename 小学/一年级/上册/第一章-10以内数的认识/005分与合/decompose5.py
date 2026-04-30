@@ -24,7 +24,7 @@ C_LEFT    = "#3498db"   # 蓝  → 左组
 C_RIGHT   = "#e74c3c"   # 红  → 右组
 C_ACTIVE  = "#2ecc71"   # 绿  → 高亮/合并
 C_DIM     = "#888899"
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 # 布局常量（与 verify_decompose.py 一致）
 TOP_N    = 5

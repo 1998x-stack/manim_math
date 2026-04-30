@@ -35,7 +35,7 @@ COLOR_ERR    = "#ef4444"   # 红色 错误/调商
 COLOR_GUESS  = "#a78bfa"   # 紫色 试商数字
 COLOR_AUX    = "#94a3b8"   # 灰蓝 辅助文字
 COLOR_AUTHOR = "#6b7280"   # 灰色 作者
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

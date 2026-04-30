@@ -35,7 +35,7 @@ COLOR_RESULT = "#ef4444"        # 红色结果
 COLOR_UNIT = "#a78bfa"          # 紫色 位值
 COLOR_AUTHOR = "#6b7280"        # 灰色作者信息
 COLOR_BOX = "#1e3a5f"           # 深蓝 背景框
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

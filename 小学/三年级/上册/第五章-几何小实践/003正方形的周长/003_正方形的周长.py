@@ -56,7 +56,7 @@ class SquarePerimeterLesson(Scene):
         # 品牌标识（全程保留）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -113,7 +113,7 @@ class SquarePerimeterLesson(Scene):
     def scene_hook(self):
         question = Text(
             "知道边长，能算出周长吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=YELLOW,
         ).move_to(UP * 5.5)
@@ -132,7 +132,7 @@ class SquarePerimeterLesson(Scene):
     def scene_intro_square(self):
         title = Text(
             "正方形的特点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=COLOR_SQUARE,
         ).move_to(UP * 6.2)
@@ -178,7 +178,7 @@ class SquarePerimeterLesson(Scene):
         # 说明文字
         hint = Text(
             "正方形：四条边都相等，四个直角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_HINT,
         ).move_to(DOWN * 4.8)
@@ -202,7 +202,7 @@ class SquarePerimeterLesson(Scene):
     def scene_four_sides(self):
         title = Text(
             "周长 = 四条边之和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=YELLOW,
         ).move_to(UP * 6.2)
@@ -265,7 +265,7 @@ class SquarePerimeterLesson(Scene):
     def scene_formula(self):
         title = Text(
             "化简得到公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -285,7 +285,7 @@ class SquarePerimeterLesson(Scene):
         # 说明：因为正方形四边相等
         explain0 = Text(
             "因为四条边都等于 a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_HINT,
         ).move_to(DOWN * 3.2)
@@ -329,7 +329,7 @@ class SquarePerimeterLesson(Scene):
         # 文字图例
         legend = VGroup(
             MathTex("a", font_size=30, color=COLOR_SIDE),
-            Text("：边长", font="Noto Sans CJK SC",
+            Text("：边长", font="PingFang SC",
                  font_size=26, color=COLOR_SIDE),
         ).arrange(RIGHT, buff=0.08)
         legend.move_to(DOWN * 7.0)
@@ -352,7 +352,7 @@ class SquarePerimeterLesson(Scene):
 
         title = Text(
             "例题：求正方形的周长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=COLOR_EXAMPLE,
         ).move_to(UP * 6.2)
@@ -364,7 +364,7 @@ class SquarePerimeterLesson(Scene):
         )
         lbl_a = VGroup(
             MathTex("a", r"=", font_size=28, color=COLOR_SIDE),
-            Text(f"{a_val} cm", font="Noto Sans CJK SC",
+            Text(f"{a_val} cm", font="PingFang SC",
                  font_size=28, color=COLOR_SIDE),
         ).arrange(RIGHT, buff=0.05)
         brace_bottom.put_at_tip(lbl_a, buff=0.1)
@@ -406,7 +406,7 @@ class SquarePerimeterLesson(Scene):
 
         ans_text = Text(
             f"周长为 {result} 厘米",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 6.6)
@@ -427,7 +427,7 @@ class SquarePerimeterLesson(Scene):
     def scene_reverse(self):
         title = Text(
             "逆向思维：已知周长求边长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -436,13 +436,13 @@ class SquarePerimeterLesson(Scene):
         # 问题描述
         q1 = Text(
             "周长 = 32 cm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         ).move_to(UP * 5.0)
         q2 = Text(
             "边长 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=YELLOW,
         ).next_to(q1, DOWN, buff=0.25)
@@ -453,23 +453,23 @@ class SquarePerimeterLesson(Scene):
         # 解题步骤标题
         step_title = Text(
             "解题步骤：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_HINT,
         ).move_to(UP * 3.6)
         self.play(Write(step_title), run_time=0.4)
 
         # C = 4a  →  a = C ÷ 4
-        s1_left = Text("由公式", font="Noto Sans CJK SC",
+        s1_left = Text("由公式", font="PingFang SC",
                         font_size=28, color=WHITE)
         s1_mid  = MathTex(r"C = 4a", font_size=28, color=COLOR_FORMULA)
-        s1_right = Text("得：", font="Noto Sans CJK SC",
+        s1_right = Text("得：", font="PingFang SC",
                          font_size=28, color=WHITE)
         s1 = VGroup(s1_left, s1_mid, s1_right).arrange(RIGHT, buff=0.12)
         s1.move_to(UP * 2.7)
         self.play(Write(s1), run_time=0.6)
 
-        s2_left = Text("边长", font="Noto Sans CJK SC",
+        s2_left = Text("边长", font="PingFang SC",
                         font_size=30, color=COLOR_SIDE)
         s2_eq   = MathTex(r"= C \div 4 = 32 \div 4 = 8",
                            font_size=30, color=COLOR_EXAMPLE)
@@ -480,7 +480,7 @@ class SquarePerimeterLesson(Scene):
         # 最终答案框
         ans_text = Text(
             "边长 = 8 厘米",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_ANSWER,
         ).move_to(UP * 0.5)
@@ -493,7 +493,7 @@ class SquarePerimeterLesson(Scene):
         # 验证
         verify = Text(
             "验证：8 × 4 = 32 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_HINT,
         ).move_to(DOWN * 0.6)
@@ -517,7 +517,7 @@ class SquarePerimeterLesson(Scene):
         # 公式复习卡
         card_title = Text(
             "正方形周长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(UP * 3.5)
@@ -531,7 +531,7 @@ class SquarePerimeterLesson(Scene):
         # 说明
         legend = VGroup(
             MathTex("a", font_size=32, color=COLOR_SIDE),
-            Text("：边长", font="Noto Sans CJK SC",
+            Text("：边长", font="PingFang SC",
                  font_size=28, color=COLOR_SIDE),
         ).arrange(RIGHT, buff=0.08)
         legend.move_to(UP * 0.9)
@@ -539,7 +539,7 @@ class SquarePerimeterLesson(Scene):
         # 记忆口诀
         tip = Text(
             "四条边都相等 → 边长乘以 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_HINT,
         ).move_to(UP * 0.0)
@@ -553,7 +553,7 @@ class SquarePerimeterLesson(Scene):
         # 关注提示
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 1.2)
@@ -562,13 +562,13 @@ class SquarePerimeterLesson(Scene):
         # 作者大字
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(DOWN * 2.4)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color="#6b7280",
         ).move_to(DOWN * 3.2)

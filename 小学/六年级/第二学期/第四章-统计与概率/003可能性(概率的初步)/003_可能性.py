@@ -44,7 +44,7 @@ COLOR_FORMULA = "#38bdf8"    # 浅蓝公式
 COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
 COLOR_COIN = "#facc15"       # 金色硬币
 COLOR_DICE = "#e2e8f0"       # 骰子白色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

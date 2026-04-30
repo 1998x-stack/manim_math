@@ -34,7 +34,7 @@ COLOR_ARROW    = "#a78bfa"   # 紫色  箭头 / 变换
 COLOR_HL       = "#fbbf24"   # 黄色  高亮
 COLOR_GRAY_TXT = "#9ca3af"   # 灰色  辅助文字
 COLOR_AUTHOR   = "#6b7280"   # 灰色  作者信息
-FONT           = "Noto Sans CJK SC"
+FONT           = "PingFang SC"
 
 
 # ======================================================================

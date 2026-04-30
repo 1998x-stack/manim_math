@@ -46,7 +46,7 @@ COLOR_SUB = "#ef4444"         # 红色
 COLOR_AUTHOR = "#6b7280"      # 灰色作者信息
 COLOR_NUMERATOR = "#f472b6"   # 粉色 分子
 COLOR_DENOMINATOR = "#38bdf8" # 天蓝色 分母
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

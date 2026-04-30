@@ -124,7 +124,7 @@ class DoubleBarChartLesson(Scene):
             )
             tick_label = Text(
                 str(y_val),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=font_size_axis,
                 color=self.COLOR_AXIS,
             ).next_to(tick, LEFT, buff=0.08)
@@ -149,7 +149,7 @@ class DoubleBarChartLesson(Scene):
             x_center = group_x_start + total_bar_span / 2
             x_lbl = Text(
                 label,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=font_size_axis,
                 color=self.COLOR_TEXT,
             ).move_to(np.array([x_center, chart_origin[1] - 0.32, 0]))
@@ -179,7 +179,7 @@ class DoubleBarChartLesson(Scene):
                 if show_values:
                     val_lbl = Text(
                         str(val),
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=15,
                         color=color,
                     ).move_to(
@@ -216,7 +216,7 @@ class DoubleBarChartLesson(Scene):
             )
             lbl = Text(
                 lbl_str,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=self.COLOR_TEXT,
             )
@@ -234,7 +234,7 @@ class DoubleBarChartLesson(Scene):
         # 作者信息
         self.author_tag = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -243,13 +243,13 @@ class DoubleBarChartLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "男生和女生",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=46,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.2)
         hook_line2 = Text(
             "谁的成绩更好？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_TEXT,
         ).move_to(UP * 4.3)
@@ -265,7 +265,7 @@ class DoubleBarChartLesson(Scene):
             stroke_width=0,
         )
         boy_block_label = Text(
-            "男生", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_BOY
+            "男生", font="PingFang SC", font_size=24, color=self.COLOR_BOY
         )
         boy_group = VGroup(boy_block, boy_block_label).arrange(DOWN, buff=0.18)
         boy_group.move_to(LEFT * 2.0 + UP * 2.2)
@@ -277,13 +277,13 @@ class DoubleBarChartLesson(Scene):
             stroke_width=0,
         )
         girl_block_label = Text(
-            "女生", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GIRL
+            "女生", font="PingFang SC", font_size=24, color=self.COLOR_GIRL
         )
         girl_group = VGroup(girl_block, girl_block_label).arrange(DOWN, buff=0.18)
         girl_group.move_to(RIGHT * 2.0 + UP * 2.2)
 
         vs_text = Text(
-            "VS", font="Noto Sans CJK SC", font_size=38, color=self.COLOR_HIGHLIGHT
+            "VS", font="PingFang SC", font_size=38, color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
 
         self.play(
@@ -295,7 +295,7 @@ class DoubleBarChartLesson(Scene):
 
         guide = Text(
             "用复式条形统计图来看看！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 0.8)
@@ -319,14 +319,14 @@ class DoubleBarChartLesson(Scene):
     def scene_2_single_bar_review(self):
         title = Text(
             "单式条形统计图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.8)
 
         subtitle = Text(
             "只能表示一组数据",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color="#aab0bb",
         ).move_to(UP * 5.1)
@@ -354,14 +354,14 @@ class DoubleBarChartLesson(Scene):
 
         chart_title = Text(
             "男生各科成绩统计图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_BOY,
         ).move_to(np.array([chart_origin[0] + 3.4, chart_origin[1] + 4.6, 0]))
 
         y_label = Text(
             "分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=17,
             color=self.COLOR_AXIS,
         ).move_to(np.array([chart_origin[0] - 0.65, chart_origin[1] + 2.0, 0]))
@@ -395,7 +395,7 @@ class DoubleBarChartLesson(Scene):
 
         problem = Text(
             "问题：女生的数据放哪里？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GIRL,
         ).move_to(DOWN * 4.5)
@@ -421,14 +421,14 @@ class DoubleBarChartLesson(Scene):
     def scene_3_double_bar_intro(self):
         self._scene3_title = Text(
             "复式条形统计图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.8)
 
         self._scene3_subtitle = Text(
             "同时表示多组数据，方便对比！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.1)
@@ -463,7 +463,7 @@ class DoubleBarChartLesson(Scene):
 
         self._y_label = Text(
             "分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=17,
             color=self.COLOR_AXIS,
         ).move_to(np.array([self._chart_origin[0] - 0.65, self._chart_origin[1] + 2.0, 0]))
@@ -491,7 +491,7 @@ class DoubleBarChartLesson(Scene):
 
         boy_tip = Text(
             "蓝色 = 男生数据",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_BOY,
         ).move_to(DOWN * 4.5)
@@ -511,7 +511,7 @@ class DoubleBarChartLesson(Scene):
 
         girl_tip = Text(
             "粉色 = 女生数据",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GIRL,
         ).move_to(DOWN * 4.5)
@@ -534,7 +534,7 @@ class DoubleBarChartLesson(Scene):
     def scene_4_legend_and_reading(self):
         new_title = Text(
             "如何读图？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.8)
@@ -547,7 +547,7 @@ class DoubleBarChartLesson(Scene):
 
         step1 = Text(
             "① 看图例：蓝=男生，粉=女生",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21,
             color=self.COLOR_TEXT,
         ).move_to(UP * 5.08)
@@ -562,7 +562,7 @@ class DoubleBarChartLesson(Scene):
 
         step2 = Text(
             "② 找科目：看横轴的类别名称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21,
             color=self.COLOR_TEXT,
         ).move_to(UP * 4.55)
@@ -578,14 +578,14 @@ class DoubleBarChartLesson(Scene):
             buff=0.08,
         )
         math_label = Text(
-            "数学", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_TITLE
+            "数学", font="PingFang SC", font_size=20, color=self.COLOR_TITLE
         ).next_to(highlight_box, DOWN, buff=0.1)
         self.play(Create(highlight_box), Write(math_label), run_time=0.4)
         self.wait(0.5)
 
         step3 = Text(
             "③ 读高度：对应纵轴的数值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21,
             color=self.COLOR_TEXT,
         ).move_to(UP * 4.05)
@@ -612,10 +612,10 @@ class DoubleBarChartLesson(Scene):
             color=self.COLOR_GIRL, stroke_width=2, dash_length=0.12,
         )
         boy_score_lbl = Text(
-            "92分", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_BOY
+            "92分", font="PingFang SC", font_size=20, color=self.COLOR_BOY
         ).next_to(math_boy_bar, UP, buff=0.1)
         girl_score_lbl = Text(
-            "86分", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_GIRL
+            "86分", font="PingFang SC", font_size=20, color=self.COLOR_GIRL
         ).next_to(math_girl_bar, UP, buff=0.1)
 
         self.play(Create(boy_h_line), Create(girl_h_line), run_time=0.5)
@@ -623,7 +623,7 @@ class DoubleBarChartLesson(Scene):
 
         read_result = Text(
             "数学：男生92分，女生86分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.5)
@@ -645,7 +645,7 @@ class DoubleBarChartLesson(Scene):
     def scene_5_comparison_analysis(self):
         title = Text(
             "对比分析",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.8)
@@ -670,18 +670,18 @@ class DoubleBarChartLesson(Scene):
 
             boy_val = Text(
                 f"男: {boy_s}分",
-                font="Noto Sans CJK SC", font_size=22, color=self.COLOR_BOY,
+                font="PingFang SC", font_size=22, color=self.COLOR_BOY,
             )
             girl_val = Text(
                 f"女: {girl_s}分",
-                font="Noto Sans CJK SC", font_size=22, color=self.COLOR_GIRL,
+                font="PingFang SC", font_size=22, color=self.COLOR_GIRL,
             )
             compare_row = VGroup(boy_val, girl_val).arrange(RIGHT, buff=0.5)
             compare_row.move_to(UP * 5.05)
 
             winner_label = Text(
                 winner_text,
-                font="Noto Sans CJK SC", font_size=28, color=winner_color,
+                font="PingFang SC", font_size=28, color=winner_color,
             ).move_to(UP * 4.38)
 
             self.play(Create(highlight), FadeIn(compare_row), run_time=0.35)
@@ -703,27 +703,27 @@ class DoubleBarChartLesson(Scene):
 
         conclusion_title = Text(
             "综合结论",
-            font="Noto Sans CJK SC", font_size=26, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=26, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.42)
 
         boy_stat = Text(
             f"男生总分：{boy_total}分  平均：{boy_avg:.0f}分",
-            font="Noto Sans CJK SC", font_size=21, color=self.COLOR_BOY,
+            font="PingFang SC", font_size=21, color=self.COLOR_BOY,
         ).move_to(UP * 4.85)
         girl_stat = Text(
             f"女生总分：{girl_total}分  平均：{girl_avg:.0f}分",
-            font="Noto Sans CJK SC", font_size=21, color=self.COLOR_GIRL,
+            font="PingFang SC", font_size=21, color=self.COLOR_GIRL,
         ).move_to(UP * 4.32)
 
         if boy_avg > girl_avg:
             final_text = Text(
                 "男生平均分更高！",
-                font="Noto Sans CJK SC", font_size=24, color=self.COLOR_BOY,
+                font="PingFang SC", font_size=24, color=self.COLOR_BOY,
             )
         else:
             final_text = Text(
                 "女生平均分更高！",
-                font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GIRL,
+                font="PingFang SC", font_size=24, color=self.COLOR_GIRL,
             )
         final_text.move_to(UP * 3.78)
 
@@ -753,7 +753,7 @@ class DoubleBarChartLesson(Scene):
     def scene_6_summary(self):
         title = Text(
             "知识要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.5)
@@ -770,10 +770,10 @@ class DoubleBarChartLesson(Scene):
         point_groups = VGroup()
         for num_str, text_str, color in points_data:
             num_t = Text(
-                num_str, font="Noto Sans CJK SC", font_size=30, color=color,
+                num_str, font="PingFang SC", font_size=30, color=color,
             )
             content_t = Text(
-                text_str, font="Noto Sans CJK SC", font_size=22,
+                text_str, font="PingFang SC", font_size=22,
                 color=self.COLOR_TEXT, line_spacing=1.2,
             )
             row = VGroup(num_t, content_t).arrange(RIGHT, buff=0.3, aligned_edge=UP)
@@ -795,10 +795,10 @@ class DoubleBarChartLesson(Scene):
             stroke_color=self.COLOR_BOY, stroke_width=2,
         ).move_to(DOWN * 5.0)
         practice_q1 = Text(
-            "练一练：", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_TITLE,
+            "练一练：", font="PingFang SC", font_size=22, color=self.COLOR_TITLE,
         )
         practice_q2 = Text(
-            "哪科男女差距最大？", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_TEXT,
+            "哪科男女差距最大？", font="PingFang SC", font_size=22, color=self.COLOR_TEXT,
         )
         practice_row = VGroup(practice_q1, practice_q2).arrange(RIGHT, buff=0.15)
         practice_row.move_to(practice_bg.get_center())
@@ -821,15 +821,15 @@ class DoubleBarChartLesson(Scene):
     def scene_7_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=36, color=WHITE,
+            font="PingFang SC", font_size=36, color=WHITE,
         ).move_to(UP * 1.5)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color="#aab0bb",
+            font="PingFang SC", font_size=28, color="#aab0bb",
         ).move_to(UP * 0.7)
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC", font_size=30, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=30, color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.2)
 
         # 装饰小条形图
@@ -853,7 +853,7 @@ class DoubleBarChartLesson(Scene):
 
         tip = Text(
             "复式条形图 = 多组数据对比神器",
-            font="Noto Sans CJK SC", font_size=20, color="#aab0bb",
+            font="PingFang SC", font_size=20, color="#aab0bb",
         ).move_to(DOWN * 4.3)
         self.play(FadeIn(tip), run_time=0.4)
 

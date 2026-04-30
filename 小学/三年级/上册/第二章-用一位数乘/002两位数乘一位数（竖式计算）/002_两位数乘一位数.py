@@ -63,7 +63,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 作者品牌
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -72,14 +72,14 @@ class TwoDigitTimeOneLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "28 × 4 怎么算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.0)
 
         hook_line2 = Text(
             "竖式乘法轻松搞定！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TEXT,
         ).move_to(UP * 3.8)
@@ -107,14 +107,14 @@ class TwoDigitTimeOneLesson(Scene):
     def scene_problem(self):
         title = Text(
             "两位数 × 一位数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.0)
 
         subtitle = Text(
             "用竖式计算  28 × 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TEXT,
         ).move_to(UP * 5.0)
@@ -126,7 +126,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 解释竖式是什么
         explain = Text(
             "把数字上下排列，逐位相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_STEP,
         ).move_to(UP * 3.8)
@@ -215,7 +215,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 说明：相同数位对齐
         align_tip = Text(
             "个位对齐个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_STEP,
         ).move_to(DOWN * 2.0)
@@ -242,7 +242,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 步骤标题
         step1_title = Text(
             "第一步：先算个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ONES,
         ).move_to(DOWN * 1.8)
@@ -260,7 +260,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 个位计算说明
         calc_line1 = Text(
             "个位：8 × 4 = 32",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ONES,
         ).move_to(DOWN * 2.8)
@@ -270,7 +270,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 说明：32 满了三十，写2进3
         carry_explain = Text(
             "32 = 30 + 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CARRY,
         ).move_to(DOWN * 3.7)
@@ -278,7 +278,7 @@ class TwoDigitTimeOneLesson(Scene):
 
         write_2 = Text(
             "个位写 2，向十位进 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CARRY,
         ).move_to(DOWN * 4.5)
@@ -350,7 +350,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 步骤标题
         step2_title = Text(
             "第二步：再算十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TENS,
         ).move_to(DOWN * 1.8)
@@ -370,7 +370,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 计算步骤
         calc_step1 = Text(
             "十位：2 × 4 = 8",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_TENS,
         ).move_to(DOWN * 2.8)
@@ -379,7 +379,7 @@ class TwoDigitTimeOneLesson(Scene):
 
         calc_step2 = Text(
             "加上进位的 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_CARRY,
         ).move_to(DOWN * 3.6)
@@ -397,7 +397,7 @@ class TwoDigitTimeOneLesson(Scene):
 
         calc_step3 = Text(
             "8 + 3 = 11",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.4)
@@ -407,7 +407,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 说明11：百位写1，十位写1
         explain_11 = Text(
             "11 = 百位1，十位1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_ANSWER,
         ).move_to(DOWN * 5.2)
@@ -478,7 +478,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 答案展示
         answer_label = Text(
             "答案是 112！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_ANSWER,
         ).move_to(DOWN * 2.2)
@@ -528,7 +528,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 总结标题
         summary_title = Text(
             "竖式乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.5)
@@ -545,13 +545,13 @@ class TwoDigitTimeOneLesson(Scene):
         for i, (num, text, color) in enumerate(rules):
             num_text = Text(
                 num,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=34,
                 color=color,
             )
             rule_text = Text(
                 text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=34,
                 color=color,
             )
@@ -568,7 +568,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 再次展示例题和答案
         example_label = Text(
             "例：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_STEP,
         )
@@ -586,7 +586,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 关键难点提示
         key_tip = Text(
             "关键：进位不要忘！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.0)
@@ -608,14 +608,14 @@ class TwoDigitTimeOneLesson(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color="#6b7280",
         ).move_to(UP * 1.0)
@@ -629,7 +629,7 @@ class TwoDigitTimeOneLesson(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_TITLE,
         ).move_to(DOWN * 0.2)

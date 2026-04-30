@@ -40,7 +40,7 @@ COLOR_HEIGHT = "#a78bfa"    # 紫色高
 COLOR_HL = "#fbbf24"        # 黄色高亮
 COLOR_CONV = "#38bdf8"      # 天蓝色进率
 COLOR_AUTHOR = "#6b7280"    # 灰色作者
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

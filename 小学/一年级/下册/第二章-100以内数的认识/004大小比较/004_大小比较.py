@@ -63,11 +63,11 @@ class NumberSizeComparison(Scene):
             fill_opacity=0.25,
             stroke_width=3,
         )
-        label = Text(digit_str, font="Noto Sans CJK SC", font_size=int(size * 44), color=color)
+        label = Text(digit_str, font="PingFang SC", font_size=int(size * 44), color=color)
         return VGroup(box, label)
 
     def make_label(self, text_str, color=WHITE, font_size=26):
-        return Text(text_str, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        return Text(text_str, font="PingFang SC", font_size=font_size, color=color)
 
     # ─────────────────────────────────────────────
     # Scene 1: 开场钩子
@@ -77,7 +77,7 @@ class NumberSizeComparison(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -87,14 +87,14 @@ class NumberSizeComparison(Scene):
         # 大标题
         title = Text(
             "大小比较",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
 
         subtitle = Text(
             "谁大？谁小？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(UP * 4.5)
@@ -105,7 +105,7 @@ class NumberSizeComparison(Scene):
         # 展示两个数字引发思考
         num_45 = MathTex(r"45", font_size=120, color=self.COLOR_TENS).move_to(LEFT * 2 + UP * 2.5)
         num_38 = MathTex(r"38", font_size=120, color=self.COLOR_ONES).move_to(RIGHT * 2 + UP * 2.5)
-        question_mark = Text("？", font="Noto Sans CJK SC", font_size=80, color=self.COLOR_HIGHLIGHT).move_to(UP * 2.5)
+        question_mark = Text("？", font="PingFang SC", font_size=80, color=self.COLOR_HIGHLIGHT).move_to(UP * 2.5)
 
         self.play(
             GrowFromCenter(num_45),
@@ -117,7 +117,7 @@ class NumberSizeComparison(Scene):
 
         hook = Text(
             "怎么比？先看哪一位？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(UP * 1.0)
@@ -143,7 +143,7 @@ class NumberSizeComparison(Scene):
     def scene_2_place_value(self):
         section_title = Text(
             "认识十位和个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -152,7 +152,7 @@ class NumberSizeComparison(Scene):
         # 以 45 为例展示位值
         num_label = Text(
             "以  45  为例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A,
         ).move_to(UP * 4.5)
@@ -173,13 +173,13 @@ class NumberSizeComparison(Scene):
         )
         tens_text = Text(
             "十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_TENS,
         ).move_to(LEFT * 2.2 + UP * 0.9)
         tens_val = Text(
             "= 4 个十",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TENS,
         ).move_to(LEFT * 2.2 + UP * 0.4)
@@ -202,13 +202,13 @@ class NumberSizeComparison(Scene):
         )
         ones_text = Text(
             "个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ONES,
         ).move_to(RIGHT * 2.2 + UP * 0.9)
         ones_val = Text(
             "= 5 个一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ONES,
         ).move_to(RIGHT * 2.2 + UP * 0.4)
@@ -233,7 +233,7 @@ class NumberSizeComparison(Scene):
         ).move_to(DOWN * 0.8)
         rule_text = Text(
             "先比十位，十位相同再比个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_RULE,
         ).move_to(DOWN * 0.8)
@@ -264,7 +264,7 @@ class NumberSizeComparison(Scene):
     def scene_3_example1(self):
         ex_title = Text(
             "例1：比较 45 和 38",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -273,7 +273,7 @@ class NumberSizeComparison(Scene):
         # 步骤1标题
         step1_label = Text(
             "第一步：看十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 4.5)
@@ -291,8 +291,8 @@ class NumberSizeComparison(Scene):
         num_38 = VGroup(box_3, box_8).arrange(RIGHT, buff=0.12).move_to(RIGHT * 2.2 + UP * 2.8)
 
         # 标注数字名称
-        label_45 = Text("45", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(num_45, UP, buff=0.15)
-        label_38 = Text("38", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(num_38, UP, buff=0.15)
+        label_45 = Text("45", font="PingFang SC", font_size=28, color=WHITE).next_to(num_45, UP, buff=0.15)
+        label_38 = Text("38", font="PingFang SC", font_size=28, color=WHITE).next_to(num_38, UP, buff=0.15)
 
         self.play(
             GrowFromCenter(num_45),
@@ -305,14 +305,14 @@ class NumberSizeComparison(Scene):
         # 十位对比行
         tens_row_label = Text(
             "十位：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TENS,
         ).move_to(LEFT * 3.2 + UP * 1.1)
 
-        tens_4 = Text("4", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_TENS).move_to(LEFT * 1.8 + UP * 1.1)
-        vs_sym = Text("VS", font="Noto Sans CJK SC", font_size=28, color=GRAY_A).move_to(UP * 1.1)
-        tens_3 = Text("3", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_TENS).move_to(RIGHT * 1.8 + UP * 1.1)
+        tens_4 = Text("4", font="PingFang SC", font_size=52, color=self.COLOR_TENS).move_to(LEFT * 1.8 + UP * 1.1)
+        vs_sym = Text("VS", font="PingFang SC", font_size=28, color=GRAY_A).move_to(UP * 1.1)
+        tens_3 = Text("3", font="PingFang SC", font_size=52, color=self.COLOR_TENS).move_to(RIGHT * 1.8 + UP * 1.1)
 
         self.play(
             FadeIn(tens_row_label),
@@ -332,7 +332,7 @@ class NumberSizeComparison(Scene):
         # 比较说明
         compare_text = Text(
             "4 > 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_GREATER,
         ).move_to(UP * 0.1)
@@ -340,7 +340,7 @@ class NumberSizeComparison(Scene):
 
         explain_1 = Text(
             "十位上 4 比 3 大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(DOWN * 0.7)
@@ -365,7 +365,7 @@ class NumberSizeComparison(Scene):
 
         conc_reason = Text(
             "（十位 4 > 3，所以 45 > 38）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 2.8)
@@ -401,7 +401,7 @@ class NumberSizeComparison(Scene):
     def scene_4_example2(self):
         ex_title = Text(
             "例2：比较 56 和 59",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -409,7 +409,7 @@ class NumberSizeComparison(Scene):
 
         hint = Text(
             "十位相同时怎么办？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 4.5)
@@ -424,8 +424,8 @@ class NumberSizeComparison(Scene):
         box_9 = self.make_number_box("9", self.COLOR_ONES, size=1.4)
         num_59 = VGroup(box_5b, box_9).arrange(RIGHT, buff=0.12).move_to(RIGHT * 2.2 + UP * 2.8)
 
-        label_56 = Text("56", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(num_56, UP, buff=0.15)
-        label_59 = Text("59", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(num_59, UP, buff=0.15)
+        label_56 = Text("56", font="PingFang SC", font_size=28, color=WHITE).next_to(num_56, UP, buff=0.15)
+        label_59 = Text("59", font="PingFang SC", font_size=28, color=WHITE).next_to(num_59, UP, buff=0.15)
 
         self.play(
             GrowFromCenter(num_56),
@@ -438,14 +438,14 @@ class NumberSizeComparison(Scene):
         # Step1: 比十位
         step1 = Text(
             "第一步：看十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TENS,
         ).move_to(LEFT * 2.5 + UP * 1.2)
 
-        tens_5a = Text("5", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_TENS).move_to(LEFT * 1.6 + UP * 1.2)
+        tens_5a = Text("5", font="PingFang SC", font_size=52, color=self.COLOR_TENS).move_to(LEFT * 1.6 + UP * 1.2)
         eq_sym = MathTex(r"=", font_size=48, color=WHITE).move_to(UP * 1.2)
-        tens_5b = Text("5", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_TENS).move_to(RIGHT * 1.6 + UP * 1.2)
+        tens_5b = Text("5", font="PingFang SC", font_size=52, color=self.COLOR_TENS).move_to(RIGHT * 1.6 + UP * 1.2)
 
         self.play(FadeIn(step1), run_time=0.4)
         self.play(
@@ -459,7 +459,7 @@ class NumberSizeComparison(Scene):
 
         same_text = Text(
             "十位相同！5 = 5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 0.3)
@@ -469,16 +469,16 @@ class NumberSizeComparison(Scene):
         # Step2: 比个位
         step2 = Text(
             "第二步：再看个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_ONES,
         ).move_to(RIGHT * 2.2 + UP * 1.2)
 
         self.play(FadeIn(step2), run_time=0.4)
 
-        ones_6 = Text("6", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_ONES).move_to(LEFT * 1.6 + DOWN * 0.5)
+        ones_6 = Text("6", font="PingFang SC", font_size=52, color=self.COLOR_ONES).move_to(LEFT * 1.6 + DOWN * 0.5)
         lt_sym = MathTex(r"<", font_size=48, color=WHITE).move_to(DOWN * 0.5)
-        ones_9 = Text("9", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_ONES).move_to(RIGHT * 1.6 + DOWN * 0.5)
+        ones_9 = Text("9", font="PingFang SC", font_size=52, color=self.COLOR_ONES).move_to(RIGHT * 1.6 + DOWN * 0.5)
 
         self.play(
             Indicate(box_6, color=self.COLOR_HIGHLIGHT, scale_factor=1.3),
@@ -491,7 +491,7 @@ class NumberSizeComparison(Scene):
 
         compare2 = Text(
             "个位 6 < 9",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_ONES,
         ).move_to(DOWN * 1.3)
@@ -516,7 +516,7 @@ class NumberSizeComparison(Scene):
 
         conc_reason2 = Text(
             "（十位相同，个位 6 < 9，所以 56 < 59）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A,
         ).move_to(DOWN * 3.4)
@@ -556,7 +556,7 @@ class NumberSizeComparison(Scene):
     def scene_5_summary(self):
         summary_title = Text(
             "比较大小的方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -572,16 +572,16 @@ class NumberSizeComparison(Scene):
             stroke_width=3,
         ).move_to(UP * 3.8)
 
-        rule1_num = Text("1", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_TENS).move_to(LEFT * 3.2 + UP * 3.8)
+        rule1_num = Text("1", font="PingFang SC", font_size=36, color=self.COLOR_TENS).move_to(LEFT * 3.2 + UP * 3.8)
         rule1_text = Text(
             "先比十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TENS,
         ).move_to(UP * 4.0)
         rule1_sub = Text(
             "十位大的那个数就大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 3.55)
@@ -594,7 +594,7 @@ class NumberSizeComparison(Scene):
         ex1_45 = MathTex(r"45", font_size=48, color=self.COLOR_GREATER)
         ex1_gt = MathTex(r">", font_size=48, color=WHITE)
         ex1_38 = MathTex(r"38", font_size=48, color=self.COLOR_LESS)
-        ex1_note = Text("  （4 > 3）", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        ex1_note = Text("  （4 > 3）", font="PingFang SC", font_size=24, color=GRAY_A)
         ex1_line = VGroup(ex1_45, ex1_gt, ex1_38, ex1_note).arrange(RIGHT, buff=0.2).move_to(UP * 2.5)
         self.play(FadeIn(ex1_line), run_time=0.5)
         self.wait(0.5)
@@ -609,16 +609,16 @@ class NumberSizeComparison(Scene):
             stroke_width=3,
         ).move_to(UP * 1.4)
 
-        rule2_num = Text("2", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_ONES).move_to(LEFT * 3.2 + UP * 1.4)
+        rule2_num = Text("2", font="PingFang SC", font_size=36, color=self.COLOR_ONES).move_to(LEFT * 3.2 + UP * 1.4)
         rule2_text = Text(
             "十位相同，再比个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ONES,
         ).move_to(UP * 1.6)
         rule2_sub = Text(
             "个位大的那个数就大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 1.15)
@@ -631,7 +631,7 @@ class NumberSizeComparison(Scene):
         ex2_56 = MathTex(r"56", font_size=48, color=self.COLOR_LESS)
         ex2_lt = MathTex(r"<", font_size=48, color=WHITE)
         ex2_59 = MathTex(r"59", font_size=48, color=self.COLOR_GREATER)
-        ex2_note = Text("  （5=5，6<9）", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        ex2_note = Text("  （5=5，6<9）", font="PingFang SC", font_size=24, color=GRAY_A)
         ex2_line = VGroup(ex2_56, ex2_lt, ex2_59, ex2_note).arrange(RIGHT, buff=0.2).move_to(UP * 0.1)
         self.play(FadeIn(ex2_line), run_time=0.5)
         self.wait(0.5)
@@ -648,13 +648,13 @@ class NumberSizeComparison(Scene):
 
         mnemonic_title = Text(
             "记忆口诀：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_RULE,
         ).move_to(DOWN * 1.1)
         mnemonic_text = Text(
             "十位不同比十位，十位相同比个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(DOWN * 1.7)
@@ -689,14 +689,14 @@ class NumberSizeComparison(Scene):
         # 作者名字放大居中
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color="#6b7280",
         ).move_to(UP * 0.7)
@@ -709,7 +709,7 @@ class NumberSizeComparison(Scene):
 
         follow_text = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.3)
@@ -739,7 +739,7 @@ class NumberSizeComparison(Scene):
         # 口诀再现
         final_rule = Text(
             "十位不同比十位，十位相同比个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(DOWN * 3.5)

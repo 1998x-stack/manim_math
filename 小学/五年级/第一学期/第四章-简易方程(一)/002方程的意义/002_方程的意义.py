@@ -37,7 +37,7 @@ COLOR_VENN_EQ = "#6366f1"    # 靛蓝色等式圈
 COLOR_VENN_FG = "#f97316"    # 橙色方程圈
 COLOR_KEY = "#a78bfa"        # 紫色要点
 COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class EquationMeaningLesson(Scene):

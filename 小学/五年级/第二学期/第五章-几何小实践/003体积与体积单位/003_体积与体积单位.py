@@ -36,7 +36,7 @@ COLOR_HL     = "#fbbf24"    # 黄色 高亮
 COLOR_DIM    = "#a78bfa"    # 紫色 维度对比
 COLOR_SPACE  = "#38bdf8"    # 天蓝色 空间概念
 COLOR_AUTHOR = "#6b7280"    # 灰色 作者
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

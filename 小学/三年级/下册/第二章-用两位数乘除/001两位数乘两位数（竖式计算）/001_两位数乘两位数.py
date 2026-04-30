@@ -50,7 +50,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 作者信息 (顶部，始终保留)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -74,21 +74,21 @@ class TwoDigitMultiplyLesson(Scene):
 
         hook = Text(
             "两位数 × 两位数怎么算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 5.5)
 
         problem_text = Text(
             "23 × 14 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.C_WHITE
         ).move_to(UP * 3.5)
 
         subtitle = Text(
             "竖式计算，步步拆解！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_AUX
         ).move_to(UP * 2.2)
@@ -107,7 +107,7 @@ class TwoDigitMultiplyLesson(Scene):
         # problem_text 保留，稍微上移，变小
         problem_small = Text(
             "23 × 14 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -122,7 +122,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         title = Text(
             "先理解算理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 5.2)
@@ -132,7 +132,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 14 = 10 + 4
         split_label = Text(
             "把 14 拆成 10 + 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_WHITE
         ).move_to(UP * 4.0)
@@ -142,37 +142,37 @@ class TwoDigitMultiplyLesson(Scene):
 
         # 展示分配律
         # 23 × 14
-        line1_a = Text("23 × 14", font="Noto Sans CJK SC", font_size=40, color=self.C_WHITE)
-        line1_eq = Text("=", font="Noto Sans CJK SC", font_size=40, color=self.C_AUX)
-        line1_b = Text("23 × (10 + 4)", font="Noto Sans CJK SC", font_size=40, color=self.C_WHITE)
+        line1_a = Text("23 × 14", font="PingFang SC", font_size=40, color=self.C_WHITE)
+        line1_eq = Text("=", font="PingFang SC", font_size=40, color=self.C_AUX)
+        line1_b = Text("23 × (10 + 4)", font="PingFang SC", font_size=40, color=self.C_WHITE)
         row1 = VGroup(line1_a, line1_eq, line1_b).arrange(RIGHT, buff=0.3).move_to(UP * 2.5)
 
         self.play(FadeIn(row1), run_time=0.8)
         self.wait(0.5)
 
         # = 23×10 + 23×4  (分开两行更清晰)
-        row2_eq = Text("=", font="Noto Sans CJK SC", font_size=40, color=self.C_AUX)
-        row2_tens = Text("23 × 10", font="Noto Sans CJK SC", font_size=40, color=self.C_TENS)
-        row2_plus = Text("+", font="Noto Sans CJK SC", font_size=40, color=self.C_AUX)
-        row2_ones = Text("23 × 4", font="Noto Sans CJK SC", font_size=40, color=self.C_ONES)
+        row2_eq = Text("=", font="PingFang SC", font_size=40, color=self.C_AUX)
+        row2_tens = Text("23 × 10", font="PingFang SC", font_size=40, color=self.C_TENS)
+        row2_plus = Text("+", font="PingFang SC", font_size=40, color=self.C_AUX)
+        row2_ones = Text("23 × 4", font="PingFang SC", font_size=40, color=self.C_ONES)
         row2 = VGroup(row2_eq, row2_tens, row2_plus, row2_ones).arrange(RIGHT, buff=0.3).move_to(UP * 1.3)
 
         self.play(FadeIn(row2), run_time=0.8)
         self.wait(0.5)
 
         # = 230 + 92
-        row3_eq = Text("=", font="Noto Sans CJK SC", font_size=40, color=self.C_AUX)
-        row3_a = Text("230", font="Noto Sans CJK SC", font_size=40, color=self.C_TENS)
-        row3_plus = Text("+", font="Noto Sans CJK SC", font_size=40, color=self.C_AUX)
-        row3_b = Text("92", font="Noto Sans CJK SC", font_size=40, color=self.C_ONES)
+        row3_eq = Text("=", font="PingFang SC", font_size=40, color=self.C_AUX)
+        row3_a = Text("230", font="PingFang SC", font_size=40, color=self.C_TENS)
+        row3_plus = Text("+", font="PingFang SC", font_size=40, color=self.C_AUX)
+        row3_b = Text("92", font="PingFang SC", font_size=40, color=self.C_ONES)
         row3 = VGroup(row3_eq, row3_a, row3_plus, row3_b).arrange(RIGHT, buff=0.3).move_to(UP * 0.1)
 
         self.play(Write(row3), run_time=0.8)
         self.wait(0.5)
 
         # = 322
-        row4_eq = Text("=", font="Noto Sans CJK SC", font_size=44, color=self.C_AUX)
-        row4_ans = Text("322", font="Noto Sans CJK SC", font_size=44, color=self.C_RESULT)
+        row4_eq = Text("=", font="PingFang SC", font_size=44, color=self.C_AUX)
+        row4_ans = Text("322", font="PingFang SC", font_size=44, color=self.C_RESULT)
         row4 = VGroup(row4_eq, row4_ans).arrange(RIGHT, buff=0.3).move_to(DOWN * 1.0)
 
         self.play(Write(row4), run_time=0.7)
@@ -181,7 +181,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         key_note = Text(
             "竖式帮我们把这个过程整理得更清晰！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -234,7 +234,7 @@ class TwoDigitMultiplyLesson(Scene):
         y_sum    = cy - 1.5 * row_gap   # 总和 322
 
         def mk(s, color=WHITE, font_size=None):
-            return Text(s, font="Noto Sans CJK SC",
+            return Text(s, font="PingFang SC",
                         font_size=font_size or fs,
                         color=color)
 
@@ -296,7 +296,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         title = Text(
             "用竖式来计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -308,9 +308,9 @@ class TwoDigitMultiplyLesson(Scene):
         y_top = vf["y_top"]
         label_y = y_top + 0.8
 
-        lbl_ones  = Text("个位", font="Noto Sans CJK SC", font_size=20, color=self.C_AUX).move_to([x_ones,  label_y, 0])
-        lbl_tens  = Text("十位", font="Noto Sans CJK SC", font_size=20, color=self.C_AUX).move_to([x_tens,  label_y, 0])
-        lbl_hunds = Text("百位", font="Noto Sans CJK SC", font_size=20, color=self.C_AUX).move_to([x_hunds, label_y, 0])
+        lbl_ones  = Text("个位", font="PingFang SC", font_size=20, color=self.C_AUX).move_to([x_ones,  label_y, 0])
+        lbl_tens  = Text("十位", font="PingFang SC", font_size=20, color=self.C_AUX).move_to([x_tens,  label_y, 0])
+        lbl_hunds = Text("百位", font="PingFang SC", font_size=20, color=self.C_AUX).move_to([x_hunds, label_y, 0])
 
         # 写被乘数 23
         self.play(Write(vf["d_2"]), Write(vf["d_3"]), run_time=0.8)
@@ -326,7 +326,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 强调对齐
         align_note = Text(
             "相同数位要对齐！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -359,7 +359,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 更新标题
         step_title = Text(
             "第一步：个位 4 × 23",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_ONES
         ).move_to(UP * 5.2)
@@ -385,21 +385,21 @@ class TwoDigitMultiplyLesson(Scene):
 
         calc_line1 = Text(
             "4 × 3 = 12  →  个位写 2，进 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_WHITE
         ).move_to(DOWN * 2.4)
 
         calc_line2 = Text(
             "4 × 2 = 8，加进位 1，得 9",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_WHITE
         ).move_to(DOWN * 3.1)
 
         calc_line3 = Text(
             "所以 4 × 23 = 92",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_ONES
         ).move_to(DOWN * 3.8)
@@ -413,17 +413,17 @@ class TwoDigitMultiplyLesson(Scene):
         self.wait(1.0)
 
         # 写进位1（在23十位上方）
-        carry1 = Text("1", font="Noto Sans CJK SC", font_size=22, color=self.C_ONES)
+        carry1 = Text("1", font="PingFang SC", font_size=22, color=self.C_ONES)
         carry1.move_to([vf["x_tens"], vf["y_top"] + 0.55, 0])
         self.play(FadeIn(carry1, scale=0.5), run_time=0.4)
 
         # 写积 92
         # 个位 2 对齐个位列，十位 9 对齐十位列
-        p1_ones = Text("2", font="Noto Sans CJK SC",
+        p1_ones = Text("2", font="PingFang SC",
                        font_size=vf["fs"], color=self.C_ONES)
         p1_ones.move_to([vf["x_ones"], vf["y_par1"], 0])
 
-        p1_tens = Text("9", font="Noto Sans CJK SC",
+        p1_tens = Text("9", font="PingFang SC",
                        font_size=vf["fs"], color=self.C_ONES)
         p1_tens.move_to([vf["x_tens"], vf["y_par1"], 0])
 
@@ -439,7 +439,7 @@ class TwoDigitMultiplyLesson(Scene):
         )
         align_text = Text(
             "末位与个位对齐",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.C_ONES
         ).next_to(align_arr, RIGHT, buff=0.15)
@@ -473,7 +473,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 更新标题
         step_title = Text(
             "第二步：十位 1 × 23",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_TENS
         ).move_to(UP * 5.2)
@@ -488,7 +488,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 关键提示：十位的1代表10
         key_hint = Text(
             "十位的 1 其实代表 10 ！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 0.8)
@@ -507,21 +507,21 @@ class TwoDigitMultiplyLesson(Scene):
 
         calc_line1 = Text(
             "1 × 3 = 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_WHITE
         ).move_to(DOWN * 2.4)
 
         calc_line2 = Text(
             "1 × 2 = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_WHITE
         ).move_to(DOWN * 3.0)
 
         calc_line3 = Text(
             "所以 10 × 23 = 230",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_TENS
         ).move_to(DOWN * 3.8)
@@ -537,15 +537,15 @@ class TwoDigitMultiplyLesson(Scene):
         # 写第二部分积 230
         # 百位2，十位3，个位0 → 0写在十位列（末位与十位对齐），3在百位列，2在百位左边
         # 末位(0)与十位对齐
-        p2_ones_zero = Text("0", font="Noto Sans CJK SC",
+        p2_ones_zero = Text("0", font="PingFang SC",
                             font_size=vf["fs"], color=self.C_TENS)
         p2_ones_zero.move_to([vf["x_tens"], vf["y_par2"], 0])   # 末尾0与十位列对齐
 
-        p2_mid_3 = Text("3", font="Noto Sans CJK SC",
+        p2_mid_3 = Text("3", font="PingFang SC",
                         font_size=vf["fs"], color=self.C_TENS)
         p2_mid_3.move_to([vf["x_hunds"], vf["y_par2"], 0])
 
-        p2_high_2 = Text("2", font="Noto Sans CJK SC",
+        p2_high_2 = Text("2", font="PingFang SC",
                          font_size=vf["fs"], color=self.C_TENS)
         p2_high_2.move_to([vf["x_hunds"] - vf["col_gap"], vf["y_par2"], 0])
 
@@ -568,7 +568,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         why_text = Text(
             "末位与十位对齐\n因为我们乘的是十位（代表10）！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 0.8)
@@ -612,7 +612,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 更新标题
         step_title = Text(
             "第三步：两积相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_RESULT
         ).move_to(UP * 5.2)
@@ -643,7 +643,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         calc_txt = Text(
             "92 + 230 = 322",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_WHITE
         ).move_to(DOWN * 0.3)
@@ -655,15 +655,15 @@ class TwoDigitMultiplyLesson(Scene):
         x_ones, x_tens, x_hunds = vf["x_ones"], vf["x_tens"], vf["x_hunds"]
         y_sum = vf["y_sum"]
 
-        r_2_ones = Text("2", font="Noto Sans CJK SC",
+        r_2_ones = Text("2", font="PingFang SC",
                         font_size=vf["fs"], color=self.C_RESULT)
         r_2_ones.move_to([x_ones, y_sum, 0])
 
-        r_2_tens = Text("2", font="Noto Sans CJK SC",
+        r_2_tens = Text("2", font="PingFang SC",
                         font_size=vf["fs"], color=self.C_RESULT)
         r_2_tens.move_to([x_tens, y_sum, 0])
 
-        r_3_hunds = Text("3", font="Noto Sans CJK SC",
+        r_3_hunds = Text("3", font="PingFang SC",
                          font_size=vf["fs"], color=self.C_RESULT)
         r_3_hunds.move_to([x_hunds, y_sum, 0])
 
@@ -684,7 +684,7 @@ class TwoDigitMultiplyLesson(Scene):
         # 更新题目标签
         answer_label = Text(
             "23 × 14 = 322",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.C_RESULT
         ).move_to(UP * 6.2)
@@ -721,23 +721,23 @@ class TwoDigitMultiplyLesson(Scene):
         # 步骤总结卡片
         summary_title = Text(
             "竖式乘法 · 四步法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 4.5)
 
         steps = VGroup(
-            Text("① 相同数位对齐写好竖式", font="Noto Sans CJK SC",
+            Text("① 相同数位对齐写好竖式", font="PingFang SC",
                  font_size=26, color=self.C_WHITE),
-            Text("② 个位乘整个被乘数", font="Noto Sans CJK SC",
+            Text("② 个位乘整个被乘数", font="PingFang SC",
                  font_size=26, color=self.C_ONES),
-            Text("   积的末位与个位对齐", font="Noto Sans CJK SC",
+            Text("   积的末位与个位对齐", font="PingFang SC",
                  font_size=22, color=self.C_ONES),
-            Text("③ 十位乘整个被乘数", font="Noto Sans CJK SC",
+            Text("③ 十位乘整个被乘数", font="PingFang SC",
                  font_size=26, color=self.C_TENS),
-            Text("   积的末位与十位对齐", font="Noto Sans CJK SC",
+            Text("   积的末位与十位对齐", font="PingFang SC",
                  font_size=22, color=self.C_TENS),
-            Text("④ 两个积相加得最终结果", font="Noto Sans CJK SC",
+            Text("④ 两个积相加得最终结果", font="PingFang SC",
                  font_size=26, color=self.C_RESULT),
         ).arrange(DOWN, buff=0.45, aligned_edge=LEFT).move_to(UP * 1.5)
 
@@ -762,7 +762,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         example_text = Text(
             "23 × 14 = 92 + 230 = 322 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_RESULT
         ).move_to(DOWN * 3.2)
@@ -781,9 +781,9 @@ class TwoDigitMultiplyLesson(Scene):
         )
 
         author_large = VGroup(
-            Text("上海初高中数学直通车", font="Noto Sans CJK SC",
+            Text("上海初高中数学直通车", font="PingFang SC",
                  font_size=38, color=self.C_WHITE),
-            Text("@emptyandcalm", font="Noto Sans CJK SC",
+            Text("@emptyandcalm", font="PingFang SC",
                  font_size=30, color=self.C_AUX)
         ).arrange(DOWN, buff=0.4).move_to(UP * 1.5)
 
@@ -791,7 +791,7 @@ class TwoDigitMultiplyLesson(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 0.5)

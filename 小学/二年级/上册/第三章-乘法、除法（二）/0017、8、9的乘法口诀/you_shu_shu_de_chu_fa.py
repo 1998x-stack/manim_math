@@ -17,7 +17,7 @@ class MultiplicationTableAnimation(Scene):
         # 作者信息 (顶部) - keep this as an instance variable to manage its lifecycle
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -27,14 +27,14 @@ class MultiplicationTableAnimation(Scene):
         # 主标题
         title = Text(
             "7、8、9的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
 
         subtitle = Text(
             "乘法口诀要熟记哦！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -78,7 +78,7 @@ class MultiplicationTableAnimation(Scene):
         """展示7的乘法口诀"""
         header = Text(
             "7的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=BLUE
         ).move_to(UP * 5.5)
@@ -103,8 +103,8 @@ class MultiplicationTableAnimation(Scene):
         # 创建动画效果展示7的乘法口诀
         for i, (num_eq, chi_eq) in enumerate(seven_equations):
             # 创建两个文本对象
-            num_text = Text(num_eq, font="Noto Sans CJK SC", font_size=24, color=WHITE)
-            chi_text = Text(chi_eq, font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            num_text = Text(num_eq, font="PingFang SC", font_size=24, color=WHITE)
+            chi_text = Text(chi_eq, font="PingFang SC", font_size=22, color=GRAY_A)
 
             # 组合成一行
             equation = VGroup(num_text, chi_text).arrange(RIGHT, buff=1)
@@ -151,7 +151,7 @@ class MultiplicationTableAnimation(Scene):
         """展示8的乘法口诀"""
         header = Text(
             "8的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GREEN
         ).move_to(UP * 5.5)
@@ -177,8 +177,8 @@ class MultiplicationTableAnimation(Scene):
         # 创建动画效果展示8的乘法口诀
         for i, (num_eq, chi_eq) in enumerate(eight_equations):
             # 创建两个文本对象
-            num_text = Text(num_eq, font="Noto Sans CJK SC", font_size=24, color=WHITE)
-            chi_text = Text(chi_eq, font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            num_text = Text(num_eq, font="PingFang SC", font_size=24, color=WHITE)
+            chi_text = Text(chi_eq, font="PingFang SC", font_size=22, color=GRAY_A)
 
             # 组合成一行
             equation = VGroup(num_text, chi_text).arrange(RIGHT, buff=1)
@@ -225,7 +225,7 @@ class MultiplicationTableAnimation(Scene):
         """展示9的乘法口诀"""
         header = Text(
             "9的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=RED
         ).move_to(UP * 5.5)
@@ -252,8 +252,8 @@ class MultiplicationTableAnimation(Scene):
         # 创建动画效果展示9的乘法口诀
         for i, (num_eq, chi_eq) in enumerate(nine_equations):
             # 创建两个文本对象
-            num_text = Text(num_eq, font="Noto Sans CJK SC", font_size=22, color=WHITE)
-            chi_text = Text(chi_eq, font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            num_text = Text(num_eq, font="PingFang SC", font_size=22, color=WHITE)
+            chi_text = Text(chi_eq, font="PingFang SC", font_size=20, color=GRAY_A)
 
             # 组合成一行
             equation = VGroup(num_text, chi_text).arrange(RIGHT, buff=1)
@@ -300,7 +300,7 @@ class MultiplicationTableAnimation(Scene):
         """展示有趣的规律"""
         header = Text(
             "有趣的规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=YELLOW
         ).move_to(UP * 6)
@@ -311,7 +311,7 @@ class MultiplicationTableAnimation(Scene):
         # 9的规律：9的倍数，十位数递增，个位数递减
         nine_pattern = Text(
             "9的乘法规律：\n\n1×9=09 (0+9=9)\n2×9=18 (1+8=9)\n3×9=27 (2+7=9)\n...\n9×9=81 (8+1=9)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE,
             line_spacing=1.5
@@ -323,7 +323,7 @@ class MultiplicationTableAnimation(Scene):
         # 用动画展示手指数数9的倍数方法
         finger_text = Text(
             "手指记忆法：弯曲第n根手指，\n左边手指数是十位，右边是各位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         ).move_to(DOWN * 1)
@@ -346,7 +346,7 @@ class MultiplicationTableAnimation(Scene):
         """展示记忆技巧"""
         header = Text(
             "记忆技巧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GREEN
         ).move_to(UP * 6)
@@ -363,7 +363,7 @@ class MultiplicationTableAnimation(Scene):
 
         tech_group = VGroup()
         for i, tech in enumerate(techniques):
-            tech_text = Text(tech, font="Noto Sans CJK SC", font_size=20, color=WHITE).move_to(UP * (1.5 - i * 0.8))
+            tech_text = Text(tech, font="PingFang SC", font_size=20, color=WHITE).move_to(UP * (1.5 - i * 0.8))
             tech_group.add(tech_text)
 
         for tech_text in tech_group:
@@ -388,7 +388,7 @@ class MultiplicationTableAnimation(Scene):
         """总结7、8、9的乘法口诀"""
         title = Text(
             "复习时间！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=YELLOW
         ).move_to(UP * 6)
@@ -397,11 +397,11 @@ class MultiplicationTableAnimation(Scene):
 
         # 快速回顾关键口诀
         key_formulas = [
-            Text("七七四十九", font="Noto Sans CJK SC", font_size=28, color=BLUE).move_to(UP * 3.5),
-            Text("八八六十四", font="Noto Sans CJK SC", font_size=28, color=GREEN).move_to(UP * 2.5),
-            Text("九九八十一", font="Noto Sans CJK SC", font_size=28, color=RED).move_to(UP * 1.5),
-            Text("七八五十六", font="Noto Sans CJK SC", font_size=28, color=PURPLE).move_to(UP * 0.5),
-            Text("八九七十二", font="Noto Sans CJK SC", font_size=28, color=ORANGE).move_to(DOWN * 0.5)
+            Text("七七四十九", font="PingFang SC", font_size=28, color=BLUE).move_to(UP * 3.5),
+            Text("八八六十四", font="PingFang SC", font_size=28, color=GREEN).move_to(UP * 2.5),
+            Text("九九八十一", font="PingFang SC", font_size=28, color=RED).move_to(UP * 1.5),
+            Text("七八五十六", font="PingFang SC", font_size=28, color=PURPLE).move_to(UP * 0.5),
+            Text("八九七十二", font="PingFang SC", font_size=28, color=ORANGE).move_to(DOWN * 0.5)
         ]
 
         for i, formula in enumerate(key_formulas):
@@ -414,7 +414,7 @@ class MultiplicationTableAnimation(Scene):
         # 鼓励语
         encourage = Text(
             "加油！熟记乘法口诀，\n数学学习更轻松！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN,
             line_spacing=1.5
@@ -441,14 +441,14 @@ class MultiplicationTableAnimation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.2)
@@ -459,7 +459,7 @@ class MultiplicationTableAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 0.8)

@@ -26,7 +26,7 @@ COLOR_HIGHLIGHT = "#f9ca24"
 COLOR_CORRECT  = "#27ae60"
 COLOR_DIGITAL  = "#1565c0"
 
-AUTHOR_FONT = "Noto Sans CJK SC"
+AUTHOR_FONT = "PingFang SC"
 
 # 钟面参数（已验证）
 CLOCK_CENTER = np.array([0.0, 1.8, 0.0])

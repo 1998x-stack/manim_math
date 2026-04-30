@@ -25,7 +25,7 @@ COLOR_ACTIVE    = "#f1c40f"   # 黄  → 高亮
 COLOR_PASSIVE   = "#374151"   # 暗灰 → 非关注
 COLOR_ARROW     = "#2ecc71"   # 绿  → 方向箭头
 COLOR_DIM       = "#888899"
-FONT            = "Noto Sans CJK SC"
+FONT            = "PingFang SC"
 
 # 队列参数（与 verify_geometry.py 一致）
 Q5_N, Q5_SP, Q5_CX, Q5_CY, Q5_R = 5, 1.4, 0.0, 2.0, 0.40

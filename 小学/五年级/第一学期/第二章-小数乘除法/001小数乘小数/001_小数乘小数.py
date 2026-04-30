@@ -35,7 +35,7 @@ COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_WARN = "#ef4444"        # 红色警示
 COLOR_RULE = "#a78bfa"        # 紫色规则
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class DecimalMultiplicationLesson(Scene):

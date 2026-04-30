@@ -109,7 +109,7 @@ class CylinderLesson(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -119,7 +119,7 @@ class CylinderLesson(Scene):
         # 钩子问题
         hook = Text(
             "你见过这个形状吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -127,16 +127,16 @@ class CylinderLesson(Scene):
 
         # 展示几个实物名称
         items = VGroup(
-            Text("茶叶罐", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SUBTEXT),
-            Text("易拉罐", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SUBTEXT),
-            Text("蜡  烛", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SUBTEXT),
+            Text("茶叶罐", font="PingFang SC", font_size=28, color=self.COLOR_SUBTEXT),
+            Text("易拉罐", font="PingFang SC", font_size=28, color=self.COLOR_SUBTEXT),
+            Text("蜡  烛", font="PingFang SC", font_size=28, color=self.COLOR_SUBTEXT),
         ).arrange(RIGHT, buff=0.8).move_to(UP * 4.5)
         self.play(FadeIn(items, shift=UP * 0.3), run_time=0.6)
         self.wait(0.5)
 
         reveal = Text(
             "它们都是圆柱！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_TEXT,
         ).move_to(UP * 3.3)
@@ -151,7 +151,7 @@ class CylinderLesson(Scene):
     def scene_2_show_cylinder(self):
         title = Text(
             "认识圆柱",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=46,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.8)
@@ -168,7 +168,7 @@ class CylinderLesson(Scene):
         self.play(Create(top_ell), run_time=0.6)
 
         # 标注"圆柱"
-        label = Text("圆柱", font="Noto Sans CJK SC", font_size=38, color=GOLD)
+        label = Text("圆柱", font="PingFang SC", font_size=38, color=GOLD)
         label.move_to(np.array([2.8, 1.0, 0]))
         arrow = Arrow(
             start=np.array([2.3, 1.0, 0]),
@@ -199,7 +199,7 @@ class CylinderLesson(Scene):
     def scene_3_top_bottom_circles(self):
         new_title = Text(
             "两个底面是圆形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.8)
@@ -214,7 +214,7 @@ class CylinderLesson(Scene):
 
         label_top = Text(
             "顶面（圆形）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CIRCLE,
         ).move_to(np.array([0, cy + half_h + 0.75, 0]))
@@ -227,7 +227,7 @@ class CylinderLesson(Scene):
 
         label_bot = Text(
             "底面（圆形）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CIRCLE,
         ).move_to(np.array([0, cy - half_h - 0.75, 0]))
@@ -237,7 +237,7 @@ class CylinderLesson(Scene):
         # 说明文字
         desc1 = Text(
             "上下各有一个平平的圆形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_TEXT,
         ).move_to(DOWN * 3.8)
@@ -245,7 +245,7 @@ class CylinderLesson(Scene):
 
         same_size = Text(
             "大小完全相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=YELLOW,
         ).move_to(DOWN * 4.6)
@@ -262,7 +262,7 @@ class CylinderLesson(Scene):
         )
         arr_eq_label = Text(
             "同样大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=YELLOW,
         ).next_to(arr_eq, LEFT, buff=0.12)
@@ -283,7 +283,7 @@ class CylinderLesson(Scene):
     def scene_4_rolling_side(self):
         new_title = Text(
             "侧面是曲面，能滚动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.8)
@@ -298,7 +298,7 @@ class CylinderLesson(Scene):
 
         label_side = Text(
             "侧面（弯曲的曲面）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CURVE,
         ).move_to(np.array([0, cy - half_h - 1.2, 0]))
@@ -323,7 +323,7 @@ class CylinderLesson(Scene):
         )
         curved_label = Text(
             "← 弯弯的！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_CURVE,
         ).move_to(np.array([-3.0, cy, 0]))
@@ -341,7 +341,7 @@ class CylinderLesson(Scene):
         # 滚动演示
         roll_title = Text(
             "圆柱可以滚动！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=YELLOW,
         ).move_to(DOWN * 3.5)
@@ -364,7 +364,7 @@ class CylinderLesson(Scene):
 
         no_roll = Text(
             "正方体就不能滚动哦～",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUBTEXT,
         ).move_to(DOWN * 4.5)
@@ -389,7 +389,7 @@ class CylinderLesson(Scene):
 
         new_title = Text(
             "圆柱的特征",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.8)
@@ -397,8 +397,8 @@ class CylinderLesson(Scene):
 
         # 四条特征逐一展示
         def make_feat(num_str, body_str, num_color, body_color, pos):
-            num_t = Text(num_str, font="Noto Sans CJK SC", font_size=30, color=num_color)
-            body_t = Text(body_str, font="Noto Sans CJK SC", font_size=28, color=body_color)
+            num_t = Text(num_str, font="PingFang SC", font_size=30, color=num_color)
+            body_t = Text(body_str, font="PingFang SC", font_size=28, color=body_color)
             return VGroup(num_t, body_t).arrange(RIGHT, buff=0.3).move_to(pos)
 
         feat1 = make_feat("①", "2个底面  是圆形", self.COLOR_CIRCLE, self.COLOR_TEXT, UP * 1.5)
@@ -421,7 +421,7 @@ class CylinderLesson(Scene):
         # 口诀
         rhyme = Text(
             "两圆底，侧面弯，放倒就能滚！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GOLD,
         ).move_to(DOWN * 3.2)
@@ -441,13 +441,13 @@ class CylinderLesson(Scene):
     def scene_6_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(UP * 1.5)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B,
         ).move_to(UP * 0.6)
@@ -457,7 +457,7 @@ class CylinderLesson(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.5)
@@ -483,7 +483,7 @@ class CylinderLesson(Scene):
 
         card_text = Text(
             "圆柱：两个圆形底 + 一个曲面侧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SUBTEXT,
         ).move_to(DOWN * 4.0)

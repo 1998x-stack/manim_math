@@ -38,7 +38,7 @@ COLOR_PAIR = "#a78bfa"        # 紫色 — 因数对
 COLOR_ARROW = "#ef4444"       # 红色箭头
 COLOR_BOX = "#0f172a"         # 深色框背景
 COLOR_AUTHOR = "#6b7280"      # 灰色作者信息
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

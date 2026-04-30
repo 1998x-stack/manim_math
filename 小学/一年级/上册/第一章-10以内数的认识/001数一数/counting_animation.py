@@ -76,7 +76,7 @@ class CountingAnimation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -86,14 +86,14 @@ class CountingAnimation(Scene):
         # 标题
         title = Text(
             "数一数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
         
         subtitle = Text(
             "学会一个一个地数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -130,7 +130,7 @@ class CountingAnimation(Scene):
         # 提示文字
         hint = Text(
             "我们来数一数有多少个小动物吧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -159,7 +159,7 @@ class CountingAnimation(Scene):
         # 介绍数数的概念
         instruction = Text(
             "数数要一个一个地数哦！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -220,7 +220,7 @@ class CountingAnimation(Scene):
             self.play(FadeOut(highlight_circle), run_time=0.3)
         
         # 最后显示总数
-        total_text = Text("总共5个苹果！", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_SECONDARY)
+        total_text = Text("总共5个苹果！", font="PingFang SC", font_size=32, color=self.COLOR_SECONDARY)
         total_text.move_to(DOWN * 4)
         
         self.play(Write(total_text), run_time=0.8)
@@ -240,14 +240,14 @@ class CountingAnimation(Scene):
         # 显示练习指导
         practice_title = Text(
             "现在轮到你啦！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         instruction = Text(
             "一起来数星星吧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -296,7 +296,7 @@ class CountingAnimation(Scene):
             self.play(FadeOut(highlight), run_time=0.3)
         
         # 显示最终结果
-        final_text = Text("答对啦！是6颗星星！", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_SECONDARY)
+        final_text = Text("答对啦！是6颗星星！", font="PingFang SC", font_size=32, color=self.COLOR_SECONDARY)
         final_text.move_to(DOWN * 4)
         
         # 显示总数数字
@@ -324,16 +324,16 @@ class CountingAnimation(Scene):
         """场景4: 总结回顾"""
         # 总结要点
         points = VGroup(
-            Text("✓ 数数时要一个一个地数", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 手指指着物体，嘴巴说出数字", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 不要重复数，也不要漏掉", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            Text("✓ 数数时要一个一个地数", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
+            Text("✓ 手指指着物体，嘴巴说出数字", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
+            Text("✓ 不要重复数，也不要漏掉", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
         )
         points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
         points.move_to(UP * 1)
         
         title = Text(
             "今天学到的知识：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 4)
@@ -346,7 +346,7 @@ class CountingAnimation(Scene):
         # 鼓励话语
         encouragement = Text(
             "你已经学会了数数！\n继续加油哦！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -357,7 +357,7 @@ class CountingAnimation(Scene):
         # 关注提醒
         follow_reminder = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)

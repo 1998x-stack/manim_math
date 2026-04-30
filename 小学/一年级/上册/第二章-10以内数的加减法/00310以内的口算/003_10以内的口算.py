@@ -57,7 +57,7 @@ class MentalMathWithinTen(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -66,14 +66,14 @@ class MentalMathWithinTen(Scene):
         # 标题
         title = Text(
             "10以内的口算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
 
         subtitle = Text(
             "脱口而出，轻松搞定！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -94,7 +94,7 @@ class MentalMathWithinTen(Scene):
 
         question_line1 = Text(
             "你能一眼算出来吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2.8)
@@ -114,7 +114,7 @@ class MentalMathWithinTen(Scene):
 
         hint = Text(
             "用「分与合」的方法，轻松口算！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SPLIT
         ).move_to(DOWN * 0.2)
@@ -139,7 +139,7 @@ class MentalMathWithinTen(Scene):
     def scene_2_split_and_combine(self):
         title = Text(
             "什么是「分与合」？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.8)
@@ -147,25 +147,25 @@ class MentalMathWithinTen(Scene):
         self.play(Write(title), run_time=0.7)
 
         # 用数字8演示分与合
-        num_8 = Text("8", font="Noto Sans CJK SC", font_size=80, color=WHITE).move_to(UP * 4.0)
+        num_8 = Text("8", font="PingFang SC", font_size=80, color=WHITE).move_to(UP * 4.0)
         self.play(FadeIn(num_8, scale=0.5), run_time=0.5)
         self.play(Flash(num_8, color=self.COLOR_HIGHLIGHT, flash_radius=0.6), run_time=0.4)
 
         # "可以分成" 文字
         can_split = Text(
             "可以分成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 3.0)
         self.play(FadeIn(can_split), run_time=0.4)
 
         # 分解图：8 = 5 + 3
-        left_num = Text("5", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_ADDITION).move_to(
+        left_num = Text("5", font="PingFang SC", font_size=72, color=self.COLOR_ADDITION).move_to(
             UP * 1.8 + LEFT * 2.0)
-        right_num = Text("3", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_SUBTRACTION).move_to(
+        right_num = Text("3", font="PingFang SC", font_size=72, color=self.COLOR_SUBTRACTION).move_to(
             UP * 1.8 + RIGHT * 2.0)
-        and_text = Text("和", font="Noto Sans CJK SC", font_size=36, color=GRAY_A).move_to(UP * 1.8)
+        and_text = Text("和", font="PingFang SC", font_size=36, color=GRAY_A).move_to(UP * 1.8)
 
         # 箭头：从8分向5和3
         arrow_left = Arrow(
@@ -195,7 +195,7 @@ class MentalMathWithinTen(Scene):
         self.wait(0.5)
         combine_text = Text(
             "也可以合在一起",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 0.6)
@@ -209,7 +209,7 @@ class MentalMathWithinTen(Scene):
         # 展示8的各种分法
         split_title = Text(
             "8的分与合：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -248,7 +248,7 @@ class MentalMathWithinTen(Scene):
     def scene_3_addition_example(self):
         scene_label = Text(
             "加法口算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ADDITION
         ).move_to(UP * 6.5)
@@ -259,7 +259,7 @@ class MentalMathWithinTen(Scene):
 
         think_text = Text(
             "想：5和3能组成几？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.1)
@@ -276,10 +276,10 @@ class MentalMathWithinTen(Scene):
             for _ in range(3)
         ]).arrange(RIGHT, buff=0.18).move_to(UP * 2.8 + RIGHT * 1.6)
 
-        label_5 = Text("5", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_DOT_1).move_to(
+        label_5 = Text("5", font="PingFang SC", font_size=40, color=self.COLOR_DOT_1).move_to(
             UP * 2.0 + LEFT * 2.2)
         label_plus = MathTex(r"+", font_size=44, color=WHITE).move_to(UP * 2.0 + LEFT * 0.3)
-        label_3 = Text("3", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_DOT_2).move_to(
+        label_3 = Text("3", font="PingFang SC", font_size=40, color=self.COLOR_DOT_2).move_to(
             UP * 2.0 + RIGHT * 1.6)
 
         line_5 = Line(LEFT * 0.6, RIGHT * 0.6, color=self.COLOR_DOT_1).next_to(label_5, DOWN, buff=0.08)
@@ -306,7 +306,7 @@ class MentalMathWithinTen(Scene):
         self.wait(0.4)
         merge_label = Text(
             "把3个合进来…",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.1)
@@ -337,7 +337,7 @@ class MentalMathWithinTen(Scene):
         # 数数：用序号标注
         count_labels = VGroup()
         for i in range(8):
-            lbl = Text(str(i + 1), font="Noto Sans CJK SC", font_size=20, color=self.COLOR_HIGHLIGHT)
+            lbl = Text(str(i + 1), font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT)
             lbl.move_to(all_8_positions[i] + DOWN * 0.5)
             count_labels.add(lbl)
 
@@ -367,7 +367,7 @@ class MentalMathWithinTen(Scene):
         ).move_to(DOWN * 2.5)
         tip_text = Text(
             "想：5和3合起来是8",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -394,7 +394,7 @@ class MentalMathWithinTen(Scene):
     def scene_4_subtraction_example(self):
         scene_label = Text(
             "减法口算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SUBTRACTION
         ).move_to(UP * 6.5)
@@ -405,29 +405,29 @@ class MentalMathWithinTen(Scene):
 
         think_text = Text(
             "想：9可以分成4和几？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.1)
         self.play(FadeIn(think_text, shift=UP * 0.2), run_time=0.5)
 
         # ── 分解图 ──
-        big_9 = Text("9", font="Noto Sans CJK SC", font_size=90, color=WHITE).move_to(UP * 2.7)
+        big_9 = Text("9", font="PingFang SC", font_size=90, color=WHITE).move_to(UP * 2.7)
         self.play(FadeIn(big_9, scale=0.5), run_time=0.5)
 
         split_label = Text(
             "分成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 1.8)
         self.play(FadeIn(split_label), run_time=0.3)
 
         # 分成4和5
-        num_4 = Text("4", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_SUBTRACTION).move_to(
+        num_4 = Text("4", font="PingFang SC", font_size=72, color=self.COLOR_SUBTRACTION).move_to(
             UP * 0.9 + LEFT * 2.0)
-        and_text = Text("和", font="Noto Sans CJK SC", font_size=32, color=GRAY_A).move_to(UP * 0.9)
-        num_5 = Text("5", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_SPLIT).move_to(
+        and_text = Text("和", font="PingFang SC", font_size=32, color=GRAY_A).move_to(UP * 0.9)
+        num_5 = Text("5", font="PingFang SC", font_size=72, color=self.COLOR_SPLIT).move_to(
             UP * 0.9 + RIGHT * 2.0)
 
         arrow_4 = Arrow(
@@ -458,7 +458,7 @@ class MentalMathWithinTen(Scene):
         cross_4 = Cross(num_4, color=RED, stroke_width=4)
         remove_text = Text(
             "去掉4，剩下…",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.3)
@@ -483,7 +483,7 @@ class MentalMathWithinTen(Scene):
         ).move_to(DOWN * 3.0)
         tip_text = Text(
             "想：9分成4和5，去掉4剩5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.0)
@@ -517,7 +517,7 @@ class MentalMathWithinTen(Scene):
     def scene_5_practice(self):
         title = Text(
             "来练一练！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -547,7 +547,7 @@ class MentalMathWithinTen(Scene):
             q_tex = q_texes[i]
             hint_text = Text(
                 hint,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             ).next_to(q_tex, RIGHT, buff=0.4)
@@ -564,7 +564,7 @@ class MentalMathWithinTen(Scene):
 
         summary = Text(
             "多练习，就能脱口而出！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_SPLIT
         ).move_to(DOWN * 3.5)
@@ -581,7 +581,7 @@ class MentalMathWithinTen(Scene):
     def scene_6_outro(self):
         summary_title = Text(
             "口算小秘诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.0)
@@ -600,13 +600,13 @@ class MentalMathWithinTen(Scene):
 
         card_add_title = Text(
             "加法：想「合」",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ADDITION
         ).move_to(UP * 3.4)
 
         card_add_ex1 = MathTex(r"5 + 3 =", font_size=28, color=WHITE)
-        card_add_ex2 = Text("5和3合成8", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SPLIT)
+        card_add_ex2 = Text("5和3合成8", font="PingFang SC", font_size=28, color=self.COLOR_SPLIT)
         card_add_example = VGroup(card_add_ex1, card_add_ex2).arrange(RIGHT, buff=0.2).move_to(UP * 2.8)
 
         # 减法卡片
@@ -622,13 +622,13 @@ class MentalMathWithinTen(Scene):
 
         card_sub_title = Text(
             "减法：想「分」",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUBTRACTION
         ).move_to(UP * 0.9)
 
         card_sub_ex1 = MathTex(r"9 - 4 =", font_size=28, color=WHITE)
-        card_sub_ex2 = Text("9分成4和5", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SPLIT)
+        card_sub_ex2 = Text("9分成4和5", font="PingFang SC", font_size=28, color=self.COLOR_SPLIT)
         card_sub_example = VGroup(card_sub_ex1, card_sub_ex2).arrange(RIGHT, buff=0.2).move_to(UP * 0.3)
 
         self.play(FadeIn(card_add_bg), FadeIn(card_add_title), run_time=0.5)
@@ -658,7 +658,7 @@ class MentalMathWithinTen(Scene):
             buff=0.05,
             stroke_width=3
         )
-        jump_label = Text("+3", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_ADDITION).move_to(
+        jump_label = Text("+3", font="PingFang SC", font_size=22, color=self.COLOR_ADDITION).move_to(
             number_line.n2p(6.5) + UP * 0.75
         )
 
@@ -680,14 +680,14 @@ class MentalMathWithinTen(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.0)
 
         author_outro = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.7)

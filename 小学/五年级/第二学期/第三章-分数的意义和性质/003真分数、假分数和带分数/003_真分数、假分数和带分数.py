@@ -40,7 +40,7 @@ COLOR_ACCENT = "#a78bfa"     # 紫色强调
 COLOR_GRID = "#94a3b8"       # 灰色辅助
 COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
 COLOR_PIE_FILL = "#60a5fa"   # 饼图填充
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

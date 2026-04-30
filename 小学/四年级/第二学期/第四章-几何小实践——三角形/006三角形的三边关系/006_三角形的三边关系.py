@@ -61,7 +61,7 @@ class TriangleSideRelationLesson(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -70,7 +70,7 @@ class TriangleSideRelationLesson(Scene):
         # 钩子标题
         hook_line1 = Text(
             "3根棍子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -78,7 +78,7 @@ class TriangleSideRelationLesson(Scene):
 
         hook_line2 = Text(
             "一定能围成三角形吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(UP * 4.0)
@@ -93,7 +93,7 @@ class TriangleSideRelationLesson(Scene):
         stick1_end = np.array([-0.7, 2.0, 0])
         stick1 = Line(stick1_start, stick1_end,
                       color=self.COLOR_SIDE_A, stroke_width=10)
-        label1 = Text("3 cm", font="Noto Sans CJK SC",
+        label1 = Text("3 cm", font="PingFang SC",
                       font_size=22, color=self.COLOR_SIDE_A)
         label1.next_to(stick1, DOWN, buff=0.15)
 
@@ -102,7 +102,7 @@ class TriangleSideRelationLesson(Scene):
         stick2_end = np.array([2.0, 2.0, 0])
         stick2 = Line(stick2_start, stick2_end,
                       color=self.COLOR_SIDE_B, stroke_width=10)
-        label2 = Text("3 cm", font="Noto Sans CJK SC",
+        label2 = Text("3 cm", font="PingFang SC",
                       font_size=22, color=self.COLOR_SIDE_B)
         label2.next_to(stick2, DOWN, buff=0.15)
 
@@ -111,7 +111,7 @@ class TriangleSideRelationLesson(Scene):
         stick3_end = np.array([3.5, 0.8, 0])
         stick3 = Line(stick3_start, stick3_end,
                       color=self.COLOR_SIDE_C, stroke_width=10)
-        label3 = Text("8 cm", font="Noto Sans CJK SC",
+        label3 = Text("8 cm", font="PingFang SC",
                       font_size=22, color=self.COLOR_SIDE_C)
         label3.next_to(stick3, DOWN, buff=0.15)
 
@@ -126,7 +126,7 @@ class TriangleSideRelationLesson(Scene):
         self.wait(0.5)
 
         # 问号
-        question = Text("???", font="Noto Sans CJK SC",
+        question = Text("???", font="PingFang SC",
                         font_size=60, color=self.COLOR_HIGHLIGHT)
         question.move_to(np.array([0, -0.5, 0]))
         self.play(FadeIn(question, scale=0.5), run_time=0.5)
@@ -149,7 +149,7 @@ class TriangleSideRelationLesson(Scene):
         # 标题
         title = Text(
             "三角形三边关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -165,11 +165,11 @@ class TriangleSideRelationLesson(Scene):
         tri.set_fill(self.COLOR_TRIANGLE, opacity=0.15)
 
         # 顶点标签
-        lA = Text("A", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        lA = Text("A", font="PingFang SC", font_size=26, color=WHITE)
         lA.next_to(A, DL, buff=0.1)
-        lB = Text("B", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        lB = Text("B", font="PingFang SC", font_size=26, color=WHITE)
         lB.next_to(B, DR, buff=0.1)
-        lC = Text("C", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        lC = Text("C", font="PingFang SC", font_size=26, color=WHITE)
         lC.next_to(C, UP, buff=0.1)
 
         self.play(Create(tri), run_time=1.0)
@@ -180,13 +180,13 @@ class TriangleSideRelationLesson(Scene):
         mid_BC = (B + C) / 2
         mid_CA = (C + A) / 2
 
-        edge_c = Text("c (AB)", font="Noto Sans CJK SC",
+        edge_c = Text("c (AB)", font="PingFang SC",
                       font_size=20, color=self.COLOR_SIDE_C)
         edge_c.move_to(mid_AB + DOWN * 0.35)
-        edge_a = Text("a (BC)", font="Noto Sans CJK SC",
+        edge_a = Text("a (BC)", font="PingFang SC",
                       font_size=20, color=self.COLOR_SIDE_A)
         edge_a.move_to(mid_BC + RIGHT * 0.5)
-        edge_b = Text("b (CA)", font="Noto Sans CJK SC",
+        edge_b = Text("b (CA)", font="PingFang SC",
                       font_size=20, color=self.COLOR_SIDE_B)
         edge_b.move_to(mid_CA + LEFT * 0.5)
 
@@ -212,9 +212,9 @@ class TriangleSideRelationLesson(Scene):
         self.wait(0.4)
 
         # 核心结论
-        conclusion_p1 = Text("任意两边之和", font="Noto Sans CJK SC",
+        conclusion_p1 = Text("任意两边之和", font="PingFang SC",
                               font_size=30, color=self.COLOR_HIGHLIGHT, weight=BOLD)
-        conclusion_p2 = Text("大于第三边", font="Noto Sans CJK SC",
+        conclusion_p2 = Text("大于第三边", font="PingFang SC",
                               font_size=30, color=self.COLOR_HIGHLIGHT, weight=BOLD)
         conclusion = VGroup(conclusion_p1, conclusion_p2).arrange(RIGHT, buff=0.1)
         conclusion.move_to(np.array([0, -0.5, 0]))
@@ -240,7 +240,7 @@ class TriangleSideRelationLesson(Scene):
         """用线段演示能/不能构成三角形"""
         title = Text(
             "动手验证",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -250,7 +250,7 @@ class TriangleSideRelationLesson(Scene):
         # --- 情形1：能构成三角形 3, 4, 5 ---
         case1_label = Text(
             "情形① 3 cm、4 cm、5 cm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -262,34 +262,34 @@ class TriangleSideRelationLesson(Scene):
         s1_start = np.array([-4.0, y_sticks, 0])
         s1_end = np.array([-1.6, y_sticks, 0])
         s1 = Line(s1_start, s1_end, color=self.COLOR_SIDE_A, stroke_width=9)
-        t1 = Text("3", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SIDE_A)
+        t1 = Text("3", font="PingFang SC", font_size=20, color=self.COLOR_SIDE_A)
         t1.next_to(s1, UP, buff=0.1)
 
         # 4cm -> 3.2单位
         s2_start = np.array([-1.3, y_sticks, 0])
         s2_end = np.array([1.9, y_sticks, 0])
         s2 = Line(s2_start, s2_end, color=self.COLOR_SIDE_B, stroke_width=9)
-        t2 = Text("4", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SIDE_B)
+        t2 = Text("4", font="PingFang SC", font_size=20, color=self.COLOR_SIDE_B)
         t2.next_to(s2, UP, buff=0.1)
 
         # 5cm -> 4.0单位
         s3_start = np.array([2.2, y_sticks, 0])
         s3_end = np.array([2.2 + 3.2, y_sticks, 0])
         s3 = Line(s3_start, s3_end, color=self.COLOR_SIDE_C, stroke_width=9)
-        t3 = Text("5", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SIDE_C)
+        t3 = Text("5", font="PingFang SC", font_size=20, color=self.COLOR_SIDE_C)
         t3.next_to(s3, UP, buff=0.1)
 
         self.play(Create(s1), Create(s2), Create(s3), run_time=0.7)
         self.play(FadeIn(t1), FadeIn(t2), FadeIn(t3), run_time=0.4)
 
         # 验证不等式（3+4=7>5）
-        check1 = Text("3 + 4 = 7 > 5  ✓", font="Noto Sans CJK SC",
+        check1 = Text("3 + 4 = 7 > 5  ✓", font="PingFang SC",
                       font_size=22, color=self.COLOR_SUCCESS)
         check1.move_to(np.array([0, 3.5, 0]))
-        check2 = Text("3 + 5 = 8 > 4  ✓", font="Noto Sans CJK SC",
+        check2 = Text("3 + 5 = 8 > 4  ✓", font="PingFang SC",
                       font_size=22, color=self.COLOR_SUCCESS)
         check2.move_to(np.array([0, 2.9, 0]))
-        check3 = Text("4 + 5 = 9 > 3  ✓", font="Noto Sans CJK SC",
+        check3 = Text("4 + 5 = 9 > 3  ✓", font="PingFang SC",
                       font_size=22, color=self.COLOR_SUCCESS)
         check3.move_to(np.array([0, 2.3, 0]))
 
@@ -308,7 +308,7 @@ class TriangleSideRelationLesson(Scene):
                            color=self.COLOR_SUCCESS, stroke_width=3)
         good_tri.set_fill(self.COLOR_SUCCESS, opacity=0.2)
 
-        result1 = Text("能构成三角形！", font="Noto Sans CJK SC",
+        result1 = Text("能构成三角形！", font="PingFang SC",
                        font_size=28, color=self.COLOR_SUCCESS, weight=BOLD)
         result1.move_to(np.array([0, -0.2, 0]))
 
@@ -329,7 +329,7 @@ class TriangleSideRelationLesson(Scene):
         # --- 情形2：不能构成三角形 3, 3, 8 ---
         case2_label = Text(
             "情形② 3 cm、3 cm、8 cm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -340,7 +340,7 @@ class TriangleSideRelationLesson(Scene):
         open_B = np.array([2.8, 3.8, 0])
 
         side_c_demo = Line(open_A, open_B, color=self.COLOR_SIDE_C, stroke_width=9)
-        tc_label = Text("8", font="Noto Sans CJK SC",
+        tc_label = Text("8", font="PingFang SC",
                         font_size=20, color=self.COLOR_SIDE_C)
         tc_label.next_to(side_c_demo, DOWN, buff=0.12)
 
@@ -353,10 +353,10 @@ class TriangleSideRelationLesson(Scene):
         side_a_demo = Line(open_A, gap_A_end, color=self.COLOR_SIDE_A, stroke_width=9)
         side_b_demo = Line(open_B, gap_B_end, color=self.COLOR_SIDE_B, stroke_width=9)
 
-        ta_label = Text("3", font="Noto Sans CJK SC",
+        ta_label = Text("3", font="PingFang SC",
                         font_size=20, color=self.COLOR_SIDE_A)
         ta_label.next_to(side_a_demo.get_center(), LEFT, buff=0.1)
-        tb_label = Text("3", font="Noto Sans CJK SC",
+        tb_label = Text("3", font="PingFang SC",
                         font_size=20, color=self.COLOR_SIDE_B)
         tb_label.next_to(side_b_demo.get_center(), RIGHT, buff=0.1)
 
@@ -368,19 +368,19 @@ class TriangleSideRelationLesson(Scene):
                               color=self.COLOR_DANGER,
                               dash_length=0.15, stroke_width=4)
         gap_mid = (gap_A_end + gap_B_end) / 2
-        gap_label = Text("合不拢！", font="Noto Sans CJK SC",
+        gap_label = Text("合不拢！", font="PingFang SC",
                          font_size=22, color=self.COLOR_DANGER, weight=BOLD)
         gap_label.move_to(gap_mid + UP * 0.4)
 
         self.play(Create(gap_line), FadeIn(gap_label), run_time=0.5)
 
         # 验算失败
-        fail_check = Text("3 + 3 = 6 < 8  ✗", font="Noto Sans CJK SC",
+        fail_check = Text("3 + 3 = 6 < 8  ✗", font="PingFang SC",
                           font_size=26, color=self.COLOR_DANGER, weight=BOLD)
         fail_check.move_to(np.array([0, 1.8, 0]))
         self.play(Write(fail_check), run_time=0.6)
 
-        result2 = Text("不能构成三角形！", font="Noto Sans CJK SC",
+        result2 = Text("不能构成三角形！", font="PingFang SC",
                        font_size=28, color=self.COLOR_DANGER, weight=BOLD)
         result2.move_to(np.array([0, 0.8, 0]))
         self.play(FadeIn(result2, scale=1.1), run_time=0.5)
@@ -404,7 +404,7 @@ class TriangleSideRelationLesson(Scene):
         """三组数据让学生判断"""
         title = Text(
             "判断练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -412,7 +412,7 @@ class TriangleSideRelationLesson(Scene):
 
         subtitle = Text(
             "哪组能围成三角形？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 5.6)
@@ -422,7 +422,7 @@ class TriangleSideRelationLesson(Scene):
         # 技巧提示
         tip = Text(
             "只需验证：最小两边之和 > 最长边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.7)
@@ -444,7 +444,7 @@ class TriangleSideRelationLesson(Scene):
             y = y_positions[i]
             case_text = Text(
                 case_str,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE
             ).move_to(np.array([-1.0, y, 0]))
@@ -461,7 +461,7 @@ class TriangleSideRelationLesson(Scene):
 
             check = Text(
                 check_str,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=21,
                 color=color
             ).move_to(np.array([0.2, y - 0.6, 0]))
@@ -469,7 +469,7 @@ class TriangleSideRelationLesson(Scene):
             symbol = "✓" if can_form else "✗"
             result_sym = Text(
                 symbol,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=32,
                 color=color,
                 weight=BOLD
@@ -493,7 +493,7 @@ class TriangleSideRelationLesson(Scene):
         """已知两边求第三边的取值范围"""
         title = Text(
             "第三边的范围",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -501,11 +501,11 @@ class TriangleSideRelationLesson(Scene):
         self.play(Write(title), run_time=0.6)
 
         # 题目
-        prob1 = Text("已知两边分别为", font="Noto Sans CJK SC",
+        prob1 = Text("已知两边分别为", font="PingFang SC",
                      font_size=27, color=WHITE)
-        prob2 = Text("3 cm  和  5 cm", font="Noto Sans CJK SC",
+        prob2 = Text("3 cm  和  5 cm", font="PingFang SC",
                      font_size=32, color=self.COLOR_HIGHLIGHT, weight=BOLD)
-        prob3 = Text("第三边  c  的范围是？", font="Noto Sans CJK SC",
+        prob3 = Text("第三边  c  的范围是？", font="PingFang SC",
                      font_size=27, color=WHITE)
         problem = VGroup(prob1, prob2, prob3).arrange(DOWN, buff=0.2)
         problem.move_to(UP * 4.8)
@@ -516,17 +516,17 @@ class TriangleSideRelationLesson(Scene):
         # 推导步骤
         step_title = Text(
             "根据三边关系，c 必须满足：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.4)
         self.play(FadeIn(step_title), run_time=0.4)
 
         # 条件①
-        cond1_a = Text("条件①：3 + c > 5", font="Noto Sans CJK SC",
+        cond1_a = Text("条件①：3 + c > 5", font="PingFang SC",
                        font_size=24, color=self.COLOR_SIDE_A)
-        cond1_arr = Text("→", font="Noto Sans CJK SC", font_size=24, color=WHITE)
-        cond1_b = Text("c > 2", font="Noto Sans CJK SC",
+        cond1_arr = Text("→", font="PingFang SC", font_size=24, color=WHITE)
+        cond1_b = Text("c > 2", font="PingFang SC",
                        font_size=24, color=self.COLOR_HIGHLIGHT, weight=BOLD)
         cond1 = VGroup(cond1_a, cond1_arr, cond1_b).arrange(RIGHT, buff=0.2)
         cond1.move_to(UP * 2.5)
@@ -534,10 +534,10 @@ class TriangleSideRelationLesson(Scene):
         self.wait(0.3)
 
         # 条件②（恒成立）
-        cond2_a = Text("条件②：5 + c > 3", font="Noto Sans CJK SC",
+        cond2_a = Text("条件②：5 + c > 3", font="PingFang SC",
                        font_size=24, color=self.COLOR_SIDE_B)
-        cond2_arr = Text("→", font="Noto Sans CJK SC", font_size=24, color=WHITE)
-        cond2_b = Text("恒成立", font="Noto Sans CJK SC",
+        cond2_arr = Text("→", font="PingFang SC", font_size=24, color=WHITE)
+        cond2_b = Text("恒成立", font="PingFang SC",
                        font_size=22, color=GRAY_B)
         cond2 = VGroup(cond2_a, cond2_arr, cond2_b).arrange(RIGHT, buff=0.2)
         cond2.move_to(UP * 1.7)
@@ -545,10 +545,10 @@ class TriangleSideRelationLesson(Scene):
         self.wait(0.3)
 
         # 条件③
-        cond3_a = Text("条件③：3 + 5 > c", font="Noto Sans CJK SC",
+        cond3_a = Text("条件③：3 + 5 > c", font="PingFang SC",
                        font_size=24, color=self.COLOR_SIDE_C)
-        cond3_arr = Text("→", font="Noto Sans CJK SC", font_size=24, color=WHITE)
-        cond3_b = Text("c < 8", font="Noto Sans CJK SC",
+        cond3_arr = Text("→", font="PingFang SC", font_size=24, color=WHITE)
+        cond3_b = Text("c < 8", font="PingFang SC",
                        font_size=24, color=self.COLOR_HIGHLIGHT, weight=BOLD)
         cond3 = VGroup(cond3_a, cond3_arr, cond3_b).arrange(RIGHT, buff=0.2)
         cond3.move_to(UP * 0.9)
@@ -556,10 +556,10 @@ class TriangleSideRelationLesson(Scene):
         self.wait(0.4)
 
         # 最终结论框
-        concl_lead = Text("综合得：", font="Noto Sans CJK SC",
+        concl_lead = Text("综合得：", font="PingFang SC",
                           font_size=26, color=WHITE)
         concl_formula = MathTex(r"2 < c < 8", font_size=44, color=self.COLOR_HIGHLIGHT)
-        concl_unit = Text("（单位：cm）", font="Noto Sans CJK SC",
+        concl_unit = Text("（单位：cm）", font="PingFang SC",
                           font_size=20, color=GRAY_B)
         conclusion = VGroup(concl_lead, concl_formula, concl_unit).arrange(RIGHT, buff=0.2)
         conclusion.move_to(np.array([0, -0.3, 0]))
@@ -597,7 +597,7 @@ class TriangleSideRelationLesson(Scene):
                         np.array([xp, axis_y + 0.12, 0]),
                         color=GRAY_A, stroke_width=1.5)
             ticks.add(tick)
-            tlbl = Text(str(v), font="Noto Sans CJK SC",
+            tlbl = Text(str(v), font="PingFang SC",
                         font_size=16, color=GRAY_B)
             tlbl.move_to(np.array([xp, axis_y - 0.38, 0]))
             tick_labels.add(tlbl)
@@ -620,7 +620,7 @@ class TriangleSideRelationLesson(Scene):
         dot8.set_fill("#1a1a2e", opacity=1)
         dot8.move_to(np.array([x8, axis_y, 0]))
 
-        range_label = Text("c 的有效范围", font="Noto Sans CJK SC",
+        range_label = Text("c 的有效范围", font="PingFang SC",
                            font_size=18, color=self.COLOR_SUCCESS)
         range_label.move_to(np.array([(x2 + x8) / 2, axis_y + 0.45, 0]))
 
@@ -632,7 +632,7 @@ class TriangleSideRelationLesson(Scene):
         # 口诀
         rule_text = Text(
             "口诀：两差 < 第三边 < 两和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_FORMULA
         ).move_to(np.array([0, -3.5, 0]))
@@ -658,7 +658,7 @@ class TriangleSideRelationLesson(Scene):
         """总结知识点并引导关注"""
         summary_title = Text(
             "本节重点回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -677,11 +677,11 @@ class TriangleSideRelationLesson(Scene):
         for i, (num, pt_title, pt_content) in enumerate(points):
             y = y_start - i * 2.1
 
-            num_text = Text(num, font="Noto Sans CJK SC",
+            num_text = Text(num, font="PingFang SC",
                             font_size=30, color=self.COLOR_HIGHLIGHT, weight=BOLD)
-            title_text = Text(pt_title, font="Noto Sans CJK SC",
+            title_text = Text(pt_title, font="PingFang SC",
                               font_size=26, color=WHITE, weight=BOLD)
-            content_text = Text(pt_content, font="Noto Sans CJK SC",
+            content_text = Text(pt_content, font="PingFang SC",
                                 font_size=21, color=GRAY_A)
 
             row = VGroup(num_text, title_text).arrange(RIGHT, buff=0.2)
@@ -700,7 +700,7 @@ class TriangleSideRelationLesson(Scene):
         # 作者信息
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
             weight=BOLD
@@ -708,14 +708,14 @@ class TriangleSideRelationLesson(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_B
         ).move_to(np.array([0, -4.3, 0]))
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(np.array([0, -5.3, 0]))

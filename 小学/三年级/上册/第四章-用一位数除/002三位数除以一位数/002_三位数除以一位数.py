@@ -61,7 +61,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 作者品牌（顶部）
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -71,7 +71,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 钩子标题
         hook_line1 = Text(
             "你会算吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.C_TITLE
         ).move_to(UP * 5.5)
@@ -90,7 +90,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 副标题
         sub = Text(
             "三位数除以一位数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_STEP
         ).move_to(UP * 2.6)
@@ -108,7 +108,7 @@ class ThreeDigitDivideOneLesson(Scene):
         ).move_to(UP * 1.2)
         tip_text = Text(
             "注意：商末尾有0！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_ORANGE
         ).move_to(UP * 1.2)
@@ -131,7 +131,7 @@ class ThreeDigitDivideOneLesson(Scene):
     def scene_2_review(self):
         title = Text(
             "先回顾：两位数除以一位数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_STEP
         ).move_to(UP * 6.0)
@@ -140,7 +140,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 展示 84÷4=21 竖式作为对比
         review_label = Text(
             "例：84 ÷ 4 = 21",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.C_WHITE
         ).move_to(UP * 4.8)
@@ -149,13 +149,13 @@ class ThreeDigitDivideOneLesson(Scene):
         # 步骤
         step_tens = Text(
             "十位：8 ÷ 4 = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_GREEN
         ).move_to(UP * 3.5)
         step_ones = Text(
             "个位：4 ÷ 4 = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_GREEN
         ).move_to(UP * 2.8)
@@ -166,7 +166,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 过渡提示
         arrow_text = Text(
             "同样的方法，用于三位数！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_ORANGE
         ).move_to(UP * 1.8)
@@ -232,7 +232,7 @@ class ThreeDigitDivideOneLesson(Scene):
     def scene_3_setup_division(self):
         title = Text(
             "用竖式来计算 480 ÷ 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_TITLE
         ).move_to(UP * 6.2)
@@ -242,7 +242,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 说明文字
         explain = Text(
             "从最高位（百位）开始，一位一位地除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_GRAY
         ).move_to(UP * 5.3)
@@ -274,7 +274,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 商位置提示
         quot_hint = Text(
             "商写在横线上方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_GRAY
         ).move_to(UP * 3.0)
@@ -292,7 +292,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 步骤标题
         step_title = Text(
             "第一步：算百位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_STEP
         ).move_to(UP * 5.2)
@@ -307,7 +307,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 问题文字
         q_label = Text(
             "百位：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_WHITE
         )
@@ -328,7 +328,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 减法说明
         sub_explain = Text(
             "4 - 4 = 0，余0，继续看下一位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_GRAY
         ).move_to(UP * 3.0)
@@ -352,7 +352,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         step_title = Text(
             "第二步：算十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_STEP
         ).move_to(UP * 5.2)
@@ -366,7 +366,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         q_label = Text(
             "十位：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_WHITE
         )
@@ -386,7 +386,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         sub_explain = Text(
             "8 - 8 = 0，余0，继续看下一位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_GRAY
         ).move_to(UP * 3.0)
@@ -410,7 +410,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         step_title = Text(
             "第三步：算个位（重点！）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 5.2)
@@ -428,7 +428,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         q_label = Text(
             "个位：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_WHITE
         )
@@ -450,7 +450,7 @@ class ThreeDigitDivideOneLesson(Scene):
         ).move_to(UP * 3.1)
         emphasis_text = Text(
             "0 除以任何数都等于 0！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_ORANGE
         ).move_to(UP * 3.1)
@@ -468,13 +468,13 @@ class ThreeDigitDivideOneLesson(Scene):
         ).move_to(UP * 1.9)
         warn_text1 = Text(
             "商末尾的 0 不能省略！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_YELLOW
         ).move_to(UP * 2.05)
         warn_text2 = Text(
             "120  不等于  12",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 1.65)
@@ -519,7 +519,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         title = Text(
             "结果：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 5.2)
@@ -560,7 +560,7 @@ class ThreeDigitDivideOneLesson(Scene):
 
         review_title = Text(
             "计算步骤回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_STEP
         ).move_to(UP * 2.8)
@@ -578,7 +578,7 @@ class ThreeDigitDivideOneLesson(Scene):
         for (label_str, formula_str, color), ypos in zip(steps_data, y_positions):
             label_t = Text(
                 label_str,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=self.C_WHITE
             )
@@ -591,7 +591,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 商末尾0强调
         zero_warn = Text(
             "商末尾的 0 绝对不能丢！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_HIGHLIGHT
         ).move_to(UP * -0.5)
@@ -604,7 +604,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 乘法验算
         verify_label = Text(
             "用乘法验算：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_STEP
         ).move_to(UP * -1.5)
@@ -649,7 +649,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 大标题
         outro_title = Text(
             "三位数除以一位数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE
         ).move_to(UP * 2.5)
@@ -667,7 +667,7 @@ class ThreeDigitDivideOneLesson(Scene):
             col = self.C_GREEN if i < 2 else self.C_ORANGE
             t = Text(
                 f"• {tip}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=col
             ).move_to([0, ypos, 0])
@@ -692,7 +692,7 @@ class ThreeDigitDivideOneLesson(Scene):
         # 关注提示
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_YELLOW
         ).move_to(UP * -3.0)

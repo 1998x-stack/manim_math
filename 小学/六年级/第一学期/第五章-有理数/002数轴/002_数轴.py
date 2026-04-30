@@ -46,7 +46,7 @@ COLOR_RESULT = "#22c55e"       # 绿色 结果
 COLOR_AUTHOR = "#6b7280"       # 灰色作者信息
 COLOR_TITLE = "#fbbf24"        # 金色 标题
 COLOR_COMPARE = "#f97316"      # 橙色 比较
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

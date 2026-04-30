@@ -69,7 +69,7 @@ class Topic003等式的性质Animation(Scene):
         # 作者信息 (顶部)
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -79,7 +79,7 @@ class Topic003等式的性质Animation(Scene):
         # 标题
         title = Text(
             "003等式的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 5)
@@ -95,7 +95,7 @@ class Topic003等式的性质Animation(Scene):
         # 根据主题创建相应内容
         content_text = Text(
             "正在学习003等式的性质的概念...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 3)
@@ -120,7 +120,7 @@ class Topic003等式的性质Animation(Scene):
         """示例演示"""
         example_text = Text(
             "让我们看一个例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 4)
@@ -141,16 +141,16 @@ class Topic003等式的性质Animation(Scene):
     def show_summary(self):
         """总结回顾"""
         summary_points = VGroup(
-            Text("✓ 今天我们学习了003等式的性质", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            Text("✓ 今天我们学习了003等式的性质", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
+            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
+            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
         )
         summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
         summary_points.move_to(UP * 1)
         
         title = Text(
             "今天学到的知识：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 4)
@@ -163,7 +163,7 @@ class Topic003等式的性质Animation(Scene):
         # 鼓励话语
         encouragement = Text(
             "你学得真棒！\\n继续加油哦！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -174,7 +174,7 @@ class Topic003等式的性质Animation(Scene):
         # 关注提醒
         follow_reminder = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)

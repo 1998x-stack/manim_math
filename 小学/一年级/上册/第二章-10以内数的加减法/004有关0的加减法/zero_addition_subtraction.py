@@ -98,14 +98,14 @@ class ZeroAddSubtract(Scene):
         parts = []
         if left_text:
             parts.append(
-                Text(left_text, font="Noto Sans CJK SC", font_size=font_size, color=self.C_FORMULA)
+                Text(left_text, font="PingFang SC", font_size=font_size, color=self.C_FORMULA)
             )
         parts.append(
             MathTex(mid_tex, color=self.C_FORMULA, font_size=font_size)
         )
         if right_text:
             parts.append(
-                Text(right_text, font="Noto Sans CJK SC", font_size=font_size, color=self.C_FORMULA)
+                Text(right_text, font="PingFang SC", font_size=font_size, color=self.C_FORMULA)
             )
         row = VGroup(*parts).arrange(RIGHT, buff=0.15)
         row.move_to(np.array([0, y, 0]))
@@ -113,10 +113,10 @@ class ZeroAddSubtract(Scene):
 
     def make_rule_text(self, line1, line2=None, y=-4.5):
         """创建规律说明文字（两行）"""
-        t1 = Text(line1, font="Noto Sans CJK SC", font_size=26, color=self.C_RULE)
+        t1 = Text(line1, font="PingFang SC", font_size=26, color=self.C_RULE)
         group = VGroup(t1)
         if line2:
-            t2 = Text(line2, font="Noto Sans CJK SC", font_size=26, color=self.C_RULE)
+            t2 = Text(line2, font="PingFang SC", font_size=26, color=self.C_RULE)
             group.add(t2)
         group.arrange(DOWN, buff=0.2)
         group.move_to(np.array([0, y, 0]))
@@ -126,7 +126,7 @@ class ZeroAddSubtract(Scene):
         """创建场景标题"""
         return Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.C_TITLE,
         ).move_to(np.array([0, y, 0]))
@@ -139,7 +139,7 @@ class ZeroAddSubtract(Scene):
         # 作者信息（全程显示）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B,
         ).move_to(UP * 7)
@@ -147,7 +147,7 @@ class ZeroAddSubtract(Scene):
 
         # 钩子大问题
         question_zh = Text(
-            "5个苹果", font="Noto Sans CJK SC", font_size=52, color=self.C_APPLE
+            "5个苹果", font="PingFang SC", font_size=52, color=self.C_APPLE
         )
         question_op = MathTex(r"+\ 0\ =\ ?", color=self.C_FORMULA, font_size=52)
         hook = VGroup(question_zh, question_op).arrange(RIGHT, buff=0.2)
@@ -188,13 +188,13 @@ class ZeroAddSubtract(Scene):
 
         # 第一行：5个苹果
         label_left = Text(
-            "盘子里有", font="Noto Sans CJK SC", font_size=28, color=GRAY_A
+            "盘子里有", font="PingFang SC", font_size=28, color=GRAY_A
         ).move_to(np.array([-2.2, 4.2, 0]))
         count_left = MathTex(r"5", color=self.C_APPLE, font_size=36).next_to(
             label_left, RIGHT, buff=0.15
         )
         label_left2 = Text(
-            "个苹果", font="Noto Sans CJK SC", font_size=28, color=GRAY_A
+            "个苹果", font="PingFang SC", font_size=28, color=GRAY_A
         ).next_to(count_left, RIGHT, buff=0.15)
         row_label = VGroup(label_left, count_left, label_left2)
         self.play(FadeIn(row_label), run_time=0.5)
@@ -211,13 +211,13 @@ class ZeroAddSubtract(Scene):
 
         # 第二行：空盘子（0个）
         label_right = Text(
-            "又加了", font="Noto Sans CJK SC", font_size=28, color=GRAY_A
+            "又加了", font="PingFang SC", font_size=28, color=GRAY_A
         ).move_to(np.array([-2.5, 0.4, 0]))
         count_zero = MathTex(r"0", color=self.C_ZERO_BOX, font_size=36).next_to(
             label_right, RIGHT, buff=0.15
         )
         label_right2 = Text(
-            "个苹果", font="Noto Sans CJK SC", font_size=28, color=GRAY_A
+            "个苹果", font="PingFang SC", font_size=28, color=GRAY_A
         ).next_to(count_zero, RIGHT, buff=0.15)
         row_label2 = VGroup(label_right, count_zero, label_right2)
         self.play(FadeIn(row_label2), run_time=0.5)
@@ -225,7 +225,7 @@ class ZeroAddSubtract(Scene):
         # 空盘子动画
         empty_plate = self.make_empty_plate(y=-0.5)
         empty_text = Text(
-            "空空的~", font="Noto Sans CJK SC", font_size=22, color=self.C_ZERO_BOX
+            "空空的~", font="PingFang SC", font_size=22, color=self.C_ZERO_BOX
         ).move_to(np.array([0, -1.0, 0]))
         self.play(Create(empty_plate), run_time=0.8)
         self.play(FadeIn(empty_text), run_time=0.4)
@@ -277,7 +277,7 @@ class ZeroAddSubtract(Scene):
         # 说明文字
         desc = Text(
             "盘子里有5个苹果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A,
         ).move_to(np.array([0, 4.3, 0]))
@@ -295,7 +295,7 @@ class ZeroAddSubtract(Scene):
 
         desc2 = Text(
             "拿走了 0 个（什么都没拿）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
         ).move_to(np.array([0, 0.4, 0]))
@@ -307,7 +307,7 @@ class ZeroAddSubtract(Scene):
         # 强调"什么都没少"
         nothing_text = Text(
             "苹果没有减少！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
         ).move_to(np.array([0, -1.5, 0]))
@@ -351,7 +351,7 @@ class ZeroAddSubtract(Scene):
 
         desc = Text(
             "盘子里有5个苹果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A,
         ).move_to(np.array([0, 4.3, 0]))
@@ -368,7 +368,7 @@ class ZeroAddSubtract(Scene):
 
         desc2 = Text(
             "拿走了全部 5 个！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_HIGHLIGHT,
         ).move_to(np.array([0, 0.5, 0]))
@@ -435,7 +435,7 @@ class ZeroAddSubtract(Scene):
     def scene_5_summary(self):
         title = Text(
             "三条规律，记住了吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=YELLOW,
         ).move_to(UP * 5.8)
@@ -453,7 +453,7 @@ class ZeroAddSubtract(Scene):
                 stroke_width=2,
             ).move_to(np.array([0, y, 0]))
             rule = Text(
-                rule_text, font="Noto Sans CJK SC", font_size=26, color=color
+                rule_text, font="PingFang SC", font_size=26, color=color
             ).move_to(np.array([-1.8, y + 0.3, 0]))
             formula = MathTex(formula_tex, color=WHITE, font_size=34).move_to(
                 np.array([1.5, y + 0.3, 0])
@@ -482,17 +482,17 @@ class ZeroAddSubtract(Scene):
 
         # 总结口诀
         slogan_1 = Text(
-            "加0或减0，", font="Noto Sans CJK SC", font_size=30, color=WHITE
+            "加0或减0，", font="PingFang SC", font_size=30, color=WHITE
         )
         slogan_2 = Text(
-            "原来是几就是几！", font="Noto Sans CJK SC", font_size=30, color=YELLOW
+            "原来是几就是几！", font="PingFang SC", font_size=30, color=YELLOW
         )
         slogan = VGroup(slogan_1, slogan_2).arrange(RIGHT, buff=0.1)
         slogan.move_to(np.array([0, -2.3, 0]))
 
         slogan_3 = Text(
             "相同数相减，结果是零！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_HIGHLIGHT,
         ).move_to(np.array([0, -3.3, 0]))
@@ -515,13 +515,13 @@ class ZeroAddSubtract(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
         ).move_to(UP * 2.0)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B,
         ).move_to(UP * 1.0)
@@ -534,7 +534,7 @@ class ZeroAddSubtract(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_FORMULA,
         ).move_to(DOWN * 0.2)

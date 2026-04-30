@@ -45,7 +45,7 @@ class MultiplicationLawLesson(Scene):
         # 作者标识（全程保留顶部）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_TEXT,
         ).move_to(UP * 7.0)
@@ -64,14 +64,14 @@ class MultiplicationLawLesson(Scene):
         # 主标题
         title = Text(
             "乘法的两个秘密武器",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD_COLOR,
         ).move_to(UP * 5.5)
 
         subtitle = Text(
             "交换律  ×  结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE_TEXT,
         ).move_to(UP * 4.6)
@@ -79,28 +79,28 @@ class MultiplicationLawLesson(Scene):
         # 钩子问题
         q_line1 = Text(
             "25 × 4 × 17",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=TEAL_COLOR,
         ).move_to(UP * 2.8)
 
         q_line2 = Text(
             "你能秒算出来吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=ORANGE_COLOR,
         ).move_to(UP * 1.8)
 
         question_mark = Text(
             "？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=120,
             color=GOLD_COLOR,
         ).move_to(DOWN * 0.5)
 
         hint = Text(
             "学完今天，轻松算！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GREEN_COLOR,
         ).move_to(DOWN * 2.5)
@@ -131,14 +131,14 @@ class MultiplicationLawLesson(Scene):
         # ── 标题 ──────────────────────────────────────────────────────
         sec_title = Text(
             "乘法交换律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=TEAL_COLOR,
         ).move_to(UP * 6.3)
 
         sec_sub = Text(
             "交换因数位置，积不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_TEXT,
         ).move_to(UP * 5.6)
@@ -151,10 +151,10 @@ class MultiplicationLawLesson(Scene):
         grid_left  = self._make_grid(rows=3, cols=4,
                                      cell_color=TEAL_COLOR,
                                      center=np.array([-2.2, 2.0, 0]))
-        label_left_top = Text("3 行", font="Noto Sans CJK SC",
+        label_left_top = Text("3 行", font="PingFang SC",
                               font_size=22, color=WHITE_TEXT)
         label_left_top.next_to(grid_left, LEFT, buff=0.15)
-        label_left_bot = Text("4 列", font="Noto Sans CJK SC",
+        label_left_bot = Text("4 列", font="PingFang SC",
                               font_size=22, color=WHITE_TEXT)
         label_left_bot.next_to(grid_left, DOWN, buff=0.12)
 
@@ -166,10 +166,10 @@ class MultiplicationLawLesson(Scene):
         grid_right = self._make_grid(rows=4, cols=3,
                                      cell_color=ORANGE_COLOR,
                                      center=np.array([2.2, 2.0, 0]))
-        label_right_top = Text("4 行", font="Noto Sans CJK SC",
+        label_right_top = Text("4 行", font="PingFang SC",
                                font_size=22, color=WHITE_TEXT)
         label_right_top.next_to(grid_right, RIGHT, buff=0.15)
-        label_right_bot = Text("3 列", font="Noto Sans CJK SC",
+        label_right_bot = Text("3 列", font="PingFang SC",
                                font_size=22, color=WHITE_TEXT)
         label_right_bot.next_to(grid_right, DOWN, buff=0.12)
 
@@ -178,7 +178,7 @@ class MultiplicationLawLesson(Scene):
         formula_right.next_to(grid_right, DOWN, buff=0.45)
 
         # 等号链接
-        equal_sign = Text("=", font="Noto Sans CJK SC",
+        equal_sign = Text("=", font="PingFang SC",
                           font_size=40, color=GOLD_COLOR)
         equal_sign.move_to(np.array([0, formula_left.get_center()[1], 0]))
 
@@ -219,7 +219,7 @@ class MultiplicationLawLesson(Scene):
         b_box = self._make_factor_box("b", ORANGE_COLOR,
                                       pos=np.array([1.8, -1.6, 0]))
 
-        times1 = Text("×", font="Noto Sans CJK SC",
+        times1 = Text("×", font="PingFang SC",
                       font_size=36, color=WHITE_TEXT).move_to(np.array([0, -1.6, 0]))
 
         self.play(FadeIn(a_box), FadeIn(times1), FadeIn(b_box), run_time=0.5)
@@ -233,7 +233,7 @@ class MultiplicationLawLesson(Scene):
             color=GOLD_COLOR,
             stroke_width=3,
         )
-        swap_text = Text("交换！", font="Noto Sans CJK SC",
+        swap_text = Text("交换！", font="PingFang SC",
                          font_size=24, color=GOLD_COLOR)
         swap_text.move_to(np.array([0, -0.5, 0]))
 
@@ -252,7 +252,7 @@ class MultiplicationLawLesson(Scene):
 
         result_same = Text(
             "积一样！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GREEN_COLOR,
         ).move_to(np.array([0, -2.6, 0]))
@@ -279,14 +279,14 @@ class MultiplicationLawLesson(Scene):
         # ── 标题 ──────────────────────────────────────────────────────
         sec_title = Text(
             "乘法结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=PURPLE_COLOR,
         ).move_to(UP * 6.3)
 
         sec_sub = Text(
             "三数相乘，先乘哪两个都一样",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_TEXT,
         ).move_to(UP * 5.5)
@@ -297,7 +297,7 @@ class MultiplicationLawLesson(Scene):
         # ── 方式 A：先算 (2×3)×4 ───────────────────────────────────
         way_a_title = Text(
             "方式 A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=TEAL_COLOR,
         ).move_to(UP * 4.5)
@@ -335,7 +335,7 @@ class MultiplicationLawLesson(Scene):
         # ── 方式 B：先算 2×(3×4) ───────────────────────────────────
         way_b_title = Text(
             "方式 B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=ORANGE_COLOR,
         ).move_to(UP * 1.5)
@@ -360,7 +360,7 @@ class MultiplicationLawLesson(Scene):
         # ── 结论：公式 ────────────────────────────────────────────────
         equal_result = Text(
             "结果相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD_COLOR,
         ).move_to(DOWN * 1.2)
@@ -400,14 +400,14 @@ class MultiplicationLawLesson(Scene):
         # ── 标题 ──────────────────────────────────────────────────────
         sec_title = Text(
             "活学活用 · 简便运算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD_COLOR,
         ).move_to(UP * 6.3)
 
         problem = Text(
             "计算  25 × 4 × 17",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE_TEXT,
         ).move_to(UP * 5.2)
@@ -428,7 +428,7 @@ class MultiplicationLawLesson(Scene):
 
         tip_text = Text(
             "发现：25 × 4 = 100，整数好算！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=TEAL_COLOR,
         ).move_to(tip_bg.get_center())
@@ -437,7 +437,7 @@ class MultiplicationLawLesson(Scene):
         self.wait(0.4)
 
         # ── 步骤 1：原式 ─────────────────────────────────────────────
-        step_label_1 = Text("原式", font="Noto Sans CJK SC",
+        step_label_1 = Text("原式", font="PingFang SC",
                             font_size=24, color=GRAY_TEXT)
         step_label_1.move_to(np.array([-3.0, 2.7, 0]))
 
@@ -458,7 +458,7 @@ class MultiplicationLawLesson(Scene):
         self.wait(0.3)
 
         # ── 步骤 2：使用结合律调整括号 ───────────────────────────────
-        step_label_2 = Text("结合律", font="Noto Sans CJK SC",
+        step_label_2 = Text("结合律", font="PingFang SC",
                             font_size=24, color=PURPLE_COLOR)
         step_label_2.move_to(np.array([-3.0, 1.7, 0]))
 
@@ -475,7 +475,7 @@ class MultiplicationLawLesson(Scene):
         self.wait(0.4)
 
         # ── 步骤 3：计算括号内 ────────────────────────────────────────
-        step_label_3 = Text("计算", font="Noto Sans CJK SC",
+        step_label_3 = Text("计算", font="PingFang SC",
                             font_size=24, color=TEAL_COLOR)
         step_label_3.move_to(np.array([-3.0, 0.7, 0]))
 
@@ -485,7 +485,7 @@ class MultiplicationLawLesson(Scene):
 
         hundred_note = Text(
             "25×4=100",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GOLD_COLOR,
         ).next_to(step3, RIGHT, buff=0.3)
@@ -495,7 +495,7 @@ class MultiplicationLawLesson(Scene):
         self.wait(0.4)
 
         # ── 步骤 4：得出答案 ─────────────────────────────────────────
-        step_label_4 = Text("答案", font="Noto Sans CJK SC",
+        step_label_4 = Text("答案", font="PingFang SC",
                             font_size=24, color=GREEN_COLOR)
         step_label_4.move_to(np.array([-3.0, -0.3, 0]))
 
@@ -522,19 +522,19 @@ class MultiplicationLawLesson(Scene):
 
         compare_title = Text(
             "对比一下",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_TEXT,
         ).move_to(np.array([0, -1.3, 0]))
 
-        old_label = Text("普通算法：", font="Noto Sans CJK SC",
+        old_label = Text("普通算法：", font="PingFang SC",
                          font_size=22, color=ORANGE_COLOR)
         old_steps = MathTex(r"25 \times 4 = 100,\ 100 \times 17",
                             font_size=28, color=ORANGE_COLOR)
         old_row = VGroup(old_label, old_steps).arrange(RIGHT, buff=0.1)
         old_row.move_to(np.array([0, -2.0, 0]))
 
-        new_label = Text("简便算法：", font="Noto Sans CJK SC",
+        new_label = Text("简便算法：", font="PingFang SC",
                          font_size=22, color=GREEN_COLOR)
         new_steps = MathTex(r"(25 \times 4) \times 17 = 100 \times 17",
                             font_size=28, color=GREEN_COLOR)
@@ -543,7 +543,7 @@ class MultiplicationLawLesson(Scene):
 
         faster_text = Text(
             "利用规律，速度更快！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GOLD_COLOR,
         ).move_to(np.array([0, -3.6, 0]))
@@ -572,7 +572,7 @@ class MultiplicationLawLesson(Scene):
         # ── 总结卡片 ──────────────────────────────────────────────────
         summary_title = Text(
             "今日总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD_COLOR,
         ).move_to(UP * 6.0)
@@ -591,7 +591,7 @@ class MultiplicationLawLesson(Scene):
 
         card1_name = Text(
             "乘法交换律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=TEAL_COLOR,
         ).move_to(UP * 4.5)
@@ -602,7 +602,7 @@ class MultiplicationLawLesson(Scene):
 
         card1_desc = Text(
             "交换因数位置，积不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_TEXT,
         ).move_to(UP * 3.2)
@@ -619,7 +619,7 @@ class MultiplicationLawLesson(Scene):
 
         card2_name = Text(
             "乘法结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=PURPLE_COLOR,
         ).move_to(UP * 2.2)
@@ -632,7 +632,7 @@ class MultiplicationLawLesson(Scene):
 
         card2_desc = Text(
             "改变运算顺序，积不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_TEXT,
         ).move_to(UP * 0.85)
@@ -649,7 +649,7 @@ class MultiplicationLawLesson(Scene):
 
         card3_name = Text(
             "灵活应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=ORANGE_COLOR,
         ).move_to(DOWN * 0.0)
@@ -689,28 +689,28 @@ class MultiplicationLawLesson(Scene):
 
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE_TEXT,
         ).move_to(DOWN * 2.7)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=TEAL_COLOR,
         ).move_to(DOWN * 3.3)
 
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD_COLOR,
         ).move_to(DOWN * 4.0)
 
         follow_sub = Text(
             "每天一个知识点，轻松拿满分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_TEXT,
         ).move_to(DOWN * 4.7)

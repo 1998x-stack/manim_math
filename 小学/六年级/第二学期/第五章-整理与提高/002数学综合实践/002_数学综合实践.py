@@ -78,7 +78,7 @@ class MathPracticeLesson(Scene):
         # 作者标识
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -109,7 +109,7 @@ class MathPracticeLesson(Scene):
         if label_text is not None:
             label = Text(
                 label_text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=color,
             ).next_to(gear_circle, DOWN, buff=0.25)
@@ -125,7 +125,7 @@ class MathPracticeLesson(Scene):
 
         hook = Text(
             "骑自行车时\n蹬一圈能走多远?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.4,
@@ -174,7 +174,7 @@ class MathPracticeLesson(Scene):
 
         subtitle = Text(
             "答案就藏在齿轮里!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 3.5)
@@ -190,7 +190,7 @@ class MathPracticeLesson(Scene):
     def scene_2_gear_ratio_concept(self):
         title = Text(
             "什么是齿轮比?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.5)
@@ -205,7 +205,7 @@ class MathPracticeLesson(Scene):
 
         front_label = Text(
             "前齿轮(大)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_GEAR_FRONT,
         ).next_to(front, DOWN, buff=0.3)
@@ -218,7 +218,7 @@ class MathPracticeLesson(Scene):
 
         rear_label = Text(
             "后齿轮(小)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_GEAR_REAR,
         ).next_to(rear, DOWN, buff=0.3)
@@ -245,14 +245,14 @@ class MathPracticeLesson(Scene):
         # Explanation
         explain_1 = Text(
             "前齿轮转1圈",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GEAR_FRONT,
         ).move_to(DOWN * 1.0)
 
         explain_2 = Text(
             "后齿轮转几圈?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GEAR_REAR,
         ).move_to(DOWN * 1.8)
@@ -272,7 +272,7 @@ class MathPracticeLesson(Scene):
         # Formula
         formula_label = Text(
             "齿轮比公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 3.0)
@@ -285,11 +285,11 @@ class MathPracticeLesson(Scene):
 
         # Chinese version beneath
         cn_line = VGroup(
-            Text("齿轮比", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("齿轮比", font="PingFang SC", font_size=22, color=WHITE),
             MathTex(r"=", font_size=28, color=WHITE),
-            Text("前齿轮齿数", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_GEAR_FRONT),
+            Text("前齿轮齿数", font="PingFang SC", font_size=22, color=self.COLOR_GEAR_FRONT),
             MathTex(r"\div", font_size=28, color=WHITE),
-            Text("后齿轮齿数", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_GEAR_REAR),
+            Text("后齿轮齿数", font="PingFang SC", font_size=22, color=self.COLOR_GEAR_REAR),
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 4.8)
 
         self.play(FadeIn(formula_label), run_time=0.4)
@@ -320,7 +320,7 @@ class MathPracticeLesson(Scene):
     def scene_3_gear_ratio_calculation(self):
         title = Text(
             "齿轮比计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.5)
@@ -329,16 +329,16 @@ class MathPracticeLesson(Scene):
 
         # Problem statement
         problem = VGroup(
-            Text("已知:", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("已知:", font="PingFang SC", font_size=26, color=GRAY_A),
             VGroup(
-                Text("前齿轮", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GEAR_FRONT),
+                Text("前齿轮", font="PingFang SC", font_size=24, color=self.COLOR_GEAR_FRONT),
                 MathTex(r"= 48", font_size=28, color=WHITE),
-                Text("齿", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+                Text("齿", font="PingFang SC", font_size=24, color=WHITE),
             ).arrange(RIGHT, buff=0.1),
             VGroup(
-                Text("后齿轮", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GEAR_REAR),
+                Text("后齿轮", font="PingFang SC", font_size=24, color=self.COLOR_GEAR_REAR),
                 MathTex(r"= 16", font_size=28, color=WHITE),
-                Text("齿", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+                Text("齿", font="PingFang SC", font_size=24, color=WHITE),
             ).arrange(RIGHT, buff=0.1),
         ).arrange(DOWN, buff=0.4, aligned_edge=LEFT).move_to(UP * 3.5)
 
@@ -350,13 +350,13 @@ class MathPracticeLesson(Scene):
         # Step-by-step calculation
         step_label = Text(
             "求齿轮比:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 1.5)
 
         step1 = VGroup(
-            Text("齿轮比", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("齿轮比", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(r"= \frac{48}{16}", font_size=36, color=WHITE),
         ).arrange(RIGHT, buff=0.15).move_to(UP * 0.5)
 
@@ -375,8 +375,8 @@ class MathPracticeLesson(Scene):
 
         # Meaning
         meaning = VGroup(
-            Text("含义: 前齿轮转1圈", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("后齿轮转3圈!", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ACCENT),
+            Text("含义: 前齿轮转1圈", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("后齿轮转3圈!", font="PingFang SC", font_size=24, color=self.COLOR_ACCENT),
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 2.5)
 
         self.play(FadeIn(meaning), run_time=0.8)
@@ -441,7 +441,7 @@ class MathPracticeLesson(Scene):
     def scene_4_distance_formula(self):
         title = Text(
             "蹬一圈走多远?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.5)
@@ -451,7 +451,7 @@ class MathPracticeLesson(Scene):
         # Key insight
         insight_1 = Text(
             "后齿轮 带动 车轮 一起转!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 4.2)
@@ -482,25 +482,25 @@ class MathPracticeLesson(Scene):
         # Formula derivation
         formula_title = Text(
             "路程公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.5)
 
         line1 = VGroup(
-            Text("路程", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("路程", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(r"=", font_size=30, color=WHITE),
-            Text("车轮周长", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_WHEEL),
+            Text("车轮周长", font="PingFang SC", font_size=24, color=self.COLOR_WHEEL),
             MathTex(r"\times", font_size=30, color=WHITE),
-            Text("车轮圈数", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GEAR_REAR),
+            Text("车轮圈数", font="PingFang SC", font_size=24, color=self.COLOR_GEAR_REAR),
         ).arrange(RIGHT, buff=0.12).move_to(DOWN * 1.5)
 
         line2 = VGroup(
-            Text("车轮圈数", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
+            Text("车轮圈数", font="PingFang SC", font_size=22, color=GRAY_A),
             MathTex(r"=", font_size=28, color=GRAY_A),
-            Text("齿轮比", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
+            Text("齿轮比", font="PingFang SC", font_size=22, color=GRAY_A),
             MathTex(r"\times", font_size=28, color=GRAY_A),
-            Text("蹬的圈数", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
+            Text("蹬的圈数", font="PingFang SC", font_size=22, color=GRAY_A),
         ).arrange(RIGHT, buff=0.12).move_to(DOWN * 2.8)
 
         self.play(FadeIn(formula_title), run_time=0.4)
@@ -512,19 +512,19 @@ class MathPracticeLesson(Scene):
         # Combined formula
         combined_label = Text(
             "合并得到:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.0)
 
         combined = VGroup(
-            Text("路程", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("路程", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(r"=", font_size=30, color=WHITE),
-            Text("周长", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_WHEEL),
+            Text("周长", font="PingFang SC", font_size=24, color=self.COLOR_WHEEL),
             MathTex(r"\times", font_size=30, color=WHITE),
-            Text("齿轮比", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GEAR_FRONT),
+            Text("齿轮比", font="PingFang SC", font_size=24, color=self.COLOR_GEAR_FRONT),
             MathTex(r"\times", font_size=30, color=WHITE),
-            Text("蹬的圈数", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GEAR_REAR),
+            Text("蹬的圈数", font="PingFang SC", font_size=24, color=self.COLOR_GEAR_REAR),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 5.0)
 
         box = SurroundingRectangle(combined, color=self.COLOR_HIGHLIGHT, buff=0.2)
@@ -553,7 +553,7 @@ class MathPracticeLesson(Scene):
     def scene_5_distance_calculation(self):
         title = Text(
             "实际计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.5)
@@ -562,20 +562,20 @@ class MathPracticeLesson(Scene):
 
         # Given information
         given = VGroup(
-            Text("已知条件:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("已知条件:", font="PingFang SC", font_size=24, color=GRAY_A),
             VGroup(
-                Text("齿轮比", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("齿轮比", font="PingFang SC", font_size=22, color=WHITE),
                 MathTex(r"= 3", font_size=26, color=self.COLOR_GEAR_FRONT),
             ).arrange(RIGHT, buff=0.1),
             VGroup(
-                Text("车轮直径", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("车轮直径", font="PingFang SC", font_size=22, color=WHITE),
                 MathTex(r"= 66", font_size=26, color=self.COLOR_WHEEL),
-                Text("cm", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("cm", font="PingFang SC", font_size=22, color=WHITE),
             ).arrange(RIGHT, buff=0.1),
             VGroup(
-                Text("蹬", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("蹬", font="PingFang SC", font_size=22, color=WHITE),
                 MathTex(r"1", font_size=26, color=self.COLOR_HIGHLIGHT),
-                Text("圈", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("圈", font="PingFang SC", font_size=22, color=WHITE),
             ).arrange(RIGHT, buff=0.1),
         ).arrange(DOWN, buff=0.35, aligned_edge=LEFT).move_to(UP * 3.5)
 
@@ -587,7 +587,7 @@ class MathPracticeLesson(Scene):
         # Step 1: circumference
         s1_label = Text(
             "第1步: 求车轮周长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 1.2)
@@ -605,15 +605,15 @@ class MathPracticeLesson(Scene):
         # Step 2: wheel rotations
         s2_label = Text(
             "第2步: 车轮转几圈",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.6)
 
         s2_line = VGroup(
-            Text("车轮圈数", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("车轮圈数", font="PingFang SC", font_size=22, color=WHITE),
             MathTex(r"= 3 \times 1 = 3", font_size=26, color=WHITE),
-            Text("圈", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("圈", font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 1.4)
 
         self.play(Write(s2_label), run_time=0.5)
@@ -623,21 +623,21 @@ class MathPracticeLesson(Scene):
         # Step 3: total distance
         s3_label = Text(
             "第3步: 求路程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.5)
 
         s3_line1 = VGroup(
-            Text("路程", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("路程", font="PingFang SC", font_size=22, color=WHITE),
             MathTex(r"= 207.35 \times 3", font_size=26, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 3.3)
 
         s3_line2 = VGroup(
             MathTex(r"\approx 622.04", font_size=28, color=self.COLOR_ACCENT),
-            Text("cm", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("cm", font="PingFang SC", font_size=22, color=WHITE),
             MathTex(r"\approx 6.22", font_size=28, color=self.COLOR_ACCENT),
-            Text("m", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("m", font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 4.2)
 
         self.play(Write(s3_label), run_time=0.5)
@@ -652,7 +652,7 @@ class MathPracticeLesson(Scene):
 
         conclusion = Text(
             "蹬一圈约走6.22米!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 5.5)
@@ -681,14 +681,14 @@ class MathPracticeLesson(Scene):
     def scene_6_water_saving(self):
         title = Text(
             "节约用水",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.5)
 
         subtitle = Text(
             "数学帮助我们节约资源",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(UP * 4.8)
@@ -738,14 +738,14 @@ class MathPracticeLesson(Scene):
         problem = VGroup(
             Text(
                 "调查发现:",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=self.COLOR_HIGHLIGHT,
             ),
             VGroup(
-                Text("一个漏水龙头每天浪费", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+                Text("一个漏水龙头每天浪费", font="PingFang SC", font_size=20, color=WHITE),
                 MathTex(r"12", font_size=26, color=self.COLOR_SECONDARY),
-                Text("升水", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+                Text("升水", font="PingFang SC", font_size=20, color=WHITE),
             ).arrange(RIGHT, buff=0.08),
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 0.5)
 
@@ -755,26 +755,26 @@ class MathPracticeLesson(Scene):
         # Calculation
         calc_label = Text(
             "全校50个水龙头, 一年浪费多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.0)
 
         calc_1 = VGroup(
-            Text("每天:", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("每天:", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"12 \times 50 = 600", font_size=24, color=WHITE),
-            Text("升", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("升", font="PingFang SC", font_size=20, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 2.8)
 
         calc_2 = VGroup(
-            Text("一年:", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("一年:", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"600 \times 365 = 219000", font_size=24, color=WHITE),
-            Text("升", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("升", font="PingFang SC", font_size=20, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 3.6)
 
         calc_3 = VGroup(
             MathTex(r"= 219", font_size=28, color=self.COLOR_SECONDARY),
-            Text("吨!", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SECONDARY),
+            Text("吨!", font="PingFang SC", font_size=24, color=self.COLOR_SECONDARY),
         ).arrange(RIGHT, buff=0.08).move_to(DOWN * 4.4)
 
         self.play(Write(calc_label), run_time=0.7)
@@ -787,18 +787,18 @@ class MathPracticeLesson(Scene):
 
         # Formula reminder
         formula_reminder = VGroup(
-            Text("节水量", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("节水量", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"=", font_size=24, color=GRAY_A),
-            Text("原用水量", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("原用水量", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"-", font_size=24, color=GRAY_A),
-            Text("现用水量", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("现用水量", font="PingFang SC", font_size=20, color=GRAY_A),
         ).arrange(RIGHT, buff=0.08).move_to(DOWN * 5.6)
 
         self.play(FadeIn(formula_reminder), run_time=0.6)
 
         message = Text(
             "修好水龙头, 就能节约219吨!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 6.5)
@@ -828,7 +828,7 @@ class MathPracticeLesson(Scene):
     def scene_7_summary_and_outro(self):
         title = Text(
             "今天学到了什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.5)
@@ -838,7 +838,7 @@ class MathPracticeLesson(Scene):
         # Process flow
         process_title = Text(
             "解决问题的步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 4.3)
@@ -865,7 +865,7 @@ class MathPracticeLesson(Scene):
 
             label = Text(
                 text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=color,
             ).move_to(box.get_center())
@@ -896,26 +896,26 @@ class MathPracticeLesson(Scene):
         # Key formulas recap
         recap_title = Text(
             "核心公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.0)
 
         formulas = VGroup(
             VGroup(
-                Text("齿轮比", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_GEAR_FRONT),
+                Text("齿轮比", font="PingFang SC", font_size=20, color=self.COLOR_GEAR_FRONT),
                 MathTex(r"= \frac{\text{Front}}{\text{Rear}}", font_size=24, color=WHITE),
             ).arrange(RIGHT, buff=0.1),
             VGroup(
-                Text("路程", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_WHEEL),
+                Text("路程", font="PingFang SC", font_size=20, color=self.COLOR_WHEEL),
                 MathTex(r"= C \times n", font_size=24, color=WHITE),
             ).arrange(RIGHT, buff=0.1),
             VGroup(
-                Text("节水量", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_WATER),
+                Text("节水量", font="PingFang SC", font_size=20, color=self.COLOR_WATER),
                 MathTex(r"=", font_size=24, color=WHITE),
-                Text("原量", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+                Text("原量", font="PingFang SC", font_size=20, color=WHITE),
                 MathTex(r"-", font_size=24, color=WHITE),
-                Text("现量", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+                Text("现量", font="PingFang SC", font_size=20, color=WHITE),
             ).arrange(RIGHT, buff=0.08),
         ).arrange(DOWN, buff=0.5, aligned_edge=LEFT).move_to(DOWN * 2.8)
 
@@ -927,7 +927,7 @@ class MathPracticeLesson(Scene):
         # Highlight message
         big_msg = Text(
             "数学就在身边!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 5.0)
@@ -950,21 +950,21 @@ class MathPracticeLesson(Scene):
         # Outro
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B,
         ).move_to(UP * 0.5)
 
         follow = Text(
             "关注我, 获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.0)

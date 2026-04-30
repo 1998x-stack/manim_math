@@ -53,7 +53,7 @@ class CountingTurningNumbers(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -63,14 +63,14 @@ class CountingTurningNumbers(Scene):
         # 钩子问题
         hook_line1 = Text(
             "数到19之后",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE
         ).move_to(UP * 5.0)
 
         hook_line2 = Text(
             "下一个是几？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.2)
@@ -80,9 +80,9 @@ class CountingTurningNumbers(Scene):
         self.wait(0.5)
 
         # 显示 19 -> ?
-        num19 = Text("19", font="Noto Sans CJK SC", font_size=80, color=self.COLOR_NORMAL)
-        t_arrow = Text("->", font="Noto Sans CJK SC", font_size=60, color=WHITE)
-        question = Text("?", font="Noto Sans CJK SC", font_size=80, color=self.COLOR_HIGHLIGHT)
+        num19 = Text("19", font="PingFang SC", font_size=80, color=self.COLOR_NORMAL)
+        t_arrow = Text("->", font="PingFang SC", font_size=60, color=WHITE)
+        question = Text("?", font="PingFang SC", font_size=80, color=self.COLOR_HIGHLIGHT)
         row = VGroup(num19, t_arrow, question).arrange(RIGHT, buff=0.4).move_to(UP * 2.5)
 
         self.play(FadeIn(num19, scale=0.8), run_time=0.4)
@@ -91,7 +91,7 @@ class CountingTurningNumbers(Scene):
         self.wait(0.5)
 
         # 答案揭晓
-        answer = Text("20", font="Noto Sans CJK SC", font_size=80, color=self.COLOR_HIGHLIGHT)
+        answer = Text("20", font="PingFang SC", font_size=80, color=self.COLOR_HIGHLIGHT)
         answer.move_to(question.get_center())
         self.play(Transform(question, answer), run_time=0.6)
         self.wait(0.3)
@@ -99,14 +99,14 @@ class CountingTurningNumbers(Scene):
         # 标题
         title = Text(
             "数数与拐弯数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.2)
 
         subtitle = Text(
             "从20数到100",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A
         ).move_to(UP * 0.4)
@@ -135,7 +135,7 @@ class CountingTurningNumbers(Scene):
         # 场景标题
         scene_title = Text(
             "什么是拐弯数？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -144,7 +144,7 @@ class CountingTurningNumbers(Scene):
         # 说明文字
         explain = Text(
             "数数时需要拐弯的数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.4)
@@ -161,7 +161,7 @@ class CountingTurningNumbers(Scene):
 
         num_objs = []
         for val, color in numbers_data:
-            t = Text(val, font="Noto Sans CJK SC", font_size=50, color=color)
+            t = Text(val, font="PingFang SC", font_size=50, color=color)
             num_objs.append(t)
 
         row1 = VGroup(*num_objs).arrange(RIGHT, buff=0.35).move_to(UP * 3.8)
@@ -179,7 +179,7 @@ class CountingTurningNumbers(Scene):
 
         label_turn = Text(
             "拐弯！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).next_to(arrow_down, UP, buff=0.05)
@@ -195,7 +195,7 @@ class CountingTurningNumbers(Scene):
         # 展示更多拐弯数
         turning_title = Text(
             "所有的拐弯数：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 2.6)
@@ -206,7 +206,7 @@ class CountingTurningNumbers(Scene):
         tn_objs = []
         for n in turning_nums_list:
             color = self.COLOR_HIGHLIGHT if n == "100" else self.COLOR_TEN
-            t = Text(n, font="Noto Sans CJK SC", font_size=34, color=color)
+            t = Text(n, font="PingFang SC", font_size=34, color=color)
             tn_objs.append(t)
 
         # 分两行排列
@@ -236,7 +236,7 @@ class CountingTurningNumbers(Scene):
 
         feature_text = Text(
             "个位都是 0，即整十数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TEN
         ).move_to(UP * 0.1)
@@ -267,7 +267,7 @@ class CountingTurningNumbers(Scene):
         # 场景标题
         scene_title = Text(
             "一个一个地数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_ACCENT
         ).move_to(UP * 6.2)
@@ -276,15 +276,15 @@ class CountingTurningNumbers(Scene):
         # 第一个拐弯：19 -> 20
         turning_label1 = Text(
             "第一个拐弯",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B
         ).move_to(UP * 5.2)
         self.play(FadeIn(turning_label1), run_time=0.3)
 
-        t19 = Text("19", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_NORMAL)
-        arr1 = Text("->", font="Noto Sans CJK SC", font_size=56, color=WHITE)
-        t20 = Text("20", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_TEN)
+        t19 = Text("19", font="PingFang SC", font_size=72, color=self.COLOR_NORMAL)
+        arr1 = Text("->", font="PingFang SC", font_size=56, color=WHITE)
+        t20 = Text("20", font="PingFang SC", font_size=72, color=self.COLOR_TEN)
         group1 = VGroup(t19, arr1, t20).arrange(RIGHT, buff=0.35).move_to(UP * 4.3)
 
         self.play(FadeIn(t19, scale=0.8), run_time=0.4)
@@ -300,7 +300,7 @@ class CountingTurningNumbers(Scene):
         for n in seq1_nums:
             color = self.COLOR_TEN if n in seq1_turning else self.COLOR_NORMAL
             font_size = 40 if n in seq1_turning else 32
-            t = Text(n, font="Noto Sans CJK SC", font_size=font_size, color=color)
+            t = Text(n, font="PingFang SC", font_size=font_size, color=color)
             seq1_objs.append(t)
 
         seq1_group = VGroup(*seq1_objs).arrange(RIGHT, buff=0.18).move_to(UP * 3.2)
@@ -317,15 +317,15 @@ class CountingTurningNumbers(Scene):
         # 第二个拐弯：29 -> 30
         turning_label2 = Text(
             "第二个拐弯",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B
         ).move_to(UP * 2.3)
         self.play(FadeIn(turning_label2), run_time=0.3)
 
-        t29 = Text("29", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_NORMAL)
-        arr2 = Text("->", font="Noto Sans CJK SC", font_size=56, color=WHITE)
-        t30 = Text("30", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_TEN)
+        t29 = Text("29", font="PingFang SC", font_size=72, color=self.COLOR_NORMAL)
+        arr2 = Text("->", font="PingFang SC", font_size=56, color=WHITE)
+        t30 = Text("30", font="PingFang SC", font_size=72, color=self.COLOR_TEN)
         group2 = VGroup(t29, arr2, t30).arrange(RIGHT, buff=0.35).move_to(UP * 1.4)
 
         self.play(FadeIn(t29, scale=0.8), run_time=0.4)
@@ -341,7 +341,7 @@ class CountingTurningNumbers(Scene):
         for n in seq2_nums:
             color = self.COLOR_TEN if n in seq2_turning else self.COLOR_NORMAL
             font_size = 40 if n in seq2_turning else 32
-            t = Text(n, font="Noto Sans CJK SC", font_size=font_size, color=color)
+            t = Text(n, font="PingFang SC", font_size=font_size, color=color)
             seq2_objs.append(t)
 
         seq2_group = VGroup(*seq2_objs).arrange(RIGHT, buff=0.18).move_to(UP * 0.3)
@@ -368,14 +368,14 @@ class CountingTurningNumbers(Scene):
 
         rule_line1 = Text(
             "规律：数到 X9 之后",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 0.9)
 
         rule_line2 = Text(
             "下一个就是 (X+1)0，拐弯！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -407,7 +407,7 @@ class CountingTurningNumbers(Scene):
         # 场景标题
         scene_title = Text(
             "十个十个地数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TEN
         ).move_to(UP * 6.2)
@@ -415,7 +415,7 @@ class CountingTurningNumbers(Scene):
 
         subtitle = Text(
             "每次数 10 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.4)
@@ -428,7 +428,7 @@ class CountingTurningNumbers(Scene):
         for val in tens_sequence:
             color = self.COLOR_HIGHLIGHT if val == 100 else self.COLOR_TEN
             font_size = 44 if val == 100 else 38
-            t = Text(str(val), font="Noto Sans CJK SC", font_size=font_size, color=color)
+            t = Text(str(val), font="PingFang SC", font_size=font_size, color=color)
             tens_objs.append(t)
 
         # 排成两行，每行5个
@@ -462,14 +462,14 @@ class CountingTurningNumbers(Scene):
 
         rhythm_text1 = Text(
             "十，二十，三十...一百",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_TEN
         ).move_to(UP * 2.1)
 
         rhythm_text2 = Text(
             "数 10 次，就到 100！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 1.65)
@@ -491,9 +491,9 @@ class CountingTurningNumbers(Scene):
         self.play(Create(number_line), run_time=0.8)
 
         # 标记0和100
-        label_0 = Text("0", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        label_0 = Text("0", font="PingFang SC", font_size=20, color=GRAY_A)
         label_0.next_to(number_line.n2p(0), DOWN, buff=0.15)
-        label_100 = Text("100", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_HIGHLIGHT)
+        label_100 = Text("100", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT)
         label_100.next_to(number_line.n2p(100), DOWN, buff=0.15)
 
         self.play(FadeIn(label_0), FadeIn(label_100), run_time=0.3)
@@ -519,7 +519,7 @@ class CountingTurningNumbers(Scene):
             t_color = self.COLOR_TEN if val != 100 else self.COLOR_HIGHLIGHT
             tick_lbl = Text(
                 str(val),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=16,
                 color=t_color
             ).next_to(target_pos, UP, buff=0.1)
@@ -552,7 +552,7 @@ class CountingTurningNumbers(Scene):
         # 场景标题
         scene_title = Text(
             "10个十 = 100",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -599,7 +599,7 @@ class CountingTurningNumbers(Scene):
             self.play(FadeIn(grp, shift=RIGHT * 0.1), run_time=0.18)
             lbl = Text(
                 "第" + str(i + 1) + "个十",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=16,
                 color=GRAY_B
             ).next_to(grp, RIGHT, buff=0.12)
@@ -614,11 +614,11 @@ class CountingTurningNumbers(Scene):
         self.wait(0.3)
 
         # 核心公式
-        eq_10 = Text("10", font="Noto Sans CJK SC", font_size=56, color=self.COLOR_TEN)
-        eq_ge = Text("个", font="Noto Sans CJK SC", font_size=36, color=WHITE)
-        eq_shi = Text("十", font="Noto Sans CJK SC", font_size=56, color=self.COLOR_TEN)
-        eq_eq = Text("=", font="Noto Sans CJK SC", font_size=48, color=WHITE)
-        eq_100 = Text("100", font="Noto Sans CJK SC", font_size=64, color=self.COLOR_HIGHLIGHT)
+        eq_10 = Text("10", font="PingFang SC", font_size=56, color=self.COLOR_TEN)
+        eq_ge = Text("个", font="PingFang SC", font_size=36, color=WHITE)
+        eq_shi = Text("十", font="PingFang SC", font_size=56, color=self.COLOR_TEN)
+        eq_eq = Text("=", font="PingFang SC", font_size=48, color=WHITE)
+        eq_100 = Text("100", font="PingFang SC", font_size=64, color=self.COLOR_HIGHLIGHT)
 
         formula_group = VGroup(eq_10, eq_ge, eq_shi, eq_eq, eq_100).arrange(RIGHT, buff=0.2)
         formula_group.move_to(DOWN * 3.0)
@@ -649,7 +649,7 @@ class CountingTurningNumbers(Scene):
         # 总结卡片标题
         summary_title = Text(
             "今天学会了",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -678,13 +678,13 @@ class CountingTurningNumbers(Scene):
 
             pt_text = Text(
                 point,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=card_colors[i]
             )
             dt_text = Text(
                 detail,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             )
@@ -704,21 +704,21 @@ class CountingTurningNumbers(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(DOWN * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_B
         ).move_to(DOWN * 2.7)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -738,7 +738,7 @@ class CountingTurningNumbers(Scene):
         ]
         deco_objs = []
         for num, pos in zip(deco_nums, positions):
-            t = Text(num, font="Noto Sans CJK SC", font_size=28, color=self.COLOR_TEN)
+            t = Text(num, font="PingFang SC", font_size=28, color=self.COLOR_TEN)
             t.move_to(pos)
             deco_objs.append(t)
 

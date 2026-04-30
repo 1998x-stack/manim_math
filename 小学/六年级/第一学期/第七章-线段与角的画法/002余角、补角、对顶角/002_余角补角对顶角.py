@@ -45,7 +45,7 @@ COLOR_LINE = "#e2e8f0"          # 浅灰 线段
 COLOR_RIGHT_ANGLE = "#22d3ee"   # 青色 直角
 COLOR_VERT_1 = "#f472b6"        # 粉色 对顶角1
 COLOR_VERT_2 = "#34d399"        # 绿色 对顶角2
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

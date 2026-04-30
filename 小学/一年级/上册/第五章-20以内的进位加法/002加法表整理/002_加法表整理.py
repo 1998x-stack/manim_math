@@ -59,7 +59,7 @@ class AdditionTableLesson(Scene):
         # 作者信息
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -68,14 +68,14 @@ class AdditionTableLesson(Scene):
         # 大标题
         title = Text(
             "加法表整理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=COLOR_TITLE,
         ).move_to(UP * 5.8)
 
         subtitle = Text(
             "20以内的进位加法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=COLOR_GRAY,
         ).move_to(UP * 4.9)
@@ -86,7 +86,7 @@ class AdditionTableLesson(Scene):
         # 钩子问题
         hook = Text(
             "你能快速算出这些吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=COLOR_HIGHLIGHT,
         ).move_to(UP * 3.5)
@@ -130,7 +130,7 @@ class AdditionTableLesson(Scene):
     def scene_2_nine_plus(self):
         row_title = Text(
             "9 加几",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=COLOR_9ROW,
         ).move_to(UP * 6.0)
@@ -139,7 +139,7 @@ class AdditionTableLesson(Scene):
 
         explain = Text(
             "用凑十法：先凑成 10，再加余数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_GRAY,
         ).move_to(UP * 5.1)
@@ -185,7 +185,7 @@ class AdditionTableLesson(Scene):
     def scene_3_eight_plus(self):
         row_title = Text(
             "8 加几",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=COLOR_8ROW,
         ).move_to(UP * 6.0)
@@ -230,7 +230,7 @@ class AdditionTableLesson(Scene):
         # --- 7加几 ---
         row_title_7 = Text(
             "7 加几",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=COLOR_7ROW,
         ).move_to(UP * 6.0)
@@ -253,7 +253,7 @@ class AdditionTableLesson(Scene):
         # --- 切换到 6加几 ---
         row_title_6 = Text(
             "6 加几",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=COLOR_6ROW,
         ).move_to(UP * 6.0)
@@ -288,7 +288,7 @@ class AdditionTableLesson(Scene):
     def scene_5_full_table(self):
         title = Text(
             "完整加法表",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=COLOR_TITLE,
         ).move_to(UP * 6.5)
@@ -317,7 +317,7 @@ class AdditionTableLesson(Scene):
             # 行标签
             label = Text(
                 prefix,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=color,
             ).move_to(np.array([-4.0, y_pos, 0]))
@@ -379,7 +379,7 @@ class AdditionTableLesson(Scene):
     def scene_6_pattern(self):
         pattern_title = Text(
             "发现规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_PATTERN,
         ).move_to(UP * 6.5)
@@ -392,7 +392,7 @@ class AdditionTableLesson(Scene):
         # 规律①：每行都从11开始
         rule_1 = Text(
             "规律①：每行结果都从 11 开始",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.4)
@@ -419,7 +419,7 @@ class AdditionTableLesson(Scene):
         # 规律②：加数增大，结果增大
         rule_2 = Text(
             "规律②：加数每增加1，结果增加1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.2)
@@ -430,7 +430,7 @@ class AdditionTableLesson(Scene):
         # 规律③：行数越来越少
         rule_3 = Text(
             "规律③：加数越小，算式越少",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.0)
@@ -460,7 +460,7 @@ class AdditionTableLesson(Scene):
     def scene_7_outro(self):
         summary_title = Text(
             "记住这些加法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_TITLE,
         ).move_to(UP * 3.8)
@@ -490,7 +490,7 @@ class AdditionTableLesson(Scene):
         # 鼓励语
         encourage = Text(
             "多练习，越来越快！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.2)
@@ -499,7 +499,7 @@ class AdditionTableLesson(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_GRAY,
         ).move_to(DOWN * 3.2)
@@ -509,7 +509,7 @@ class AdditionTableLesson(Scene):
         # 作者信息
         author_big = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color="#6b7280",
         ).move_to(DOWN * 4.4)
@@ -573,13 +573,13 @@ class AdditionTableLesson(Scene):
         """构建规律提示框"""
         line1 = Text(
             line1_str,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT,
         )
         line2 = Text(
             line2_str,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=COLOR_GRAY,
         )

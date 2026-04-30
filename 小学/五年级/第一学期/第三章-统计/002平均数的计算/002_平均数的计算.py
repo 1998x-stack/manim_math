@@ -36,7 +36,7 @@ COLOR_BAR4 = "#ef4444"       # 红色
 COLOR_AVG = "#a78bfa"        # 紫色平均线
 COLOR_HL = "#fbbf24"         # 黄色高亮
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class AverageCalculationLesson(Scene):

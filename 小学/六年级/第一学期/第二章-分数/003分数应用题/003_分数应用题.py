@@ -40,7 +40,7 @@ COLOR_UNIT1 = "#a78bfa"   # 紫 单位1
 COLOR_FRAC  = "#f472b6"   # 粉 分率
 COLOR_CORR  = "#34d399"   # 青 对应量
 COLOR_AUTHOR = "#6b7280"  # 灰作者
-FONT        = "Noto Sans CJK SC"
+FONT        = "PingFang SC"
 
 
 # ======================================================================

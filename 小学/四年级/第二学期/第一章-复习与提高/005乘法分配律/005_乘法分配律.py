@@ -31,7 +31,7 @@ COLOR_C      = "#f59e0b"   # 橙色 — c (乘数)
 COLOR_HL     = "#fbbf24"   # 黄色 高亮
 COLOR_RESULT = "#ef4444"   # 红色 结果
 COLOR_AUTHOR = "#6b7280"   # 灰色作者
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

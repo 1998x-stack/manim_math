@@ -34,7 +34,7 @@ COLOR_WAIST      = "#facc15"   # 黄色 — 腰
 COLOR_BASE       = "#f472b6"   # 粉色 — 底
 COLOR_AUTHOR     = "#6b7280"   # 灰色
 COLOR_HL         = "#fbbf24"   # 高亮黄
-FONT             = "Noto Sans CJK SC"
+FONT             = "PingFang SC"
 
 
 # ======================================================================

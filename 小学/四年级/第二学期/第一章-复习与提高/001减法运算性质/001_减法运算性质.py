@@ -54,7 +54,7 @@ class SubtractionPropertyLesson(Scene):
         # 作者信息（顶部固定）
         self.author_tag = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -63,14 +63,14 @@ class SubtractionPropertyLesson(Scene):
         # 标题
         title = Text(
             "减法运算性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 5.5)
 
         subtitle = Text(
             "四年级 · 简便计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color="#9ca3af",
         ).move_to(UP * 4.5)
@@ -88,7 +88,7 @@ class SubtractionPropertyLesson(Scene):
 
         hook_line2 = Text(
             "你能一眼算出来吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(UP * 1.4)
@@ -100,7 +100,7 @@ class SubtractionPropertyLesson(Scene):
         # 提示"有技巧"
         tip = Text(
             "有个超简单的技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 0.2)
@@ -125,7 +125,7 @@ class SubtractionPropertyLesson(Scene):
         # 标题
         demo_title = Text(
             "先来看一个小例子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 6.2)
@@ -157,7 +157,7 @@ class SubtractionPropertyLesson(Scene):
         # 方块上方标签
         label_10 = Text(
             "共 10 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
         ).next_to(blocks, UP, buff=0.25)
@@ -168,7 +168,7 @@ class SubtractionPropertyLesson(Scene):
         # ── 方法一：连续减 ──
         method1_title = Text(
             "方法一：连续减两次",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 3.0)
@@ -192,7 +192,7 @@ class SubtractionPropertyLesson(Scene):
         self.play(Create(cross1), run_time=0.4)
 
         step1_text = VGroup(
-            Text("10 - 3", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+            Text("10 - 3", font="PingFang SC", font_size=30, color=WHITE),
         ).move_to(UP * 2.0)
         self.play(FadeIn(step1_text), run_time=0.3)
         self.wait(0.3)
@@ -215,7 +215,7 @@ class SubtractionPropertyLesson(Scene):
         self.play(Create(cross2), run_time=0.4)
 
         step2_text = VGroup(
-            Text("10 - 3 - 4", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+            Text("10 - 3 - 4", font="PingFang SC", font_size=30, color=WHITE),
         ).move_to(UP * 2.0)
         self.play(Transform(step1_text, step2_text), run_time=0.3)
         self.wait(0.3)
@@ -229,8 +229,8 @@ class SubtractionPropertyLesson(Scene):
         )
 
         result1_text = VGroup(
-            Text("= ", font="Noto Sans CJK SC", font_size=30, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_SUCCESS),
+            Text("= ", font="PingFang SC", font_size=30, color=WHITE),
+            Text("3", font="PingFang SC", font_size=36, color=self.COLOR_SUCCESS),
         ).arrange(RIGHT, buff=0.05).move_to(UP * 1.2)
         self.play(FadeIn(result1_text), run_time=0.4)
         self.wait(0.8)
@@ -246,7 +246,7 @@ class SubtractionPropertyLesson(Scene):
 
         method2_title = Text(
             "方法二：先合并再减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 0.3)
@@ -256,8 +256,8 @@ class SubtractionPropertyLesson(Scene):
         bc_group = VGroup(*[blocks[i] for i in range(remove_b + remove_c)])
         brace_bc = Brace(bc_group, direction=DOWN, color=self.COLOR_FORMULA)
         brace_label = VGroup(
-            Text("3 + 4 = ", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_FORMULA),
-            Text("7", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT),
+            Text("3 + 4 = ", font="PingFang SC", font_size=24, color=self.COLOR_FORMULA),
+            Text("7", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.05)
         brace_label.next_to(brace_bc, DOWN, buff=0.15)
 
@@ -267,13 +267,13 @@ class SubtractionPropertyLesson(Scene):
 
         step3_text = Text(
             "10 - (3 + 4) = 10 - 7",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(DOWN * 1.2)
         result2_text = VGroup(
-            Text("= ", font="Noto Sans CJK SC", font_size=30, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_SUCCESS),
+            Text("= ", font="PingFang SC", font_size=30, color=WHITE),
+            Text("3", font="PingFang SC", font_size=36, color=self.COLOR_SUCCESS),
         ).arrange(RIGHT, buff=0.05).move_to(DOWN * 2.0)
 
         self.play(FadeIn(step3_text), run_time=0.4)
@@ -283,7 +283,7 @@ class SubtractionPropertyLesson(Scene):
         # 结论
         conclude = Text(
             "两种算法，结果完全一样！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.2)
@@ -316,7 +316,7 @@ class SubtractionPropertyLesson(Scene):
         # 标题
         formula_title = Text(
             "规律总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 6.2)
@@ -354,21 +354,21 @@ class SubtractionPropertyLesson(Scene):
 
         explain1 = Text(
             "一个数连续减去两个数，",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(UP * 1.7)
 
         explain2 = Text(
             "等于减去这两个数的和。",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 1.0)
 
         explain3 = Text(
             "反过来也成立！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SUCCESS,
         ).move_to(UP * 0.3)
@@ -381,7 +381,7 @@ class SubtractionPropertyLesson(Scene):
         # 括号说明箭头
         bracket_note = Text(
             "括号里的 b+c 先算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.8)
@@ -428,7 +428,7 @@ class SubtractionPropertyLesson(Scene):
         # 标题
         ex_title = Text(
             "例题讲解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 6.2)
@@ -436,7 +436,7 @@ class SubtractionPropertyLesson(Scene):
 
         problem_label = Text(
             "计算：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color="#9ca3af",
         ).move_to(UP * 5.2)
@@ -454,7 +454,7 @@ class SubtractionPropertyLesson(Scene):
         # ─ 步骤一：观察规律 ─
         step1_label = Text(
             "第一步：观察 36 和 64",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 2.8)
@@ -475,9 +475,9 @@ class SubtractionPropertyLesson(Scene):
         nums_vg = VGroup(problem_colored[2], problem_colored[4])
         brace_sum = Brace(nums_vg, direction=DOWN, color=self.COLOR_FORMULA)
         brace_sum_label = VGroup(
-            Text("36 + 64 = ", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_FORMULA),
-            Text("100", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_SUCCESS),
-            Text("  整百！", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT),
+            Text("36 + 64 = ", font="PingFang SC", font_size=26, color=self.COLOR_FORMULA),
+            Text("100", font="PingFang SC", font_size=32, color=self.COLOR_SUCCESS),
+            Text("  整百！", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.1)
         brace_sum_label.next_to(brace_sum, DOWN, buff=0.15)
 
@@ -488,7 +488,7 @@ class SubtractionPropertyLesson(Scene):
         # ─ 步骤二：应用减法性质 ─
         step2_label = Text(
             "第二步：应用减法性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 1.2)
@@ -547,7 +547,7 @@ class SubtractionPropertyLesson(Scene):
         # 关键提示
         key_msg = Text(
             "关键：36+64=100，整百数好算！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.2)
@@ -578,7 +578,7 @@ class SubtractionPropertyLesson(Scene):
         # 总结标题
         summary_title = Text(
             "记住这个性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 6.0)
@@ -626,8 +626,8 @@ class SubtractionPropertyLesson(Scene):
 
         pt_rows = VGroup()
         for p1, p2, col in points_data:
-            txt1 = Text(p1, font="Noto Sans CJK SC", font_size=24, color=col)
-            txt2 = Text(p2, font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            txt1 = Text(p1, font="PingFang SC", font_size=24, color=col)
+            txt2 = Text(p2, font="PingFang SC", font_size=22, color=WHITE)
             row = VGroup(txt1, txt2).arrange(RIGHT, buff=0.3)
             pt_rows.add(row)
 
@@ -641,7 +641,7 @@ class SubtractionPropertyLesson(Scene):
         # 练习题
         practice_title = Text(
             "再练一题！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.8)
@@ -657,13 +657,13 @@ class SubtractionPropertyLesson(Scene):
 
         practice_a_label = Text(
             "200-(73+27)=200-100=",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color="#9ca3af",
         )
         practice_a_num = Text(
             "100",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_SUCCESS,
         )
@@ -689,21 +689,21 @@ class SubtractionPropertyLesson(Scene):
         # 片尾：作者大字
         outro_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE,
         ).move_to(UP * 1.5)
 
         outro_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color="#6b7280",
         ).move_to(UP * 0.5)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.7)

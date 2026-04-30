@@ -51,7 +51,7 @@ class AngleClassifyLesson(Scene):
         # 作者标识（全程显示）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -138,17 +138,17 @@ class AngleClassifyLesson(Scene):
     # ─────────────────────────────────────────
 
     def scene_1_opening(self):
-        title = Text("角的分类", font="Noto Sans CJK SC",
+        title = Text("角的分类", font="PingFang SC",
                      font_size=56, color=self.COLOR_HIGHLIGHT).move_to(UP * 5.5)
         subtitle = Text("锐角 · 直角 · 钝角 · 平角 · 周角",
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=26, color=self.COLOR_TEXT).move_to(UP * 4.6)
 
         self.play(Write(title), run_time=0.8)
         self.play(FadeIn(subtitle), run_time=0.5)
 
         hook = Text("你能分清这5种角吗？",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=30, color=self.COLOR_SECONDARY).move_to(UP * 3.6)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.5)
 
@@ -168,7 +168,7 @@ class AngleClassifyLesson(Scene):
         for (deg, col, name), x in zip(demo_data, xs):
             vx = np.array([x, y_demo, 0])
             icon = self.make_icon(name, vx, col, ray_r=ray_r, sw=2.5)
-            lbl = Text(name, font="Noto Sans CJK SC",
+            lbl = Text(name, font="PingFang SC",
                        font_size=18, color=col)
             lbl.next_to(icon, DOWN, buff=0.15)
             demo_group.add(VGroup(icon, lbl))
@@ -191,11 +191,11 @@ class AngleClassifyLesson(Scene):
 
     def scene_2_acute(self):
         col = self.COLOR_ACUTE
-        title = Text("锐角", font="Noto Sans CJK SC",
+        title = Text("锐角", font="PingFang SC",
                      font_size=48, color=col).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
-        def_text = Text("比直角小的角", font="Noto Sans CJK SC",
+        def_text = Text("比直角小的角", font="PingFang SC",
                         font_size=26, color=self.COLOR_TEXT).move_to(UP * 5.05)
         self.play(FadeIn(def_text), run_time=0.4)
 
@@ -219,7 +219,7 @@ class AngleClassifyLesson(Scene):
 
         # 3个示例小角
         hint = Text("常见锐角：30°、45°、60°……",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=22, color=self.COLOR_TEXT).move_to(DOWN * 1.3)
         self.play(FadeIn(hint), run_time=0.4)
 
@@ -237,7 +237,7 @@ class AngleClassifyLesson(Scene):
         self.play(*[Create(small_group[k]) for k in range(3)], run_time=0.8)
 
         tip = Text("锐角 < 90°，比直角更尖！",
-                   font="Noto Sans CJK SC",
+                   font="PingFang SC",
                    font_size=22, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.0)
         self.play(FadeIn(tip, shift=UP * 0.2), run_time=0.4)
         self.wait(1.2)
@@ -256,11 +256,11 @@ class AngleClassifyLesson(Scene):
 
     def scene_3_right(self):
         col = self.COLOR_RIGHT
-        title = Text("直角", font="Noto Sans CJK SC",
+        title = Text("直角", font="PingFang SC",
                      font_size=48, color=col).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
-        def_text = Text("等于 90° 的角", font="Noto Sans CJK SC",
+        def_text = Text("等于 90° 的角", font="PingFang SC",
                         font_size=26, color=self.COLOR_TEXT).move_to(UP * 5.05)
         self.play(FadeIn(def_text), run_time=0.4)
 
@@ -281,7 +281,7 @@ class AngleClassifyLesson(Scene):
         self.play(Write(ang_label), run_time=0.4)
 
         note = Text("小方块 □ 表示直角",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 1.1)
         self.play(FadeIn(note, shift=UP * 0.2), run_time=0.5)
         self.play(Indicate(sq_mark, color=self.COLOR_HIGHLIGHT, scale_factor=1.5),
@@ -290,7 +290,7 @@ class AngleClassifyLesson(Scene):
         life_items = ["课本的角", "黑板的角", "正方形的角"]
         life_group = VGroup()
         for i, item in enumerate(life_items):
-            t = Text(f"· {item}", font="Noto Sans CJK SC",
+            t = Text(f"· {item}", font="PingFang SC",
                      font_size=22, color=self.COLOR_TEXT)
             life_group.add(t)
         life_group.arrange(DOWN, aligned_edge=LEFT, buff=0.18)
@@ -299,7 +299,7 @@ class AngleClassifyLesson(Scene):
         self.play(FadeIn(life_group, shift=RIGHT * 0.3), run_time=0.5)
 
         tip = Text("直角是角分类的基准！",
-                   font="Noto Sans CJK SC",
+                   font="PingFang SC",
                    font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.0)
         self.play(FadeIn(tip, shift=UP * 0.2), run_time=0.4)
         self.wait(1.5)
@@ -318,12 +318,12 @@ class AngleClassifyLesson(Scene):
 
     def scene_4_obtuse(self):
         col = self.COLOR_OBTUSE
-        title = Text("钝角", font="Noto Sans CJK SC",
+        title = Text("钝角", font="PingFang SC",
                      font_size=48, color=col).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
         def_text = Text("比直角大、比平角小的角",
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=24, color=self.COLOR_TEXT).move_to(UP * 5.05)
         self.play(FadeIn(def_text), run_time=0.4)
 
@@ -346,7 +346,7 @@ class AngleClassifyLesson(Scene):
         self.play(Write(ang_label), run_time=0.4)
 
         compare = Text("比直角 (90°) 大，比平角 (180°) 小",
-                       font="Noto Sans CJK SC",
+                       font="PingFang SC",
                        font_size=22, color=self.COLOR_TEXT).move_to(DOWN * 1.1)
         self.play(FadeIn(compare), run_time=0.5)
 
@@ -361,7 +361,7 @@ class AngleClassifyLesson(Scene):
         self.play(Create(ref_ray), Write(ref_label), run_time=0.5)
 
         tip = Text("90° < 钝角 < 180°",
-                   font="Noto Sans CJK SC",
+                   font="PingFang SC",
                    font_size=26, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.0)
         self.play(FadeIn(tip, shift=UP * 0.2), run_time=0.4)
         self.wait(1.5)
@@ -381,12 +381,12 @@ class AngleClassifyLesson(Scene):
 
     def scene_5_straight(self):
         col = self.COLOR_STRAIGHT
-        title = Text("平角", font="Noto Sans CJK SC",
+        title = Text("平角", font="PingFang SC",
                      font_size=48, color=col).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
         def_text = Text("等于 180°，两边在同一直线上",
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=24, color=self.COLOR_TEXT).move_to(UP * 5.05)
         self.play(FadeIn(def_text), run_time=0.4)
 
@@ -408,10 +408,10 @@ class AngleClassifyLesson(Scene):
         self.play(Write(ang_label), run_time=0.4)
 
         # 1平角 = 2直角 演示
-        rel1 = Text("1平角", font="Noto Sans CJK SC",
+        rel1 = Text("1平角", font="PingFang SC",
                     font_size=28, color=col)
         eq1 = MathTex(r"=", font_size=30, color=WHITE)
-        rel2 = Text("2直角", font="Noto Sans CJK SC",
+        rel2 = Text("2直角", font="PingFang SC",
                     font_size=28, color=self.COLOR_RIGHT)
         rel_group = VGroup(rel1, eq1, rel2).arrange(RIGHT, buff=0.2)
         rel_group.move_to(DOWN * 1.2)
@@ -430,7 +430,7 @@ class AngleClassifyLesson(Scene):
         self.play(Create(sq1), Create(sq2), run_time=0.4)
 
         tip = Text("平角看起来就是一条直线！",
-                   font="Noto Sans CJK SC",
+                   font="PingFang SC",
                    font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.0)
         self.play(FadeIn(tip, shift=UP * 0.2), run_time=0.4)
         self.wait(1.5)
@@ -450,12 +450,12 @@ class AngleClassifyLesson(Scene):
 
     def scene_6_full(self):
         col = self.COLOR_FULL
-        title = Text("周角", font="Noto Sans CJK SC",
+        title = Text("周角", font="PingFang SC",
                      font_size=48, color=col).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
         def_text = Text("旋转一周形成的角，等于 360°",
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=24, color=self.COLOR_TEXT).move_to(UP * 5.05)
         self.play(FadeIn(def_text), run_time=0.4)
 
@@ -486,13 +486,13 @@ class AngleClassifyLesson(Scene):
         self.play(Write(ang_label), run_time=0.4)
 
         # 关系
-        rel1 = Text("1周角", font="Noto Sans CJK SC",
+        rel1 = Text("1周角", font="PingFang SC",
                     font_size=24, color=col)
         eq1 = MathTex(r"=", font_size=26, color=WHITE)
-        rel2 = Text("2平角", font="Noto Sans CJK SC",
+        rel2 = Text("2平角", font="PingFang SC",
                     font_size=24, color=self.COLOR_STRAIGHT)
         eq2 = MathTex(r"=", font_size=26, color=WHITE)
-        rel3 = Text("4直角", font="Noto Sans CJK SC",
+        rel3 = Text("4直角", font="PingFang SC",
                     font_size=24, color=self.COLOR_RIGHT)
         rel_group = VGroup(rel1, eq1, rel2, eq2, rel3).arrange(RIGHT, buff=0.15)
         rel_group.move_to(DOWN * 1.3)
@@ -511,7 +511,7 @@ class AngleClassifyLesson(Scene):
         self.play(Create(aux_lines), run_time=0.5)
 
         tip = Text("周角 = 一整圈 = 360°",
-                   font="Noto Sans CJK SC",
+                   font="PingFang SC",
                    font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.0)
         self.play(FadeIn(tip, shift=UP * 0.2), run_time=0.4)
         self.wait(1.5)
@@ -530,7 +530,7 @@ class AngleClassifyLesson(Scene):
 
     def scene_7_summary(self):
         title = Text("角的分类总结",
-                     font="Noto Sans CJK SC",
+                     font="PingFang SC",
                      font_size=42, color=self.COLOR_HIGHLIGHT).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
@@ -548,7 +548,7 @@ class AngleClassifyLesson(Scene):
         for (name, fml_str, col), y in zip(rows_data, row_ys):
             vx = np.array([icon_x, y - 0.05, 0])
             icon = self.make_icon(name, vx, col, ray_r=0.5, sw=2.0)
-            name_txt = Text(name, font="Noto Sans CJK SC",
+            name_txt = Text(name, font="PingFang SC",
                             font_size=26, color=col).move_to(np.array([-1.7, y, 0]))
             fml = MathTex(fml_str, font_size=24,
                           color=WHITE).move_to(np.array([1.7, y, 0]))
@@ -571,19 +571,19 @@ class AngleClassifyLesson(Scene):
             stroke_width=2,
         ).move_to(DOWN * 3.2)
 
-        rel1 = Text("1周角", font="Noto Sans CJK SC",
+        rel1 = Text("1周角", font="PingFang SC",
                     font_size=24, color=self.COLOR_FULL)
         eq1 = MathTex(r"=", font_size=28, color=WHITE)
-        rel2 = Text("2平角", font="Noto Sans CJK SC",
+        rel2 = Text("2平角", font="PingFang SC",
                     font_size=24, color=self.COLOR_STRAIGHT)
         eq2 = MathTex(r"=", font_size=28, color=WHITE)
-        rel3 = Text("4直角", font="Noto Sans CJK SC",
+        rel3 = Text("4直角", font="PingFang SC",
                     font_size=24, color=self.COLOR_RIGHT)
         rel_row = VGroup(rel1, eq1, rel2, eq2, rel3).arrange(RIGHT, buff=0.18)
         rel_row.move_to(DOWN * 3.0)
 
         rel_eq2 = Text("360° = 2×180° = 4×90°",
-                       font="Noto Sans CJK SC",
+                       font="PingFang SC",
                        font_size=20, color="#94a3b8").move_to(DOWN * 3.65)
 
         self.play(FadeIn(rel_bg), run_time=0.3)
@@ -605,12 +605,12 @@ class AngleClassifyLesson(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38, color=WHITE,
         ).move_to(UP * 2.2)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28, color="#6b7280",
         ).move_to(UP * 1.4)
 
@@ -619,7 +619,7 @@ class AngleClassifyLesson(Scene):
 
         follow_text = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 0.3)
         self.play(FadeIn(follow_text, shift=UP * 0.3), run_time=0.5)
@@ -638,7 +638,7 @@ class AngleClassifyLesson(Scene):
         for (col, name, _deg), x in zip(icon_data, icon_xs):
             vx = np.array([x, icon_y, 0])
             ic = self.make_icon(name, vx, col, ray_r=0.5, sw=2.0)
-            nm = Text(name, font="Noto Sans CJK SC",
+            nm = Text(name, font="PingFang SC",
                       font_size=16, color=col)
             nm.next_to(ic, DOWN, buff=0.1)
             icons_grp.add(VGroup(ic, nm))

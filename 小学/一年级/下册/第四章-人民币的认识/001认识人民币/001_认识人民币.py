@@ -51,17 +51,17 @@ def make_banknote(width: float, height: float, face_color: str,
     stripe.align_to(body, UP).align_to(body, LEFT)
 
     # Value number
-    val_num = Text(value_text, font="Noto Sans CJK SC",
+    val_num = Text(value_text, font="PingFang SC",
                    font_size=28, color=WHITE, weight=BOLD)
     val_num.move_to(body.get_center() + DOWN * 0.05)
 
     # Unit label below number
-    val_unit = Text(unit_text, font="Noto Sans CJK SC",
+    val_unit = Text(unit_text, font="PingFang SC",
                     font_size=14, color=WHITE)
     val_unit.next_to(val_num, DOWN, buff=0.05)
 
     # "中国人民银行" tiny label
-    bank_label = Text("中国人民银行", font="Noto Sans CJK SC",
+    bank_label = Text("中国人民银行", font="PingFang SC",
                       font_size=9, color="#cccccc")
     bank_label.align_to(body, DOWN).shift(UP * 0.12)
 
@@ -85,11 +85,11 @@ def make_coin(radius: float, face_color: str,
                   fill_color=BG_COLOR, fill_opacity=1,
                   stroke_width=0)
 
-    val_num = Text(value_text, font="Noto Sans CJK SC",
+    val_num = Text(value_text, font="PingFang SC",
                    font_size=int(radius * 42), color=WHITE, weight=BOLD)
     val_num.move_to(outer.get_center() + UP * radius * 0.15)
 
-    val_unit = Text(unit_text, font="Noto Sans CJK SC",
+    val_unit = Text(unit_text, font="PingFang SC",
                     font_size=int(radius * 22), color=WHITE)
     val_unit.next_to(val_num, DOWN, buff=0.02)
 
@@ -115,7 +115,7 @@ class MoneyIntroLesson(Scene):
         # 作者标识（全程保留）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -150,9 +150,9 @@ class MoneyIntroLesson(Scene):
         self.play(FadeIn(deco_coins), run_time=0.5)
 
         # Main title
-        title_line1 = Text("你认识", font="Noto Sans CJK SC",
+        title_line1 = Text("你认识", font="PingFang SC",
                            font_size=52, color=TEXT_MAIN)
-        title_line2 = Text("人民币吗？", font="Noto Sans CJK SC",
+        title_line2 = Text("人民币吗？", font="PingFang SC",
                            font_size=52, color=TEXT_HIGHLIGHT)
         title_group = VGroup(title_line1, title_line2).arrange(DOWN, buff=0.2)
         title_group.move_to(UP * 5.5)
@@ -171,7 +171,7 @@ class MoneyIntroLesson(Scene):
 
         # Sub-question
         sub = Text("今天我们来认识人民币！",
-                   font="Noto Sans CJK SC", font_size=30, color=TEXT_SUB)
+                   font="PingFang SC", font_size=30, color=TEXT_SUB)
         sub.move_to(UP * 1.5)
         self.play(FadeIn(sub, shift=UP * 0.3), run_time=0.5)
         self.wait(0.8)
@@ -189,14 +189,14 @@ class MoneyIntroLesson(Scene):
     # ──────────────────────────────────────────────────────────────
     def scene_2_fen_coins(self):
         sec_title = Text("分——最小的单位",
-                         font="Noto Sans CJK SC", font_size=36,
+                         font="PingFang SC", font_size=36,
                          color=GOLD_RMB)
         sec_title.move_to(UP * 6.2)
         self.play(Write(sec_title), run_time=0.6)
 
         # Explanatory text
         intro = Text("硬币里有 1分、2分、5分",
-                     font="Noto Sans CJK SC", font_size=26, color=TEXT_SUB)
+                     font="PingFang SC", font_size=26, color=TEXT_SUB)
         intro.move_to(UP * 5.4)
         self.play(FadeIn(intro), run_time=0.4)
 
@@ -213,11 +213,11 @@ class MoneyIntroLesson(Scene):
             self.play(GrowFromCenter(coin), run_time=0.45)
 
         # Labels below each coin
-        label_1f = Text("1分", font="Noto Sans CJK SC",
+        label_1f = Text("1分", font="PingFang SC",
                         font_size=24, color=COIN_SILVER)
-        label_2f = Text("2分", font="Noto Sans CJK SC",
+        label_2f = Text("2分", font="PingFang SC",
                         font_size=24, color=COIN_SILVER)
-        label_5f = Text("5分", font="Noto Sans CJK SC",
+        label_5f = Text("5分", font="PingFang SC",
                         font_size=24, color=COIN_SILVER)
 
         label_1f.next_to(coin_1f, DOWN, buff=0.2)
@@ -239,7 +239,7 @@ class MoneyIntroLesson(Scene):
                              stroke_color=COIN_SILVER, stroke_width=1.5)
         fact_bg.move_to(UP * 1.6)
         fact_text = Text("分 是最小的人民币单位",
-                         font="Noto Sans CJK SC", font_size=26, color=TEXT_MAIN)
+                         font="PingFang SC", font_size=26, color=TEXT_MAIN)
         fact_text.move_to(fact_bg.get_center())
         self.play(FadeIn(fact_bg), Write(fact_text), run_time=0.6)
         self.wait(1.2)
@@ -256,13 +256,13 @@ class MoneyIntroLesson(Scene):
     # ──────────────────────────────────────────────────────────────
     def scene_3_jiao(self):
         sec_title = Text("角——中间的单位",
-                         font="Noto Sans CJK SC", font_size=36,
+                         font="PingFang SC", font_size=36,
                          color=GREEN_RMB)
         sec_title.move_to(UP * 6.2)
         self.play(Write(sec_title), run_time=0.6)
 
         intro = Text("硬币：1角、5角  纸币：1角、5角",
-                     font="Noto Sans CJK SC", font_size=22, color=TEXT_SUB)
+                     font="PingFang SC", font_size=22, color=TEXT_SUB)
         intro.move_to(UP * 5.4)
         self.play(FadeIn(intro), run_time=0.4)
 
@@ -274,9 +274,9 @@ class MoneyIntroLesson(Scene):
         coins_jiao.arrange(RIGHT, buff=1.2)
         coins_jiao.move_to(UP * 3.8)
 
-        coin_label_1j = Text("1角 硬币", font="Noto Sans CJK SC",
+        coin_label_1j = Text("1角 硬币", font="PingFang SC",
                              font_size=22, color=COIN_GOLD)
-        coin_label_5j = Text("5角 硬币", font="Noto Sans CJK SC",
+        coin_label_5j = Text("5角 硬币", font="PingFang SC",
                              font_size=22, color=COIN_GOLD)
         coin_label_1j.next_to(coin_1j, DOWN, buff=0.2)
         coin_label_5j.next_to(coin_5j, DOWN, buff=0.2)
@@ -291,7 +291,7 @@ class MoneyIntroLesson(Scene):
             RIGHT * 3.8 + UP * 2.5,
             dash_length=0.15, color=TEXT_SUB, stroke_opacity=0.6
         )
-        paper_header = Text("纸  币", font="Noto Sans CJK SC",
+        paper_header = Text("纸  币", font="PingFang SC",
                             font_size=20, color=TEXT_SUB)
         paper_header.move_to(UP * 2.2)
         self.play(Create(divider), FadeIn(paper_header), run_time=0.5)
@@ -304,9 +304,9 @@ class MoneyIntroLesson(Scene):
         notes_jiao.arrange(RIGHT, buff=0.5)
         notes_jiao.move_to(UP * 1.0)
 
-        note_label_1j = Text("1角 纸币", font="Noto Sans CJK SC",
+        note_label_1j = Text("1角 纸币", font="PingFang SC",
                              font_size=22, color=GREEN_RMB)
-        note_label_5j = Text("5角 纸币", font="Noto Sans CJK SC",
+        note_label_5j = Text("5角 纸币", font="PingFang SC",
                              font_size=22, color=GREEN_RMB)
         note_label_1j.next_to(note_1j, DOWN, buff=0.15)
         note_label_5j.next_to(note_5j, DOWN, buff=0.15)
@@ -321,7 +321,7 @@ class MoneyIntroLesson(Scene):
                              stroke_color=GREEN_RMB, stroke_width=1.5)
         fact_bg.move_to(DOWN * 1.0)
         fact_text = Text("角 有硬币也有纸币",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=TEXT_MAIN)
         fact_text.move_to(fact_bg.get_center())
         self.play(FadeIn(fact_bg), Write(fact_text), run_time=0.6)
@@ -341,20 +341,20 @@ class MoneyIntroLesson(Scene):
     # ──────────────────────────────────────────────────────────────
     def scene_4_yuan_bills(self):
         sec_title = Text("元——最常用的单位",
-                         font="Noto Sans CJK SC", font_size=36,
+                         font="PingFang SC", font_size=36,
                          color=RED_RMB)
         sec_title.move_to(UP * 6.2)
         self.play(Write(sec_title), run_time=0.6)
 
         intro = Text("1元还有硬币，其他元是纸币",
-                     font="Noto Sans CJK SC", font_size=24, color=TEXT_SUB)
+                     font="PingFang SC", font_size=24, color=TEXT_SUB)
         intro.move_to(UP * 5.4)
         self.play(FadeIn(intro), run_time=0.4)
 
         # 1 yuan coin
         coin_1y = make_coin(0.9, COIN_GOLD, "1", "元")
         coin_1y.move_to(UP * 4.3 + LEFT * 2.8)
-        coin_1y_label = Text("1元 硬币", font="Noto Sans CJK SC",
+        coin_1y_label = Text("1元 硬币", font="PingFang SC",
                              font_size=20, color=COIN_GOLD)
         coin_1y_label.next_to(coin_1y, DOWN, buff=0.15)
 
@@ -403,7 +403,7 @@ class MoneyIntroLesson(Scene):
 
         # Labels
         labels_row1 = VGroup(*[
-            Text(d[0] + d[1], font="Noto Sans CJK SC",
+            Text(d[0] + d[1], font="PingFang SC",
                  font_size=16, color=TEXT_SUB)
             for d in group1_data
         ])
@@ -411,7 +411,7 @@ class MoneyIntroLesson(Scene):
             lbl.next_to(note, DOWN, buff=0.1)
 
         labels_row2 = VGroup(*[
-            Text(d[0] + d[1], font="Noto Sans CJK SC",
+            Text(d[0] + d[1], font="PingFang SC",
                  font_size=16, color=TEXT_SUB)
             for d in group2_data
         ])
@@ -426,7 +426,7 @@ class MoneyIntroLesson(Scene):
                              stroke_color=RED_RMB, stroke_width=1.5)
         fact_bg.move_to(DOWN * 0.8)
         fact_text = Text("共有 7 种面值的元币",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=TEXT_MAIN)
         fact_text.move_to(fact_bg.get_center())
         self.play(FadeIn(fact_bg), Write(fact_text), run_time=0.6)
@@ -446,7 +446,7 @@ class MoneyIntroLesson(Scene):
     # ──────────────────────────────────────────────────────────────
     def scene_5_classify_material(self):
         sec_title = Text("按材质分类",
-                         font="Noto Sans CJK SC", font_size=38,
+                         font="PingFang SC", font_size=38,
                          color=ACCENT_TEAL)
         sec_title.move_to(UP * 6.2)
         self.play(Write(sec_title), run_time=0.6)
@@ -456,7 +456,7 @@ class MoneyIntroLesson(Scene):
         col_right_x =  2.2
 
         # --- Left: 纸币 header ---
-        paper_label = Text("纸 币", font="Noto Sans CJK SC",
+        paper_label = Text("纸 币", font="PingFang SC",
                            font_size=32, color=GREEN_RMB)
         paper_label.move_to(UP * 5.2 + RIGHT * col_left_x)
 
@@ -467,7 +467,7 @@ class MoneyIntroLesson(Scene):
         )
 
         # --- Right: 硬币 header ---
-        coin_label = Text("硬 币", font="Noto Sans CJK SC",
+        coin_label = Text("硬 币", font="PingFang SC",
                           font_size=32, color=COIN_GOLD)
         coin_label.move_to(UP * 5.2 + RIGHT * col_right_x)
 
@@ -526,9 +526,9 @@ class MoneyIntroLesson(Scene):
                                stroke_color=ACCENT_TEAL, stroke_width=1.5)
         summary_bg.move_to(DOWN * 2.8)
         s1 = Text("纸币：印在纸上，面值较大",
-                  font="Noto Sans CJK SC", font_size=22, color=GREEN_RMB)
+                  font="PingFang SC", font_size=22, color=GREEN_RMB)
         s2 = Text("硬币：金属制造，便于携带",
-                  font="Noto Sans CJK SC", font_size=22, color=COIN_GOLD)
+                  font="PingFang SC", font_size=22, color=COIN_GOLD)
         VGroup(s1, s2).arrange(DOWN, buff=0.15).move_to(summary_bg.get_center())
 
         self.play(FadeIn(summary_bg), Write(s1), Write(s2), run_time=0.7)
@@ -549,17 +549,17 @@ class MoneyIntroLesson(Scene):
     # ──────────────────────────────────────────────────────────────
     def scene_6_classify_unit(self):
         sec_title = Text("按单位分类",
-                         font="Noto Sans CJK SC", font_size=38,
+                         font="PingFang SC", font_size=38,
                          color=PURPLE_RMB)
         sec_title.move_to(UP * 6.2)
         self.play(Write(sec_title), run_time=0.6)
 
         # Three unit headers
-        yuan_hdr = Text("元", font="Noto Sans CJK SC",
+        yuan_hdr = Text("元", font="PingFang SC",
                         font_size=44, color=RED_RMB, weight=BOLD)
-        jiao_hdr = Text("角", font="Noto Sans CJK SC",
+        jiao_hdr = Text("角", font="PingFang SC",
                         font_size=44, color=GREEN_RMB, weight=BOLD)
-        fen_hdr  = Text("分", font="Noto Sans CJK SC",
+        fen_hdr  = Text("分", font="PingFang SC",
                         font_size=44, color=COIN_SILVER, weight=BOLD)
 
         headers = VGroup(yuan_hdr, jiao_hdr, fen_hdr)
@@ -636,9 +636,9 @@ class MoneyIntroLesson(Scene):
                            stroke_color=PURPLE_RMB, stroke_width=1.5)
         rel_bg.move_to(DOWN * 4.8)
 
-        r1 = Text("1元 = 10角", font="Noto Sans CJK SC",
+        r1 = Text("1元 = 10角", font="PingFang SC",
                   font_size=26, color=TEXT_HIGHLIGHT)
-        r2 = Text("1角 = 10分", font="Noto Sans CJK SC",
+        r2 = Text("1角 = 10分", font="PingFang SC",
                   font_size=26, color=TEXT_HIGHLIGHT)
         VGroup(r1, r2).arrange(DOWN, buff=0.2).move_to(rel_bg.get_center())
 
@@ -659,7 +659,7 @@ class MoneyIntroLesson(Scene):
     def scene_7_outro(self):
         # Summary card
         summary_title = Text("人民币 — 总结",
-                             font="Noto Sans CJK SC", font_size=40,
+                             font="PingFang SC", font_size=40,
                              color=TEXT_HIGHLIGHT)
         summary_title.move_to(UP * 4.5)
         self.play(Write(summary_title), run_time=0.7)
@@ -675,9 +675,9 @@ class MoneyIntroLesson(Scene):
             bg = Rectangle(width=7.0, height=1.1,
                            fill_color=CARD_BG, fill_opacity=0.95,
                            stroke_color=color, stroke_width=1.8)
-            unit_t = Text(unit, font="Noto Sans CJK SC",
+            unit_t = Text(unit, font="PingFang SC",
                           font_size=36, color=color, weight=BOLD)
-            desc_t = Text(desc, font="Noto Sans CJK SC",
+            desc_t = Text(desc, font="PingFang SC",
                           font_size=22, color=TEXT_MAIN)
             unit_t.move_to(bg.get_left() + RIGHT * 0.7)
             desc_t.move_to(bg.get_center() + RIGHT * 0.4)
@@ -710,7 +710,7 @@ class MoneyIntroLesson(Scene):
                               stroke_color=TEXT_HIGHLIGHT, stroke_width=2)
         follow_bg.move_to(DOWN * 3.8)
         follow_text = Text("关注我，获得更多数学技巧！",
-                           font="Noto Sans CJK SC", font_size=28,
+                           font="PingFang SC", font_size=28,
                            color=TEXT_HIGHLIGHT)
         follow_text.move_to(follow_bg.get_center())
 
@@ -718,7 +718,7 @@ class MoneyIntroLesson(Scene):
 
         # Author info large
         author_large = Text("上海初高中数学直通车 @emptyandcalm",
-                            font="Noto Sans CJK SC", font_size=22,
+                            font="PingFang SC", font_size=22,
                             color=TEXT_SUB)
         author_large.move_to(DOWN * 5.2)
         self.play(FadeIn(author_large, shift=UP * 0.2), run_time=0.5)

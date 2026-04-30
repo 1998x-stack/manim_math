@@ -47,7 +47,7 @@ class RoundingLesson(Scene):
         # 作者信息（全程显示）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -67,17 +67,17 @@ class RoundingLesson(Scene):
     def make_title(self, text, color=None, font_size=36):
         if color is None:
             color = self.COLOR_HIGHLIGHT
-        return Text(text, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        return Text(text, font="PingFang SC", font_size=font_size, color=color)
 
     def make_body(self, text, color=None, font_size=26):
         if color is None:
             color = WHITE
-        return Text(text, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        return Text(text, font="PingFang SC", font_size=font_size, color=color)
 
     def make_small(self, text, color=None, font_size=20):
         if color is None:
             color = self.COLOR_DIM
-        return Text(text, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        return Text(text, font="PingFang SC", font_size=font_size, color=color)
 
     def fadeout_all(self, run_time=0.5):
         to_remove = [m for m in self.mobjects if m is not self.author]
@@ -280,14 +280,14 @@ class RoundingLesson(Scene):
         digit_colors = [WHITE, self.COLOR_HIGHLIGHT, WHITE, WHITE, WHITE, WHITE]
 
         place_row = VGroup(*[
-            Text(lbl, font="Noto Sans CJK SC", font_size=20, color=self.COLOR_DIM)
+            Text(lbl, font="PingFang SC", font_size=20, color=self.COLOR_DIM)
             for lbl in place_labels
         ])
         place_row.arrange(RIGHT, buff=0.40)
         place_row.move_to(UP * 4.7)
 
         digit_row = VGroup(*[
-            Text(d, font="Noto Sans CJK SC", font_size=44, color=c)
+            Text(d, font="PingFang SC", font_size=44, color=c)
             for d, c in zip(digits_str, digit_colors)
         ])
         digit_row.arrange(RIGHT, buff=0.36)
@@ -391,14 +391,14 @@ class RoundingLesson(Scene):
         colors2 = [self.COLOR_HIGHLIGHT, self.COLOR_HIGHLIGHT] + [WHITE] * 7
 
         place_row2 = VGroup(*[
-            Text(lbl, font="Noto Sans CJK SC", font_size=17, color=self.COLOR_DIM)
+            Text(lbl, font="PingFang SC", font_size=17, color=self.COLOR_DIM)
             for lbl in place_labels2
         ])
         place_row2.arrange(RIGHT, buff=0.19)
         place_row2.move_to(UP * 4.9)
 
         digit_row2 = VGroup(*[
-            Text(d, font="Noto Sans CJK SC", font_size=38, color=c)
+            Text(d, font="PingFang SC", font_size=38, color=c)
             for d, c in zip(digits2, colors2)
         ])
         digit_row2.arrange(RIGHT, buff=0.24)
@@ -505,8 +505,8 @@ class RoundingLesson(Scene):
 
         y_pos = [5.3, 4.0, 2.7]
         for (num, text, col), y in zip(steps, y_pos):
-            num_t = Text(num, font="Noto Sans CJK SC", font_size=26, color=col)
-            body_t = Text(text, font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            num_t = Text(num, font="PingFang SC", font_size=26, color=col)
+            body_t = Text(text, font="PingFang SC", font_size=24, color=WHITE)
             row = VGroup(num_t, body_t).arrange(RIGHT, buff=0.3)
             row.move_to(UP * y)
             self.play(FadeIn(row, shift=RIGHT * 0.3), run_time=0.5)
@@ -525,10 +525,10 @@ class RoundingLesson(Scene):
 
         # 例1
         e1_n = MathTex(r"234500 \approx 23", color=WHITE, font_size=32)
-        e1_u = Text("万", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_SUCCESS)
+        e1_u = Text("万", font="PingFang SC", font_size=32, color=self.COLOR_SUCCESS)
         e1_row = VGroup(e1_n, e1_u).arrange(RIGHT, buff=0.1)
         e1_row.move_to(UP * 0.2)
-        e1_note = Text("（千位是4，舍）", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_DIM)
+        e1_note = Text("（千位是4，舍）", font="PingFang SC", font_size=18, color=self.COLOR_DIM)
         e1_note.next_to(e1_row, DOWN, buff=0.1)
 
         self.play(Write(e1_row), run_time=0.7)
@@ -536,10 +536,10 @@ class RoundingLesson(Scene):
 
         # 例2
         e2_n = MathTex(r"995000000 \approx 10", color=WHITE, font_size=28)
-        e2_u = Text("亿", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_SUCCESS)
+        e2_u = Text("亿", font="PingFang SC", font_size=32, color=self.COLOR_SUCCESS)
         e2_row = VGroup(e2_n, e2_u).arrange(RIGHT, buff=0.08)
         e2_row.move_to(DOWN * 1.3)
-        e2_note = Text("（千万位是9，进一）", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_DIM)
+        e2_note = Text("（千万位是9，进一）", font="PingFang SC", font_size=18, color=self.COLOR_DIM)
         e2_note.next_to(e2_row, DOWN, buff=0.1)
 
         self.play(Write(e2_row), run_time=0.7)
@@ -560,7 +560,7 @@ class RoundingLesson(Scene):
 
         mnemonic = Text(
             "四舍五入  大数变简单！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ACCENT,
         )
@@ -576,7 +576,7 @@ class RoundingLesson(Scene):
     def scene_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
         )
@@ -584,7 +584,7 @@ class RoundingLesson(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_DIM,
         )
@@ -599,7 +599,7 @@ class RoundingLesson(Scene):
 
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         )
@@ -618,7 +618,7 @@ class RoundingLesson(Scene):
 
         deco_mobjs = []
         for txt, pos, col in deco_data:
-            t = Text(txt, font="Noto Sans CJK SC", font_size=22, color=col)
+            t = Text(txt, font="PingFang SC", font_size=22, color=col)
             t.move_to(pos)
             deco_mobjs.append(t)
 

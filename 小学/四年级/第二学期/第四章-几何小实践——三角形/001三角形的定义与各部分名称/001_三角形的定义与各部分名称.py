@@ -32,7 +32,7 @@ COLOR_ANGLE   = "#f472b6"   # 粉色  角
 COLOR_HL      = "#fbbf24"   # 黄色  高亮
 COLOR_AUTHOR  = "#6b7280"   # 灰色  作者信息
 COLOR_SYMBOL  = "#a78bfa"   # 紫色  符号
-FONT          = "Noto Sans CJK SC"
+FONT          = "PingFang SC"
 
 
 # ======================================================================

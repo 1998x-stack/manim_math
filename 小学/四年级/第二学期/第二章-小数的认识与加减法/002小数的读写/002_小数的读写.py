@@ -38,7 +38,7 @@ COLOR_HL      = "#fbbf24"   # 黄 — 高亮
 COLOR_RULE    = "#a78bfa"   # 紫 — 规则框
 COLOR_WARN    = "#ef4444"   # 红 — 警示
 COLOR_AUTHOR  = "#6b7280"
-FONT          = "Noto Sans CJK SC"
+FONT          = "PingFang SC"
 
 
 class DecimalReadWriteLesson(Scene):

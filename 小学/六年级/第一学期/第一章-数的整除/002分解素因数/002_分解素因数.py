@@ -36,7 +36,7 @@ COLOR_STEP = "#a78bfa"        # 紫色 - 步骤
 COLOR_RESULT = "#22c55e"      # 绿色 - 结果
 COLOR_DIVIDER = "#f97316"     # 橙色 - 除号/短除线
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class PrimeFactorizationLesson(Scene):

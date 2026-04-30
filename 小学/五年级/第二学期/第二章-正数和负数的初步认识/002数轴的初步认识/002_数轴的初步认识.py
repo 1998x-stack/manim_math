@@ -42,7 +42,7 @@ COLOR_AXIS = "#e2e8f0"       # 数轴颜色
 COLOR_ACCENT = "#a78bfa"     # 紫色强调
 COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
 COLOR_TICK = "#94a3b8"       # 刻度颜色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

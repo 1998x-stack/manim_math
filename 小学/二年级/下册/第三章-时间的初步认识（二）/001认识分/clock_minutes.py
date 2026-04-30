@@ -126,7 +126,7 @@ class ClockMinutes(Scene):
                 m_eq = (h % 12) * 5
                 a    = clock_angle(m_eq)
                 pos  = self.CENTER + self.R_NUM * np.array([np.cos(a), np.sin(a), 0])
-                num  = Text(str(h), font="Noto Sans CJK SC",
+                num  = Text(str(h), font="PingFang SC",
                             font_size=26, color=C_NUM,
                             weight=BOLD)
                 num.move_to(pos)
@@ -175,17 +175,17 @@ class ClockMinutes(Scene):
     def scene_1_opening(self):
         self.author = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=C_AUX,
+            font="PingFang SC", font_size=20, color=C_AUX,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
 
-        title = Text("认识「分」", font="Noto Sans CJK SC",
+        title = Text("认识「分」", font="PingFang SC",
                       font_size=52, color=GOLD).move_to(UP * 6.2)
         self.play(Write(title), run_time=0.7)
 
         hook = Text(
             "分针走一圈，到底有多少格？",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE,
+            font="PingFang SC", font_size=26, color=WHITE,
         ).move_to(UP * 5.3)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.5)
 
@@ -209,7 +209,7 @@ class ClockMinutes(Scene):
     #  Scene 2: 钟面结构（12大格 + 60小格）
     # ═══════════════════════════════════════════════
     def scene_2_clock_structure(self):
-        sc_title = Text("认识钟面", font="Noto Sans CJK SC",
+        sc_title = Text("认识钟面", font="PingFang SC",
                          font_size=32, color=GOLD).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -219,7 +219,7 @@ class ClockMinutes(Scene):
 
         # ── 说明 12 个大格 ──
         note_12 = Text("钟面上有 12 个大格",
-                        font="Noto Sans CJK SC", font_size=26, color=C_MAJOR_HL,
+                        font="PingFang SC", font_size=26, color=C_MAJOR_HL,
                         ).move_to(DOWN * 2.0)
         self.play(Write(note_12), run_time=0.5)
 
@@ -244,7 +244,7 @@ class ClockMinutes(Scene):
 
         # ── 说明 5 个小格 ──
         note_5 = Text("每个大格里有 5 个小格",
-                       font="Noto Sans CJK SC", font_size=26, color=C_MINOR_HL,
+                       font="PingFang SC", font_size=26, color=C_MINOR_HL,
                        ).move_to(DOWN * 3.0)
         self.play(Write(note_5), run_time=0.5)
 
@@ -260,7 +260,7 @@ class ClockMinutes(Scene):
 
         # ── 总计 60 小格 ──
         note_60 = Text("一共 60 个小格",
-                        font="Noto Sans CJK SC", font_size=26, color=YELLOW,
+                        font="PingFang SC", font_size=26, color=YELLOW,
                         ).move_to(DOWN * 4.0)
         self.play(Write(note_60), run_time=0.5)
         self.wait(1.5)
@@ -277,7 +277,7 @@ class ClockMinutes(Scene):
     # ═══════════════════════════════════════════════
     def scene_3_major_sections(self):
         sc_title = Text("12个大格，分针怎么走？",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD,
+                         font="PingFang SC", font_size=28, color=GOLD,
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -286,7 +286,7 @@ class ClockMinutes(Scene):
         self.play(FadeIn(clock3, scale=0.6), run_time=0.6)
 
         # 在12点旁放一个"起点"标记
-        start_label = Text("出发！", font="Noto Sans CJK SC",
+        start_label = Text("出发！", font="PingFang SC",
                             font_size=22, color=YELLOW,
                             ).next_to(self.CENTER + UP * (self.R + 0.4), UP, buff=0.05)
         start_arrow = Arrow(
@@ -299,7 +299,7 @@ class ClockMinutes(Scene):
 
         # 逐个高亮大格：分针从12走到1，再到2...
         hint_text = Text("分针每走一个大格 =",
-                          font="Noto Sans CJK SC", font_size=24, color=WHITE,
+                          font="PingFang SC", font_size=24, color=WHITE,
                           ).move_to(DOWN * 2.2)
         self.play(FadeIn(hint_text), run_time=0.4)
 
@@ -327,7 +327,7 @@ class ClockMinutes(Scene):
                 color=C_ARC, stroke_width=2,
             ).move_to(self.CENTER)
 
-            five_label = Text("5 分钟", font="Noto Sans CJK SC",
+            five_label = Text("5 分钟", font="PingFang SC",
                                font_size=22, color=C_MAJOR_HL,
                                ).move_to(DOWN * 3.1)
 
@@ -352,7 +352,7 @@ class ClockMinutes(Scene):
     # ═══════════════════════════════════════════════
     def scene_4_minute_hand_move(self):
         sc_title = Text("分针走 1 小格 = 1 分钟",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD,
+                         font="PingFang SC", font_size=28, color=GOLD,
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -379,7 +379,7 @@ class ClockMinutes(Scene):
 
             count_label = Text(
                 f"第 {step} 格 → {step} 分钟",
-                font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                font="PingFang SC", font_size=26, color=WHITE,
             ).move_to(DOWN * 2.3)
 
             self.play(Transform(min_hand, new_min), run_time=0.5)
@@ -389,7 +389,7 @@ class ClockMinutes(Scene):
 
         # 强调框
         key_box = Text("分针走 1 小格 = 1 分钟",
-                        font="Noto Sans CJK SC", font_size=26, color=C_MINOR_HL,
+                        font="PingFang SC", font_size=26, color=C_MINOR_HL,
                         ).move_to(DOWN * 2.3)
         key_border = SurroundingRectangle(key_box, color=C_MINOR_HL,
                                            buff=0.2, corner_radius=0.1)
@@ -407,7 +407,7 @@ class ClockMinutes(Scene):
     # ═══════════════════════════════════════════════
     def scene_5_five_minutes(self):
         sc_title = Text("分针走 1 大格 = 5 分钟",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD,
+                         font="PingFang SC", font_size=28, color=GOLD,
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -427,7 +427,7 @@ class ClockMinutes(Scene):
         ).move_to(self.CENTER)
 
         explain = Text("12 → 1 之间有 5 个小格",
-                        font="Noto Sans CJK SC", font_size=24, color=C_MAJOR_HL,
+                        font="PingFang SC", font_size=24, color=C_MAJOR_HL,
                         ).move_to(DOWN * 2.2)
         self.play(Create(major_arc), Write(explain), run_time=0.7)
 
@@ -441,7 +441,7 @@ class ClockMinutes(Scene):
             self.play(Transform(min_hand, new_min), run_time=0.35)
             if step == 5:
                 hit_label = Text("走到 1！= 5分钟",
-                                  font="Noto Sans CJK SC", font_size=24,
+                                  font="PingFang SC", font_size=24,
                                   color=YELLOW).move_to(DOWN * 3.2)
                 self.play(FadeIn(hit_label, scale=1.05), run_time=0.4)
                 self.wait(0.6)
@@ -449,7 +449,7 @@ class ClockMinutes(Scene):
 
         # 公式强调框
         formula_txt = Text("1 大格 = 5 小格 = 5 分钟",
-                            font="Noto Sans CJK SC", font_size=28,
+                            font="PingFang SC", font_size=28,
                             color=C_MAJOR_HL).move_to(DOWN * 3.3)
         formula_box = SurroundingRectangle(formula_txt, color=C_MAJOR_HL,
                                             buff=0.22, corner_radius=0.12)
@@ -467,7 +467,7 @@ class ClockMinutes(Scene):
     # ═══════════════════════════════════════════════
     def scene_6_full_circle(self):
         sc_title = Text("分针走一圈 = 60 分钟 = 1 小时",
-                         font="Noto Sans CJK SC", font_size=26, color=GOLD,
+                         font="PingFang SC", font_size=26, color=GOLD,
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -475,7 +475,7 @@ class ClockMinutes(Scene):
         self.play(FadeIn(clock6, scale=0.6), run_time=0.6)
 
         # 计数显示
-        counter_label = Text("0 分", font="Noto Sans CJK SC",
+        counter_label = Text("0 分", font="PingFang SC",
                               font_size=34, color=WHITE,
                               ).move_to(DOWN * 2.5)
         self.play(FadeIn(counter_label), run_time=0.3)
@@ -492,7 +492,7 @@ class ClockMinutes(Scene):
             )
             new_label = Text(
                 f"{cur_m} 分" if cur_m < 60 else "60 分 = 1 小时",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=34 if cur_m < 60 else 30,
                 color=YELLOW if cur_m == 60 else WHITE,
             ).move_to(DOWN * 2.5)
@@ -514,11 +514,11 @@ class ClockMinutes(Scene):
         # 三行公式汇总
         formulas = VGroup(
             Text("分针走 1 小格 = 1 分钟",
-                  font="Noto Sans CJK SC", font_size=22, color=C_MINOR_HL),
+                  font="PingFang SC", font_size=22, color=C_MINOR_HL),
             Text("分针走 1 大格 = 5 分钟",
-                  font="Noto Sans CJK SC", font_size=22, color=C_MAJOR_HL),
+                  font="PingFang SC", font_size=22, color=C_MAJOR_HL),
             Text("分针走一圈  = 60 分钟 = 1 小时",
-                  font="Noto Sans CJK SC", font_size=22, color=YELLOW),
+                  font="PingFang SC", font_size=22, color=YELLOW),
         ).arrange(DOWN, buff=0.35, aligned_edge=LEFT).move_to(DOWN * 4.5)
         formula_box = SurroundingRectangle(formulas, color=GOLD,
                                             buff=0.25, corner_radius=0.12)
@@ -537,19 +537,19 @@ class ClockMinutes(Scene):
     def scene_7_outro(self):
         # 最终小结卡片
         summary_title = Text("今天学会了什么？",
-                              font="Noto Sans CJK SC", font_size=30, color=GOLD,
+                              font="PingFang SC", font_size=30, color=GOLD,
                               ).move_to(UP * 5.8)
         self.play(Write(summary_title), run_time=0.5)
 
         items = VGroup(
             Text("① 钟面有 12 大格，每格 5 小格，共 60 格",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
             Text("② 分针走 1 小格 = 1 分钟",
-                  font="Noto Sans CJK SC", font_size=22, color=C_MINOR_HL),
+                  font="PingFang SC", font_size=22, color=C_MINOR_HL),
             Text("③ 分针走 1 大格 = 5 分钟",
-                  font="Noto Sans CJK SC", font_size=22, color=C_MAJOR_HL),
+                  font="PingFang SC", font_size=22, color=C_MAJOR_HL),
             Text("④ 分针走一圈  = 60 分钟 = 1 小时",
-                  font="Noto Sans CJK SC", font_size=22, color=YELLOW),
+                  font="PingFang SC", font_size=22, color=YELLOW),
         ).arrange(DOWN, buff=0.45, aligned_edge=LEFT).move_to(UP * 4.0)
 
         for item in items:
@@ -570,13 +570,13 @@ class ClockMinutes(Scene):
 
         # 片尾
         name_big = Text("上海初高中数学直通车",
-                         font="Noto Sans CJK SC", font_size=40, color=WHITE,
+                         font="PingFang SC", font_size=40, color=WHITE,
                          ).move_to(DOWN * 3.6)
         id_text  = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=26, color=C_AUX,
+                         font="PingFang SC", font_size=26, color=C_AUX,
                          ).move_to(DOWN * 4.5)
         call     = Text("关注我，获得更多数学技巧！",
-                         font="Noto Sans CJK SC", font_size=26, color=GOLD,
+                         font="PingFang SC", font_size=26, color=GOLD,
                          ).move_to(DOWN * 5.4)
 
         self.play(Transform(self.author, name_big), run_time=0.7)

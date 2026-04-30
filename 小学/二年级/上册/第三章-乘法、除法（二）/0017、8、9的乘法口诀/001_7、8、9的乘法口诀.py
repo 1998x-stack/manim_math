@@ -17,7 +17,7 @@ class MultiplyTableAnimation(Scene):
         # 作者信息 (顶部)
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -27,14 +27,14 @@ class MultiplyTableAnimation(Scene):
         # 主标题
         title = Text(
             "7、8、9的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
 
         subtitle = Text(
             "让我们一起学习吧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -69,7 +69,7 @@ class MultiplyTableAnimation(Scene):
         """展示7的乘法口诀"""
         header = Text(
             "7的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=BLUE
         ).move_to(UP * 5.5)
@@ -92,7 +92,7 @@ class MultiplyTableAnimation(Scene):
         for i, eq in enumerate(seven_equations):
             equation = Text(
                 eq,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=WHITE
             ).move_to(UP * (3 - i * 0.6))
@@ -130,7 +130,7 @@ class MultiplyTableAnimation(Scene):
         """展示8的乘法口诀"""
         header = Text(
             "8的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GREEN
         ).move_to(UP * 5.5)
@@ -154,7 +154,7 @@ class MultiplyTableAnimation(Scene):
         for i, eq in enumerate(eight_equations):
             equation = Text(
                 eq,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=WHITE
             ).move_to(UP * (2.5 - i * 0.55))
@@ -191,7 +191,7 @@ class MultiplyTableAnimation(Scene):
         """展示9的乘法口诀"""
         header = Text(
             "9的乘法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=RED
         ).move_to(UP * 5.5)
@@ -216,7 +216,7 @@ class MultiplyTableAnimation(Scene):
         for i, eq in enumerate(nine_equations):
             equation = Text(
                 eq,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE
             ).move_to(UP * (2 - i * 0.45))
@@ -253,7 +253,7 @@ class MultiplyTableAnimation(Scene):
         """总结7、8、9的乘法口诀"""
         title = Text(
             "7、8、9的乘法口诀总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=YELLOW
         ).move_to(UP * 6)
@@ -262,11 +262,11 @@ class MultiplyTableAnimation(Scene):
 
         # 显示关键口诀
         key_formulas = [
-            Text("七七四十九", font="Noto Sans CJK SC", font_size=28, color=BLUE).move_to(UP * 4),
-            Text("八八六十四", font="Noto Sans CJK SC", font_size=28, color=GREEN).move_to(UP * 3),
-            Text("九九八十一", font="Noto Sans CJK SC", font_size=28, color=RED).move_to(UP * 2),
-            Text("七八五十六", font="Noto Sans CJK SC", font_size=28, color=PURPLE).move_to(UP * 1),
-            Text("八九七十二", font="Noto Sans CJK SC", font_size=28, color=ORANGE).move_to(ORIGIN)
+            Text("七七四十九", font="PingFang SC", font_size=28, color=BLUE).move_to(UP * 4),
+            Text("八八六十四", font="PingFang SC", font_size=28, color=GREEN).move_to(UP * 3),
+            Text("九九八十一", font="PingFang SC", font_size=28, color=RED).move_to(UP * 2),
+            Text("七八五十六", font="PingFang SC", font_size=28, color=PURPLE).move_to(UP * 1),
+            Text("八九七十二", font="PingFang SC", font_size=28, color=ORANGE).move_to(ORIGIN)
         ]
 
         for formula in key_formulas:
@@ -276,7 +276,7 @@ class MultiplyTableAnimation(Scene):
         # 有趣的规律
         pattern_text = Text(
             "有趣的规律：\n\n9的口诀中，十位数字递增，个位数字递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 2.5)
@@ -296,14 +296,14 @@ class MultiplyTableAnimation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -314,7 +314,7 @@ class MultiplyTableAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 0.5)

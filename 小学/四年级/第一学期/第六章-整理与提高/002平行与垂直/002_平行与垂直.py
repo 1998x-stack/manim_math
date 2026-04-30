@@ -32,7 +32,7 @@ COLOR_HL       = "#fbbf24"   # 黄色 高亮
 COLOR_AUX      = "#94a3b8"   # 灰蓝 辅助线
 COLOR_AUTHOR   = "#6b7280"   # 灰色 作者信息
 COLOR_NOTE     = "#f87171"   # 红色 标注
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

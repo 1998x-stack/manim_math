@@ -92,7 +92,7 @@ class TranslationRotation(Scene):
         # 作者信息 (顶部)
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -102,7 +102,7 @@ class TranslationRotation(Scene):
         # 钩子文字
         hook_text = Text(
             "平移与旋转，\n你会区分吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD,
             line_spacing=1.2
@@ -151,7 +151,7 @@ class TranslationRotation(Scene):
         # 说明文字
         explain = Text(
             "平移：物体沿直线移动\n方向、大小、形状不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             line_spacing=1.2
@@ -179,7 +179,7 @@ class TranslationRotation(Scene):
         self.play(elevator_car.animate.shift(DOWN * 2.5), run_time=1.0)
         
         # 文字标签
-        label_elevator = Text("电梯升降", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(elevator_bg, DOWN, buff=0.3)
+        label_elevator = Text("电梯升降", font="PingFang SC", font_size=22, color=WHITE).next_to(elevator_bg, DOWN, buff=0.3)
         self.play(FadeIn(label_elevator), run_time=0.3)
         
         # 推拉窗户例子 (右侧)
@@ -194,7 +194,7 @@ class TranslationRotation(Scene):
         # 窗户左移
         self.play(window_pane.animate.shift(LEFT * 1.5), run_time=0.8)
         
-        label_window = Text("推拉窗户", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(window_frame, DOWN, buff=0.3)
+        label_window = Text("推拉窗户", font="PingFang SC", font_size=22, color=WHITE).next_to(window_frame, DOWN, buff=0.3)
         self.play(FadeIn(label_window), run_time=0.3)
         
         self.wait(1.0)
@@ -247,7 +247,7 @@ class TranslationRotation(Scene):
         # 说明文字
         explain = Text(
             "旋转：物体绕固定点转动\n形状大小不变，方向改变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             line_spacing=1.2
@@ -287,7 +287,7 @@ class TranslationRotation(Scene):
         self.wait(0.2)
         self.play(hand.animate.rotate(PI/2, about_point=clock_center), run_time=1.0)
         
-        label_clock = Text("钟表指针", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(clock_face, DOWN, buff=0.3)
+        label_clock = Text("钟表指针", font="PingFang SC", font_size=22, color=WHITE).next_to(clock_face, DOWN, buff=0.3)
         self.play(FadeIn(label_clock), run_time=0.3)
         
         # 陀螺 (简单圆锥)
@@ -304,7 +304,7 @@ class TranslationRotation(Scene):
         # 陀螺旋转
         self.play(spintop.animate.rotate(2*PI, about_point=spintop_center + DOWN*1.2), run_time=1.5)
         
-        label_spintop = Text("陀螺", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(spintop, DOWN, buff=0.3)
+        label_spintop = Text("陀螺", font="PingFang SC", font_size=22, color=WHITE).next_to(spintop, DOWN, buff=0.3)
         self.play(FadeIn(label_spintop), run_time=0.3)
         
         self.wait(1.0)
@@ -354,7 +354,7 @@ class TranslationRotation(Scene):
         # 总结文字
         summary = Text(
             "平移：沿直线移动\n旋转：绕点转动",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GOLD,
             line_spacing=1.2
@@ -371,14 +371,14 @@ class TranslationRotation(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -389,7 +389,7 @@ class TranslationRotation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

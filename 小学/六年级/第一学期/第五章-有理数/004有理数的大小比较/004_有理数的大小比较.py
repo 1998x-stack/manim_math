@@ -43,7 +43,7 @@ COLOR_BLUE = "#3b82f6"       # 蓝色
 COLOR_ORANGE = "#f59e0b"     # 橙色
 COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
 COLOR_ABS = "#38bdf8"        # 天蓝 绝对值
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

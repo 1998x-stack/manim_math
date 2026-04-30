@@ -35,7 +35,7 @@ COLOR_OP    = "#f59e0b"   # 橙色  运算符
 COLOR_ARROW_FWD = "#60a5fa"  # 正推箭头
 COLOR_ARROW_REV = "#f87171"  # 逆推箭头
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

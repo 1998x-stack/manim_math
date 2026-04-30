@@ -31,7 +31,7 @@ COLOR_FEN  = "#22c55e"      # 绿色 — 分
 COLOR_HL   = "#fbbf24"      # 黄色高亮
 COLOR_ARROW= "#e879f9"      # 紫色箭头
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 def make_coin(label_text, color, radius=0.5, font_size=28):

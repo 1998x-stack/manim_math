@@ -42,7 +42,7 @@ COLOR_RED = "#ef4444"         # 红色
 COLOR_AUTHOR = "#6b7280"      # 灰色作者信息
 COLOR_FORMULA = "#38bdf8"     # 天蓝色 公式
 COLOR_PINK = "#f472b6"        # 粉色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

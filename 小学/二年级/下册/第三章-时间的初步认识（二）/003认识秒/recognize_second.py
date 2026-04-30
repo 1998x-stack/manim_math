@@ -39,7 +39,7 @@ TEXT_SUB_COL    = "#bdc3c7"   # 副文字
 FORMULA_COL     = "#2ecc71"   # 公式绿
 ARC_COL         = "#e74c3c"   # 弧线颜色
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ============================================================
 # 字体大小规范

@@ -22,7 +22,7 @@ config.frame_height = 16
 class ConversionRate(Scene):
     def construct(self):
         self.camera.background_color = "#1a1a2e"
-        self.F  = "Noto Sans CJK SC"
+        self.F  = "PingFang SC"
         self.CG = "#80DEEA"   # 克色
         self.CK = "#29B6F6"   # 千克色
         self.CY = GOLD

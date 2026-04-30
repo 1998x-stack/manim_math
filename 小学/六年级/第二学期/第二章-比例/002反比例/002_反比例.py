@@ -45,7 +45,7 @@ class InverseProportionLesson(Scene):
         self.COLOR_CURVE = "#4fc3f7"
         self.COLOR_TABLE_HEADER = "#5c6bc0"
         self.COLOR_TABLE_CELL = "#37474f"
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
 
         self.scene_1_opening()
         self.scene_2_real_life_example()

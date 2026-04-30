@@ -44,7 +44,7 @@ COLOR_RESULT = "#22c55e"      # 绿色 结果
 COLOR_AUTHOR = "#6b7280"      # 灰色作者信息
 COLOR_FORMULA = "#f472b6"     # 粉色 公式
 COLOR_TITLE = "#fbbf24"       # 金色 标题
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

@@ -45,7 +45,7 @@ class ArithmeticLawsIntroLesson(Scene):
         # 作者标识 (贯穿全程)
         self.author_tag = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -66,7 +66,7 @@ class ArithmeticLawsIntroLesson(Scene):
     def scene_opening(self):
         hook = Text(
             "你知道加法和乘法\n有哪些神奇规律吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.C_HIGHLIGHT,
             line_spacing=1.3,
@@ -74,7 +74,7 @@ class ArithmeticLawsIntroLesson(Scene):
 
         sub = Text(
             "运算定律的初步感知",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(UP * 2.8)
@@ -108,10 +108,10 @@ class ArithmeticLawsIntroLesson(Scene):
     # ─────────────────────────────────────────────
     def scene_add_commutative(self):
         # 标题
-        title = Text("加法交换律", font="Noto Sans CJK SC", font_size=36, color=self.C_ADD)
+        title = Text("加法交换律", font="PingFang SC", font_size=36, color=self.C_ADD)
         title.move_to(UP * 6.2)
 
-        law_label = Text("交换加数的位置，和不变", font="Noto Sans CJK SC",
+        law_label = Text("交换加数的位置，和不变", font="PingFang SC",
                          font_size=22, color=self.C_GRAY)
         law_label.move_to(UP * 5.4)
 
@@ -120,7 +120,7 @@ class ArithmeticLawsIntroLesson(Scene):
 
         # ---- 具体数字示例 ----
         # 用苹果和橘子表示数量
-        ex_label = Text("用具体数字感受一下：", font="Noto Sans CJK SC",
+        ex_label = Text("用具体数字感受一下：", font="PingFang SC",
                         font_size=24, color=WHITE)
         ex_label.move_to(UP * 4.3)
         self.play(FadeIn(ex_label), run_time=0.4)
@@ -150,7 +150,7 @@ class ArithmeticLawsIntroLesson(Scene):
             buff=0.05,
             stroke_width=3,
         )
-        same_label = Text("相等！", font="Noto Sans CJK SC",
+        same_label = Text("相等！", font="PingFang SC",
                           font_size=22, color=self.C_HIGHLIGHT)
         same_label.next_to(double_arrow, RIGHT, buff=0.15)
 
@@ -158,7 +158,7 @@ class ArithmeticLawsIntroLesson(Scene):
         self.wait(0.5)
 
         # 发现规律
-        discover = Text("发现了什么规律？", font="Noto Sans CJK SC",
+        discover = Text("发现了什么规律？", font="PingFang SC",
                         font_size=26, color=WHITE)
         discover.move_to(UP * 0.8)
         self.play(FadeIn(discover, shift=UP * 0.2), run_time=0.5)
@@ -202,10 +202,10 @@ class ArithmeticLawsIntroLesson(Scene):
     # 场景 3: 加法结合律
     # ─────────────────────────────────────────────
     def scene_add_associative(self):
-        title = Text("加法结合律", font="Noto Sans CJK SC", font_size=36, color=self.C_ADD)
+        title = Text("加法结合律", font="PingFang SC", font_size=36, color=self.C_ADD)
         title.move_to(UP * 6.2)
 
-        law_label = Text("先加哪两个数，和不变", font="Noto Sans CJK SC",
+        law_label = Text("先加哪两个数，和不变", font="PingFang SC",
                          font_size=22, color=self.C_GRAY)
         law_label.move_to(UP * 5.4)
 
@@ -213,13 +213,13 @@ class ArithmeticLawsIntroLesson(Scene):
         self.play(FadeIn(law_label, shift=UP * 0.2), run_time=0.5)
 
         # 具体例子: 25 + 46 + 75
-        ex_label = Text("计算 25 + 46 + 75，怎么简便？", font="Noto Sans CJK SC",
+        ex_label = Text("计算 25 + 46 + 75，怎么简便？", font="PingFang SC",
                         font_size=24, color=WHITE)
         ex_label.move_to(UP * 4.3)
         self.play(FadeIn(ex_label), run_time=0.4)
 
         # 方法一: (25 + 46) + 75
-        label_m1 = Text("方法一：按顺序计算", font="Noto Sans CJK SC",
+        label_m1 = Text("方法一：按顺序计算", font="PingFang SC",
                         font_size=20, color=self.C_GRAY)
         label_m1.move_to(UP * 3.5)
 
@@ -237,7 +237,7 @@ class ArithmeticLawsIntroLesson(Scene):
         self.wait(0.4)
 
         # 方法二: 25 + (46 + 75)  — 更简便
-        label_m2 = Text("方法二：换个顺序（更简便！）", font="Noto Sans CJK SC",
+        label_m2 = Text("方法二：换个顺序（更简便！）", font="PingFang SC",
                         font_size=20, color=self.C_COMM)
         label_m2.move_to(UP * 0.5)
 
@@ -255,7 +255,7 @@ class ArithmeticLawsIntroLesson(Scene):
         self.wait(0.5)
 
         # 两个结果都是146
-        result_note = Text("两种方法，结果相同！", font="Noto Sans CJK SC",
+        result_note = Text("两种方法，结果相同！", font="PingFang SC",
                            font_size=24, color=self.C_HIGHLIGHT)
         result_note.move_to(DOWN * 2.2)
         self.play(FadeIn(result_note, shift=UP * 0.2), run_time=0.5)
@@ -288,10 +288,10 @@ class ArithmeticLawsIntroLesson(Scene):
     # 场景 4: 乘法交换律
     # ─────────────────────────────────────────────
     def scene_mul_commutative(self):
-        title = Text("乘法交换律", font="Noto Sans CJK SC", font_size=36, color=self.C_MUL)
+        title = Text("乘法交换律", font="PingFang SC", font_size=36, color=self.C_MUL)
         title.move_to(UP * 6.2)
 
-        law_label = Text("交换因数的位置，积不变", font="Noto Sans CJK SC",
+        law_label = Text("交换因数的位置，积不变", font="PingFang SC",
                          font_size=22, color=self.C_GRAY)
         law_label.move_to(UP * 5.4)
 
@@ -300,7 +300,7 @@ class ArithmeticLawsIntroLesson(Scene):
 
         # 可视化：矩形点阵
         # 4行×6列 = 6行×4列
-        grid_label = Text("用点阵图来感受：", font="Noto Sans CJK SC",
+        grid_label = Text("用点阵图来感受：", font="PingFang SC",
                           font_size=24, color=WHITE)
         grid_label.move_to(UP * 4.5)
         self.play(FadeIn(grid_label), run_time=0.4)
@@ -320,8 +320,8 @@ class ArithmeticLawsIntroLesson(Scene):
                 )
                 dots1.add(d)
 
-        label1_row = Text("4 行", font="Noto Sans CJK SC", font_size=18, color=self.C_MUL)
-        label1_col = Text("6 列", font="Noto Sans CJK SC", font_size=18, color=self.C_MUL)
+        label1_row = Text("4 行", font="PingFang SC", font_size=18, color=self.C_MUL)
+        label1_col = Text("6 列", font="PingFang SC", font_size=18, color=self.C_MUL)
         label1_row.next_to(dots1, LEFT, buff=0.2)
         label1_col.next_to(dots1, UP, buff=0.15)
 
@@ -347,8 +347,8 @@ class ArithmeticLawsIntroLesson(Scene):
                 )
                 dots2.add(d)
 
-        label2_row = Text("6 行", font="Noto Sans CJK SC", font_size=18, color=self.C_COMM)
-        label2_col = Text("4 列", font="Noto Sans CJK SC", font_size=18, color=self.C_COMM)
+        label2_row = Text("6 行", font="PingFang SC", font_size=18, color=self.C_COMM)
+        label2_col = Text("4 列", font="PingFang SC", font_size=18, color=self.C_COMM)
         label2_row.next_to(dots2, LEFT, buff=0.2)
         label2_col.next_to(dots2, UP, buff=0.15)
 
@@ -361,7 +361,7 @@ class ArithmeticLawsIntroLesson(Scene):
         self.wait(0.3)
 
         # 点数相同
-        equal_note = Text("点的总数相同！", font="Noto Sans CJK SC",
+        equal_note = Text("点的总数相同！", font="PingFang SC",
                           font_size=26, color=self.C_HIGHLIGHT)
         equal_note.move_to(DOWN * 0.7)
         self.play(FadeIn(equal_note, shift=UP * 0.2), run_time=0.5)
@@ -404,10 +404,10 @@ class ArithmeticLawsIntroLesson(Scene):
     # 场景 5: 乘法结合律
     # ─────────────────────────────────────────────
     def scene_mul_associative(self):
-        title = Text("乘法结合律", font="Noto Sans CJK SC", font_size=36, color=self.C_MUL)
+        title = Text("乘法结合律", font="PingFang SC", font_size=36, color=self.C_MUL)
         title.move_to(UP * 6.2)
 
-        law_label = Text("先乘哪两个数，积不变", font="Noto Sans CJK SC",
+        law_label = Text("先乘哪两个数，积不变", font="PingFang SC",
                          font_size=22, color=self.C_GRAY)
         law_label.move_to(UP * 5.4)
 
@@ -415,13 +415,13 @@ class ArithmeticLawsIntroLesson(Scene):
         self.play(FadeIn(law_label, shift=UP * 0.2), run_time=0.5)
 
         # 具体例子: 2 × 5 × 8
-        ex_label = Text("计算 2 × 5 × 8，哪种更快？", font="Noto Sans CJK SC",
+        ex_label = Text("计算 2 × 5 × 8，哪种更快？", font="PingFang SC",
                         font_size=24, color=WHITE)
         ex_label.move_to(UP * 4.5)
         self.play(FadeIn(ex_label), run_time=0.4)
 
         # 方法一: (2 × 5) × 8
-        label_m1 = Text("方法一：", font="Noto Sans CJK SC",
+        label_m1 = Text("方法一：", font="PingFang SC",
                         font_size=22, color=self.C_GRAY)
         label_m1.move_to(LEFT * 2.8 + UP * 3.5)
 
@@ -438,7 +438,7 @@ class ArithmeticLawsIntroLesson(Scene):
         self.wait(0.4)
 
         # 方法二: 2 × (5 × 8)
-        label_m2 = Text("方法二：", font="Noto Sans CJK SC",
+        label_m2 = Text("方法二：", font="PingFang SC",
                         font_size=22, color=self.C_COMM)
         label_m2.move_to(LEFT * 2.8 + UP * 0.5)
 
@@ -455,7 +455,7 @@ class ArithmeticLawsIntroLesson(Scene):
         self.wait(0.4)
 
         result_note = Text("先算 2×5=10 或先算 5×8=40，结果一样！",
-                           font="Noto Sans CJK SC", font_size=20, color=self.C_HIGHLIGHT)
+                           font="PingFang SC", font_size=20, color=self.C_HIGHLIGHT)
         result_note.move_to(DOWN * 2.4)
         self.play(FadeIn(result_note, shift=UP * 0.2), run_time=0.5)
         self.wait(0.5)
@@ -491,7 +491,7 @@ class ArithmeticLawsIntroLesson(Scene):
     # 场景 6: 汇总
     # ─────────────────────────────────────────────
     def scene_summary(self):
-        summary_title = Text("四大运算定律", font="Noto Sans CJK SC",
+        summary_title = Text("四大运算定律", font="PingFang SC",
                              font_size=38, color=self.C_HIGHLIGHT)
         summary_title.move_to(UP * 6.5)
         self.play(Write(summary_title), run_time=0.7)
@@ -519,7 +519,7 @@ class ArithmeticLawsIntroLesson(Scene):
                 stroke_color=color, stroke_width=2,
             ).move_to(pos)
 
-            name_text = Text(name, font="Noto Sans CJK SC",
+            name_text = Text(name, font="PingFang SC",
                              font_size=22, color=color)
             formula_obj = MathTex(formula_str, font_size=30, color=WHITE)
 
@@ -541,11 +541,11 @@ class ArithmeticLawsIntroLesson(Scene):
             stroke_color=self.C_HIGHLIGHT, stroke_width=2,
         ).move_to(DOWN * 3.2)
 
-        tip_line1 = Text("加法和乘法各有", font="Noto Sans CJK SC",
+        tip_line1 = Text("加法和乘法各有", font="PingFang SC",
                          font_size=22, color=WHITE)
-        tip_line2 = Text("交换律 和 结合律", font="Noto Sans CJK SC",
+        tip_line2 = Text("交换律 和 结合律", font="PingFang SC",
                          font_size=24, color=self.C_HIGHLIGHT)
-        tip_line3 = Text("帮助我们简便计算！", font="Noto Sans CJK SC",
+        tip_line3 = Text("帮助我们简便计算！", font="PingFang SC",
                          font_size=22, color=WHITE)
         tip_content = VGroup(tip_line1, tip_line2, tip_line3).arrange(DOWN, buff=0.15)
         tip_content.move_to(DOWN * 3.2)
@@ -575,21 +575,21 @@ class ArithmeticLawsIntroLesson(Scene):
         # 大字作者信息
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_GRAY,
         ).move_to(UP * 1.2)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_HIGHLIGHT,
         ).move_to(UP * 0.1)

@@ -42,7 +42,7 @@ COLOR_RESULT = "#22c55e"         # 绿色 结果/正确
 COLOR_ACCENT = "#ef4444"         # 红色强调
 COLOR_AUTHOR = "#6b7280"         # 灰色作者信息
 COLOR_LABEL = WHITE              # 标签颜色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

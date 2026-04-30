@@ -36,7 +36,7 @@ COLOR_MUL = "#a78bfa"           # 紫色乘除
 COLOR_WARN = "#ef4444"          # 红色重点
 COLOR_PROP = "#06b6d4"          # 青色性质标题
 COLOR_AUTHOR = "#6b7280"        # 灰色作者信息
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class EqualityPropertyLesson(Scene):

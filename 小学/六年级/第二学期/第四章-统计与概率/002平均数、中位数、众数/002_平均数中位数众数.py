@@ -42,7 +42,7 @@ COLOR_DATA = "#38bdf8"          # 天蓝色 数据
 COLOR_EXTREME = "#ef4444"       # 红色 极端值
 COLOR_AUTHOR = "#6b7280"        # 灰色作者信息
 COLOR_BAR = "#60a5fa"           # 柱状图颜色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

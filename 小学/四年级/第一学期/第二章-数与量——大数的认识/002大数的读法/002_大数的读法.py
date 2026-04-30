@@ -34,7 +34,7 @@ COLOR_ZERO = "#f97316"         # 橙色 零的读法规则
 COLOR_HL = "#fbbf24"           # 黄色 高亮
 COLOR_DIGIT = "#e2e8f0"        # 淡白 数字
 COLOR_AUTHOR = "#6b7280"       # 灰色 作者信息
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

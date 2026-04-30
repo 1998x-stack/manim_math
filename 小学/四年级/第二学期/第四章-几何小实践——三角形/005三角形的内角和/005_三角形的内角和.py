@@ -30,7 +30,7 @@ COLOR_C       = "#2ecc71"   # 角C  绿
 COLOR_TRI     = "#f0e6d3"   # 三角形边线
 COLOR_FORMULA = "#f39c12"   # 公式强调色
 COLOR_GRAY    = "#aaaaaa"
-FONT          = "Noto Sans CJK SC"
+FONT          = "PingFang SC"
 
 
 class TriangleAngleSumLesson(Scene):

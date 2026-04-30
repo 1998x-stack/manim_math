@@ -29,7 +29,7 @@ COLOR_EDGE = "#a78bfa"
 COLOR_VERTEX = "#ef4444"
 COLOR_HL = "#fbbf24"
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class PrismIntroLesson(Scene):

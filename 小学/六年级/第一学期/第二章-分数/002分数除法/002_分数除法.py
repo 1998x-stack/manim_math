@@ -40,7 +40,7 @@ COLOR_PURPLE = "#a78bfa"   # 紫色强调
 COLOR_ORANGE = "#f59e0b"   # 橙色
 COLOR_AUTHOR = "#6b7280"   # 灰色作者信息
 COLOR_FLIP   = "#f472b6"   # 粉色翻转
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

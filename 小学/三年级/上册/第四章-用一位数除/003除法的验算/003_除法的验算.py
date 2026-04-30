@@ -48,7 +48,7 @@ class DivisionVerifyLesson(Scene):
         # 作者标识 (持续显示)
         self.author_brand = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -69,21 +69,21 @@ class DivisionVerifyLesson(Scene):
     def scene_1_hook(self):
         hook_line1 = Text(
             "除法算完了，",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 4.5)
 
         hook_line2 = Text(
             "怎么知道算对了？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.7)
 
         question_mark = Text(
             "？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=120,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -95,7 +95,7 @@ class DivisionVerifyLesson(Scene):
 
         answer_text = Text(
             "用验算来检查！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color="#2ecc71"
         ).move_to(DOWN * 0.5)
@@ -117,7 +117,7 @@ class DivisionVerifyLesson(Scene):
     def scene_2_division_problem(self):
         step_title = Text(
             "先来做一道除法题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_DIM
         ).move_to(UP * 5.8)
@@ -125,13 +125,13 @@ class DivisionVerifyLesson(Scene):
         self.play(FadeIn(step_title, shift=DOWN * 0.2), run_time=0.4)
 
         # 算式: 57 ÷ 4 = ?
-        num_57 = Text("57", font="Noto Sans CJK SC", font_size=72,
+        num_57 = Text("57", font="PingFang SC", font_size=72,
                       color=self.COLOR_DIVIDEND, weight=BOLD)
         div_sym = MathTex(r"\div", font_size=72, color=self.COLOR_PRIMARY)
-        num_4   = Text("4",  font="Noto Sans CJK SC", font_size=72,
+        num_4   = Text("4",  font="PingFang SC", font_size=72,
                        color=self.COLOR_DIVISOR,  weight=BOLD)
         eq_sym  = MathTex(r"=", font_size=72, color=self.COLOR_PRIMARY)
-        q_mark  = Text("?",  font="Noto Sans CJK SC", font_size=72,
+        q_mark  = Text("?",  font="PingFang SC", font_size=72,
                        color=self.COLOR_HIGHLIGHT, weight=BOLD)
 
         expr = VGroup(num_57, div_sym, num_4, eq_sym, q_mark)
@@ -144,9 +144,9 @@ class DivisionVerifyLesson(Scene):
         self.wait(0.6)
 
         # 标注被除数 / 除数
-        label_dividend = Text("被除数", font="Noto Sans CJK SC",
+        label_dividend = Text("被除数", font="PingFang SC",
                                font_size=22, color=self.COLOR_DIVIDEND)
-        label_divisor  = Text("除数",   font="Noto Sans CJK SC",
+        label_divisor  = Text("除数",   font="PingFang SC",
                                font_size=22, color=self.COLOR_DIVISOR)
 
         label_dividend.next_to(num_57,  DOWN, buff=0.4)
@@ -195,7 +195,7 @@ class DivisionVerifyLesson(Scene):
     def scene_3_vertical_calculation(self):
         calc_title = Text(
             "竖式计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 4.2)
@@ -223,14 +223,14 @@ class DivisionVerifyLesson(Scene):
         FS = 52
 
         # --- 除数 ---
-        v_divisor = Text("4", font="Noto Sans CJK SC", font_size=FS,
+        v_divisor = Text("4", font="PingFang SC", font_size=FS,
                          color=self.COLOR_DIVISOR, weight=BOLD)
         v_divisor.move_to([cx - 1.8, cy, 0])
 
         # --- 被除数 ---
-        v_5 = Text("5", font="Noto Sans CJK SC", font_size=FS,
+        v_5 = Text("5", font="PingFang SC", font_size=FS,
                    color=self.COLOR_DIVIDEND, weight=BOLD)
-        v_7 = Text("7", font="Noto Sans CJK SC", font_size=FS,
+        v_7 = Text("7", font="PingFang SC", font_size=FS,
                    color=self.COLOR_DIVIDEND, weight=BOLD)
         v_5.move_to([cx + 0.0, cy, 0])
         v_7.move_to([cx + 0.8, cy, 0])
@@ -248,16 +248,16 @@ class DivisionVerifyLesson(Scene):
         )
 
         # --- 商 ---
-        v_quot_1 = Text("1", font="Noto Sans CJK SC", font_size=FS,
+        v_quot_1 = Text("1", font="PingFang SC", font_size=FS,
                         color=self.COLOR_QUOTIENT, weight=BOLD)
-        v_quot_4 = Text("4", font="Noto Sans CJK SC", font_size=FS,
+        v_quot_4 = Text("4", font="PingFang SC", font_size=FS,
                         color=self.COLOR_QUOTIENT, weight=BOLD)
         v_quot_1.move_to([cx + 0.0, cy + 1.1, 0])
         v_quot_4.move_to([cx + 0.8, cy + 1.1, 0])
 
         # --- 第一步减法: 57 个位十位分步 ---
         # 4×1=4, 写在5下面
-        v_sub1 = Text("4", font="Noto Sans CJK SC", font_size=FS,
+        v_sub1 = Text("4", font="PingFang SC", font_size=FS,
                       color="#e67e22")
         v_sub1.move_to([cx + 0.0, cy - 0.9, 0])
 
@@ -268,17 +268,17 @@ class DivisionVerifyLesson(Scene):
         )
 
         # 余数17
-        v_r1 = Text("1", font="Noto Sans CJK SC", font_size=FS,
+        v_r1 = Text("1", font="PingFang SC", font_size=FS,
                     color=WHITE)
-        v_r7 = Text("7", font="Noto Sans CJK SC", font_size=FS,
+        v_r7 = Text("7", font="PingFang SC", font_size=FS,
                     color=WHITE)
         v_r1.move_to([cx + 0.0, cy - 2.0, 0])
         v_r7.move_to([cx + 0.8, cy - 2.0, 0])
 
         # 4×4=16
-        v_sub2_1 = Text("1", font="Noto Sans CJK SC", font_size=FS,
+        v_sub2_1 = Text("1", font="PingFang SC", font_size=FS,
                         color="#e67e22")
-        v_sub2_6 = Text("6", font="Noto Sans CJK SC", font_size=FS,
+        v_sub2_6 = Text("6", font="PingFang SC", font_size=FS,
                         color="#e67e22")
         v_sub2_1.move_to([cx + 0.0, cy - 2.9, 0])
         v_sub2_6.move_to([cx + 0.8, cy - 2.9, 0])
@@ -290,12 +290,12 @@ class DivisionVerifyLesson(Scene):
         )
 
         # 余数1
-        v_remain = Text("1", font="Noto Sans CJK SC", font_size=FS,
+        v_remain = Text("1", font="PingFang SC", font_size=FS,
                         color=self.COLOR_REMAINDER, weight=BOLD)
         v_remain.move_to([cx + 0.8, cy - 4.0, 0])
 
         # 省略号标记余数
-        remain_label = Text("……1", font="Noto Sans CJK SC",
+        remain_label = Text("……1", font="PingFang SC",
                             font_size=38, color=self.COLOR_REMAINDER)
         remain_label.move_to([cx + 1.8, cy - 4.0, 0])
 
@@ -305,7 +305,7 @@ class DivisionVerifyLesson(Scene):
         self.wait(0.3)
 
         # 写商
-        think1 = Text("5÷4=1余1", font="Noto Sans CJK SC",
+        think1 = Text("5÷4=1余1", font="PingFang SC",
                       font_size=26, color=self.COLOR_DIM)
         think1.move_to([cx + 2.5, cy + 0.8, 0])
         self.play(FadeIn(think1), run_time=0.3)
@@ -317,7 +317,7 @@ class DivisionVerifyLesson(Scene):
         self.play(FadeIn(v_r1), FadeIn(v_r7), run_time=0.4)
         self.play(FadeOut(think1), run_time=0.2)
 
-        think2 = Text("17÷4=4余1", font="Noto Sans CJK SC",
+        think2 = Text("17÷4=4余1", font="PingFang SC",
                       font_size=26, color=self.COLOR_DIM)
         think2.move_to([cx + 2.7, cy - 0.5, 0])
         self.play(FadeIn(think2), run_time=0.3)
@@ -332,7 +332,7 @@ class DivisionVerifyLesson(Scene):
 
         # 汇总结果
         result_text = Text("57 ÷ 4 = 14 …… 1",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=34, color=self.COLOR_HIGHLIGHT)
         result_text.move_to([0, cy - 5.3, 0])
         self.play(Write(result_text), run_time=0.8)
@@ -360,7 +360,7 @@ class DivisionVerifyLesson(Scene):
     def scene_4_verify_formula(self):
         verify_title = Text(
             "如何验算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_VERIFY
         ).move_to(UP * 2.5)
@@ -381,7 +381,7 @@ class DivisionVerifyLesson(Scene):
 
         formula_group = VGroup()
         for txt, col in formula_parts:
-            t = Text(txt, font="Noto Sans CJK SC",
+            t = Text(txt, font="PingFang SC",
                      font_size=34, color=col)
             formula_group.add(t)
         formula_group.arrange(RIGHT, buff=0.1)
@@ -399,7 +399,7 @@ class DivisionVerifyLesson(Scene):
             VGroup(formula_group[0], formula_group[1], formula_group[2]),
             direction=DOWN, buff=0.1, color=self.COLOR_DIM
         )
-        brace_left_label = Text("先算乘法", font="Noto Sans CJK SC",
+        brace_left_label = Text("先算乘法", font="PingFang SC",
                                 font_size=22, color=self.COLOR_DIM)
         brace_left_label.next_to(brace_left, DOWN, buff=0.1)
 
@@ -414,7 +414,7 @@ class DivisionVerifyLesson(Scene):
             VGroup(formula_group[3], formula_group[4]),
             direction=DOWN, buff=0.1, color=self.COLOR_DIM
         )
-        brace_right_label = Text("再加余数", font="Noto Sans CJK SC",
+        brace_right_label = Text("再加余数", font="PingFang SC",
                                  font_size=22, color=self.COLOR_DIM)
         brace_right_label.next_to(brace_right, DOWN, buff=0.1)
 
@@ -426,7 +426,7 @@ class DivisionVerifyLesson(Scene):
         self.wait(0.5)
 
         final_check = Text("结果等于被除数，就验算正确！",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=28, color=self.COLOR_PRIMARY)
         final_check.move_to(DOWN * 0.2)
         self.play(Write(final_check), run_time=0.7)
@@ -449,7 +449,7 @@ class DivisionVerifyLesson(Scene):
     def scene_5_verify_steps(self):
         step_title = Text(
             "开始验算 57 ÷ 4 = 14……1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 1.5)
@@ -459,17 +459,17 @@ class DivisionVerifyLesson(Scene):
 
         # Step 1: 商×除数  14 × 4
         step1_label = Text("第一步：商 × 除数",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=28, color=self.COLOR_DIM)
         step1_label.move_to(UP * 0.5)
 
-        step1_num_14 = Text("14", font="Noto Sans CJK SC", font_size=56,
+        step1_num_14 = Text("14", font="PingFang SC", font_size=56,
                             color=self.COLOR_QUOTIENT, weight=BOLD)
         step1_mul    = MathTex(r"\times", font_size=56, color=self.COLOR_PRIMARY)
-        step1_num_4  = Text("4",  font="Noto Sans CJK SC", font_size=56,
+        step1_num_4  = Text("4",  font="PingFang SC", font_size=56,
                             color=self.COLOR_DIVISOR,  weight=BOLD)
         step1_eq     = MathTex(r"=", font_size=56, color=self.COLOR_PRIMARY)
-        step1_result = Text("56", font="Noto Sans CJK SC", font_size=56,
+        step1_result = Text("56", font="PingFang SC", font_size=56,
                             color=self.COLOR_VERIFY, weight=BOLD)
 
         step1_expr = VGroup(step1_num_14, step1_mul, step1_num_4,
@@ -488,17 +488,17 @@ class DivisionVerifyLesson(Scene):
 
         # Step 2: + 余数  56 + 1
         step2_label = Text("第二步：+ 余数",
-                           font="Noto Sans CJK SC",
+                           font="PingFang SC",
                            font_size=28, color=self.COLOR_DIM)
         step2_label.move_to(DOWN * 1.7)
 
-        step2_num_56  = Text("56", font="Noto Sans CJK SC", font_size=56,
+        step2_num_56  = Text("56", font="PingFang SC", font_size=56,
                              color=self.COLOR_VERIFY, weight=BOLD)
         step2_plus    = MathTex(r"+", font_size=56, color=self.COLOR_PRIMARY)
-        step2_num_1   = Text("1",  font="Noto Sans CJK SC", font_size=56,
+        step2_num_1   = Text("1",  font="PingFang SC", font_size=56,
                              color=self.COLOR_REMAINDER, weight=BOLD)
         step2_eq      = MathTex(r"=", font_size=56, color=self.COLOR_PRIMARY)
-        step2_result  = Text("57", font="Noto Sans CJK SC", font_size=56,
+        step2_result  = Text("57", font="PingFang SC", font_size=56,
                              color=self.COLOR_DIVIDEND, weight=BOLD)
 
         step2_expr = VGroup(step2_num_56, step2_plus, step2_num_1,
@@ -516,7 +516,7 @@ class DivisionVerifyLesson(Scene):
 
         # Step 3: 对比被除数57
         compare_text = Text("正好等于被除数 57！",
-                            font="Noto Sans CJK SC",
+                            font="PingFang SC",
                             font_size=32, color=self.COLOR_HIGHLIGHT)
         compare_text.move_to(DOWN * 4.2)
 
@@ -545,24 +545,24 @@ class DivisionVerifyLesson(Scene):
     def scene_6_conclusion(self):
         # 完整验算过程汇总
         summary_title = Text("验算过程",
-                             font="Noto Sans CJK SC",
+                             font="PingFang SC",
                              font_size=36, color=self.COLOR_VERIFY)
         summary_title.move_to(UP * 1.2)
 
         # 原式
-        orig_label = Text("原算式：", font="Noto Sans CJK SC",
+        orig_label = Text("原算式：", font="PingFang SC",
                           font_size=26, color=self.COLOR_DIM)
-        orig_expr_57 = Text("57", font="Noto Sans CJK SC", font_size=38,
+        orig_expr_57 = Text("57", font="PingFang SC", font_size=38,
                             color=self.COLOR_DIVIDEND, weight=BOLD)
         orig_expr_d  = MathTex(r"\div", font_size=38, color=self.COLOR_PRIMARY)
-        orig_expr_4  = Text("4", font="Noto Sans CJK SC", font_size=38,
+        orig_expr_4  = Text("4", font="PingFang SC", font_size=38,
                             color=self.COLOR_DIVISOR, weight=BOLD)
         orig_expr_eq = MathTex(r"=", font_size=38, color=self.COLOR_PRIMARY)
-        orig_expr_14 = Text("14", font="Noto Sans CJK SC", font_size=38,
+        orig_expr_14 = Text("14", font="PingFang SC", font_size=38,
                             color=self.COLOR_QUOTIENT, weight=BOLD)
-        orig_expr_dot = Text("……", font="Noto Sans CJK SC", font_size=38,
+        orig_expr_dot = Text("……", font="PingFang SC", font_size=38,
                              color=self.COLOR_PRIMARY)
-        orig_expr_1  = Text("1", font="Noto Sans CJK SC", font_size=38,
+        orig_expr_1  = Text("1", font="PingFang SC", font_size=38,
                             color=self.COLOR_REMAINDER, weight=BOLD)
 
         orig_math = VGroup(orig_expr_57, orig_expr_d, orig_expr_4,
@@ -572,18 +572,18 @@ class DivisionVerifyLesson(Scene):
         orig_row.move_to(UP * 0.0)
 
         # 验算式
-        verify_label = Text("验  算：", font="Noto Sans CJK SC",
+        verify_label = Text("验  算：", font="PingFang SC",
                             font_size=26, color=self.COLOR_DIM)
-        v_14 = Text("14", font="Noto Sans CJK SC", font_size=38,
+        v_14 = Text("14", font="PingFang SC", font_size=38,
                     color=self.COLOR_QUOTIENT, weight=BOLD)
         v_x  = MathTex(r"\times", font_size=38, color=self.COLOR_PRIMARY)
-        v_4  = Text("4",  font="Noto Sans CJK SC", font_size=38,
+        v_4  = Text("4",  font="PingFang SC", font_size=38,
                     color=self.COLOR_DIVISOR, weight=BOLD)
         v_p  = MathTex(r"+", font_size=38, color=self.COLOR_PRIMARY)
-        v_1  = Text("1",  font="Noto Sans CJK SC", font_size=38,
+        v_1  = Text("1",  font="PingFang SC", font_size=38,
                     color=self.COLOR_REMAINDER, weight=BOLD)
         v_e  = MathTex(r"=", font_size=38, color=self.COLOR_PRIMARY)
-        v_57 = Text("57", font="Noto Sans CJK SC", font_size=38,
+        v_57 = Text("57", font="PingFang SC", font_size=38,
                     color=self.COLOR_DIVIDEND, weight=BOLD)
 
         verify_math = VGroup(v_14, v_x, v_4, v_p, v_1, v_e, v_57)
@@ -598,7 +598,7 @@ class DivisionVerifyLesson(Scene):
 
         # 结论框
         correct_text = Text("验算正确！",
-                            font="Noto Sans CJK SC",
+                            font="PingFang SC",
                             font_size=52, color="#2ecc71", weight=BOLD)
         correct_text.move_to(DOWN * 2.6)
 
@@ -622,7 +622,7 @@ class DivisionVerifyLesson(Scene):
 
         rule_text = Text(
             "商 × 除数 + 余数 = 被除数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -654,28 +654,28 @@ class DivisionVerifyLesson(Scene):
     def scene_7_outro(self):
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_DIM
         ).move_to(UP * 0.7)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.3)
 
         tip_text = Text(
             "验算一下，数学不出错！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_DIM
         ).move_to(DOWN * 1.3)

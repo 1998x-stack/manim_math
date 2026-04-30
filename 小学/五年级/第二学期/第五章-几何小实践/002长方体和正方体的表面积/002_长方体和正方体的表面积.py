@@ -34,7 +34,7 @@ COLOR_DIM    = "#a78bfa"   # 紫色 尺寸标注
 COLOR_HL     = "#fbbf24"   # 黄色 高亮
 COLOR_CUBE   = "#06b6d4"   # 青色 正方体
 COLOR_AUTHOR = "#6b7280"   # 灰色 作者
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

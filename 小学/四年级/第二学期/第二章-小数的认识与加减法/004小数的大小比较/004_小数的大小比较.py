@@ -41,7 +41,7 @@ COLOR_DOT    = "#f59e0b"   # 橙色 — 小数点
 COLOR_STEP   = "#60a5fa"   # 蓝色 — 步骤
 COLOR_RULE   = "#a78bfa"   # 紫色 — 规律
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

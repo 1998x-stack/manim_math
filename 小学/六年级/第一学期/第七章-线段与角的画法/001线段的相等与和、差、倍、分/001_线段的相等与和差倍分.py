@@ -41,7 +41,7 @@ COLOR_ACCENT = "#a78bfa"      # 紫色强调
 COLOR_COMPASS = "#ef4444"     # 红色 圆规弧
 COLOR_AUTHOR = "#6b7280"      # 灰色
 COLOR_RAY = "#94a3b8"         # 射线颜色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

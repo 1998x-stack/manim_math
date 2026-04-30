@@ -45,7 +45,7 @@ class QuadrilateralRelationLesson(Scene):
         # 作者标识 -- 常驻顶部
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.C_DIM,
         ).move_to(UP * 7.0)
@@ -64,14 +64,14 @@ class QuadrilateralRelationLesson(Scene):
     def scene_1_hook(self):
         question = Text(
             "正方形是长方形吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_HIGHLIGHT,
         ).move_to(UP * 5.2)
 
         sub = Text(
             "它们到底是什么关系？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_LABEL,
         ).move_to(UP * 4.2)
@@ -80,12 +80,12 @@ class QuadrilateralRelationLesson(Scene):
         sq = Square(side_length=1.4, color=self.C_SQ, stroke_width=4).move_to(LEFT * 1.8 + UP * 2.2)
         rect = Rectangle(width=2.4, height=1.4, color=self.C_RECT, stroke_width=4).move_to(RIGHT * 1.6 + UP * 2.2)
 
-        sq_lbl = Text("正方形", font="Noto Sans CJK SC", font_size=22, color=self.C_SQ).next_to(sq, DOWN, buff=0.15)
-        rect_lbl = Text("长方形", font="Noto Sans CJK SC", font_size=22, color=self.C_RECT).next_to(rect, DOWN, buff=0.15)
+        sq_lbl = Text("正方形", font="PingFang SC", font_size=22, color=self.C_SQ).next_to(sq, DOWN, buff=0.15)
+        rect_lbl = Text("长方形", font="PingFang SC", font_size=22, color=self.C_RECT).next_to(rect, DOWN, buff=0.15)
 
         hint = Text(
             "今天一次搞清楚！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_LABEL,
         ).move_to(UP * 0.6)
@@ -114,7 +114,7 @@ class QuadrilateralRelationLesson(Scene):
     def scene_2_shapes(self):
         title = Text(
             "先认识四种四边形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.C_HIGHLIGHT,
         ).move_to(UP * 5.8)
@@ -133,8 +133,8 @@ class QuadrilateralRelationLesson(Scene):
 
         for i, (kind, name, prop, color) in enumerate(shapes_info):
             shape = self._make_shape(kind, color, scale=0.9)
-            name_t = Text(name, font="Noto Sans CJK SC", font_size=26, color=color)
-            prop_t = Text(prop, font="Noto Sans CJK SC", font_size=20, color=self.C_LABEL)
+            name_t = Text(name, font="PingFang SC", font_size=26, color=color)
+            prop_t = Text(prop, font="PingFang SC", font_size=20, color=self.C_LABEL)
             card = VGroup(shape, name_t, prop_t).arrange(RIGHT, buff=0.25)
             cards.add(card)
 
@@ -154,7 +154,7 @@ class QuadrilateralRelationLesson(Scene):
     def scene_3_venn(self):
         title = Text(
             "用集合图表示它们的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_HIGHLIGHT,
         ).move_to(UP * 6.2)
@@ -166,14 +166,14 @@ class QuadrilateralRelationLesson(Scene):
         # ── 四边形（最大椭圆）
         e_quad = Ellipse(width=8.0, height=6.2, color=self.C_QUAD, stroke_width=3)
         e_quad.move_to(center)
-        lbl_quad = Text("四边形", font="Noto Sans CJK SC", font_size=24, color=self.C_QUAD)
+        lbl_quad = Text("四边形", font="PingFang SC", font_size=24, color=self.C_QUAD)
         lbl_quad.move_to(center + UP * 2.8 + LEFT * 3.0)
 
         # ── 梯形（左侧椭圆，和平行四边形并列在四边形内）
         trap_center = center + LEFT * 2.3
         e_trap = Ellipse(width=3.2, height=3.8, color=self.C_TRAP, stroke_width=3)
         e_trap.move_to(trap_center)
-        lbl_trap = Text("梯形", font="Noto Sans CJK SC", font_size=22, color=self.C_TRAP)
+        lbl_trap = Text("梯形", font="PingFang SC", font_size=22, color=self.C_TRAP)
         lbl_trap.move_to(trap_center + UP * 1.4)
 
         # 梯形例子
@@ -184,7 +184,7 @@ class QuadrilateralRelationLesson(Scene):
         para_center = center + RIGHT * 1.7
         e_para = Ellipse(width=3.8, height=4.8, color=self.C_PARA, stroke_width=3)
         e_para.move_to(para_center)
-        lbl_para = Text("平行四边形", font="Noto Sans CJK SC", font_size=20, color=self.C_PARA)
+        lbl_para = Text("平行四边形", font="PingFang SC", font_size=20, color=self.C_PARA)
         lbl_para.move_to(para_center + UP * 1.9)
 
         # 平行四边形例子（在平行四边形椭圆但在长方形外的区域）
@@ -195,7 +195,7 @@ class QuadrilateralRelationLesson(Scene):
         rect_center = para_center + DOWN * 0.6
         e_rect = Ellipse(width=2.5, height=2.8, color=self.C_RECT, stroke_width=3)
         e_rect.move_to(rect_center)
-        lbl_rect = Text("长方形", font="Noto Sans CJK SC", font_size=18, color=self.C_RECT)
+        lbl_rect = Text("长方形", font="PingFang SC", font_size=18, color=self.C_RECT)
         lbl_rect.move_to(rect_center + UP * 1.0)
 
         # 长方形例子（在长方形椭圆但在正方形外的区域）
@@ -206,7 +206,7 @@ class QuadrilateralRelationLesson(Scene):
         sq_center = rect_center + DOWN * 0.45
         e_sq = Ellipse(width=1.3, height=1.2, color=self.C_SQ, stroke_width=3)
         e_sq.move_to(sq_center)
-        lbl_sq = Text("正方形", font="Noto Sans CJK SC", font_size=16, color=self.C_SQ)
+        lbl_sq = Text("正方形", font="PingFang SC", font_size=16, color=self.C_SQ)
         lbl_sq.move_to(sq_center)
 
         # ── 逐层动画
@@ -246,17 +246,17 @@ class QuadrilateralRelationLesson(Scene):
         """逐一解说包含关系"""
 
         def make_title(text, color=self.C_HIGHLIGHT):
-            return Text(text, font="Noto Sans CJK SC", font_size=34, color=color).move_to(UP * 6.0)
+            return Text(text, font="PingFang SC", font_size=34, color=color).move_to(UP * 6.0)
 
         # ── 4a. 长方形是特殊的平行四边形 ──────────────────
         t4a = make_title("长方形 ⊆ 平行四边形")
         explain_a1 = Text(
             "平行四边形: 两组对边平行",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_PARA,
+            font="PingFang SC", font_size=24, color=self.C_PARA,
         ).move_to(UP * 5.0)
         explain_a2 = Text(
             "长方形: 还多了四个直角",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_RECT,
+            font="PingFang SC", font_size=24, color=self.C_RECT,
         ).move_to(UP * 4.2)
 
         para_big = self._make_shape("para", self.C_PARA, scale=1.6).move_to(LEFT * 1.5 + UP * 1.5)
@@ -273,7 +273,7 @@ class QuadrilateralRelationLesson(Scene):
         )
         note_a = Text(
             "长方形是\n特殊的平行四边形",
-            font="Noto Sans CJK SC", font_size=22, color=self.C_LABEL,
+            font="PingFang SC", font_size=22, color=self.C_LABEL,
         ).next_to(arrow_a, RIGHT, buff=0.1)
 
         self.play(Write(t4a), run_time=0.7)
@@ -297,11 +297,11 @@ class QuadrilateralRelationLesson(Scene):
         t4b = make_title("正方形 ⊆ 长方形")
         explain_b1 = Text(
             "长方形: 四个直角",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_RECT,
+            font="PingFang SC", font_size=24, color=self.C_RECT,
         ).move_to(UP * 5.0)
         explain_b2 = Text(
             "正方形: 还多了四条边相等",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_SQ,
+            font="PingFang SC", font_size=24, color=self.C_SQ,
         ).move_to(UP * 4.2)
 
         rect_big = self._make_shape("rect", self.C_RECT, scale=1.6).move_to(LEFT * 1.5 + UP * 1.5)
@@ -319,7 +319,7 @@ class QuadrilateralRelationLesson(Scene):
         )
         note_b = Text(
             "正方形是\n特殊的长方形",
-            font="Noto Sans CJK SC", font_size=22, color=self.C_LABEL,
+            font="PingFang SC", font_size=22, color=self.C_LABEL,
         ).next_to(arrow_b, RIGHT, buff=0.1)
 
         self.play(Write(t4b), run_time=0.7)
@@ -343,19 +343,19 @@ class QuadrilateralRelationLesson(Scene):
         t4c = make_title("梯形 和 平行四边形 并列")
         explain_c = Text(
             "都是四边形，但互不包含",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_LABEL,
+            font="PingFang SC", font_size=26, color=self.C_LABEL,
         ).move_to(UP * 4.8)
 
         trap_shape = self._make_shape("trap", self.C_TRAP, scale=1.4).move_to(LEFT * 2.0 + UP * 1.5)
         para_shape = self._make_shape("para", self.C_PARA, scale=1.4).move_to(RIGHT * 2.0 + UP * 1.5)
 
-        trap_lbl = Text("梯形", font="Noto Sans CJK SC", font_size=24, color=self.C_TRAP).next_to(trap_shape, DOWN, buff=0.2)
-        para_lbl = Text("平行四边形", font="Noto Sans CJK SC", font_size=22, color=self.C_PARA).next_to(para_shape, DOWN, buff=0.2)
+        trap_lbl = Text("梯形", font="PingFang SC", font_size=24, color=self.C_TRAP).next_to(trap_shape, DOWN, buff=0.2)
+        para_lbl = Text("平行四边形", font="PingFang SC", font_size=22, color=self.C_PARA).next_to(para_shape, DOWN, buff=0.2)
 
-        cross = Text("✗", font="Noto Sans CJK SC", font_size=40, color=RED).move_to(ORIGIN + UP * 1.5)
+        cross = Text("✗", font="PingFang SC", font_size=40, color=RED).move_to(ORIGIN + UP * 1.5)
         note_c = Text(
             "梯形只有一组对边平行\n平行四边形有两组对边平行",
-            font="Noto Sans CJK SC", font_size=20, color=self.C_LABEL,
+            font="PingFang SC", font_size=20, color=self.C_LABEL,
         ).move_to(DOWN * 0.8)
 
         self.play(Write(t4c), run_time=0.7)
@@ -382,7 +382,7 @@ class QuadrilateralRelationLesson(Scene):
     def scene_5_formula(self):
         title = Text(
             "包含关系总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.C_HIGHLIGHT,
         ).move_to(UP * 6.2)
@@ -390,22 +390,22 @@ class QuadrilateralRelationLesson(Scene):
 
         # 主链: 正方形 ⊂ 长方形 ⊂ 平行四边形 ⊂ 四边形
         chain_parts = [
-            Text("正方形", font="Noto Sans CJK SC", font_size=30, color=self.C_SQ),
-            Text("⊂", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("长方形", font="Noto Sans CJK SC", font_size=30, color=self.C_RECT),
-            Text("⊂", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("平行四边形", font="Noto Sans CJK SC", font_size=28, color=self.C_PARA),
-            Text("⊂", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("四边形", font="Noto Sans CJK SC", font_size=30, color=self.C_QUAD),
+            Text("正方形", font="PingFang SC", font_size=30, color=self.C_SQ),
+            Text("⊂", font="PingFang SC", font_size=28, color=WHITE),
+            Text("长方形", font="PingFang SC", font_size=30, color=self.C_RECT),
+            Text("⊂", font="PingFang SC", font_size=28, color=WHITE),
+            Text("平行四边形", font="PingFang SC", font_size=28, color=self.C_PARA),
+            Text("⊂", font="PingFang SC", font_size=28, color=WHITE),
+            Text("四边形", font="PingFang SC", font_size=30, color=self.C_QUAD),
         ]
         chain = VGroup(*chain_parts).arrange(RIGHT, buff=0.18)
         chain.move_to(UP * 4.8)
 
         # 梯形支链
         trap_parts = [
-            Text("梯形", font="Noto Sans CJK SC", font_size=30, color=self.C_TRAP),
-            Text("⊂", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("四边形", font="Noto Sans CJK SC", font_size=30, color=self.C_QUAD),
+            Text("梯形", font="PingFang SC", font_size=30, color=self.C_TRAP),
+            Text("⊂", font="PingFang SC", font_size=28, color=WHITE),
+            Text("四边形", font="PingFang SC", font_size=30, color=self.C_QUAD),
         ]
         trap_chain = VGroup(*trap_parts).arrange(RIGHT, buff=0.18)
         trap_chain.move_to(UP * 3.8)
@@ -429,11 +429,11 @@ class QuadrilateralRelationLesson(Scene):
         eq3  = Ellipse(width=2.0, height=2.4, color=self.C_RECT,  stroke_width=2.5).move_to(center + RIGHT * 1.2 + DOWN * 0.35)
         eq4  = Ellipse(width=1.1, height=1.0, color=self.C_SQ,    stroke_width=2.5).move_to(center + RIGHT * 1.2 + DOWN * 0.70)
 
-        lq1  = Text("四边形", font="Noto Sans CJK SC", font_size=20, color=self.C_QUAD).move_to(center + UP * 1.75 + LEFT * 2.8)
-        lq2l = Text("梯形",   font="Noto Sans CJK SC", font_size=18, color=self.C_TRAP).move_to(center + LEFT * 2.1 + UP * 1.1)
-        lq2r = Text("平行\n四边形", font="Noto Sans CJK SC", font_size=16, color=self.C_PARA).move_to(center + RIGHT * 1.2 + UP * 1.5)
-        lq3  = Text("长方形", font="Noto Sans CJK SC", font_size=15, color=self.C_RECT).move_to(center + RIGHT * 1.2 + UP * 0.7)
-        lq4  = Text("正方形", font="Noto Sans CJK SC", font_size=13, color=self.C_SQ).move_to(center + RIGHT * 1.2 + DOWN * 0.70)
+        lq1  = Text("四边形", font="PingFang SC", font_size=20, color=self.C_QUAD).move_to(center + UP * 1.75 + LEFT * 2.8)
+        lq2l = Text("梯形",   font="PingFang SC", font_size=18, color=self.C_TRAP).move_to(center + LEFT * 2.1 + UP * 1.1)
+        lq2r = Text("平行\n四边形", font="PingFang SC", font_size=16, color=self.C_PARA).move_to(center + RIGHT * 1.2 + UP * 1.5)
+        lq3  = Text("长方形", font="PingFang SC", font_size=15, color=self.C_RECT).move_to(center + RIGHT * 1.2 + UP * 0.7)
+        lq4  = Text("正方形", font="PingFang SC", font_size=13, color=self.C_SQ).move_to(center + RIGHT * 1.2 + DOWN * 0.70)
 
         self.play(
             Create(eq1), FadeIn(lq1),
@@ -447,11 +447,11 @@ class QuadrilateralRelationLesson(Scene):
         # 关键点提示
         key1 = Text(
             "越靠里，条件越多，越特殊",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_HIGHLIGHT,
+            font="PingFang SC", font_size=24, color=self.C_HIGHLIGHT,
         ).move_to(DOWN * 3.0)
         key2 = Text(
             "越靠外，条件越少，越一般",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_LABEL,
+            font="PingFang SC", font_size=24, color=self.C_LABEL,
         ).move_to(DOWN * 3.7)
 
         self.play(FadeIn(key1, shift=UP * 0.2), run_time=0.6)
@@ -478,7 +478,7 @@ class QuadrilateralRelationLesson(Scene):
         ]
         summary_group = VGroup()
         for txt, col in summary_lines:
-            t = Text(txt, font="Noto Sans CJK SC", font_size=28, color=col)
+            t = Text(txt, font="PingFang SC", font_size=28, color=col)
             summary_group.add(t)
         summary_group.arrange(DOWN, buff=0.4, aligned_edge=LEFT)
         summary_group.move_to(UP * 2.5)
@@ -492,21 +492,21 @@ class QuadrilateralRelationLesson(Scene):
         # 作者大字
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(DOWN * 1.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_DIM,
         ).move_to(DOWN * 1.8)
 
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_HIGHLIGHT,
         ).move_to(DOWN * 3.0)

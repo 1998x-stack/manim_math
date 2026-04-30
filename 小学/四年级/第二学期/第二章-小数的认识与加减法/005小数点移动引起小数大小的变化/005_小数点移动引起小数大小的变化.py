@@ -37,7 +37,7 @@ COLOR_HL    = "#fbbf24"   # 黄色高亮
 COLOR_RULE  = "#a78bfa"   # 紫色 — 规律
 COLOR_DIGIT = "#60a5fa"   # 蓝色 — 数字
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

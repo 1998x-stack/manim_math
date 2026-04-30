@@ -60,7 +60,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 作者信息
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -69,7 +69,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 钩子问题
         hook = Text(
             "你会算这道题吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.5)
@@ -87,7 +87,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 提示：进位！
         hint = Text(
             "个位满 10，要进位！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_CARRY,
         ).move_to(UP * 1.8)
@@ -108,14 +108,14 @@ class TwoDigitAdditionWithCarry(Scene):
     def scene_2_problem(self):
         title = Text(
             "两位数加两位数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.2)
 
         subtitle = Text(
             "进位加法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DIM,
         ).move_to(UP * 5.5)
@@ -139,14 +139,14 @@ class TwoDigitAdditionWithCarry(Scene):
         # 数位标注
         tens_label = Text(
             "十位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_TENS,
         ).move_to(UP * 2.8 + LEFT * 1.5)
 
         ones_label = Text(
             "个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ONES,
         ).move_to(UP * 2.8 + RIGHT * 1.5)
@@ -160,7 +160,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 说明进位
         note = Text(
             "8 + 7 = 15，个位满 10 了！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CARRY,
         ).move_to(UP * 1.5)
@@ -186,7 +186,7 @@ class TwoDigitAdditionWithCarry(Scene):
     def scene_3_vertical_setup(self):
         title = Text(
             "用竖式来计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.5)
@@ -203,8 +203,8 @@ class TwoDigitAdditionWithCarry(Scene):
         ROW_RESULT_Y = 2.0
 
         # 数位标题行
-        col_tens = Text("十位", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_TENS)
-        col_ones = Text("个位", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ONES)
+        col_tens = Text("十位", font="PingFang SC", font_size=24, color=self.COLOR_TENS)
+        col_ones = Text("个位", font="PingFang SC", font_size=24, color=self.COLOR_ONES)
         col_tens.move_to(np.array([COL_TENS_X, ROW_HEADER_Y, 0]))
         col_ones.move_to(np.array([COL_ONES_X, ROW_HEADER_Y, 0]))
 
@@ -271,7 +271,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 说明文字区（底部）
         step_label = Text(
             "第一步：算个位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ONES,
         ).move_to(DOWN * 1.5)
@@ -293,7 +293,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # "满十进一" 说明
         carry_text = Text(
             "满 10 了！个位写 5，向十位进 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_CARRY,
         ).move_to(DOWN * 3.8)
@@ -348,7 +348,7 @@ class TwoDigitAdditionWithCarry(Scene):
 
         step_label = Text(
             "第二步：算十位（别忘了进上来的 1！）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_TENS,
         ).move_to(DOWN * 1.5)
@@ -371,7 +371,7 @@ class TwoDigitAdditionWithCarry(Scene):
 
         carry_note = Text(
             "3 + 2 + 进上来的 1 = 6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TENS,
         ).move_to(DOWN * 4.0)
@@ -465,7 +465,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 总结标题
         summary_title = Text(
             "进位加法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TITLE,
         ).move_to(UP * 5.5)
@@ -483,7 +483,7 @@ class TwoDigitAdditionWithCarry(Scene):
 
         rule_mobjects = []
         for text, color in zip(rule_texts, rule_colors):
-            t = Text(text, font="Noto Sans CJK SC", font_size=28, color=color)
+            t = Text(text, font="PingFang SC", font_size=28, color=color)
             rule_mobjects.append(t)
 
         rule_group = VGroup(*rule_mobjects)
@@ -498,7 +498,7 @@ class TwoDigitAdditionWithCarry(Scene):
         # 再次展示算式过程
         example_title = Text(
             "回顾：38 + 27",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DIM,
         ).move_to(DOWN * 1.2)
@@ -506,11 +506,11 @@ class TwoDigitAdditionWithCarry(Scene):
         self.play(FadeIn(example_title), run_time=0.4)
 
         # 个位步骤行：文字 + 数学混合，用 VGroup 拼合
-        ones_label_t = Text("个位：", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_ONES)
+        ones_label_t = Text("个位：", font="PingFang SC", font_size=26, color=self.COLOR_ONES)
         ones_formula = MathTex(r"8 + 7 = 15", font_size=52, color=WHITE)
-        ones_write_t = Text("写", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        ones_write_t = Text("写", font="PingFang SC", font_size=26, color=WHITE)
         ones_5 = MathTex(r"5", font_size=52, color=self.COLOR_RESULT)
-        ones_carry_t = Text("进", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        ones_carry_t = Text("进", font="PingFang SC", font_size=26, color=WHITE)
         ones_1 = MathTex(r"1", font_size=52, color=self.COLOR_CARRY)
 
         step_ones = VGroup(
@@ -518,7 +518,7 @@ class TwoDigitAdditionWithCarry(Scene):
         ).arrange(RIGHT, buff=0.12).move_to(DOWN * 2.3)
 
         # 十位步骤行
-        tens_label_t = Text("十位：", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_TENS)
+        tens_label_t = Text("十位：", font="PingFang SC", font_size=26, color=self.COLOR_TENS)
         tens_formula = MathTex(r"3 + 2 + 1 = 6", font_size=52, color=WHITE)
         step_tens = VGroup(tens_label_t, tens_formula).arrange(RIGHT, buff=0.12).move_to(DOWN * 3.5)
 
@@ -555,14 +555,14 @@ class TwoDigitAdditionWithCarry(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DIM,
         ).move_to(UP * 0.6)
@@ -575,7 +575,7 @@ class TwoDigitAdditionWithCarry(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_TITLE,
         ).move_to(DOWN * 0.5)

@@ -36,7 +36,7 @@ COLOR_HL       = "#fbbf24"   # 黄  高亮
 COLOR_GRAY_TXT = "#9ca3af"   # 灰  辅助文字
 COLOR_AUTHOR   = "#6b7280"   # 灰  作者
 COLOR_STEP     = "#38bdf8"   # 青  步骤标题
-FONT           = "Noto Sans CJK SC"
+FONT           = "PingFang SC"
 
 
 # ======================================================================

@@ -33,7 +33,7 @@ COLOR_HL = "#fbbf24"            # 黄色高亮
 COLOR_CHECK = "#ef4444"         # 红色 对比/检验
 COLOR_LIFE = "#a78bfa"          # 紫色 生活实例
 COLOR_AUTHOR = "#6b7280"        # 灰色作者信息
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

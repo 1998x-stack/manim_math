@@ -39,7 +39,7 @@ COLOR_HL = "#fbbf24"         # 黄色高亮
 COLOR_BORROW = "#ef4444"     # 红色 — 借位
 COLOR_ACCENT = "#a78bfa"     # 紫色强调
 COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

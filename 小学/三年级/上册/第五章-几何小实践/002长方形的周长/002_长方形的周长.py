@@ -54,7 +54,7 @@ class RectPerimeterLesson(Scene):
         # 品牌标识（全程保留）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -112,7 +112,7 @@ class RectPerimeterLesson(Scene):
     def scene_hook(self):
         question = Text(
             "知道长和宽，能算出周长吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=YELLOW,
         ).move_to(UP * 5.5)
@@ -132,7 +132,7 @@ class RectPerimeterLesson(Scene):
     def scene_intro_rect(self):
         title = Text(
             "长方形的特点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=COLOR_RECT,
         ).move_to(UP * 6.2)
@@ -161,7 +161,7 @@ class RectPerimeterLesson(Scene):
         # 说明：对边相等
         hint = Text(
             "长方形：对边相等，四个直角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_HINT,
         ).move_to(DOWN * 4.8)
@@ -184,7 +184,7 @@ class RectPerimeterLesson(Scene):
 
         title = Text(
             "周长 = 四条边之和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=YELLOW,
         ).move_to(UP * 6.2)
@@ -251,7 +251,7 @@ class RectPerimeterLesson(Scene):
 
         title = Text(
             "化简得到公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -295,7 +295,7 @@ class RectPerimeterLesson(Scene):
         # 文字说明（用 Text，不放 MathTex）
         explain = Text(
             "将(长+宽)看成一组，共 2 组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HINT,
         ).move_to(DOWN * 5.5)
@@ -319,7 +319,7 @@ class RectPerimeterLesson(Scene):
 
         title = Text(
             "例题：求长方形的周长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=COLOR_EXAMPLE,
         ).move_to(UP * 6.2)
@@ -331,7 +331,7 @@ class RectPerimeterLesson(Scene):
         )
         lbl_a = VGroup(
             MathTex("a", r"=", font_size=28, color=COLOR_LEN),
-            Text(f"{a_val} cm", font="Noto Sans CJK SC",
+            Text(f"{a_val} cm", font="PingFang SC",
                  font_size=28, color=COLOR_LEN),
         ).arrange(RIGHT, buff=0.05)
         brace_bottom.put_at_tip(lbl_a, buff=0.1)
@@ -341,7 +341,7 @@ class RectPerimeterLesson(Scene):
         )
         lbl_b = VGroup(
             MathTex("b", r"=", font_size=28, color=COLOR_WID),
-            Text(f"{b_val} cm", font="Noto Sans CJK SC",
+            Text(f"{b_val} cm", font="PingFang SC",
                  font_size=28, color=COLOR_WID),
         ).arrange(RIGHT, buff=0.05)
         brace_right.put_at_tip(lbl_b, buff=0.1)
@@ -397,7 +397,7 @@ class RectPerimeterLesson(Scene):
 
         ans_text = Text(
             "周长为 20 厘米",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW,
         ).move_to(DOWN * 7.0)
@@ -422,7 +422,7 @@ class RectPerimeterLesson(Scene):
 
         title = Text(
             "逆向思维：已知周长求宽",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -431,13 +431,13 @@ class RectPerimeterLesson(Scene):
         # 问题描述（用两个 Text 拼合，避免中文+数学混排）
         q1 = Text(
             "周长 = 24 cm，长 = 8 cm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(UP * 5.0)
         q2 = Text(
             "宽 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=YELLOW,
         ).next_to(q1, DOWN, buff=0.25)
@@ -449,14 +449,14 @@ class RectPerimeterLesson(Scene):
         # 步骤标题
         step_title = Text(
             "解题步骤：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_HINT,
         ).move_to(UP * 3.5)
         self.play(Write(step_title), run_time=0.4)
 
         # 1. 长+宽 = 周长÷2
-        s1_left = Text("长 + 宽", font="Noto Sans CJK SC",
+        s1_left = Text("长 + 宽", font="PingFang SC",
                         font_size=30, color=WHITE)
         s1_eq   = MathTex(r"= 24 \div 2 = 12", font_size=30, color=COLOR_EXAMPLE)
         s1 = VGroup(s1_left, s1_eq).arrange(RIGHT, buff=0.15)
@@ -464,7 +464,7 @@ class RectPerimeterLesson(Scene):
         self.play(Write(s1), run_time=0.6)
 
         # 2. 宽 = 12 - 8
-        s2_left = Text("宽", font="Noto Sans CJK SC",
+        s2_left = Text("宽", font="PingFang SC",
                         font_size=30, color=COLOR_WID)
         s2_eq   = MathTex(r"= 12 - 8 = 4", font_size=30,
                            color=COLOR_EXAMPLE)
@@ -475,7 +475,7 @@ class RectPerimeterLesson(Scene):
         # 最终答案框
         ans_text = Text(
             "宽 = 4 厘米",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_WID,
         ).move_to(UP * 0.4)
@@ -488,7 +488,7 @@ class RectPerimeterLesson(Scene):
         # 验证
         verify = Text(
             "验证：(8 + 4) × 2 = 24 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=COLOR_HINT,
         ).move_to(DOWN * 0.6)
@@ -512,7 +512,7 @@ class RectPerimeterLesson(Scene):
         # 公式复习卡
         card_title = Text(
             "长方形周长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(UP * 3.5)
@@ -525,13 +525,13 @@ class RectPerimeterLesson(Scene):
 
         legend_a = VGroup(
             MathTex("a", font_size=30, color=COLOR_LEN),
-            Text("：长", font="Noto Sans CJK SC",
+            Text("：长", font="PingFang SC",
                  font_size=28, color=COLOR_LEN),
         ).arrange(RIGHT, buff=0.08)
 
         legend_b = VGroup(
             MathTex("b", font_size=30, color=COLOR_WID),
-            Text("：宽", font="Noto Sans CJK SC",
+            Text("：宽", font="PingFang SC",
                  font_size=28, color=COLOR_WID),
         ).arrange(RIGHT, buff=0.08)
 
@@ -546,7 +546,7 @@ class RectPerimeterLesson(Scene):
         # 关注提示
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 1.0)
@@ -555,13 +555,13 @@ class RectPerimeterLesson(Scene):
         # 作者大字
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(DOWN * 2.2)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color="#6b7280",
         ).move_to(DOWN * 3.0)

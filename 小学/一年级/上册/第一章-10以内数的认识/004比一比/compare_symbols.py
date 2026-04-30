@@ -26,7 +26,7 @@ C_ACTIVE   = "#f1c40f"   # 黄  高亮
 C_PASSIVE  = "#374151"   # 暗  非关注
 C_LINE     = "#9ca3af"   # 灰  连线
 C_DIM      = "#888899"
-FONT       = "Noto Sans CJK SC"
+FONT       = "PingFang SC"
 
 # 布局常量（与 verify_compare.py 一致）
 ROW_Y    = 2.6

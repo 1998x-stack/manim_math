@@ -25,7 +25,7 @@ C_RIGHT   = "#e74c3c"   # 红  → 右加数（1）
 C_SUM     = "#2ecc71"   # 绿  → 和（3）
 C_ACTIVE  = "#f97316"   # 橙  → 动作高亮
 C_DIM     = "#888899"
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 # 布局常量（与 verify_addition.py 一致）
 LEFT_CX, LEFT_CY, LEFT_SP, LEFT_R    = -2.5, 2.5, 1.0, 0.42

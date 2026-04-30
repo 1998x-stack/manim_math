@@ -40,7 +40,7 @@ COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_FORMULA = "#22c55e"     # 绿色
 COLOR_AUTHOR = "#6b7280"      # 灰色作者
 COLOR_TITLE = "#e879f9"       # 紫粉标题
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 BAR_COLORS = [COLOR_BAR_1, COLOR_BAR_2, COLOR_BAR_3, COLOR_BAR_4]
 

@@ -39,7 +39,7 @@ COLOR_FORMULA = "#22c55e"     # 绿色公式/结论
 COLOR_AUTHOR = "#6b7280"      # 灰色作者信息
 COLOR_SINGLE = "#a78bfa"      # 紫色 — 单式折线
 COLOR_DIFF = "#f59e0b"        # 橙色 — 温差
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ======================================================================
 # 数据

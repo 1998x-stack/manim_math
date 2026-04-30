@@ -36,7 +36,7 @@ COLOR_HL = "#fbbf24"           # 黄色高亮
 COLOR_FINITE = "#f59e0b"       # 橙色有限小数
 COLOR_INFINITE = "#a78bfa"     # 紫色无限小数
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class RepeatingDecimalLesson(Scene):

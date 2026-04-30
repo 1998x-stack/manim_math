@@ -36,7 +36,7 @@ COLOR_GROUP = "#22c55e"      # 绿色分组
 COLOR_HL = "#fbbf24"         # 黄色高亮
 COLOR_ORANGE = "#f59e0b"     # 橙色
 COLOR_AUTHOR = "#6b7280"     # 灰色作者
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ======================================================================

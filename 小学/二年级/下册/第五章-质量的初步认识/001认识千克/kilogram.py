@@ -49,7 +49,7 @@ class UnderstandKilogram(Scene):
         self.C_SCALE     = "#546E7A"
         self.C_TEXT      = WHITE
         self.C_GRAY      = GRAY_A
-        self.FONT        = "Noto Sans CJK SC"
+        self.FONT        = "PingFang SC"
 
         # ── 执行场景序列 ──────────────────────
         self.scene_1_hook()

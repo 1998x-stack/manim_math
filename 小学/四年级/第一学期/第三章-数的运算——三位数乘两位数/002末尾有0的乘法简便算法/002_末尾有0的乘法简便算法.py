@@ -60,7 +60,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 作者信息
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.C_AUX
         ).move_to(UP * 7.0)
@@ -69,7 +69,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 钩子问题
         hook_q = Text(
             "250 × 40 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.C_TITLE,
             weight=BOLD
@@ -77,20 +77,20 @@ class TrailingZeroMultiplyLesson(Scene):
 
         hook_sub = Text(
             "不用竖式，秒算答案！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(UP * 2.2)
 
         hook_emoji = Text(
             "🤔",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80
         ).move_to(UP * 0.5)
 
         hint = Text(
             "末尾有0，有简便算法！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_ZERO
         ).move_to(DOWN * 1.2)
@@ -116,7 +116,7 @@ class TrailingZeroMultiplyLesson(Scene):
     def scene_2_observe(self):
         title = Text(
             "观察：算式的结构",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 6.2)
@@ -124,9 +124,9 @@ class TrailingZeroMultiplyLesson(Scene):
 
         # 大号算式 250 × 40
         eq = VGroup(
-            Text("250", font="Noto Sans CJK SC", font_size=72, color=self.C_PRIMARY),
-            Text("×", font="Noto Sans CJK SC", font_size=60, color=WHITE),
-            Text("40", font="Noto Sans CJK SC", font_size=72, color=self.C_PRIMARY),
+            Text("250", font="PingFang SC", font_size=72, color=self.C_PRIMARY),
+            Text("×", font="PingFang SC", font_size=60, color=WHITE),
+            Text("40", font="PingFang SC", font_size=72, color=self.C_PRIMARY),
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4.2)
 
         self.play(Write(eq), run_time=0.8)
@@ -135,18 +135,18 @@ class TrailingZeroMultiplyLesson(Scene):
         # 标注 250 = 25 × 10
         brace_250 = Brace(eq[0], DOWN, color=self.C_ZERO, buff=0.1)
         label_250 = VGroup(
-            Text("25", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("×", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("10", font="Noto Sans CJK SC", font_size=32, color=self.C_ZERO),
+            Text("25", font="PingFang SC", font_size=32, color=WHITE),
+            Text("×", font="PingFang SC", font_size=28, color=WHITE),
+            Text("10", font="PingFang SC", font_size=32, color=self.C_ZERO),
         ).arrange(RIGHT, buff=0.15)
         label_250.next_to(brace_250, DOWN, buff=0.15)
 
         # 标注 40 = 4 × 10
         brace_40 = Brace(eq[2], DOWN, color=self.C_ZERO, buff=0.1)
         label_40 = VGroup(
-            Text("4", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("×", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("10", font="Noto Sans CJK SC", font_size=32, color=self.C_ZERO),
+            Text("4", font="PingFang SC", font_size=32, color=WHITE),
+            Text("×", font="PingFang SC", font_size=28, color=WHITE),
+            Text("10", font="PingFang SC", font_size=32, color=self.C_ZERO),
         ).arrange(RIGHT, buff=0.15)
         label_40.next_to(brace_40, DOWN, buff=0.15)
 
@@ -164,7 +164,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 说明文字
         note = Text(
             "末尾的 0 可以分离出来单独处理！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_STEP
         ).move_to(UP * 1.5)
@@ -201,7 +201,7 @@ class TrailingZeroMultiplyLesson(Scene):
 
         step_desc = Text(
             "先算 0 前面的数相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -209,9 +209,9 @@ class TrailingZeroMultiplyLesson(Scene):
 
         # 原算式（小号，顶部参考）
         orig = VGroup(
-            Text("250", font="Noto Sans CJK SC", font_size=44, color=self.C_AUX),
-            Text("×", font="Noto Sans CJK SC", font_size=38, color=self.C_AUX),
-            Text("40", font="Noto Sans CJK SC", font_size=44, color=self.C_AUX),
+            Text("250", font="PingFang SC", font_size=44, color=self.C_AUX),
+            Text("×", font="PingFang SC", font_size=38, color=self.C_AUX),
+            Text("40", font="PingFang SC", font_size=44, color=self.C_AUX),
         ).arrange(RIGHT, buff=0.25).move_to(UP * 4.3)
         self.play(FadeIn(orig), run_time=0.4)
 
@@ -219,17 +219,17 @@ class TrailingZeroMultiplyLesson(Scene):
         arr1 = Arrow(orig[0].get_bottom(), orig[0].get_bottom() + DOWN * 1.0, color=self.C_ARROW, buff=0.05)
         arr2 = Arrow(orig[2].get_bottom(), orig[2].get_bottom() + DOWN * 1.0, color=self.C_ARROW, buff=0.05)
 
-        lbl_25 = Text("25", font="Noto Sans CJK SC", font_size=48, color=self.C_PRIMARY, weight=BOLD)
-        lbl_x  = Text("×", font="Noto Sans CJK SC", font_size=40, color=WHITE)
-        lbl_4  = Text("4",  font="Noto Sans CJK SC", font_size=48, color=self.C_PRIMARY, weight=BOLD)
+        lbl_25 = Text("25", font="PingFang SC", font_size=48, color=self.C_PRIMARY, weight=BOLD)
+        lbl_x  = Text("×", font="PingFang SC", font_size=40, color=WHITE)
+        lbl_4  = Text("4",  font="PingFang SC", font_size=48, color=self.C_PRIMARY, weight=BOLD)
         non_zero_eq = VGroup(lbl_25, lbl_x, lbl_4).arrange(RIGHT, buff=0.3).move_to(UP * 2.8)
 
         self.play(GrowArrow(arr1), GrowArrow(arr2), run_time=0.5)
         self.play(Write(non_zero_eq), run_time=0.7)
 
         # 计算 25 × 4 = 100
-        equals = Text("=", font="Noto Sans CJK SC", font_size=44, color=WHITE)
-        result_100 = Text("100", font="Noto Sans CJK SC", font_size=56, color=self.C_RESULT, weight=BOLD)
+        equals = Text("=", font="PingFang SC", font_size=44, color=WHITE)
+        result_100 = Text("100", font="PingFang SC", font_size=56, color=self.C_RESULT, weight=BOLD)
         full_eq = VGroup(non_zero_eq.copy(), equals, result_100).arrange(RIGHT, buff=0.35).move_to(UP * 1.4)
 
         self.play(
@@ -259,7 +259,7 @@ class TrailingZeroMultiplyLesson(Scene):
             run_time=0.4
         )
         # result_100 移到上方参考位置
-        result_100_small = Text("25 × 4 = 100", font="Noto Sans CJK SC", font_size=28, color=self.C_RESULT)
+        result_100_small = Text("25 × 4 = 100", font="PingFang SC", font_size=28, color=self.C_RESULT)
         result_100_small.move_to(UP * 5.8)
         self.play(Transform(result_100, result_100_small), run_time=0.5)
         self.step1_ref = result_100
@@ -274,21 +274,21 @@ class TrailingZeroMultiplyLesson(Scene):
 
         step_desc = Text(
             "数两个因数末尾共有几个 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 5.5)
         self.play(Write(step_desc), run_time=0.6)
 
         # 展示 250 和 40，用不同颜色标出末尾的0
-        n1_part = Text("25", font="Noto Sans CJK SC", font_size=62, color=WHITE)
-        n1_zero = Text("0", font="Noto Sans CJK SC", font_size=62, color=self.C_ZERO, weight=BOLD)
+        n1_part = Text("25", font="PingFang SC", font_size=62, color=WHITE)
+        n1_zero = Text("0", font="PingFang SC", font_size=62, color=self.C_ZERO, weight=BOLD)
         n1 = VGroup(n1_part, n1_zero).arrange(RIGHT, buff=0)
 
-        mult = Text("×", font="Noto Sans CJK SC", font_size=52, color=WHITE)
+        mult = Text("×", font="PingFang SC", font_size=52, color=WHITE)
 
-        n2_part = Text("4", font="Noto Sans CJK SC", font_size=62, color=WHITE)
-        n2_zero = Text("0", font="Noto Sans CJK SC", font_size=62, color=self.C_ZERO, weight=BOLD)
+        n2_part = Text("4", font="PingFang SC", font_size=62, color=WHITE)
+        n2_zero = Text("0", font="PingFang SC", font_size=62, color=self.C_ZERO, weight=BOLD)
         n2 = VGroup(n2_part, n2_zero).arrange(RIGHT, buff=0)
 
         big_eq = VGroup(n1, mult, n2).arrange(RIGHT, buff=0.35).move_to(UP * 3.8)
@@ -308,11 +308,11 @@ class TrailingZeroMultiplyLesson(Scene):
 
         # 计数
         count_line = VGroup(
-            Text("250 末尾有", font="Noto Sans CJK SC", font_size=26, color=self.C_AUX),
-            Text("1", font="Noto Sans CJK SC", font_size=32, color=self.C_ZERO, weight=BOLD),
-            Text("个0，40 末尾有", font="Noto Sans CJK SC", font_size=26, color=self.C_AUX),
-            Text("1", font="Noto Sans CJK SC", font_size=32, color=self.C_ZERO, weight=BOLD),
-            Text("个0", font="Noto Sans CJK SC", font_size=26, color=self.C_AUX),
+            Text("250 末尾有", font="PingFang SC", font_size=26, color=self.C_AUX),
+            Text("1", font="PingFang SC", font_size=32, color=self.C_ZERO, weight=BOLD),
+            Text("个0，40 末尾有", font="PingFang SC", font_size=26, color=self.C_AUX),
+            Text("1", font="PingFang SC", font_size=32, color=self.C_ZERO, weight=BOLD),
+            Text("个0", font="PingFang SC", font_size=26, color=self.C_AUX),
         ).arrange(RIGHT, buff=0.12).move_to(UP * 2.2)
 
         self.play(FadeIn(count_line, shift=UP * 0.2), run_time=0.6)
@@ -320,9 +320,9 @@ class TrailingZeroMultiplyLesson(Scene):
 
         # 总计
         total_line = VGroup(
-            Text("共有", font="Noto Sans CJK SC", font_size=30, color=WHITE),
-            Text("1 + 1 = 2", font="Noto Sans CJK SC", font_size=36, color=self.C_ZERO, weight=BOLD),
-            Text("个0", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+            Text("共有", font="PingFang SC", font_size=30, color=WHITE),
+            Text("1 + 1 = 2", font="PingFang SC", font_size=36, color=self.C_ZERO, weight=BOLD),
+            Text("个0", font="PingFang SC", font_size=30, color=WHITE),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 0.8)
 
         self.play(Write(total_line), run_time=0.7)
@@ -339,7 +339,7 @@ class TrailingZeroMultiplyLesson(Scene):
             run_time=0.4
         )
         # 保留 total_line 到下一步
-        total_small = Text("末尾共 2 个 0", font="Noto Sans CJK SC", font_size=26, color=self.C_ZERO)
+        total_small = Text("末尾共 2 个 0", font="PingFang SC", font_size=26, color=self.C_ZERO)
         total_small.move_to(UP * 5.0)
         self.play(Transform(total_line, total_small), run_time=0.4)
         self.step2_ref = total_line
@@ -354,20 +354,20 @@ class TrailingZeroMultiplyLesson(Scene):
 
         step_desc = Text(
             "在积的末尾添上相同个数的 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=27,
             color=WHITE
         ).move_to(UP * 4.2)
         self.play(Write(step_desc), run_time=0.6)
 
         # 展示 100，然后依次加 0
-        base_num = Text("100", font="Noto Sans CJK SC", font_size=72, color=self.C_RESULT, weight=BOLD)
+        base_num = Text("100", font="PingFang SC", font_size=72, color=self.C_RESULT, weight=BOLD)
         base_num.move_to(UP * 2.5)
         self.play(Write(base_num), run_time=0.5)
 
         note_add = Text(
             "末尾共 2 个 0，所以在 100 后面添 2 个 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_AUX
         ).move_to(UP * 1.2)
@@ -375,13 +375,13 @@ class TrailingZeroMultiplyLesson(Scene):
         self.wait(0.5)
 
         # 第1个 0 出现
-        zero1 = Text("0", font="Noto Sans CJK SC", font_size=72, color=self.C_ZERO, weight=BOLD)
+        zero1 = Text("0", font="PingFang SC", font_size=72, color=self.C_ZERO, weight=BOLD)
         zero1.next_to(base_num, RIGHT, buff=0)
         self.play(FadeIn(zero1, shift=DOWN * 0.5, scale=0.5), run_time=0.5)
         self.play(Indicate(zero1, color=self.C_ZERO), run_time=0.4)
 
         # 第2个 0 出现
-        zero2 = Text("0", font="Noto Sans CJK SC", font_size=72, color=self.C_ZERO, weight=BOLD)
+        zero2 = Text("0", font="PingFang SC", font_size=72, color=self.C_ZERO, weight=BOLD)
         zero2.next_to(zero1, RIGHT, buff=0)
         self.play(FadeIn(zero2, shift=DOWN * 0.5, scale=0.5), run_time=0.5)
         self.play(Indicate(zero2, color=self.C_ZERO), run_time=0.4)
@@ -389,7 +389,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 答案揭晓
         answer_label = Text(
             "250 × 40  =  10000",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE,
             weight=BOLD
@@ -424,7 +424,7 @@ class TrailingZeroMultiplyLesson(Scene):
     def scene_6_algorithm(self):
         title = Text(
             "为什么这样算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.C_TITLE,
             weight=BOLD
@@ -433,7 +433,7 @@ class TrailingZeroMultiplyLesson(Scene):
 
         sub = Text(
             "利用乘法结合律与交换律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_AUX
         ).move_to(UP * 5.6)
@@ -443,34 +443,34 @@ class TrailingZeroMultiplyLesson(Scene):
         lines = []
 
         # 行1: 250 × 40
-        row1 = Text("250 × 40", font="Noto Sans CJK SC", font_size=40, color=self.C_PRIMARY)
+        row1 = Text("250 × 40", font="PingFang SC", font_size=40, color=self.C_PRIMARY)
         lines.append(row1)
 
         # 行2: = (25 × 10) × (4 × 10)
         row2 = Text(
             "= (25 × 10) × (4 × 10)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         )
         lines.append(row2)
 
         # 行3: = 25 × 4 × 10 × 10  (颜色高亮 25×4 和 10×10)
-        row3_part1 = Text("= (25 × 4)", font="Noto Sans CJK SC", font_size=36, color=self.C_RESULT)
-        row3_part2 = Text("×", font="Noto Sans CJK SC", font_size=36, color=WHITE)
-        row3_part3 = Text("(10 × 10)", font="Noto Sans CJK SC", font_size=36, color=self.C_ZERO)
+        row3_part1 = Text("= (25 × 4)", font="PingFang SC", font_size=36, color=self.C_RESULT)
+        row3_part2 = Text("×", font="PingFang SC", font_size=36, color=WHITE)
+        row3_part3 = Text("(10 × 10)", font="PingFang SC", font_size=36, color=self.C_ZERO)
         row3 = VGroup(row3_part1, row3_part2, row3_part3).arrange(RIGHT, buff=0.2)
         lines.append(row3)
 
         # 行4: = 100 × 100
-        row4_part1 = Text("= 100", font="Noto Sans CJK SC", font_size=36, color=self.C_RESULT)
-        row4_part2 = Text("×", font="Noto Sans CJK SC", font_size=36, color=WHITE)
-        row4_part3 = Text("100", font="Noto Sans CJK SC", font_size=36, color=self.C_ZERO)
+        row4_part1 = Text("= 100", font="PingFang SC", font_size=36, color=self.C_RESULT)
+        row4_part2 = Text("×", font="PingFang SC", font_size=36, color=WHITE)
+        row4_part3 = Text("100", font="PingFang SC", font_size=36, color=self.C_ZERO)
         row4 = VGroup(row4_part1, row4_part2, row4_part3).arrange(RIGHT, buff=0.2)
         lines.append(row4)
 
         # 行5: = 10000
-        row5 = Text("= 10000", font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE, weight=BOLD)
+        row5 = Text("= 10000", font="PingFang SC", font_size=44, color=self.C_TITLE, weight=BOLD)
         lines.append(row5)
 
         derivation = VGroup(*lines).arrange(DOWN, aligned_edge=LEFT, buff=0.45).move_to(UP * 2.5)
@@ -487,7 +487,7 @@ class TrailingZeroMultiplyLesson(Scene):
 
         key_msg = Text(
             "乘法性质让我们灵活交换因数顺序！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_STEP
         ).move_to(DOWN * 2.2)
@@ -508,7 +508,7 @@ class TrailingZeroMultiplyLesson(Scene):
     def scene_7_practice(self):
         title = Text(
             "再练一题！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.C_TITLE,
             weight=BOLD
@@ -518,7 +518,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 题目
         prob = Text(
             "160 × 30 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=56,
             color=self.C_PRIMARY,
             weight=BOLD
@@ -532,7 +532,7 @@ class TrailingZeroMultiplyLesson(Scene):
 
         step1_text = Text(
             "非零部分：16 × 3 = 48",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 4.0 + RIGHT * 0.3)
@@ -545,13 +545,13 @@ class TrailingZeroMultiplyLesson(Scene):
         step2_badge.move_to(UP * 2.8 + LEFT * 3.2)
 
         step2_text = VGroup(
-            Text("160末尾", font="Noto Sans CJK SC", font_size=28, color=self.C_AUX),
-            Text("1", font="Noto Sans CJK SC", font_size=30, color=self.C_ZERO, weight=BOLD),
-            Text("个0，30末尾", font="Noto Sans CJK SC", font_size=28, color=self.C_AUX),
-            Text("1", font="Noto Sans CJK SC", font_size=30, color=self.C_ZERO, weight=BOLD),
-            Text("个0，共", font="Noto Sans CJK SC", font_size=28, color=self.C_AUX),
-            Text("2", font="Noto Sans CJK SC", font_size=30, color=self.C_ZERO, weight=BOLD),
-            Text("个0", font="Noto Sans CJK SC", font_size=28, color=self.C_AUX),
+            Text("160末尾", font="PingFang SC", font_size=28, color=self.C_AUX),
+            Text("1", font="PingFang SC", font_size=30, color=self.C_ZERO, weight=BOLD),
+            Text("个0，30末尾", font="PingFang SC", font_size=28, color=self.C_AUX),
+            Text("1", font="PingFang SC", font_size=30, color=self.C_ZERO, weight=BOLD),
+            Text("个0，共", font="PingFang SC", font_size=28, color=self.C_AUX),
+            Text("2", font="PingFang SC", font_size=30, color=self.C_ZERO, weight=BOLD),
+            Text("个0", font="PingFang SC", font_size=28, color=self.C_AUX),
         ).arrange(RIGHT, buff=0.1).move_to(UP * 2.8 + RIGHT * 0.3)
 
         self.play(FadeIn(step2_badge), FadeIn(step2_text, shift=RIGHT * 0.2), run_time=0.6)
@@ -563,7 +563,7 @@ class TrailingZeroMultiplyLesson(Scene):
 
         step3_text = Text(
             "48 后添 2 个 0 → 4800",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 1.6 + RIGHT * 0.3)
@@ -583,7 +583,7 @@ class TrailingZeroMultiplyLesson(Scene):
         ).move_to(UP * 0.1)
         ans_text = Text(
             "160 × 30 = 4800",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.C_RESULT,
             weight=BOLD
@@ -618,7 +618,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 总结标题
         sum_title = Text(
             "简便算法口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.C_TITLE,
             weight=BOLD
@@ -649,9 +649,9 @@ class TrailingZeroMultiplyLesson(Scene):
         self.wait(0.6)
 
         # 示例汇总
-        ex_title = Text("例题回顾", font="Noto Sans CJK SC", font_size=30, color=WHITE).move_to(UP * 1.3)
-        ex1 = Text("250 × 40 = 10000", font="Noto Sans CJK SC", font_size=34, color=self.C_PRIMARY).move_to(UP * 0.45)
-        ex2 = Text("160 × 30 = 4800", font="Noto Sans CJK SC", font_size=34, color=self.C_PRIMARY).move_to(DOWN * 0.45)
+        ex_title = Text("例题回顾", font="PingFang SC", font_size=30, color=WHITE).move_to(UP * 1.3)
+        ex1 = Text("250 × 40 = 10000", font="PingFang SC", font_size=34, color=self.C_PRIMARY).move_to(UP * 0.45)
+        ex2 = Text("160 × 30 = 4800", font="PingFang SC", font_size=34, color=self.C_PRIMARY).move_to(DOWN * 0.45)
 
         self.play(FadeIn(ex_title), run_time=0.4)
         self.play(Write(ex1), run_time=0.6)
@@ -661,7 +661,7 @@ class TrailingZeroMultiplyLesson(Scene):
         # 结尾 CTA
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=YELLOW,
             weight=BOLD
@@ -669,14 +669,14 @@ class TrailingZeroMultiplyLesson(Scene):
 
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(DOWN * 2.9)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_AUX
         ).move_to(DOWN * 3.7)
@@ -727,11 +727,11 @@ class TrailingZeroMultiplyLesson(Scene):
     def _make_step_badge(self, text_str, color, font_size=30):
         """创建步骤徽章（圆形 + 文字）"""
         circle = Circle(radius=0.38, fill_color=color, fill_opacity=1, stroke_width=0)
-        label = Text(text_str, font="Noto Sans CJK SC", font_size=font_size, color=WHITE, weight=BOLD)
+        label = Text(text_str, font="PingFang SC", font_size=font_size, color=WHITE, weight=BOLD)
         return VGroup(circle, label)
 
     def _make_rule_line(self, num_str, content_str, color):
         """创建口诀行"""
-        num = Text(num_str, font="Noto Sans CJK SC", font_size=32, color=color, weight=BOLD)
-        content = Text(content_str, font="Noto Sans CJK SC", font_size=28, color=WHITE)
+        num = Text(num_str, font="PingFang SC", font_size=32, color=color, weight=BOLD)
+        content = Text(content_str, font="PingFang SC", font_size=28, color=WHITE)
         return VGroup(num, content).arrange(RIGHT, buff=0.3)

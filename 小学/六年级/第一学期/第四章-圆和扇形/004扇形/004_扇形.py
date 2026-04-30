@@ -88,7 +88,7 @@ class SectorLesson(Scene):
         # 作者标识
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -97,7 +97,7 @@ class SectorLesson(Scene):
         # 钩子问题
         hook = Text(
             "一块披萨是什么形状?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -149,7 +149,7 @@ class SectorLesson(Scene):
 
         answer = Text(
             "这就是 —— 扇形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 2.5)
@@ -170,7 +170,7 @@ class SectorLesson(Scene):
         """扇形的定义 - 从圆中切出扇形"""
         title = Text(
             "扇形的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -256,19 +256,19 @@ class SectorLesson(Scene):
         # 定义文字
         def_text_1 = Text(
             "由圆心角的两条半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 2.5)
         def_text_2 = Text(
             "和它所对的弧围成的图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 3.3)
         def_text_3 = Text(
             "叫做扇形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.3)
@@ -296,7 +296,7 @@ class SectorLesson(Scene):
         """扇形各部分名称"""
         title = Text(
             "扇形的组成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -363,13 +363,13 @@ class SectorLesson(Scene):
         )
 
         angle_text_group = VGroup(
-            Text("圆心角", font="Noto Sans CJK SC", font_size=22,
+            Text("圆心角", font="PingFang SC", font_size=22,
                  color=self.COLOR_ANGLE),
         ).move_to(DOWN * 2.8)
 
         angle_desc = Text(
             "两条半径所成的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -392,14 +392,14 @@ class SectorLesson(Scene):
         # Part 2: 半径
         r_label = Text(
             "半径 r",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_RADIUS
         ).move_to(DOWN * 2.8)
 
         r_desc = Text(
             "从圆心到弧上的线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -426,14 +426,14 @@ class SectorLesson(Scene):
         # Part 3: 弧
         arc_label = Text(
             "弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ARC
         ).move_to(DOWN * 2.8)
 
         arc_desc = Text(
             "圆上两点之间的曲线部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -456,16 +456,16 @@ class SectorLesson(Scene):
         )
 
         summary_parts = VGroup(
-            Text("圆心角", font="Noto Sans CJK SC", font_size=20,
+            Text("圆心角", font="PingFang SC", font_size=20,
                  color=self.COLOR_ANGLE),
-            Text(" + ", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("半径", font="Noto Sans CJK SC", font_size=20,
+            Text(" + ", font="PingFang SC", font_size=20, color=WHITE),
+            Text("半径", font="PingFang SC", font_size=20,
                  color=self.COLOR_RADIUS),
-            Text(" + ", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("弧", font="Noto Sans CJK SC", font_size=20,
+            Text(" + ", font="PingFang SC", font_size=20, color=WHITE),
+            Text("弧", font="PingFang SC", font_size=20,
                  color=self.COLOR_ARC),
-            Text(" = ", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("扇形", font="Noto Sans CJK SC", font_size=22,
+            Text(" = ", font="PingFang SC", font_size=20, color=WHITE),
+            Text("扇形", font="PingFang SC", font_size=22,
                  color=self.COLOR_SECTOR),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 3.0)
 
@@ -487,7 +487,7 @@ class SectorLesson(Scene):
         """扇形面积公式"""
         title = Text(
             "扇形面积公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -506,7 +506,7 @@ class SectorLesson(Scene):
         ).move_to(circle_center)
 
         circle_area_label = VGroup(
-            Text("圆的面积 = ", font="Noto Sans CJK SC", font_size=22,
+            Text("圆的面积 = ", font="PingFang SC", font_size=22,
                  color=WHITE),
             MathTex(r"\pi r^2", font_size=28, color=self.COLOR_CIRCLE)
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 0.5)
@@ -518,7 +518,7 @@ class SectorLesson(Scene):
         # Step 2: 扇形占圆的比例
         think_text = Text(
             "扇形是圆的一部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -546,7 +546,7 @@ class SectorLesson(Scene):
 
         # 比例说明
         ratio_text = VGroup(
-            Text("占圆的比例 = ", font="Noto Sans CJK SC", font_size=22,
+            Text("占圆的比例 = ", font="PingFang SC", font_size=22,
                  color=WHITE),
             MathTex(r"\frac{90}{360}", font_size=28, color=self.COLOR_ANGLE),
             MathTex(r"= \frac{1}{4}", font_size=28, color=self.COLOR_HIGHLIGHT)
@@ -566,7 +566,7 @@ class SectorLesson(Scene):
         # Step 3: 推导通用公式
         derive_title = Text(
             "推导公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -618,7 +618,7 @@ class SectorLesson(Scene):
         # 公式推导步骤
         step1_label = Text(
             "圆心角占圆的比例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -633,7 +633,7 @@ class SectorLesson(Scene):
 
         step2_label = Text(
             "扇形面积 = 比例 x 圆面积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -661,13 +661,13 @@ class SectorLesson(Scene):
         # 标注含义
         n_meaning = VGroup(
             MathTex("n", font_size=22, color=self.COLOR_ANGLE),
-            Text(" : 圆心角度数", font="Noto Sans CJK SC", font_size=18,
+            Text(" : 圆心角度数", font="PingFang SC", font_size=18,
                  color=GRAY_A),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 6.2)
 
         r_meaning = VGroup(
             MathTex("r", font_size=22, color=self.COLOR_RADIUS),
-            Text(" : 半径", font="Noto Sans CJK SC", font_size=18,
+            Text(" : 半径", font="PingFang SC", font_size=18,
                  color=GRAY_A),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 6.8)
 
@@ -693,7 +693,7 @@ class SectorLesson(Scene):
         """例题演练"""
         title = Text(
             "例题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -702,19 +702,19 @@ class SectorLesson(Scene):
         # 题目
         problem_1 = Text(
             "已知扇形的半径 r = 6 cm,",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
         problem_2 = VGroup(
-            Text("圆心角 n = ", font="Noto Sans CJK SC", font_size=24,
+            Text("圆心角 n = ", font="PingFang SC", font_size=24,
                  color=WHITE),
             MathTex(r"60^\circ", font_size=28, color=self.COLOR_ANGLE),
         ).arrange(RIGHT, buff=0.1).move_to(UP * 3.8)
 
         problem_3 = Text(
             "求扇形的面积。",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 3.1)
@@ -766,7 +766,7 @@ class SectorLesson(Scene):
 
         mid_r1 = (ex_center + ex_center + ex_r * RIGHT) / 2
         ex_r_label = Text(
-            "6 cm", font="Noto Sans CJK SC", font_size=18,
+            "6 cm", font="PingFang SC", font_size=18,
             color=self.COLOR_RADIUS
         ).next_to(mid_r1, DOWN, buff=0.12)
 
@@ -781,7 +781,7 @@ class SectorLesson(Scene):
         # 解题步骤
         solve_title = Text(
             "解:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.0 + LEFT * 3.0)
@@ -819,7 +819,7 @@ class SectorLesson(Scene):
 
         result_text = VGroup(
             MathTex(r"\approx 18.85", font_size=26, color=GRAY_A),
-            Text(" cm", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text(" cm", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"^2", font_size=20, color=GRAY_A),
         ).arrange(RIGHT, buff=0.05).move_to(DOWN * 5.6)
 
@@ -857,7 +857,7 @@ class SectorLesson(Scene):
         """不同圆心角的扇形对比"""
         title = Text(
             "圆心角越大, 扇形面积越大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -944,7 +944,7 @@ class SectorLesson(Scene):
                     font_size=22, color=WHITE
                 ),
                 VGroup(
-                    Text("占圆的 ", font="Noto Sans CJK SC", font_size=18,
+                    Text("占圆的 ", font="PingFang SC", font_size=18,
                          color=GRAY_A),
                     MathTex(frac_str, font_size=24, color=color),
                 ).arrange(RIGHT, buff=0.1),
@@ -981,7 +981,7 @@ class SectorLesson(Scene):
 
         trend_text = Text(
             "角度增大 -> 面积增大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.0)
@@ -1008,7 +1008,7 @@ class SectorLesson(Scene):
         """总结与结尾"""
         title = Text(
             "知识小结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -1036,9 +1036,9 @@ class SectorLesson(Scene):
         item_groups = []
         for i, (num, text) in enumerate(items):
             item = VGroup(
-                Text(num, font="Noto Sans CJK SC", font_size=22,
+                Text(num, font="PingFang SC", font_size=22,
                      color=self.COLOR_HIGHLIGHT),
-                Text(text, font="Noto Sans CJK SC", font_size=22,
+                Text(text, font="PingFang SC", font_size=22,
                      color=WHITE),
             ).arrange(RIGHT, buff=0.15).move_to(
                 np.array([-0.5, 1.2 - i * 1.0, 0]),
@@ -1072,7 +1072,7 @@ class SectorLesson(Scene):
         # 记忆口诀
         tip = Text(
             "记住: n 分之 360, 乘以圆面积!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ARC
         ).move_to(DOWN * 3.0)
@@ -1090,21 +1090,21 @@ class SectorLesson(Scene):
         # ─── 片尾 ───
         outro_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 1.0)
 
         outro_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.0)
 
         follow = Text(
             "关注我, 获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.2)

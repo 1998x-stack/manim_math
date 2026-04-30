@@ -60,7 +60,7 @@ class DecimalMeaningLesson(Scene):
     def _author_tag(self):
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -73,8 +73,8 @@ class DecimalMeaningLesson(Scene):
         self.play(FadeIn(author, shift=DOWN * 0.2), run_time=0.4)
 
         # 钩子问题
-        q1 = Text("你知道", font="Noto Sans CJK SC", font_size=40, color=self.C_TEXT)
-        q2 = Text("0.1 是怎么来的吗?", font="Noto Sans CJK SC",
+        q1 = Text("你知道", font="PingFang SC", font_size=40, color=self.C_TEXT)
+        q2 = Text("0.1 是怎么来的吗?", font="PingFang SC",
                   font_size=40, color=self.C_HIGHLIGHT)
         hook = VGroup(q1, q2).arrange(DOWN, buff=0.3).move_to(UP * 4.5)
 
@@ -83,11 +83,11 @@ class DecimalMeaningLesson(Scene):
         self.wait(0.5)
 
         # 大标题
-        title = Text("小数的意义", font="Noto Sans CJK SC",
+        title = Text("小数的意义", font="PingFang SC",
                      font_size=52, color=self.C_TITLE)
         title.move_to(UP * 2.5)
 
-        sub = Text("分数 → 小数", font="Noto Sans CJK SC",
+        sub = Text("分数 → 小数", font="PingFang SC",
                    font_size=30, color=self.C_SUB)
         sub.next_to(title, DOWN, buff=0.4)
 
@@ -105,11 +105,11 @@ class DecimalMeaningLesson(Scene):
     def scene_2_fraction_to_decimal(self):
         # 标题
         title = Text("分母是 10、100、1000…",
-                     font="Noto Sans CJK SC", font_size=32, color=self.C_TITLE)
+                     font="PingFang SC", font_size=32, color=self.C_TITLE)
         title.move_to(UP * 5.8)
 
         subtitle = Text("的分数可以写成小数",
-                        font="Noto Sans CJK SC", font_size=28, color=self.C_SUB)
+                        font="PingFang SC", font_size=28, color=self.C_SUB)
         subtitle.next_to(title, DOWN, buff=0.25)
 
         self.play(Write(title), run_time=0.7)
@@ -138,7 +138,7 @@ class DecimalMeaningLesson(Scene):
 
         # 关键说明
         note = Text("小数是十进制分数的另一种写法",
-                    font="Noto Sans CJK SC", font_size=24, color=self.C_HIGHLIGHT)
+                    font="PingFang SC", font_size=24, color=self.C_HIGHLIGHT)
         note.move_to(UP * 0.8)
         self.play(FadeIn(note, shift=UP * 0.2), run_time=0.6)
         self.wait(1.2)
@@ -184,12 +184,12 @@ class DecimalMeaningLesson(Scene):
     # ------------------------------------------------------------------
     def scene_3_tenth(self):
         title = Text("十分之一 = 0.1",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE)
+                     font="PingFang SC", font_size=38, color=self.C_TITLE)
         title.move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
         explain = Text("把 1 平均分成 10 份，取其中 1 份",
-                       font="Noto Sans CJK SC", font_size=24, color=self.C_SUB)
+                       font="PingFang SC", font_size=24, color=self.C_SUB)
         explain.move_to(UP * 4.9)
         self.play(FadeIn(explain), run_time=0.5)
 
@@ -215,7 +215,7 @@ class DecimalMeaningLesson(Scene):
 
         # 标注"1份"
         brace_hl = Brace(hl, direction=UP, color=self.C_HIGHLIGHT)
-        brace_label = Text("1 份", font="Noto Sans CJK SC", font_size=22,
+        brace_label = Text("1 份", font="PingFang SC", font_size=22,
                            color=self.C_HIGHLIGHT).next_to(brace_hl, UP, buff=0.15)
         self.play(FadeIn(brace_hl), FadeIn(brace_label), run_time=0.5)
         self.wait(0.3)
@@ -237,9 +237,9 @@ class DecimalMeaningLesson(Scene):
         self.wait(0.4)
 
         # 说明：十分位
-        note1 = Text("小数点后第一位", font="Noto Sans CJK SC",
+        note1 = Text("小数点后第一位", font="PingFang SC",
                      font_size=24, color=self.C_UNIT)
-        note2 = Text("叫做「十分位」", font="Noto Sans CJK SC",
+        note2 = Text("叫做「十分位」", font="PingFang SC",
                      font_size=24, color=self.C_UNIT)
         notes = VGroup(note1, note2).arrange(DOWN, buff=0.2).move_to(DOWN * 0.2)
         self.play(FadeIn(notes, shift=UP * 0.2), run_time=0.6)
@@ -264,12 +264,12 @@ class DecimalMeaningLesson(Scene):
     # ------------------------------------------------------------------
     def scene_4_hundredth(self):
         title = Text("百分之三 = 0.03",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE)
+                     font="PingFang SC", font_size=38, color=self.C_TITLE)
         title.move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
         explain = Text("把 1 平均分成 100 份，取其中 3 份",
-                       font="Noto Sans CJK SC", font_size=24, color=self.C_SUB)
+                       font="PingFang SC", font_size=24, color=self.C_SUB)
         explain.move_to(UP * 4.9)
         self.play(FadeIn(explain), run_time=0.5)
 
@@ -310,7 +310,7 @@ class DecimalMeaningLesson(Scene):
         # 标注
         colored_group = VGroup(*colored_cells)
         brace_hl = Brace(colored_group, direction=RIGHT, color=self.C_HIGHLIGHT)
-        brace_label = Text("3 份", font="Noto Sans CJK SC", font_size=20,
+        brace_label = Text("3 份", font="PingFang SC", font_size=20,
                            color=self.C_HIGHLIGHT).next_to(brace_hl, RIGHT, buff=0.12)
         self.play(FadeIn(brace_hl), FadeIn(brace_label), run_time=0.5)
         self.wait(0.3)
@@ -330,7 +330,7 @@ class DecimalMeaningLesson(Scene):
 
         # 说明
         note = Text("小数点后第二位叫「百分位」",
-                    font="Noto Sans CJK SC", font_size=24, color=self.C_UNIT)
+                    font="PingFang SC", font_size=24, color=self.C_UNIT)
         note.move_to(DOWN * 1.0)
         self.play(FadeIn(note, shift=UP * 0.2), run_time=0.6)
         self.wait(1.2)
@@ -350,12 +350,12 @@ class DecimalMeaningLesson(Scene):
     # ------------------------------------------------------------------
     def scene_5_twentyfive_hundredths(self):
         title = Text("百分之二十五 = 0.25",
-                     font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE)
+                     font="PingFang SC", font_size=34, color=self.C_TITLE)
         title.move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
         explain = Text("把 1 平均分成 100 份，取其中 25 份",
-                       font="Noto Sans CJK SC", font_size=23, color=self.C_SUB)
+                       font="PingFang SC", font_size=23, color=self.C_SUB)
         explain.move_to(UP * 4.9)
         self.play(FadeIn(explain), run_time=0.5)
 
@@ -406,7 +406,7 @@ class DecimalMeaningLesson(Scene):
 
         # 解析每一位
         hint = Text("2 在十分位，5 在百分位",
-                    font="Noto Sans CJK SC", font_size=24, color=self.C_UNIT)
+                    font="PingFang SC", font_size=24, color=self.C_UNIT)
         hint.move_to(DOWN * 0.9)
         self.play(FadeIn(hint, shift=UP * 0.2), run_time=0.6)
 
@@ -431,7 +431,7 @@ class DecimalMeaningLesson(Scene):
     # ------------------------------------------------------------------
     def scene_6_place_value_table(self):
         title = Text("小数的数位",
-                     font="Noto Sans CJK SC", font_size=42, color=self.C_TITLE)
+                     font="PingFang SC", font_size=42, color=self.C_TITLE)
         title.move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
@@ -488,7 +488,7 @@ class DecimalMeaningLesson(Scene):
             if label == ".":
                 t = MathTex(r"\cdot", font_size=36, color=col_c)
             else:
-                t = Text(label, font="Noto Sans CJK SC", font_size=18, color=col_c)
+                t = Text(label, font="PingFang SC", font_size=18, color=col_c)
             t.move_to(np.array([x, y, 0]))
             header_texts.add(t)
 
@@ -502,7 +502,7 @@ class DecimalMeaningLesson(Scene):
             if d == ".":
                 t = MathTex(r"\boldsymbol{\cdot}", font_size=48, color=self.C_DEC)
             elif d == "":
-                t = Text("", font="Noto Sans CJK SC", font_size=28)
+                t = Text("", font="PingFang SC", font_size=28)
             else:
                 color = self.C_TEXT if i < 3 else self.C_UNIT
                 t = MathTex(d, font_size=34, color=color)
@@ -520,7 +520,7 @@ class DecimalMeaningLesson(Scene):
             [int_end_x,   table_y - total_h - 0.05, 0],
             direction=DOWN, color=self.C_TEXT,
         )
-        label_int = Text("整数部分", font="Noto Sans CJK SC",
+        label_int = Text("整数部分", font="PingFang SC",
                          font_size=20, color=self.C_TEXT).next_to(brace_int, DOWN, buff=0.12)
 
         # 小数部分大括号
@@ -531,7 +531,7 @@ class DecimalMeaningLesson(Scene):
             [dec_end_x,   table_y - total_h - 0.05, 0],
             direction=DOWN, color=self.C_UNIT,
         )
-        label_dec = Text("小数部分", font="Noto Sans CJK SC",
+        label_dec = Text("小数部分", font="PingFang SC",
                          font_size=20, color=self.C_UNIT).next_to(brace_dec, DOWN, buff=0.12)
 
         self.play(
@@ -551,7 +551,7 @@ class DecimalMeaningLesson(Scene):
         self.play(FadeIn(dot_highlight), run_time=0.4)
 
         # 小数点说明箭头
-        dot_note = Text("小数点", font="Noto Sans CJK SC",
+        dot_note = Text("小数点", font="PingFang SC",
                         font_size=22, color=self.C_DEC)
         dot_note.move_to(np.array([dot_col_center_x + 1.8, table_y - total_h - 0.5, 0]))
         arr_to_dot = Arrow(
@@ -565,7 +565,7 @@ class DecimalMeaningLesson(Scene):
 
         # ---- 计数单位说明 ----
         units_title = Text("每个数位的计数单位",
-                           font="Noto Sans CJK SC", font_size=26, color=self.C_HIGHLIGHT)
+                           font="PingFang SC", font_size=26, color=self.C_HIGHLIGHT)
         units_title.move_to(DOWN * 1.5)
         self.play(Write(units_title), run_time=0.5)
 
@@ -577,7 +577,7 @@ class DecimalMeaningLesson(Scene):
 
         unit_rows = VGroup()
         for name, frac_str, dec_str in unit_data:
-            name_t = Text(name, font="Noto Sans CJK SC",
+            name_t = Text(name, font="PingFang SC",
                           font_size=22, color=self.C_UNIT)
             frac_t = MathTex(frac_str, font_size=26, color=self.C_FRAC)
             eq_t   = MathTex(r"=", font_size=26, color=self.C_TEXT)
@@ -610,7 +610,7 @@ class DecimalMeaningLesson(Scene):
     # ------------------------------------------------------------------
     def scene_7_outro(self):
         summary_title = Text("小结",
-                             font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE)
+                             font="PingFang SC", font_size=44, color=self.C_TITLE)
         summary_title.move_to(UP * 5.5)
         self.play(Write(summary_title), run_time=0.5)
 
@@ -625,7 +625,7 @@ class DecimalMeaningLesson(Scene):
         ]
         point_items = VGroup()
         for p in points:
-            bullet = Text("• " + p, font="Noto Sans CJK SC",
+            bullet = Text("• " + p, font="PingFang SC",
                           font_size=25, color=self.C_TEXT)
             point_items.add(bullet)
 
@@ -637,14 +637,14 @@ class DecimalMeaningLesson(Scene):
         self.wait(0.8)
 
         # 作者信息
-        author_big = Text("上海初高中数学直通车", font="Noto Sans CJK SC",
+        author_big = Text("上海初高中数学直通车", font="PingFang SC",
                           font_size=36, color=WHITE)
-        author_id  = Text("@emptyandcalm", font="Noto Sans CJK SC",
+        author_id  = Text("@emptyandcalm", font="PingFang SC",
                           font_size=28, color=self.C_SUB)
         author_group = VGroup(author_big, author_id).arrange(DOWN, buff=0.25)
         author_group.move_to(DOWN * 3.5)
 
-        follow = Text("关注我，学更多数学知识！", font="Noto Sans CJK SC",
+        follow = Text("关注我，学更多数学知识！", font="PingFang SC",
                       font_size=28, color=self.C_HIGHLIGHT)
         follow.next_to(author_group, DOWN, buff=0.4)
 

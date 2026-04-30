@@ -38,7 +38,7 @@ COLOR_RULE = "#a78bfa"        # 紫色规则
 COLOR_MULT = "#f472b6"        # 粉色 乘法口诀
 COLOR_AUTHOR = "#6b7280"
 COLOR_CARD = "#0f172a"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class MultiplicationTableDivisionLesson(Scene):

@@ -17,7 +17,7 @@ config.frame_width = 9
 config.frame_height = 16
 
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ===== 颜色配置 =====
 COLOR_BG        = "#1a1a2e"

@@ -37,7 +37,7 @@ COLOR_UPPER  = "#fb923c"   # 浅橙上底
 COLOR_HEIGHT = "#a78bfa"   # 紫色高
 COLOR_HL     = "#fbbf24"   # 黄色高亮
 COLOR_AUTHOR = "#6b7280"   # 灰色作者
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

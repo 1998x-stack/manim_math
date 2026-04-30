@@ -36,7 +36,7 @@ COLOR_OTHER = "#8b5cf6"       # 紫色 - 其他
 COLOR_HL = "#fbbf24"          # 黄色高亮
 COLOR_AUTHOR = "#6b7280"
 COLOR_FORMULA = "#a78bfa"     # 浅紫色公式
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ======================================================================
 # 数据: 小明一天时间分配

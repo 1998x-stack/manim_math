@@ -39,7 +39,7 @@ ROW_HEIGHT = 0.72
 NUM_FRUITS = 4
 MAX_COUNT = max(FRUIT_DATA)  # 6
 
-AUTHOR_FONT = "Noto Sans CJK SC"
+AUTHOR_FONT = "PingFang SC"
 
 
 def make_fruit_icon(color, size=0.28):

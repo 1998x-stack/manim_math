@@ -50,7 +50,7 @@ class MultiplicationIntroLesson(Scene):
         # 作者标识（全程保留在顶部）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=C_DIM,
         ).move_to(UP * 7.0)
@@ -71,7 +71,7 @@ class MultiplicationIntroLesson(Scene):
     def scene_1_hook(self):
         title = Text(
             "乘法的引入",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=54,
             color=C_TITLE,
             weight=BOLD,
@@ -79,7 +79,7 @@ class MultiplicationIntroLesson(Scene):
 
         sub = Text(
             "连加太麻烦？用乘法更简单！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=C_LABEL,
         ).move_to(UP * 4.4)
@@ -96,14 +96,14 @@ class MultiplicationIntroLesson(Scene):
     def scene_2_apples(self):
         prompt = Text(
             "每盘放 4 个苹果，放了 3 盘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=C_LABEL,
         ).move_to(UP * 6.0)
 
         question = Text(
             "一共有多少个苹果？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=C_HIGHLIGHT,
         ).move_to(UP * 5.1)
@@ -160,7 +160,7 @@ class MultiplicationIntroLesson(Scene):
             # 标签 "4个"
             count_label = Text(
                 "4个",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=C_HIGHLIGHT,
             ).next_to(plate, DOWN, buff=0.15)
@@ -174,7 +174,7 @@ class MultiplicationIntroLesson(Scene):
         plate_labels = VGroup(*[
             Text(
                 f"第{['一','二','三'][i]}盘",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=C_DIM,
             ).next_to(plates[i], UP, buff=0.12)
@@ -201,7 +201,7 @@ class MultiplicationIntroLesson(Scene):
     def scene_3_addition(self):
         step_title = Text(
             "列出连加算式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=C_TITLE,
         ).move_to(UP * 3.8)
@@ -256,7 +256,7 @@ class MultiplicationIntroLesson(Scene):
     def scene_4_same_addend(self):
         observe_title = Text(
             "发现规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=C_TITLE,
         ).move_to(UP * 3.8)
@@ -276,14 +276,14 @@ class MultiplicationIntroLesson(Scene):
 
         rule_line1 = Text(
             "加数相同：都是 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=C_LABEL,
         ).move_to(UP * 1.8)
 
         rule_line2 = Text(
             "加数的个数：3 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=C_LABEL,
         ).move_to(UP * 1.1)
@@ -303,7 +303,7 @@ class MultiplicationIntroLesson(Scene):
         # 标注"几个几"
         how_many = Text(
             "3 个 4 相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=C_MULT,
             weight=BOLD,
@@ -331,7 +331,7 @@ class MultiplicationIntroLesson(Scene):
     def scene_5_multiplication(self):
         intro_title = Text(
             "引入乘法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=C_TITLE,
         ).move_to(UP * 3.8)
@@ -362,7 +362,7 @@ class MultiplicationIntroLesson(Scene):
         # 乘号放大强调
         times_highlight = Text(
             '×  读作 "乘"',
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=C_HIGHLIGHT,
         ).move_to(DOWN * 0.3)
@@ -373,7 +373,7 @@ class MultiplicationIntroLesson(Scene):
         # 也可以写成 3×4
         also_text = Text(
             "也可以写成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=C_LABEL,
         ).move_to(DOWN * 1.3)
@@ -390,7 +390,7 @@ class MultiplicationIntroLesson(Scene):
         # 说明连加与乘法等价
         equiv_text = Text(
             "连加算式 → 乘法算式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=C_DIM,
         ).move_to(DOWN * 3.0)
@@ -418,7 +418,7 @@ class MultiplicationIntroLesson(Scene):
     def scene_6_parts(self):
         parts_title = Text(
             "各部分名称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=C_TITLE,
         ).move_to(UP * 5.5)
@@ -456,18 +456,18 @@ class MultiplicationIntroLesson(Scene):
 
         # Braces
         brace_4 = Brace(part4, DOWN, color=C_LABEL, buff=0.05)
-        label_4 = Text("乘数", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(brace_4, DOWN, buff=0.1)
+        label_4 = Text("乘数", font="PingFang SC", font_size=24, color=C_LABEL).next_to(brace_4, DOWN, buff=0.1)
 
         brace_3 = Brace(part3, DOWN, color=C_LABEL, buff=0.05)
-        label_3 = Text("乘数", font="Noto Sans CJK SC", font_size=24, color=C_LABEL).next_to(brace_3, DOWN, buff=0.1)
+        label_3 = Text("乘数", font="PingFang SC", font_size=24, color=C_LABEL).next_to(brace_3, DOWN, buff=0.1)
 
         brace_12 = Brace(part12, DOWN, color=C_HIGHLIGHT, buff=0.05)
-        label_12 = Text("积", font="Noto Sans CJK SC", font_size=24, color=C_HIGHLIGHT).next_to(brace_12, DOWN, buff=0.1)
+        label_12 = Text("积", font="PingFang SC", font_size=24, color=C_HIGHLIGHT).next_to(brace_12, DOWN, buff=0.1)
 
         # 乘号标注
         times_note = Text(
             "乘号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=C_MULT,
         ).next_to(part_times, UP, buff=0.35)
@@ -503,11 +503,11 @@ class MultiplicationIntroLesson(Scene):
 
         # 公式总结行
         formula_summary = VGroup(
-            Text("乘数", font="Noto Sans CJK SC", font_size=28, color=C_LABEL),
+            Text("乘数", font="PingFang SC", font_size=28, color=C_LABEL),
             MathTex(r"\times", font_size=36, color=C_MULT),
-            Text("乘数", font="Noto Sans CJK SC", font_size=28, color=C_LABEL),
+            Text("乘数", font="PingFang SC", font_size=28, color=C_LABEL),
             MathTex(r"=", font_size=36, color=C_WHITE),
-            Text("积", font="Noto Sans CJK SC", font_size=28, color=C_HIGHLIGHT),
+            Text("积", font="PingFang SC", font_size=28, color=C_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 0.3)
 
         formula_box = SurroundingRectangle(
@@ -542,7 +542,7 @@ class MultiplicationIntroLesson(Scene):
     def scene_7_summary(self):
         summary_title = Text(
             "本节要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=C_TITLE,
             weight=BOLD,
@@ -565,7 +565,7 @@ class MultiplicationIntroLesson(Scene):
         for i, pt in enumerate(points):
             mob = Text(
                 pt,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=C_LABEL,
             )
@@ -593,7 +593,7 @@ class MultiplicationIntroLesson(Scene):
         # 作者名称放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=C_WHITE,
             weight=BOLD,
@@ -601,14 +601,14 @@ class MultiplicationIntroLesson(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=C_DIM,
         ).move_to(UP * 0.6)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=C_HIGHLIGHT,
         ).move_to(DOWN * 0.4)

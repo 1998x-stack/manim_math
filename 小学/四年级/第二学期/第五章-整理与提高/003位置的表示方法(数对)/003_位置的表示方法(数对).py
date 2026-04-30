@@ -94,7 +94,7 @@ class CoordinatePairLesson(Scene):
         for i in range(1, self.GRID_COLS + 1):
             x = self.GRID_ORIGIN[0] + (i - 0.5) * self.CELL
             y = self.GRID_ORIGIN[1] - 0.48
-            lbl = Text(str(i), font="Noto Sans CJK SC", font_size=22, color=self.C_COL)
+            lbl = Text(str(i), font="PingFang SC", font_size=22, color=self.C_COL)
             lbl.move_to(np.array([x, y, 0]))
             labels.add(lbl)
         return labels
@@ -105,7 +105,7 @@ class CoordinatePairLesson(Scene):
         for i in range(1, self.GRID_ROWS + 1):
             x = self.GRID_ORIGIN[0] - 0.48
             y = self.GRID_ORIGIN[1] + (i - 0.5) * self.CELL
-            lbl = Text(str(i), font="Noto Sans CJK SC", font_size=22, color=self.C_ROW)
+            lbl = Text(str(i), font="PingFang SC", font_size=22, color=self.C_ROW)
             lbl.move_to(np.array([x, y, 0]))
             labels.add(lbl)
         return labels
@@ -116,7 +116,7 @@ class CoordinatePairLesson(Scene):
     def scene_1_opening(self):
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -125,14 +125,14 @@ class CoordinatePairLesson(Scene):
 
         title = Text(
             "如何用数字表示位置?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 5.8)
 
         subtitle = Text(
             "数对的秘密",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_TEXT
         ).move_to(UP * 5.0)
@@ -149,9 +149,9 @@ class CoordinatePairLesson(Scene):
             stroke_width=2
         ).move_to(UP * 3.6)
 
-        hook_t1 = Text("班级座位", font="Noto Sans CJK SC",
+        hook_t1 = Text("班级座位", font="PingFang SC",
                        font_size=22, color=self.C_TEXT).move_to(UP * 3.95)
-        hook_t2 = Text("第3列  第2行", font="Noto Sans CJK SC",
+        hook_t2 = Text("第3列  第2行", font="PingFang SC",
                        font_size=28, color=self.C_HIGHLIGHT).move_to(UP * 3.4)
 
         self.play(FadeIn(hook_bg), run_time=0.3)
@@ -168,7 +168,7 @@ class CoordinatePairLesson(Scene):
     # 场景 2: 认识行与列
     # ─────────────────────────────────────────────
     def scene_2_grid_intro(self):
-        title = Text("认识行和列", font="Noto Sans CJK SC",
+        title = Text("认识行和列", font="PingFang SC",
                      font_size=36, color=self.C_HIGHLIGHT).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.7)
 
@@ -187,11 +187,11 @@ class CoordinatePairLesson(Scene):
             color=self.C_COL, stroke_width=3,
             max_tip_length_to_length_ratio=0.1
         )
-        col_label = Text("列", font="Noto Sans CJK SC",
+        col_label = Text("列", font="PingFang SC",
                          font_size=28, color=self.C_COL).move_to(
             np.array([col_arrow_x - 0.38, (col_arrow_y_top + col_arrow_y_bot) / 2, 0])
         )
-        col_tip = Text("从左到右\n第1列、第2列…", font="Noto Sans CJK SC",
+        col_tip = Text("从左到右\n第1列、第2列…", font="PingFang SC",
                        font_size=20, color=self.C_COL).move_to(UP * 3.4)
 
         self.play(Create(col_arrow), Write(col_label), run_time=0.6)
@@ -212,11 +212,11 @@ class CoordinatePairLesson(Scene):
             color=self.C_ROW, stroke_width=3,
             max_tip_length_to_length_ratio=0.08
         )
-        row_label = Text("行", font="Noto Sans CJK SC",
+        row_label = Text("行", font="PingFang SC",
                          font_size=28, color=self.C_ROW).move_to(
             np.array([(row_arrow_x_left + row_arrow_x_right) / 2, row_arrow_y - 0.4, 0])
         )
-        row_tip = Text("从下到上\n第1行、第2行…", font="Noto Sans CJK SC",
+        row_tip = Text("从下到上\n第1行、第2行…", font="PingFang SC",
                        font_size=20, color=self.C_ROW).move_to(DOWN * 3.2)
 
         self.play(FadeOut(col_tip), run_time=0.3)
@@ -244,7 +244,7 @@ class CoordinatePairLesson(Scene):
     # 场景 3: 数对的写法
     # ─────────────────────────────────────────────
     def scene_3_pair_notation(self):
-        title = Text("数对怎么写?", font="Noto Sans CJK SC",
+        title = Text("数对怎么写?", font="PingFang SC",
                      font_size=36, color=self.C_HIGHLIGHT).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
@@ -257,16 +257,16 @@ class CoordinatePairLesson(Scene):
             stroke_width=2
         ).move_to(UP * 4.55)
 
-        rule_line1 = Text("(列, 行)", font="Noto Sans CJK SC",
+        rule_line1 = Text("(列, 行)", font="PingFang SC",
                           font_size=36, color=self.C_PAIR).move_to(UP * 4.8)
-        rule_line2 = Text("列 在 前，行 在 后", font="Noto Sans CJK SC",
+        rule_line2 = Text("列 在 前，行 在 后", font="PingFang SC",
                           font_size=22, color=self.C_TEXT).move_to(UP * 4.25)
 
         self.play(FadeIn(rule_bg), run_time=0.3)
         self.play(Write(rule_line1), run_time=0.6)
         self.play(FadeIn(rule_line2), run_time=0.4)
 
-        example_title = Text("例：第3列第2行", font="Noto Sans CJK SC",
+        example_title = Text("例：第3列第2行", font="PingFang SC",
                              font_size=26, color=self.C_TEXT).move_to(UP * 3.35)
         self.play(FadeIn(example_title), run_time=0.4)
 
@@ -283,7 +283,7 @@ class CoordinatePairLesson(Scene):
             self.GRID_ORIGIN[1] + self.GRID_ROWS * self.CELL / 2,
             0
         ]))
-        col3_tip = Text("第3列", font="Noto Sans CJK SC",
+        col3_tip = Text("第3列", font="PingFang SC",
                         font_size=22, color=self.C_COL).move_to(np.array([
             self.GRID_ORIGIN[0] + 2.5 * self.CELL,
             self.GRID_ORIGIN[1] + self.GRID_ROWS * self.CELL + 0.42,
@@ -306,7 +306,7 @@ class CoordinatePairLesson(Scene):
             self.GRID_ORIGIN[1] + (2 - 0.5) * self.CELL,
             0
         ]))
-        row2_tip = Text("第2行", font="Noto Sans CJK SC",
+        row2_tip = Text("第2行", font="PingFang SC",
                         font_size=22, color=self.C_ROW).move_to(np.array([
             self.GRID_ORIGIN[0] - 0.92,
             self.GRID_ORIGIN[1] + 1.5 * self.CELL,
@@ -322,7 +322,7 @@ class CoordinatePairLesson(Scene):
         self.play(Flash(dot_32, color=self.C_DOT, flash_radius=0.35), run_time=0.4)
 
         # 数对
-        pair_text = Text("数对：(3, 2)", font="Noto Sans CJK SC",
+        pair_text = Text("数对：(3, 2)", font="PingFang SC",
                          font_size=32, color=self.C_PAIR).move_to(DOWN * 3.2)
         self.play(Write(pair_text), run_time=0.7)
         self.wait(1.5)
@@ -342,7 +342,7 @@ class CoordinatePairLesson(Scene):
     # 场景 4: 在格子里标多个点
     # ─────────────────────────────────────────────
     def scene_4_mark_points(self):
-        title = Text("在格子里找位置", font="Noto Sans CJK SC",
+        title = Text("在格子里找位置", font="PingFang SC",
                      font_size=36, color=self.C_HIGHLIGHT).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
@@ -359,7 +359,7 @@ class CoordinatePairLesson(Scene):
         label_objs = []
 
         # (3,2) 的标签
-        lbl_32 = Text("(3, 2)", font="Noto Sans CJK SC",
+        lbl_32 = Text("(3, 2)", font="PingFang SC",
                       font_size=19, color=self.C_DOT).next_to(self.dot_32, UR, buff=0.1)
         self.play(FadeIn(lbl_32), run_time=0.3)
         label_objs.append(lbl_32)
@@ -369,7 +369,7 @@ class CoordinatePairLesson(Scene):
             pos = self.grid_pos(col, row)
             dot = Dot(pos, radius=0.15, color=col_color)
             direction = UR if col <= 4 else UL
-            lbl = Text(lbl_str, font="Noto Sans CJK SC",
+            lbl = Text(lbl_str, font="PingFang SC",
                        font_size=19, color=col_color).next_to(dot, direction, buff=0.10)
             self.play(FadeIn(dot, scale=0.5), FadeIn(lbl), run_time=0.4)
             dot_objs.append(dot)
@@ -389,7 +389,7 @@ class CoordinatePairLesson(Scene):
     # 场景 5: 读出数对（交互式演示）
     # ─────────────────────────────────────────────
     def scene_5_read_pairs(self):
-        title = Text("读出这个点的数对", font="Noto Sans CJK SC",
+        title = Text("读出这个点的数对", font="PingFang SC",
                      font_size=36, color=self.C_HIGHLIGHT).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
 
@@ -401,13 +401,13 @@ class CoordinatePairLesson(Scene):
         self.play(FadeIn(target_dot, scale=0.5), run_time=0.5)
         self.play(Flash(target_dot, color=self.C_HIGHLIGHT, flash_radius=0.42), run_time=0.5)
 
-        question = Text("这个点是第几列第几行?", font="Noto Sans CJK SC",
+        question = Text("这个点是第几列第几行?", font="PingFang SC",
                         font_size=26, color=self.C_TEXT).move_to(DOWN * 3.0)
         self.play(FadeIn(question), run_time=0.5)
         self.wait(0.8)
 
         # 步骤1: 找列
-        step1 = Text("第一步: 数列 (左→右)", font="Noto Sans CJK SC",
+        step1 = Text("第一步: 数列 (左→右)", font="PingFang SC",
                      font_size=24, color=self.C_COL).move_to(DOWN * 3.0)
         self.play(ReplacementTransform(question, step1), run_time=0.4)
 
@@ -426,7 +426,7 @@ class CoordinatePairLesson(Scene):
             run_time=0.7, rate_func=smooth
         )
 
-        col_mark = Text("第4列", font="Noto Sans CJK SC",
+        col_mark = Text("第4列", font="PingFang SC",
                         font_size=26, color=self.C_COL).move_to(np.array([
             target_x,
             self.GRID_ORIGIN[1] + self.GRID_ROWS * self.CELL + 0.5,
@@ -436,7 +436,7 @@ class CoordinatePairLesson(Scene):
         self.wait(0.5)
 
         # 步骤2: 找行
-        step2 = Text("第二步: 数行 (下→上)", font="Noto Sans CJK SC",
+        step2 = Text("第二步: 数行 (下→上)", font="PingFang SC",
                      font_size=24, color=self.C_ROW).move_to(DOWN * 3.0)
         self.play(ReplacementTransform(step1, step2), run_time=0.4)
 
@@ -454,7 +454,7 @@ class CoordinatePairLesson(Scene):
             run_time=0.7, rate_func=smooth
         )
 
-        row_mark = Text("第3行", font="Noto Sans CJK SC",
+        row_mark = Text("第3行", font="PingFang SC",
                         font_size=26, color=self.C_ROW).move_to(np.array([
             self.GRID_ORIGIN[0] - 1.05, target_y, 0
         ]))
@@ -463,7 +463,7 @@ class CoordinatePairLesson(Scene):
 
         self.play(FadeOut(step2), run_time=0.3)
 
-        result = Text("数对是：(4, 3)", font="Noto Sans CJK SC",
+        result = Text("数对是：(4, 3)", font="PingFang SC",
                       font_size=34, color=self.C_PAIR).move_to(DOWN * 3.2)
         self.play(Write(result), run_time=0.7)
         self.play(Indicate(target_dot, scale_factor=1.5, color=self.C_PAIR), run_time=0.6)
@@ -489,7 +489,7 @@ class CoordinatePairLesson(Scene):
             run_time=0.4
         )
 
-        title = Text("记住这个规则！", font="Noto Sans CJK SC",
+        title = Text("记住这个规则！", font="PingFang SC",
                      font_size=40, color=self.C_HIGHLIGHT).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.7)
 
@@ -502,14 +502,14 @@ class CoordinatePairLesson(Scene):
             stroke_width=2.5
         ).move_to(UP * 2.6)
 
-        rule_big = Text("(列, 行)", font="Noto Sans CJK SC",
+        rule_big = Text("(列, 行)", font="PingFang SC",
                         font_size=56, color=self.C_PAIR).move_to(UP * 3.3)
 
-        col_note = Text("列 在 前", font="Noto Sans CJK SC",
+        col_note = Text("列 在 前", font="PingFang SC",
                         font_size=30, color=self.C_COL).move_to(UP * 2.4)
-        row_note = Text("行 在 后", font="Noto Sans CJK SC",
+        row_note = Text("行 在 后", font="PingFang SC",
                         font_size=30, color=self.C_ROW).move_to(UP * 1.9)
-        bracket_note = Text("括号括起来，逗号隔开", font="Noto Sans CJK SC",
+        bracket_note = Text("括号括起来，逗号隔开", font="PingFang SC",
                             font_size=22, color=self.C_TEXT).move_to(UP * 1.35)
 
         self.play(FadeIn(main_bg), run_time=0.3)
@@ -519,11 +519,11 @@ class CoordinatePairLesson(Scene):
         self.play(FadeIn(bracket_note), run_time=0.4)
 
         # 例子
-        ex1 = Text("(3, 2) → 第3列  第2行", font="Noto Sans CJK SC",
+        ex1 = Text("(3, 2) → 第3列  第2行", font="PingFang SC",
                    font_size=26, color=self.C_TEXT).move_to(UP * 0.1)
-        ex2 = Text("(1, 5) → 第1列  第5行", font="Noto Sans CJK SC",
+        ex2 = Text("(1, 5) → 第1列  第5行", font="PingFang SC",
                    font_size=26, color=self.C_TEXT).move_to(DOWN * 0.6)
-        ex3 = Text("(6, 3) → 第6列  第3行", font="Noto Sans CJK SC",
+        ex3 = Text("(6, 3) → 第6列  第3行", font="PingFang SC",
                    font_size=26, color=self.C_TEXT).move_to(DOWN * 1.3)
 
         self.play(FadeIn(ex1), run_time=0.4)
@@ -540,7 +540,7 @@ class CoordinatePairLesson(Scene):
             stroke_width=2
         ).move_to(DOWN * 2.8)
 
-        warn_text = Text("注意：列在前，行在后", font="Noto Sans CJK SC",
+        warn_text = Text("注意：列在前，行在后", font="PingFang SC",
                          font_size=28, color="#ef4444").move_to(DOWN * 2.8)
 
         self.play(FadeIn(warn_bg), run_time=0.3)
@@ -564,22 +564,22 @@ class CoordinatePairLesson(Scene):
     # 场景 7: 片尾
     # ─────────────────────────────────────────────
     def scene_7_outro(self):
-        summary = Text("数对 = (列, 行)", font="Noto Sans CJK SC",
+        summary = Text("数对 = (列, 行)", font="PingFang SC",
                        font_size=48, color=self.C_PAIR).move_to(UP * 2.5)
-        sub1 = Text("列 在 前", font="Noto Sans CJK SC",
+        sub1 = Text("列 在 前", font="PingFang SC",
                     font_size=30, color=self.C_COL).move_to(UP * 1.45)
-        sub2 = Text("行 在 后", font="Noto Sans CJK SC",
+        sub2 = Text("行 在 后", font="PingFang SC",
                     font_size=30, color=self.C_ROW).move_to(UP * 0.75)
 
         self.play(Write(summary), run_time=0.8)
         self.play(FadeIn(sub1), FadeIn(sub2), run_time=0.5)
         self.wait(0.5)
 
-        author_big = Text("上海初高中数学直通车", font="Noto Sans CJK SC",
+        author_big = Text("上海初高中数学直通车", font="PingFang SC",
                           font_size=34, color=WHITE).move_to(DOWN * 0.8)
-        author_id = Text("@emptyandcalm", font="Noto Sans CJK SC",
+        author_id = Text("@emptyandcalm", font="PingFang SC",
                          font_size=28, color="#6b7280").move_to(DOWN * 1.6)
-        follow = Text("关注我，学更多数学技巧！", font="Noto Sans CJK SC",
+        follow = Text("关注我，学更多数学技巧！", font="PingFang SC",
                       font_size=30, color=self.C_HIGHLIGHT).move_to(DOWN * 2.7)
 
         self.play(FadeIn(author_big), run_time=0.5)

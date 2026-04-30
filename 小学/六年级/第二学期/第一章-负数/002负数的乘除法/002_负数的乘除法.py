@@ -111,7 +111,7 @@ class NegativeMulDivLesson(Scene):
         # Author
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -126,7 +126,7 @@ class NegativeMulDivLesson(Scene):
 
         hook_sub = Text(
             "负数乘负数, 结果是正还是负?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A,
         ).move_to(UP * 2.5)
@@ -151,11 +151,11 @@ class NegativeMulDivLesson(Scene):
         ).move_to(DOWN * 0.5 + RIGHT * 1.5)
 
         label_neg = Text(
-            "负方向", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_NEG
+            "负方向", font="PingFang SC", font_size=20, color=self.COLOR_NEG
         ).next_to(arrow_left, DOWN, buff=0.15)
 
         label_pos = Text(
-            "正方向", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_POS
+            "正方向", font="PingFang SC", font_size=20, color=self.COLOR_POS
         ).next_to(arrow_right, DOWN, buff=0.15)
 
         self.play(
@@ -166,7 +166,7 @@ class NegativeMulDivLesson(Scene):
 
         hint = Text(
             "方向的反转是关键!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.5)
@@ -188,7 +188,7 @@ class NegativeMulDivLesson(Scene):
     def scene_2_pos_times_pos(self):
         title = Text(
             "正 x 正 = 正",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_POS,
         ).move_to(UP * 5.5)
@@ -206,7 +206,7 @@ class NegativeMulDivLesson(Scene):
         # Explanation using repeated addition
         explain = Text(
             "3 个 (+4) 相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 3.2)
@@ -259,7 +259,7 @@ class NegativeMulDivLesson(Scene):
         # Rule note
         rule = Text(
             "同号相乘, 结果为正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.5)
@@ -278,7 +278,7 @@ class NegativeMulDivLesson(Scene):
     def scene_3_pos_times_neg(self):
         title = Text(
             "正 x 负 = 负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_NEG,
         ).move_to(UP * 5.5)
@@ -296,7 +296,7 @@ class NegativeMulDivLesson(Scene):
         # Explanation
         explain = Text(
             "3 个 (-4) 相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 3.2)
@@ -349,7 +349,7 @@ class NegativeMulDivLesson(Scene):
         # Rule note
         rule = Text(
             "异号相乘, 结果为负!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.5)
@@ -368,7 +368,7 @@ class NegativeMulDivLesson(Scene):
     def scene_4_neg_times_neg(self):
         title = Text(
             "负 x 负 = 正",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_POS,
         ).move_to(UP * 5.5)
@@ -386,7 +386,7 @@ class NegativeMulDivLesson(Scene):
         # Key intuition: direction reversal
         explain_1 = Text(
             "负号 = 方向反转!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 3.0)
@@ -404,7 +404,7 @@ class NegativeMulDivLesson(Scene):
 
         step1_text_1 = Text(
             "(-4) 的方向: 向左",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NEG,
         ).move_to(UP * 1.6)
@@ -433,7 +433,7 @@ class NegativeMulDivLesson(Scene):
 
         step2_text_1 = Text(
             "x(-3): 反转方向, 走3次",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_POS,
         ).move_to(DOWN * 0.4)
@@ -466,7 +466,7 @@ class NegativeMulDivLesson(Scene):
         # Conclusion
         conclusion = Text(
             "反转再反转 = 回到正方向!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.5)
@@ -491,7 +491,7 @@ class NegativeMulDivLesson(Scene):
 
         explain_nl = Text(
             "反转 (-4) 得 (+4), 走 3 次",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 2)
@@ -535,7 +535,7 @@ class NegativeMulDivLesson(Scene):
 
         rule = Text(
             "负负得正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4)
@@ -558,7 +558,7 @@ class NegativeMulDivLesson(Scene):
     def scene_5_mul_rule_summary(self):
         title = Text(
             "乘法符号法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -568,7 +568,7 @@ class NegativeMulDivLesson(Scene):
         # ── Same sign ──
         same_title = Text(
             "同号得正",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_POS,
         ).move_to(UP * 4.2)
@@ -607,7 +607,7 @@ class NegativeMulDivLesson(Scene):
         # ── Different sign ──
         diff_title = Text(
             "异号得负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_NEG,
         ).move_to(UP * 0.2)
@@ -652,14 +652,14 @@ class NegativeMulDivLesson(Scene):
 
         tip = Text(
             "口诀: 同号得正, 异号得负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.2)
 
         tip2 = Text(
             "先定符号, 再算绝对值!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 4.9)
@@ -685,7 +685,7 @@ class NegativeMulDivLesson(Scene):
     def scene_6_division_rule(self):
         title = Text(
             "除法符号法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 5.5)
@@ -695,7 +695,7 @@ class NegativeMulDivLesson(Scene):
         # Key insight
         key = Text(
             "除法符号法则与乘法相同!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 4.2)
@@ -704,7 +704,7 @@ class NegativeMulDivLesson(Scene):
         # Same sign examples
         same_label = Text(
             "同号得正:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_POS,
         ).move_to(UP * 3.0 + LEFT * 2.5)
@@ -728,7 +728,7 @@ class NegativeMulDivLesson(Scene):
         # Different sign examples
         diff_label = Text(
             "异号得负:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_NEG,
         ).move_to(DOWN * 0.0 + LEFT * 2.5)
@@ -758,7 +758,7 @@ class NegativeMulDivLesson(Scene):
 
         verify_title = Text(
             "验证: 乘法与除法互逆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 2.8)
@@ -769,7 +769,7 @@ class NegativeMulDivLesson(Scene):
         ).move_to(DOWN * 3.5)
 
         verify_check_label = Text(
-            "检验: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A
+            "检验: ", font="PingFang SC", font_size=20, color=GRAY_A
         ).move_to(DOWN * 4.2 + LEFT * 2)
 
         verify_check = MathTex(
@@ -793,7 +793,7 @@ class NegativeMulDivLesson(Scene):
     def scene_7_zero_rule(self):
         title = Text(
             "零的特殊性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 5.5)
@@ -809,7 +809,7 @@ class NegativeMulDivLesson(Scene):
 
         rule_1 = Text(
             "0 乘以任何数都得 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 3.6)
@@ -821,7 +821,7 @@ class NegativeMulDivLesson(Scene):
 
         rule_2 = Text(
             "0 不能作为除数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_NEG,
         ).move_to(UP * 2.0)
@@ -848,7 +848,7 @@ class NegativeMulDivLesson(Scene):
         ).move_to(DOWN * 1.1)
 
         ex4_label = Text(
-            "但: ", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_NEG
+            "但: ", font="PingFang SC", font_size=22, color=self.COLOR_NEG
         ).move_to(DOWN * 2.1 + LEFT * 2.5)
 
         ex4 = MathTex(
@@ -858,7 +858,7 @@ class NegativeMulDivLesson(Scene):
 
         ex4_note = Text(
             "无意义!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_NEG,
         ).next_to(ex4, RIGHT, buff=0.3)
@@ -899,7 +899,7 @@ class NegativeMulDivLesson(Scene):
     def scene_8_practice(self):
         title = Text(
             "练一练",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
@@ -920,7 +920,7 @@ class NegativeMulDivLesson(Scene):
             # Problem number
             num_label = Text(
                 f"({i+1})",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=GRAY_B,
             ).move_to(y_positions[i] + LEFT * 3.8)
@@ -941,7 +941,7 @@ class NegativeMulDivLesson(Scene):
             # Rule tag
             rule_tag = Text(
                 rule,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=color,
             ).next_to(answer, RIGHT, buff=0.4)
@@ -956,7 +956,7 @@ class NegativeMulDivLesson(Scene):
         # Encouragement
         encourage = Text(
             "全对了吗? 记住口诀就简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 5)
@@ -982,14 +982,14 @@ class NegativeMulDivLesson(Scene):
 
         summary_title = Text(
             "负数乘除法核心法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 3.5)
 
         rule1 = Text(
             "同号得正, 异号得负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 2.5)
@@ -1001,7 +1001,7 @@ class NegativeMulDivLesson(Scene):
 
         rule3 = Text(
             "先定符号, 再算绝对值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(UP * 0.7)
@@ -1025,14 +1025,14 @@ class NegativeMulDivLesson(Scene):
         # Author info
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B,
         ).move_to(UP * 0.5)
@@ -1046,7 +1046,7 @@ class NegativeMulDivLesson(Scene):
 
         follow = Text(
             "关注我, 获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.0)

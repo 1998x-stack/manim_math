@@ -34,7 +34,7 @@ class ContinuousAddition(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -58,14 +58,14 @@ class ContinuousAddition(Scene):
         # 钩子文字
         hook_text = Text(
             "个位十位都满十，怎么办？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
         
         # 题目
         problem_eq = MathTex(r"199 + 103 = ?", font_size=48)
-        problem_desc = Text("连续进位加法", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_AUXILIARY)
+        problem_desc = Text("连续进位加法", font="PingFang SC", font_size=28, color=self.COLOR_AUXILIARY)
         problem = VGroup(problem_eq, problem_desc).arrange(DOWN, buff=0.5).move_to(ORIGIN)
         
         self.play(Write(hook_text), run_time=1.0)
@@ -105,9 +105,9 @@ class ContinuousAddition(Scene):
         
         # 数位标签
         place_labels = VGroup(
-            Text("百位", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(self.a1_hundreds, UP, buff=0.8),
-            Text("十位", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(self.a1_tens, UP, buff=0.8),
-            Text("个位", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(self.a1_ones, UP, buff=0.8)
+            Text("百位", font="PingFang SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(self.a1_hundreds, UP, buff=0.8),
+            Text("十位", font="PingFang SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(self.a1_tens, UP, buff=0.8),
+            Text("个位", font="PingFang SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(self.a1_ones, UP, buff=0.8)
         )
         
         self.play(Write(self.addend1), run_time=1.0)
@@ -135,7 +135,7 @@ class ContinuousAddition(Scene):
         # 个位计算文字
         ones_calc = VGroup(
             MathTex(r"9 + 3 = 12", font_size=36),
-            Text("满十进一", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CARRY)
+            Text("满十进一", font="PingFang SC", font_size=24, color=self.COLOR_CARRY)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 3)
         self.play(Write(ones_calc), run_time=1.5)
         
@@ -173,7 +173,7 @@ class ContinuousAddition(Scene):
         # 十位计算文字
         tens_calc = VGroup(
             MathTex(r"9 + 0 + 1 = 10", font_size=36),
-            Text("又满十了，再进一！", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CARRY)
+            Text("又满十了，再进一！", font="PingFang SC", font_size=24, color=self.COLOR_CARRY)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 3)
         self.play(Write(tens_calc), run_time=2.0)
         
@@ -248,11 +248,11 @@ class ContinuousAddition(Scene):
         
         # 步骤总结
         summary = VGroup(
-            Text("连续进位加法步骤：", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_HIGHLIGHT),
-            Text("1. 相同数位对齐", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_WHITE),
-            Text("2. 从个位加起", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_WHITE),
-            Text("3. 哪一位满十，向前一位进1", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_WHITE),
-            Text("4. 连续满十，连续进位", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_WHITE)
+            Text("连续进位加法步骤：", font="PingFang SC", font_size=32, color=self.COLOR_HIGHLIGHT),
+            Text("1. 相同数位对齐", font="PingFang SC", font_size=24, color=self.COLOR_WHITE),
+            Text("2. 从个位加起", font="PingFang SC", font_size=24, color=self.COLOR_WHITE),
+            Text("3. 哪一位满十，向前一位进1", font="PingFang SC", font_size=24, color=self.COLOR_WHITE),
+            Text("4. 连续满十，连续进位", font="PingFang SC", font_size=24, color=self.COLOR_WHITE)
         ).arrange(DOWN, buff=0.5, aligned_edge=LEFT).move_to(UP * 2)
         
         self.play(FadeIn(summary, shift=DOWN * 0.3), run_time=2.0)
@@ -260,8 +260,8 @@ class ContinuousAddition(Scene):
         
         # 作者信息放大
         author_large = VGroup(
-            Text("上海初高中数学直通车", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_WHITE),
-            Text("@emptyandcalm", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_AUXILIARY)
+            Text("上海初高中数学直通车", font="PingFang SC", font_size=40, color=self.COLOR_WHITE),
+            Text("@emptyandcalm", font="PingFang SC", font_size=32, color=self.COLOR_AUXILIARY)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 2)
         
         self.play(Transform(self.author_info, author_large), run_time=1.0)
@@ -269,7 +269,7 @@ class ContinuousAddition(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)

@@ -33,7 +33,7 @@ COLOR_AVG = "#a78bfa"        # 紫色平均线
 COLOR_HL = "#fbbf24"         # 黄色高亮
 COLOR_EXTREME = "#ef4444"    # 红色极端值
 COLOR_AUTHOR = "#6b7280"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class AverageMeaningLesson(Scene):
