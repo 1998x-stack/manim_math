@@ -1,0 +1,57 @@
+name: Deploy Gallery to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/**'
+      - '小学/**/*.py'
+      - '初中/**/*.py'
+      - '高中/**/*.py'
+      - 'external/**/*.py'
+      - '.github/workflows/deploy-gallery.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build catalog
+        run: python assets/build_catalog.py
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p _site
+          cp assets/index.html _site/
+          cp assets/catalog.json _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
