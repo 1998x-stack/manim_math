@@ -30,7 +30,7 @@ COLOR_NEGATIVE    = "#ef9a9a"   # 浅红 - 负数
 COLOR_POSITIVE    = "#80cbc4"   # 青绿 - 正数
 COLOR_AXIS        = "#b0bec5"   # 灰白 - 数轴
 COLOR_AUTHOR      = "#78909c"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class RealNumbersConcept(Scene):

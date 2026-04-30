@@ -99,7 +99,7 @@ class SectorAreaAnimation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -109,7 +109,7 @@ class SectorAreaAnimation(Scene):
         # 钩子问题
         hook_text = Text(
             "披萨切一块，面积怎么算?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -162,7 +162,7 @@ class SectorAreaAnimation(Scene):
         # 过渡文字
         transition = Text(
             "这就是扇形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 0.5)
@@ -184,7 +184,7 @@ class SectorAreaAnimation(Scene):
         # 标题
         title = Text(
             "什么是扇形?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -203,7 +203,7 @@ class SectorAreaAnimation(Scene):
         
         # 标记圆心O
         dot_O = Dot(self.O, radius=0.08, color=WHITE)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_O, DOWN, buff=0.15)
+        label_O = Text("O", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_O, DOWN, buff=0.15)
         
         self.play(
             FadeIn(dot_O, scale=0.5),
@@ -223,7 +223,7 @@ class SectorAreaAnimation(Scene):
         
         # 标注点A
         dot_A = Dot(self.A, radius=0.08, color=self.COLOR_RADIUS)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_A, RIGHT, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_A, RIGHT, buff=0.15)
         
         self.play(
             FadeIn(dot_A, scale=0.5),
@@ -243,7 +243,7 @@ class SectorAreaAnimation(Scene):
         
         # 标注点B
         dot_B = Dot(self.B, radius=0.08, color=self.COLOR_RADIUS)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_B, UP + LEFT, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_B, UP + LEFT, buff=0.15)
         
         self.play(
             FadeIn(dot_B, scale=0.5),
@@ -279,7 +279,7 @@ class SectorAreaAnimation(Scene):
         # 定义文字
         definition = Text(
             "两条半径 + 圆弧 = 扇形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 4)
@@ -312,7 +312,7 @@ class SectorAreaAnimation(Scene):
         # 标题
         title = Text(
             "圆心角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ANGLE
         ).move_to(UP * 6)
@@ -349,7 +349,7 @@ class SectorAreaAnimation(Scene):
         # 说明文字
         explanation = Text(
             "圆心角决定扇形大小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -423,7 +423,7 @@ class SectorAreaAnimation(Scene):
                 Transform(self.arc, target_arc),
                 Transform(self.radius_2, target_radius_2),
                 Transform(self.dot_B, Dot(target_B, radius=0.08, color=self.COLOR_RADIUS)),
-                Transform(self.label_B, Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(target_B, UP + LEFT, buff=0.15)),
+                Transform(self.label_B, Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(target_B, UP + LEFT, buff=0.15)),
                 Transform(angle_arc, target_angle_arc),
                 Transform(angle_label, target_angle_label),
                 run_time=0.8
@@ -450,7 +450,7 @@ class SectorAreaAnimation(Scene):
         # 标题
         title = Text(
             "扇形面积公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -460,7 +460,7 @@ class SectorAreaAnimation(Scene):
         # 问题引入
         question = Text(
             "扇形是圆的一部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 5)
@@ -501,7 +501,7 @@ class SectorAreaAnimation(Scene):
         # 强调360度
         full_angle_text = Text(
             "360",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ANGLE
         ).move_to(self.center + DOWN * 0.3)
@@ -520,7 +520,7 @@ class SectorAreaAnimation(Scene):
         # 扇形占比问题
         ratio_question = Text(
             "圆心角n占360的几分之几?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -546,7 +546,7 @@ class SectorAreaAnimation(Scene):
         # 公式组合
         combined = Text(
             "扇形面积 = 比例 × 圆面积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 0.3)
@@ -616,7 +616,7 @@ class SectorAreaAnimation(Scene):
         # 标题
         title = Text(
             "另一个公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ARC
         ).move_to(UP * 6)
@@ -632,7 +632,7 @@ class SectorAreaAnimation(Scene):
         # 弧长公式
         arc_length_intro = Text(
             "弧长公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -652,7 +652,7 @@ class SectorAreaAnimation(Scene):
         # 提示
         hint = Text(
             "用弧长代替角度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -737,7 +737,7 @@ class SectorAreaAnimation(Scene):
         
         comparison_text = Text(
             "两个公式,任选其一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -784,7 +784,7 @@ class SectorAreaAnimation(Scene):
         # 标题
         title = Text(
             "例题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -794,14 +794,14 @@ class SectorAreaAnimation(Scene):
         # 题目
         problem = Text(
             "已知: r = 6cm,  n = 60",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 5.5)
         
         question_mark = Text(
             "求: 扇形面积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.8)
@@ -947,7 +947,7 @@ class SectorAreaAnimation(Scene):
         # 快速验证公式2
         verify_text = Text(
             "验证公式2:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(DOWN * 3.5)
@@ -999,7 +999,7 @@ class SectorAreaAnimation(Scene):
         # 总结标题
         summary_title = Text(
             "扇形面积 - 核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -1016,7 +1016,7 @@ class SectorAreaAnimation(Scene):
         
         point_1_text = Text(
             "扇形 = 两半径 + 圆弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).next_to(point_1_icon, RIGHT, buff=0.4)
@@ -1039,7 +1039,7 @@ class SectorAreaAnimation(Scene):
         
         point_2_text = Text(
             "公式1:  S = (nπr²)/360",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).next_to(point_2_icon, RIGHT, buff=0.6)
@@ -1062,7 +1062,7 @@ class SectorAreaAnimation(Scene):
         
         point_3_text = Text(
             "公式2:  S = (1/2)lr",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).next_to(point_3_icon, RIGHT, buff=0.6)
@@ -1097,14 +1097,14 @@ class SectorAreaAnimation(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1119,7 +1119,7 @@ class SectorAreaAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8)

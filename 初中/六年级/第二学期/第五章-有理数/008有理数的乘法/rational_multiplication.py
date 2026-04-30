@@ -45,7 +45,7 @@ class RationalMultiplication(Scene):
         self.COLOR_AUXILIARY = GRAY_B       # 灰色 - 辅助
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         self.FONT_SIZE_TITLE = 36
         self.FONT_SIZE_SUBTITLE = 28
         self.FONT_SIZE_BODY = 22

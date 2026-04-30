@@ -131,7 +131,7 @@ class PerpendicularBisector(Scene):
         )
 
     def _text(self, s, size=22, color=WHITE, **kwargs):
-        return Text(s, font="Noto Sans CJK SC", font_size=size, color=color, **kwargs)
+        return Text(s, font="PingFang SC", font_size=size, color=color, **kwargs)
 
     # ═══════════════════════════════════════════════════════════
     # Scene 1: 开场钩子

@@ -199,7 +199,7 @@ class PlaneRelationships(ThreeDScene):
 
     def _fixed_text(self, text, y, size, color):
         """创建固定在帧中的中文文字 (不随相机旋转)."""
-        obj = Text(text, font="Noto Sans CJK SC", font_size=size, color=color)
+        obj = Text(text, font="PingFang SC", font_size=size, color=color)
         obj.move_to(np.array([0.0, y, 0.0]))
         self.add_fixed_in_frame_mobjects(obj)
         return obj
@@ -223,7 +223,7 @@ class PlaneRelationships(ThreeDScene):
 
     def _label_3d(self, text, pos, color, size=40):
         """3D 空间内的平面标签（Text 对象）."""
-        obj = Text(text, font="Noto Sans CJK SC", font_size=size, color=color)
+        obj = Text(text, font="PingFang SC", font_size=size, color=color)
         obj.move_to(pos)
         return obj
 

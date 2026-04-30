@@ -40,7 +40,7 @@ COLOR_RESULT    = "#2ecc71"   # 绿  — 结果 / 解
 COLOR_HIGHLIGHT = YELLOW
 COLOR_CARD      = "#0f3460"   # 卡片背景
 COLOR_STEP_BG   = "#16213e"   # 步骤底色
-FONT            = "Noto Sans CJK SC"
+FONT            = "PingFang SC"
 
 # ─────────────────────────────────────────────
 # 工具函数

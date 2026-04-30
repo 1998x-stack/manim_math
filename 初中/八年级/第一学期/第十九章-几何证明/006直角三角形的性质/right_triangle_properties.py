@@ -18,7 +18,7 @@ config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
-FONT_CN = "Noto Sans CJK SC"
+FONT_CN = "PingFang SC"
 
 
 class RightTriangleProperties(Scene):

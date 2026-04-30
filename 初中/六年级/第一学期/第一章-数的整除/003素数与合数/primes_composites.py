@@ -96,7 +96,7 @@ class PrimesComposites(Scene):
         
         text = Text(
             str(number),
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=font_size,
             color=WHITE
         )
@@ -148,7 +148,7 @@ class PrimesComposites(Scene):
         # 作者信息（顶部，始终保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -158,7 +158,7 @@ class PrimesComposites(Scene):
         # 钩子问题
         hook_text = Text(
             "这些数字有什么秘密?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -203,7 +203,7 @@ class PrimesComposites(Scene):
         # 问题
         question = Text(
             "它们有什么不同?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 0.5)
@@ -225,7 +225,7 @@ class PrimesComposites(Scene):
         # 标题
         title = Text(
             "因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -235,7 +235,7 @@ class PrimesComposites(Scene):
         # 定义
         definition = Text(
             "能整除一个数的整数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4)
@@ -246,7 +246,7 @@ class PrimesComposites(Scene):
         # 例子标题
         example_title = Text(
             "例如：6 的因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -277,7 +277,7 @@ class PrimesComposites(Scene):
         # 总结
         summary = Text(
             "6 有 4 个因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -306,7 +306,7 @@ class PrimesComposites(Scene):
         # 标题
         title = Text(
             "素数（质数）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIME
         ).move_to(UP * 5.5)
@@ -316,7 +316,7 @@ class PrimesComposites(Scene):
         # 定义1
         definition_1 = Text(
             "只有 1 和本身两个因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4)
@@ -326,7 +326,7 @@ class PrimesComposites(Scene):
         # 定义2
         definition_2 = Text(
             "大于 1 的正整数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 3.3)
@@ -337,7 +337,7 @@ class PrimesComposites(Scene):
         # 例子标题
         example_title = Text(
             "例如：7 是素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -366,7 +366,7 @@ class PrimesComposites(Scene):
         # 计数
         count = Text(
             "只有 2 个因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -376,14 +376,14 @@ class PrimesComposites(Scene):
         # 判定
         checkmark = Text(
             "✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIME
         )
         
         judgment_text = Text(
             "7 是素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIME
         )
@@ -402,7 +402,7 @@ class PrimesComposites(Scene):
         # 更多例子
         more = Text(
             "更多素数: 2, 3, 5, 7, 11, 13, 17, 19...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -428,7 +428,7 @@ class PrimesComposites(Scene):
         # 标题
         title = Text(
             "合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_COMPOSITE
         ).move_to(UP * 5.5)
@@ -438,7 +438,7 @@ class PrimesComposites(Scene):
         # 定义
         definition = Text(
             "除了 1 和本身还有其他因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4)
@@ -449,7 +449,7 @@ class PrimesComposites(Scene):
         # 例子标题
         example_title = Text(
             "例如：6 是合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -484,7 +484,7 @@ class PrimesComposites(Scene):
         # 计数
         count = Text(
             "有 4 个因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 1.5)
@@ -494,7 +494,7 @@ class PrimesComposites(Scene):
         # 说明
         note = Text(
             "除了1和6，还有2和3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -504,14 +504,14 @@ class PrimesComposites(Scene):
         # 判定
         checkmark = Text(
             "✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_COMPOSITE
         )
         
         judgment_text = Text(
             "6 是合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_COMPOSITE
         )
@@ -530,7 +530,7 @@ class PrimesComposites(Scene):
         # 更多例子
         more = Text(
             "更多合数: 4, 6, 8, 9, 10, 12, 14, 15...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -556,7 +556,7 @@ class PrimesComposites(Scene):
         # 标题
         title = Text(
             "特殊情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -581,7 +581,7 @@ class PrimesComposites(Scene):
         # 说明1
         note_1 = Text(
             "只有 1 个因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=WHITE
         ).move_to(LEFT * 2 + UP * 0.8)
@@ -591,14 +591,14 @@ class PrimesComposites(Scene):
         # 结论1
         conclusion_1_line1 = Text(
             "1 既不是素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SPECIAL
         ).move_to(LEFT * 2 + UP * 0.1)
         
         conclusion_1_line2 = Text(
             "也不是合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SPECIAL
         ).move_to(LEFT * 2 + DOWN * 0.5)
@@ -636,7 +636,7 @@ class PrimesComposites(Scene):
         # 说明2a
         note_2a = Text(
             "最小的素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIME
         ).move_to(RIGHT * 2 + UP * 0.8)
@@ -646,7 +646,7 @@ class PrimesComposites(Scene):
         # 说明2b
         note_2b = Text(
             "唯一的偶素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIME
         ).move_to(RIGHT * 2 + UP * 0.1)
@@ -662,7 +662,7 @@ class PrimesComposites(Scene):
         # 强调说明
         star = Text(
             "★",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=YELLOW
         ).next_to(note_2b, LEFT, buff=0.2)
@@ -689,7 +689,7 @@ class PrimesComposites(Scene):
         # 标题
         title = Text(
             "1-20 的分类",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -733,7 +733,7 @@ class PrimesComposites(Scene):
         # 提示
         prompt = Text(
             "让我们分类吧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -771,21 +771,21 @@ class PrimesComposites(Scene):
         # 统计
         count_primes = Text(
             f"素数: {len(primes)} 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIME
         ).move_to(DOWN * 2.5 + LEFT * 1.5)
         
         count_composites = Text(
             f"合数: {len(composites)} 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_COMPOSITE
         ).move_to(DOWN * 2.5 + RIGHT * 1.5)
         
         count_special = Text(
             "特殊: 1 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SPECIAL
         ).move_to(DOWN * 3.5)
@@ -834,7 +834,7 @@ class PrimesComposites(Scene):
         # 总结标题
         summary_title = Text(
             "记住这些!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -844,7 +844,7 @@ class PrimesComposites(Scene):
         # 要点1
         point_1 = Text(
             "素数 = 只有 2 个因数 (1和本身)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIME
         ).move_to(UP * 3.5)
@@ -855,7 +855,7 @@ class PrimesComposites(Scene):
         # 要点2
         point_2 = Text(
             "合数 = 有 3 个或更多因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_COMPOSITE
         ).move_to(UP * 2.5)
@@ -866,7 +866,7 @@ class PrimesComposites(Scene):
         # 要点3
         point_3 = Text(
             "1 既不是素数也不是合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SPECIAL
         ).move_to(UP * 1.5)
@@ -877,7 +877,7 @@ class PrimesComposites(Scene):
         # 要点4
         point_4 = Text(
             "2 是最小且唯一的偶素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIME
         ).move_to(UP * 0.5)
@@ -916,7 +916,7 @@ class PrimesComposites(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 2)
@@ -926,7 +926,7 @@ class PrimesComposites(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -936,7 +936,7 @@ class PrimesComposites(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

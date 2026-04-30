@@ -23,7 +23,7 @@ COLOR_RULE    = "#ffd54f"   # 金黄  — 运算法则
 COLOR_RESULT  = "#80cbc4"   # 青绿  — 结果
 COLOR_FORMULA = "#ffd54f"
 COLOR_AUTHOR  = "#78909c"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class FractionalExponent(Scene):

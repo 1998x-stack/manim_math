@@ -50,20 +50,20 @@ class ProbabilityFrequency(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B,
+            font="PingFang SC", font_size=18, color=GRAY_B,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
 
         chapter = Text("八年级 · 第二十三章 · 概率初步",
-                       font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+                       font="PingFang SC", font_size=20, color=GRAY_B,
                        ).move_to(UP * 6.55)
         self.play(FadeIn(chapter), run_time=0.3)
 
         hook = Text("抛 10 次硬币：7次正面",
-                    font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+                    font="PingFang SC", font_size=34, color=self.C_TITLE,
                     ).move_to(UP * 5.7)
         hook2 = Text("抛 1000 次呢？",
-                     font="Noto Sans CJK SC", font_size=34, color=self.C_ORANGE,
+                     font="PingFang SC", font_size=34, color=self.C_ORANGE,
                      ).move_to(UP * 5.0)
         self.play(Write(hook), run_time=0.6)
         self.play(Write(hook2), run_time=0.5)
@@ -78,7 +78,7 @@ class ProbabilityFrequency(Scene):
         self.play(Write(freq1000), run_time=0.5)
 
         insight = Text("次数越多，频率越稳定！",
-                       font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+                       font="PingFang SC", font_size=30, color=self.C_TITLE,
                        ).move_to(UP * 1.5)
         self.play(FadeIn(insight, shift=UP * 0.2), run_time=0.5)
         self.wait(1.0)
@@ -90,7 +90,7 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 2 ───────────
     def scene_freq_def(self):
         title = Text("频率的定义",
-                     font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+                     font="PingFang SC", font_size=46, color=self.C_TITLE,
                      ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.5)
 
@@ -103,11 +103,11 @@ class ProbabilityFrequency(Scene):
         # 标注 k 和 n
         k_bg = self.card(3.3, 1.4, self.C_ORANGE, UP * 3.6 + LEFT * 1.85)
         k_t  = Text("k = 事件发生次数",
-                    font="Noto Sans CJK SC", font_size=20, color=self.C_ORANGE,
+                    font="PingFang SC", font_size=20, color=self.C_ORANGE,
                     ).move_to(UP * 3.6 + LEFT * 1.85)
         n_bg = self.card(3.3, 1.4, self.C_PURPLE, UP * 3.6 + RIGHT * 1.85)
         n_t  = Text("n = 试验总次数",
-                    font="Noto Sans CJK SC", font_size=20, color=self.C_PURPLE,
+                    font="PingFang SC", font_size=20, color=self.C_PURPLE,
                     ).move_to(UP * 3.6 + RIGHT * 1.85)
         self.play(Create(k_bg), Write(k_t), Create(n_bg), Write(n_t),
                   run_time=0.6)
@@ -115,20 +115,20 @@ class ProbabilityFrequency(Scene):
         # 特性
         props_bg = self.card(7.4, 2.8, self.C_PURPLE, UP * 1.9)
         p1 = Text("① 0 ≤ f(A) ≤ 1",
-                  font="Noto Sans CJK SC", font_size=24, color=WHITE)
+                  font="PingFang SC", font_size=24, color=WHITE)
         p2 = Text("② n 增大，f(A) 趋于稳定",
-                  font="Noto Sans CJK SC", font_size=24, color=self.C_RESULT)
+                  font="PingFang SC", font_size=24, color=self.C_RESULT)
         p3 = Text("③ 稳定值即为概率 P(A)",
-                  font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE)
+                  font="PingFang SC", font_size=24, color=self.C_TITLE)
         VGroup(p1, p2, p3).arrange(DOWN, buff=0.25).move_to(UP * 1.9)
         self.play(Create(props_bg), *[Write(t) for t in [p1, p2, p3]],
                   run_time=0.8)
 
         diff_bg = self.card(7.4, 1.5, self.C_RED, UP * 0.3, fill="#2d0a0a")
         diff_t1 = Text("频率 ≠ 概率",
-                       font="Noto Sans CJK SC", font_size=26, color=self.C_RED)
+                       font="PingFang SC", font_size=26, color=self.C_RED)
         diff_t2 = Text("（频率是统计值，概率是理论值）",
-                       font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+                       font="PingFang SC", font_size=20, color=GRAY_A)
         VGroup(diff_t1, diff_t2).arrange(RIGHT, buff=0.2).move_to(UP * 0.3)
         self.play(Create(diff_bg), Write(diff_t1), FadeIn(diff_t2), run_time=0.6)
         self.wait(2.0)
@@ -137,7 +137,7 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 3: frequency chart ───────────
     def scene_freq_chart(self):
         title = Text("频率随试验次数的变化",
-                     font="Noto Sans CJK SC", font_size=32, color=self.C_TITLE,
+                     font="PingFang SC", font_size=32, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.5)
 
@@ -159,10 +159,10 @@ class ProbabilityFrequency(Scene):
                        buff=0, color=GRAY_A, stroke_width=2,
                        max_tip_length_to_length_ratio=0.05)
         x_lbl = Text("n（试验次数）",
-                     font="Noto Sans CJK SC", font_size=16, color=GRAY_A,
+                     font="PingFang SC", font_size=16, color=GRAY_A,
                      ).move_to(ax_origin + RIGHT * (ax_w + 0.7) + DOWN * 0.2)
         y_lbl = Text("f（频率）",
-                     font="Noto Sans CJK SC", font_size=16, color=GRAY_A,
+                     font="PingFang SC", font_size=16, color=GRAY_A,
                      ).move_to(ax_origin + UP * (ax_h + 0.55) + RIGHT * 0.5)
         y_tick = MathTex(r"0.5", font_size=18, color=GRAY_A).move_to(
             ax_origin + UP * ax_h * 0.5 + LEFT * 0.4)
@@ -200,7 +200,7 @@ class ProbabilityFrequency(Scene):
             prev_pt = pt
 
         insight = Text("n越大，频率越靠近 0.5！",
-                       font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE,
+                       font="PingFang SC", font_size=24, color=self.C_TITLE,
                        ).move_to(UP * 1.3)
         self.play(FadeIn(insight, shift=UP * 0.15), run_time=0.4)
         self.wait(2.0)
@@ -209,7 +209,7 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 4: limit ───────────
     def scene_limit(self):
         title = Text("频率的极限 = 概率",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE,
+                     font="PingFang SC", font_size=38, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.5)
 
@@ -222,18 +222,18 @@ class ProbabilityFrequency(Scene):
 
         # 箭头说明
         arrow_bg = self.card(7.4, 2.8, self.C_PURPLE, UP * 3.3)
-        a1_l = Text("频率", font="Noto Sans CJK SC",
+        a1_l = Text("频率", font="PingFang SC",
                     font_size=28, color=self.C_ORANGE)
         a1_arr = MathTex(r"\xrightarrow{n\to\infty}", font_size=36, color=WHITE)
-        a1_r = Text("概率", font="Noto Sans CJK SC",
+        a1_r = Text("概率", font="PingFang SC",
                     font_size=28, color=self.C_GREEN)
         a1_row = VGroup(a1_l, a1_arr, a1_r).arrange(RIGHT, buff=0.3)
 
-        a2_l = Text("统计值", font="Noto Sans CJK SC",
+        a2_l = Text("统计值", font="PingFang SC",
                     font_size=22, color=self.C_ORANGE)
         a2_arr = MathTex(r"\xrightarrow{\text{converge}}", font_size=30,
                          color=GRAY_A)
-        a2_r = Text("理论值", font="Noto Sans CJK SC",
+        a2_r = Text("理论值", font="PingFang SC",
                     font_size=22, color=self.C_GREEN)
         a2_row = VGroup(a2_l, a2_arr, a2_r).arrange(RIGHT, buff=0.3)
         VGroup(a1_row, a2_row).arrange(DOWN, buff=0.4).move_to(UP * 3.3)
@@ -242,15 +242,15 @@ class ProbabilityFrequency(Scene):
         # 实际应用
         app_bg = self.card(7.4, 1.8, self.C_GREEN, UP * 1.6)
         app_t1 = Text("实际应用：大量重复试验",
-                      font="Noto Sans CJK SC", font_size=24, color=self.C_GREEN)
+                      font="PingFang SC", font_size=24, color=self.C_GREEN)
         app_t2 = Text("用频率估计概率",
-                      font="Noto Sans CJK SC", font_size=24, color=WHITE)
+                      font="PingFang SC", font_size=24, color=WHITE)
         VGroup(app_t1, app_t2).arrange(DOWN, buff=0.15).move_to(UP * 1.6)
         self.play(Create(app_bg), Write(app_t1), Write(app_t2), run_time=0.6)
 
         rule_bg = self.card(7.4, 1.4, self.C_TITLE, UP * 0.3, fill="#1a1000")
         rule_t  = Text("大数定律：试验次数越大，频率越稳定",
-                       font="Noto Sans CJK SC", font_size=22,
+                       font="PingFang SC", font_size=22,
                        color=self.C_TITLE).move_to(UP * 0.3)
         self.play(Create(rule_bg), Write(rule_t), run_time=0.6)
         self.wait(2.0)
@@ -259,12 +259,12 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 5: history ───────────
     def scene_history(self):
         title = Text("历史实验数据",
-                     font="Noto Sans CJK SC", font_size=42, color=self.C_TITLE,
+                     font="PingFang SC", font_size=42, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.4)
 
         sub = Text("科学家抛硬币实验记录",
-                   font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+                   font="PingFang SC", font_size=24, color=GRAY_A,
                    ).move_to(UP * 5.7)
         self.play(FadeIn(sub), run_time=0.3)
 
@@ -286,7 +286,7 @@ class ProbabilityFrequency(Scene):
                                   ).move_to(np.array([0, header_y, 0]))
         self.play(Create(hdr_bg), run_time=0.3)
         for x, h in zip(col_xs, headers):
-            t = Text(h, font="Noto Sans CJK SC",
+            t = Text(h, font="PingFang SC",
                      font_size=19, color=self.C_MAIN,
                      ).move_to(np.array([x, header_y, 0]))
             self.play(Write(t), run_time=0.15)
@@ -301,7 +301,7 @@ class ProbabilityFrequency(Scene):
             self.play(Create(row_bg), run_time=0.18)
             for x, val in zip(col_xs, [name, n, k, f]):
                 col = self.C_RESULT if val == f else WHITE
-                t   = Text(val, font="Noto Sans CJK SC",
+                t   = Text(val, font="PingFang SC",
                            font_size=19, color=col,
                            ).move_to(np.array([x, row_y, 0]))
                 self.play(Write(t), run_time=0.15)
@@ -309,9 +309,9 @@ class ProbabilityFrequency(Scene):
         # 频率列高亮说明
         note_bg = self.card(7.4, 1.6, self.C_GREEN, UP * 0.9)
         note_t1 = Text("所有频率都接近 0.5",
-                       font="Noto Sans CJK SC", font_size=24, color=self.C_GREEN)
+                       font="PingFang SC", font_size=24, color=self.C_GREEN)
         note_t2 = Text("次数越多越精确！",
-                       font="Noto Sans CJK SC", font_size=22, color=WHITE)
+                       font="PingFang SC", font_size=22, color=WHITE)
         VGroup(note_t1, note_t2).arrange(DOWN, buff=0.15).move_to(UP * 0.9)
         self.play(Create(note_bg), Write(note_t1), Write(note_t2), run_time=0.6)
         self.wait(2.0)
@@ -320,13 +320,13 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 6: comparison ───────────
     def scene_comparison(self):
         title = Text("频率 vs 概率",
-                     font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+                     font="PingFang SC", font_size=44, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.4)
 
         # 左：频率
         l_bg = self.card(3.5, 5.0, self.C_ORANGE, UP * 3.8 + LEFT * 1.9)
-        lt   = Text("频率", font="Noto Sans CJK SC",
+        lt   = Text("频率", font="PingFang SC",
                     font_size=32, color=self.C_ORANGE).move_to(
             UP * 5.5 + LEFT * 1.9)
         props_l = [
@@ -337,13 +337,13 @@ class ProbabilityFrequency(Scene):
             "概率的估计值",
         ]
         l_items = VGroup(*[
-            Text(s, font="Noto Sans CJK SC", font_size=19, color=WHITE)
+            Text(s, font="PingFang SC", font_size=19, color=WHITE)
             for s in props_l
         ]).arrange(DOWN, buff=0.28).move_to(UP * 3.8 + LEFT * 1.9)
 
         # 右：概率
         r_bg = self.card(3.5, 5.0, self.C_MAIN, UP * 3.8 + RIGHT * 1.9)
-        rt   = Text("概率", font="Noto Sans CJK SC",
+        rt   = Text("概率", font="PingFang SC",
                     font_size=32, color=self.C_MAIN).move_to(
             UP * 5.5 + RIGHT * 1.9)
         props_r = [
@@ -354,7 +354,7 @@ class ProbabilityFrequency(Scene):
             "频率的极限值",
         ]
         r_items = VGroup(*[
-            Text(s, font="Noto Sans CJK SC", font_size=19, color=WHITE)
+            Text(s, font="PingFang SC", font_size=19, color=WHITE)
             for s in props_r
         ]).arrange(DOWN, buff=0.28).move_to(UP * 3.8 + RIGHT * 1.9)
 
@@ -365,7 +365,7 @@ class ProbabilityFrequency(Scene):
 
         link_bg = self.card(7.4, 1.4, self.C_TITLE, UP * 1.1, fill="#1a1000")
         link_t  = Text("频率是概率的近似；概率是频率的稳定值",
-                       font="Noto Sans CJK SC", font_size=21,
+                       font="PingFang SC", font_size=21,
                        color=self.C_TITLE).move_to(UP * 1.1)
         self.play(Create(link_bg), Write(link_t), run_time=0.5)
         self.wait(2.0)
@@ -374,7 +374,7 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 7: practice ───────────
     def scene_quick_practice(self):
         title = Text("综合练习",
-                     font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+                     font="PingFang SC", font_size=44, color=self.C_TITLE,
                      ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.4)
 
@@ -394,9 +394,9 @@ class ProbabilityFrequency(Scene):
         for i, (q, res, col, hint) in enumerate(items):
             pos = UP * (start_y - i * gap)
             bg  = self.card(7.6, card_h, col, pos)
-            qt  = Text(q, font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            qt  = Text(q, font="PingFang SC", font_size=22, color=WHITE)
             rf  = MathTex(res, font_size=30, color=self.C_RESULT)
-            ht  = Text(hint, font="Noto Sans CJK SC",
+            ht  = Text(hint, font="PingFang SC",
                        font_size=18, color=GRAY_A)
             VGroup(qt, rf, ht).arrange(DOWN, buff=0.15).move_to(pos)
             self.play(Create(bg), Write(qt), run_time=0.30)
@@ -409,7 +409,7 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 8: summary ───────────
     def scene_summary(self):
         title = Text("知识点总结",
-                     font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+                     font="PingFang SC", font_size=46, color=self.C_TITLE,
                      ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.4)
 
@@ -427,7 +427,7 @@ class ProbabilityFrequency(Scene):
         ]
         for col, pos, lbl, fml in blocks:
             bg = self.card(7.6, 1.3, col, pos)
-            lt = Text(lbl, font="Noto Sans CJK SC", font_size=22, color=col)
+            lt = Text(lbl, font="PingFang SC", font_size=22, color=col)
             ft = MathTex(fml, font_size=26, color=WHITE)
             VGroup(lt, ft).arrange(RIGHT, buff=0.4).move_to(pos)
             self.play(Create(bg), Write(lt), Write(ft), run_time=0.42)
@@ -438,16 +438,16 @@ class ProbabilityFrequency(Scene):
     # ─────────── Scene 9 ───────────
     def scene_outro(self):
         big = Text("上海初高中数学直通车",
-                   font="Noto Sans CJK SC", font_size=38, color=WHITE,
+                   font="PingFang SC", font_size=38, color=WHITE,
                    ).move_to(UP * 2.5)
         uid = Text("@emptyandcalm",
-                   font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+                   font="PingFang SC", font_size=28, color=GRAY_B,
                    ).move_to(UP * 1.7)
         self.play(Transform(self.author, big), run_time=0.8)
         self.play(FadeIn(uid, shift=UP * 0.2), run_time=0.4)
 
         follow = Text("关注我，学更多数学知识！",
-                      font="Noto Sans CJK SC", font_size=30,
+                      font="PingFang SC", font_size=30,
                       color=self.C_TITLE).move_to(UP * 0.3)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
 

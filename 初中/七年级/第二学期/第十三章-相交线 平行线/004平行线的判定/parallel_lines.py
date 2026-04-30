@@ -23,7 +23,7 @@ config.frame_width  = 9
 config.frame_height = 16
 
 # ── 全局常量 ─────────────────────────────────────────────
-FONT = "Noto Sans CJK SC"  # 中文字体
+FONT = "PingFang SC"  # 中文字体
 
 C_LINE1   = "#3498db"   # 蓝  — 直线 l
 C_LINE2   = "#2ecc71"   # 绿  — 直线 m

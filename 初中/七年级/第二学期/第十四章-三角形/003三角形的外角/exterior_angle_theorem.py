@@ -120,7 +120,7 @@ class ExteriorAngleTheorem(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_GRAY
         ).move_to(UP * 7)
@@ -130,7 +130,7 @@ class ExteriorAngleTheorem(Scene):
         # 钩子问题
         hook_text = Text(
             "外角 = 两个内角之和?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -203,7 +203,7 @@ class ExteriorAngleTheorem(Scene):
         
         explain_exterior = Text(
             "外角 α",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GRAY
         ).move_to(DOWN * 5)
@@ -256,7 +256,7 @@ class ExteriorAngleTheorem(Scene):
         # 提出问题
         question_chinese = Text(
             "α = ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -265,7 +265,7 @@ class ExteriorAngleTheorem(Scene):
             font_size=28,
             color=WHITE
         )
-        question_mark = Text(" ?", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+        question_mark = Text(" ?", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
         
         question = VGroup(question_chinese, question_math, question_mark).arrange(RIGHT, buff=0.1)
         question.move_to(DOWN * 5)
@@ -286,7 +286,7 @@ class ExteriorAngleTheorem(Scene):
         # 提示
         hint = Text(
             "关键: 过C作AB的平行线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -352,7 +352,7 @@ class ExteriorAngleTheorem(Scene):
         # 说明
         explain = Text(
             "CE // AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GRAY
         ).move_to(DOWN * 6)
@@ -369,7 +369,7 @@ class ExteriorAngleTheorem(Scene):
         # 标题
         title_step1 = Text(
             "步骤1: 利用内错角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -422,7 +422,7 @@ class ExteriorAngleTheorem(Scene):
         # 解释
         explain_1 = Text(
             "CE // AB, 内错角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GRAY
         ).move_to(DOWN * 5.5)
@@ -446,7 +446,7 @@ class ExteriorAngleTheorem(Scene):
         # 标题
         title_step2 = Text(
             "步骤2: 利用同位角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -498,7 +498,7 @@ class ExteriorAngleTheorem(Scene):
         # 解释
         explain_2 = Text(
             "CE // AB, 同位角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GRAY
         ).move_to(DOWN * 6.5)
@@ -522,7 +522,7 @@ class ExteriorAngleTheorem(Scene):
         # 标题
         title_final = Text(
             "综合推导",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -532,7 +532,7 @@ class ExteriorAngleTheorem(Scene):
         # 提示外角拆分
         hint_split = Text(
             "外角 = ∠ACE + ∠ECD",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_GRAY
         ).move_to(UP * 4.5)
@@ -546,7 +546,7 @@ class ExteriorAngleTheorem(Scene):
         )
         
         # 显示拆分等式
-        split_chinese = Text("α = ", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+        split_chinese = Text("α = ", font="PingFang SC", font_size=28, color=WHITE)
         split_math = MathTex(r"\angle ACE + \angle ECD", font_size=28, color=WHITE)
         split_equation = VGroup(split_chinese, split_math).arrange(RIGHT, buff=0.1)
         split_equation.move_to(DOWN * 3.5)
@@ -564,7 +564,7 @@ class ExteriorAngleTheorem(Scene):
         )
         
         # 替换符号 - 创建最终等式
-        final_chinese = Text("α = ", font="Noto Sans CJK SC", font_size=40, color=GOLD)
+        final_chinese = Text("α = ", font="PingFang SC", font_size=40, color=GOLD)
         final_math = MathTex(r"\angle A + \angle B", font_size=40, color=GOLD)
         final_checkmark = MathTex(r"\checkmark", font_size=40, color=GREEN).scale(1.2)
         
@@ -631,7 +631,7 @@ class ExteriorAngleTheorem(Scene):
         # 定理卡片
         theorem_title = Text(
             "三角形外角定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
             weight=BOLD
@@ -642,19 +642,19 @@ class ExteriorAngleTheorem(Scene):
         # 要点列表
         point_1 = Text(
             "• 外角 = 两个不相邻内角之和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         point_2 = Text(
             "• 关键: 作平行线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         )
         point_3 = Text(
             "• 利用内错角和同位角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -667,14 +667,14 @@ class ExteriorAngleTheorem(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 4)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_GRAY
         ).next_to(author_large, DOWN, buff=0.2)
@@ -688,7 +688,7 @@ class ExteriorAngleTheorem(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)

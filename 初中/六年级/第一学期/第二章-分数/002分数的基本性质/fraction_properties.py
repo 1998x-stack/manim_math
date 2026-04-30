@@ -129,7 +129,7 @@ class FractionProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -139,7 +139,7 @@ class FractionProperties(Scene):
         # 钩子问题
         hook_text = Text(
             "这三个分数相等吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -184,7 +184,7 @@ class FractionProperties(Scene):
         
         # 第一个分数条 (1/2)
         bar_1 = self.create_fraction_bar(2, 1, UP * 3.5)
-        label_1 = Text("1/2", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(bar_1, LEFT, buff=0.3)
+        label_1 = Text("1/2", font="PingFang SC", font_size=20, color=WHITE).next_to(bar_1, LEFT, buff=0.3)
         
         self.play(
             Create(bar_1[0]),  # 外框
@@ -198,7 +198,7 @@ class FractionProperties(Scene):
         
         # 第二个分数条 (2/4)
         bar_2 = self.create_fraction_bar(4, 2, UP * 2)
-        label_2 = Text("2/4", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(bar_2, LEFT, buff=0.3)
+        label_2 = Text("2/4", font="PingFang SC", font_size=20, color=WHITE).next_to(bar_2, LEFT, buff=0.3)
         
         self.play(
             Create(bar_2[0]),
@@ -212,7 +212,7 @@ class FractionProperties(Scene):
         
         # 第三个分数条 (3/6)
         bar_3 = self.create_fraction_bar(6, 3, UP * 0.5)
-        label_3 = Text("3/6", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(bar_3, LEFT, buff=0.3)
+        label_3 = Text("3/6", font="PingFang SC", font_size=20, color=WHITE).next_to(bar_3, LEFT, buff=0.3)
         
         self.play(
             Create(bar_3[0]),
@@ -233,7 +233,7 @@ class FractionProperties(Scene):
         # 结论
         conclusion = Text(
             "它们确实相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -256,7 +256,7 @@ class FractionProperties(Scene):
         # 标题
         title = Text(
             "分数的基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -266,21 +266,21 @@ class FractionProperties(Scene):
         # 性质描述 (分两行)
         property_line1 = Text(
             "分数的分子和分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 4)
         
         property_line2 = Text(
             "同时乘以或除以同一个不为零的数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 3.2)
         
         property_line3 = Text(
             "分数的值不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.4)
@@ -305,7 +305,7 @@ class FractionProperties(Scene):
         # 公式预告
         formula_preview = Text(
             "用公式表达:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 0.8)
@@ -329,7 +329,7 @@ class FractionProperties(Scene):
         # 标题
         title = Text(
             "乘法性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_MULTIPLY
         ).move_to(UP * 6.5)
@@ -348,7 +348,7 @@ class FractionProperties(Scene):
         # 说明文字
         explain_1 = Text(
             "分子分母同时乘以 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -408,7 +408,7 @@ class FractionProperties(Scene):
         
         explain_2 = Text(
             "再同时乘以 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -516,7 +516,7 @@ class FractionProperties(Scene):
         # 标题
         title = Text(
             "除法性质 (约分)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_DIVIDE
         ).move_to(UP * 6.5)
@@ -535,7 +535,7 @@ class FractionProperties(Scene):
         # 说明文字
         explain_3 = Text(
             "分子分母同时除以 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -617,7 +617,7 @@ class FractionProperties(Scene):
         
         explain_4 = Text(
             "再同时除以 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -669,7 +669,7 @@ class FractionProperties(Scene):
         # "最简分数"标注
         simplest_label = Text(
             "最简分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).next_to(final_frac, DOWN, buff=0.3)
@@ -736,7 +736,7 @@ class FractionProperties(Scene):
         # 标题
         title = Text(
             "实际应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -746,7 +746,7 @@ class FractionProperties(Scene):
         # 应用1: 通分 (比较大小)
         question = Text(
             "比较大小: 哪个更大?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 1.8)
@@ -755,7 +755,7 @@ class FractionProperties(Scene):
         
         frac_a = MathTex(r"\frac{1}{3}", font_size=60, color=WHITE).move_to(LEFT * 2 + UP * 0.5)
         frac_b = MathTex(r"\frac{1}{4}", font_size=60, color=WHITE).move_to(RIGHT * 2 + UP * 0.5)
-        vs_text = Text("VS", font="Noto Sans CJK SC", font_size=32, color=GRAY_A).move_to(UP * 0.5)
+        vs_text = Text("VS", font="PingFang SC", font_size=32, color=GRAY_A).move_to(UP * 0.5)
         
         self.play(
             FadeIn(frac_a),
@@ -769,7 +769,7 @@ class FractionProperties(Scene):
         # 说明通分
         explain_5 = Text(
             "通分: 找公分母 12",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -803,7 +803,7 @@ class FractionProperties(Scene):
         # 结论
         conclusion_compare = Text(
             "所以 1/3 > 1/4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.2)
@@ -824,7 +824,7 @@ class FractionProperties(Scene):
         # 应用2: 约分
         simplify_title = Text(
             "约分: 化简分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -838,7 +838,7 @@ class FractionProperties(Scene):
         # 找最大公约数
         gcd_hint = Text(
             "最大公约数: 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.8)
@@ -868,7 +868,7 @@ class FractionProperties(Scene):
         # 标注
         final_label = Text(
             "最简分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).next_to(simplified_final, DOWN, buff=0.3)
@@ -904,7 +904,7 @@ class FractionProperties(Scene):
         # 总结标题
         summary_title = Text(
             "记住这三点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -914,21 +914,21 @@ class FractionProperties(Scene):
         # 三个要点
         point_1 = Text(
             "1. 分子分母同时乘或除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 3.8)
         
         point_2 = Text(
             "2. 这个数不能为 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 2.8)
         
         point_3 = Text(
             "3. 应用: 通分和约分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 1.8)
@@ -955,14 +955,14 @@ class FractionProperties(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(DOWN * 3)
@@ -976,7 +976,7 @@ class FractionProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)

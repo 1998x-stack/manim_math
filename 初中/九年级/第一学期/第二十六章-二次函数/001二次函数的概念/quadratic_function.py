@@ -46,7 +46,7 @@ C_TEXT         = WHITE
 C_SUBTEXT      = GRAY_A
 C_LABEL        = YELLOW
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # 字体规范
 FS_TITLE    = 38

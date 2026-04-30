@@ -198,7 +198,7 @@ class PerpendicularChordTheorem(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -208,7 +208,7 @@ class PerpendicularChordTheorem(Scene):
         # 钩子问题
         hook_question = Text(
             "如何快速平分一条弦?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -238,8 +238,8 @@ class PerpendicularChordTheorem(Scene):
         self.dot_A = Dot(self.A, color=WHITE, radius=0.08)
         self.dot_B = Dot(self.B, color=WHITE, radius=0.08)
         
-        self.label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.dot_A, UL, buff=0.15)
-        self.label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.dot_B, DR, buff=0.15)
+        self.label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(self.dot_A, UL, buff=0.15)
+        self.label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(self.dot_B, DR, buff=0.15)
         
         self.play(
             FadeIn(self.dot_A, scale=0.5),
@@ -259,7 +259,7 @@ class PerpendicularChordTheorem(Scene):
         # 提示
         hint_text = Text(
             "用垂径定理!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -279,7 +279,7 @@ class PerpendicularChordTheorem(Scene):
         # 标题
         self.title = Text(
             "垂径定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_DIAMETER,
             weight=BOLD
@@ -290,7 +290,7 @@ class PerpendicularChordTheorem(Scene):
         # 说明文字
         instruction = Text(
             "作垂直于AB的直径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -309,7 +309,7 @@ class PerpendicularChordTheorem(Scene):
         
         # 标记垂足D
         self.dot_D = Dot(self.D, color=self.COLOR_DIAMETER, radius=0.08)
-        self.label_D = Text("D", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_DIAMETER).next_to(self.dot_D, DOWN, buff=0.15)
+        self.label_D = Text("D", font="PingFang SC", font_size=22, color=self.COLOR_DIAMETER).next_to(self.dot_D, DOWN, buff=0.15)
         
         self.play(FadeIn(self.dot_D, scale=0.5), run_time=0.3)
         self.play(Write(self.label_D), run_time=0.3)
@@ -350,7 +350,7 @@ class PerpendicularChordTheorem(Scene):
         
         # 标记圆心O
         self.dot_O = Dot(self.O, color=RED, radius=0.10)
-        self.label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=RED).next_to(self.dot_O, LEFT, buff=0.15)
+        self.label_O = Text("O", font="PingFang SC", font_size=24, color=RED).next_to(self.dot_O, LEFT, buff=0.15)
         
         self.play(
             FadeIn(self.dot_O, scale=0.5),
@@ -362,7 +362,7 @@ class PerpendicularChordTheorem(Scene):
         self.dot_C = Dot(self.C, color=WHITE, radius=0.08)
         self.dot_D_ext = Dot(self.D_ext, color=WHITE, radius=0.08)
         
-        self.label_C = Text("C", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.dot_C, UP, buff=0.12)
+        self.label_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(self.dot_C, UP, buff=0.12)
         
         self.play(
             FadeIn(self.dot_C, scale=0.5),
@@ -393,7 +393,7 @@ class PerpendicularChordTheorem(Scene):
         # 说明文字
         step1_text = Text(
             "首先，证明平分弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4.2)
@@ -402,7 +402,7 @@ class PerpendicularChordTheorem(Scene):
         
         # 中点M标记（与D重合）
         dot_M = Dot(self.M, color=self.COLOR_HIGHLIGHT, radius=0.10)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT).next_to(dot_M, RIGHT, buff=0.15)
+        label_M = Text("M", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT).next_to(dot_M, RIGHT, buff=0.15)
         
         self.play(FadeIn(dot_M, scale=0.5), run_time=0.3)
         self.play(Flash(dot_M, color=self.COLOR_HIGHLIGHT, flash_radius=0.35), run_time=0.4)
@@ -415,7 +415,7 @@ class PerpendicularChordTheorem(Scene):
         
         # 创建Brace标注AM
         brace_AM = Brace(Line(self.A, self.M), direction=perp_unit, buff=0.1, color=self.COLOR_CHORD)
-        label_AM_text = Text("AM", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_CHORD)
+        label_AM_text = Text("AM", font="PingFang SC", font_size=20, color=self.COLOR_CHORD)
         label_AM_text.next_to(brace_AM, direction=perp_unit, buff=0.05)
         
         self.play(Create(brace_AM), run_time=0.5)
@@ -423,7 +423,7 @@ class PerpendicularChordTheorem(Scene):
         
         # 创建Brace标注MB
         brace_MB = Brace(Line(self.M, self.B), direction=perp_unit, buff=0.1, color=self.COLOR_CHORD)
-        label_MB_text = Text("MB", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_CHORD)
+        label_MB_text = Text("MB", font="PingFang SC", font_size=20, color=self.COLOR_CHORD)
         label_MB_text.next_to(brace_MB, direction=perp_unit, buff=0.05)
         
         self.play(Create(brace_MB), run_time=0.5)
@@ -469,7 +469,7 @@ class PerpendicularChordTheorem(Scene):
         # 说明文字
         step2_text = Text(
             "其次，平分优弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4.2)
@@ -590,7 +590,7 @@ class PerpendicularChordTheorem(Scene):
         # 注意：中文用Text，不能用MathTex
         conclusion_text = Text(
             "弧AC = 弧BC",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         )
@@ -624,7 +624,7 @@ class PerpendicularChordTheorem(Scene):
         # 说明文字
         step3_text = Text(
             "同时，平分劣弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4.2)
@@ -702,7 +702,7 @@ class PerpendicularChordTheorem(Scene):
         # 结论
         conclusion_text = Text(
             "弧AD = 弧DB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         )
@@ -728,7 +728,7 @@ class PerpendicularChordTheorem(Scene):
         # 标题变化
         summary_title = Text(
             "垂径定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD,
             weight=BOLD
@@ -739,21 +739,21 @@ class PerpendicularChordTheorem(Scene):
         # 定理陈述（分行）
         theorem_line1 = Text(
             "垂直于弦的直径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
         
         theorem_line2 = Text(
             "平分这条弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
         
         theorem_line3 = Text(
             "并且平分弦所对的两条弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -784,12 +784,12 @@ class PerpendicularChordTheorem(Scene):
         formula_arrow = MathTex(r"\Rightarrow", font_size=30, color=YELLOW)
         formula_part2 = MathTex(r"AM = MB", font_size=30, color=self.COLOR_CHORD)
         
-        formula_and = Text("且", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        formula_and = Text("且", font="PingFang SC", font_size=24, color=GRAY_A)
         
-        formula_part3_1 = Text("弧", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ARC_MAJOR)
+        formula_part3_1 = Text("弧", font="PingFang SC", font_size=24, color=self.COLOR_ARC_MAJOR)
         formula_part3_2 = MathTex(r"AC", font_size=28, color=self.COLOR_ARC_MAJOR)
         formula_part3_3 = MathTex(r"=", font_size=28, color=YELLOW)
-        formula_part3_4 = Text("弧", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ARC_MAJOR)
+        formula_part3_4 = Text("弧", font="PingFang SC", font_size=24, color=self.COLOR_ARC_MAJOR)
         formula_part3_5 = MathTex(r"BC", font_size=28, color=self.COLOR_ARC_MAJOR)
         
         formula_line1 = VGroup(formula_part1, formula_arrow, formula_part2).arrange(RIGHT, buff=0.2)
@@ -841,7 +841,7 @@ class PerpendicularChordTheorem(Scene):
         # 作者名放大并移动到中心
         author_name_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD
@@ -855,7 +855,7 @@ class PerpendicularChordTheorem(Scene):
         # 账号ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.3)
@@ -865,7 +865,7 @@ class PerpendicularChordTheorem(Scene):
         # 关注引导语
         follow_text = Text(
             "关注我，学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -892,7 +892,7 @@ class PerpendicularChordTheorem(Scene):
         # 关键词闪烁
         keyword = Text(
             "垂径定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
             weight=BOLD

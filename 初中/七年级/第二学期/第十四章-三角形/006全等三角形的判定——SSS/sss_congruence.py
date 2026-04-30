@@ -158,7 +158,7 @@ class SSSCongruence(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -168,14 +168,14 @@ class SSSCongruence(Scene):
         # 钩子问题
         hook_text = Text(
             "两个三角形什么时候全等？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=YELLOW
         ).move_to(UP * 6)
         
         subtitle = Text(
             "只知道边长就够了！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -226,14 +226,14 @@ class SSSCongruence(Scene):
         # 标题
         title = Text(
             "SSS判定法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
         
         definition = Text(
             "三边分别相等 → 全等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -250,9 +250,9 @@ class SSSCongruence(Scene):
         self.play(Create(self.triangle_ABC), run_time=1.0)
         
         # ABC标签
-        self.label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.A, DL, buff=0.1)
-        self.label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.B, DR, buff=0.1)
-        self.label_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.C, UP, buff=0.1)
+        self.label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(self.A, DL, buff=0.1)
+        self.label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(self.B, DR, buff=0.1)
+        self.label_C = Text("C", font="PingFang SC", font_size=20, color=WHITE).next_to(self.C, UP, buff=0.1)
         
         self.play(
             Write(self.label_A),
@@ -271,9 +271,9 @@ class SSSCongruence(Scene):
         self.play(Create(self.triangle_DEF), run_time=1.0)
         
         # DEF标签
-        self.label_D = Text("D", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.D, DL, buff=0.1)
-        self.label_E = Text("E", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.E, DR, buff=0.1)
-        self.label_F = Text("F", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.F, UP, buff=0.1)
+        self.label_D = Text("D", font="PingFang SC", font_size=20, color=WHITE).next_to(self.D, DL, buff=0.1)
+        self.label_E = Text("E", font="PingFang SC", font_size=20, color=WHITE).next_to(self.E, DR, buff=0.1)
+        self.label_F = Text("F", font="PingFang SC", font_size=20, color=WHITE).next_to(self.F, UP, buff=0.1)
         
         self.play(
             Write(self.label_D),
@@ -294,7 +294,7 @@ class SSSCongruence(Scene):
         # 步骤提示
         step_text = Text(
             "第一步：比较AB和DE",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -356,7 +356,7 @@ class SSSCongruence(Scene):
         # 步骤提示
         step_text = Text(
             "第二步：比较BC和EF",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -418,7 +418,7 @@ class SSSCongruence(Scene):
         # 步骤提示
         step_text = Text(
             "第三步：比较CA和FD",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -480,7 +480,7 @@ class SSSCongruence(Scene):
         # 提示文字
         hint = Text(
             "三边相等，两个三角形...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -532,7 +532,7 @@ class SSSCongruence(Scene):
         # 修正：中文不能在MathTex中，需要分离
         final_formula_parts = VGroup(
             MathTex(r"\triangle ABC \cong \triangle DEF", font_size=32, color=self.COLOR_SUCCESS),
-            Text("(SSS)", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SUCCESS)
+            Text("(SSS)", font="PingFang SC", font_size=28, color=self.COLOR_SUCCESS)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 4.8)
         
         self.play(Write(final_formula_parts), run_time=1.0)
@@ -578,8 +578,8 @@ class SSSCongruence(Scene):
         
         # 标题卡片
         title_card = VGroup(
-            Text("SSS判定法则", font="Noto Sans CJK SC", font_size=42, color=GOLD),
-            Text("Side-Side-Side", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+            Text("SSS判定法则", font="PingFang SC", font_size=42, color=GOLD),
+            Text("Side-Side-Side", font="PingFang SC", font_size=24, color=GRAY_A)
         ).arrange(DOWN, buff=0.3).move_to(UP * 4)
         
         self.play(FadeIn(title_card, shift=DOWN * 0.3), run_time=0.5)
@@ -587,7 +587,7 @@ class SSSCongruence(Scene):
         # 定义
         definition = Text(
             "三边分别对应相等的两个三角形全等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 2)
@@ -596,9 +596,9 @@ class SSSCongruence(Scene):
         
         # 口诀卡片
         slogan = VGroup(
-            Text("边边边", font="Noto Sans CJK SC", font_size=36, color=YELLOW),
-            Text("三边等", font="Noto Sans CJK SC", font_size=36, color=YELLOW),
-            Text("全等定！", font="Noto Sans CJK SC", font_size=36, color=YELLOW)
+            Text("边边边", font="PingFang SC", font_size=36, color=YELLOW),
+            Text("三边等", font="PingFang SC", font_size=36, color=YELLOW),
+            Text("全等定！", font="PingFang SC", font_size=36, color=YELLOW)
         ).arrange(RIGHT, buff=0.5).move_to(UP * 0.3)
         
         # 从左侧滑入
@@ -607,18 +607,18 @@ class SSSCongruence(Scene):
         
         # 要点列表
         point_1 = VGroup(
-            Text("✓", font="Noto Sans CJK SC", font_size=24, color=GREEN),
-            Text("只需证明三对边相等", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("✓", font="PingFang SC", font_size=24, color=GREEN),
+            Text("只需证明三对边相等", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 1.5)
         
         point_2 = VGroup(
-            Text("✓", font="Noto Sans CJK SC", font_size=24, color=GREEN),
-            Text("不需要证明角的关系", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("✓", font="PingFang SC", font_size=24, color=GREEN),
+            Text("不需要证明角的关系", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 2.5)
         
         point_3 = VGroup(
-            Text("✓", font="Noto Sans CJK SC", font_size=24, color=GREEN),
-            Text("注意对应关系要正确", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("✓", font="PingFang SC", font_size=24, color=GREEN),
+            Text("注意对应关系要正确", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 3.5)
         
         self.play(FadeIn(point_1, shift=UP * 0.2), run_time=0.5)
@@ -652,7 +652,7 @@ class SSSCongruence(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -665,7 +665,7 @@ class SSSCongruence(Scene):
         # 账号ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -675,7 +675,7 @@ class SSSCongruence(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，掌握更多全等判定方法！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW
         ).move_to(DOWN * 0.8)
@@ -699,9 +699,9 @@ class SSSCongruence(Scene):
         
         # SSS图标
         sss_icons = VGroup(
-            Text("S", font="Noto Sans CJK SC", font_size=32, color=BLUE),
-            Text("S", font="Noto Sans CJK SC", font_size=32, color=RED),
-            Text("S", font="Noto Sans CJK SC", font_size=32, color=GREEN)
+            Text("S", font="PingFang SC", font_size=32, color=BLUE),
+            Text("S", font="PingFang SC", font_size=32, color=RED),
+            Text("S", font="PingFang SC", font_size=32, color=GREEN)
         ).arrange(RIGHT, buff=0.3).move_to(DOWN * 2.5)
         
         self.play(
@@ -712,7 +712,7 @@ class SSSCongruence(Scene):
         # 结束语
         outro_text = Text(
             "SAS、ASA、AAS...下期见！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)

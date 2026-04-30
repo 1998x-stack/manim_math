@@ -84,7 +84,7 @@ class GCDTeaching(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -94,7 +94,7 @@ class GCDTeaching(Scene):
         # 钩子问题
         hook_text = Text(
             "12和18有什么共同点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -104,7 +104,7 @@ class GCDTeaching(Scene):
         # 数字12和18
         num_12 = Text(
             "12",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -112,7 +112,7 @@ class GCDTeaching(Scene):
         
         num_18 = Text(
             "18",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -131,7 +131,7 @@ class GCDTeaching(Scene):
         # 问题文字
         question = Text(
             "它们的最大公因数是多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -155,14 +155,14 @@ class GCDTeaching(Scene):
         # 标题
         title = Text(
             "什么是因数?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         definition = Text(
             "能整除一个数的数叫做它的因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -180,7 +180,7 @@ class GCDTeaching(Scene):
         # 12的因数标签
         label_12 = Text(
             "12的因数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(self.num_12, DOWN, buff=0.5)
@@ -190,7 +190,7 @@ class GCDTeaching(Scene):
         for i, factor in enumerate(self.factors_12):
             f_text = Text(
                 str(factor),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=self.COLOR_PRIMARY
             )
@@ -210,7 +210,7 @@ class GCDTeaching(Scene):
         # 18的因数标签
         label_18 = Text(
             "18的因数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).next_to(self.num_18, DOWN, buff=0.5)
@@ -220,7 +220,7 @@ class GCDTeaching(Scene):
         for factor in self.factors_18:
             f_text = Text(
                 str(factor),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=self.COLOR_SECONDARY
             )
@@ -240,7 +240,7 @@ class GCDTeaching(Scene):
         # 说明文字
         explanation = Text(
             "找出它们共有的因数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -267,7 +267,7 @@ class GCDTeaching(Scene):
         # 标题
         title = Text(
             "公因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_COMMON,
             weight=BOLD
@@ -275,7 +275,7 @@ class GCDTeaching(Scene):
         
         subtitle = Text(
             "两个数共有的因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -314,14 +314,14 @@ class GCDTeaching(Scene):
         # 圆标签
         label_12_venn = Text(
             "12",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_PRIMARY
         ).move_to(self.venn_left + UP * (self.venn_radius + 0.4))
         
         label_18_venn = Text(
             "18",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).move_to(self.venn_right + UP * (self.venn_radius + 0.4))
@@ -405,7 +405,7 @@ class GCDTeaching(Scene):
         # 说明文字
         explanation = Text(
             "公因数: 1, 2, 3, 6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_COMMON,
             weight=BOLD
@@ -452,7 +452,7 @@ class GCDTeaching(Scene):
         # 标题变换
         new_title = Text(
             "最大公因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_GCD,
             weight=BOLD
@@ -488,7 +488,7 @@ class GCDTeaching(Scene):
         # "最大"文字强调
         max_text = Text(
             "最大的公因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -537,7 +537,7 @@ class GCDTeaching(Scene):
         # 结论文字
         conclusion = Text(
             "12和18的最大公因数是6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -562,14 +562,14 @@ class GCDTeaching(Scene):
         # 标题
         title = Text(
             "短除法求最大公因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 7)
         
         instruction = Text(
             "用公因数连续除，直到互质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 6.3)
@@ -578,9 +578,9 @@ class GCDTeaching(Scene):
         self.play(FadeIn(instruction), run_time=0.5)
         
         # 初始数字
-        num_12_text = Text("12", font="Noto Sans CJK SC", font_size=36, 
+        num_12_text = Text("12", font="PingFang SC", font_size=36, 
                           color=self.COLOR_PRIMARY)
-        num_18_text = Text("18", font="Noto Sans CJK SC", font_size=36, 
+        num_18_text = Text("18", font="PingFang SC", font_size=36, 
                           color=self.COLOR_SECONDARY)
         
         # 位置
@@ -606,7 +606,7 @@ class GCDTeaching(Scene):
         # 步骤1: 除以2
         step1_text = Text(
             "步骤1: 找公因数2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -616,7 +616,7 @@ class GCDTeaching(Scene):
         # 除数2
         divisor_2 = Text(
             "2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_GCD
         ).move_to(self.division_top + LEFT * 2.5)
@@ -634,9 +634,9 @@ class GCDTeaching(Scene):
         self.play(Create(h_line_1), run_time=0.4)
         
         # 计算结果
-        result_6 = Text("6", font="Noto Sans CJK SC", font_size=36, 
+        result_6 = Text("6", font="PingFang SC", font_size=36, 
                        color=self.COLOR_PRIMARY)
-        result_9 = Text("9", font="Noto Sans CJK SC", font_size=36, 
+        result_9 = Text("9", font="PingFang SC", font_size=36, 
                        color=self.COLOR_SECONDARY)
         
         result_6_pos = num_12_pos + DOWN * self.row_spacing
@@ -651,7 +651,7 @@ class GCDTeaching(Scene):
         # 步骤2: 除以3
         step2_text = Text(
             "步骤2: 找公因数3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -665,7 +665,7 @@ class GCDTeaching(Scene):
         # 除数3
         divisor_3 = Text(
             "3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_GCD
         ).move_to(divisor_2.get_center() + DOWN * self.row_spacing)
@@ -683,9 +683,9 @@ class GCDTeaching(Scene):
         self.play(Create(h_line_2), run_time=0.4)
         
         # 最终结果
-        final_2 = Text("2", font="Noto Sans CJK SC", font_size=36, 
+        final_2 = Text("2", font="PingFang SC", font_size=36, 
                       color=self.COLOR_PRIMARY)
-        final_3 = Text("3", font="Noto Sans CJK SC", font_size=36, 
+        final_3 = Text("3", font="PingFang SC", font_size=36, 
                       color=self.COLOR_SECONDARY)
         
         final_2_pos = result_6_pos + DOWN * self.row_spacing
@@ -700,7 +700,7 @@ class GCDTeaching(Scene):
         # 互质说明
         coprime_text = Text(
             "2和3互质，停止",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -764,7 +764,7 @@ class GCDTeaching(Scene):
         # 最终答案文字
         final_answer = Text(
             "所以 gcd(12, 18) = 6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_GCD,
             weight=BOLD
@@ -802,7 +802,7 @@ class GCDTeaching(Scene):
         # 总结标题
         summary_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -818,7 +818,7 @@ class GCDTeaching(Scene):
                        fill_opacity=1, stroke_width=0)
         text_1 = Text(
             "公因数: 两个数共有的因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -831,7 +831,7 @@ class GCDTeaching(Scene):
                        fill_opacity=1, stroke_width=0)
         text_2 = Text(
             "最大公因数: 公因数中最大的",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -844,7 +844,7 @@ class GCDTeaching(Scene):
                        fill_opacity=1, stroke_width=0)
         text_3 = Text(
             "短除法: 公因数连除再相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -863,7 +863,7 @@ class GCDTeaching(Scene):
         
         # 示例回顾
         example_recap = VGroup(
-            Text("示例:", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("示例:", font="PingFang SC", font_size=26, color=GRAY_A),
             MathTex(r"\gcd(12, 18) = 2 \times 3 = 6", font_size=28, color=self.COLOR_GCD)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 0.5)
         
@@ -877,7 +877,7 @@ class GCDTeaching(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -885,7 +885,7 @@ class GCDTeaching(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -899,7 +899,7 @@ class GCDTeaching(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

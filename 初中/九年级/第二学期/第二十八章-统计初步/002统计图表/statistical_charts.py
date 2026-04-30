@@ -50,10 +50,10 @@ class StatisticalCharts(Scene):
     def show_opening(self):
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B
+            font="PingFang SC", font_size=20, color=GRAY_B
         ).move_to(UP * 7)
         self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
-        hook = Text("数据如何可视化?", font="Noto Sans CJK SC",
+        hook = Text("数据如何可视化?", font="PingFang SC",
                     font_size=48, color=GOLD, weight=BOLD).move_to(UP * 5.5)
         self.play(Write(hook), run_time=0.8)
         icon_size = 0.6
@@ -98,10 +98,10 @@ class StatisticalCharts(Scene):
                 .arrange(RIGHT, buff=0.8).move_to(UP * 3)
         self.play(FadeIn(icons, lag_ratio=0.2), run_time=1.0)
         icon_names = VGroup(
-            Text("条形图", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("折线图", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("扇形图", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("直方图", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("条形图", font="PingFang SC", font_size=20, color=WHITE),
+            Text("折线图", font="PingFang SC", font_size=20, color=WHITE),
+            Text("扇形图", font="PingFang SC", font_size=20, color=WHITE),
+            Text("直方图", font="PingFang SC", font_size=20, color=WHITE),
         )
         for i, name in enumerate(icon_names):
             name.next_to(icons[i], DOWN, buff=0.3)
@@ -110,7 +110,7 @@ class StatisticalCharts(Scene):
         self.play(FadeOut(hook), FadeOut(icons), FadeOut(icon_names), run_time=0.5)
 
     def show_bar_chart(self):
-        title = Text("条形图 Bar Chart", font="Noto Sans CJK SC",
+        title = Text("条形图 Bar Chart", font="PingFang SC",
                      font_size=36, color=self.COLOR_BAR_CHART).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.8)
         axes = Axes(
@@ -119,12 +119,12 @@ class StatisticalCharts(Scene):
             axis_config={"color": GRAY_B, "stroke_width": 2}, tips=False
         ).move_to(UP * 2)
         y_labels = VGroup(*[
-            Text(str(i), font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text(str(i), font="PingFang SC", font_size=18, color=GRAY_A)
             .next_to(axes.c2p(0,i), LEFT, buff=0.2)
             for i in range(0,11,2)
         ])
         x_labels = VGroup(*[
-            Text(label, font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text(label, font="PingFang SC", font_size=18, color=GRAY_A)
             .next_to(axes.c2p(i+1,0), DOWN, buff=0.3)
             for i, label in enumerate(self.bar_labels)
         ])
@@ -141,16 +141,16 @@ class StatisticalCharts(Scene):
             bars.add(bar)
         self.play(*[GrowFromEdge(bar, DOWN) for bar in bars], lag_ratio=0.3, run_time=1.5)
         value_labels = VGroup(*[
-            Text(str(value), font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text(str(value), font="PingFang SC", font_size=20, color=WHITE)
             .next_to(bar, UP, buff=0.1)
             for value, bar in zip(self.bar_values, bars)
         ])
         self.play(FadeIn(value_labels, lag_ratio=0.2), run_time=0.6)
         max_index = self.bar_values.index(max(self.bar_values))
         self.play(bars[max_index].animate.set_fill(self.COLOR_HIGHLIGHT), run_time=0.5)
-        explanation = Text("直观比较各类数据的大小", font="Noto Sans CJK SC",
+        explanation = Text("直观比较各类数据的大小", font="PingFang SC",
                            font_size=24, color=GRAY_A).move_to(DOWN * 2)
-        use_case = Text("适用: 不同类别的数据比较", font="Noto Sans CJK SC",
+        use_case = Text("适用: 不同类别的数据比较", font="PingFang SC",
                         font_size=20, color=self.COLOR_AUXILIARY).move_to(DOWN * 2.8)
         self.play(FadeIn(explanation), run_time=0.5)
         self.play(FadeIn(use_case), run_time=0.4)
@@ -162,7 +162,7 @@ class StatisticalCharts(Scene):
         )
 
     def show_line_chart(self):
-        title = Text("折线图 Line Chart", font="Noto Sans CJK SC",
+        title = Text("折线图 Line Chart", font="PingFang SC",
                      font_size=36, color=self.COLOR_LINE_CHART).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.8)
         axes = Axes(
@@ -171,12 +171,12 @@ class StatisticalCharts(Scene):
             axis_config={"color": GRAY_B, "stroke_width": 2}, tips=False
         ).move_to(UP * 2)
         y_labels = VGroup(*[
-            Text(f"{i}°C", font="Noto Sans CJK SC", font_size=16, color=GRAY_A)
+            Text(f"{i}°C", font="PingFang SC", font_size=16, color=GRAY_A)
             .next_to(axes.c2p(0,i), LEFT, buff=0.2)
             for i in range(15,41,5)
         ])
         x_labels = VGroup(*[
-            Text(label, font="Noto Sans CJK SC", font_size=16, color=GRAY_A)
+            Text(label, font="PingFang SC", font_size=16, color=GRAY_A)
             .next_to(axes.c2p(i+1,15), DOWN, buff=0.3)
             for i, label in enumerate(self.line_labels)
         ])
@@ -189,7 +189,7 @@ class StatisticalCharts(Scene):
         line.set_points_as_corners(points)
         self.play(Create(line), run_time=1.5)
         value_labels = VGroup(*[
-            Text(f"{v}°", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+            Text(f"{v}°", font="PingFang SC", font_size=16, color=WHITE)
             .next_to(d, UP, buff=0.15)
             for v, d in zip(self.line_values, dots)
         ])
@@ -198,14 +198,14 @@ class StatisticalCharts(Scene):
             start=axes.c2p(1.5,22), end=axes.c2p(6.5,34),
             color=self.COLOR_HIGHLIGHT, stroke_width=4, buff=0
         )
-        trend_label = Text("上升趋势", font="Noto Sans CJK SC",
+        trend_label = Text("上升趋势", font="PingFang SC",
                            font_size=20, color=self.COLOR_HIGHLIGHT)\
                       .next_to(trend_arrow, RIGHT, buff=0.2)
         self.play(GrowArrow(trend_arrow), run_time=0.5)
         self.play(FadeIn(trend_label), run_time=0.3)
-        explanation = Text("反映数据变化趋势", font="Noto Sans CJK SC",
+        explanation = Text("反映数据变化趋势", font="PingFang SC",
                            font_size=24, color=GRAY_A).move_to(DOWN * 2)
-        use_case = Text("适用: 时间序列数据分析", font="Noto Sans CJK SC",
+        use_case = Text("适用: 时间序列数据分析", font="PingFang SC",
                         font_size=20, color=self.COLOR_AUXILIARY).move_to(DOWN * 2.8)
         self.play(FadeIn(explanation), run_time=0.5)
         self.play(FadeIn(use_case), run_time=0.4)
@@ -218,7 +218,7 @@ class StatisticalCharts(Scene):
         )
 
     def show_pie_chart(self):
-        title = Text("扇形图 Pie Chart", font="Noto Sans CJK SC",
+        title = Text("扇形图 Pie Chart", font="PingFang SC",
                      font_size=36, color=self.COLOR_PIE_CHART).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.8)
         radius = 1.8
@@ -243,7 +243,7 @@ class StatisticalCharts(Scene):
             ])
             percent_label = Text(
                 f"{percentage}%",
-                font="Noto Sans CJK SC", font_size=18, color=WHITE, weight=BOLD
+                font="PingFang SC", font_size=18, color=WHITE, weight=BOLD
             ).move_to(label_pos)
             labels.add(percent_label)
             cumulative_angle += angle
@@ -254,7 +254,7 @@ class StatisticalCharts(Scene):
             item = VGroup(
                 Square(side_length=0.25, fill_opacity=1,
                        color=color, stroke_width=1, stroke_color=WHITE),
-                Text(label_text, font="Noto Sans CJK SC", font_size=18, color=WHITE)
+                Text(label_text, font="PingFang SC", font_size=18, color=WHITE)
             ).arrange(RIGHT, buff=0.15)
             legend.add(item)
         legend.arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to(DOWN * 0.8)
@@ -274,7 +274,7 @@ class StatisticalCharts(Scene):
         ).move_to(DOWN * 3.5)
         formula_label = Text(
             "圆心角 = (该类数据 / 总数据) × 360°",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_A
+            font="PingFang SC", font_size=18, color=GRAY_A
         ).next_to(formula, UP, buff=0.18)
 
         example = MathTex(
@@ -285,9 +285,9 @@ class StatisticalCharts(Scene):
 
         self.play(FadeIn(formula_label), Write(formula), run_time=1.0)
         self.play(Write(example), run_time=0.8)
-        explanation = Text("表示各部分在总体中的比例", font="Noto Sans CJK SC",
+        explanation = Text("表示各部分在总体中的比例", font="PingFang SC",
                            font_size=22, color=GRAY_A).move_to(DOWN * 5.5)
-        use_case = Text("适用: 整体构成分析", font="Noto Sans CJK SC",
+        use_case = Text("适用: 整体构成分析", font="PingFang SC",
                         font_size=20, color=self.COLOR_AUXILIARY).move_to(DOWN * 6.2)
         self.play(FadeIn(explanation), run_time=0.5)
         self.play(FadeIn(use_case), run_time=0.4)
@@ -299,7 +299,7 @@ class StatisticalCharts(Scene):
         )
 
     def show_histogram(self):
-        title = Text("频数分布直方图 Histogram", font="Noto Sans CJK SC",
+        title = Text("频数分布直方图 Histogram", font="PingFang SC",
                      font_size=32, color=self.COLOR_HISTOGRAM).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.8)
         axes = Axes(
@@ -308,12 +308,12 @@ class StatisticalCharts(Scene):
             axis_config={"color": GRAY_B, "stroke_width": 2}, tips=False
         ).move_to(UP * 2)
         y_labels = VGroup(*[
-            Text(str(i), font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text(str(i), font="PingFang SC", font_size=18, color=GRAY_A)
             .next_to(axes.c2p(0,i), LEFT, buff=0.2)
             for i in range(0,16,3)
         ])
         x_labels = VGroup(*[
-            Text(label, font="Noto Sans CJK SC", font_size=14, color=GRAY_A)
+            Text(label, font="PingFang SC", font_size=14, color=GRAY_A)
             .next_to(axes.c2p(i+0.5,0), DOWN, buff=0.3)
             for i, label in enumerate(self.hist_ranges)
         ])
@@ -334,14 +334,14 @@ class StatisticalCharts(Scene):
             rectangles.add(rect)
         self.play(*[GrowFromEdge(r, DOWN) for r in rectangles], lag_ratio=0.2, run_time=1.5)
         freq_labels = VGroup(*[
-            Text(str(freq), font="Noto Sans CJK SC", font_size=18, color=WHITE)
+            Text(str(freq), font="PingFang SC", font_size=18, color=WHITE)
             .move_to(axes.c2p(i+0.5, freq+0.8))
             for i, freq in enumerate(self.hist_frequencies)
         ])
         self.play(FadeIn(freq_labels, lag_ratio=0.15), run_time=0.8)
         mode_index = self.hist_frequencies.index(max(self.hist_frequencies))
         self.play(rectangles[mode_index].animate.set_fill(self.COLOR_HIGHLIGHT), run_time=0.5)
-        mode_label = Text("众数区间", font="Noto Sans CJK SC",
+        mode_label = Text("众数区间", font="PingFang SC",
                           font_size=20, color=self.COLOR_HIGHLIGHT)\
                      .next_to(rectangles[mode_index], UP, buff=0.5)
         mode_arrow = Arrow(
@@ -349,11 +349,11 @@ class StatisticalCharts(Scene):
             color=self.COLOR_HIGHLIGHT, stroke_width=3, buff=0.1
         )
         self.play(Write(mode_label), GrowArrow(mode_arrow), run_time=0.5)
-        explanation = Text("表示数据的分布情况", font="Noto Sans CJK SC",
+        explanation = Text("表示数据的分布情况", font="PingFang SC",
                            font_size=24, color=GRAY_A).move_to(DOWN * 2)
-        use_case = Text("适用: 连续型数据的频数分布", font="Noto Sans CJK SC",
+        use_case = Text("适用: 连续型数据的频数分布", font="PingFang SC",
                         font_size=20, color=self.COLOR_AUXILIARY).move_to(DOWN * 2.8)
-        note = Text("特点: 矩形连续无间隙", font="Noto Sans CJK SC",
+        note = Text("特点: 矩形连续无间隙", font="PingFang SC",
                     font_size=18, color=self.COLOR_AUXILIARY).move_to(DOWN * 3.5)
         self.play(FadeIn(explanation), run_time=0.5)
         self.play(FadeIn(use_case), run_time=0.4)
@@ -367,7 +367,7 @@ class StatisticalCharts(Scene):
         )
 
     def show_comparison(self):
-        title = Text("选择合适的统计图表", font="Noto Sans CJK SC",
+        title = Text("选择合适的统计图表", font="PingFang SC",
                      font_size=36, color=GOLD).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.8)
         card_scale = 0.4
@@ -382,13 +382,13 @@ class StatisticalCharts(Scene):
         cards = VGroup(bar_card, line_card, pie_card, hist_card)
         self.play(FadeIn(cards, lag_ratio=0.3, shift=UP*0.5), run_time=1.5)
         examples = VGroup(
-            Text("销量对比 → 条形图", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("温度变化 → 折线图", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("爱好分布 → 扇形图", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("成绩分布 → 直方图", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("销量对比 → 条形图", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("温度变化 → 折线图", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("爱好分布 → 扇形图", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("成绩分布 → 直方图", font="PingFang SC", font_size=20, color=GRAY_A),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(DOWN * 2.5)
         self.play(Write(examples, lag_ratio=0.3), run_time=1.0)
-        key_point = Text("根据数据特点选择图表类型", font="Noto Sans CJK SC",
+        key_point = Text("根据数据特点选择图表类型", font="PingFang SC",
                          font_size=28, color=self.COLOR_HIGHLIGHT, weight=BOLD)\
                     .move_to(DOWN * 5)
         self.play(FadeIn(key_point, shift=UP*0.3, scale=1.2), run_time=0.6)
@@ -427,18 +427,18 @@ class StatisticalCharts(Scene):
                 Rectangle(height=1.0, width=0.4, fill_opacity=1, color=color, stroke_width=0).shift(LEFT*0.0+UP*0.1),
                 Rectangle(height=1.3, width=0.4, fill_opacity=1, color=color, stroke_width=0).shift(RIGHT*0.6+UP*0.25),
             ).move_to(UP * 0.3)
-        t = Text(title_text,    font="Noto Sans CJK SC", font_size=32, color=WHITE, weight=BOLD).move_to(DOWN*0.6)
-        s = Text(subtitle_text, font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN*1.1)
+        t = Text(title_text,    font="PingFang SC", font_size=32, color=WHITE, weight=BOLD).move_to(DOWN*0.6)
+        s = Text(subtitle_text, font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN*1.1)
         return VGroup(card_bg, icon, t, s)
 
     def show_outro(self):
-        author_name = Text("上海初高中数学直通车", font="Noto Sans CJK SC",
+        author_name = Text("上海初高中数学直通车", font="PingFang SC",
                            font_size=40, color=WHITE, weight=BOLD).move_to(UP*2)
-        author_id   = Text("@emptyandcalm", font="Noto Sans CJK SC",
+        author_id   = Text("@emptyandcalm", font="PingFang SC",
                            font_size=32, color=GRAY_B).move_to(UP*1)
         self.play(Transform(self.author_info, author_name), run_time=0.8)
         self.play(FadeIn(author_id, shift=UP*0.3), run_time=0.5)
-        follow_text = Text("关注我，学更多数学技巧!", font="Noto Sans CJK SC",
+        follow_text = Text("关注我，学更多数学技巧!", font="PingFang SC",
                            font_size=32, color=self.COLOR_HIGHLIGHT, weight=BOLD).move_to(ORIGIN)
         self.play(FadeIn(follow_text, shift=UP*0.3, scale=1.1), run_time=0.6)
         icon_size = 0.5

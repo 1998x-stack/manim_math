@@ -30,7 +30,7 @@ COLOR_FORMULA  = "#ffd54f"   # 金黄  — 公式高亮
 COLOR_COMPARE  = "#80cbc4"   # 青绿  — 对比色
 COLOR_AXIS     = "#b0bec5"   # 灰白  — 数轴
 COLOR_AUTHOR   = "#78909c"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ============================================================

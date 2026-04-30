@@ -168,7 +168,7 @@ class InscribedAngleTheorem(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -178,7 +178,7 @@ class InscribedAngleTheorem(Scene):
         # 钩子问题
         hook_text = Text(
             "圆上的角，藏着什么秘密？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -223,7 +223,7 @@ class InscribedAngleTheorem(Scene):
         # 小标题
         subtitle = Text(
             "什么是圆周角？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_INSCRIBED_ANGLE
         ).move_to(UP * 5.5)
@@ -232,7 +232,7 @@ class InscribedAngleTheorem(Scene):
         
         # 点P出现
         self.dot_P = Dot(self.P, color=WHITE, radius=0.10)
-        label_P = Text("P", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_P = Text("P", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_P, DOWN, buff=0.15
         )
         
@@ -245,10 +245,10 @@ class InscribedAngleTheorem(Scene):
         # 点A和B出现
         self.dot_A = Dot(self.A, color=WHITE, radius=0.10)
         self.dot_B = Dot(self.B, color=WHITE, radius=0.10)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_A, RIGHT, buff=0.15
         )
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_B, LEFT, buff=0.15
         )
         
@@ -283,7 +283,7 @@ class InscribedAngleTheorem(Scene):
         # 标注"圆周角"
         label_inscribed = Text(
             "圆周角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_INSCRIBED_ANGLE
         ).move_to(self.P + DOWN * 0.8)
@@ -293,7 +293,7 @@ class InscribedAngleTheorem(Scene):
         # 定义文字
         definition_text = Text(
             "顶点在圆上，两边都与圆相交的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -321,7 +321,7 @@ class InscribedAngleTheorem(Scene):
         """场景3: 圆心角引入"""
         # 圆心O出现
         self.dot_O = Dot(self.O, color=self.COLOR_CENTRAL_ANGLE, radius=0.12)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_CENTRAL_ANGLE).next_to(
+        label_O = Text("O", font="PingFang SC", font_size=20, color=self.COLOR_CENTRAL_ANGLE).next_to(
             self.dot_O, LEFT, buff=0.15
         )
         
@@ -354,7 +354,7 @@ class InscribedAngleTheorem(Scene):
         # 标注"圆心角"
         label_central = Text(
             "圆心角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_CENTRAL_ANGLE
         ).move_to(self.O + UP * 0.8)
@@ -395,7 +395,7 @@ class InscribedAngleTheorem(Scene):
         # 大标题
         main_title = Text(
             "圆周角定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -482,7 +482,7 @@ class InscribedAngleTheorem(Scene):
         # 小标题
         subtitle = Text(
             "推论1：同弧所对的圆周角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -491,7 +491,7 @@ class InscribedAngleTheorem(Scene):
         
         # 点Q出现
         dot_Q = Dot(self.Q, color=WHITE, radius=0.10)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_Q = Text("Q", font="PingFang SC", font_size=20, color=WHITE).next_to(
             dot_Q, DOWN, buff=0.15
         )
         
@@ -597,7 +597,7 @@ class InscribedAngleTheorem(Scene):
         # 小标题
         subtitle = Text(
             "推论2：直径所对的圆周角 = 90°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DIAMETER
         ).move_to(UP * 5.5)
@@ -628,7 +628,7 @@ class InscribedAngleTheorem(Scene):
         # 标注"直径"
         diameter_label = Text(
             "直径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_DIAMETER
         ).next_to(diameter_AB, DOWN, buff=0.2)
@@ -639,7 +639,7 @@ class InscribedAngleTheorem(Scene):
         
         # 点C出现（在半圆上，任意位置）
         self.dot_C = Dot(self.C, color=WHITE, radius=0.10)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_C = Text("C", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_C, UP, buff=0.15
         )
         
@@ -711,7 +711,7 @@ class InscribedAngleTheorem(Scene):
         # 小标题
         subtitle = Text(
             "推论3：90°圆周角所对的弦是直径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -752,7 +752,7 @@ class InscribedAngleTheorem(Scene):
         # 标注"直径"确认
         diameter_confirmation = Text(
             "确实是直径！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DIAMETER
         ).move_to(DOWN * 5)
@@ -846,7 +846,7 @@ class InscribedAngleTheorem(Scene):
         # 总结文字
         summary_text = Text(
             "掌握圆周角定理\n解锁几何新视角！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -866,14 +866,14 @@ class InscribedAngleTheorem(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -887,7 +887,7 @@ class InscribedAngleTheorem(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -926,7 +926,7 @@ class InscribedAngleTheorem(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -934,7 +934,7 @@ class InscribedAngleTheorem(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=GRAY_A
         )

@@ -57,7 +57,7 @@ class PercentageApplications(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -67,7 +67,7 @@ class PercentageApplications(Scene):
         # 钩子问题
         hook_text = Text(
             "百分比在生活中\n有哪些应用？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             line_spacing=1.2
@@ -135,7 +135,7 @@ class PercentageApplications(Scene):
         # 标题
         title = Text(
             "生活中的百分比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -199,7 +199,7 @@ class PercentageApplications(Scene):
         # 应用名称
         name_text = Text(
             app_name,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=color,
             weight=BOLD
@@ -208,7 +208,7 @@ class PercentageApplications(Scene):
         # 场景说明
         scenario_text = Text(
             scenario,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -216,7 +216,7 @@ class PercentageApplications(Scene):
         # 公式
         formula_text = Text(
             formula,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -241,7 +241,7 @@ class PercentageApplications(Scene):
         # 标题
         title = Text(
             "应用一: 折扣",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_DISCOUNT
         ).move_to(UP * 6.5)
@@ -251,7 +251,7 @@ class PercentageApplications(Scene):
         # 问题
         question = Text(
             "一件外套原价500元\n打8折，实际多少钱？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
             line_spacing=1.2
@@ -270,8 +270,8 @@ class PercentageApplications(Scene):
                 stroke_color=self.COLOR_DISCOUNT,
                 stroke_width=3
             ),
-            Text("原价", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("500元", font="Noto Sans CJK SC", font_size=36, color=WHITE, weight=BOLD)
+            Text("原价", font="PingFang SC", font_size=22, color=WHITE),
+            Text("500元", font="PingFang SC", font_size=36, color=WHITE, weight=BOLD)
         )
         price_tag[1].move_to(price_tag[0].get_center() + UP * 0.25)
         price_tag[2].move_to(price_tag[0].get_center() + DOWN * 0.15)
@@ -289,7 +289,7 @@ class PercentageApplications(Scene):
         
         price_label = Text(
             "500元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(price_rect.get_center())
@@ -309,7 +309,7 @@ class PercentageApplications(Scene):
                 stroke_color=self.COLOR_FORMULA,
                 stroke_width=3
             ),
-            Text("8折", font="Noto Sans CJK SC", font_size=32, color=WHITE, weight=BOLD)
+            Text("8折", font="PingFang SC", font_size=32, color=WHITE, weight=BOLD)
         )
         discount_tag[1].move_to(discount_tag[0].get_center())
         discount_tag.move_to(UP * 3 + RIGHT * 2.5)
@@ -343,11 +343,11 @@ class PercentageApplications(Scene):
         
         # 公式说明
         formula_parts = [
-            Text("折扣价", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("折扣价", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"=", font_size=36, color=WHITE),
-            Text("原价", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("原价", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"\times", font_size=36, color=WHITE),
-            Text("折扣率", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+            Text("折扣率", font="PingFang SC", font_size=28, color=WHITE)
         ]
         
         formula = VGroup(*formula_parts).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.5)
@@ -376,7 +376,7 @@ class PercentageApplications(Scene):
         
         answer = Text(
             "实付: 400元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -384,7 +384,7 @@ class PercentageApplications(Scene):
         
         savings = Text(
             "省了100元!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(answer_box, DOWN, buff=0.3)
@@ -422,7 +422,7 @@ class PercentageApplications(Scene):
         # 标题
         title = Text(
             "应用二: 利率",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_INTEREST
         ).move_to(UP * 6.5)
@@ -432,7 +432,7 @@ class PercentageApplications(Scene):
         # 问题
         question = Text(
             "存入10000元，年利率3%\n存3年，利息多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
             line_spacing=1.2
@@ -451,7 +451,7 @@ class PercentageApplications(Scene):
         
         principal_label = Text(
             "10000元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
             weight=BOLD
@@ -459,7 +459,7 @@ class PercentageApplications(Scene):
         
         principal_text = Text(
             "本金",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(principal_circle, DOWN, buff=0.2)
@@ -477,7 +477,7 @@ class PercentageApplications(Scene):
         year_marks = VGroup(*[
             VGroup(
                 Dot(timeline.point_from_proportion(i/3), radius=0.08, color=self.COLOR_INTEREST),
-                Text(f"第{i}年", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+                Text(f"第{i}年", font="PingFang SC", font_size=18, color=GRAY_A)
                 .next_to(timeline.point_from_proportion(i/3), DOWN, buff=0.2)
             )
             for i in range(4)
@@ -497,7 +497,7 @@ class PercentageApplications(Scene):
                 stroke_color=self.COLOR_FORMULA,
                 stroke_width=2
             ),
-            Text("年利率 3%", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            Text("年利率 3%", font="PingFang SC", font_size=22, color=WHITE)
         )
         rate_label[1].move_to(rate_label[0].get_center())
         rate_label.next_to(timeline, UP, buff=0.5)
@@ -520,7 +520,7 @@ class PercentageApplications(Scene):
             
             bar_label = Text(
                 f"+{interest_per_year}元",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=self.COLOR_FORMULA
             ).next_to(bar, DOWN, buff=0.1)
@@ -537,13 +537,13 @@ class PercentageApplications(Scene):
         
         # 公式
         formula_parts = [
-            Text("利息", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("利息", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"=", font_size=32, color=WHITE),
-            Text("本金", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("本金", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"\times", font_size=32, color=WHITE),
-            Text("利率", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("利率", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"\times", font_size=32, color=WHITE),
-            Text("时间", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+            Text("时间", font="PingFang SC", font_size=26, color=WHITE)
         ]
         
         formula = VGroup(*formula_parts).arrange(RIGHT, buff=0.25).move_to(DOWN * 3)
@@ -580,7 +580,7 @@ class PercentageApplications(Scene):
         
         answer = Text(
             "利息: 900元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -610,7 +610,7 @@ class PercentageApplications(Scene):
         # 标题
         title = Text(
             "应用三: 浓度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_CONCENTRATION
         ).move_to(UP * 6.5)
@@ -620,7 +620,7 @@ class PercentageApplications(Scene):
         # 问题
         question = Text(
             "20克盐溶解在100克水中\n浓度是多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
             line_spacing=1.2
@@ -650,7 +650,7 @@ class PercentageApplications(Scene):
         
         water_label = Text(
             "水 100克",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=BLUE_B
         ).next_to(beaker, LEFT, buff=0.8).shift(DOWN * 0.3)
@@ -670,7 +670,7 @@ class PercentageApplications(Scene):
         
         salt_label = Text(
             "盐 20克",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(salt_cubes, UP, buff=0.2)
@@ -702,7 +702,7 @@ class PercentageApplications(Scene):
         
         solution_label = Text(
             "盐水 120克",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_CONCENTRATION
         ).move_to(water_label.get_center())
@@ -718,11 +718,11 @@ class PercentageApplications(Scene):
         
         # 浓度说明
         conc_parts = [
-            Text("浓度", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("浓度", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"=", font_size=32, color=WHITE),
-            Text("溶质", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("溶质", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"\div", font_size=32, color=WHITE),
-            Text("溶液", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("溶液", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"\times 100\%", font_size=32, color=WHITE)
         ]
         
@@ -787,7 +787,7 @@ class PercentageApplications(Scene):
         # 总结标题
         title = Text(
             "百分比，生活好帮手!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -823,7 +823,7 @@ class PercentageApplications(Scene):
         # 关键提示
         key_point = Text(
             "掌握公式，轻松应用!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -840,14 +840,14 @@ class PercentageApplications(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 3.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 4.5)
@@ -862,7 +862,7 @@ class PercentageApplications(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -912,7 +912,7 @@ class PercentageApplications(Scene):
         # 名称
         name_text = Text(
             name,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=color,
             weight=BOLD
@@ -921,7 +921,7 @@ class PercentageApplications(Scene):
         # 公式
         formula_text = Text(
             formula,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )

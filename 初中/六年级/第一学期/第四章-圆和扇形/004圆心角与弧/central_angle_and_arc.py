@@ -106,7 +106,7 @@ class CentralAngleAndArc(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -116,7 +116,7 @@ class CentralAngleAndArc(Scene):
         # 钩子问题
         hook_question = Text(
             "什么是圆心角？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -158,7 +158,7 @@ class CentralAngleAndArc(Scene):
         # 标题
         title = Text(
             "圆心角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_ANGLE
         ).move_to(UP * 5.8)
@@ -166,7 +166,7 @@ class CentralAngleAndArc(Scene):
         # 定义
         definition = Text(
             "顶点在圆心的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.1)
@@ -190,7 +190,7 @@ class CentralAngleAndArc(Scene):
         # 标注点A
         label_A = Text(
             "A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(self.point_A, UR, buff=0.15)
@@ -210,7 +210,7 @@ class CentralAngleAndArc(Scene):
         # 标注点B
         label_B = Text(
             "B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(self.point_B, UL, buff=0.15)
@@ -220,7 +220,7 @@ class CentralAngleAndArc(Scene):
         # 标注圆心O
         label_O = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(self.center, DOWN, buff=0.2)
@@ -257,7 +257,7 @@ class CentralAngleAndArc(Scene):
         # 说明文字
         explanation = Text(
             "顶点O在圆心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -287,7 +287,7 @@ class CentralAngleAndArc(Scene):
         # 标题
         title_arc = Text(
             "弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_ARC
         ).move_to(UP * 5.8)
@@ -295,7 +295,7 @@ class CentralAngleAndArc(Scene):
         # 定义
         definition_arc = Text(
             "圆心角所对的圆周部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.1)
@@ -334,7 +334,7 @@ class CentralAngleAndArc(Scene):
         # 弧标签 "AB"
         arc_label_text = Text(
             "AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ARC
         ).next_to(arc_symbol, DOWN, buff=0.05)
@@ -360,7 +360,7 @@ class CentralAngleAndArc(Scene):
         
         hint = Text(
             "这就是弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -404,7 +404,7 @@ class CentralAngleAndArc(Scene):
         # 标题
         title_relationship = Text(
             "圆心角越大，弧越长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.8)
@@ -473,7 +473,7 @@ class CentralAngleAndArc(Scene):
         # 说明文字
         proportion_text = Text(
             "在同圆中，角度与弧长成正比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.8)
@@ -496,7 +496,7 @@ class CentralAngleAndArc(Scene):
         # 标题
         title_formula = Text(
             "弧长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.8)
@@ -504,7 +504,7 @@ class CentralAngleAndArc(Scene):
         self.play(FadeIn(title_formula, shift=DOWN * 0.2), run_time=0.6)
         
         # Step 1: 圆周长公式
-        c_text = Text("圆周长", font="Noto Sans CJK SC", font_size=26)
+        c_text = Text("圆周长", font="PingFang SC", font_size=26)
         eq1 = MathTex("=", font_size=26)
         formula_c = MathTex("2\\pi r", font_size=26, color=self.COLOR_FORMULA)
         
@@ -538,7 +538,7 @@ class CentralAngleAndArc(Scene):
         # 说明
         explanation_1 = Text(
             "整圆对应360°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 0.3)
@@ -579,9 +579,9 @@ class CentralAngleAndArc(Scene):
         )
         
         # Step 2: 比例关系
-        arc_len_text = Text("弧长", font="Noto Sans CJK SC", font_size=24)
+        arc_len_text = Text("弧长", font="PingFang SC", font_size=24)
         div1 = MathTex("/", font_size=24)
-        circum_text = Text("圆周长", font="Noto Sans CJK SC", font_size=24)
+        circum_text = Text("圆周长", font="PingFang SC", font_size=24)
         eq2 = MathTex("=", font_size=24)
         n_text = MathTex("n", font_size=24)
         div2 = MathTex("/", font_size=24)
@@ -596,7 +596,7 @@ class CentralAngleAndArc(Scene):
         self.wait(1.0)
         
         # Step 3: 最终公式
-        l_text = Text("弧长", font="Noto Sans CJK SC", font_size=28)
+        l_text = Text("弧长", font="PingFang SC", font_size=28)
         eq_final = MathTex("=", font_size=28)
         formula_final_math = MathTex(
             r"\frac{n}{360} \times 2\pi r",
@@ -649,7 +649,7 @@ class CentralAngleAndArc(Scene):
         # 例题标题
         example_title = Text(
             "例题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.8)
@@ -659,14 +659,14 @@ class CentralAngleAndArc(Scene):
         # 题目条件
         problem_line1 = Text(
             "已知: r = 3, n = 60°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4)
         
         problem_line2 = Text(
             "求: 弧长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 3.4)
@@ -722,7 +722,7 @@ class CentralAngleAndArc(Scene):
         )
         
         # 计算步骤
-        solution_text = Text("解:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        solution_text = Text("解:", font="PingFang SC", font_size=24, color=GRAY_A)
         solution_text.move_to(DOWN * 1.3 + LEFT * 3.5)
         self.play(FadeIn(solution_text), run_time=0.3)
         
@@ -821,7 +821,7 @@ class CentralAngleAndArc(Scene):
         
         formula_label = Text(
             "弧长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -857,14 +857,14 @@ class CentralAngleAndArc(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -878,7 +878,7 @@ class CentralAngleAndArc(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -931,7 +931,7 @@ class CentralAngleAndArc(Scene):
         # 文字
         content = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )

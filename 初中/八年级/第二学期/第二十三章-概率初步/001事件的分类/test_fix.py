@@ -14,7 +14,7 @@ class TestLatexFix(Scene):
         # Test the fixed version
         prob_label = Text(
             "概率:",
-            font="Noto Sans CJK SC",  # Using the same font as the original
+            font="PingFang SC",  # Using the same font as the original
             font_size=28,
             color=WHITE
         )

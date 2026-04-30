@@ -150,12 +150,12 @@ class SquareProperties(Scene):
         # 作者信息
         self.author = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B
+            font="PingFang SC", font_size=18, color=GRAY_B
         ).move_to(UP * 7.3)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
 
         # 大标题
-        title = Text("正方形", font="Noto Sans CJK SC",
+        title = Text("正方形", font="PingFang SC",
                      font_size=64, color=HL_COLOR, weight=BOLD)
         title.move_to(UP * 5.5)
         self.play(Write(title), run_time=0.9)
@@ -174,14 +174,14 @@ class SquareProperties(Scene):
         ]
         vertex_labels = VGroup()
         for pt, lbl, direction in labels_data:
-            t = Text(lbl, font="Noto Sans CJK SC", font_size=28, color=WHITE)
+            t = Text(lbl, font="PingFang SC", font_size=28, color=WHITE)
             t.next_to(pt, direction, buff=0.15)
             vertex_labels.add(t)
         self.play(FadeIn(vertex_labels), run_time=0.6)
 
         # 钩子文字
         hook = Text("你真的了解它的全部性质吗?",
-                    font="Noto Sans CJK SC", font_size=28, color=HL_COLOR)
+                    font="PingFang SC", font_size=28, color=HL_COLOR)
         hook.move_to(DOWN * 4.5)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.6)
         self.wait(1.2)
@@ -199,17 +199,17 @@ class SquareProperties(Scene):
     # Scene 2: 定义
     # ══════════════════════════════════════════════════════════════
     def scene_2_definition(self):
-        scene_title = Text("正方形的定义", font="Noto Sans CJK SC",
+        scene_title = Text("正方形的定义", font="PingFang SC",
                            font_size=36, color=SQUARE_COLOR)
         scene_title.move_to(UP * 6.3)
         self.play(Write(scene_title), run_time=0.7)
 
         # 定义文字
         def_1 = Text("有一组邻边相等的矩形",
-                     font="Noto Sans CJK SC", font_size=26, color=RECT_CLR)
-        def_arrow = Text("或", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+                     font="PingFang SC", font_size=26, color=RECT_CLR)
+        def_arrow = Text("或", font="PingFang SC", font_size=26, color=WHITE)
         def_2 = Text("有一个直角的菱形",
-                     font="Noto Sans CJK SC", font_size=26, color=RHOMBUS_CLR)
+                     font="PingFang SC", font_size=26, color=RHOMBUS_CLR)
 
         defs = VGroup(def_1, def_arrow, def_2).arrange(DOWN, buff=0.35)
         defs.move_to(UP * 4.6)
@@ -222,17 +222,17 @@ class SquareProperties(Scene):
 
         # 顶点
         vtx_labels = VGroup(
-            Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.sq_A, DL, buff=0.12),
-            Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.sq_B, DR, buff=0.12),
-            Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.sq_C, UR, buff=0.12),
-            Text("D", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.sq_D, UL, buff=0.12),
+            Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.sq_A, DL, buff=0.12),
+            Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.sq_B, DR, buff=0.12),
+            Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.sq_C, UR, buff=0.12),
+            Text("D", font="PingFang SC", font_size=24, color=WHITE).next_to(self.sq_D, UL, buff=0.12),
         )
         self.play(FadeIn(vtx_labels), run_time=0.4)
         self.vtx_labels = vtx_labels
 
         # 关键词：特殊平行四边形
         note = Text("— 最特殊的平行四边形 —",
-                    font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+                    font="PingFang SC", font_size=22, color=GRAY_A)
         note.move_to(DOWN * 3.5)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(1.5)
@@ -244,14 +244,14 @@ class SquareProperties(Scene):
     # Scene 3: 性质1 — 四边相等 & 四角直角
     # ══════════════════════════════════════════════════════════════
     def scene_3_property_sides_angles(self):
-        title = Text("性质一", font="Noto Sans CJK SC",
+        title = Text("性质一", font="PingFang SC",
                      font_size=36, color=HL_COLOR)
         title.move_to(UP * 6.3)
         self.play(Write(title), run_time=0.5)
 
         # 副标题
         sub = Text("四边相等，四角都是直角",
-                   font="Noto Sans CJK SC", font_size=26, color=WHITE)
+                   font="PingFang SC", font_size=26, color=WHITE)
         sub.move_to(UP * 5.5)
         self.play(FadeIn(sub), run_time=0.5)
 
@@ -313,33 +313,33 @@ class SquareProperties(Scene):
     # Scene 4: 性质2 — 对角线
     # ══════════════════════════════════════════════════════════════
     def scene_4_property_diagonals(self):
-        title = Text("性质二", font="Noto Sans CJK SC",
+        title = Text("性质二", font="PingFang SC",
                      font_size=36, color=HL_COLOR)
         title.move_to(UP * 6.3)
         self.play(Write(title), run_time=0.5)
 
         sub = Text("对角线相等且互相垂直平分",
-                   font="Noto Sans CJK SC", font_size=26, color=WHITE)
+                   font="PingFang SC", font_size=26, color=WHITE)
         sub.move_to(UP * 5.5)
         self.play(FadeIn(sub), run_time=0.5)
 
         # 画对角线 AC
         diag_AC = DashedLine(self.sq_A, self.sq_C,
                              color=DIAG_COLOR1, dash_length=0.15, stroke_width=2.5)
-        lbl_AC = Text("AC", font="Noto Sans CJK SC", font_size=20, color=DIAG_COLOR1)
+        lbl_AC = Text("AC", font="PingFang SC", font_size=20, color=DIAG_COLOR1)
         lbl_AC.next_to(diag_AC.get_center(), LEFT, buff=0.3)
         self.play(Create(diag_AC), FadeIn(lbl_AC), run_time=0.8)
 
         # 画对角线 BD
         diag_BD = DashedLine(self.sq_B, self.sq_D,
                              color=DIAG_COLOR2, dash_length=0.15, stroke_width=2.5)
-        lbl_BD = Text("BD", font="Noto Sans CJK SC", font_size=20, color=DIAG_COLOR2)
+        lbl_BD = Text("BD", font="PingFang SC", font_size=20, color=DIAG_COLOR2)
         lbl_BD.next_to(diag_BD.get_center(), RIGHT, buff=0.3)
         self.play(Create(diag_BD), FadeIn(lbl_BD), run_time=0.8)
 
         # 交点 O
         O_dot = Dot(self.sq_O, radius=0.1, color=WHITE)
-        O_lbl = Text("O", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        O_lbl = Text("O", font="PingFang SC", font_size=20, color=WHITE)
         O_lbl.next_to(O_dot, RIGHT, buff=0.15)
         self.play(FadeIn(O_dot), FadeIn(O_lbl), run_time=0.4)
         self.play(Flash(O_dot, color=HL_COLOR, flash_radius=0.3), run_time=0.5)
@@ -389,19 +389,19 @@ class SquareProperties(Scene):
     # Scene 5: 判定1 — 矩形 + 邻边相等
     # ══════════════════════════════════════════════════════════════
     def scene_5_determine_rect(self):
-        title = Text("判定方法一", font="Noto Sans CJK SC",
+        title = Text("判定方法一", font="PingFang SC",
                      font_size=34, color=HL_COLOR)
         title.move_to(UP * 6.3)
         self.play(Write(title), run_time=0.5)
 
         sub = Text("矩形 + 一组邻边相等 ⟹ 正方形",
-                   font="Noto Sans CJK SC", font_size=23, color=RECT_CLR)
+                   font="PingFang SC", font_size=23, color=RECT_CLR)
         sub.move_to(UP * 5.5)
         self.play(FadeIn(sub), run_time=0.5)
 
         # ── 步骤1：展示矩形（非正方形）
         step1 = Text("第一步：有一个矩形",
-                     font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+                     font="PingFang SC", font_size=22, color=GRAY_A)
         step1.move_to(DOWN * 3.8)
 
         rect = Polygon(self.rect_A, self.rect_B, self.rect_C, self.rect_D,
@@ -420,7 +420,7 @@ class SquareProperties(Scene):
 
         # ── 步骤2：添加邻边相等条件
         step2 = Text("第二步：添加条件  AB = BC",
-                     font="Noto Sans CJK SC", font_size=22, color=EQUAL_CLR)
+                     font="PingFang SC", font_size=22, color=EQUAL_CLR)
         step2.move_to(DOWN * 4.6)
 
         # 高亮 AB 和 BC
@@ -439,7 +439,7 @@ class SquareProperties(Scene):
 
         # ── 步骤3：Transform 矩形 → 正方形
         step3 = Text("⟹  变成正方形！",
-                     font="Noto Sans CJK SC", font_size=26, color=HL_COLOR)
+                     font="PingFang SC", font_size=26, color=HL_COLOR)
         step3.move_to(DOWN * 5.4)
 
         new_sq = self.main_sq.copy()
@@ -454,11 +454,11 @@ class SquareProperties(Scene):
 
         # 公式
         formula = VGroup(
-            Text("矩形", font="Noto Sans CJK SC", font_size=24, color=RECT_CLR),
+            Text("矩形", font="PingFang SC", font_size=24, color=RECT_CLR),
             MathTex(r"+", font_size=28),
-            Text("一组邻边相等", font="Noto Sans CJK SC", font_size=24, color=EQUAL_CLR),
+            Text("一组邻边相等", font="PingFang SC", font_size=24, color=EQUAL_CLR),
             MathTex(r"\Rightarrow", font_size=28, color=HL_COLOR),
-            Text("正方形", font="Noto Sans CJK SC", font_size=24, color=SQUARE_COLOR),
+            Text("正方形", font="PingFang SC", font_size=24, color=SQUARE_COLOR),
         ).arrange(RIGHT, buff=0.2)
         formula.move_to(DOWN * 3.5)
 
@@ -480,19 +480,19 @@ class SquareProperties(Scene):
     # Scene 6: 判定2 — 菱形 + 一个直角
     # ══════════════════════════════════════════════════════════════
     def scene_6_determine_rhombus(self):
-        title = Text("判定方法二", font="Noto Sans CJK SC",
+        title = Text("判定方法二", font="PingFang SC",
                      font_size=34, color=HL_COLOR)
         title.move_to(UP * 6.3)
         self.play(Write(title), run_time=0.5)
 
         sub = Text("菱形 + 一个直角 ⟹ 正方形",
-                   font="Noto Sans CJK SC", font_size=24, color=RHOMBUS_CLR)
+                   font="PingFang SC", font_size=24, color=RHOMBUS_CLR)
         sub.move_to(UP * 5.5)
         self.play(FadeIn(sub), run_time=0.5)
 
         # ── 步骤1：展示菱形
         step1 = Text("第一步：有一个菱形（四边相等）",
-                     font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+                     font="PingFang SC", font_size=22, color=GRAY_A)
         step1.move_to(DOWN * 3.8)
 
         rhombus = Polygon(self.rh_A, self.rh_B, self.rh_C, self.rh_D,
@@ -510,7 +510,7 @@ class SquareProperties(Scene):
 
         # ── 步骤2：在顶点 rh_A 处添加直角标记
         step2 = Text("第二步：其中一个角是直角",
-                     font="Noto Sans CJK SC", font_size=22, color=EQUAL_CLR)
+                     font="PingFang SC", font_size=22, color=EQUAL_CLR)
         step2.move_to(DOWN * 4.6)
 
         # rh_A 角：相邻顶点是 rh_D（上）和 rh_B（下）
@@ -524,7 +524,7 @@ class SquareProperties(Scene):
 
         # ── 步骤3：变形为正方形
         step3 = Text("⟹  变成正方形！",
-                     font="Noto Sans CJK SC", font_size=26, color=HL_COLOR)
+                     font="PingFang SC", font_size=26, color=HL_COLOR)
         step3.move_to(DOWN * 5.4)
 
         new_sq2 = self.main_sq.copy()
@@ -537,11 +537,11 @@ class SquareProperties(Scene):
 
         # 公式
         formula2 = VGroup(
-            Text("菱形", font="Noto Sans CJK SC", font_size=24, color=RHOMBUS_CLR),
+            Text("菱形", font="PingFang SC", font_size=24, color=RHOMBUS_CLR),
             MathTex(r"+", font_size=28),
-            Text("一个直角", font="Noto Sans CJK SC", font_size=24, color=EQUAL_CLR),
+            Text("一个直角", font="PingFang SC", font_size=24, color=EQUAL_CLR),
             MathTex(r"\Rightarrow", font_size=28, color=HL_COLOR),
-            Text("正方形", font="Noto Sans CJK SC", font_size=24, color=SQUARE_COLOR),
+            Text("正方形", font="PingFang SC", font_size=24, color=SQUARE_COLOR),
         ).arrange(RIGHT, buff=0.2)
         formula2.move_to(DOWN * 3.5)
 
@@ -564,7 +564,7 @@ class SquareProperties(Scene):
     # ══════════════════════════════════════════════════════════════
     def scene_7_summary_outro(self):
         # 大标题
-        summary_title = Text("总结", font="Noto Sans CJK SC",
+        summary_title = Text("总结", font="PingFang SC",
                              font_size=40, color=HL_COLOR)
         summary_title.move_to(UP * 6.3)
         self.play(Write(summary_title), run_time=0.5)
@@ -590,7 +590,7 @@ class SquareProperties(Scene):
                                   stroke_color=clr, stroke_width=2)
             bg.move_to(np.array([0, card_y[i], 0]))
 
-            label = Text(text_str, font="Noto Sans CJK SC",
+            label = Text(text_str, font="PingFang SC",
                          font_size=22, color=clr)
             label.move_to(bg.get_center() + LEFT * 1.5)
 
@@ -602,7 +602,7 @@ class SquareProperties(Scene):
             self.play(FadeIn(card, shift=RIGHT * 0.4), run_time=0.4)
 
         # 判定方法
-        det_title = Text("判定：", font="Noto Sans CJK SC",
+        det_title = Text("判定：", font="PingFang SC",
                          font_size=26, color=WHITE)
         det_title.move_to(DOWN * 1.5 + LEFT * 2.8)
         self.play(FadeIn(det_title), run_time=0.3)
@@ -615,10 +615,10 @@ class SquareProperties(Scene):
         det_mobs = VGroup()
         for i, (txt, clr) in enumerate(det_cards_data):
             line = VGroup(
-                Text("⟹  正方形", font="Noto Sans CJK SC",
+                Text("⟹  正方形", font="PingFang SC",
                      font_size=21, color=HL_COLOR),
             )
-            lbl = Text(txt, font="Noto Sans CJK SC", font_size=21, color=clr)
+            lbl = Text(txt, font="PingFang SC", font_size=21, color=clr)
             row = VGroup(lbl, line).arrange(RIGHT, buff=0.4)
             row.move_to(np.array([0, det_y[i], 0]))
             det_mobs.add(row)
@@ -640,16 +640,16 @@ class SquareProperties(Scene):
 
         # 作者放大
         author_big = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC", font_size=38,
+                          font="PingFang SC", font_size=38,
                           color=WHITE, weight=BOLD)
         author_big.move_to(UP * 1.5)
 
         author_id = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=30, color=GRAY_B)
+                         font="PingFang SC", font_size=30, color=GRAY_B)
         author_id.move_to(UP * 0.5)
 
         follow = Text("关注我，获得更多数学技巧！",
-                      font="Noto Sans CJK SC", font_size=28, color=HL_COLOR)
+                      font="PingFang SC", font_size=28, color=HL_COLOR)
         follow.move_to(DOWN * 0.8)
 
         self.play(

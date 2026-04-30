@@ -162,7 +162,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 作者信息（顶部）
         self.author_bar = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUX
         ).move_to(UP * 7.2)
@@ -171,7 +171,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 章节标签
         chapter_tag = Text(
             "七年级 · 第十四章 · 三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUX
         ).move_to(UP * 6.3)
@@ -180,7 +180,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 主标题
         title = Text(
             "等腰三角形的判定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.3)
@@ -189,13 +189,13 @@ class IsoscelesTriangleDetermination(Scene):
         # 问题钩子
         hook_q = Text(
             "怎样判断一个三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 4.3)
         hook_q2 = Text(
             "是等腰三角形？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 3.7)
@@ -239,14 +239,14 @@ class IsoscelesTriangleDetermination(Scene):
         # 方法标题
         method_tag = Text(
             "判定方法一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 6.3)
 
         method_name = Text(
             "定义法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 5.6)
@@ -262,9 +262,9 @@ class IsoscelesTriangleDetermination(Scene):
         self.play(Create(triangle), run_time=0.8)
 
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.A, UP, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.B, DL, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.C, DR, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=28, color=WHITE).next_to(self.A, UP, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=28, color=WHITE).next_to(self.B, DL, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=28, color=WHITE).next_to(self.C, DR, buff=0.15)
 
         self.play(
             FadeIn(label_A),
@@ -276,7 +276,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 条件展示：AB = AC 高亮显示
         cond_text = Text(
             "已知条件：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -316,7 +316,7 @@ class IsoscelesTriangleDetermination(Scene):
                           buff=0).move_to(DOWN * 5.2)
         concl_text = Text(
             "∴ △ABC 是等腰三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 6.0)
@@ -342,7 +342,7 @@ class IsoscelesTriangleDetermination(Scene):
 
         rule_text = Text(
             "有两边相等的三角形是等腰三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 6.3)
@@ -377,7 +377,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 过渡提示
         prop_title = Text(
             "回顾：等腰三角形的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -388,9 +388,9 @@ class IsoscelesTriangleDetermination(Scene):
         self.play(Create(triangle), run_time=0.7)
 
         # 标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.A, UP, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.B, DL, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.C, DR, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=28, color=WHITE).next_to(self.A, UP, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=28, color=WHITE).next_to(self.B, DL, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=28, color=WHITE).next_to(self.C, DR, buff=0.15)
         self.play(FadeIn(label_A), FadeIn(label_B), FadeIn(label_C), run_time=0.4)
 
         # 高亮等边
@@ -439,7 +439,7 @@ class IsoscelesTriangleDetermination(Scene):
 
         inverse_text = Text(
             "那么，反过来呢？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -468,14 +468,14 @@ class IsoscelesTriangleDetermination(Scene):
         # 方法标题
         method_tag = Text(
             "判定方法二",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EQUAL_ANGLE
         ).move_to(UP * 6.5)
 
         method_name = Text(
             "等角对等边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_EQUAL_ANGLE
         ).move_to(UP * 5.8)
@@ -491,15 +491,15 @@ class IsoscelesTriangleDetermination(Scene):
         self.play(Create(triangle), run_time=0.8)
 
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.A, UP, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.B, DL, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=28, color=WHITE).next_to(self.C, DR, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=28, color=WHITE).next_to(self.A, UP, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=28, color=WHITE).next_to(self.B, DL, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=28, color=WHITE).next_to(self.C, DR, buff=0.15)
         self.play(FadeIn(label_A), FadeIn(label_B), FadeIn(label_C), run_time=0.4)
 
         # 已知条件：∠B = ∠C
         cond_text = Text(
             "已知条件：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -562,7 +562,7 @@ class IsoscelesTriangleDetermination(Scene):
         self.wait(0.5)
 
         # 结论：揭示 AB = AC
-        concl_arrow = Text("∴", font="Noto Sans CJK SC", font_size=32,
+        concl_arrow = Text("∴", font="PingFang SC", font_size=32,
                            color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.2)
         concl_formula = MathTex(r"AB = AC", color=self.COLOR_EQUAL_SIDE,
                                 font_size=36).next_to(concl_arrow, RIGHT, buff=0.2)
@@ -580,7 +580,7 @@ class IsoscelesTriangleDetermination(Scene):
 
         # 三角形是等腰三角形
         concl_iso = Text("△ABC 是等腰三角形！",
-                         font="Noto Sans CJK SC", font_size=28,
+                         font="PingFang SC", font_size=28,
                          color=self.COLOR_SUCCESS).move_to(DOWN * 6.2)
         self.play(Write(concl_iso), run_time=0.6)
         self.play(
@@ -602,14 +602,14 @@ class IsoscelesTriangleDetermination(Scene):
 
         rule_text = Text(
             "若∠B=∠C，则AB=AC",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_EQUAL_ANGLE
         ).move_to(DOWN * 6.1)
 
         rule_text2 = Text(
             "（等角对等边）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUX
         ).move_to(DOWN * 6.55)
@@ -644,7 +644,7 @@ class IsoscelesTriangleDetermination(Scene):
         """例题：两种方法各一个例子"""
         ex_title = Text(
             "例题练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -653,14 +653,14 @@ class IsoscelesTriangleDetermination(Scene):
         # ===== 例1：定义法 =====
         ex1_label = Text(
             "例1   已知 AB = AC = 5，BC = 6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 5.7)
 
         ex1_q = Text(
             "△ABC 是等腰三角形吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.1)
@@ -673,9 +673,9 @@ class IsoscelesTriangleDetermination(Scene):
         C1 = np.array([1.6, 2.0, 0])
 
         tri1 = Polygon(A1, B1, C1, color=WHITE, stroke_width=3)
-        lA1 = Text("A", font="Noto Sans CJK SC", font_size=22).next_to(A1, UP, buff=0.1)
-        lB1 = Text("B", font="Noto Sans CJK SC", font_size=22).next_to(B1, DL, buff=0.1)
-        lC1 = Text("C", font="Noto Sans CJK SC", font_size=22).next_to(C1, DR, buff=0.1)
+        lA1 = Text("A", font="PingFang SC", font_size=22).next_to(A1, UP, buff=0.1)
+        lB1 = Text("B", font="PingFang SC", font_size=22).next_to(B1, DL, buff=0.1)
+        lC1 = Text("C", font="PingFang SC", font_size=22).next_to(C1, DR, buff=0.1)
 
         self.play(Create(tri1), FadeIn(lA1), FadeIn(lB1), FadeIn(lC1), run_time=0.6)
 
@@ -703,7 +703,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 答案
         ans1 = Text(
             "✓  是！因为 AB = AC = 5（定义法）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 0.5 + UP * 0.2)  # y ≈ 0.2
@@ -725,14 +725,14 @@ class IsoscelesTriangleDetermination(Scene):
         # ===== 例2：等角对等边 =====
         ex2_label = Text(
             "例2   已知 ∠B = ∠C = 65 度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 5.7)
 
         ex2_q = Text(
             "△ABC 是等腰三角形吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.1)
@@ -745,9 +745,9 @@ class IsoscelesTriangleDetermination(Scene):
         C2 = np.array([1.6, 2.0, 0])
 
         tri2 = Polygon(A2, B2, C2, color=WHITE, stroke_width=3)
-        lA2 = Text("A", font="Noto Sans CJK SC", font_size=22).next_to(A2, UP, buff=0.1)
-        lB2 = Text("B", font="Noto Sans CJK SC", font_size=22).next_to(B2, DL, buff=0.1)
-        lC2 = Text("C", font="Noto Sans CJK SC", font_size=22).next_to(C2, DR, buff=0.1)
+        lA2 = Text("A", font="PingFang SC", font_size=22).next_to(A2, UP, buff=0.1)
+        lB2 = Text("B", font="PingFang SC", font_size=22).next_to(B2, DL, buff=0.1)
+        lC2 = Text("C", font="PingFang SC", font_size=22).next_to(C2, DR, buff=0.1)
 
         self.play(Create(tri2), FadeIn(lA2), FadeIn(lB2), FadeIn(lC2), run_time=0.6)
 
@@ -793,7 +793,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 答案
         ans2 = Text(
             "✓  是！因为 ∠B = ∠C（等角对等边）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 0.2)
@@ -827,7 +827,7 @@ class IsoscelesTriangleDetermination(Scene):
         # 总结标题
         summary_title = Text(
             "知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -842,14 +842,14 @@ class IsoscelesTriangleDetermination(Scene):
             fill_opacity=0.9
         ).move_to(UP * 4.3)
 
-        card1_num = Text("方法一", font="Noto Sans CJK SC", font_size=22,
+        card1_num = Text("方法一", font="PingFang SC", font_size=22,
                          color=self.COLOR_SUCCESS).move_to(card1_bg.get_top() + DOWN * 0.35)
         card1_title = Text("定义法",
-                           font="Noto Sans CJK SC", font_size=30,
+                           font="PingFang SC", font_size=30,
                            color=WHITE).move_to(UP * 4.3 + UP * 0.2)
         card1_content = Text(
             "两边相等 → 等腰三角形",
-            font="Noto Sans CJK SC", font_size=24,
+            font="PingFang SC", font_size=24,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 4.3 + DOWN * 0.5)
 
@@ -865,14 +865,14 @@ class IsoscelesTriangleDetermination(Scene):
             fill_opacity=0.9
         ).move_to(UP * 1.5)
 
-        card2_num = Text("方法二", font="Noto Sans CJK SC", font_size=22,
+        card2_num = Text("方法二", font="PingFang SC", font_size=22,
                          color=self.COLOR_EQUAL_ANGLE).move_to(card2_bg.get_top() + DOWN * 0.35)
         card2_title = Text("等角对等边",
-                           font="Noto Sans CJK SC", font_size=30,
+                           font="PingFang SC", font_size=30,
                            color=WHITE).move_to(UP * 1.5 + UP * 0.2)
         card2_content = Text(
             "两角相等 → 等腰三角形",
-            font="Noto Sans CJK SC", font_size=24,
+            font="PingFang SC", font_size=24,
             color=self.COLOR_EQUAL_ANGLE
         ).move_to(UP * 1.5 + DOWN * 0.5)
 
@@ -911,21 +911,21 @@ class IsoscelesTriangleDetermination(Scene):
         # 大作者信息
         outro_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 2.0)
 
         outro_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUX
         ).move_to(UP * 1.0)
 
         outro_cta = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

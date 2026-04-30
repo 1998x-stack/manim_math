@@ -25,7 +25,7 @@ COLOR_RESULT = GOLD             # 金色 - 结果
 COLOR_TITLE = "#ce93d8"         # 浅紫 - 标题
 COLOR_STEP = "#80cbc4"          # 绿松石 - 步骤说明
 COLOR_KEY = YELLOW              # 黄色 - 关键词
-FONT_CN = "Noto Sans CJK SC"    # 中文字体
+FONT_CN = "PingFang SC"    # 中文字体
 
 
 class FenshiChengChu(Scene):

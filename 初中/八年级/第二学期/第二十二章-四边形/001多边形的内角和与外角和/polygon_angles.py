@@ -46,7 +46,7 @@ class PolygonAngles(Scene):
         self.COLOR_DIAGONAL = "#9b59b6"       # 紫色 - 对角线
         
         # 字体设置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         
         # 初始化几何数据
         self.setup_geometry()

@@ -114,7 +114,7 @@ class QuadraticFunctionVertex(Scene):
         # 作者信息 (顶部常驻)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -124,7 +124,7 @@ class QuadraticFunctionVertex(Scene):
         # 钩子问题
         hook = Text(
             "如何一眼看出\n抛物线的顶点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -246,7 +246,7 @@ class QuadraticFunctionVertex(Scene):
         hint_box = VGroup(
             Text(
                 "顶点坐标",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE
             ),
@@ -365,7 +365,7 @@ class QuadraticFunctionVertex(Scene):
         # 说明文字
         symmetry_text = Text(
             "对称轴: 直线 x = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -438,7 +438,7 @@ class QuadraticFunctionVertex(Scene):
         # a>0标注
         a_positive_text = Text(
             "当 a > 0 时",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_PARABOLA_POSITIVE
         ).move_to(DOWN * 4)
@@ -461,7 +461,7 @@ class QuadraticFunctionVertex(Scene):
         
         upward_text = Text(
             "开口向上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.8)
@@ -475,7 +475,7 @@ class QuadraticFunctionVertex(Scene):
         
         # 最小值标注
         min_value_box = VGroup(
-            Text("最小值", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("最小值", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(r"k = -2", font_size=26, color=self.COLOR_VERTEX)
         ).arrange(DOWN, buff=0.1, aligned_edge=LEFT).next_to(self.vertex_dot, LEFT, buff=0.5)
         
@@ -497,7 +497,7 @@ class QuadraticFunctionVertex(Scene):
         # 性质说明
         property_text = Text(
             "当 x = h 时, y有最小值 k",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.7)
@@ -579,7 +579,7 @@ class QuadraticFunctionVertex(Scene):
         # a<0标注
         a_negative_text = Text(
             "当 a < 0 时",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_PARABOLA_NEGATIVE
         ).move_to(DOWN * 4)
@@ -602,7 +602,7 @@ class QuadraticFunctionVertex(Scene):
         
         downward_text = Text(
             "开口向下",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.8)
@@ -616,7 +616,7 @@ class QuadraticFunctionVertex(Scene):
         
         # 最大值标注
         max_value_box = VGroup(
-            Text("最大值", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("最大值", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(r"k = 2", font_size=26, color=self.COLOR_VERTEX)
         ).arrange(DOWN, buff=0.1, aligned_edge=LEFT).next_to(vertex_dot2, RIGHT, buff=0.5)
         
@@ -637,7 +637,7 @@ class QuadraticFunctionVertex(Scene):
         # 对比说明
         comparison_text = Text(
             "当 x = h 时, y有最大值 k",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.7)
@@ -684,7 +684,7 @@ class QuadraticFunctionVertex(Scene):
         # 总结标题
         summary_title = Text(
             "顶点式\n一眼看透抛物线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD,
             line_spacing=1.3
@@ -721,7 +721,7 @@ class QuadraticFunctionVertex(Scene):
         
         # 卡片4: a>0
         card4_content = VGroup(
-            Text("开口向上", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("开口向上", font="PingFang SC", font_size=22, color=WHITE),
             MathTex(r"\text{最小值} = k", font_size=22, color=WHITE)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         card4 = self.create_summary_card(
@@ -733,7 +733,7 @@ class QuadraticFunctionVertex(Scene):
         
         # 卡片5: a<0
         card5_content = VGroup(
-            Text("开口向下", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("开口向下", font="PingFang SC", font_size=22, color=WHITE),
             MathTex(r"\text{最大值} = k", font_size=22, color=WHITE)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         card5 = self.create_summary_card(
@@ -752,7 +752,7 @@ class QuadraticFunctionVertex(Scene):
         # 关键提示
         key_reminder = Text(
             "注意: h前有负号!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW
         ).move_to(DOWN * 4.2)
@@ -773,14 +773,14 @@ class QuadraticFunctionVertex(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -794,7 +794,7 @@ class QuadraticFunctionVertex(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多函数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -850,7 +850,7 @@ class QuadraticFunctionVertex(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )

@@ -65,7 +65,7 @@ class FactorsAndMultiples(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -75,7 +75,7 @@ class FactorsAndMultiples(Scene):
         # 钩子问题
         hook_text = Text(
             "12个糖果，可以平均分给几个人？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -102,7 +102,7 @@ class FactorsAndMultiples(Scene):
         # 分组示意 - 分成3组
         hint = Text(
             "可以分成：2人、3人、4人、6人...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 1)
@@ -123,7 +123,7 @@ class FactorsAndMultiples(Scene):
         # 标题
         title = Text(
             "因数与倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -133,7 +133,7 @@ class FactorsAndMultiples(Scene):
         # 定义公式
         if_text = Text(
             "如果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4 + LEFT * 3)
@@ -146,7 +146,7 @@ class FactorsAndMultiples(Scene):
         
         condition = Text(
             "(q为正整数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(formula, RIGHT, buff=0.2)
@@ -158,21 +158,21 @@ class FactorsAndMultiples(Scene):
         # 则的说明
         then_text = Text(
             "则：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 2.5 + LEFT * 3.5)
         
         factor_def = Text(
             "b 是 a 的因数（约数）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FACTOR
         ).next_to(then_text, RIGHT, buff=0.3)
         
         multiple_def = Text(
             "a 是 b 的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_MULTIPLE
         ).move_to(UP * 1.5 + LEFT * 0.5)
@@ -187,7 +187,7 @@ class FactorsAndMultiples(Scene):
         # 具体例子
         example_title = Text(
             "例如：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(ORIGIN + LEFT * 3.2)
@@ -213,7 +213,7 @@ class FactorsAndMultiples(Scene):
         )
         label1 = Text(
             "倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_MULTIPLE
         ).next_to(arrow1, DOWN, buff=0.1)
@@ -228,7 +228,7 @@ class FactorsAndMultiples(Scene):
         )
         label2 = Text(
             "因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_FACTOR
         ).next_to(arrow2, DOWN, buff=0.1)
@@ -243,7 +243,7 @@ class FactorsAndMultiples(Scene):
         )
         label3 = Text(
             "因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_FACTOR
         ).next_to(arrow3, DOWN, buff=0.1)
@@ -264,7 +264,7 @@ class FactorsAndMultiples(Scene):
         # 强调相互依存
         note = Text(
             "因数和倍数是相互依存的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -295,7 +295,7 @@ class FactorsAndMultiples(Scene):
         # 标题
         title = Text(
             "找12的所有因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_FACTOR
         ).move_to(UP * 5.5)
@@ -305,7 +305,7 @@ class FactorsAndMultiples(Scene):
         # 方法说明
         method = Text(
             "方法：从1到12逐个检查",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -331,14 +331,14 @@ class FactorsAndMultiples(Scene):
         for num, is_factor, expr in checks:
             check_text = Text(
                 expr,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ).move_to(UP * check_y + LEFT * 2)
 
             result = Text(
                 "✓" if is_factor else "✗",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=self.COLOR_FACTOR if is_factor else GRAY
             ).next_to(check_text, RIGHT, buff=0.5)
@@ -346,7 +346,7 @@ class FactorsAndMultiples(Scene):
             if is_factor:
                 label = Text(
                     f"{num}是因数",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=self.FONT_SMALL,
                     color=self.COLOR_FACTOR
                 ).next_to(result, RIGHT, buff=0.3)
@@ -354,7 +354,7 @@ class FactorsAndMultiples(Scene):
             else:
                 label = Text(
                     "不是因数",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=self.FONT_SMALL,
                     color=GRAY
                 ).next_to(result, RIGHT, buff=0.3)
@@ -369,7 +369,7 @@ class FactorsAndMultiples(Scene):
                 self.play(FadeOut(check_group), run_time=0.2)  # ✅ 不是因数，立即淡出
                 dots_text = Text(
                     "...",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=self.FONT_BODY,
                     color=GRAY_A
                 ).move_to(UP * check_y)
@@ -386,7 +386,7 @@ class FactorsAndMultiples(Scene):
         # 结果表格
         result_title = Text(
             "12的所有因数：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FACTOR
         ).move_to(UP * 0.5)
@@ -412,7 +412,7 @@ class FactorsAndMultiples(Scene):
         # 强调有限性
         finite_note = Text(
             "共6个（有限的）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -422,7 +422,7 @@ class FactorsAndMultiples(Scene):
         
         conclusion = Text(
             "一个数的因数是有限的",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -447,7 +447,7 @@ class FactorsAndMultiples(Scene):
         # 标题
         title = Text(
             "找3的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_MULTIPLE
         ).move_to(UP * 5.5)
@@ -460,7 +460,7 @@ class FactorsAndMultiples(Scene):
             MathTex(r"3 \times 2 = 6", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"3 \times 3 = 9", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"3 \times 4 = 12", font_size=self.FONT_BODY, color=WHITE),
-            Text("...", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=GRAY_A)
+            Text("...", font="PingFang SC", font_size=self.FONT_BODY, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(UP * 3 + LEFT * 2)
         
         self.play(FadeIn(formulas, shift=RIGHT * 0.3), run_time=1.0)
@@ -501,7 +501,7 @@ class FactorsAndMultiples(Scene):
         
         ellipsis = Text(
             "...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_FORMULA,
             color=self.COLOR_MULTIPLE
         ).next_to(arrow, RIGHT, buff=0.2)
@@ -512,7 +512,7 @@ class FactorsAndMultiples(Scene):
         # 强调无限性
         infinite_note = Text(
             "永远写不完（无限的）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -522,7 +522,7 @@ class FactorsAndMultiples(Scene):
         
         conclusion = Text(
             "一个数的倍数是无限的",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -548,7 +548,7 @@ class FactorsAndMultiples(Scene):
         # 标题
         title = Text(
             "特殊规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SPECIAL
         ).move_to(UP * 5.5)
@@ -558,14 +558,14 @@ class FactorsAndMultiples(Scene):
         # 规律1
         rule1_title = Text(
             "规律①：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5 + LEFT * 3)
         
         rule1_content = Text(
             "1 是所有正整数的因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FACTOR
         ).next_to(rule1_title, RIGHT, buff=0.3)
@@ -597,14 +597,14 @@ class FactorsAndMultiples(Scene):
         # 规律2
         rule2_title = Text(
             "规律②：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1 + LEFT * 2.5)
         
         rule2_content = Text(
             "0 是所有非零整数的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_MULTIPLE
         ).next_to(rule2_title, RIGHT, buff=0.3)
@@ -650,7 +650,7 @@ class FactorsAndMultiples(Scene):
         # 标题
         title = Text(
             "知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -660,7 +660,7 @@ class FactorsAndMultiples(Scene):
         # 对比表格 - 使用VGroup而不是Table（更简单）
         table_title = Text(
             "因数 vs 倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 4)
@@ -669,21 +669,21 @@ class FactorsAndMultiples(Scene):
         
         # 手动创建表格
         row1 = VGroup(
-            Text("", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("因数", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_FACTOR),
-            Text("倍数", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_MULTIPLE)
+            Text("", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("因数", font="PingFang SC", font_size=20, color=self.COLOR_FACTOR),
+            Text("倍数", font="PingFang SC", font_size=20, color=self.COLOR_MULTIPLE)
         ).arrange(RIGHT, buff=1.0).move_to(UP * 3)
         
         row2 = VGroup(
-            Text("数量", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("有限", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("无限", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("数量", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("有限", font="PingFang SC", font_size=20, color=WHITE),
+            Text("无限", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(RIGHT, buff=1.0).move_to(UP * 2.2)
         
         row3 = VGroup(
-            Text("最小", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("1", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("本身", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("最小", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("1", font="PingFang SC", font_size=20, color=WHITE),
+            Text("本身", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(RIGHT, buff=1.0).move_to(UP * 1.4)
         
         comparison_table = VGroup(row1, row2, row3)
@@ -700,7 +700,7 @@ class FactorsAndMultiples(Scene):
         
         point1_text = Text(
             "定义：a = b × q，b是a的因数，a是b的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         ).next_to(point1_icon, RIGHT, buff=0.2)
@@ -717,7 +717,7 @@ class FactorsAndMultiples(Scene):
         
         point2_text = Text(
             "数量：因数有限，倍数无限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         ).next_to(point2_icon, RIGHT, buff=0.2)
@@ -734,7 +734,7 @@ class FactorsAndMultiples(Scene):
         
         point3_text = Text(
             "特殊：1是所有正整数的因数，0是所有非零整数的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=WHITE
         ).next_to(point3_icon, RIGHT, buff=0.2)
@@ -753,7 +753,7 @@ class FactorsAndMultiples(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)

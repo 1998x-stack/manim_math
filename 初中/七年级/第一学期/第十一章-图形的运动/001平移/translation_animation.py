@@ -122,7 +122,7 @@ class TranslationAnimation(Scene):
         # 作者信息 (顶部小字)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -132,7 +132,7 @@ class TranslationAnimation(Scene):
         # 钩子文字
         hook_main = Text(
             "图形怎么移动？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -140,7 +140,7 @@ class TranslationAnimation(Scene):
         
         hook_sub = Text(
             "平移变换的秘密",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A
         ).move_to(UP * 4.7)
@@ -168,7 +168,7 @@ class TranslationAnimation(Scene):
         # 问题文字
         question = Text(
             "什么是平移？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 1)
@@ -190,7 +190,7 @@ class TranslationAnimation(Scene):
         # 标题
         title = Text(
             "什么是平移？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -200,14 +200,14 @@ class TranslationAnimation(Scene):
         # 定义文字 - 分部分显示
         def_part1_cn = Text(
             "平移是把图形沿某个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
         
         def_part1_key = Text(
             "方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -217,14 +217,14 @@ class TranslationAnimation(Scene):
         
         def_part2_cn1 = Text(
             "移动一定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
         
         def_part2_key = Text(
             "距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -232,7 +232,7 @@ class TranslationAnimation(Scene):
         
         def_part2_cn2 = Text(
             "的变换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
@@ -252,7 +252,7 @@ class TranslationAnimation(Scene):
         # 补充说明
         note = Text(
             "方向 + 距离 = 平移向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.8)
@@ -274,7 +274,7 @@ class TranslationAnimation(Scene):
         # 标题
         title = Text(
             "三角形ABC",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 6.5)
@@ -293,9 +293,9 @@ class TranslationAnimation(Scene):
         self.play(Create(self.triangle_ABC), run_time=1.2)
         
         # 顶点标签
-        self.label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.A, LEFT, buff=0.15)
-        self.label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.B, RIGHT, buff=0.15)
-        self.label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.C, UP, buff=0.15)
+        self.label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.A, LEFT, buff=0.15)
+        self.label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.B, RIGHT, buff=0.15)
+        self.label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.C, UP, buff=0.15)
         
         self.play(FadeIn(self.label_A), run_time=0.3)
         self.play(FadeIn(self.label_B), run_time=0.3)
@@ -304,7 +304,7 @@ class TranslationAnimation(Scene):
         # 说明文字
         explain = Text(
             "这是我们的原始三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -320,7 +320,7 @@ class TranslationAnimation(Scene):
         # 标题
         title = Text(
             "平移方向与距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ARROW
         ).move_to(UP * 6.5)
@@ -367,15 +367,15 @@ class TranslationAnimation(Scene):
         self.play(Create(v_dash), run_time=0.5)
         
         # 标注
-        h_label_cn = Text("向右", font="Noto Sans CJK SC", font_size=20, color=WHITE)
-        h_label_num = Text("3", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_HIGHLIGHT, weight=BOLD)
-        h_label_unit = Text("单位", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        h_label_cn = Text("向右", font="PingFang SC", font_size=20, color=WHITE)
+        h_label_num = Text("3", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT, weight=BOLD)
+        h_label_unit = Text("单位", font="PingFang SC", font_size=20, color=WHITE)
         h_label = VGroup(h_label_cn, h_label_num, h_label_unit).arrange(RIGHT, buff=0.05)
         h_label.next_to(h_dash, DOWN, buff=0.2)
         
-        v_label_cn = Text("向上", font="Noto Sans CJK SC", font_size=20, color=WHITE)
-        v_label_num = Text("1.5", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_HIGHLIGHT, weight=BOLD)
-        v_label_unit = Text("单位", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        v_label_cn = Text("向上", font="PingFang SC", font_size=20, color=WHITE)
+        v_label_num = Text("1.5", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT, weight=BOLD)
+        v_label_unit = Text("单位", font="PingFang SC", font_size=20, color=WHITE)
         v_label = VGroup(v_label_cn, v_label_num, v_label_unit).arrange(RIGHT, buff=0.05)
         v_label.next_to(v_dash, RIGHT, buff=0.2)
         
@@ -385,7 +385,7 @@ class TranslationAnimation(Scene):
         # 说明文字
         explain = Text(
             "平移向量决定了移动的方向和距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -409,7 +409,7 @@ class TranslationAnimation(Scene):
         # 标题
         title = Text(
             "开始平移！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -486,9 +486,9 @@ class TranslationAnimation(Scene):
         self.play(Create(line_CC), run_time=0.5)
         
         # 平移后的顶点标签
-        self.label_A_prime = Text("A'", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SECONDARY).next_to(self.A_prime, LEFT, buff=0.15)
-        self.label_B_prime = Text("B'", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SECONDARY).next_to(self.B_prime, RIGHT, buff=0.15)
-        self.label_C_prime = Text("C'", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SECONDARY).next_to(self.C_prime, UP, buff=0.15)
+        self.label_A_prime = Text("A'", font="PingFang SC", font_size=24, color=self.COLOR_SECONDARY).next_to(self.A_prime, LEFT, buff=0.15)
+        self.label_B_prime = Text("B'", font="PingFang SC", font_size=24, color=self.COLOR_SECONDARY).next_to(self.B_prime, RIGHT, buff=0.15)
+        self.label_C_prime = Text("C'", font="PingFang SC", font_size=24, color=self.COLOR_SECONDARY).next_to(self.C_prime, UP, buff=0.15)
         
         self.play(FadeIn(self.label_A_prime), run_time=0.3)
         self.play(FadeIn(self.label_B_prime), run_time=0.3)
@@ -497,7 +497,7 @@ class TranslationAnimation(Scene):
         # 说明文字
         explain = Text(
             "对应点沿着相同方向移动相同距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -516,7 +516,7 @@ class TranslationAnimation(Scene):
         # 标题
         title = Text(
             "平移的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -528,7 +528,7 @@ class TranslationAnimation(Scene):
         prop1_icon = Circle(radius=0.15, fill_color=self.COLOR_PRIMARY, fill_opacity=1, stroke_width=0)
         prop1_text = Text(
             "形状、大小、方向均不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -551,7 +551,7 @@ class TranslationAnimation(Scene):
         prop2_icon = Circle(radius=0.15, fill_color=self.COLOR_ARROW, fill_opacity=1, stroke_width=0)
         prop2_text = Text(
             "对应点连线平行且相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -582,7 +582,7 @@ class TranslationAnimation(Scene):
         prop3_icon = Circle(radius=0.15, fill_color=self.COLOR_SECONDARY, fill_opacity=1, stroke_width=0)
         prop3_text = Text(
             "对应线段平行且相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -681,7 +681,7 @@ class TranslationAnimation(Scene):
         # 总结标题
         summary_title = Text(
             "平移变换 - 关键要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -690,28 +690,28 @@ class TranslationAnimation(Scene):
         self.play(Write(summary_title), run_time=0.8)
         
         # 要点列表
-        point1_icon = Text("1", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_PRIMARY, weight=BOLD)
+        point1_icon = Text("1", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY, weight=BOLD)
         point1_text = Text(
             "平移 = 方向 + 距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         point1 = VGroup(point1_icon, point1_text).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
         point1.shift(LEFT * 10)  # 初始在左侧外
         
-        point2_icon = Text("2", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_ARROW, weight=BOLD)
-        point2_text_cn = Text("对应点连线: ", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        point2_icon = Text("2", font="PingFang SC", font_size=28, color=self.COLOR_ARROW, weight=BOLD)
+        point2_text_cn = Text("对应点连线: ", font="PingFang SC", font_size=22, color=WHITE)
         point2_text_formula = MathTex(r"AA' \parallel BB'", font_size=28, color=self.COLOR_HIGHLIGHT)
-        point2_text_and = Text(" 且相等", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        point2_text_and = Text(" 且相等", font="PingFang SC", font_size=22, color=WHITE)
         point2_content = VGroup(point2_text_cn, point2_text_formula, point2_text_and).arrange(RIGHT, buff=0.1)
         point2 = VGroup(point2_icon, point2_content).arrange(RIGHT, buff=0.3).move_to(UP * 2.3)
         point2.shift(LEFT * 10)
         
-        point3_icon = Text("3", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SECONDARY, weight=BOLD)
+        point3_icon = Text("3", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY, weight=BOLD)
         point3_text = Text(
             "形状、大小、方向都不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -728,7 +728,7 @@ class TranslationAnimation(Scene):
         # 应用提示
         application_hint = Text(
             "平移在坐标系、向量、全等变换中都很重要！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -739,14 +739,14 @@ class TranslationAnimation(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 2.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_B
         ).move_to(DOWN * 3.3)
@@ -760,7 +760,7 @@ class TranslationAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

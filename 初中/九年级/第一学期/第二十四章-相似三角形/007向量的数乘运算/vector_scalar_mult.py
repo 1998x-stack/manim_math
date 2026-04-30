@@ -118,7 +118,7 @@ class VectorScalarMult(Scene):
 
     def make_label(self, text, color, font_size=24):
         """创建中文标签"""
-        return Text(text, font="Noto Sans CJK SC", font_size=font_size, color=color)
+        return Text(text, font="PingFang SC", font_size=font_size, color=color)
 
     # =========================================================
     # Scene 1: 开场钩子
@@ -127,7 +127,7 @@ class VectorScalarMult(Scene):
         # 作者信息（顶部，全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.C_AUX
         ).move_to(UP * 7.2)
@@ -136,13 +136,13 @@ class VectorScalarMult(Scene):
         # 钩子问题
         hook = Text(
             "向量乘以一个数,",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_HIGHLIGHT
         ).move_to(UP * 5.5)
         hook2 = Text(
             "会发生什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.C_HIGHLIGHT,
             weight="BOLD"
@@ -708,14 +708,14 @@ class VectorScalarMult(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 1.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_AUX
         ).move_to(UP * 0.2)

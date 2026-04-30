@@ -153,7 +153,7 @@ class VerticalAngles(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -163,7 +163,7 @@ class VerticalAngles(Scene):
         # 钩子问题
         hook_text = Text(
             "这两个角相等吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5)
@@ -215,7 +215,7 @@ class VerticalAngles(Scene):
         # 标题
         title = Text(
             "两条直线相交",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -225,7 +225,7 @@ class VerticalAngles(Scene):
         # 直线1高亮和标注
         self.play(self.line1.animate.set_stroke(width=6), run_time=0.4)
         
-        label_l1_chinese = Text("直线", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        label_l1_chinese = Text("直线", font="PingFang SC", font_size=20, color=WHITE)
         label_l1_math = MathTex(r"l_1", color=self.COLOR_LINE1, font_size=28)
         label_l1 = VGroup(label_l1_chinese, label_l1_math).arrange(RIGHT, buff=0.1)
         label_l1.next_to(self.A1, RIGHT, buff=0.2)
@@ -236,7 +236,7 @@ class VerticalAngles(Scene):
         # 直线2高亮和标注
         self.play(self.line2.animate.set_stroke(width=6), run_time=0.4)
         
-        label_l2_chinese = Text("直线", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        label_l2_chinese = Text("直线", font="PingFang SC", font_size=20, color=WHITE)
         label_l2_math = MathTex(r"l_2", color=self.COLOR_LINE2, font_size=28)
         label_l2 = VGroup(label_l2_chinese, label_l2_math).arrange(RIGHT, buff=0.1)
         label_l2.next_to(self.B1, UP, buff=0.2)
@@ -246,7 +246,7 @@ class VerticalAngles(Scene):
         
         # 交点O标注
         point_O = Dot(self.O, color=YELLOW, radius=0.1)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=YELLOW).next_to(point_O, DOWN + RIGHT, buff=0.15)
+        label_O = Text("O", font="PingFang SC", font_size=24, color=YELLOW).next_to(point_O, DOWN + RIGHT, buff=0.15)
         
         self.play(
             FadeIn(point_O, scale=0.5),
@@ -258,7 +258,7 @@ class VerticalAngles(Scene):
         # 说明文字
         explain_text = Text(
             "交于点O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -284,7 +284,7 @@ class VerticalAngles(Scene):
         # 标题
         title = Text(
             "形成四个角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -370,7 +370,7 @@ class VerticalAngles(Scene):
         # 标题
         title = Text(
             "什么是对顶角？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -410,7 +410,7 @@ class VerticalAngles(Scene):
         # 定义文字
         def_text1 = Text(
             "有公共顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 4)
@@ -425,7 +425,7 @@ class VerticalAngles(Scene):
         
         def_text2 = Text(
             "没有公共边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 4.8)
@@ -449,7 +449,7 @@ class VerticalAngles(Scene):
         
         hint_text = Text(
             "∠2和∠4也是对顶角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.8)
@@ -480,7 +480,7 @@ class VerticalAngles(Scene):
         # 标题
         title = Text(
             "对顶角有什么性质？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -596,7 +596,7 @@ class VerticalAngles(Scene):
         # 结论
         conclusion = Text(
             "∠1 = ∠3 = 60°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD
         ).move_to(ORIGIN)
@@ -631,7 +631,7 @@ class VerticalAngles(Scene):
         # 标题
         title = Text(
             "为什么对顶角相等？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -646,7 +646,7 @@ class VerticalAngles(Scene):
         )
         
         # 公式1
-        formula1_chinese = Text("因为", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        formula1_chinese = Text("因为", font="PingFang SC", font_size=22, color=WHITE)
         formula1_math = MathTex(r"\angle 1 + \angle 2 = 180^\circ", font_size=28, color=WHITE)
         formula1 = VGroup(formula1_chinese, formula1_math).arrange(RIGHT, buff=0.2).move_to(DOWN * 3)
         
@@ -655,7 +655,7 @@ class VerticalAngles(Scene):
         # 说明文字
         explain1 = Text(
             "(这是一条直线)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(formula1, DOWN, buff=0.2)
@@ -671,7 +671,7 @@ class VerticalAngles(Scene):
         )
         
         # 公式2
-        formula2_chinese = Text("同理", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        formula2_chinese = Text("同理", font="PingFang SC", font_size=22, color=WHITE)
         formula2_math = MathTex(r"\angle 3 + \angle 2 = 180^\circ", font_size=28, color=WHITE)
         formula2 = VGroup(formula2_chinese, formula2_math).arrange(RIGHT, buff=0.2).move_to(DOWN * 4.2)
         
@@ -696,7 +696,7 @@ class VerticalAngles(Scene):
         self.play(Create(arrow), run_time=0.5)
         
         # 结论
-        conclusion_chinese = Text("所以", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        conclusion_chinese = Text("所以", font="PingFang SC", font_size=24, color=WHITE)
         conclusion_math = MathTex(r"\angle 1 = \angle 3", font_size=32, color=GOLD)
         conclusion = VGroup(conclusion_chinese, conclusion_math).arrange(RIGHT, buff=0.2).move_to(DOWN * 6)
         
@@ -739,20 +739,20 @@ class VerticalAngles(Scene):
         # 知识卡片
         card_title = Text(
             "对顶角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         )
         
         card_def_label = Text(
             "定义：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         card_def_content = Text(
             "有公共顶点但没有公共边的两个角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -760,13 +760,13 @@ class VerticalAngles(Scene):
         
         card_prop_label = Text(
             "性质：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         card_prop_content = Text(
             "对顶角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GOLD
         )
@@ -790,14 +790,14 @@ class VerticalAngles(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 0.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 0.5)
@@ -811,7 +811,7 @@ class VerticalAngles(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD
         ).move_to(DOWN * 2)

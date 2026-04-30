@@ -34,7 +34,7 @@ COLOR_BOX       = "#c8d8f0"   # 长方体棱
 COLOR_AUX       = "#888888"
 COLOR_HIGHLIGHT = YELLOW
 COLOR_AUTHOR    = "#aaaacc"
-FONT_CN         = "Noto Sans CJK SC"
+FONT_CN         = "PingFang SC"
 
 
 # ─────────────────────────────────────────────

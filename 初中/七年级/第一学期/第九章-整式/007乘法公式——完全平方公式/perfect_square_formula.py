@@ -145,7 +145,7 @@ class PerfectSquareFormula(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -155,7 +155,7 @@ class PerfectSquareFormula(Scene):
         # 钩子问题
         hook_chinese = Text(
             "你知道",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         )
@@ -166,7 +166,7 @@ class PerfectSquareFormula(Scene):
         )
         hook_chinese_2 = Text(
             "等于什么吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         )
@@ -197,7 +197,7 @@ class PerfectSquareFormula(Scene):
         # 标题
         title = Text(
             "完全平方公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6)
@@ -230,7 +230,7 @@ class PerfectSquareFormula(Scene):
         # 说明文字
         explanation = Text(
             "注意中间项！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).next_to(middle_term_box, DOWN, buff=0.4)
@@ -266,14 +266,14 @@ class PerfectSquareFormula(Scene):
         # 记忆口诀
         mnemonic_1 = Text(
             "首平方，尾平方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(DOWN * 1)
         
         mnemonic_2 = Text(
             "首尾二倍放中央",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -301,7 +301,7 @@ class PerfectSquareFormula(Scene):
         # 说明文字
         explanation = Text(
             "用正方形来理解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -353,7 +353,7 @@ class PerfectSquareFormula(Scene):
         # 提示分割
         hint = Text(
             "让我们分割这个正方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -562,7 +562,7 @@ class PerfectSquareFormula(Scene):
         # 说明文字
         note = Text(
             "注意：有两个 ab",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -587,7 +587,7 @@ class PerfectSquareFormula(Scene):
         # 说明文字
         explanation = Text(
             "总面积 = 四个小区域之和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -717,7 +717,7 @@ class PerfectSquareFormula(Scene):
         # 例题标题
         example_title = Text(
             "例题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 3.5)
@@ -727,7 +727,7 @@ class PerfectSquareFormula(Scene):
         # 题目
         question_chinese = Text(
             "计算：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -778,7 +778,7 @@ class PerfectSquareFormula(Scene):
         # 总结
         summary = Text(
             "掌握公式，展开轻松！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -789,7 +789,7 @@ class PerfectSquareFormula(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(ORIGIN)
@@ -799,14 +799,14 @@ class PerfectSquareFormula(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(DOWN * 2.5)

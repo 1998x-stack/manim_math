@@ -134,7 +134,7 @@ class ProportionalFunction(Scene):
         """创建象限标注"""
         label = Text(
             f"第{quad_num}象限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=color,
         ).move_to(axes.c2p(*quad_pos[:2]))
@@ -162,7 +162,7 @@ class ProportionalFunction(Scene):
         # 作者信息
         self.author_bar = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B,
         ).move_to(UP * 7.2)
@@ -171,11 +171,11 @@ class ProportionalFunction(Scene):
 
         # 钩子标题
         hook = Text(
-            "一条直线", font="Noto Sans CJK SC",
+            "一条直线", font="PingFang SC",
             font_size=52, color=self.C_GOLD,
         ).move_to(UP * 5.5)
         hook2 = Text(
-            "藏着多少秘密？", font="Noto Sans CJK SC",
+            "藏着多少秘密？", font="PingFang SC",
             font_size=40, color=WHITE,
         ).move_to(UP * 4.6)
 
@@ -219,7 +219,7 @@ class ProportionalFunction(Scene):
         """介绍正比例函数定义"""
         # 标题
         title = Text(
-            "正比例函数", font="Noto Sans CJK SC",
+            "正比例函数", font="PingFang SC",
             font_size=44, color=self.C_GOLD,
         ).move_to(UP * 5.8)
 
@@ -236,7 +236,7 @@ class ProportionalFunction(Scene):
         ).move_to(UP * 4.5)
 
         def_text = Text(
-            "形如", font="Noto Sans CJK SC",
+            "形如", font="PingFang SC",
             font_size=26, color=WHITE,
         )
         def_formula = MathTex(
@@ -245,7 +245,7 @@ class ProportionalFunction(Scene):
         )
         def_suffix = Text(
             "的函数叫做正比例函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26, color=WHITE,
         )
 
@@ -263,7 +263,7 @@ class ProportionalFunction(Scene):
 
         warn_text = Text(
             "k ≠ 0  非常重要！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24, color=self.C_NEG,
         ).move_to(UP * 3.5)
         self.play(FadeIn(warn_text, shift=UP * 0.2), run_time=0.5)
@@ -272,12 +272,12 @@ class ProportionalFunction(Scene):
 
         # 关键特征：图像过原点
         feat1_label = Text(
-            "图像特征：", font="Noto Sans CJK SC",
+            "图像特征：", font="PingFang SC",
             font_size=26, color=WHITE,
         ).move_to(UP * 3.4)
         feat1 = Text(
             "✦ 过原点的直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26, color=self.C_POS,
         ).move_to(UP * 2.9)
 
@@ -291,7 +291,7 @@ class ProportionalFunction(Scene):
         )
         origin_note = Text(
             "过原点！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20, color=self.C_GOLD,
         ).next_to(origin_dot, UR, buff=0.2)
 
@@ -321,7 +321,7 @@ class ProportionalFunction(Scene):
         """展示 k>0 时的图像特征"""
         # 场景标题
         title = Text(
-            "当 k > 0", font="Noto Sans CJK SC",
+            "当 k > 0", font="PingFang SC",
             font_size=44, color=self.C_POS,
         ).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
@@ -329,7 +329,7 @@ class ProportionalFunction(Scene):
         # 画 y = x (k=1)
         label_k1 = VGroup(
             MathTex(r"y = x", font_size=28, color=self.C_POS),
-            Text("(k=1)", font="Noto Sans CJK SC", font_size=22, color=self.C_POS),
+            Text("(k=1)", font="PingFang SC", font_size=22, color=self.C_POS),
         ).arrange(RIGHT, buff=0.15).move_to(UP * 4.9)
 
         self.line_k1 = self.make_function_line(self.axes, 1, self.C_POS)
@@ -354,7 +354,7 @@ class ProportionalFunction(Scene):
 
         q_note = Text(
             "经过 一、三 象限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26, color=self.C_POS,
         ).move_to(DOWN * 3.0)
 
@@ -410,7 +410,7 @@ class ProportionalFunction(Scene):
 
         inc_note = Text(
             "x 增大 → y 增大（增函数）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24, color=YELLOW,
         ).move_to(DOWN * 3.8)
 
@@ -436,7 +436,7 @@ class ProportionalFunction(Scene):
         # 对比 y = 2x (k=2)
         label_k2 = VGroup(
             MathTex(r"y = 2x", font_size=28, color=self.C_K2),
-            Text("(k=2)", font="Noto Sans CJK SC", font_size=22, color=self.C_K2),
+            Text("(k=2)", font="PingFang SC", font_size=22, color=self.C_K2),
         ).arrange(RIGHT, buff=0.15).move_to(UP * 4.3)
 
         self.line_k2 = self.make_function_line(self.axes, 2, self.C_K2)
@@ -444,8 +444,8 @@ class ProportionalFunction(Scene):
 
         # |k| 越大越陡
         steep_note = VGroup(
-            Text("|k| 越大，", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("直线越陡！", font="Noto Sans CJK SC", font_size=26, color=self.C_GOLD),
+            Text("|k| 越大，", font="PingFang SC", font_size=26, color=WHITE),
+            Text("直线越陡！", font="PingFang SC", font_size=26, color=self.C_GOLD),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 3.5)
 
         self.play(FadeIn(steep_note, shift=UP * 0.2), run_time=0.5)
@@ -491,7 +491,7 @@ class ProportionalFunction(Scene):
     def scene_4_k_negative(self):
         """展示 k<0 时的图像特征"""
         title = Text(
-            "当 k < 0", font="Noto Sans CJK SC",
+            "当 k < 0", font="PingFang SC",
             font_size=44, color=self.C_NEG,
         ).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.6)
@@ -499,7 +499,7 @@ class ProportionalFunction(Scene):
         # 画 y = -x (k=-1)
         label_kneg = VGroup(
             MathTex(r"y = -x", font_size=28, color=self.C_NEG),
-            Text("(k=-1)", font="Noto Sans CJK SC", font_size=22, color=self.C_NEG),
+            Text("(k=-1)", font="PingFang SC", font_size=22, color=self.C_NEG),
         ).arrange(RIGHT, buff=0.15).move_to(UP * 4.9)
 
         self.line_kneg = self.make_function_line(self.axes, -1, self.C_NEG)
@@ -524,7 +524,7 @@ class ProportionalFunction(Scene):
 
         q_note_neg = Text(
             "经过 二、四 象限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26, color=self.C_NEG,
         ).move_to(DOWN * 3.0)
 
@@ -580,7 +580,7 @@ class ProportionalFunction(Scene):
 
         dec_note = Text(
             "x 增大 → y 减小（减函数）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24, color=YELLOW,
         ).move_to(DOWN * 3.8)
 
@@ -621,7 +621,7 @@ class ProportionalFunction(Scene):
     def scene_5_comparison(self):
         """三条线同框对比"""
         title = Text(
-            "汇总对比", font="Noto Sans CJK SC",
+            "汇总对比", font="PingFang SC",
             font_size=40, color=self.C_GOLD,
         ).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.5)
@@ -638,17 +638,17 @@ class ProportionalFunction(Scene):
             VGroup(
                 Line(ORIGIN, RIGHT * 0.5, color=self.C_POS, stroke_width=3),
                 MathTex(r"y=x", font_size=22, color=self.C_POS),
-                Text("(k=1)", font="Noto Sans CJK SC", font_size=18, color=self.C_POS),
+                Text("(k=1)", font="PingFang SC", font_size=18, color=self.C_POS),
             ).arrange(RIGHT, buff=0.15),
             VGroup(
                 Line(ORIGIN, RIGHT * 0.5, color=self.C_K2, stroke_width=3),
                 MathTex(r"y=2x", font_size=22, color=self.C_K2),
-                Text("(k=2)", font="Noto Sans CJK SC", font_size=18, color=self.C_K2),
+                Text("(k=2)", font="PingFang SC", font_size=18, color=self.C_K2),
             ).arrange(RIGHT, buff=0.15),
             VGroup(
                 Line(ORIGIN, RIGHT * 0.5, color=self.C_NEG, stroke_width=3),
                 MathTex(r"y=-x", font_size=22, color=self.C_NEG),
-                Text("(k=-1)", font="Noto Sans CJK SC", font_size=18, color=self.C_NEG),
+                Text("(k=-1)", font="PingFang SC", font_size=18, color=self.C_NEG),
             ).arrange(RIGHT, buff=0.15),
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT)
 
@@ -681,7 +681,7 @@ class ProportionalFunction(Scene):
     def scene_6_summary(self):
         """知识点卡片总结"""
         title = Text(
-            "知识总结", font="Noto Sans CJK SC",
+            "知识总结", font="PingFang SC",
             font_size=44, color=self.C_GOLD,
         ).move_to(UP * 6.2)
         self.play(Write(title), run_time=0.6)
@@ -698,7 +698,7 @@ class ProportionalFunction(Scene):
 
         formula_label = Text(
             "正比例函数：",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE,
+            font="PingFang SC", font_size=26, color=WHITE,
         )
         formula_tex = MathTex(r"y = kx \quad (k \neq 0)", font_size=34, color=self.C_GOLD)
         formula_content = VGroup(formula_label, formula_tex).arrange(RIGHT, buff=0.2)
@@ -727,7 +727,7 @@ class ProportionalFunction(Scene):
             ).move_to(UP * y_pos + RIGHT * 0)
 
             card_text = Text(
-                text, font="Noto Sans CJK SC",
+                text, font="PingFang SC",
                 font_size=24, color=color,
             ).move_to(card_bg.get_center())
 
@@ -764,13 +764,13 @@ class ProportionalFunction(Scene):
         # 大标题
         name_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44, color=WHITE,
         ).move_to(UP * 2.0)
 
         id_text = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32, color=GRAY_B,
         ).move_to(UP * 1.0)
 
@@ -783,7 +783,7 @@ class ProportionalFunction(Scene):
         # 关注提示
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32, color=self.C_GOLD,
         ).move_to(DOWN * 0.5)
 

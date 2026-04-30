@@ -71,7 +71,7 @@ class 一元二次方程的概念Animation(Scene):
         """场景1: 开场介绍"""
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUTHOR
         ).move_to(UP * self.TOP_REGION_Y + LEFT * 0.5)
@@ -80,7 +80,7 @@ class 一元二次方程的概念Animation(Scene):
         
         title = Text(
             "一元二次方程的概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * (self.TOP_REGION_Y - 1.2))
@@ -123,7 +123,7 @@ class 一元二次方程的概念Animation(Scene):
         """场景2: 一元二次方程定义"""
         definition_text = Text(
             "只含有一个未知数，\n且未知数的最高次数是2的\n整式方程叫做一元二次方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_PRIMARY,
             line_spacing=1.2
@@ -134,21 +134,21 @@ class 一元二次方程的概念Animation(Scene):
         
         word1 = Text(
             "一个未知数", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=32, 
             color=self.COLOR_HIGHLIGHT
         ).next_to(definition_text, DOWN, buff=0.8)
         
         word2 = Text(
             "最高次数是2", 
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32, 
             color=self.COLOR_HIGHLIGHT
         ).next_to(word1, DOWN, buff=0.5)
         
         word3 = Text(
             "整式方程", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=32, 
             color=self.COLOR_HIGHLIGHT
         ).next_to(word2, DOWN, buff=0.5)
@@ -209,7 +209,7 @@ class 一元二次方程的概念Animation(Scene):
         quad_rect = SurroundingRectangle(quad_term, color=self.COLOR_HIGHLIGHT, buff=0.1)
         quad_label = Text(
             "二次项", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=24, 
             color=self.COLOR_HIGHLIGHT
         ).next_to(quad_rect, UP, buff=0.2)
@@ -224,7 +224,7 @@ class 一元二次方程的概念Animation(Scene):
         lin_rect = SurroundingRectangle(lin_term, color=self.COLOR_SECONDARY, buff=0.1)
         lin_label = Text(
             "一次项", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=24, 
             color=self.COLOR_SECONDARY
         ).next_to(lin_rect, UP, buff=0.2)
@@ -239,7 +239,7 @@ class 一元二次方程的概念Animation(Scene):
         const_rect = SurroundingRectangle(const_term, color=self.COLOR_AUXILIARY, buff=0.1)
         const_label = Text(
             "常数项", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=24, 
             color=self.COLOR_AUXILIARY
         ).next_to(const_rect, UP, buff=0.2)
@@ -269,17 +269,17 @@ class 一元二次方程的概念Animation(Scene):
         
         coeff_a = VGroup(
             MathTex("a", color=self.COLOR_HIGHLIGHT, font_size=40),
-            Text(": 二次项系数", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+            Text(": 二次项系数", font="PingFang SC", font_size=28, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * self.CONTENT_REGION_Y)
         
         coeff_b = VGroup(
             MathTex("b", color=self.COLOR_SECONDARY, font_size=40),
-            Text(": 一次项系数", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+            Text(": 一次项系数", font="PingFang SC", font_size=28, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * (self.CONTENT_REGION_Y - 1.2))
         
         coeff_c = VGroup(
             MathTex("c", color=self.COLOR_AUXILIARY, font_size=40),
-            Text(": 常数项", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+            Text(": 常数项", font="PingFang SC", font_size=28, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * (self.CONTENT_REGION_Y - 2.4))
         
         a_condition = MathTex(
@@ -290,7 +290,7 @@ class 一元二次方程的概念Animation(Scene):
         
         condition_exp = Text(
             "这是关键条件！", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=28, 
             color=self.COLOR_HIGHLIGHT
         ).next_to(a_condition, DOWN, buff=0.3)
@@ -338,7 +338,7 @@ class 一元二次方程的概念Animation(Scene):
         
         comparison_title = Text(
             "对比不同类型的方程", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=32, 
             color=WHITE
         ).move_to(UP * (self.CONTENT_REGION_Y + 1.0))
@@ -357,17 +357,17 @@ class 一元二次方程的概念Animation(Scene):
         
         quad_highlights = VGroup(
             SurroundingRectangle(quadratic_eq[0][0:4], color=self.COLOR_HIGHLIGHT, buff=0.1),  
-            Text("二次项", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT)
+            Text("二次项", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT)
                 .next_to(quadratic_eq[0][0:4], DOWN, buff=0.2)
         )
         
         linear_highlights = VGroup(
-            Text("无二次项", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SECONDARY)
+            Text("无二次项", font="PingFang SC", font_size=24, color=self.COLOR_SECONDARY)
                 .next_to(linear_eq, DOWN, buff=0.2)
         )
         
         cubic_highlights = VGroup(
-            Text("三次项", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_AUXILIARY)
+            Text("三次项", font="PingFang SC", font_size=24, color=self.COLOR_AUXILIARY)
                 .next_to(cubic_eq[0][0:4], DOWN, buff=0.2)
         )
         
@@ -383,10 +383,10 @@ class 一元二次方程的概念Animation(Scene):
     def show_summary(self):
         """场景6: 总结与回顾"""
         key_points = VGroup(
-            Text("✓ 只含一个未知数", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 最高次数为2", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 标准形式: ax²+bx+c=0", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ a≠0 (关键条件)", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            Text("✓ 只含一个未知数", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
+            Text("✓ 最高次数为2", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
+            Text("✓ 标准形式: ax²+bx+c=0", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
+            Text("✓ a≠0 (关键条件)", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
         ).arrange(DOWN, buff=0.5, aligned_edge=LEFT).move_to(UP * 1.0)
         
         final_formula = MathTex(
@@ -397,21 +397,21 @@ class 一元二次方程的概念Animation(Scene):
         
         final_author = Text(
             "上海初高中数学直通车", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=32, 
             color=self.COLOR_AUTHOR
         ).move_to(UP * (self.BOTTOM_REGION_Y + 1.0))
         
         follow_prompt = Text(
             "@emptyandcalm", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=28, 
             color=GRAY_A
         ).next_to(final_author, DOWN, buff=0.3)
         
         subscribe_msg = Text(
             "关注我，获得更多数学技巧!", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=26, 
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * (self.BOTTOM_REGION_Y - 1.0))

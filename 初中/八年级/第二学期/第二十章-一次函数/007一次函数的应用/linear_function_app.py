@@ -96,7 +96,7 @@ class LinearFunctionApplication(Scene):
         """创建作者信息条"""
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 6.9)
@@ -124,14 +124,14 @@ class LinearFunctionApplication(Scene):
         # 主钩子文字
         hook_line1 = Text(
             "打车要花",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=56,
             color=self.C_TITLE
         ).move_to(UP * 5.5)
 
         hook_line2 = Text(
             "多少钱？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=56,
             color=self.C_TITLE
         ).move_to(UP * 4.7)
@@ -177,7 +177,7 @@ class LinearFunctionApplication(Scene):
         # 出租车标志
         taxi_sign = Text(
             "出 租 车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color="#333333"
         ).move_to(taxi_body.get_center())
@@ -188,8 +188,8 @@ class LinearFunctionApplication(Scene):
 
         # 计价器显示
         meter_bg = self.make_card(3.0, 1.2, DOWN * 0.2 + RIGHT * 0, "#FFD700", "#1a3a1a")
-        meter_label = Text("计价器", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(UP * 0.25)
-        meter_value = Text("？ 元", font="Noto Sans CJK SC", font_size=40, color=self.C_TITLE).move_to(DOWN * 0.15)
+        meter_label = Text("计价器", font="PingFang SC", font_size=24, color=GRAY_A).move_to(UP * 0.25)
+        meter_value = Text("？ 元", font="PingFang SC", font_size=40, color=self.C_TITLE).move_to(DOWN * 0.15)
 
         self.play(FadeIn(meter_bg), FadeIn(meter_label), FadeIn(meter_value), run_time=0.5)
         self.wait(0.8)
@@ -212,7 +212,7 @@ class LinearFunctionApplication(Scene):
         # 标题
         title = Text(
             "题目条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.C_STEP
         ).move_to(UP * 6.2)
@@ -224,21 +224,21 @@ class LinearFunctionApplication(Scene):
 
         info_title = Text(
             "出租车收费标准",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_STEP
         ).move_to(UP * 5.3)
 
         info_line1 = Text(
             "起步价：3 元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 4.7)
 
         info_line2 = Text(
             "此后每公里：2 元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 4.1)
@@ -262,21 +262,21 @@ class LinearFunctionApplication(Scene):
 
         q_title = Text(
             "求解问题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_FORMULA
         ).move_to(UP * 3.1)
 
         q1_text = Text(
             "① 乘坐 5 公里需要多少钱？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_Q1
         ).move_to(UP * 2.5)
 
         q2_text = Text(
             "② 付 15 元最多坐几公里？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_Q2
         ).move_to(UP * 1.9)
@@ -313,7 +313,7 @@ class LinearFunctionApplication(Scene):
     def scene_3_modeling(self):
         title = Text(
             "建立函数模型",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color="#FF6B6B"
         ).move_to(UP * 6.3)
@@ -323,7 +323,7 @@ class LinearFunctionApplication(Scene):
         # Step 1: 确定变量
         step1 = Text(
             "第一步：确定变量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_TITLE
         ).move_to(UP * 5.3)
@@ -332,14 +332,14 @@ class LinearFunctionApplication(Scene):
 
         var_x = Text(
             "x = 行驶路程（公里）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 4.6)
 
         var_y = Text(
             "y = 出租车费用（元）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 4.0)
@@ -355,7 +355,7 @@ class LinearFunctionApplication(Scene):
         # Step 2: 建立关系式
         step2 = Text(
             "第二步：建立关系式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_TITLE
         ).move_to(UP * 2.8)
@@ -365,7 +365,7 @@ class LinearFunctionApplication(Scene):
         # 推导过程
         derivation = Text(
             "费用 = 起步价 + 每公里 × 公里数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 2.1)
@@ -384,7 +384,7 @@ class LinearFunctionApplication(Scene):
         # 定义域说明
         domain_text = Text(
             "（x ≥ 0）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).next_to(formula, RIGHT, buff=0.2)
@@ -405,7 +405,7 @@ class LinearFunctionApplication(Scene):
         )
         slope_label = Text(
             "斜率 k=2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.C_Q1
         ).move_to(DOWN * 0.5 + LEFT * 2.5)
@@ -419,7 +419,7 @@ class LinearFunctionApplication(Scene):
         )
         intercept_label = Text(
             "截距 b=3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.C_Q2
         ).move_to(DOWN * 0.7 + RIGHT * 3.2)
@@ -457,7 +457,7 @@ class LinearFunctionApplication(Scene):
     def scene_4_graph(self):
         scene_title = Text(
             "函数图像",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.C_STEP
         ).move_to(UP * 5.8 + RIGHT * 1.8)
@@ -492,14 +492,14 @@ class LinearFunctionApplication(Scene):
         # 坐标轴标签
         x_label = Text(
             "路程 x（公里）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(axes.x_axis.get_end(), DOWN + RIGHT, buff=0.05)
 
         y_label = Text(
             "费用 y（元）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(axes.y_axis.get_end(), UP, buff=0.1)
@@ -563,7 +563,7 @@ class LinearFunctionApplication(Scene):
         # ── 问题① ──────────────────────────────────────────
         q1_banner = Text(
             "① 乘坐 5 公里  →  费用？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_Q1
         ).move_to(UP * 5.2)
@@ -619,7 +619,7 @@ class LinearFunctionApplication(Scene):
         ).move_to(DOWN * 5.4)
         answer_q1 = Text(
             "需要 13 元！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_FORMULA
         ).move_to(DOWN * 6.2)
@@ -647,7 +647,7 @@ class LinearFunctionApplication(Scene):
         # ── 问题② ──────────────────────────────────────────
         q2_banner = Text(
             "② 付 15 元  →  最多几公里？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_Q2
         ).move_to(UP * 5.2)
@@ -705,7 +705,7 @@ class LinearFunctionApplication(Scene):
 
         answer_q2 = Text(
             "最多乘坐 6 公里！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_FORMULA
         ).move_to(DOWN * 6.5)
@@ -747,7 +747,7 @@ class LinearFunctionApplication(Scene):
         # 总结标题
         summary_title = Text(
             "解题四步法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE
         ).move_to(UP * 5.5)
@@ -769,13 +769,13 @@ class LinearFunctionApplication(Scene):
             card_bg = self.make_card(7.5, 1.1, y_pos, color, "#16213e")
             step_num_text = Text(
                 step_name,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=color
             ).move_to(y_pos + LEFT * 1.8)
             step_desc_text = Text(
                 step_desc,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             ).move_to(y_pos + RIGHT * 1.0)
@@ -803,7 +803,7 @@ class LinearFunctionApplication(Scene):
 
         formula_note = Text(
             "一次函数通用模型",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(core_formula, DOWN, buff=0.2)
@@ -827,7 +827,7 @@ class LinearFunctionApplication(Scene):
         # ── 片尾作者信息 ──
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD
@@ -835,7 +835,7 @@ class LinearFunctionApplication(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1.2)
@@ -844,7 +844,7 @@ class LinearFunctionApplication(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_TITLE
         ).move_to(ORIGIN)

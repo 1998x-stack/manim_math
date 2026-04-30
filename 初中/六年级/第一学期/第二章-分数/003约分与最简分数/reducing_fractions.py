@@ -59,7 +59,7 @@ class ReducingFractions(Scene):
         # 作者信息 (顶部水印, 全程保留)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -69,7 +69,7 @@ class ReducingFractions(Scene):
         # 钩子问题
         hook_text = Text(
             "这两个分数相等吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -88,7 +88,7 @@ class ReducingFractions(Scene):
         # 疑问符号
         question = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 2)
@@ -121,7 +121,7 @@ class ReducingFractions(Scene):
         # 答案揭晓
         answer = Text(
             "答案: 相等! 但需要约分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -148,7 +148,7 @@ class ReducingFractions(Scene):
         # 标题
         title = Text(
             "约分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -159,7 +159,7 @@ class ReducingFractions(Scene):
         # 定义
         definition = Text(
             "把分数化简的过程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -170,7 +170,7 @@ class ReducingFractions(Scene):
         # 分数基本性质 - 使用组合方式避免中文进入MathTex
         property_label = Text(
             "分数基本性质:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -183,7 +183,7 @@ class ReducingFractions(Scene):
         
         property_note = Text(
             "(c ≠ 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         )
@@ -205,7 +205,7 @@ class ReducingFractions(Scene):
         # 说明文字
         explanation = Text(
             "分子分母同时除以相同的数\n分数大小不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
             line_spacing=1.2
@@ -238,7 +238,7 @@ class ReducingFractions(Scene):
         # 提示文字
         hint = Text(
             "第一步: 找公因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -249,7 +249,7 @@ class ReducingFractions(Scene):
         # 12的因数
         factors_12_label = Text(
             "12的因数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 2.5 + LEFT * 2.5)
@@ -269,7 +269,7 @@ class ReducingFractions(Scene):
         # 18的因数
         factors_18_label = Text(
             "18的因数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 2.5 + RIGHT * 2.5)
@@ -290,7 +290,7 @@ class ReducingFractions(Scene):
         # 为了简化，我们创建新的高亮版本
         common_factors_label = Text(
             "公因数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DIVISOR,
             weight=BOLD
@@ -322,7 +322,7 @@ class ReducingFractions(Scene):
         # 最大公因数
         gcd_label = Text(
             "最大公因数 (GCD):",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -359,7 +359,7 @@ class ReducingFractions(Scene):
         # 提示
         tip = Text(
             "用最大公因数, 一步到位!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -379,7 +379,7 @@ class ReducingFractions(Scene):
         # 第二步提示
         step2_hint = Text(
             "第二步: 分子分母同时除以6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -442,7 +442,7 @@ class ReducingFractions(Scene):
         # 成功庆祝
         success_text = Text(
             "约分成功! ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SUCCESS,
             weight=BOLD
@@ -476,7 +476,7 @@ class ReducingFractions(Scene):
         # 标题
         title = Text(
             "最简分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_SUCCESS,
             weight=BOLD
@@ -487,7 +487,7 @@ class ReducingFractions(Scene):
         # 定义1
         definition1 = Text(
             "分子和分母只有公因数 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -497,7 +497,7 @@ class ReducingFractions(Scene):
         # 定义2
         definition2 = Text(
             "即: 分子分母互素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.6)
@@ -519,7 +519,7 @@ class ReducingFractions(Scene):
         # 正例: 2/3
         example_correct = VGroup(
             MathTex(r"\frac{2}{3}", font_size=40, color=self.COLOR_SUCCESS),
-            Text("✓ 最简", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SUCCESS),
+            Text("✓ 最简", font="PingFang SC", font_size=22, color=self.COLOR_SUCCESS),
             MathTex(r"\text{gcd}(2, 3) = 1", font_size=20, color=GRAY_A)
         ).arrange(DOWN, buff=0.25).move_to(UP * 1 + LEFT * 2.5)
         
@@ -528,7 +528,7 @@ class ReducingFractions(Scene):
         # 反例: 12/18
         example_incorrect = VGroup(
             MathTex(r"\frac{12}{18}", font_size=40, color=self.COLOR_SECONDARY),
-            Text("✗ 非最简", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SECONDARY),
+            Text("✗ 非最简", font="PingFang SC", font_size=22, color=self.COLOR_SECONDARY),
             MathTex(r"\text{gcd}(12, 18) = 6", font_size=20, color=GRAY_A)
         ).arrange(DOWN, buff=0.25).move_to(UP * 1 + RIGHT * 2.5)
         
@@ -578,7 +578,7 @@ class ReducingFractions(Scene):
         """场景5: 快速练习 (35-50秒)"""
         practice_title = Text(
             "快速练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -633,7 +633,7 @@ class ReducingFractions(Scene):
         # 判断
         conclusion = Text(
             "已是最简! ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUCCESS,
             weight=BOLD
@@ -724,7 +724,7 @@ class ReducingFractions(Scene):
         # 验证
         check = Text(
             "✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SUCCESS
         ).next_to(result, RIGHT, buff=0.3)
@@ -737,7 +737,7 @@ class ReducingFractions(Scene):
         # 标题
         title = Text(
             "约分三步法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -780,7 +780,7 @@ class ReducingFractions(Scene):
         # 关键提示
         key_tip = Text(
             "用最大公因数, 一步到位!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
             weight=BOLD
@@ -834,7 +834,7 @@ class ReducingFractions(Scene):
         
         number_text = Text(
             number,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
             weight=BOLD
@@ -843,7 +843,7 @@ class ReducingFractions(Scene):
         # 步骤文字
         step_text = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
@@ -859,7 +859,7 @@ class ReducingFractions(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE,
             weight=BOLD
@@ -874,7 +874,7 @@ class ReducingFractions(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GRAY_B
         ).move_to(UP * 1.5)
@@ -884,7 +884,7 @@ class ReducingFractions(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

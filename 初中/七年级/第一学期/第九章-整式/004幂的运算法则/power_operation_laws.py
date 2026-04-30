@@ -63,7 +63,7 @@ class PowerOperationLaws(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -73,7 +73,7 @@ class PowerOperationLaws(Scene):
         # 钩子问题
         hook_chinese = Text(
             "你会算吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4)
@@ -94,7 +94,7 @@ class PowerOperationLaws(Scene):
         # 思考提示
         hint = Text(
             "别急着展开计算!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -123,7 +123,7 @@ class PowerOperationLaws(Scene):
         # 标题
         title = Text(
             "法则一：同底数幂相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * self.TITLE_Y)
@@ -146,7 +146,7 @@ class PowerOperationLaws(Scene):
         # 关键提示
         key_point = Text(
             "底数不变，指数相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
@@ -157,7 +157,7 @@ class PowerOperationLaws(Scene):
         # 具体例子
         example_label = Text(
             "例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * self.EXAMPLE_Y + LEFT * 3)
@@ -204,7 +204,7 @@ class PowerOperationLaws(Scene):
         # 合并说明
         merge_text = Text(
             "共有 3+5=8 个底数相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).next_to(explain_2, DOWN, buff=0.5)
@@ -230,7 +230,7 @@ class PowerOperationLaws(Scene):
         # 标题
         title = Text(
             "法则二：幂的乘方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * self.TITLE_Y)
@@ -252,7 +252,7 @@ class PowerOperationLaws(Scene):
         # 关键提示
         key_point = Text(
             "底数不变，指数相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
@@ -263,7 +263,7 @@ class PowerOperationLaws(Scene):
         # 具体例子
         example_label = Text(
             "例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * self.EXAMPLE_Y + LEFT * 3)
@@ -303,7 +303,7 @@ class PowerOperationLaws(Scene):
         # 合并说明
         merge_text = Text(
             "共有 3×2=6 个底数相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).next_to(explain_2, DOWN, buff=0.5)
@@ -329,7 +329,7 @@ class PowerOperationLaws(Scene):
         # 标题
         title = Text(
             "法则三：积的乘方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * self.TITLE_Y)
@@ -351,7 +351,7 @@ class PowerOperationLaws(Scene):
         # 关键提示
         key_point = Text(
             "每个因数分别乘方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
@@ -362,7 +362,7 @@ class PowerOperationLaws(Scene):
         # 具体例子
         example_label = Text(
             "例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * self.EXAMPLE_Y + LEFT * 3.2)
@@ -391,7 +391,7 @@ class PowerOperationLaws(Scene):
         
         verify_2_chinese = Text(
             "验证：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * self.EXPLAIN_Y + LEFT * 3.2)
@@ -415,7 +415,7 @@ class PowerOperationLaws(Scene):
         # 正确标记
         check_mark = Text(
             "✓ 结果一致!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EXPONENT
         ).next_to(verify_2, DOWN, buff=0.5)
@@ -442,7 +442,7 @@ class PowerOperationLaws(Scene):
         # 标题
         title = Text(
             "法则四：同底数幂相除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * self.TITLE_Y)
@@ -471,7 +471,7 @@ class PowerOperationLaws(Scene):
         # 关键提示
         key_point = Text(
             "底数不变，指数相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.3)
@@ -482,7 +482,7 @@ class PowerOperationLaws(Scene):
         # 具体例子
         example_label = Text(
             "例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * self.EXAMPLE_Y + LEFT * 3)
@@ -522,7 +522,7 @@ class PowerOperationLaws(Scene):
         # 约分说明
         cancel_text = Text(
             "约去3个2，剩余 5-3=2 个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).next_to(explain_2, DOWN, buff=0.5)
@@ -549,7 +549,7 @@ class PowerOperationLaws(Scene):
         # 标题
         title = Text(
             "幂的运算四大法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -614,7 +614,7 @@ class PowerOperationLaws(Scene):
         # 记忆口诀
         mnemonic = Text(
             "同底数看运算，乘加除减乘方乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -642,7 +642,7 @@ class PowerOperationLaws(Scene):
         # 法则编号
         number_text = Text(
             number,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=color,
             weight=BOLD
@@ -657,7 +657,7 @@ class PowerOperationLaws(Scene):
         # 描述
         desc = Text(
             description,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -684,14 +684,14 @@ class PowerOperationLaws(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -705,7 +705,7 @@ class PowerOperationLaws(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)

@@ -61,7 +61,7 @@ class RationalNumbers(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -71,7 +71,7 @@ class RationalNumbers(Scene):
         # 钩子问题
         hook_text = Text(
             "这些数字有什么共同点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -119,7 +119,7 @@ class RationalNumbers(Scene):
         # 标题
         title = Text(
             "有理数 Rational Numbers",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_RATIONAL
         ).move_to(UP * 5.5)
@@ -139,7 +139,7 @@ class RationalNumbers(Scene):
         # 文字说明
         definition_text = Text(
             "整数和分数的统称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 3.8)
@@ -163,7 +163,7 @@ class RationalNumbers(Scene):
         # 补充说明
         note = Text(
             "可表示为两个整数之比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.2)
@@ -184,7 +184,7 @@ class RationalNumbers(Scene):
         # 标题缩小移到顶部
         title_small = Text(
             "有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_RATIONAL
         ).move_to(UP * 6.5)
@@ -197,7 +197,7 @@ class RationalNumbers(Scene):
         # 副标题
         subtitle = Text(
             "分类方法一: 按符号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -220,8 +220,8 @@ class RationalNumbers(Scene):
         
         # 零点标记
         zero_dot = Dot(numberline.n2p(0), color=self.COLOR_ZERO, radius=0.12)
-        zero_label = Text("0", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ZERO).next_to(zero_dot, DOWN, buff=0.2)
-        zero_text = Text("零", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ZERO).next_to(zero_label, DOWN, buff=0.1)
+        zero_label = Text("0", font="PingFang SC", font_size=24, color=self.COLOR_ZERO).next_to(zero_dot, DOWN, buff=0.2)
+        zero_text = Text("零", font="PingFang SC", font_size=20, color=self.COLOR_ZERO).next_to(zero_label, DOWN, buff=0.1)
         
         self.play(
             FadeIn(zero_dot, scale=0.5),
@@ -241,7 +241,7 @@ class RationalNumbers(Scene):
         
         positive_label = Text(
             "正有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_POSITIVE
         ).next_to(positive_region, UP, buff=0.3)
@@ -263,7 +263,7 @@ class RationalNumbers(Scene):
         
         negative_label = Text(
             "负有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_NEGATIVE
         ).next_to(negative_region, UP, buff=0.3)
@@ -321,7 +321,7 @@ class RationalNumbers(Scene):
         
         positive_box_label = Text(
             "正有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_POSITIVE
         ).move_to(positive_box.get_center() + UP * 0.5)
@@ -335,7 +335,7 @@ class RationalNumbers(Scene):
         
         zero_box_label = Text(
             "零",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ZERO
         ).move_to(zero_box.get_center() + UP * 0.5)
@@ -349,7 +349,7 @@ class RationalNumbers(Scene):
         
         negative_box_label = Text(
             "负有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_NEGATIVE
         ).move_to(negative_box.get_center() + UP * 0.5)
@@ -415,7 +415,7 @@ class RationalNumbers(Scene):
         # 副标题
         subtitle = Text(
             "分类方法二: 按类型",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -435,7 +435,7 @@ class RationalNumbers(Scene):
         
         root_text = Text(
             "有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(root.get_center())
@@ -471,7 +471,7 @@ class RationalNumbers(Scene):
         
         integer_text = Text(
             "整数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(integer_node.get_center())
@@ -490,7 +490,7 @@ class RationalNumbers(Scene):
         
         fraction_text = Text(
             "分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(fraction_node.get_center())
@@ -607,7 +607,7 @@ class RationalNumbers(Scene):
         
         node_text = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=WHITE
         ).move_to(node.get_center())
@@ -619,7 +619,7 @@ class RationalNumbers(Scene):
         # 副标题
         subtitle = Text(
             "小数表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -676,14 +676,14 @@ class RationalNumbers(Scene):
         # 说明文字
         note = Text(
             "有理数可表示为",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
         
         note2 = Text(
             "有限小数 或 无限循环小数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).next_to(note, DOWN, buff=0.2)
@@ -697,7 +697,7 @@ class RationalNumbers(Scene):
         # 反例提示
         counter_example = Text(
             "注: π, √2 等是无理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=RED
         ).move_to(DOWN * 2)
@@ -725,7 +725,7 @@ class RationalNumbers(Scene):
         # 副标题
         subtitle = Text(
             "判断练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -742,7 +742,7 @@ class RationalNumbers(Scene):
         
         yes_label = Text(
             "是有理数 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN
         ).next_to(yes_box, UP, buff=0.3)
@@ -756,7 +756,7 @@ class RationalNumbers(Scene):
         
         no_label = Text(
             "不是有理数 ✗",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         ).next_to(no_box, UP, buff=0.3)
@@ -812,7 +812,7 @@ class RationalNumbers(Scene):
             if not is_rational:
                 explain = Text(
                     explanation,
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=18,
                     color=GRAY_A
                 ).next_to(num, DOWN, buff=0.2)
@@ -830,7 +830,7 @@ class RationalNumbers(Scene):
         # 标题
         title = Text(
             "有理数 - 知识要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RATIONAL
         ).move_to(UP * 5)
@@ -868,7 +868,7 @@ class RationalNumbers(Scene):
         # 公式回顾 - FIXED: Using English text in MathTex
         formula_label = Text(
             "集合表示:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 0.8 + LEFT * 2.5)
@@ -890,14 +890,14 @@ class RationalNumbers(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 3)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).next_to(author_name, DOWN, buff=0.2)
@@ -911,7 +911,7 @@ class RationalNumbers(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -945,7 +945,7 @@ class RationalNumbers(Scene):
         
         num_text = Text(
             number,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(circle.get_center())
@@ -953,7 +953,7 @@ class RationalNumbers(Scene):
         # 内容文字
         content = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )

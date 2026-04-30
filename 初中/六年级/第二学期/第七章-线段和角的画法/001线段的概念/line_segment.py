@@ -89,7 +89,7 @@ class LineSegmentConcept(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -99,7 +99,7 @@ class LineSegmentConcept(Scene):
         # 钩子问题
         hook_text = Text(
             "从A点到B点\n最短的路径是什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -110,9 +110,9 @@ class LineSegmentConcept(Scene):
         # 点A和点B
         dot_A = Dot(self.A, color=self.COLOR_POINT, radius=0.12)
         dot_B = Dot(self.B, color=self.COLOR_POINT, radius=0.12)
-        label_A_temp = Text("A", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_A_temp = Text("A", font="PingFang SC", font_size=self.FONT_LABEL, 
                            color=WHITE).next_to(dot_A, LEFT, buff=0.15)
-        label_B_temp = Text("B", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_B_temp = Text("B", font="PingFang SC", font_size=self.FONT_LABEL, 
                            color=WHITE).next_to(dot_B, RIGHT, buff=0.15)
         
         self.play(
@@ -133,7 +133,7 @@ class LineSegmentConcept(Scene):
             stroke_width=3
         )
         
-        curve_label = Text("?", font="Noto Sans CJK SC", font_size=24, 
+        curve_label = Text("?", font="PingFang SC", font_size=24, 
                           color=self.COLOR_AUXILIARY).next_to(curved_path, UP, buff=0.1)
         
         self.play(Create(curved_path), FadeIn(curve_label), run_time=0.6)
@@ -149,7 +149,7 @@ class LineSegmentConcept(Scene):
         zigzag_path = VMobject(color=self.COLOR_AUXILIARY, stroke_width=3)
         zigzag_path.set_points_as_corners(zigzag_points)
         
-        zigzag_label = Text("?", font="Noto Sans CJK SC", font_size=24, 
+        zigzag_label = Text("?", font="PingFang SC", font_size=24, 
                            color=self.COLOR_AUXILIARY).next_to(zigzag_path, DOWN, buff=0.3)
         
         self.play(
@@ -206,7 +206,7 @@ class LineSegmentConcept(Scene):
         # 标题
         title = Text(
             "什么是线段?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -215,8 +215,8 @@ class LineSegmentConcept(Scene):
         
         # 定义
         definition = VGroup(
-            Text("线段是直线上", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
-            Text("两点之间的部分", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE)
+            Text("线段是直线上", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("两点之间的部分", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(UP * 4.5)
         
         self.play(Write(definition), run_time=1.2)
@@ -235,9 +235,9 @@ class LineSegmentConcept(Scene):
             run_time=0.3
         )
         
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_A = Text("A", font="PingFang SC", font_size=self.FONT_LABEL, 
                       color=WHITE).next_to(self.dot_A, LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_B = Text("B", font="PingFang SC", font_size=self.FONT_LABEL, 
                       color=WHITE).next_to(self.dot_B, RIGHT, buff=0.15)
         
         self.play(FadeIn(label_A), FadeIn(label_B), run_time=0.4)
@@ -245,7 +245,7 @@ class LineSegmentConcept(Scene):
         # 强调"包括两个端点"
         emphasis = Text(
             "包括两个端点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POINT
         ).move_to(UP * 3.5)
@@ -261,7 +261,7 @@ class LineSegmentConcept(Scene):
         
         # 长度标注
         brace = Brace(self.segment_AB, direction=DOWN, buff=0.15, color=YELLOW)
-        length_text = Text("6", font="Noto Sans CJK SC", font_size=self.FONT_BODY, 
+        length_text = Text("6", font="PingFang SC", font_size=self.FONT_BODY, 
                           color=YELLOW).next_to(brace, DOWN, buff=0.1)
         
         self.play(
@@ -273,9 +273,9 @@ class LineSegmentConcept(Scene):
         
         # 记号说明 - 避免中文在MathTex中
         notation = VGroup(
-            Text("记作: ", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=GRAY_A),
+            Text("记作: ", font="PingFang SC", font_size=self.FONT_BODY, color=GRAY_A),
             MathTex("AB", font_size=self.FONT_BODY, color=WHITE),
-            Text(" 或 ", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=GRAY_A),
+            Text(" 或 ", font="PingFang SC", font_size=self.FONT_BODY, color=GRAY_A),
             MathTex("|AB|", font_size=self.FONT_BODY, color=WHITE)
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 4)
         
@@ -302,7 +302,7 @@ class LineSegmentConcept(Scene):
         # 标题
         title = Text(
             "两点之间，线段最短",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -322,7 +322,7 @@ class LineSegmentConcept(Scene):
         
         length_curved = Text(
             "约8.5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_AUXILIARY
         ).next_to(curved_path, UP, buff=0.05)
@@ -343,7 +343,7 @@ class LineSegmentConcept(Scene):
         
         length_zigzag = Text(
             "约7.2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_AUXILIARY
         ).next_to(zigzag_path, DOWN, buff=0.3)
@@ -354,7 +354,7 @@ class LineSegmentConcept(Scene):
         # 强调直线段
         length_straight = Text(
             "6.0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -377,7 +377,7 @@ class LineSegmentConcept(Scene):
         # 结论
         conclusion = Text(
             "线段是最短距离!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -403,7 +403,7 @@ class LineSegmentConcept(Scene):
         # 标题
         title = Text(
             "线段的中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_MIDPOINT
         ).move_to(UP * 5.5)
@@ -413,7 +413,7 @@ class LineSegmentConcept(Scene):
         # 定义
         definition = Text(
             "将线段分成两条相等线段的点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4.7)
@@ -426,7 +426,7 @@ class LineSegmentConcept(Scene):
         self.play(FadeIn(dot_M, scale=0.5), run_time=0.5)
         self.play(Flash(dot_M, color=self.COLOR_MIDPOINT, flash_radius=0.3), run_time=0.4)
         
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_M = Text("M", font="PingFang SC", font_size=self.FONT_LABEL, 
                       color=self.COLOR_MIDPOINT).next_to(dot_M, UP, buff=0.15)
         
         self.play(FadeIn(label_M), run_time=0.4)
@@ -444,13 +444,13 @@ class LineSegmentConcept(Scene):
         
         # 标注长度
         brace_AM = Brace(segment_AM, direction=DOWN, buff=0.15, color=self.COLOR_PRIMARY)
-        length_AM = Text("3", font="Noto Sans CJK SC", font_size=self.FONT_BODY, 
+        length_AM = Text("3", font="PingFang SC", font_size=self.FONT_BODY, 
                         color=self.COLOR_PRIMARY).next_to(brace_AM, DOWN, buff=0.1)
         
         self.play(Create(brace_AM), Write(length_AM), run_time=0.7)
         
         brace_MB = Brace(segment_MB, direction=DOWN, buff=0.15, color=self.COLOR_SECONDARY)
-        length_MB = Text("3", font="Noto Sans CJK SC", font_size=self.FONT_BODY, 
+        length_MB = Text("3", font="PingFang SC", font_size=self.FONT_BODY, 
                         color=self.COLOR_SECONDARY).next_to(brace_MB, DOWN, buff=0.1)
         
         self.play(Create(brace_MB), Write(length_MB), run_time=0.7)
@@ -502,7 +502,7 @@ class LineSegmentConcept(Scene):
         # 标题
         title = Text(
             "线段可以度量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -522,7 +522,7 @@ class LineSegmentConcept(Scene):
         ).move_to(DOWN * 4)
         
         # 尺子标签
-        ruler_label = Text("厘米", font="Noto Sans CJK SC", font_size=16, 
+        ruler_label = Text("厘米", font="PingFang SC", font_size=16, 
                           color=GRAY_A).next_to(ruler, RIGHT, buff=0.2)
         
         self.play(
@@ -595,7 +595,7 @@ class LineSegmentConcept(Scene):
         # 单位标注
         unit_label = Text(
             "厘米",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).next_to(counter, RIGHT, buff=0.2)
@@ -605,7 +605,7 @@ class LineSegmentConcept(Scene):
         # 说明文字
         explanation = Text(
             "用尺子测量长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -644,7 +644,7 @@ class LineSegmentConcept(Scene):
         # 标题
         title = Text(
             "线段的和与差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -655,9 +655,9 @@ class LineSegmentConcept(Scene):
         segment_CD = Line(self.C, self.D, color=self.COLOR_SECONDARY, stroke_width=4)
         dot_C = Dot(self.C, color=self.COLOR_POINT, radius=0.1)
         dot_D = Dot(self.D, color=self.COLOR_POINT, radius=0.1)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_C = Text("C", font="PingFang SC", font_size=self.FONT_LABEL, 
                       color=WHITE).next_to(dot_C, LEFT, buff=0.15)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, 
+        label_D = Text("D", font="PingFang SC", font_size=self.FONT_LABEL, 
                       color=WHITE).next_to(dot_D, RIGHT, buff=0.15)
         
         self.play(
@@ -671,13 +671,13 @@ class LineSegmentConcept(Scene):
         
         # 标注长度 - 使用VGroup组合中文和数字
         length_AB_label = VGroup(
-            Text("AB=", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY),
-            Text("6", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY)
+            Text("AB=", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY),
+            Text("6", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY)
         ).arrange(RIGHT, buff=0.05).move_to(UP * 3.2 + LEFT * 2)
         
         length_CD_label = VGroup(
-            Text("CD=", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_SECONDARY),
-            Text("4", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_SECONDARY)
+            Text("CD=", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_SECONDARY),
+            Text("4", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.05).move_to(UP * 3.2 + RIGHT * 2)
         
         self.play(
@@ -691,7 +691,7 @@ class LineSegmentConcept(Scene):
         # === 线段的和 ===
         subtitle_add = Text(
             "线段的和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -715,8 +715,8 @@ class LineSegmentConcept(Scene):
         
         # 显示结果 - 使用VGroup组合
         result_add = VGroup(
-            Text("AB + CD = ", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=WHITE),
-            Text("10", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_HIGHLIGHT)
+            Text("AB + CD = ", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=WHITE),
+            Text("10", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 4.5)
         
         self.play(Write(result_add), run_time=0.6)
@@ -735,7 +735,7 @@ class LineSegmentConcept(Scene):
         # === 线段的差 ===
         subtitle_sub = Text(
             "线段的差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -756,15 +756,15 @@ class LineSegmentConcept(Scene):
         
         # 标注剩余部分
         brace_remain = Brace(segment_remain, direction=DOWN, buff=0.15, color=GREEN)
-        length_remain = Text("2", font="Noto Sans CJK SC", font_size=self.FONT_BODY, 
+        length_remain = Text("2", font="PingFang SC", font_size=self.FONT_BODY, 
                             color=GREEN).next_to(brace_remain, DOWN, buff=0.1)
         
         self.play(Create(brace_remain), Write(length_remain), run_time=0.6)
         
         # 显示结果 - 使用VGroup组合
         result_sub = VGroup(
-            Text("AB - CD = ", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=WHITE),
-            Text("2", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_HIGHLIGHT)
+            Text("AB - CD = ", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=WHITE),
+            Text("2", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 5.5)
         
         self.play(Write(result_sub), run_time=0.6)
@@ -801,7 +801,7 @@ class LineSegmentConcept(Scene):
         # 总结标题
         summary_title = Text(
             "线段知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=GOLD
         ).move_to(UP * 6)
@@ -875,14 +875,14 @@ class LineSegmentConcept(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -896,7 +896,7 @@ class LineSegmentConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)
@@ -953,13 +953,13 @@ class LineSegmentConcept(Scene):
         """创建总结要点卡片"""
         # 编号圆圈
         circle = Circle(radius=0.25, fill_color=color, fill_opacity=1, stroke_width=0)
-        num_text = Text(number, font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        num_text = Text(number, font="PingFang SC", font_size=22, color=WHITE)
         icon = VGroup(circle, num_text)
         
         # 要点文字
         content = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )

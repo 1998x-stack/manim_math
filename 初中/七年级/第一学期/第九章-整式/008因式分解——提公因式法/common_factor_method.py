@@ -67,7 +67,7 @@ class CommonFactorMethod(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -77,7 +77,7 @@ class CommonFactorMethod(Scene):
         # 钩子问题
         hook_text = Text(
             "这个式子能化简吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -96,7 +96,7 @@ class CommonFactorMethod(Scene):
         # 问号闪烁
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_HIGHLIGHT
         ).next_to(example_formula, RIGHT, buff=0.3)
@@ -124,7 +124,7 @@ class CommonFactorMethod(Scene):
         # 标题
         title = Text(
             "什么是公因式?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -147,7 +147,7 @@ class CommonFactorMethod(Scene):
         # 拆解为乘积形式
         explanation_text = Text(
             "展开看看:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(ORIGIN)
@@ -175,7 +175,7 @@ class CommonFactorMethod(Scene):
         # 说明文字
         explanation = Text(
             "x 是公因式 (各项都有的因式)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 3.5)
@@ -199,7 +199,7 @@ class CommonFactorMethod(Scene):
         # 主标题
         main_title = Text(
             "提公因式法 - 三步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -209,7 +209,7 @@ class CommonFactorMethod(Scene):
         # === 步骤1: 找公因式 ===
         step1_title = Text(
             "步骤1: 找公因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_STEP
         ).move_to(UP * 4.5)
@@ -228,7 +228,7 @@ class CommonFactorMethod(Scene):
         # 分析系数
         coeff_text = Text(
             "系数: 6, 9 → GCD = 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 0.5)
@@ -245,7 +245,7 @@ class CommonFactorMethod(Scene):
         # 分析字母
         var_text = Text(
             "字母: x²y, xy² → xy (最低次幂)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -273,7 +273,7 @@ class CommonFactorMethod(Scene):
         # 修复中文问题
         common_factor_text = Text(
             "公因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         )
@@ -303,7 +303,7 @@ class CommonFactorMethod(Scene):
         # === 步骤2: 提取公因式 ===
         step2_title = Text(
             "步骤2: 提取公因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_STEP
         ).move_to(UP * 4.5)
@@ -336,7 +336,7 @@ class CommonFactorMethod(Scene):
         # 说明商式
         quotient_text = Text(
             "括号内是各项除以公因式的商",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -371,7 +371,7 @@ class CommonFactorMethod(Scene):
         # === 步骤3: 检验结果 ===
         step3_title = Text(
             "步骤3: 检验结果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_STEP
         ).move_to(UP * 4.5)
@@ -381,7 +381,7 @@ class CommonFactorMethod(Scene):
         # 展开验证
         verify_text = Text(
             "展开验证:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 0.5)
@@ -406,7 +406,7 @@ class CommonFactorMethod(Scene):
         
         check_text = Text(
             "相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SUCCESS
         ).next_to(expansion, DOWN, buff=0.5)
@@ -440,7 +440,7 @@ class CommonFactorMethod(Scene):
         # 标题
         title = Text(
             "记忆口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -471,7 +471,7 @@ class CommonFactorMethod(Scene):
         for i, line in enumerate(lines):
             line_obj = Text(
                 line,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY + 2,
                 color=WHITE
             ).move_to(UP * (2.5 - i * 1))
@@ -513,7 +513,7 @@ class CommonFactorMethod(Scene):
         # 例题标题
         title = Text(
             "练习1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -523,7 +523,7 @@ class CommonFactorMethod(Scene):
         # 题目
         problem_label = Text(
             "因式分解:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 4)
@@ -541,7 +541,7 @@ class CommonFactorMethod(Scene):
         # 找公因式过程
         analysis = Text(
             "系数GCD: 4  字母: ab",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 1.5)
@@ -620,7 +620,7 @@ class CommonFactorMethod(Scene):
         # 例题标题
         title = Text(
             "练习2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -630,7 +630,7 @@ class CommonFactorMethod(Scene):
         # 题目
         problem_label = Text(
             "因式分解:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 4)
@@ -648,7 +648,7 @@ class CommonFactorMethod(Scene):
         # 分析系数
         coeff_hint = Text(
             "系数: 5, 10, 15 → GCD = 5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 1.5)
@@ -667,7 +667,7 @@ class CommonFactorMethod(Scene):
         # 分析字母
         var_hint = Text(
             "字母: x³, x², x → 最低次幂 x",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 0.5)
@@ -688,7 +688,7 @@ class CommonFactorMethod(Scene):
         # 修复中文
         cf_text = Text(
             "公因式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         )
@@ -766,7 +766,7 @@ class CommonFactorMethod(Scene):
         # 总结标题
         title = Text(
             "总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 4,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -784,7 +784,7 @@ class CommonFactorMethod(Scene):
         for i, point in enumerate(points):
             point_obj = Text(
                 point,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE,
                 line_spacing=1.2
@@ -810,14 +810,14 @@ class CommonFactorMethod(Scene):
         # 作者信息放大居中
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 3)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 4)
@@ -831,7 +831,7 @@ class CommonFactorMethod(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)

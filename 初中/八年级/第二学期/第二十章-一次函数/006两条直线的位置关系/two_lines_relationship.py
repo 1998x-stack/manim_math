@@ -104,7 +104,7 @@ class TwoLinesRelationship(Scene):
         # 作者信息 (顶部，持续显示)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -114,7 +114,7 @@ class TwoLinesRelationship(Scene):
         # 钩子问题 - 主标题
         hook_title = Text(
             "两条直线有几种关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -122,7 +122,7 @@ class TwoLinesRelationship(Scene):
         # 副标题
         hook_subtitle = Text(
             "3种！一起来看",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 4.6)
@@ -155,7 +155,7 @@ class TwoLinesRelationship(Scene):
         # 问号闪烁
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -228,7 +228,7 @@ class TwoLinesRelationship(Scene):
         # 说明文字
         intro_text = Text(
             "一次函数的图像是一条直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -247,7 +247,7 @@ class TwoLinesRelationship(Scene):
         # 标题
         title = Text(
             "情况1: 平行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PARALLEL,
             weight=BOLD
@@ -303,8 +303,8 @@ class TwoLinesRelationship(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("斜率相同，截距不同", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("两直线永不相交", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PARALLEL)
+            Text("斜率相同，截距不同", font="PingFang SC", font_size=22, color=WHITE),
+            Text("两直线永不相交", font="PingFang SC", font_size=22, color=self.COLOR_PARALLEL)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(DOWN * 5.2)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.8)
@@ -326,7 +326,7 @@ class TwoLinesRelationship(Scene):
         # 标题
         title = Text(
             "情况2: 重合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_LINE1,
             weight=BOLD
@@ -393,8 +393,8 @@ class TwoLinesRelationship(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("斜率、截距都相同", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("实际上是同一条直线", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_LINE1)
+            Text("斜率、截距都相同", font="PingFang SC", font_size=22, color=WHITE),
+            Text("实际上是同一条直线", font="PingFang SC", font_size=22, color=self.COLOR_LINE1)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(DOWN * 5.2)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.8)
@@ -416,7 +416,7 @@ class TwoLinesRelationship(Scene):
         # 标题
         title = Text(
             "情况3: 相交",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_INTERSECT,
             weight=BOLD
@@ -483,7 +483,7 @@ class TwoLinesRelationship(Scene):
         
         # 求解过程 (分步展示)
         solution_steps = VGroup(
-            Text("求交点坐标:", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("求交点坐标:", font="PingFang SC", font_size=20, color=WHITE),
             MathTex(r"0.5x + 1 = -0.8x + 0.5", font_size=18, color=GRAY_A),
             MathTex(r"1.3x = -0.5", font_size=18, color=GRAY_A),
             MathTex(r"x \approx -0.38", font_size=18, color=self.COLOR_HIGHLIGHT),
@@ -507,8 +507,8 @@ class TwoLinesRelationship(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("斜率不同，必有交点", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("联立方程可求交点坐标", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text("斜率不同，必有交点", font="PingFang SC", font_size=22, color=WHITE),
+            Text("联立方程可求交点坐标", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(DOWN * 6.5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.8)
@@ -546,7 +546,7 @@ class TwoLinesRelationship(Scene):
         # 标题
         title = Text(
             "三种位置关系总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -596,10 +596,10 @@ class TwoLinesRelationship(Scene):
         
         # 记忆口诀
         mnemonic = VGroup(
-            Text("斜率相同看截距", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("截距不同就平行", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PARALLEL),
-            Text("全都相同是重合", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_LINE1),
-            Text("斜率不同必相交", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_INTERSECT)
+            Text("斜率相同看截距", font="PingFang SC", font_size=22, color=WHITE),
+            Text("截距不同就平行", font="PingFang SC", font_size=22, color=self.COLOR_PARALLEL),
+            Text("全都相同是重合", font="PingFang SC", font_size=22, color=self.COLOR_LINE1),
+            Text("斜率不同必相交", font="PingFang SC", font_size=22, color=self.COLOR_INTERSECT)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(DOWN * 6.2)
         
         self.play(Write(mnemonic), run_time=1.5)
@@ -626,7 +626,7 @@ class TwoLinesRelationship(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=color,
             weight=BOLD
@@ -642,7 +642,7 @@ class TwoLinesRelationship(Scene):
         # 结果
         result = Text(
             result_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -667,7 +667,7 @@ class TwoLinesRelationship(Scene):
     def create_flowchart(self):
         """创建判别流程图"""
         # 主节点
-        main_node = Text("比较斜率 k", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        main_node = Text("比较斜率 k", font="PingFang SC", font_size=18, color=WHITE)
         main_box = RoundedRectangle(
             width=main_node.width + 0.4,
             height=main_node.height + 0.3,
@@ -678,7 +678,7 @@ class TwoLinesRelationship(Scene):
         main = VGroup(main_box, main_node)
         
         # 左分支 - k相同
-        left_node = Text("k₁ = k₂", font="Noto Sans CJK SC", font_size=16, color=self.COLOR_PARALLEL)
+        left_node = Text("k₁ = k₂", font="PingFang SC", font_size=16, color=self.COLOR_PARALLEL)
         left_box = RoundedRectangle(
             width=left_node.width + 0.3,
             height=left_node.height + 0.2,
@@ -689,7 +689,7 @@ class TwoLinesRelationship(Scene):
         left = VGroup(left_box, left_node).next_to(main, DOWN + LEFT * 1.5, buff=0.5)
         
         # 右分支 - k不同
-        right_node = Text("k₁ ≠ k₂", font="Noto Sans CJK SC", font_size=16, color=self.COLOR_INTERSECT)
+        right_node = Text("k₁ ≠ k₂", font="PingFang SC", font_size=16, color=self.COLOR_INTERSECT)
         right_box = RoundedRectangle(
             width=right_node.width + 0.3,
             height=right_node.height + 0.2,
@@ -700,13 +700,13 @@ class TwoLinesRelationship(Scene):
         right = VGroup(right_box, right_node).next_to(main, DOWN + RIGHT * 1.5, buff=0.5)
         
         # 左分支细分
-        parallel_node = Text("b₁ ≠ b₂ → 平行", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_PARALLEL)
-        coincide_node = Text("b₁ = b₂ → 重合", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_LINE1)
+        parallel_node = Text("b₁ ≠ b₂ → 平行", font="PingFang SC", font_size=14, color=self.COLOR_PARALLEL)
+        coincide_node = Text("b₁ = b₂ → 重合", font="PingFang SC", font_size=14, color=self.COLOR_LINE1)
         
         left_detail = VGroup(parallel_node, coincide_node).arrange(DOWN, buff=0.15).next_to(left, DOWN, buff=0.3)
         
         # 右分支结果
-        intersect_node = Text("→ 相交", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_INTERSECT)
+        intersect_node = Text("→ 相交", font="PingFang SC", font_size=14, color=self.COLOR_INTERSECT)
         intersect_node.next_to(right, DOWN, buff=0.3)
         
         # 连线
@@ -728,14 +728,14 @@ class TwoLinesRelationship(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -749,7 +749,7 @@ class TwoLinesRelationship(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)

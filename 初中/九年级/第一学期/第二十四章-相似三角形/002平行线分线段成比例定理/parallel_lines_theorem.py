@@ -83,7 +83,7 @@ class ParallelLinesTheorem(Scene):
         # 作者信息 (始终显示在顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -102,7 +102,7 @@ class ParallelLinesTheorem(Scene):
         # 钩子问题
         hook = Text(
             "平行线有什么神奇性质?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -141,7 +141,7 @@ class ParallelLinesTheorem(Scene):
         # 标题
         title = Text(
             "定理: 三条平行线截两条直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 6)
@@ -162,8 +162,8 @@ class ParallelLinesTheorem(Scene):
         )
         dot_A = Dot(self.A, color=self.COLOR_PRIMARY, radius=0.08)
         dot_D = Dot(self.D, color=self.COLOR_PRIMARY, radius=0.08)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20).next_to(dot_A, LEFT, buff=0.1)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=20).next_to(dot_D, RIGHT, buff=0.1)
+        label_A = Text("A", font="PingFang SC", font_size=20).next_to(dot_A, LEFT, buff=0.1)
+        label_D = Text("D", font="PingFang SC", font_size=20).next_to(dot_D, RIGHT, buff=0.1)
         
         self.play(Create(pline1), run_time=0.6)
         self.play(
@@ -181,8 +181,8 @@ class ParallelLinesTheorem(Scene):
         )
         dot_B = Dot(self.B, color=self.COLOR_PRIMARY, radius=0.08)
         dot_E = Dot(self.E, color=self.COLOR_PRIMARY, radius=0.08)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20).next_to(dot_B, LEFT, buff=0.1)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=20).next_to(dot_E, RIGHT, buff=0.1)
+        label_B = Text("B", font="PingFang SC", font_size=20).next_to(dot_B, LEFT, buff=0.1)
+        label_E = Text("E", font="PingFang SC", font_size=20).next_to(dot_E, RIGHT, buff=0.1)
         
         self.play(Create(pline2), run_time=0.6)
         self.play(
@@ -200,8 +200,8 @@ class ParallelLinesTheorem(Scene):
         )
         dot_C = Dot(self.C, color=self.COLOR_PRIMARY, radius=0.08)
         dot_F = Dot(self.F, color=self.COLOR_PRIMARY, radius=0.08)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20).next_to(dot_C, LEFT, buff=0.1)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=20).next_to(dot_F, RIGHT, buff=0.1)
+        label_C = Text("C", font="PingFang SC", font_size=20).next_to(dot_C, LEFT, buff=0.1)
+        label_F = Text("F", font="PingFang SC", font_size=20).next_to(dot_F, RIGHT, buff=0.1)
         
         self.play(Create(pline3), run_time=0.6)
         self.play(
@@ -255,7 +255,7 @@ class ParallelLinesTheorem(Scene):
         
         ratio_text = Text(
             f"验证: {ab_len/bc_len:.2f} = {de_len/ef_len:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -345,14 +345,14 @@ class ParallelLinesTheorem(Scene):
         # 标题
         title = Text(
             "推论: 三角形中的平行线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 6)
         
         subtitle = Text(
             "平行于一边的直线截其他两边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -370,9 +370,9 @@ class ParallelLinesTheorem(Scene):
         dot_B = Dot(self.tri_B, color=WHITE, radius=0.08)
         dot_C = Dot(self.tri_C, color=WHITE, radius=0.08)
         
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24).next_to(dot_A, UP, buff=0.1)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24).next_to(dot_B, DOWN+LEFT, buff=0.1)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24).next_to(dot_C, DOWN+RIGHT, buff=0.1)
+        label_A = Text("A", font="PingFang SC", font_size=24).next_to(dot_A, UP, buff=0.1)
+        label_B = Text("B", font="PingFang SC", font_size=24).next_to(dot_B, DOWN+LEFT, buff=0.1)
+        label_C = Text("C", font="PingFang SC", font_size=24).next_to(dot_C, DOWN+RIGHT, buff=0.1)
         
         self.play(Create(triangle), run_time=1.0)
         self.play(
@@ -396,8 +396,8 @@ class ParallelLinesTheorem(Scene):
         self.play(dot_E_temp.animate.move_to(self.tri_E), run_time=0.8)
         
         # 添加标签
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=24).next_to(dot_D_temp, LEFT, buff=0.1)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=24).next_to(dot_E_temp, RIGHT, buff=0.1)
+        label_D = Text("D", font="PingFang SC", font_size=24).next_to(dot_D_temp, LEFT, buff=0.1)
+        label_E = Text("E", font="PingFang SC", font_size=24).next_to(dot_E_temp, RIGHT, buff=0.1)
         self.play(Write(label_D), Write(label_E), run_time=0.4)
         
         # Step 3: 创建线段DE
@@ -451,7 +451,7 @@ class ParallelLinesTheorem(Scene):
         
         ratio_text = Text(
             f"验证: {ad_len/db_len:.2f} = {ae_len/ec_len:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -514,7 +514,7 @@ class ParallelLinesTheorem(Scene):
         # 标题
         title = Text(
             "逆定理: 比例相等则平行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 6)
@@ -524,7 +524,7 @@ class ParallelLinesTheorem(Scene):
         # Step 1: 显示比例条件
         condition_text = Text(
             "已知:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 4.8 + LEFT * 2.5)
@@ -597,7 +597,7 @@ class ParallelLinesTheorem(Scene):
         # 标题
         title = Text(
             "例题: 计算未知线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 6)
@@ -628,11 +628,11 @@ class ParallelLinesTheorem(Scene):
         )
         
         labels = VGroup(
-            Text("A", font="Noto Sans CJK SC", font_size=20).next_to(A, UP, buff=0.08),
-            Text("B", font="Noto Sans CJK SC", font_size=20).next_to(B, LEFT, buff=0.08),
-            Text("C", font="Noto Sans CJK SC", font_size=20).next_to(C, RIGHT, buff=0.08),
-            Text("D", font="Noto Sans CJK SC", font_size=20).next_to(D, LEFT, buff=0.08),
-            Text("E", font="Noto Sans CJK SC", font_size=20).next_to(E, RIGHT, buff=0.08)
+            Text("A", font="PingFang SC", font_size=20).next_to(A, UP, buff=0.08),
+            Text("B", font="PingFang SC", font_size=20).next_to(B, LEFT, buff=0.08),
+            Text("C", font="PingFang SC", font_size=20).next_to(C, RIGHT, buff=0.08),
+            Text("D", font="PingFang SC", font_size=20).next_to(D, LEFT, buff=0.08),
+            Text("E", font="PingFang SC", font_size=20).next_to(E, RIGHT, buff=0.08)
         )
         
         self.play(
@@ -644,10 +644,10 @@ class ParallelLinesTheorem(Scene):
         )
         
         # 标注已知量
-        ad_label = Text("AD=2", font="Noto Sans CJK SC", font_size=18, color=YELLOW).move_to((A + D) / 2 + LEFT * 0.5)
-        db_label = Text("DB=3", font="Noto Sans CJK SC", font_size=18, color=YELLOW).move_to((D + B) / 2 + LEFT * 0.5)
-        ae_label = Text("AE=4", font="Noto Sans CJK SC", font_size=18, color=YELLOW).move_to((A + E) / 2 + RIGHT * 0.5)
-        ec_label = Text("EC=?", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_HIGHLIGHT).move_to((E + C) / 2 + RIGHT * 0.5)
+        ad_label = Text("AD=2", font="PingFang SC", font_size=18, color=YELLOW).move_to((A + D) / 2 + LEFT * 0.5)
+        db_label = Text("DB=3", font="PingFang SC", font_size=18, color=YELLOW).move_to((D + B) / 2 + LEFT * 0.5)
+        ae_label = Text("AE=4", font="PingFang SC", font_size=18, color=YELLOW).move_to((A + E) / 2 + RIGHT * 0.5)
+        ec_label = Text("EC=?", font="PingFang SC", font_size=18, color=self.COLOR_HIGHLIGHT).move_to((E + C) / 2 + RIGHT * 0.5)
         
         self.play(
             Write(VGroup(ad_label, db_label, ae_label, ec_label)),
@@ -684,7 +684,7 @@ class ParallelLinesTheorem(Scene):
         self.play(Flash(step3, color=self.COLOR_HIGHLIGHT), run_time=0.5)
         
         # 更新标签
-        ec_label_new = Text("EC=6", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_HIGHLIGHT).move_to(ec_label.get_center())
+        ec_label_new = Text("EC=6", font="PingFang SC", font_size=18, color=self.COLOR_HIGHLIGHT).move_to(ec_label.get_center())
         self.play(Transform(ec_label, ec_label_new), run_time=0.5)
         
         self.wait(1.5)
@@ -708,14 +708,14 @@ class ParallelLinesTheorem(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -729,7 +729,7 @@ class ParallelLinesTheorem(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

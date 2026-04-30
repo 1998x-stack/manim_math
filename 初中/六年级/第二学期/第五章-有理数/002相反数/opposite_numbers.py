@@ -89,7 +89,7 @@ class OppositeNumbers(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -99,7 +99,7 @@ class OppositeNumbers(Scene):
         # 钩子问题
         hook_text = Text(
             "3 和 -3 有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 4,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -140,7 +140,7 @@ class OppositeNumbers(Scene):
         # 提示文字
         hint = Text(
             "它们是相反数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -225,7 +225,7 @@ class OppositeNumbers(Scene):
         # 方向说明
         chinese_pos = Text(
             "正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIMARY
         ).move_to(self.get_number_position(4.5) + UP * 0.5)
@@ -241,7 +241,7 @@ class OppositeNumbers(Scene):
         
         chinese_neg = Text(
             "负数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).move_to(self.get_number_position(-4.5) + UP * 0.5)
@@ -269,7 +269,7 @@ class OppositeNumbers(Scene):
         # 说明文字
         explanation = Text(
             "数轴上,原点左边是负数,右边是正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -292,7 +292,7 @@ class OppositeNumbers(Scene):
         # 标题
         title_chinese = Text(
             "相反数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         )
@@ -400,14 +400,14 @@ class OppositeNumbers(Scene):
         # 定义文字
         def_1 = Text(
             "只有符号不同的两个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3.5)
         
         def_2 = Text(
             "叫做互为相反数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -438,7 +438,7 @@ class OppositeNumbers(Scene):
         # 例子标题
         example_title = Text(
             "更多例子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -485,7 +485,7 @@ class OppositeNumbers(Scene):
         # 公式卡片
         formula_1_chinese = Text(
             "的相反数是",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_FORMULA - 4,
             color=WHITE
         )
@@ -553,7 +553,7 @@ class OppositeNumbers(Scene):
         # 特殊标题
         special_title = Text(
             "特殊情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -563,7 +563,7 @@ class OppositeNumbers(Scene):
         # 说明 1
         special_1 = Text(
             "0 的相反数是 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_ORIGIN
         ).move_to(UP * 4)
@@ -574,7 +574,7 @@ class OppositeNumbers(Scene):
         # 说明 2
         special_2 = Text(
             "因为 0 到原点的距离是 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 3)
@@ -622,7 +622,7 @@ class OppositeNumbers(Scene):
         # 总结标题
         summary_title = Text(
             "相反数知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -632,21 +632,21 @@ class OppositeNumbers(Scene):
         # 要点列表
         point_1 = Text(
             "① 符号不同, 绝对值相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4.5)
         
         point_2 = Text(
             "② 在数轴上关于原点对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 3.5)
         
         point_3_chinese = Text(
             "③ ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -660,7 +660,7 @@ class OppositeNumbers(Scene):
         
         point_4 = Text(
             "④ 0 的相反数是 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -678,14 +678,14 @@ class OppositeNumbers(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE + 4,
             color=WHITE
         ).move_to(DOWN * 0.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_B
         ).move_to(DOWN * 1.5)
@@ -699,7 +699,7 @@ class OppositeNumbers(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)

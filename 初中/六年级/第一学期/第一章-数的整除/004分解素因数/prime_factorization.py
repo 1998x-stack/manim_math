@@ -65,7 +65,7 @@ class PrimeFactorization(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -75,7 +75,7 @@ class PrimeFactorization(Scene):
         # 钩子问题
         hook_text = Text(
             "30可以写成哪些数相乘？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -101,7 +101,7 @@ class PrimeFactorization(Scene):
         
         special_label = Text(
             "最特殊！全是素数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).next_to(special, DOWN, buff=0.5)
@@ -113,7 +113,7 @@ class PrimeFactorization(Scene):
         # 引导文字
         hint = Text(
             "这就是分解素因数！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -136,7 +136,7 @@ class PrimeFactorization(Scene):
         # 标题
         title = Text(
             "素数与合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -146,14 +146,14 @@ class PrimeFactorization(Scene):
         # 素数定义
         prime_title = Text(
             "素数：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIME
         ).move_to(UP * 3.5 + LEFT * 3)
         
         prime_def = Text(
             "只有1和它本身两个因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(prime_title, RIGHT, buff=0.3)
@@ -174,14 +174,14 @@ class PrimeFactorization(Scene):
         # 合数定义
         composite_title = Text(
             "合数：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_COMPOSITE
         ).move_to(UP * 0.5 + LEFT * 3)
         
         composite_def = Text(
             "除了1和它本身还有其他因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(composite_title, RIGHT, buff=0.3)
@@ -202,7 +202,7 @@ class PrimeFactorization(Scene):
         # 注意
         note = Text(
             "注意：1既不是素数也不是合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 2.5)
@@ -226,7 +226,7 @@ class PrimeFactorization(Scene):
         # 标题
         title = Text(
             "分解素因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -236,7 +236,7 @@ class PrimeFactorization(Scene):
         # 定义
         definition = Text(
             "将一个合数表示为若干个素数乘积的形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4)
@@ -254,7 +254,7 @@ class PrimeFactorization(Scene):
         # 示例
         example_label = Text(
             "例如：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2 + LEFT * 3)
@@ -280,7 +280,7 @@ class PrimeFactorization(Scene):
         )
         label1 = Text(
             "合数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_COMPOSITE
         ).next_to(arrow1, DOWN, buff=0.05)
@@ -303,7 +303,7 @@ class PrimeFactorization(Scene):
             )
             label = Text(
                 "素数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SMALL,
                 color=self.COLOR_PRIME
             ).next_to(arrow, DOWN, buff=0.05)
@@ -320,7 +320,7 @@ class PrimeFactorization(Scene):
         # 强调
         emphasis = Text(
             "每个合数的分解结果是唯一的（算术基本定理）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -348,14 +348,14 @@ class PrimeFactorization(Scene):
         # 标题
         title = Text(
             "短除法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_DIVISOR
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "从最小的素数开始除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -374,7 +374,7 @@ class PrimeFactorization(Scene):
         
         explain_1 = Text(
             "30能被2整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(UP * 3 + RIGHT * 3)
@@ -398,7 +398,7 @@ class PrimeFactorization(Scene):
         
         explain_2 = Text(
             "15能被3整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(UP * 1.5 + RIGHT * 3)
@@ -422,7 +422,7 @@ class PrimeFactorization(Scene):
         
         explain_3 = Text(
             "5能被5整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(ORIGIN + RIGHT * 3)
@@ -438,7 +438,7 @@ class PrimeFactorization(Scene):
         
         finish_text = Text(
             "得到1，分解完成！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8 + RIGHT * 3)
@@ -462,7 +462,7 @@ class PrimeFactorization(Scene):
         # 写结果
         result_label = Text(
             "结果：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 2.5 + LEFT * 2.5)
@@ -480,7 +480,7 @@ class PrimeFactorization(Scene):
         # 验证
         verification = Text(
             "验证：2×3×5 = 6×5 = 30 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3.8)
@@ -508,7 +508,7 @@ class PrimeFactorization(Scene):
         # 标题
         title = Text(
             "再来一个例子：60",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_DIVISOR
         ).move_to(UP * 5.5)
@@ -560,7 +560,7 @@ class PrimeFactorization(Scene):
         # 结果
         result1_label = Text(
             "结果：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 2.5 + LEFT * 2.5)
@@ -584,7 +584,7 @@ class PrimeFactorization(Scene):
         
         explanation = Text(
             "（相同素因数用指数表示）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(result2, DOWN, buff=0.3)
@@ -605,7 +605,7 @@ class PrimeFactorization(Scene):
         # 标题
         title = Text(
             "短除法步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -622,7 +622,7 @@ class PrimeFactorization(Scene):
         
         step1_text = Text(
             "① 从最小的素数2开始",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(step1_icon, RIGHT, buff=0.2)
@@ -639,7 +639,7 @@ class PrimeFactorization(Scene):
         
         step2_text = Text(
             "② 能整除就除，除数写左边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(step2_icon, RIGHT, buff=0.2)
@@ -656,7 +656,7 @@ class PrimeFactorization(Scene):
         
         step3_text = Text(
             "③ 商写下面，继续除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(step3_icon, RIGHT, buff=0.2)
@@ -673,7 +673,7 @@ class PrimeFactorization(Scene):
         
         step4_text = Text(
             "④ 直到商为1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(step4_icon, RIGHT, buff=0.2)
@@ -694,7 +694,7 @@ class PrimeFactorization(Scene):
         # 注意事项
         notes = Text(
             "提示：每个合数的分解结果是唯一的！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -705,7 +705,7 @@ class PrimeFactorization(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)

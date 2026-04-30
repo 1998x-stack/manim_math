@@ -127,7 +127,7 @@ class PointCirclePosition(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -137,7 +137,7 @@ class PointCirclePosition(Scene):
         # 钩子问题
         hook_text = Text(
             "这个点，在圆里还是圆外？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -179,7 +179,7 @@ class PointCirclePosition(Scene):
         # 小标题
         subtitle = Text(
             "关键是距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -188,7 +188,7 @@ class PointCirclePosition(Scene):
         
         # 圆心O出现
         self.dot_O = Dot(self.O, color=self.COLOR_RADIUS, radius=0.12)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_RADIUS).next_to(
+        label_O = Text("O", font="PingFang SC", font_size=24, color=self.COLOR_RADIUS).next_to(
             self.dot_O, DOWN, buff=0.15
         )
         
@@ -202,7 +202,7 @@ class PointCirclePosition(Scene):
         angle_A = 60 * DEGREES
         point_A = self.O + self.radius * np.array([np.cos(angle_A), np.sin(angle_A), 0])
         dot_A = Dot(point_A, color=WHITE, radius=0.08)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(
             dot_A, UR, buff=0.1
         )
         
@@ -226,7 +226,7 @@ class PointCirclePosition(Scene):
         # 说明文字
         explanation = Text(
             "点到圆心的距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -252,7 +252,7 @@ class PointCirclePosition(Scene):
         # 小标题
         subtitle = Text(
             "情况1：点在圆内",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_POINT_INSIDE
         ).move_to(UP * 5.5)
@@ -261,7 +261,7 @@ class PointCirclePosition(Scene):
         
         # 点P1出现
         dot_P1 = Dot(self.P1, color=self.COLOR_POINT_INSIDE, radius=0.12)
-        label_P1 = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        label_P1 = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(
             dot_P1, RIGHT, buff=0.15
         )
         
@@ -313,7 +313,7 @@ class PointCirclePosition(Scene):
         # 说明
         explanation = Text(
             "距离小于半径 → 点在圆内",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -341,7 +341,7 @@ class PointCirclePosition(Scene):
         # 小标题
         subtitle = Text(
             "情况2：点在圆上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_POINT_ON
         ).move_to(UP * 5.5)
@@ -350,7 +350,7 @@ class PointCirclePosition(Scene):
         
         # 点P2出现
         dot_P2 = Dot(self.P2, color=self.COLOR_POINT_ON, radius=0.12)
-        label_P2 = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        label_P2 = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(
             dot_P2, LEFT, buff=0.15
         )
         
@@ -383,7 +383,7 @@ class PointCirclePosition(Scene):
         # 说明
         explanation = Text(
             "距离等于半径 → 点在圆上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -412,7 +412,7 @@ class PointCirclePosition(Scene):
         # 小标题
         subtitle = Text(
             "情况3：点在圆外",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_POINT_OUTSIDE
         ).move_to(UP * 5.5)
@@ -421,7 +421,7 @@ class PointCirclePosition(Scene):
         
         # 点P3出现
         dot_P3 = Dot(self.P3, color=self.COLOR_POINT_OUTSIDE, radius=0.12)
-        label_P3 = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        label_P3 = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(
             dot_P3, RIGHT, buff=0.15
         )
         
@@ -479,7 +479,7 @@ class PointCirclePosition(Scene):
         # 说明
         explanation = Text(
             "距离大于半径 → 点在圆外",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -507,7 +507,7 @@ class PointCirclePosition(Scene):
         # 小标题
         subtitle = Text(
             "动态演示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -551,11 +551,11 @@ class PointCirclePosition(Scene):
         def get_status_text():
             d = np.linalg.norm(dot_P.get_center() - self.O)
             if d < self.radius - 0.05:
-                return Text("圆内", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_POINT_INSIDE)
+                return Text("圆内", font="PingFang SC", font_size=28, color=self.COLOR_POINT_INSIDE)
             elif abs(d - self.radius) < 0.05:
-                return Text("圆上", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_POINT_ON)
+                return Text("圆上", font="PingFang SC", font_size=28, color=self.COLOR_POINT_ON)
             else:
-                return Text("圆外", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_POINT_OUTSIDE)
+                return Text("圆外", font="PingFang SC", font_size=28, color=self.COLOR_POINT_OUTSIDE)
         
         status_text = always_redraw(lambda: get_status_text().move_to(DOWN * 5.8))
         
@@ -641,7 +641,7 @@ class PointCirclePosition(Scene):
         # 总结文字
         summary_text = Text(
             "掌握距离判断\n轻松解决位置关系！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -662,14 +662,14 @@ class PointCirclePosition(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -683,7 +683,7 @@ class PointCirclePosition(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -722,7 +722,7 @@ class PointCirclePosition(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -730,7 +730,7 @@ class PointCirclePosition(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=GRAY_A
         )

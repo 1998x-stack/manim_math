@@ -192,7 +192,7 @@ class PointTranslation(Scene):
         if label_text:
             name_label = Text(
                 label_text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=color
             ).next_to(coord_label, DOWN, buff=0.05, aligned_edge=LEFT)
@@ -244,7 +244,7 @@ class PointTranslation(Scene):
         # 作者信息 (顶部, 始终保留)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -254,7 +254,7 @@ class PointTranslation(Scene):
         # 钩子问题
         hook_text = Text(
             "点在坐标系里怎么\"移动\"?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=YELLOW
         ).move_to(UP * 6)
@@ -310,7 +310,7 @@ class PointTranslation(Scene):
         # 标题
         title = Text(
             "点的平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -381,7 +381,7 @@ class PointTranslation(Scene):
         # 说明文字
         explanation = Text(
             "向右平移3个单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -450,7 +450,7 @@ class PointTranslation(Scene):
         """Scene 3: 向左平移 - 横坐标减"""
         explanation = Text(
             "向左平移2个单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -507,7 +507,7 @@ class PointTranslation(Scene):
         """Scene 4: 向上平移 - 纵坐标加"""
         explanation = Text(
             "向上平移2个单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -563,7 +563,7 @@ class PointTranslation(Scene):
         """Scene 5: 向下平移 - 纵坐标减"""
         explanation = Text(
             "向下平移1个单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -619,7 +619,7 @@ class PointTranslation(Scene):
         """Scene 6: 综合平移 - 同时改变横纵坐标"""
         explanation = Text(
             "向右2个单位，向下3个单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -634,7 +634,7 @@ class PointTranslation(Scene):
         # 分步提示
         step_hint = Text(
             "分两步:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(explanation, DOWN, buff=0.3)
@@ -703,7 +703,7 @@ class PointTranslation(Scene):
         
         direct_hint = Text(
             "也可以一步到位!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=YELLOW
         ).move_to(DOWN * 5.5)
@@ -749,7 +749,7 @@ class PointTranslation(Scene):
         # 标题
         title = Text(
             "平移规律总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 2.8)
@@ -769,7 +769,7 @@ class PointTranslation(Scene):
             # 标题
             card_title = Text(
                 text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=color
             )
@@ -811,7 +811,7 @@ class PointTranslation(Scene):
         # 口诀
         mnemonic = Text(
             "左减右加，下减上加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=YELLOW,
             weight=BOLD
@@ -825,7 +825,7 @@ class PointTranslation(Scene):
         # 练习提示
         practice_hint = Text(
             "多做练习，熟能生巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -848,14 +848,14 @@ class PointTranslation(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -866,7 +866,7 @@ class PointTranslation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，轻松学坐标!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 0.5)

@@ -196,7 +196,7 @@ class SimilarTrianglesProperties(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -206,7 +206,7 @@ class SimilarTrianglesProperties(Scene):
         # 钩子问题
         hook_text = Text(
             "两个形状一样的三角形\n有什么神奇的关系？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -247,14 +247,14 @@ class SimilarTrianglesProperties(Scene):
         # 标题
         title = Text(
             "相似三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.2)
         
         definition = Text(
             "形状相同，大小可以不同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -272,13 +272,13 @@ class SimilarTrianglesProperties(Scene):
         self.play(Write(similarity_symbol), run_time=0.8)
         
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.A, LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.B, RIGHT, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.C, UP, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(self.A, LEFT, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(self.B, RIGHT, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(self.C, UP, buff=0.15)
         
-        label_A_prime = Text("A'", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.A_prime, LEFT, buff=0.12)
-        label_B_prime = Text("B'", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.B_prime, RIGHT, buff=0.12)
-        label_C_prime = Text("C'", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.C_prime, UP, buff=0.12)
+        label_A_prime = Text("A'", font="PingFang SC", font_size=20, color=WHITE).next_to(self.A_prime, LEFT, buff=0.12)
+        label_B_prime = Text("B'", font="PingFang SC", font_size=20, color=WHITE).next_to(self.B_prime, RIGHT, buff=0.12)
+        label_C_prime = Text("C'", font="PingFang SC", font_size=20, color=WHITE).next_to(self.C_prime, UP, buff=0.12)
         
         self.play(
             Write(label_A), Write(label_B), Write(label_C),
@@ -303,7 +303,7 @@ class SimilarTrianglesProperties(Scene):
         # 标题
         title = Text(
             "性质1：对应边成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -351,7 +351,7 @@ class SimilarTrianglesProperties(Scene):
         # 数值计算
         ratio_text = Text(
             f"{self.a_prime:.1f} ÷ {self.a:.1f} = {self.k:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.3)
@@ -361,7 +361,7 @@ class SimilarTrianglesProperties(Scene):
         # 结论
         conclusion = Text(
             f"相似比 k = {self.k}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD
         ).move_to(DOWN * 7.0)
@@ -389,7 +389,7 @@ class SimilarTrianglesProperties(Scene):
         # 标题
         title = Text(
             "性质2：对应高之比 = k",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -454,7 +454,7 @@ class SimilarTrianglesProperties(Scene):
         # 数值验证
         verification = Text(
             f"{self.h_A_prime:.2f} ÷ {self.h_A:.2f} = {self.k:.1f} ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GOLD
         ).move_to(DOWN * 6.6)
@@ -501,7 +501,7 @@ class SimilarTrianglesProperties(Scene):
         # 标题
         title = Text(
             "对应中线之比 = k",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -510,7 +510,7 @@ class SimilarTrianglesProperties(Scene):
         
         # BC中点
         m_bc_dot = Dot(self.M_BC, color=self.COLOR_AUXILIARY, radius=0.06)
-        m_bc_label = Text("M", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(m_bc_dot, RIGHT, buff=0.08)
+        m_bc_label = Text("M", font="PingFang SC", font_size=18, color=WHITE).next_to(m_bc_dot, RIGHT, buff=0.08)
         
         self.play(FadeIn(m_bc_dot), FadeIn(m_bc_label), run_time=0.5)
         
@@ -538,7 +538,7 @@ class SimilarTrianglesProperties(Scene):
         # 补充说明
         note = Text(
             "同样地，角平分线之比也等于 k",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 6.3)
@@ -564,7 +564,7 @@ class SimilarTrianglesProperties(Scene):
         # 标题
         title = Text(
             "周长比 = k，面积比 = k²",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -592,7 +592,7 @@ class SimilarTrianglesProperties(Scene):
         # 过渡
         transition = Text(
             "而面积呢？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.7)
@@ -619,7 +619,7 @@ class SimilarTrianglesProperties(Scene):
         # 强调
         emphasis = Text(
             "注意是平方！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GOLD
         ).move_to(DOWN * 6.5)
@@ -677,7 +677,7 @@ class SimilarTrianglesProperties(Scene):
         # 标题
         title = Text(
             "相似三角形性质总结", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=40, 
             color=GOLD
         ).move_to(UP * 6.5)
@@ -748,7 +748,7 @@ class SimilarTrianglesProperties(Scene):
         # 添加说明文字
         reminder_text = Text(
             "Key Point: Area ratio is the square of similarity ratio!", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=24, 
             color=GOLD
         ).move_to(DOWN * 5.5)
@@ -768,7 +768,7 @@ class SimilarTrianglesProperties(Scene):
         # 作者信息
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 7.5)
@@ -778,7 +778,7 @@ class SimilarTrianglesProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 8.5)
@@ -810,7 +810,7 @@ class SimilarTrianglesProperties(Scene):
         # 内容
         text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )

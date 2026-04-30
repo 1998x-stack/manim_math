@@ -60,7 +60,7 @@ class InversePropositions(Scene):
         # 作者信息 (顶部，安全边界内)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 6.5)
@@ -70,7 +70,7 @@ class InversePropositions(Scene):
         # 钩子问题
         hook_text = Text(
             "如果命题是真的\n反过来说还是真的吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -80,8 +80,8 @@ class InversePropositions(Scene):
         
         # 问号动画
         question_marks = VGroup(
-            Text("?", font="Noto Sans CJK SC", font_size=80, color=self.COLOR_HIGHLIGHT).shift(LEFT * 1.5 + UP * 2),
-            Text("?", font="Noto Sans CJK SC", font_size=80, color=self.COLOR_HIGHLIGHT).shift(RIGHT * 1.5 + UP * 2)
+            Text("?", font="PingFang SC", font_size=80, color=self.COLOR_HIGHLIGHT).shift(LEFT * 1.5 + UP * 2),
+            Text("?", font="PingFang SC", font_size=80, color=self.COLOR_HIGHLIGHT).shift(RIGHT * 1.5 + UP * 2)
         )
         
         self.play(FadeIn(question_marks, scale=1.5), run_time=0.5)
@@ -104,7 +104,7 @@ class InversePropositions(Scene):
         # 标题
         title = Text(
             "逆命题的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -123,11 +123,11 @@ class InversePropositions(Scene):
         ).move_to(UP * 2)
         
         prop_text = VGroup(
-            Text("原命题:", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("原命题:", font="PingFang SC", font_size=24, color=WHITE),
             VGroup(
-                Text("若", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                Text("若", font="PingFang SC", font_size=32, color=WHITE),
                 MathTex(r"p", font_size=32, color=WHITE),
-                Text("则", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                Text("则", font="PingFang SC", font_size=32, color=WHITE),
                 MathTex(r"q", font_size=32, color=WHITE),
             ).arrange(RIGHT, buff=0.2)
         ).arrange(RIGHT, buff=0.3).move_to(prop_box.get_center())
@@ -150,7 +150,7 @@ class InversePropositions(Scene):
         
         swap_label = Text(
             "互换条件和结论",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ARROW
         ).next_to(swap_arrow, RIGHT, buff=0.2)
@@ -167,11 +167,11 @@ class InversePropositions(Scene):
         ).move_to(DOWN * 2)
         
         inverse_text = VGroup(
-            Text("逆命题:", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("逆命题:", font="PingFang SC", font_size=24, color=WHITE),
             VGroup(
-                Text("若", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                Text("若", font="PingFang SC", font_size=32, color=WHITE),
                 MathTex(r"q", font_size=32, color=WHITE),
-                Text("则", font="Noto Sans CJK SC", font_size=32, color=WHITE),
+                Text("则", font="PingFang SC", font_size=32, color=WHITE),
                 MathTex(r"p", font_size=32, color=WHITE),
             ).arrange(RIGHT, buff=0.2)
         ).arrange(RIGHT, buff=0.3).move_to(inverse_box.get_center())
@@ -182,7 +182,7 @@ class InversePropositions(Scene):
         # 底部说明
         definition_text = Text(
             "把命题的条件和结论互换，得到逆命题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -208,7 +208,7 @@ class InversePropositions(Scene):
         # 示例标题
         example_title = Text(
             "具体例子: 等腰三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -218,7 +218,7 @@ class InversePropositions(Scene):
         # ========== 左侧: 原命题 ==========
         prop_statement = Text(
             "原命题: 若AB=AC, 则∠B=∠C",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5 + LEFT * 2.5)
@@ -243,9 +243,9 @@ class InversePropositions(Scene):
         triangle_left = Polygon(A_left, B_left, C_left, color=self.COLOR_PRIMARY, stroke_width=3)
         
         # 顶点标签
-        label_A_left = Text("A", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(A_left, UP, buff=0.1)
-        label_B_left = Text("B", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(B_left, DL, buff=0.1)
-        label_C_left = Text("C", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(C_left, DR, buff=0.1)
+        label_A_left = Text("A", font="PingFang SC", font_size=18, color=WHITE).next_to(A_left, UP, buff=0.1)
+        label_B_left = Text("B", font="PingFang SC", font_size=18, color=WHITE).next_to(B_left, DL, buff=0.1)
+        label_C_left = Text("C", font="PingFang SC", font_size=18, color=WHITE).next_to(C_left, DR, buff=0.1)
         
         self.play(Create(triangle_left), run_time=0.5)
         self.play(FadeIn(label_A_left), FadeIn(label_B_left), FadeIn(label_C_left), run_time=0.3)
@@ -254,8 +254,8 @@ class InversePropositions(Scene):
         side_AB = Line(A_left, B_left, color=self.COLOR_HIGHLIGHT, stroke_width=4)
         side_AC = Line(A_left, C_left, color=self.COLOR_HIGHLIGHT, stroke_width=4)
         
-        equal_mark_1 = Text("=", font="Noto Sans CJK SC", font_size=16, color=YELLOW).move_to((A_left + B_left) / 2 + LEFT * 0.2)
-        equal_mark_2 = Text("=", font="Noto Sans CJK SC", font_size=16, color=YELLOW).move_to((A_left + C_left) / 2 + RIGHT * 0.2)
+        equal_mark_1 = Text("=", font="PingFang SC", font_size=16, color=YELLOW).move_to((A_left + B_left) / 2 + LEFT * 0.2)
+        equal_mark_2 = Text("=", font="PingFang SC", font_size=16, color=YELLOW).move_to((A_left + C_left) / 2 + RIGHT * 0.2)
         
         self.play(
             Create(side_AB),
@@ -290,7 +290,7 @@ class InversePropositions(Scene):
         self.play(Create(angle_B_arc), Create(angle_C_arc), run_time=0.5)
         
         # ✓标记
-        check_left = Text("✓", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_TRUE).move_to(LEFT * 2.5 + DOWN * 2)
+        check_left = Text("✓", font="PingFang SC", font_size=48, color=self.COLOR_TRUE).move_to(LEFT * 2.5 + DOWN * 2)
         self.play(Flash(check_left, color=self.COLOR_TRUE, flash_radius=0.5), FadeIn(check_left, scale=1.5), run_time=0.4)
         
         self.wait(0.5)
@@ -298,7 +298,7 @@ class InversePropositions(Scene):
         # ========== 右侧: 逆命题 ==========
         inverse_statement = Text(
             "逆命题: 若∠B=∠C, 则AB=AC",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5 + RIGHT * 2.5)
@@ -313,9 +313,9 @@ class InversePropositions(Scene):
         triangle_right = Polygon(A_right, B_right, C_right, color=self.COLOR_SECONDARY, stroke_width=3)
         
         # 顶点标签
-        label_A_right = Text("A", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(A_right, UP, buff=0.1)
-        label_B_right = Text("B", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(B_right, DL, buff=0.1)
-        label_C_right = Text("C", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(C_right, DR, buff=0.1)
+        label_A_right = Text("A", font="PingFang SC", font_size=18, color=WHITE).next_to(A_right, UP, buff=0.1)
+        label_B_right = Text("B", font="PingFang SC", font_size=18, color=WHITE).next_to(B_right, DL, buff=0.1)
+        label_C_right = Text("C", font="PingFang SC", font_size=18, color=WHITE).next_to(C_right, DR, buff=0.1)
         
         self.play(Create(triangle_right), run_time=0.5)
         self.play(FadeIn(label_A_right), FadeIn(label_B_right), FadeIn(label_C_right), run_time=0.3)
@@ -343,8 +343,8 @@ class InversePropositions(Scene):
         side_AB_r = Line(A_right, B_right, color=self.COLOR_HIGHLIGHT, stroke_width=4)
         side_AC_r = Line(A_right, C_right, color=self.COLOR_HIGHLIGHT, stroke_width=4)
         
-        equal_mark_1_r = Text("=", font="Noto Sans CJK SC", font_size=16, color=YELLOW).move_to((A_right + B_right) / 2 + LEFT * 0.2)
-        equal_mark_2_r = Text("=", font="Noto Sans CJK SC", font_size=16, color=YELLOW).move_to((A_right + C_right) / 2 + RIGHT * 0.2)
+        equal_mark_1_r = Text("=", font="PingFang SC", font_size=16, color=YELLOW).move_to((A_right + B_right) / 2 + LEFT * 0.2)
+        equal_mark_2_r = Text("=", font="PingFang SC", font_size=16, color=YELLOW).move_to((A_right + C_right) / 2 + RIGHT * 0.2)
         
         self.play(
             Create(side_AB_r),
@@ -360,13 +360,13 @@ class InversePropositions(Scene):
         )
         
         # ✓标记
-        check_right = Text("✓", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_TRUE).move_to(RIGHT * 2.5 + DOWN * 2)
+        check_right = Text("✓", font="PingFang SC", font_size=48, color=self.COLOR_TRUE).move_to(RIGHT * 2.5 + DOWN * 2)
         self.play(Flash(check_right, color=self.COLOR_TRUE, flash_radius=0.5), FadeIn(check_right, scale=1.5), run_time=0.4)
         
         # 底部提示
         both_true = Text(
             "两个都是真命题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TRUE
         ).move_to(DOWN * 4)
@@ -410,7 +410,7 @@ class InversePropositions(Scene):
         # 大标题
         key_title = Text(
             "重要! 原命题与逆命题的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -420,7 +420,7 @@ class InversePropositions(Scene):
         # "原命题真"
         prop_true = Text(
             "原命题真",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 2 + LEFT * 2.5)
@@ -443,7 +443,7 @@ class InversePropositions(Scene):
         # "逆命题真"
         inverse_true = Text(
             "逆命题真",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 2 + RIGHT * 2.5)
@@ -474,7 +474,7 @@ class InversePropositions(Scene):
         # "不一定"文字
         not_certain = Text(
             "不一定成立!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=RED
         ).move_to(arrow_center + DOWN * 0.8)
@@ -488,7 +488,7 @@ class InversePropositions(Scene):
         # 警告图标
         warning_icon = VGroup(
             Triangle(color=YELLOW, fill_opacity=0.3).scale(0.6),
-            Text("!", font="Noto Sans CJK SC", font_size=32, color=RED)
+            Text("!", font="PingFang SC", font_size=32, color=RED)
         ).move_to(UP * 0.5)
         
         self.play(FadeIn(warning_icon, scale=1.5), run_time=0.4)
@@ -497,7 +497,7 @@ class InversePropositions(Scene):
         # 说明文字
         explanation = Text(
             "原命题为真，逆命题可能真，也可能假",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -524,7 +524,7 @@ class InversePropositions(Scene):
         # 反例标题
         counter_title = Text(
             "反例: 逆命题可能为假",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FALSE
         ).move_to(UP * 6.5)
@@ -534,14 +534,14 @@ class InversePropositions(Scene):
         # ========== 左侧: 原命题 (真) ==========
         prop_text = Text(
             "原命题 (真)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TRUE
         ).move_to(UP * 5 + LEFT * 2.5)
         
         prop_statement = Text(
             "若两直线平行\n则同位角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE,
             line_spacing=1.2
@@ -574,13 +574,13 @@ class InversePropositions(Scene):
         angle_arc_1 = Arc(radius=0.25, start_angle=-0.5, angle=1.0, color=self.COLOR_HIGHLIGHT, stroke_width=2).move_to(angle_1_pos)
         angle_arc_2 = Arc(radius=0.25, start_angle=-0.5, angle=1.0, color=self.COLOR_HIGHLIGHT, stroke_width=2).move_to(angle_2_pos)
         
-        angle_label = Text("相等", font="Noto Sans CJK SC", font_size=16, color=YELLOW).move_to(offset_left + DOWN * 2)
+        angle_label = Text("相等", font="PingFang SC", font_size=16, color=YELLOW).move_to(offset_left + DOWN * 2)
         
         self.play(Create(angle_arc_1), Create(angle_arc_2), run_time=0.4)
         self.play(FadeIn(angle_label), run_time=0.3)
         
         # ✓符号
-        check_mark_left = Text("✓", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_TRUE).move_to(LEFT * 2.5 + DOWN * 3.5)
+        check_mark_left = Text("✓", font="PingFang SC", font_size=40, color=self.COLOR_TRUE).move_to(LEFT * 2.5 + DOWN * 3.5)
         self.play(FadeIn(check_mark_left, scale=1.3), run_time=0.3)
         
         self.wait(0.5)
@@ -588,14 +588,14 @@ class InversePropositions(Scene):
         # ========== 右侧: 逆命题 (假) ==========
         inverse_text = Text(
             "逆命题 (假)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_FALSE
         ).move_to(UP * 5 + RIGHT * 2.5)
         
         inverse_statement = Text(
             "若同位角相等\n则两直线平行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE,
             line_spacing=1.2
@@ -628,13 +628,13 @@ class InversePropositions(Scene):
         angle_arc_1_r = Arc(radius=0.25, start_angle=-0.5, angle=1.0, color=self.COLOR_HIGHLIGHT, stroke_width=2).move_to(angle_1_pos_r)
         angle_arc_2_r = Arc(radius=0.25, start_angle=-0.5, angle=1.0, color=self.COLOR_HIGHLIGHT, stroke_width=2).move_to(angle_2_pos_r)
         
-        angle_label_r = Text("相等", font="Noto Sans CJK SC", font_size=16, color=YELLOW).move_to(offset_right + DOWN * 2)
+        angle_label_r = Text("相等", font="PingFang SC", font_size=16, color=YELLOW).move_to(offset_right + DOWN * 2)
         
         self.play(Create(angle_arc_1_r), Create(angle_arc_2_r), run_time=0.4)
         self.play(FadeIn(angle_label_r), run_time=0.3)
         
         # ✗符号
-        cross_mark_right = Text("✗", font="Noto Sans CJK SC", font_size=40, color=RED).move_to(RIGHT * 2.5 + DOWN * 3.5)
+        cross_mark_right = Text("✗", font="PingFang SC", font_size=40, color=RED).move_to(RIGHT * 2.5 + DOWN * 3.5)
         self.play(
             Flash(cross_mark_right, color=RED, flash_radius=0.6),
             FadeIn(cross_mark_right, scale=1.3),
@@ -644,7 +644,7 @@ class InversePropositions(Scene):
         # 底部说明
         explanation = Text(
             "同位角相等时，直线可能相交\n(这只是特殊构造，实际很少见)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A,
             line_spacing=1.2
@@ -683,7 +683,7 @@ class InversePropositions(Scene):
         # 标题
         title = Text(
             "什么是逆定理?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -700,7 +700,7 @@ class InversePropositions(Scene):
         
         definition_text = Text(
             "如果一个定理的逆命题也是真命题\n则称它为逆定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             line_spacing=1.3
@@ -711,15 +711,15 @@ class InversePropositions(Scene):
         
         # 条件展示
         condition_1 = VGroup(
-            Text("条件1:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("原命题是真命题", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PRIMARY),
-            Text("✓", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_TRUE)
+            Text("条件1:", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("原命题是真命题", font="PingFang SC", font_size=22, color=self.COLOR_PRIMARY),
+            Text("✓", font="PingFang SC", font_size=28, color=self.COLOR_TRUE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1.5)
         
         condition_2 = VGroup(
-            Text("条件2:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("逆命题是真命题", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SECONDARY),
-            Text("✓", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_TRUE)
+            Text("条件2:", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("逆命题是真命题", font="PingFang SC", font_size=22, color=self.COLOR_SECONDARY),
+            Text("✓", font="PingFang SC", font_size=28, color=self.COLOR_TRUE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 0.5)
         
         self.play(FadeIn(condition_1, shift=RIGHT * 0.3), run_time=0.5)
@@ -728,7 +728,7 @@ class InversePropositions(Scene):
         # "逆定理"高亮
         theorem_word = Text(
             "逆定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8)
@@ -742,7 +742,7 @@ class InversePropositions(Scene):
         # 示例标题
         example_title = Text(
             "经典例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD
         ).move_to(DOWN * 2.2)
@@ -751,20 +751,20 @@ class InversePropositions(Scene):
         
         # 示例1
         example_1 = VGroup(
-            Text("•", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("勾股定理", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY),
-            Text("⟺", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ARROW),
-            Text("勾股定理的逆定理", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY)
+            Text("•", font="PingFang SC", font_size=20, color=WHITE),
+            Text("勾股定理", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY),
+            Text("⟺", font="PingFang SC", font_size=24, color=self.COLOR_ARROW),
+            Text("勾股定理的逆定理", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 3.2)
         
         self.play(FadeIn(example_1, shift=UP * 0.2), run_time=0.5)
         
         # 示例2
         example_2 = VGroup(
-            Text("•", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("等腰三角形性质", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY),
-            Text("⟺", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ARROW),
-            Text("等腰三角形判定", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY)
+            Text("•", font="PingFang SC", font_size=20, color=WHITE),
+            Text("等腰三角形性质", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY),
+            Text("⟺", font="PingFang SC", font_size=24, color=self.COLOR_ARROW),
+            Text("等腰三角形判定", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 4.2)
         
         self.play(FadeIn(example_2, shift=UP * 0.2), run_time=0.5)
@@ -790,7 +790,7 @@ class InversePropositions(Scene):
         # 总结标题
         summary_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -800,17 +800,17 @@ class InversePropositions(Scene):
         # 要点卡片
         point_1 = VGroup(
             Circle(radius=0.15, fill_color=self.COLOR_PRIMARY, fill_opacity=1, stroke_width=0),
-            Text("逆命题 = 条件和结论互换", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            Text("逆命题 = 条件和结论互换", font="PingFang SC", font_size=24, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
         point_2 = VGroup(
             Circle(radius=0.15, fill_color=self.COLOR_SECONDARY, fill_opacity=1, stroke_width=0),
-            Text("原命题真 ≠> 逆命题真", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            Text("原命题真 ≠> 逆命题真", font="PingFang SC", font_size=24, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2.5)
         
         point_3 = VGroup(
             Circle(radius=0.15, fill_color=self.COLOR_HIGHLIGHT, fill_opacity=1, stroke_width=0),
-            Text("逆命题也真 → 逆定理", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            Text("逆命题也真 → 逆定理", font="PingFang SC", font_size=24, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1)
         
         # 要点依次滑入
@@ -828,14 +828,14 @@ class InversePropositions(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 2.5)
@@ -849,7 +849,7 @@ class InversePropositions(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)

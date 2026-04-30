@@ -273,7 +273,7 @@ class LineSegmentOperations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -283,7 +283,7 @@ class LineSegmentOperations(Scene):
         # 钩子问题
         hook_text = Text(
             "两条线段能相加吗?\n它们的一半在哪里?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -321,7 +321,7 @@ class LineSegmentOperations(Scene):
         # 标题
         title = Text(
             "线段的和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -335,8 +335,8 @@ class LineSegmentOperations(Scene):
         # 标注点A, B
         dot_A = Dot(self.A_sum, color=self.COLOR_POINT, radius=0.08)
         dot_B = Dot(self.B_sum, color=self.COLOR_POINT, radius=0.08)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_A, DOWN, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_B, DOWN, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_A, DOWN, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_B, DOWN, buff=0.15)
         
         self.play(
             FadeIn(dot_A),
@@ -351,7 +351,7 @@ class LineSegmentOperations(Scene):
         length_AB_value = round(self.len_AB, 1)
         length_AB = Text(
             f"AB = {length_AB_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(brace_AB, UP, buff=0.1)
@@ -364,7 +364,7 @@ class LineSegmentOperations(Scene):
         
         # 标注点C
         dot_C = Dot(self.C_sum, color=self.COLOR_POINT, radius=0.08)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_C, DOWN, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_C, DOWN, buff=0.15)
         
         self.play(FadeIn(dot_C), FadeIn(label_C), run_time=0.5)
         
@@ -373,7 +373,7 @@ class LineSegmentOperations(Scene):
         length_BC_value = round(self.len_BC, 1)
         length_BC = Text(
             f"BC = {length_BC_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(brace_BC, UP, buff=0.1)
@@ -401,7 +401,7 @@ class LineSegmentOperations(Scene):
         length_AC_value = round(self.len_AC, 1)
         length_AC = Text(
             f"AC = {length_AC_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).next_to(brace_AC, DOWN, buff=0.1)
@@ -414,7 +414,7 @@ class LineSegmentOperations(Scene):
         # 说明文字
         explanation = Text(
             "首尾相连，长度相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -449,7 +449,7 @@ class LineSegmentOperations(Scene):
         # 标题
         title = Text(
             "线段的差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -463,8 +463,8 @@ class LineSegmentOperations(Scene):
         # 标注D, E点
         dot_D = Dot(self.D, color=self.COLOR_POINT, radius=0.08)
         dot_E = Dot(self.E, color=self.COLOR_POINT, radius=0.08)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_D, DOWN, buff=0.15)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_E, DOWN, buff=0.15)
+        label_D = Text("D", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_D, DOWN, buff=0.15)
+        label_E = Text("E", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_E, DOWN, buff=0.15)
         
         self.play(
             FadeIn(dot_D),
@@ -479,7 +479,7 @@ class LineSegmentOperations(Scene):
         length_DE_value = round(self.len_DE, 1)
         length_DE = Text(
             f"DE = {length_DE_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(brace_DE, UP, buff=0.1)
@@ -492,7 +492,7 @@ class LineSegmentOperations(Scene):
         
         # 标注F点
         dot_F = Dot(self.F, color=self.COLOR_POINT, radius=0.08)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_F, DOWN, buff=0.15)
+        label_F = Text("F", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_F, DOWN, buff=0.15)
         
         self.play(FadeIn(dot_F), FadeIn(label_F), run_time=0.5)
         
@@ -501,7 +501,7 @@ class LineSegmentOperations(Scene):
         length_DF_value = round(self.len_DF, 1)
         length_DF = Text(
             f"DF = {length_DF_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(brace_DF, UP, buff=0.1)
@@ -530,7 +530,7 @@ class LineSegmentOperations(Scene):
         length_FE_value = round(self.len_FE, 1)
         length_FE = Text(
             f"FE = {length_FE_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).next_to(brace_FE, DOWN, buff=0.1)
@@ -543,7 +543,7 @@ class LineSegmentOperations(Scene):
         # 说明文字
         explanation = Text(
             "较长减较短",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -579,7 +579,7 @@ class LineSegmentOperations(Scene):
         # 标题
         title = Text(
             "线段的倍",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -593,8 +593,8 @@ class LineSegmentOperations(Scene):
         # 标注P, Q点
         dot_P = Dot(self.P, color=self.COLOR_POINT, radius=0.08)
         dot_Q = Dot(self.Q, color=self.COLOR_POINT, radius=0.08)
-        label_P = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_P, DOWN, buff=0.15)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_Q, DOWN, buff=0.15)
+        label_P = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_P, DOWN, buff=0.15)
+        label_Q = Text("Q", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_Q, DOWN, buff=0.15)
         
         self.play(
             FadeIn(dot_P),
@@ -608,7 +608,7 @@ class LineSegmentOperations(Scene):
         brace_PQ = Brace(line_PQ, direction=UP, buff=0.1, color=self.COLOR_AUXILIARY)
         length_PQ = Text(
             "PQ (1倍)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(brace_PQ, UP, buff=0.1)
@@ -631,7 +631,7 @@ class LineSegmentOperations(Scene):
         
         # 标注R点
         dot_R = Dot(self.R, color=self.COLOR_POINT, radius=0.08)
-        label_R = Text("R", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_R, DOWN, buff=0.15)
+        label_R = Text("R", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_R, DOWN, buff=0.15)
         
         self.play(FadeIn(dot_R), FadeIn(label_R), run_time=0.5)
         
@@ -655,7 +655,7 @@ class LineSegmentOperations(Scene):
         brace_PR = Brace(line_PR_full, direction=DOWN, buff=0.5, color=self.COLOR_SUCCESS)
         length_PR = Text(
             "PR (2倍)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).next_to(brace_PR, DOWN, buff=0.1)
@@ -668,7 +668,7 @@ class LineSegmentOperations(Scene):
         # 说明文字
         explanation = Text(
             "首尾相连得倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -701,7 +701,7 @@ class LineSegmentOperations(Scene):
         # 标题
         title = Text(
             "线段的分 - 中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -715,8 +715,8 @@ class LineSegmentOperations(Scene):
         # 标注A, B点
         dot_A = Dot(self.A_div, color=self.COLOR_POINT, radius=0.08)
         dot_B = Dot(self.B_div, color=self.COLOR_POINT, radius=0.08)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_A, DOWN, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_B, DOWN, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_A, DOWN, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_B, DOWN, buff=0.15)
         
         self.play(
             FadeIn(dot_A),
@@ -731,7 +731,7 @@ class LineSegmentOperations(Scene):
         length_AB_value = round(self.len_AB_div, 1)
         length_AB = Text(
             f"AB = {length_AB_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(brace_AB, UP, buff=0.1)
@@ -741,7 +741,7 @@ class LineSegmentOperations(Scene):
         # 问题出现
         question = Text(
             "如何找到中点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW
         ).move_to(DOWN * 0.5)
@@ -755,7 +755,7 @@ class LineSegmentOperations(Scene):
         # 标注M点
         label_M = Text(
             "M (中点)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=YELLOW
         ).next_to(dot_M, UP, buff=0.2)
@@ -776,7 +776,7 @@ class LineSegmentOperations(Scene):
         length_AM_value = round(self.len_AM, 1)
         length_AM = Text(
             f"AM = {length_AM_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_SUCCESS
         ).next_to(brace_AM, DOWN, buff=0.1)
@@ -793,7 +793,7 @@ class LineSegmentOperations(Scene):
         length_MB_value = round(self.len_MB, 1)
         length_MB = Text(
             f"MB = {length_MB_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_SUCCESS
         ).next_to(brace_MB, DOWN, buff=0.1)
@@ -820,7 +820,7 @@ class LineSegmentOperations(Scene):
         # 说明文字
         explanation = Text(
             "中点二等分线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -855,7 +855,7 @@ class LineSegmentOperations(Scene):
         # 标题
         title = Text(
             "知识点回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -910,7 +910,7 @@ class LineSegmentOperations(Scene):
         # 关键提示
         key_point = Text(
             "牢记中点性质!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=YELLOW
         ).move_to(DOWN * 4)
@@ -939,7 +939,7 @@ class LineSegmentOperations(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -947,7 +947,7 @@ class LineSegmentOperations(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -966,14 +966,14 @@ class LineSegmentOperations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -987,7 +987,7 @@ class LineSegmentOperations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

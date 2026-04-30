@@ -207,7 +207,7 @@ class CoordinateSystemBasics(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -217,7 +217,7 @@ class CoordinateSystemBasics(Scene):
         # 钩子问题
         hook_text = Text(
             "如何用数字描述\n平面上的位置?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -256,7 +256,7 @@ class CoordinateSystemBasics(Scene):
         # 标题
         title = Text(
             "平面直角坐标系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -268,7 +268,7 @@ class CoordinateSystemBasics(Scene):
         
         # 原点标记
         self.origin_dot = Dot(self.origin, color=self.COLOR_SECONDARY, radius=0.08)
-        origin_label = Text("O", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.origin_dot, DL, buff=0.15)
+        origin_label = Text("O", font="PingFang SC", font_size=24, color=WHITE).next_to(self.origin_dot, DL, buff=0.15)
         
         self.play(
             FadeIn(self.origin_dot, scale=0.5),
@@ -288,10 +288,10 @@ class CoordinateSystemBasics(Scene):
         
         # 象限标注
         quadrant_labels = VGroup(
-            Text("I", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(2.5, 1.8)),
-            Text("II", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(-2.5, 1.8)),
-            Text("III", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(-2.5, -1.8)),
-            Text("IV", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(2.5, -1.8))
+            Text("I", font="PingFang SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(2.5, 1.8)),
+            Text("II", font="PingFang SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(-2.5, 1.8)),
+            Text("III", font="PingFang SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(-2.5, -1.8)),
+            Text("IV", font="PingFang SC", font_size=24, color=GRAY_A).move_to(self.axes.c2p(2.5, -1.8))
         )
         
         self.play(FadeIn(quadrant_labels, shift=DOWN * 0.2), run_time=0.7)
@@ -299,7 +299,7 @@ class CoordinateSystemBasics(Scene):
         # 说明文字
         explain = Text(
             "两条数轴互相垂直相交于原点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -325,7 +325,7 @@ class CoordinateSystemBasics(Scene):
         # 标题
         subtitle = Text(
             "由点确定坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -334,7 +334,7 @@ class CoordinateSystemBasics(Scene):
         
         # 点P出现
         dot_P = Dot(self.point_P, color=self.COLOR_SECONDARY, radius=0.12)
-        label_P = Text("P", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(dot_P, UR, buff=0.15)
+        label_P = Text("P", font="PingFang SC", font_size=24, color=WHITE).next_to(dot_P, UR, buff=0.15)
         
         self.play(FadeIn(dot_P, scale=0.5), run_time=0.4)
         self.play(Flash(dot_P, color=self.COLOR_SECONDARY, flash_radius=0.3), run_time=0.4)
@@ -343,7 +343,7 @@ class CoordinateSystemBasics(Scene):
         # 步骤1: 作垂线到x轴
         step1 = Text(
             "步骤1: 作垂线到x轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -369,7 +369,7 @@ class CoordinateSystemBasics(Scene):
         # 步骤2: 作垂线到y轴
         step2 = Text(
             "步骤2: 作垂线到y轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -424,7 +424,7 @@ class CoordinateSystemBasics(Scene):
         # 重点提示
         highlight = Text(
             "横坐标 x, 纵坐标 y",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -455,7 +455,7 @@ class CoordinateSystemBasics(Scene):
         # 说明
         text = Text(
             "再看两个例子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -501,7 +501,7 @@ class CoordinateSystemBasics(Scene):
         # 提示
         hint = Text(
             "注意: 负数表示方向相反",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -537,7 +537,7 @@ class CoordinateSystemBasics(Scene):
         # 标题
         subtitle2 = Text(
             "由坐标确定点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -552,7 +552,7 @@ class CoordinateSystemBasics(Scene):
         # 步骤1: 在x轴找到2.5
         step1 = Text(
             "步骤1: 在x轴找到 2.5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -579,7 +579,7 @@ class CoordinateSystemBasics(Scene):
         # 步骤2: 在y轴找到-2
         step2 = Text(
             "步骤2: 在y轴找到 -2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -608,7 +608,7 @@ class CoordinateSystemBasics(Scene):
         
         # 点S出现
         dot_S = Dot(self.point_S, color=self.COLOR_SECONDARY, radius=0.12)
-        label_S = Text("S", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(dot_S, UR, buff=0.15)
+        label_S = Text("S", font="PingFang SC", font_size=24, color=WHITE).next_to(dot_S, UR, buff=0.15)
         
         self.play(FadeIn(dot_S, scale=0.5), run_time=0.5)
         self.play(Write(label_S), run_time=0.5)
@@ -635,7 +635,7 @@ class CoordinateSystemBasics(Scene):
         # 重点
         highlight = Text(
             "两条垂线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -667,7 +667,7 @@ class CoordinateSystemBasics(Scene):
         # 标题
         subtitle3 = Text(
             "特殊位置: 坐标轴上的点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -692,7 +692,7 @@ class CoordinateSystemBasics(Scene):
         # 说明1
         explain1 = Text(
             "x轴上的点: y = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -721,7 +721,7 @@ class CoordinateSystemBasics(Scene):
         # 说明2
         explain2 = Text(
             "y轴上的点: x = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.2)
@@ -738,7 +738,7 @@ class CoordinateSystemBasics(Scene):
         # 原点说明
         explain3 = Text(
             "原点: O(0, 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -774,7 +774,7 @@ class CoordinateSystemBasics(Scene):
         # 总结标题
         summary_title = Text(
             "要点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5)
@@ -784,28 +784,28 @@ class CoordinateSystemBasics(Scene):
         # 要点列表
         point1 = Text(
             "• 点用有序数对 (x, y) 表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 3)
         
         point2 = Text(
             "• 由点确定坐标: 作垂线读数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 2)
         
         point3 = Text(
             "• 由坐标确定点: 作垂线找交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 1)
         
         point4 = Text(
             "• 坐标轴上的点: 一个坐标为 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(ORIGIN)
@@ -841,7 +841,7 @@ class CoordinateSystemBasics(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

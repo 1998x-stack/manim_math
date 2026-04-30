@@ -51,7 +51,7 @@ class CoordinateSystemConcept(Scene):
         self.COLOR_POINT = "#ff6b6b"        # 红色 - 示例点
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"  # 中文字体
+        self.FONT_CHINESE = "PingFang SC"  # 中文字体
         
         # 初始化几何数据
         self.setup_geometry()

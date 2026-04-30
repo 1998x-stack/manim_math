@@ -94,7 +94,7 @@ class RationalNumberSubtraction(Scene):
         # 数轴标签
         self.number_line_label = Text(
             "数轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(self.number_line, DOWN, buff=0.3)
@@ -104,7 +104,7 @@ class RationalNumberSubtraction(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -114,7 +114,7 @@ class RationalNumberSubtraction(Scene):
         # 钩子问题
         hook = Text(
             "减法 = 加法 ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 8,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -124,7 +124,7 @@ class RationalNumberSubtraction(Scene):
         # 副标题
         subtitle = Text(
             "揭秘减法的秘密!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -149,7 +149,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "减法的秘密",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_TRANSFORM
         ).move_to(UP * 5.5)
@@ -168,7 +168,7 @@ class RationalNumberSubtraction(Scene):
         # 相反数概念
         opposite_concept = Text(
             "2 的相反数是 -2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 3)
@@ -187,7 +187,7 @@ class RationalNumberSubtraction(Scene):
         
         transform_text = Text(
             "转化",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_TRANSFORM
         ).next_to(transform_arrow, RIGHT, buff=0.2)
@@ -216,7 +216,7 @@ class RationalNumberSubtraction(Scene):
         # 法则说明
         rule_text = Text(
             "减去一个数 = 加上它的相反数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=YELLOW
         ).move_to(ORIGIN)
@@ -241,7 +241,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "正数 - 正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 5.5)
@@ -288,7 +288,7 @@ class RationalNumberSubtraction(Scene):
         
         step_text = Text(
             "加上 -2 (向左移动)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 0.5)
@@ -333,7 +333,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "正数 - 正数 (结果为负)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 5.5)
@@ -380,7 +380,7 @@ class RationalNumberSubtraction(Scene):
         
         step_text = Text(
             "加上 -5 (向左移动5格)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 0.5)
@@ -391,7 +391,7 @@ class RationalNumberSubtraction(Scene):
         # 说明
         note_text = Text(
             "进入负数区域!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -436,7 +436,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "正数 - 负数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=YELLOW
         ).move_to(UP * 5.5)
@@ -455,7 +455,7 @@ class RationalNumberSubtraction(Scene):
         # 负负得正提示
         hint = Text(
             "负负得正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -498,7 +498,7 @@ class RationalNumberSubtraction(Scene):
         
         step_text = Text(
             "加上 2 (向右移动)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 0.5)
@@ -543,7 +543,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "负数 - 正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 5.5)
@@ -590,7 +590,7 @@ class RationalNumberSubtraction(Scene):
         
         step_text = Text(
             "加上 -2 (向左移动)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 0.5)
@@ -635,7 +635,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "负数 - 负数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 5.5)
@@ -654,7 +654,7 @@ class RationalNumberSubtraction(Scene):
         # 负负得正提示
         hint = Text(
             "负负得正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -696,7 +696,7 @@ class RationalNumberSubtraction(Scene):
         
         step_text = Text(
             "加上 3 (向右移动)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 0.5)
@@ -741,7 +741,7 @@ class RationalNumberSubtraction(Scene):
         # 标题
         title = Text(
             "特殊情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ZERO
         ).move_to(UP * 5.5)
@@ -756,7 +756,7 @@ class RationalNumberSubtraction(Scene):
         
         explain1 = Text(
             "减去0，结果不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -773,7 +773,7 @@ class RationalNumberSubtraction(Scene):
         
         explain2 = Text(
             "0减去一个数，得它的相反数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(ORIGIN)
@@ -804,7 +804,7 @@ class RationalNumberSubtraction(Scene):
         # 大标题
         title = Text(
             "有理数减法法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 4,
             color=GOLD
         ).move_to(UP * 6)
@@ -814,7 +814,7 @@ class RationalNumberSubtraction(Scene):
         
         # 核心法则卡片
         core_rule = VGroup(
-            Text("核心法则", font="Noto Sans CJK SC", font_size=28, color=WHITE, weight=BOLD),
+            Text("核心法则", font="PingFang SC", font_size=28, color=WHITE, weight=BOLD),
             MathTex(r"a - b = a + (-b)", font_size=32, color=self.COLOR_TRANSFORM)
         ).arrange(DOWN, buff=0.3).move_to(UP * 4)
         
@@ -823,9 +823,9 @@ class RationalNumberSubtraction(Scene):
         
         # 步骤卡片
         steps_card = VGroup(
-            Text("两步走", font="Noto Sans CJK SC", font_size=26, color=WHITE, weight=BOLD),
-            Text("① 找出相反数", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("② 转化为加法", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("两步走", font="PingFang SC", font_size=26, color=WHITE, weight=BOLD),
+            Text("① 找出相反数", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("② 转化为加法", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(DOWN, buff=0.25, aligned_edge=LEFT).move_to(UP * 1.5)
         
         self.play(FadeIn(steps_card, shift=UP * 0.3), run_time=0.8)
@@ -833,7 +833,7 @@ class RationalNumberSubtraction(Scene):
         
         # 示例卡片
         examples_card = VGroup(
-            Text("常见示例", font="Noto Sans CJK SC", font_size=26, color=WHITE, weight=BOLD),
+            Text("常见示例", font="PingFang SC", font_size=26, color=WHITE, weight=BOLD),
             MathTex(r"3 - 2 = 3 + (-2) = 1", font_size=20, color=GRAY_A),
             MathTex(r"3 - (-2) = 3 + 2 = 5", font_size=20, color=GRAY_A),
             MathTex(r"(-3) - 2 = (-3) + (-2) = -5", font_size=20, color=GRAY_A)
@@ -845,7 +845,7 @@ class RationalNumberSubtraction(Scene):
         # 重点提示
         highlight = Text(
             "减法统一为加法, 计算更简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -868,14 +868,14 @@ class RationalNumberSubtraction(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -889,7 +889,7 @@ class RationalNumberSubtraction(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

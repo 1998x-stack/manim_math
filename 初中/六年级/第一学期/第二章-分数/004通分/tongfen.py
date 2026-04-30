@@ -119,7 +119,7 @@ class TongFenAnimation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -129,7 +129,7 @@ class TongFenAnimation(Scene):
         # 钩子问题
         hook_text = Text(
             "这两个分数能直接相加吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -162,7 +162,7 @@ class TongFenAnimation(Scene):
         # 疑问标记
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -244,7 +244,7 @@ class TongFenAnimation(Scene):
         # 说明
         explain_text = Text(
             "分母不同，不能直接相加！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -261,7 +261,7 @@ class TongFenAnimation(Scene):
         """场景3: 引入通分概念"""
         title = Text(
             "通分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_COMMON,
             weight=BOLD
@@ -271,7 +271,7 @@ class TongFenAnimation(Scene):
         
         definition_parts = Text(
             "把异分母分数化成同分母分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -281,7 +281,7 @@ class TongFenAnimation(Scene):
         self.wait(0.3)
         same_denom_text = Text(
             "同分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(definition_parts.get_center() + RIGHT * 1.2)
@@ -297,7 +297,7 @@ class TongFenAnimation(Scene):
         
         goal_text = Text(
             "找到公分母: 3和4的最小公倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_STEP
         ).move_to(DOWN * 1.5)
@@ -319,7 +319,7 @@ class TongFenAnimation(Scene):
         """场景4: 寻找最小公倍数"""
         label_3 = Text(
             "3的倍数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).move_to(LEFT * 3 + UP * 0.5)
@@ -331,7 +331,7 @@ class TongFenAnimation(Scene):
         for i, num in enumerate(nums_3_list):
             num_text = Text(
                 str(num),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=self.COLOR_PRIMARY if num != 12 else self.COLOR_HIGHLIGHT
             ).move_to(LEFT * 3 + RIGHT * (i * 0.8) + DOWN * 0.3)
@@ -344,7 +344,7 @@ class TongFenAnimation(Scene):
         
         label_4 = Text(
             "4的倍数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).move_to(LEFT * 3 + DOWN * 1.5)
@@ -356,7 +356,7 @@ class TongFenAnimation(Scene):
         for i, num in enumerate(nums_4_list):
             num_text = Text(
                 str(num),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=self.COLOR_SECONDARY if num != 12 else self.COLOR_HIGHLIGHT
             ).move_to(LEFT * 3 + RIGHT * (i * 0.8) + DOWN * 2.3)
@@ -383,7 +383,7 @@ class TongFenAnimation(Scene):
         
         conclusion = Text(
             "最小公倍数 = 12",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_COMMON,
             weight=BOLD
@@ -415,7 +415,7 @@ class TongFenAnimation(Scene):
         
         step_1_text = Text(
             "分子分母同乘 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_STEP
         ).move_to(UP * 0.5)
@@ -464,7 +464,7 @@ class TongFenAnimation(Scene):
         
         equals_verification = Text(
             "分数的值不变！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -494,7 +494,7 @@ class TongFenAnimation(Scene):
         
         step_2_text = Text(
             "分子分母同乘 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_STEP
         ).move_to(UP * 0.5)
@@ -615,7 +615,7 @@ class TongFenAnimation(Scene):
         
         summary_title = Text(
             "通分三步骤:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -625,21 +625,21 @@ class TongFenAnimation(Scene):
         
         point_1 = Text(
             "① 找最小公倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.3 + LEFT * 0.5)
         
         point_2 = Text(
             "② 分子分母同乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.0 + LEFT * 0.5)
         
         point_3 = Text(
             "③ 分数值不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.7 + LEFT * 0.5)
@@ -671,7 +671,7 @@ class TongFenAnimation(Scene):
         """场景8: 片尾关注"""
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD
@@ -681,7 +681,7 @@ class TongFenAnimation(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -690,7 +690,7 @@ class TongFenAnimation(Scene):
         
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

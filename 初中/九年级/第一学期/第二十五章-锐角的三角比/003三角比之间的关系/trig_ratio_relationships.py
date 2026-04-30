@@ -165,7 +165,7 @@ class TrigRatioRelationships(Scene):
         # 作者信息(顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -175,7 +175,7 @@ class TrigRatioRelationships(Scene):
         # 钩子问题
         hook_text = Text(
             "同一个角的三角比\n有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -304,7 +304,7 @@ class TrigRatioRelationships(Scene):
         # 标题
         title = Text(
             "关系一: 平方和关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SIN
         ).move_to(UP * 5.5)
@@ -320,7 +320,7 @@ class TrigRatioRelationships(Scene):
         
         explanation = Text(
             "(勾股定理)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(step1, RIGHT, buff=0.3)
@@ -407,7 +407,7 @@ class TrigRatioRelationships(Scene):
         # 标题
         title = Text(
             "关系二: 商的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TAN
         ).move_to(UP * 5.5)
@@ -501,7 +501,7 @@ class TrigRatioRelationships(Scene):
         # 标题
         title = Text(
             "关系三: 互余角关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_COS
         ).move_to(UP * 5.5)
@@ -533,7 +533,7 @@ class TrigRatioRelationships(Scene):
         # 互余说明
         complementary_text = Text(
             "互余: ∠A + ∠B = 90°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.2)
@@ -621,7 +621,7 @@ class TrigRatioRelationships(Scene):
         # 标题
         title = Text(
             "三角比的三大关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -629,19 +629,19 @@ class TrigRatioRelationships(Scene):
         self.play(Write(title), run_time=0.8)
         
         # 创建三个卡片
-        card1_title = Text("平方和关系", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card1_title = Text("平方和关系", font="PingFang SC", font_size=24, color=WHITE)
         card1_formula = MathTex(r"\sin^2 A + \cos^2 A = 1", font_size=28, color=self.COLOR_SIN)
         card1 = VGroup(card1_title, card1_formula).arrange(DOWN, buff=0.2)
         card1.move_to(UP * 3.5)
         card1.shift(LEFT * 10)  # 初始位置在屏幕外
         
-        card2_title = Text("商的关系", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card2_title = Text("商的关系", font="PingFang SC", font_size=24, color=WHITE)
         card2_formula = MathTex(r"\tan A = \frac{\sin A}{\cos A}", font_size=28, color=self.COLOR_TAN)
         card2 = VGroup(card2_title, card2_formula).arrange(DOWN, buff=0.2)
         card2.move_to(UP * 1.5)
         card2.shift(LEFT * 10)
         
-        card3_title = Text("互余角关系", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card3_title = Text("互余角关系", font="PingFang SC", font_size=24, color=WHITE)
         card3_formula = MathTex(r"\sin A = \cos(90^\circ - A)", font_size=28, color=self.COLOR_COS)
         card3 = VGroup(card3_title, card3_formula).arrange(DOWN, buff=0.2)
         card3.move_to(DOWN * 0.5)
@@ -661,7 +661,7 @@ class TrigRatioRelationships(Scene):
         # 强调文字
         emphasis = Text(
             "记住这三个, 解题无忧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -686,7 +686,7 @@ class TrigRatioRelationships(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 2)
@@ -699,7 +699,7 @@ class TrigRatioRelationships(Scene):
         # 账号ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -709,7 +709,7 @@ class TrigRatioRelationships(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 数学更简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

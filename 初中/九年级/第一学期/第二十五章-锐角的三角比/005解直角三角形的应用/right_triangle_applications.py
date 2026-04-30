@@ -97,7 +97,7 @@ class RightTriangleApplications(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.2)
@@ -107,7 +107,7 @@ class RightTriangleApplications(Scene):
         # 钩子问题
         hook_text = Text(
             "如何测量高楼的高度?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -157,14 +157,14 @@ class RightTriangleApplications(Scene):
         # 标题
         title = Text(
             "仰角 Elevation Angle",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
         
         subtitle = Text(
             "向上看的角度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -253,7 +253,7 @@ class RightTriangleApplications(Scene):
         )
         distance_label = Text(
             "30m",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=WHITE
         ).next_to(distance_brace, DOWN, buff=0.1)
@@ -337,14 +337,14 @@ class RightTriangleApplications(Scene):
         # 标题
         title = Text(
             "俯角 Depression Angle",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
         
         subtitle = Text(
             "向下看的角度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -448,7 +448,7 @@ class RightTriangleApplications(Scene):
         
         height_label = Text(
             "100m",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=WHITE
         ).next_to(height_line, LEFT, buff=0.2)
@@ -535,7 +535,7 @@ class RightTriangleApplications(Scene):
         # 标题
         title = Text(
             "仰角 vs 俯角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -580,14 +580,14 @@ class RightTriangleApplications(Scene):
         
         elev_label = Text(
             "仰角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(left_center + UP * 2.5)
         
         elev_desc = Text(
             "向上看",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=GRAY_A
         ).move_to(left_center + DOWN * 2.5)
@@ -634,14 +634,14 @@ class RightTriangleApplications(Scene):
         
         depr_label = Text(
             "俯角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(right_center + UP * 2.5)
         
         depr_desc = Text(
             "向下看",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=GRAY_A
         ).move_to(right_center + DOWN * 2.5)
@@ -656,7 +656,7 @@ class RightTriangleApplications(Scene):
         # 共同点提示
         hint = Text(
             "都以水平线为基准",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -691,14 +691,14 @@ class RightTriangleApplications(Scene):
         # 标题
         title = Text(
             "坡度与坡角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SLOPE
         ).move_to(UP * 6)
         
         subtitle = Text(
             "道路/斜坡设计",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -732,8 +732,8 @@ class RightTriangleApplications(Scene):
         start_dot = Dot(self.slope_start, color=WHITE, radius=0.08)
         end_dot = Dot(self.slope_end, color=WHITE, radius=0.08)
         
-        start_label = Text("A", font="Noto Sans CJK SC", font_size=self.FONT_LABEL).next_to(start_dot, DL, buff=0.1)
-        end_label = Text("B", font="Noto Sans CJK SC", font_size=self.FONT_LABEL).next_to(end_dot, UR, buff=0.1)
+        start_label = Text("A", font="PingFang SC", font_size=self.FONT_LABEL).next_to(start_dot, DL, buff=0.1)
+        end_label = Text("B", font="PingFang SC", font_size=self.FONT_LABEL).next_to(end_dot, UR, buff=0.1)
         
         self.play(
             FadeIn(start_dot),
@@ -800,7 +800,7 @@ class RightTriangleApplications(Scene):
         height_brace = Brace(vertical_line, direction=RIGHT, color=WHITE)
         height_label = Text(
             "h=10m",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=WHITE
         ).next_to(height_brace, RIGHT, buff=0.1)
@@ -808,7 +808,7 @@ class RightTriangleApplications(Scene):
         distance_brace = Brace(horizontal_line, direction=DOWN, color=WHITE)
         distance_label = Text(
             "d=50m",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=WHITE
         ).next_to(distance_brace, DOWN, buff=0.1)
@@ -892,7 +892,7 @@ class RightTriangleApplications(Scene):
         # 标题
         title = Text(
             "更多实际应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -920,7 +920,7 @@ class RightTriangleApplications(Scene):
         tree_scene = VGroup(tree_trunk, tree_crown)
         tree_label = Text(
             "测量树高",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(tree_scene, DOWN, buff=0.3)
@@ -959,7 +959,7 @@ class RightTriangleApplications(Scene):
         bridge_scene = VGroup(bridge_deck, support_left, support_right)
         bridge_label = Text(
             "桥梁坡度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(bridge_scene, DOWN, buff=0.5)
@@ -1002,7 +1002,7 @@ class RightTriangleApplications(Scene):
         ship_scene = VGroup(ship_body, mast, sail)
         ship_label = Text(
             "航海定位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(ship_scene, DOWN, buff=0.3)
@@ -1016,7 +1016,7 @@ class RightTriangleApplications(Scene):
         # 关键提示
         hint = Text(
             "关键：构造直角三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -1043,7 +1043,7 @@ class RightTriangleApplications(Scene):
         # 标题
         title = Text(
             "三个关键概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -1060,14 +1060,14 @@ class RightTriangleApplications(Scene):
         
         card1_title = Text(
             "仰角/俯角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
         
         card1_content = Text(
             "以水平线为基准的角度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=GRAY_A
         )
@@ -1087,7 +1087,7 @@ class RightTriangleApplications(Scene):
         
         card2_title = Text(
             "坡度公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -1113,14 +1113,14 @@ class RightTriangleApplications(Scene):
         
         card3_title = Text(
             "解题方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
         
         card3_content = Text(
             "构造直角三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_LABEL,
             color=GRAY_A
         )
@@ -1135,7 +1135,7 @@ class RightTriangleApplications(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE,
             weight=BOLD
@@ -1143,7 +1143,7 @@ class RightTriangleApplications(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 3.5)
@@ -1157,7 +1157,7 @@ class RightTriangleApplications(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多解题技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

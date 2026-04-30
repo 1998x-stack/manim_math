@@ -68,7 +68,7 @@ class LikeTerms(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -78,7 +78,7 @@ class LikeTerms(Scene):
         # 钩子问题
         hook_text = Text(
             "这个式子能化简吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -96,7 +96,7 @@ class LikeTerms(Scene):
         # 问号闪烁
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -116,7 +116,7 @@ class LikeTerms(Scene):
         # 答案提示
         answer_hint = Text(
             "答案: 可以! 利用同类项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 5)
@@ -135,7 +135,7 @@ class LikeTerms(Scene):
         # 标题
         title = Text(
             "什么是同类项?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -145,14 +145,14 @@ class LikeTerms(Scene):
         # 定义框
         definition_text_1 = Text(
             "所含字母相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         )
         
         definition_text_2 = Text(
             "相同字母的指数也分别相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         )
@@ -181,7 +181,7 @@ class LikeTerms(Scene):
         # 标注字母部分
         letter_label = Text(
             "字母: x²y 相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_VARIABLE
         ).move_to(UP * 0.5)
@@ -201,7 +201,7 @@ class LikeTerms(Scene):
         # 标注指数
         exponent_label = Text(
             "指数: x是2, y是1, 都相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_VARIABLE
         ).move_to(DOWN * 0.3)
@@ -216,7 +216,7 @@ class LikeTerms(Scene):
         # 打勾表示是同类项
         checkmark = Text(
             "✓ 这是同类项!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 1.5)
@@ -246,7 +246,7 @@ class LikeTerms(Scene):
         # 标题
         title = Text(
             "判断是否为同类项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -256,13 +256,13 @@ class LikeTerms(Scene):
         # === 正例1: 3x²y 和 -5x²y ===
         example1_label = Text(
             "例1:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 5 + LEFT * 3.5)
         
         ex1_term1 = MathTex(r"3x^2y", font_size=self.FONT_FORMULA).next_to(example1_label, RIGHT, buff=0.3)
-        ex1_and = Text("和", font="Noto Sans CJK SC", font_size=self.FONT_BODY).next_to(ex1_term1, RIGHT, buff=0.2)
+        ex1_and = Text("和", font="PingFang SC", font_size=self.FONT_BODY).next_to(ex1_term1, RIGHT, buff=0.2)
         ex1_term2 = MathTex(r"-5x^2y", font_size=self.FONT_FORMULA).next_to(ex1_and, RIGHT, buff=0.2)
         
         example1 = VGroup(example1_label, ex1_term1, ex1_and, ex1_term2)
@@ -276,7 +276,7 @@ class LikeTerms(Scene):
         self.play(Create(rect1_1), Create(rect1_2), run_time=0.5)
         
         # 打勾
-        check1 = Text("✓", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_SUCCESS).next_to(example1, RIGHT, buff=0.3)
+        check1 = Text("✓", font="PingFang SC", font_size=40, color=self.COLOR_SUCCESS).next_to(example1, RIGHT, buff=0.3)
         self.play(FadeIn(check1, scale=0.5), run_time=0.4)
         self.wait(0.5)
         
@@ -285,33 +285,33 @@ class LikeTerms(Scene):
         # === 正例2: 2a 和 -7a ===
         example2_label = Text(
             "例2:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 3.8 + LEFT * 3.5)
         
         ex2_term1 = MathTex(r"2a", font_size=self.FONT_FORMULA).next_to(example2_label, RIGHT, buff=0.3)
-        ex2_and = Text("和", font="Noto Sans CJK SC", font_size=self.FONT_BODY).next_to(ex2_term1, RIGHT, buff=0.2)
+        ex2_and = Text("和", font="PingFang SC", font_size=self.FONT_BODY).next_to(ex2_term1, RIGHT, buff=0.2)
         ex2_term2 = MathTex(r"-7a", font_size=self.FONT_FORMULA).next_to(ex2_and, RIGHT, buff=0.2)
         
         example2 = VGroup(example2_label, ex2_term1, ex2_and, ex2_term2)
         
         self.play(FadeIn(example2, shift=RIGHT * 0.5), run_time=0.5)
         
-        check2 = Text("✓", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_SUCCESS).next_to(example2, RIGHT, buff=0.3)
+        check2 = Text("✓", font="PingFang SC", font_size=40, color=self.COLOR_SUCCESS).next_to(example2, RIGHT, buff=0.3)
         self.play(FadeIn(check2, scale=0.5), run_time=0.4)
         self.wait(0.4)
         
         # === 正例3: 常数项 5 和 -3 ===
         example3_label = Text(
             "例3:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2.6 + LEFT * 3.5)
         
         ex3_term1 = MathTex(r"5", font_size=self.FONT_FORMULA).next_to(example3_label, RIGHT, buff=0.3)
-        ex3_and = Text("和", font="Noto Sans CJK SC", font_size=self.FONT_BODY).next_to(ex3_term1, RIGHT, buff=0.2)
+        ex3_and = Text("和", font="PingFang SC", font_size=self.FONT_BODY).next_to(ex3_term1, RIGHT, buff=0.2)
         ex3_term2 = MathTex(r"-3", font_size=self.FONT_FORMULA).next_to(ex3_and, RIGHT, buff=0.2)
         
         example3 = VGroup(example3_label, ex3_term1, ex3_and, ex3_term2)
@@ -321,14 +321,14 @@ class LikeTerms(Scene):
         # 特殊说明
         constant_note = Text(
             "常数项都是同类项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).next_to(example3, DOWN, buff=0.2, aligned_edge=LEFT)
         
         self.play(FadeIn(constant_note, shift=UP * 0.2), run_time=0.5)
         
-        check3 = Text("✓", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_SUCCESS).next_to(example3, RIGHT, buff=0.3)
+        check3 = Text("✓", font="PingFang SC", font_size=40, color=self.COLOR_SUCCESS).next_to(example3, RIGHT, buff=0.3)
         self.play(FadeIn(check3, scale=0.5), run_time=0.4)
         self.wait(0.8)
         
@@ -337,13 +337,13 @@ class LikeTerms(Scene):
         # === 反例1: 3x²y 和 3xy² ===
         example4_label = Text(
             "例4:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 1 + LEFT * 3.5)
         
         ex4_term1 = MathTex(r"3x^2y", font_size=self.FONT_FORMULA).next_to(example4_label, RIGHT, buff=0.3)
-        ex4_and = Text("和", font="Noto Sans CJK SC", font_size=self.FONT_BODY).next_to(ex4_term1, RIGHT, buff=0.2)
+        ex4_and = Text("和", font="PingFang SC", font_size=self.FONT_BODY).next_to(ex4_term1, RIGHT, buff=0.2)
         ex4_term2 = MathTex(r"3xy^2", font_size=self.FONT_FORMULA).next_to(ex4_and, RIGHT, buff=0.2)
         
         example4 = VGroup(example4_label, ex4_term1, ex4_and, ex4_term2)
@@ -353,7 +353,7 @@ class LikeTerms(Scene):
         # 标注指数不同
         diff_note = Text(
             "指数不同!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_ERROR
         ).next_to(example4, DOWN, buff=0.2, aligned_edge=LEFT)
@@ -370,7 +370,7 @@ class LikeTerms(Scene):
         )
         
         # 打叉
-        cross1 = Text("✗", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_ERROR).next_to(example4, RIGHT, buff=0.3)
+        cross1 = Text("✗", font="PingFang SC", font_size=40, color=self.COLOR_ERROR).next_to(example4, RIGHT, buff=0.3)
         self.play(FadeIn(cross1, scale=0.5), run_time=0.4)
         self.wait(0.6)
         
@@ -379,13 +379,13 @@ class LikeTerms(Scene):
         # === 反例2: 2a² 和 2a ===
         example5_label = Text(
             "例5:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 0.2 + LEFT * 3.5)
         
         ex5_term1 = MathTex(r"2a^2", font_size=self.FONT_FORMULA).next_to(example5_label, RIGHT, buff=0.3)
-        ex5_and = Text("和", font="Noto Sans CJK SC", font_size=self.FONT_BODY).next_to(ex5_term1, RIGHT, buff=0.2)
+        ex5_and = Text("和", font="PingFang SC", font_size=self.FONT_BODY).next_to(ex5_term1, RIGHT, buff=0.2)
         ex5_term2 = MathTex(r"2a", font_size=self.FONT_FORMULA).next_to(ex5_and, RIGHT, buff=0.2)
         
         example5 = VGroup(example5_label, ex5_term1, ex5_and, ex5_term2)
@@ -395,7 +395,7 @@ class LikeTerms(Scene):
         # 标注指数不同
         diff_note2 = Text(
             "指数不同!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_ERROR
         ).next_to(example5, DOWN, buff=0.2, aligned_edge=LEFT)
@@ -408,7 +408,7 @@ class LikeTerms(Scene):
             run_time=0.5
         )
         
-        cross2 = Text("✗", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_ERROR).next_to(example5, RIGHT, buff=0.3)
+        cross2 = Text("✗", font="PingFang SC", font_size=40, color=self.COLOR_ERROR).next_to(example5, RIGHT, buff=0.3)
         self.play(FadeIn(cross2, scale=0.5), run_time=0.4)
         self.wait(1.0)
         
@@ -428,7 +428,7 @@ class LikeTerms(Scene):
         # 标题
         title = Text(
             "合并同类项法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -438,14 +438,14 @@ class LikeTerms(Scene):
         # 法则内容
         rule_part1 = Text(
             "系数相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_COEFFICIENT
         )
         
         rule_part2 = Text(
             "字母及其指数不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_VARIABLE
         )
@@ -460,7 +460,7 @@ class LikeTerms(Scene):
         # 示例: 3x²y + (-5x²y) = -2x²y
         example_title = Text(
             "例如:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2.8)
@@ -481,7 +481,7 @@ class LikeTerms(Scene):
         
         coeff_label = Text(
             "系数: 3 和 -5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_COEFFICIENT
         ).move_to(UP * 0.8)
@@ -518,7 +518,7 @@ class LikeTerms(Scene):
         # 保留字母部分
         var_label = Text(
             "字母部分保持不变: x²y",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_VARIABLE
         ).move_to(DOWN * 1.5)
@@ -578,7 +578,7 @@ class LikeTerms(Scene):
         # 标题
         title = Text(
             "完整示例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -588,7 +588,7 @@ class LikeTerms(Scene):
         # 原式
         original_label = Text(
             "化简:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 5.5 + LEFT * 3.5)
@@ -608,7 +608,7 @@ class LikeTerms(Scene):
         # 步骤1: 找出同类项
         step1 = Text(
             "步骤1: 找出同类项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4)
@@ -623,7 +623,7 @@ class LikeTerms(Scene):
         
         x2y_label = Text(
             "x²y项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 3)
@@ -644,7 +644,7 @@ class LikeTerms(Scene):
         
         xy_label = Text(
             "xy项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 2.3)
@@ -669,7 +669,7 @@ class LikeTerms(Scene):
         # 步骤2: 合并 x²y 项
         step2 = Text(
             "步骤2: 合并x²y项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.8)
@@ -721,7 +721,7 @@ class LikeTerms(Scene):
         # 步骤3: 合并 xy 项
         step3 = Text(
             "步骤3: 合并xy项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.8)
@@ -773,7 +773,7 @@ class LikeTerms(Scene):
         # 步骤4: 组合最终答案
         step4 = Text(
             "步骤4: 写出最终答案",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.8)
@@ -796,7 +796,7 @@ class LikeTerms(Scene):
         # 最终答案
         final_label = Text(
             "答案:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 0.8 + LEFT * 2)
@@ -840,7 +840,7 @@ class LikeTerms(Scene):
         # 总结标题
         summary_title = Text(
             "记住这三点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -848,10 +848,10 @@ class LikeTerms(Scene):
         self.play(Write(summary_title), run_time=0.6)
         
         # 要点1
-        point1_icon = Text("①", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_PRIMARY)
+        point1_icon = Text("①", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_PRIMARY)
         point1_text = Text(
             "字母相同且指数相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -861,10 +861,10 @@ class LikeTerms(Scene):
         self.wait(0.3)
         
         # 要点2
-        point2_icon = Text("②", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_COEFFICIENT)
+        point2_icon = Text("②", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_COEFFICIENT)
         point2_text = Text(
             "系数相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -874,10 +874,10 @@ class LikeTerms(Scene):
         self.wait(0.3)
         
         # 要点3
-        point3_icon = Text("③", font="Noto Sans CJK SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_VARIABLE)
+        point3_icon = Text("③", font="PingFang SC", font_size=self.FONT_SUBTITLE, color=self.COLOR_VARIABLE)
         point3_text = Text(
             "字母和指数不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -898,14 +898,14 @@ class LikeTerms(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -919,7 +919,7 @@ class LikeTerms(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多代数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

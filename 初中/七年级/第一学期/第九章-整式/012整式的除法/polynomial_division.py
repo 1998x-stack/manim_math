@@ -66,7 +66,7 @@ class PolynomialDivision(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -76,7 +76,7 @@ class PolynomialDivision(Scene):
         # 钩子问题
         hook_chinese = Text(
             "乘法会算，那除法呢？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -105,7 +105,7 @@ class PolynomialDivision(Scene):
         # 标题
         title = Text(
             "复习：幂的运算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -121,7 +121,7 @@ class PolynomialDivision(Scene):
         
         condition = Text(
             "(a≠0, m≥n)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(power_rule, RIGHT, buff=0.3)
@@ -150,7 +150,7 @@ class PolynomialDivision(Scene):
         # 说明文字
         explanation = Text(
             "同底数幂相除，底数不变，指数相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -173,7 +173,7 @@ class PolynomialDivision(Scene):
         # 标题
         title_chinese = Text(
             "单项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         )
@@ -184,7 +184,7 @@ class PolynomialDivision(Scene):
         )
         title_chinese2 = Text(
             "单项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         )
@@ -207,7 +207,7 @@ class PolynomialDivision(Scene):
         # 规则1: 系数相除
         rule1_text = Text(
             "规则①：系数相除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -258,7 +258,7 @@ class PolynomialDivision(Scene):
         # 规则2: 同底数幂相除
         rule2_text = Text(
             "规则②：同底数幂相除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -328,7 +328,7 @@ class PolynomialDivision(Scene):
         # 新题目
         example_text = Text(
             "例题：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 5 + LEFT * 3)
@@ -347,7 +347,7 @@ class PolynomialDivision(Scene):
         # Step 1: 系数除法
         step1_label = Text(
             "①系数：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3 + LEFT * 3.2)
@@ -377,7 +377,7 @@ class PolynomialDivision(Scene):
         # Step 2: a的幂除法
         step2_label = Text(
             "②变量a：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5 + LEFT * 2.7)
@@ -407,7 +407,7 @@ class PolynomialDivision(Scene):
         # Step 3: b的幂除法
         step3_label = Text(
             "③变量b：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN + LEFT * 2.7)
@@ -468,7 +468,7 @@ class PolynomialDivision(Scene):
         # 标题
         title_chinese = Text(
             "多项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         )
@@ -479,7 +479,7 @@ class PolynomialDivision(Scene):
         )
         title_chinese2 = Text(
             "单项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         )
@@ -501,7 +501,7 @@ class PolynomialDivision(Scene):
         # 核心规则
         rule_text = Text(
             "把多项式的每一项分别除以单项式，再把商相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.8)
@@ -632,7 +632,7 @@ class PolynomialDivision(Scene):
         # 综合例题
         practice_text = Text(
             "综合练习：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5 + LEFT * 2.5)
@@ -701,7 +701,7 @@ class PolynomialDivision(Scene):
         # 总结卡片
         summary1_text = Text(
             "单项式÷单项式：系数相除，同底数幂相除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         ).move_to(DOWN * 1.8)
@@ -718,7 +718,7 @@ class PolynomialDivision(Scene):
         
         summary2_text = Text(
             "多项式÷单项式：每一项分别除，再相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         ).move_to(DOWN * 3.2)
@@ -735,7 +735,7 @@ class PolynomialDivision(Scene):
         
         summary3_text = Text(
             "关键：整式除法是乘法的逆运算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(DOWN * 4.6)
@@ -761,7 +761,7 @@ class PolynomialDivision(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)

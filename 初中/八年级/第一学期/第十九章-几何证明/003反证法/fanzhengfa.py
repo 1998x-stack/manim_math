@@ -34,7 +34,7 @@ COLOR_BOX2        = "#3D2A10"    # Step2 框背景
 COLOR_BOX3        = "#153D15"    # Step3 框背景
 COLOR_CARD_BORDER = "#555577"
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class ProofByContradiction(Scene):

@@ -46,7 +46,7 @@ class QuadraticFormula(Scene):
         self.COLOR_WARNING = "#f39c12"        # 橙色 - 警告
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         self.FONT_SIZE_TITLE = 38
         self.FONT_SIZE_SUBTITLE = 28
         self.FONT_SIZE_BODY = 24

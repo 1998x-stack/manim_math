@@ -46,7 +46,7 @@ class RationalDivision(Scene):
         self.COLOR_RECIPROCAL = "#9b59b6"   # 紫色 - 倒数
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         self.FONT_SIZE_TITLE = 36
         self.FONT_SIZE_SUBTITLE = 28
         self.FONT_SIZE_BODY = 22
@@ -755,7 +755,7 @@ class RationalDivision(Scene):
             # 内容
             card_content = Text(
                 content,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=color
             )

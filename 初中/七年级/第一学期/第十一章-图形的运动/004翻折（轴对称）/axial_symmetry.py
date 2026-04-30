@@ -132,7 +132,7 @@ class AxialSymmetry(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -142,7 +142,7 @@ class AxialSymmetry(Scene):
         # 钩子问题
         hook_text = Text(
             "蝴蝶为什么这么美？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -195,7 +195,7 @@ class AxialSymmetry(Scene):
         # 提示文字
         hint_text = Text(
             "秘密在于轴对称!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -218,7 +218,7 @@ class AxialSymmetry(Scene):
         # 标题
         title = Text(
             "什么是轴对称？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -226,7 +226,7 @@ class AxialSymmetry(Scene):
         # 定义文字
         definition = Text(
             "把图形沿一条直线对折后\n能完全重合的变换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
             line_spacing=1.2
@@ -244,9 +244,9 @@ class AxialSymmetry(Scene):
         )
         
         # 标注顶点
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.A, LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.B, DOWN, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.C, LEFT, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(self.A, LEFT, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(self.B, DOWN, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(self.C, LEFT, buff=0.15)
         
         self.play(Create(triangle), run_time=1.0)
         self.play(FadeIn(label_A), FadeIn(label_B), FadeIn(label_C), run_time=0.4)
@@ -262,7 +262,7 @@ class AxialSymmetry(Scene):
         
         axis_label = Text(
             "对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AXIS
         ).next_to(axis, UP, buff=0.2)
@@ -272,7 +272,7 @@ class AxialSymmetry(Scene):
         # 说明文字
         fold_text = Text(
             "沿对称轴对折",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -293,7 +293,7 @@ class AxialSymmetry(Scene):
         
         overlap_text = Text(
             "能完全重合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -324,7 +324,7 @@ class AxialSymmetry(Scene):
         # 标题
         property1_title = Text(
             "性质1：垂直关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -342,9 +342,9 @@ class AxialSymmetry(Scene):
         self.play(Create(triangle_prime), run_time=1.0)
         
         # 标注对称点
-        label_A_prime = Text("A'", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.A_prime, RIGHT, buff=0.15)
-        label_B_prime = Text("B'", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.B_prime, DOWN, buff=0.15)
-        label_C_prime = Text("C'", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.C_prime, RIGHT, buff=0.15)
+        label_A_prime = Text("A'", font="PingFang SC", font_size=22, color=WHITE).next_to(self.A_prime, RIGHT, buff=0.15)
+        label_B_prime = Text("B'", font="PingFang SC", font_size=22, color=WHITE).next_to(self.B_prime, DOWN, buff=0.15)
+        label_C_prime = Text("C'", font="PingFang SC", font_size=22, color=WHITE).next_to(self.C_prime, RIGHT, buff=0.15)
         
         self.play(
             FadeIn(label_A_prime),
@@ -364,7 +364,7 @@ class AxialSymmetry(Scene):
         
         # 标记垂足M
         dot_M = Dot(self.M_A, color=YELLOW, radius=0.08)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(dot_M, DOWN, buff=0.1)
+        label_M = Text("M", font="PingFang SC", font_size=20, color=YELLOW).next_to(dot_M, DOWN, buff=0.1)
         
         self.play(FadeIn(dot_M), FadeIn(label_M), run_time=0.4)
         
@@ -382,14 +382,14 @@ class AxialSymmetry(Scene):
         # 公式
         formula1_chinese = Text(
             "对应点连线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         formula1_symbol = MathTex(r"\perp", font_size=32, color=YELLOW)
         formula1_chinese2 = Text(
             "对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AXIS
         )
@@ -410,7 +410,7 @@ class AxialSymmetry(Scene):
         
         explanation = Text(
             "所有对应点连线都垂直于对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -457,7 +457,7 @@ class AxialSymmetry(Scene):
         # 标题
         property2_title = Text(
             "性质2：平分关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -477,7 +477,7 @@ class AxialSymmetry(Scene):
         
         # 标注距离
         brace_AM = Brace(segment_AM, direction=UP * 0.3 + LEFT * 0.7, buff=0.1, color=YELLOW)
-        label_AM = Text("d", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_AM, UP * 0.3 + LEFT * 0.7, buff=0.05)
+        label_AM = Text("d", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_AM, UP * 0.3 + LEFT * 0.7, buff=0.05)
         
         self.play(FadeIn(brace_AM), FadeIn(label_AM), run_time=0.6)
         
@@ -487,26 +487,26 @@ class AxialSymmetry(Scene):
         
         # 标注距离
         brace_MA_prime = Brace(segment_MA_prime, direction=UP * 0.3 + RIGHT * 0.7, buff=0.1, color=YELLOW)
-        label_MA_prime = Text("d", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_MA_prime, UP * 0.3 + RIGHT * 0.7, buff=0.05)
+        label_MA_prime = Text("d", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_MA_prime, UP * 0.3 + RIGHT * 0.7, buff=0.05)
         
         self.play(FadeIn(brace_MA_prime), FadeIn(label_MA_prime), run_time=0.6)
         
         # 公式
         formula2_chinese = Text(
             "M 是",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         formula2_math = Text(
             "AA'",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_CONNECTING
         )
         formula2_chinese2 = Text(
             "的中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -517,7 +517,7 @@ class AxialSymmetry(Scene):
         
         explanation2 = Text(
             "对称轴平分对应点连线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -546,7 +546,7 @@ class AxialSymmetry(Scene):
         # 标题
         property3_title = Text(
             "性质3：全等性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -573,7 +573,7 @@ class AxialSymmetry(Scene):
         
         equal_sides_text = Text(
             "对应边相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -607,7 +607,7 @@ class AxialSymmetry(Scene):
         # 角度标注
         equal_angles_text = Text(
             "对应角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -626,13 +626,13 @@ class AxialSymmetry(Scene):
         # 总结公式
         formula3_chinese = Text(
             "轴对称是",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
         formula3_highlight = Text(
             "全等变换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         )
@@ -691,7 +691,7 @@ class AxialSymmetry(Scene):
         # 标题
         application_title = Text(
             "轴对称在生活中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -701,7 +701,7 @@ class AxialSymmetry(Scene):
         # 示例1: 汉字"中"（上下对称）
         chinese_char = Text(
             "中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 3.5)
@@ -716,7 +716,7 @@ class AxialSymmetry(Scene):
         
         example1_label = Text(
             "上下对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(chinese_char, DOWN, buff=0.5)
@@ -738,7 +738,7 @@ class AxialSymmetry(Scene):
         
         example2_label = Text(
             "四条对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(square, DOWN, buff=0.5)
@@ -773,7 +773,7 @@ class AxialSymmetry(Scene):
         
         example3_label = Text(
             "左右对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(letter_A, DOWN, buff=0.5)
@@ -792,7 +792,7 @@ class AxialSymmetry(Scene):
         # 提示
         life_hint = Text(
             "生活中处处有对称!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -815,7 +815,7 @@ class AxialSymmetry(Scene):
         # 总结标题
         summary_title = Text(
             "轴对称三大性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -854,7 +854,7 @@ class AxialSymmetry(Scene):
         # 关键提示
         key_tip = Text(
             "掌握轴对称，解题更轻松!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -875,14 +875,14 @@ class AxialSymmetry(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -896,7 +896,7 @@ class AxialSymmetry(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)
@@ -937,7 +937,7 @@ class AxialSymmetry(Scene):
         
         number_text = Text(
             number,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
             weight=BOLD
@@ -948,7 +948,7 @@ class AxialSymmetry(Scene):
         # 内容文字
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )

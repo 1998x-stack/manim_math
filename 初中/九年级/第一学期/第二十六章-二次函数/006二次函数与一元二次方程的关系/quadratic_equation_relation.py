@@ -145,7 +145,7 @@ class QuadraticEquationRelation(Scene):
         # 作者信息（顶部，贯穿全片）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -155,7 +155,7 @@ class QuadraticEquationRelation(Scene):
         # 钩子问题
         hook_question = Text(
             "抛物线与x轴的交点\n藏着什么秘密?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD,
@@ -209,7 +209,7 @@ class QuadraticEquationRelation(Scene):
         # 标题
         title = Text(
             "二次函数 ↔ 一元二次方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_EQUATION
         ).move_to(UP * 6)
@@ -235,7 +235,7 @@ class QuadraticEquationRelation(Scene):
         # 核心概念
         concept = Text(
             "交点横坐标 = 方程的根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -315,7 +315,7 @@ class QuadraticEquationRelation(Scene):
         # 判别式计算
         delta_title = Text(
             "判别式 Δ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DISCRIMINANT,
             weight=BOLD
@@ -350,7 +350,7 @@ class QuadraticEquationRelation(Scene):
         # 结论
         conclusion_1 = Text(
             "Δ > 0 → 两个交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -476,7 +476,7 @@ class QuadraticEquationRelation(Scene):
         
         label_double_root = Text(
             "(重根)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_INTERSECTION
         ).next_to(label_tangent, DOWN, buff=0.1)
@@ -488,7 +488,7 @@ class QuadraticEquationRelation(Scene):
         # 判别式计算
         delta_title = Text(
             "判别式 Δ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DISCRIMINANT,
             weight=BOLD
@@ -508,7 +508,7 @@ class QuadraticEquationRelation(Scene):
         # 结论
         conclusion_2 = Text(
             "Δ = 0 → 一个交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -524,7 +524,7 @@ class QuadraticEquationRelation(Scene):
         # 顶点在x轴上标注
         vertex_note = Text(
             "顶点在x轴上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 7.1)
@@ -605,7 +605,7 @@ class QuadraticEquationRelation(Scene):
         # 无交点标记
         no_intersection = Text(
             "✗ 无交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(distance_line, RIGHT, buff=0.3)
@@ -616,7 +616,7 @@ class QuadraticEquationRelation(Scene):
         # 判别式计算
         delta_title = Text(
             "判别式 Δ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DISCRIMINANT,
             weight=BOLD
@@ -636,7 +636,7 @@ class QuadraticEquationRelation(Scene):
         # 结论
         conclusion_3 = Text(
             "Δ < 0 → 无交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -652,7 +652,7 @@ class QuadraticEquationRelation(Scene):
         # 说明
         no_real_roots = Text(
             "无实数根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 7.1)
@@ -685,7 +685,7 @@ class QuadraticEquationRelation(Scene):
         # 标题
         title = Text(
             "三种情况对比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -755,13 +755,13 @@ class QuadraticEquationRelation(Scene):
         for row_idx, row_data in enumerate(table_data):
             y_pos = row_y_positions[row_idx]
             
-            cell_left = Text(row_data[0], font="Noto Sans CJK SC", font_size=18, color=WHITE).move_to(LEFT * 2.5 + UP * y_pos)
-            cell_center = Text(row_data[1], font="Noto Sans CJK SC", font_size=18, color=WHITE).move_to(UP * y_pos)
+            cell_left = Text(row_data[0], font="PingFang SC", font_size=18, color=WHITE).move_to(LEFT * 2.5 + UP * y_pos)
+            cell_center = Text(row_data[1], font="PingFang SC", font_size=18, color=WHITE).move_to(UP * y_pos)
             
             if row_data[2] == "-":
-                cell_right = Text(row_data[2], font="Noto Sans CJK SC", font_size=18, color=GRAY_B).move_to(RIGHT * 2.5 + UP * y_pos)
+                cell_right = Text(row_data[2], font="PingFang SC", font_size=18, color=GRAY_B).move_to(RIGHT * 2.5 + UP * y_pos)
             else:
-                cell_right = Text(row_data[2], font="Noto Sans CJK SC", font_size=18, color=WHITE).move_to(RIGHT * 2.5 + UP * y_pos)
+                cell_right = Text(row_data[2], font="PingFang SC", font_size=18, color=WHITE).move_to(RIGHT * 2.5 + UP * y_pos)
             
             self.play(
                 FadeIn(cell_left, shift=RIGHT * 0.3),
@@ -811,19 +811,19 @@ class QuadraticEquationRelation(Scene):
         icon_positive = VGroup(
             MathTex(r"\Delta > 0", font_size=24, color=self.COLOR_DISCRIMINANT),
             MathTex(r"\Downarrow", font_size=20),
-            Text("2个交点", font="Noto Sans CJK SC", font_size=20)
+            Text("2个交点", font="PingFang SC", font_size=20)
         ).arrange(DOWN, buff=0.15).move_to(LEFT * 2.5 + DOWN * 1.5)
         
         icon_zero = VGroup(
             MathTex(r"\Delta = 0", font_size=24, color=self.COLOR_DISCRIMINANT),
             MathTex(r"\Downarrow", font_size=20),
-            Text("1个交点", font="Noto Sans CJK SC", font_size=20)
+            Text("1个交点", font="PingFang SC", font_size=20)
         ).arrange(DOWN, buff=0.15).move_to(DOWN * 1.5)
         
         icon_negative = VGroup(
             MathTex(r"\Delta < 0", font_size=24, color=self.COLOR_DISCRIMINANT),
             MathTex(r"\Downarrow", font_size=20),
-            Text("0个交点", font="Noto Sans CJK SC", font_size=20)
+            Text("0个交点", font="PingFang SC", font_size=20)
         ).arrange(DOWN, buff=0.15).move_to(RIGHT * 2.5 + DOWN * 1.5)
         
         icons = VGroup(icon_positive, icon_zero, icon_negative)
@@ -839,7 +839,7 @@ class QuadraticEquationRelation(Scene):
         # 关键提示
         reminder = Text(
             "记住判别式!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -865,7 +865,7 @@ class QuadraticEquationRelation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -873,7 +873,7 @@ class QuadraticEquationRelation(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -887,7 +887,7 @@ class QuadraticEquationRelation(Scene):
         # 关注引导
         follow_text = Text(
             "关注我，轻松学二次函数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

@@ -127,7 +127,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -137,7 +137,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 钩子问题
         hook_text = Text(
             "三种方法，一个目标！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -172,7 +172,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 副标题
         subtitle = Text(
             "如何求二次函数解析式？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 0.5)
@@ -193,7 +193,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 标题
         title = Text(
             "二次函数的三种形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -211,7 +211,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 标题
         title = Text(
             "方法一：一般式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_GENERAL_FORM,
             weight=BOLD
@@ -255,7 +255,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 说明文字
         explain = Text(
             "已知三点，代入一般式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -347,7 +347,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 标题
         title = Text(
             "方法二：顶点式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_VERTEX_FORM,
             weight=BOLD
@@ -367,7 +367,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         vertex_point = self.axes.c2p(*self.coord_vertex)
         vertex_dot = Dot(vertex_point, color=self.COLOR_SECONDARY, radius=0.10)
         vertex_label = MathTex(r"(1, -4)", font_size=22, color=WHITE).next_to(vertex_dot, DOWN + RIGHT, buff=0.15)
-        vertex_name = Text("顶点", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_HIGHLIGHT).next_to(vertex_label, DOWN, buff=0.05)
+        vertex_name = Text("顶点", font="PingFang SC", font_size=18, color=self.COLOR_HIGHLIGHT).next_to(vertex_label, DOWN, buff=0.05)
         
         self.play(
             FadeIn(vertex_dot, scale=0.5),
@@ -386,7 +386,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 说明文字
         explain = Text(
             "已知顶点(h,k)和另一点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -487,7 +487,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 标题
         title = Text(
             "方法三：交点式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_INTERCEPT_FORM,
             weight=BOLD
@@ -532,7 +532,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 说明文字
         explain = Text(
             "已知x轴交点和另一点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -637,7 +637,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 标题
         title = Text(
             "三种方法对比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -744,7 +744,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # Emphasize the decision-making process
         decision_text = Text(
             "根据已知条件选择合适的方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.2)
@@ -763,7 +763,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # Final emphasis
         hint = Text(
             "选对方法，事半功倍！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -809,7 +809,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
             weight=BOLD
@@ -821,7 +821,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 适用条件
         condition_text = Text(
             condition,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -843,7 +843,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD
@@ -857,7 +857,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 作者ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -867,7 +867,7 @@ class QuadraticUndeterminedCoefficients(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握更多解题技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

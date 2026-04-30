@@ -35,7 +35,7 @@ COLOR_SOLUTION = "#2ecc71"   # 绿色 - 解集区域
 COLOR_HIGHLIGHT = YELLOW
 COLOR_CARD_BG = "#16213e"
 COLOR_ACCENT = "#f39c12"     # 橙色 - 强调
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 def make_number_line(x_range=(-2, 8), unit=0.5, y_pos=0, color=WHITE):

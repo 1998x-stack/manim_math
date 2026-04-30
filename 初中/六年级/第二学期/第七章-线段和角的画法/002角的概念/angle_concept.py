@@ -96,7 +96,7 @@ class AngleConcept(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -106,7 +106,7 @@ class AngleConcept(Scene):
         # 钩子问题
         hook_text = Text(
             "什么是角?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -152,14 +152,14 @@ class AngleConcept(Scene):
         # 标题
         title = Text(
             "角的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         subtitle = Text(
             "两条射线 + 公共端点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -170,14 +170,14 @@ class AngleConcept(Scene):
         vertex = Dot(self.O, color=self.COLOR_VERTEX, radius=0.15)
         vertex_label = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(vertex, DOWN, buff=0.2)
         
         explain_vertex = Text(
             "顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -199,14 +199,14 @@ class AngleConcept(Scene):
         point_A = Dot(self.A, color=WHITE, radius=0.08)
         label_A = Text(
             "A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(point_A, RIGHT, buff=0.15)
         
         explain_ray1 = Text(
             "射线OA",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -233,14 +233,14 @@ class AngleConcept(Scene):
         point_B = Dot(self.B, color=WHITE, radius=0.08)
         label_B = Text(
             "B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(point_B, UP + RIGHT * 0.5, buff=0.15)
         
         explain_ray2 = Text(
             "射线OB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -270,7 +270,7 @@ class AngleConcept(Scene):
         # Step 5: 标注部分
         vertex_annotation = Text(
             "顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_VERTEX
         ).next_to(vertex, LEFT, buff=0.8)
@@ -286,7 +286,7 @@ class AngleConcept(Scene):
         
         edge_annotation = Text(
             "边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_PRIMARY
         ).move_to(self.O + RIGHT * 1.5 + DOWN * 0.8)
@@ -336,7 +336,7 @@ class AngleConcept(Scene):
         # 标题
         title = Text(
             "角的表示方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -346,7 +346,7 @@ class AngleConcept(Scene):
         # 方法1: 三点表示法
         method1_title = Text(
             "方法一: 三个点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -371,7 +371,7 @@ class AngleConcept(Scene):
         # 方法2: 顶点表示法
         method2_title = Text(
             "方法二: 顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -396,7 +396,7 @@ class AngleConcept(Scene):
         # 方法3: 希腊字母
         method3_title = Text(
             "方法三: 希腊字母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -425,7 +425,7 @@ class AngleConcept(Scene):
         # 汇总三种方法
         summary_title = Text(
             "三种表示法:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -458,7 +458,7 @@ class AngleConcept(Scene):
         # 标题
         title = Text(
             "角的度量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -468,7 +468,7 @@ class AngleConcept(Scene):
         # 度的定义
         degree_intro = Text(
             "度 (°) 是角的基本单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -551,14 +551,14 @@ class AngleConcept(Scene):
         # 标题
         title = Text(
             "角的形成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         subtitle = Text(
             "射线绕端点旋转",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -634,7 +634,7 @@ class AngleConcept(Scene):
         # 执行旋转动画
         explain_text = Text(
             "从0°开始旋转...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -657,7 +657,7 @@ class AngleConcept(Scene):
         # 停留展示
         final_text = Text(
             "最终形成60°的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -683,7 +683,7 @@ class AngleConcept(Scene):
         # 标题
         title = Text(
             "特殊的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -693,7 +693,7 @@ class AngleConcept(Scene):
         # ===== 周角 (左侧) =====
         full_angle_title = Text(
             "周角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(LEFT * 2 + UP * 3.5)
@@ -724,7 +724,7 @@ class AngleConcept(Scene):
         # 修复: 使用VGroup组合中文Text和MathTex
         full_angle_text = Text(
             "周角 =",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -749,7 +749,7 @@ class AngleConcept(Scene):
         # ===== 平角 (右侧) =====
         straight_angle_title = Text(
             "平角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(RIGHT * 2 + UP * 3.5)
@@ -785,7 +785,7 @@ class AngleConcept(Scene):
         # 修复: 使用VGroup组合中文Text和MathTex
         straight_angle_text = Text(
             "平角 =",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -813,7 +813,7 @@ class AngleConcept(Scene):
         # 对比说明
         comparison = Text(
             "周角是完整一圈, 平角是半圈",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 2.5)
@@ -864,7 +864,7 @@ class AngleConcept(Scene):
             
             card_text = Text(
                 point,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=WHITE
             )
@@ -884,14 +884,14 @@ class AngleConcept(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(DOWN * 3)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(DOWN * 4)
@@ -906,7 +906,7 @@ class AngleConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)

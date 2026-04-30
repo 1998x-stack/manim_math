@@ -34,7 +34,7 @@ C_WRONG   = "#ef5350"   # 红色  — 错误 / 增根
 C_CORRECT = "#66bb6a"   # 绿色  — 正确 / 检验通过
 C_CHECK   = "#fff176"   # 浅黄  — 检验高亮
 C_TITLE   = "#ce93d8"   # 标题色
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 
 # ════════════════════════════════════════════════

@@ -31,7 +31,7 @@ COLOR_HEIGHT = "#26C6DA"     # 高 - 青
 COLOR_FORMULA = "#FF7043"    # 公式 - 橙红
 COLOR_AUX = GRAY_B
 COLOR_HIGHLIGHT = YELLOW
-FONT_CN = "Noto Sans CJK SC"
+FONT_CN = "PingFang SC"
 
 
 def perp_foot(point, ls, le):

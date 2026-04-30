@@ -44,7 +44,7 @@ COLOR_RESULT    = "#2ecc71"   # 绿  — 最终解
 COLOR_HIGHLIGHT = YELLOW
 COLOR_CARD      = "#0f3460"   # 步骤卡片背景
 COLOR_DARK      = "#16213e"   # 深色背景
-FONT            = "Noto Sans CJK SC"
+FONT            = "PingFang SC"
 
 
 # ─────────────────────────────────────────────

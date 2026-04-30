@@ -60,7 +60,7 @@ class QuadraticFunction(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -70,7 +70,7 @@ class QuadraticFunction(Scene):
         # 钩子问题
         hook_text = Text(
             "抛物线的秘密在哪里?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -135,7 +135,7 @@ class QuadraticFunction(Scene):
         
         origin_label = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(self.origin_dot, DL, buff=0.15)
@@ -146,7 +146,7 @@ class QuadraticFunction(Scene):
         # 顶点标注
         vertex_label = Text(
             "顶点: (0, 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_VERTEX
         ).move_to(DOWN * 4.5)
@@ -164,7 +164,7 @@ class QuadraticFunction(Scene):
         
         axis_label = Text(
             "对称轴: x = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AXIS
         ).move_to(DOWN * 5.2)
@@ -190,7 +190,7 @@ class QuadraticFunction(Scene):
         # 标题
         title = Text(
             "当 a > 0 时",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PARABOLA_POSITIVE,
             weight=BOLD
@@ -227,7 +227,7 @@ class QuadraticFunction(Scene):
         
         arrow_label = Text(
             "开口向上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PARABOLA_POSITIVE
         ).next_to(arrow_up, RIGHT, buff=0.2)
@@ -237,7 +237,7 @@ class QuadraticFunction(Scene):
         
         # 最小值标注
         min_label = VGroup(
-            Text("最小值:", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("最小值:", font="PingFang SC", font_size=20, color=WHITE),
             MathTex("y_{\\text{min}} = 0", font_size=20, color=self.COLOR_VERTEX)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 4)
         
@@ -248,7 +248,7 @@ class QuadraticFunction(Scene):
         # 左侧递减
         decreasing_label = Text(
             "递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(self.axes.c2p(-1.8, 2))
@@ -264,7 +264,7 @@ class QuadraticFunction(Scene):
         # 右侧递增
         increasing_label = Text(
             "递增",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(self.axes.c2p(1.8, 2))
@@ -310,7 +310,7 @@ class QuadraticFunction(Scene):
         # 标题
         title = Text(
             "当 a < 0 时",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PARABOLA_NEGATIVE,
             weight=BOLD
@@ -347,7 +347,7 @@ class QuadraticFunction(Scene):
         
         arrow_label = Text(
             "开口向下",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PARABOLA_NEGATIVE
         ).next_to(arrow_down, RIGHT, buff=0.2)
@@ -357,7 +357,7 @@ class QuadraticFunction(Scene):
         
         # 最大值标注
         max_label = VGroup(
-            Text("最大值:", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("最大值:", font="PingFang SC", font_size=20, color=WHITE),
             MathTex("y_{\\text{max}} = 0", font_size=20, color=self.COLOR_VERTEX)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 4)
         
@@ -368,7 +368,7 @@ class QuadraticFunction(Scene):
         # 左侧递增
         increasing_label = Text(
             "递增",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(self.axes.c2p(-1.8, -2))
@@ -384,7 +384,7 @@ class QuadraticFunction(Scene):
         # 右侧递减
         decreasing_label = Text(
             "递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(self.axes.c2p(1.8, -2))
@@ -437,7 +437,7 @@ class QuadraticFunction(Scene):
         # 标题
         title = Text(
             "|a| 的大小影响开口",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -510,7 +510,7 @@ class QuadraticFunction(Scene):
         # 结论文字
         conclusion = Text(
             "|a| 越大，开口越小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -545,7 +545,7 @@ class QuadraticFunction(Scene):
         # 标题
         title = Text(
             "性质总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD,
             weight=BOLD
@@ -625,7 +625,7 @@ class QuadraticFunction(Scene):
         # 重点提示
         highlight_text = Text(
             "掌握 y=ax² , 轻松解题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -657,7 +657,7 @@ class QuadraticFunction(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
@@ -666,7 +666,7 @@ class QuadraticFunction(Scene):
         # 内容
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -685,7 +685,7 @@ class QuadraticFunction(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
             weight=BOLD
@@ -693,7 +693,7 @@ class QuadraticFunction(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -707,7 +707,7 @@ class QuadraticFunction(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

@@ -76,7 +76,7 @@ class DivisibilityMeaning(Scene):
         # 作者信息（顶部，始终保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -86,7 +86,7 @@ class DivisibilityMeaning(Scene):
         # 钩子问题
         hook_text = Text(
             "12个苹果，怎么分?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -97,7 +97,7 @@ class DivisibilityMeaning(Scene):
         # 场景描述
         scenario = Text(
             "平均分给3个同学",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -108,7 +108,7 @@ class DivisibilityMeaning(Scene):
         # 问题
         question = Text(
             "每人能分到几个?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 2)
@@ -130,7 +130,7 @@ class DivisibilityMeaning(Scene):
         # 标题
         title = Text(
             "整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -140,7 +140,7 @@ class DivisibilityMeaning(Scene):
         # 定义
         definition = Text(
             "整数a除以不为零的整数b",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4)
@@ -151,28 +151,28 @@ class DivisibilityMeaning(Scene):
         # 除法公式
         formula_text = Text(
             "a ÷ b =",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_FORMULA,
             color=WHITE
         ).move_to(UP * 2.5 + LEFT * 1.5)
         
         quotient = Text(
             "q",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_FORMULA,
             color=self.COLOR_HIGHLIGHT
         ).next_to(formula_text, RIGHT, buff=0.3)
         
         dots = Text(
             "...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_FORMULA,
             color=WHITE
         ).next_to(quotient, RIGHT, buff=0.3)
         
         remainder = Text(
             "r",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_FORMULA,
             color=self.COLOR_DIVISIBLE
         ).next_to(dots, RIGHT, buff=0.3)
@@ -185,7 +185,7 @@ class DivisibilityMeaning(Scene):
         # 条件1：商为整数
         condition_1 = Text(
             "① 商为整数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1)
@@ -197,7 +197,7 @@ class DivisibilityMeaning(Scene):
         # 条件2：余数为零
         condition_2 = Text(
             "② 余数为零",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_DIVISIBLE
         ).move_to(UP * 0)
@@ -259,7 +259,7 @@ class DivisibilityMeaning(Scene):
         # 说明文字
         explain_1 = Text(
             "12个方块",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -270,7 +270,7 @@ class DivisibilityMeaning(Scene):
         # 分组提示
         explain_2 = Text(
             "分成3组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -305,7 +305,7 @@ class DivisibilityMeaning(Scene):
         for i, center in enumerate(group_centers):
             label = Text(
                 "4",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SUBTITLE,
                 color=group_colors[i]
             ).move_to(center + DOWN * 1.2)
@@ -336,7 +336,7 @@ class DivisibilityMeaning(Scene):
         # 余数显示
         remainder_text = Text(
             "余数 = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_DIVISIBLE
         ).move_to(DOWN * 0.5)
@@ -348,13 +348,13 @@ class DivisibilityMeaning(Scene):
         success = VGroup(
             Text(
                 "能整除!",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SUBTITLE,
                 color=self.COLOR_DIVISIBLE
             ),
             Text(
                 "✓",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_TITLE,
                 color=self.COLOR_DIVISIBLE
             ).shift(RIGHT * 0.8)
@@ -412,7 +412,7 @@ class DivisibilityMeaning(Scene):
         # 分组提示
         explain = Text(
             "分成5组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -474,14 +474,14 @@ class DivisibilityMeaning(Scene):
         # 商和余数标注
         quotient_label = Text(
             "商 = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY
         ).move_to(DOWN * 0.5)
         
         remainder_label = Text(
             "余数 = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NOT_DIVISIBLE
         ).move_to(DOWN * 1)
@@ -495,13 +495,13 @@ class DivisibilityMeaning(Scene):
         failure = VGroup(
             Text(
                 "不能整除!",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SUBTITLE,
                 color=self.COLOR_NOT_DIVISIBLE
             ),
             Text(
                 "✗",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_TITLE,
                 color=self.COLOR_NOT_DIVISIBLE
             ).shift(RIGHT * 1)
@@ -530,7 +530,7 @@ class DivisibilityMeaning(Scene):
         # 标题
         title = Text(
             "因数与倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -569,7 +569,7 @@ class DivisibilityMeaning(Scene):
         # 因数定义
         factor_def = Text(
             "3 是 12 的因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FACTOR
         ).move_to(UP * 2)
@@ -582,7 +582,7 @@ class DivisibilityMeaning(Scene):
         # 倍数定义
         multiple_def = Text(
             "12 是 3 的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_MULTIPLE
         ).move_to(UP * 0.5)
@@ -615,7 +615,7 @@ class DivisibilityMeaning(Scene):
         # 关键提示
         key_point = Text(
             "因数 ≤ 倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -646,7 +646,7 @@ class DivisibilityMeaning(Scene):
         # 标题
         title = Text(
             "整除的符号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -665,7 +665,7 @@ class DivisibilityMeaning(Scene):
         # 读法
         pronunciation = Text(
             "读作：b 整除 a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 2)
@@ -676,7 +676,7 @@ class DivisibilityMeaning(Scene):
         # 含义
         meaning = Text(
             "表示：a 能被 b 整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 1)
@@ -695,7 +695,7 @@ class DivisibilityMeaning(Scene):
         
         explain_1 = Text(
             "12 能被 3 整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -714,7 +714,7 @@ class DivisibilityMeaning(Scene):
         
         explain_2 = Text(
             "12 能被 4 整除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -749,7 +749,7 @@ class DivisibilityMeaning(Scene):
         # 总结标题
         summary_title = Text(
             "记住这些!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -759,7 +759,7 @@ class DivisibilityMeaning(Scene):
         # 要点1
         point_1 = Text(
             "整除 = 商为整数 + 余数为0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -770,7 +770,7 @@ class DivisibilityMeaning(Scene):
         # 要点2
         point_2_text = Text(
             "因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FACTOR
         )
@@ -782,7 +782,7 @@ class DivisibilityMeaning(Scene):
         
         point_2_text2 = Text(
             "倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_MULTIPLE
         )
@@ -802,7 +802,7 @@ class DivisibilityMeaning(Scene):
         
         point_3_text = Text(
             "表示 b 整除 a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -832,7 +832,7 @@ class DivisibilityMeaning(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(DOWN * 1.5)
@@ -849,7 +849,7 @@ class DivisibilityMeaning(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_B
         ).move_to(DOWN * 2.5)
@@ -859,7 +859,7 @@ class DivisibilityMeaning(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)

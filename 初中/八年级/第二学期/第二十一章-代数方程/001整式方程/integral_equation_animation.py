@@ -22,7 +22,7 @@ config.frame_width  = 9
 config.frame_height = 16
 
 # ── 字体 ──────────────────────────────────────────────────────
-CJK_FONT = "Noto Sans CJK SC"
+CJK_FONT = "PingFang SC"
 
 # ── 配色方案 ──────────────────────────────────────────────────
 BG_COLOR        = "#1a1a2e"

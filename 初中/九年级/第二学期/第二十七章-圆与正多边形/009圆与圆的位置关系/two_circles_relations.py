@@ -200,7 +200,7 @@ class TwoCirclesRelations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -210,7 +210,7 @@ class TwoCirclesRelations(Scene):
         # 钩子问题
         hook_text = Text(
             "两个圆相遇有几种方式?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -247,7 +247,7 @@ class TwoCirclesRelations(Scene):
         # 标题
         title = Text(
             "关键要素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -311,7 +311,7 @@ class TwoCirclesRelations(Scene):
         # 说明文字
         explain = Text(
             "d = 两圆圆心距",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.5)
@@ -343,8 +343,8 @@ class TwoCirclesRelations(Scene):
         """场景3: 外离 (d > R+r)"""
         # 标题
         title = VGroup(
-            Text("情况1: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("外离", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_HIGHLIGHT)
+            Text("情况1: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("外离", font="PingFang SC", font_size=36, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -397,7 +397,7 @@ class TwoCirclesRelations(Scene):
         # 说明文字
         explain = Text(
             "外离: 无公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4)
@@ -421,8 +421,8 @@ class TwoCirclesRelations(Scene):
         """场景4: 外切 (d = R+r)"""
         # 标题
         title = VGroup(
-            Text("情况2: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("外切", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_HIGHLIGHT)
+            Text("情况2: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("外切", font="PingFang SC", font_size=36, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -482,7 +482,7 @@ class TwoCirclesRelations(Scene):
         # 说明文字
         explain = Text(
             "外切: 一个公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4)
@@ -506,8 +506,8 @@ class TwoCirclesRelations(Scene):
         """场景5: 相交 (R-r < d < R+r)"""
         # 标题
         title = VGroup(
-            Text("情况3: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("相交", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_TANGENT)
+            Text("情况3: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("相交", font="PingFang SC", font_size=36, color=self.COLOR_TANGENT)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -561,7 +561,7 @@ class TwoCirclesRelations(Scene):
         # 说明文字
         explain = Text(
             "相交: 两个交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4)
@@ -587,8 +587,8 @@ class TwoCirclesRelations(Scene):
         """场景6: 内切 (d = R-r)"""
         # 标题
         title = VGroup(
-            Text("情况4: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("内切", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_HIGHLIGHT)
+            Text("情况4: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("内切", font="PingFang SC", font_size=36, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -648,7 +648,7 @@ class TwoCirclesRelations(Scene):
         # 说明文字
         explain = Text(
             "内切: 一个公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4)
@@ -672,8 +672,8 @@ class TwoCirclesRelations(Scene):
         """场景7: 内含 (d < R-r)"""
         # 标题
         title = VGroup(
-            Text("情况5: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("内含", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_AUXILIARY)
+            Text("情况5: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("内含", font="PingFang SC", font_size=36, color=self.COLOR_AUXILIARY)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -713,14 +713,14 @@ class TwoCirclesRelations(Scene):
         # 说明文字
         explain = Text(
             "内含: 无公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 5)
         
         note = Text(
             "(小圆完全在大圆内部)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 5.8)
@@ -758,7 +758,7 @@ class TwoCirclesRelations(Scene):
         # 标题
         title = Text(
             "位置关系判定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -839,7 +839,7 @@ class TwoCirclesRelations(Scene):
         # 关键规律
         pattern = Text(
             "比较d与R+r、R-r的大小关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)
@@ -895,13 +895,13 @@ class TwoCirclesRelations(Scene):
                 circles.add(A_dot, B_dot)
         
         # 标签
-        label = Text(label_text, font="Noto Sans CJK SC", font_size=20, weight=BOLD).next_to(circles, LEFT, buff=0.4)
+        label = Text(label_text, font="PingFang SC", font_size=20, weight=BOLD).next_to(circles, LEFT, buff=0.4)
         
         # 公式
-        formula = Text(formula_text, font="Noto Sans CJK SC", font_size=16, color=YELLOW).next_to(circles, RIGHT, buff=0.4)
+        formula = Text(formula_text, font="PingFang SC", font_size=16, color=YELLOW).next_to(circles, RIGHT, buff=0.4)
         
         # 说明
-        explain = Text(explain_text, font="Noto Sans CJK SC", font_size=14, color=self.COLOR_AUXILIARY).next_to(
+        explain = Text(explain_text, font="PingFang SC", font_size=14, color=self.COLOR_AUXILIARY).next_to(
             circles, DOWN, buff=0.2
         )
         
@@ -912,14 +912,14 @@ class TwoCirclesRelations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 0.5)
@@ -933,7 +933,7 @@ class TwoCirclesRelations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

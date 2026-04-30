@@ -163,7 +163,7 @@ class PointSymmetry(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -173,7 +173,7 @@ class PointSymmetry(Scene):
         # 钩子问题
         hook_text = Text(
             "点的对称\n有什么规律?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -219,7 +219,7 @@ class PointSymmetry(Scene):
         
         # 原点标记
         self.origin_dot = Dot(self.origin, color=GRAY_A, radius=0.06)
-        origin_label = Text("O", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.origin_dot, DL, buff=0.12)
+        origin_label = Text("O", font="PingFang SC", font_size=20, color=WHITE).next_to(self.origin_dot, DL, buff=0.12)
         
         self.play(
             FadeIn(self.origin_dot, scale=0.5),
@@ -238,7 +238,7 @@ class PointSymmetry(Scene):
         # 说明文字
         explain = Text(
             "从这个点开始探索对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -257,7 +257,7 @@ class PointSymmetry(Scene):
         # 标题
         title = Text(
             "关于 x 轴对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SYMMETRY_X
         ).move_to(UP * 6)
@@ -325,7 +325,7 @@ class PointSymmetry(Scene):
         # 重点提示
         highlight = Text(
             "横坐标不变，纵坐标取反",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -365,7 +365,7 @@ class PointSymmetry(Scene):
         # 标题
         title = Text(
             "关于 y 轴对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SYMMETRY_Y
         ).move_to(UP * 6)
@@ -433,7 +433,7 @@ class PointSymmetry(Scene):
         # 重点提示
         highlight = Text(
             "纵坐标不变，横坐标取反",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -473,7 +473,7 @@ class PointSymmetry(Scene):
         # 标题
         title = Text(
             "关于原点对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SYMMETRY_O
         ).move_to(UP * 6)
@@ -543,10 +543,10 @@ class PointSymmetry(Scene):
         ).move_arc_center_to(self.origin)
         
         # 简化：使用文字标注
-        dist_label_P = Text("d", font="Noto Sans CJK SC", font_size=20, color=YELLOW).move_to(
+        dist_label_P = Text("d", font="PingFang SC", font_size=20, color=YELLOW).move_to(
             (self.point_P + self.origin) / 2 + UR * 0.3
         )
-        dist_label_Po = Text("d", font="Noto Sans CJK SC", font_size=20, color=YELLOW).move_to(
+        dist_label_Po = Text("d", font="PingFang SC", font_size=20, color=YELLOW).move_to(
             (self.point_Po + self.origin) / 2 + DL * 0.3
         )
         
@@ -568,7 +568,7 @@ class PointSymmetry(Scene):
         # 重点提示
         highlight = Text(
             "横、纵坐标都取反",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -578,7 +578,7 @@ class PointSymmetry(Scene):
         # 三点共线说明
         explain = Text(
             "三点共线且原点平分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6.3)
@@ -629,7 +629,7 @@ class PointSymmetry(Scene):
         # 总结标题
         summary_title = Text(
             "对称规律总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5)
@@ -638,17 +638,17 @@ class PointSymmetry(Scene):
         
         # 三条规律
         rule1 = VGroup(
-            Text("关于 x 轴:", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SYMMETRY_X),
+            Text("关于 x 轴:", font="PingFang SC", font_size=22, color=self.COLOR_SYMMETRY_X),
             MathTex(r"(x, y) \rightarrow (x, -y)", font_size=22, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2)
         
         rule2 = VGroup(
-            Text("关于 y 轴:", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SYMMETRY_Y),
+            Text("关于 y 轴:", font="PingFang SC", font_size=22, color=self.COLOR_SYMMETRY_Y),
             MathTex(r"(x, y) \rightarrow (-x, y)", font_size=22, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1)
         
         rule3 = VGroup(
-            Text("关于原点:", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SYMMETRY_O),
+            Text("关于原点:", font="PingFang SC", font_size=22, color=self.COLOR_SYMMETRY_O),
             MathTex(r"(x, y) \rightarrow (-x, -y)", font_size=22, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(ORIGIN)
         
@@ -692,7 +692,7 @@ class PointSymmetry(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

@@ -66,7 +66,7 @@ class FactorizationFormulas(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -76,7 +76,7 @@ class FactorizationFormulas(Scene):
         # 钩子问题
         hook_question = Text(
             "如何快速分解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -99,17 +99,17 @@ class FactorizationFormulas(Scene):
         self.play(Flash(question_mark, color=YELLOW, flash_radius=0.5), run_time=0.4)
         
         # 三个公式卡片预告
-        card_1_cn = Text("平方差公式", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card_1_cn = Text("平方差公式", font="PingFang SC", font_size=24, color=WHITE)
         card_1_formula = MathTex(r"a^2-b^2", font_size=28, color=self.COLOR_PRIMARY)
         card_1 = VGroup(card_1_cn, card_1_formula).arrange(DOWN, buff=0.15)
         card_1.move_to(UP * 1.5 + LEFT * 10)
         
-        card_2_cn = Text("完全平方(+)", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card_2_cn = Text("完全平方(+)", font="PingFang SC", font_size=24, color=WHITE)
         card_2_formula = MathTex(r"a^2+2ab+b^2", font_size=24, color=self.COLOR_PRIMARY)
         card_2 = VGroup(card_2_cn, card_2_formula).arrange(DOWN, buff=0.15)
         card_2.move_to(ORIGIN + LEFT * 10)
         
-        card_3_cn = Text("完全平方(-)", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card_3_cn = Text("完全平方(-)", font="PingFang SC", font_size=24, color=WHITE)
         card_3_formula = MathTex(r"a^2-2ab+b^2", font_size=24, color=self.COLOR_PRIMARY)
         card_3 = VGroup(card_3_cn, card_3_formula).arrange(DOWN, buff=0.15)
         card_3.move_to(DOWN * 1.5 + LEFT * 10)
@@ -133,7 +133,7 @@ class FactorizationFormulas(Scene):
         # 提示文字
         hint_text = Text(
             "掌握这三个公式就够了!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -161,7 +161,7 @@ class FactorizationFormulas(Scene):
         # 标题
         title = Text(
             "平方差公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -230,7 +230,7 @@ class FactorizationFormulas(Scene):
         # 面积差说明
         area_text = Text(
             "面积差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(square_large, RIGHT, buff=0.5)
@@ -259,21 +259,21 @@ class FactorizationFormulas(Scene):
         # 识别要点
         points_title = Text(
             "识别要点:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
         
         point_1 = Text(
             "① 两项相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         ).move_to(DOWN * 0.5)
         
         point_2 = Text(
             "② 都是平方项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         ).move_to(DOWN * 1.2)
@@ -285,7 +285,7 @@ class FactorizationFormulas(Scene):
         # ).move_to(DOWN * 1.9)
         
         # 修正：使用Text代替MathTex中的中文
-        point_3_cn = Text("③ 结构:", font="Noto Sans CJK SC", font_size=self.FONT_SIZE_SMALL, color=WHITE)
+        point_3_cn = Text("③ 结构:", font="PingFang SC", font_size=self.FONT_SIZE_SMALL, color=WHITE)
         point_3_formula = MathTex(r"\square^2 - \triangle^2", font_size=self.FONT_SIZE_SMALL, color=WHITE)
         point_3 = VGroup(point_3_cn, point_3_formula).arrange(RIGHT, buff=0.15).move_to(DOWN * 1.9)
         
@@ -328,7 +328,7 @@ class FactorizationFormulas(Scene):
         # 例题标题
         example_title = Text(
             "例题1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -337,7 +337,7 @@ class FactorizationFormulas(Scene):
         self.play(FadeIn(example_title, scale=1.2), run_time=0.5)
         
         # 原式
-        original_text = Text("因式分解:", font="Noto Sans CJK SC", font_size=self.FONT_SIZE_BODY, color=WHITE)
+        original_text = Text("因式分解:", font="PingFang SC", font_size=self.FONT_SIZE_BODY, color=WHITE)
         original_expr = MathTex(r"x^2 - 9", font_size=36, color=WHITE)
         original_group = VGroup(original_text, original_expr).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
         
@@ -346,7 +346,7 @@ class FactorizationFormulas(Scene):
         # 分析步骤1: 识别平方项
         step_1 = Text(
             "识别平方项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 2)
@@ -383,12 +383,12 @@ class FactorizationFormulas(Scene):
         # 分析步骤2: 应用公式
         step_2 = Text(
             "应用公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(ORIGIN)
         
-        formula_ref_cn = Text("根据", font="Noto Sans CJK SC", font_size=20, color=GRAY)
+        formula_ref_cn = Text("根据", font="PingFang SC", font_size=20, color=GRAY)
         formula_ref = MathTex(r"a^2-b^2=(a+b)(a-b)", font_size=22, color=self.COLOR_PRIMARY)
         formula_ref_group = VGroup(formula_ref_cn, formula_ref).arrange(RIGHT, buff=0.1).next_to(step_2, DOWN, buff=0.3)
         
@@ -456,7 +456,7 @@ class FactorizationFormulas(Scene):
         # 验证 (快速展示)
         verify_text = Text(
             "验证:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY
         ).move_to(DOWN * 4.5 + LEFT * 3)
@@ -498,7 +498,7 @@ class FactorizationFormulas(Scene):
         # 标题
         title = Text(
             "完全平方公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -572,7 +572,7 @@ class FactorizationFormulas(Scene):
         
         diff_label = Text(
             "注意符号!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_HIGHLIGHT
         ).next_to(comparison_arrow, LEFT, buff=0.2)
@@ -583,28 +583,28 @@ class FactorizationFormulas(Scene):
         # 识别要点
         points_title = Text(
             "识别关键:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.8)
         
         point_1 = Text(
             "① 三项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         ).move_to(UP * 0.1)
         
         point_2 = Text(
             "② 首末是平方项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         ).move_to(DOWN * 0.6)
         
         point_3_cn = Text(
             "③ 中间项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         )
@@ -617,7 +617,7 @@ class FactorizationFormulas(Scene):
         
         point_4_cn = Text(
             "④ + 号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         )
@@ -627,7 +627,7 @@ class FactorizationFormulas(Scene):
         
         point_5_cn = Text(
             "   - 号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=WHITE
         )
@@ -679,7 +679,7 @@ class FactorizationFormulas(Scene):
         # 例题标题
         example_title = Text(
             "例题2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -688,7 +688,7 @@ class FactorizationFormulas(Scene):
         self.play(FadeIn(example_title, scale=1.2), run_time=0.5)
         
         # 原式
-        original_text = Text("因式分解:", font="Noto Sans CJK SC", font_size=self.FONT_SIZE_BODY, color=WHITE)
+        original_text = Text("因式分解:", font="PingFang SC", font_size=self.FONT_SIZE_BODY, color=WHITE)
         original_expr = MathTex(r"x^2 + 6x + 9", font_size=36, color=WHITE)
         original_group = VGroup(original_text, original_expr).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
         
@@ -697,7 +697,7 @@ class FactorizationFormulas(Scene):
         # 步骤1: 检查首项
         step_1 = Text(
             "① 检查首项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 2.2)
@@ -720,7 +720,7 @@ class FactorizationFormulas(Scene):
         # 步骤2: 检查末项
         step_2 = Text(
             "② 检查末项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 0.9)
@@ -743,7 +743,7 @@ class FactorizationFormulas(Scene):
         # 步骤3: 检查中间项
         step_3 = Text(
             "③ 检查中间项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 0.4)
@@ -769,7 +769,7 @@ class FactorizationFormulas(Scene):
         # 公式对应
         correspond_text = Text(
             "对应公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY
         ).move_to(DOWN * 2)
@@ -811,7 +811,7 @@ class FactorizationFormulas(Scene):
         # 技巧提示
         tip_text = Text(
             "技巧: 中间项是关键!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -845,7 +845,7 @@ class FactorizationFormulas(Scene):
         # 挑战题标题
         challenge_title = Text(
             "挑战题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
             weight=BOLD
@@ -859,7 +859,7 @@ class FactorizationFormulas(Scene):
         self.play(FadeIn(challenge_group, scale=1.3), run_time=0.7)
         
         # 原式
-        original_text = Text("因式分解:", font="Noto Sans CJK SC", font_size=self.FONT_SIZE_BODY, color=WHITE)
+        original_text = Text("因式分解:", font="PingFang SC", font_size=self.FONT_SIZE_BODY, color=WHITE)
         original_expr = MathTex(r"4x^2 - 9y^2", font_size=36, color=WHITE)
         original_group = VGroup(original_text, original_expr).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
         
@@ -868,7 +868,7 @@ class FactorizationFormulas(Scene):
         # 提示: 平方差结构
         hint = Text(
             "这是平方差结构!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.2)
@@ -911,7 +911,7 @@ class FactorizationFormulas(Scene):
         
         rewritten_label = Text(
             "改写为:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY
         ).next_to(rewritten_expr, LEFT, buff=0.3)
@@ -930,7 +930,7 @@ class FactorizationFormulas(Scene):
         
         formula_label_cn = Text(
             "应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PRIMARY
         )
@@ -1013,7 +1013,7 @@ class FactorizationFormulas(Scene):
         # 总结标题
         summary_title = Text(
             "三大公式助你快速分解!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
             weight=BOLD
@@ -1025,7 +1025,7 @@ class FactorizationFormulas(Scene):
         # 平方差公式卡片
         card_1_title = Text(
             "平方差公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
@@ -1050,7 +1050,7 @@ class FactorizationFormulas(Scene):
         # 完全平方公式(+)卡片
         card_2_title = Text(
             "完全平方 (+)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
@@ -1075,7 +1075,7 @@ class FactorizationFormulas(Scene):
         # 完全平方公式(-)卡片
         card_3_title = Text(
             "完全平方 (-)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
@@ -1121,14 +1121,14 @@ class FactorizationFormulas(Scene):
         # 记忆口诀
         mnemonic_1 = Text(
             "两平方相减 → 平方差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
         
         mnemonic_2 = Text(
             "三项式中间2ab → 完全平方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.3)
@@ -1151,7 +1151,7 @@ class FactorizationFormulas(Scene):
         # 作者信息放大居中
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
             weight=BOLD
@@ -1159,7 +1159,7 @@ class FactorizationFormulas(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -1173,7 +1173,7 @@ class FactorizationFormulas(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

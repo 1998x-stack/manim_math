@@ -39,7 +39,7 @@ COLOR_HIGHLIGHT = YELLOW
 COLOR_AUX       = GRAY_B
 COLOR_OK        = "#2ecc71"   # 绿 ✓
 COLOR_FAIL      = "#e74c3c"   # 红 ✗
-FONT            = "Noto Sans CJK SC"
+FONT            = "PingFang SC"
 
 
 class TriangleSideRelation(Scene):

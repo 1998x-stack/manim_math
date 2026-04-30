@@ -46,7 +46,7 @@ class RotationAnimation(Scene):
         self.COLOR_AUXILIARY = GRAY_B        # 灰色 - 辅助线
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         
         # 初始化几何数据
         self.setup_geometry()

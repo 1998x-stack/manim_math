@@ -74,19 +74,19 @@ class RadicalMultDiv(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B,
+            font="PingFang SC", font_size=18, color=GRAY_B,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
 
         chapter = Text(
             "八年级 · 第十六章 · 二次根式",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+            font="PingFang SC", font_size=20, color=GRAY_B,
         ).move_to(UP * 6.55)
         self.play(FadeIn(chapter), run_time=0.3)
 
         hook = Text(
             "根号能相乘相除吗？",
-            font="Noto Sans CJK SC", font_size=42, color=self.C_TITLE,
+            font="PingFang SC", font_size=42, color=self.C_TITLE,
         ).move_to(UP * 5.6)
         self.play(Write(hook), run_time=0.7)
 
@@ -111,7 +111,7 @@ class RadicalMultDiv(Scene):
 
         reveal = Text(
             "今天学会根式乘除运算！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(UP * 1.8)
         self.play(FadeIn(reveal, shift=UP * 0.2), run_time=0.5)
         self.wait(1.0)
@@ -130,7 +130,7 @@ class RadicalMultDiv(Scene):
     def scene_mul_formula(self):
         title = Text(
             "乘法公式",
-            font="Noto Sans CJK SC", font_size=48, color=self.C_TITLE,
+            font="PingFang SC", font_size=48, color=self.C_TITLE,
         ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.6)
 
@@ -142,7 +142,7 @@ class RadicalMultDiv(Scene):
         ).move_to(UP * 5.1)
         cond = Text(
             "（a ≥ 0，b ≥ 0）",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(UP * 4.45)
         self.play(Create(formula_bg), Write(formula), run_time=0.8)
         self.play(FadeIn(cond), run_time=0.3)
@@ -151,7 +151,7 @@ class RadicalMultDiv(Scene):
         intuition_bg = self.card(7.4, 2.8, self.C_MUL, UP * 2.8)
         int_title = Text(
             "直觉理解：",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_MUL,
+            font="PingFang SC", font_size=26, color=self.C_MUL,
         )
         int_f1 = MathTex(r"(\sqrt{a})^2 = a,\quad (\sqrt{b})^2 = b", font_size=30, color=WHITE)
         int_f2 = MathTex(r"(\sqrt{a} \cdot \sqrt{b})^2 = ab", font_size=30, color=WHITE)
@@ -164,7 +164,7 @@ class RadicalMultDiv(Scene):
 
         # 延伸：多个根号
         ext_bg = self.card(7.4, 1.5, self.C_FORMULA, UP * 0.9)
-        ext_t  = Text("推广：", font="Noto Sans CJK SC", font_size=24, color=self.C_FORMULA)
+        ext_t  = Text("推广：", font="PingFang SC", font_size=24, color=self.C_FORMULA)
         ext_f  = MathTex(r"\sqrt{a} \cdot \sqrt{b} \cdot \sqrt{c} = \sqrt{abc}", font_size=34, color=WHITE)
         VGroup(ext_t, ext_f).arrange(RIGHT, buff=0.3).move_to(UP * 0.9)
         self.play(Create(ext_bg), Write(ext_t), Write(ext_f), run_time=0.6)
@@ -173,7 +173,7 @@ class RadicalMultDiv(Scene):
         warn_bg = self.card(7.4, 1.4, self.C_WRONG, DOWN * 0.4, fill="#2d0a0a", alpha=0.9)
         warn_t  = Text(
             "⚠ 运算结果必须化成最简二次根式！",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_WRONG,
+            font="PingFang SC", font_size=24, color=self.C_WRONG,
         ).move_to(DOWN * 0.4)
         self.play(Create(warn_bg), Write(warn_t), run_time=0.6)
         self.wait(2.0)
@@ -186,17 +186,17 @@ class RadicalMultDiv(Scene):
     def scene_mul_ex1(self):
         title = Text(
             "例题 1  乘法计算",
-            font="Noto Sans CJK SC", font_size=36, color=self.C_TITLE,
+            font="PingFang SC", font_size=36, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_MUL, UP * 5.5)
-        prob_l  = Text("计算：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_l  = Text("计算：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_f  = MathTex(r"\sqrt{3} \times \sqrt{5}", font_size=54, color=WHITE)
         VGroup(prob_l, prob_f).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_l), Write(prob_f), run_time=0.7)
 
         # 套用公式
         step_bg = self.card(7.2, 1.8, self.C_MUL, UP * 4.1)
-        step_tag = Text("套用公式：", font="Noto Sans CJK SC", font_size=24, color=self.C_MUL)
+        step_tag = Text("套用公式：", font="PingFang SC", font_size=24, color=self.C_MUL)
         step_f   = MathTex(r"\sqrt{a} \times \sqrt{b} = \sqrt{ab}", font_size=34, color=GRAY_A)
         VGroup(step_tag, step_f).arrange(DOWN, buff=0.15).move_to(UP * 4.1)
         self.play(Create(step_bg), Write(step_tag), Write(step_f), run_time=0.6)
@@ -217,7 +217,7 @@ class RadicalMultDiv(Scene):
 
         note = Text(
             "√15 已是最简（15无完全平方因数）",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(DOWN * 1.8)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(2.0)
@@ -229,24 +229,24 @@ class RadicalMultDiv(Scene):
     def scene_mul_ex2(self):
         title = Text(
             "例题 2  乘法后需化简",
-            font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+            font="PingFang SC", font_size=34, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_MUL, UP * 5.5)
-        prob_l  = Text("计算：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_l  = Text("计算：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_f  = MathTex(r"\sqrt{2} \times \sqrt{8}", font_size=54, color=WHITE)
         VGroup(prob_l, prob_f).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_l), Write(prob_f), run_time=0.7)
 
         # 方法一：直接乘
         m1_bg  = self.card(7.2, 1.5, self.C_MUL, UP * 4.2)
-        m1_tag = Text("方法一：直接合并", font="Noto Sans CJK SC", font_size=24, color=self.C_MUL)
+        m1_tag = Text("方法一：直接合并", font="PingFang SC", font_size=24, color=self.C_MUL)
         m1_f   = MathTex(r"\sqrt{2} \times \sqrt{8} = \sqrt{16} = 4", font_size=36, color=WHITE)
         VGroup(m1_tag, m1_f).arrange(DOWN, buff=0.15).move_to(UP * 4.2)
         self.play(Create(m1_bg), Write(m1_tag), Write(m1_f), run_time=0.7)
 
         # 方法二：先化简再乘
         m2_bg  = self.card(7.2, 2.2, self.C_FORMULA, UP * 2.5)
-        m2_tag = Text("方法二：先化简再乘", font="Noto Sans CJK SC", font_size=24, color=self.C_FORMULA)
+        m2_tag = Text("方法二：先化简再乘", font="PingFang SC", font_size=24, color=self.C_FORMULA)
         m2_f1  = MathTex(r"\sqrt{8} = 2\sqrt{2}", font_size=32, color=GRAY_A)
         m2_f2  = MathTex(r"\sqrt{2} \times 2\sqrt{2} = 2 \times 2 = 4", font_size=32, color=WHITE)
         VGroup(m2_tag, m2_f1, m2_f2).arrange(DOWN, buff=0.18).move_to(UP * 2.5)
@@ -254,9 +254,9 @@ class RadicalMultDiv(Scene):
 
         # 关键点
         key_bg = self.card(7.4, 2.0, self.C_WRONG, UP * 0.85, fill="#2d0a0a", alpha=0.9)
-        key_t1 = Text("关键：", font="Noto Sans CJK SC", font_size=26, color=self.C_WRONG)
+        key_t1 = Text("关键：", font="PingFang SC", font_size=26, color=self.C_WRONG)
         key_f1 = MathTex(r"\sqrt{16} = 4", font_size=36, color=WHITE)
-        key_t2 = Text("完全平方数开方后是整数！", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        key_t2 = Text("完全平方数开方后是整数！", font="PingFang SC", font_size=22, color=GRAY_A)
         VGroup(key_t1, key_f1, key_t2).arrange(DOWN, buff=0.15).move_to(UP * 0.85)
         self.play(Create(key_bg), Write(key_t1), Write(key_f1), FadeIn(key_t2), run_time=0.7)
 
@@ -273,7 +273,7 @@ class RadicalMultDiv(Scene):
     def scene_div_formula(self):
         title = Text(
             "除法公式",
-            font="Noto Sans CJK SC", font_size=48, color=self.C_TITLE,
+            font="PingFang SC", font_size=48, color=self.C_TITLE,
         ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.6)
 
@@ -285,14 +285,14 @@ class RadicalMultDiv(Scene):
         ).move_to(UP * 5.1)
         cond = Text(
             "（a ≥ 0，b > 0）",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(UP * 4.4)
         self.play(Create(formula_bg), Write(formula), run_time=0.8)
         self.play(FadeIn(cond), run_time=0.3)
 
         # 等价写法
         equiv_bg = self.card(7.4, 1.8, self.C_DIV, UP * 3.3)
-        equiv_t  = Text("等价写法：", font="Noto Sans CJK SC", font_size=24, color=self.C_DIV)
+        equiv_t  = Text("等价写法：", font="PingFang SC", font_size=24, color=self.C_DIV)
         equiv_f  = MathTex(
             r"\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}",
             font_size=44, color=WHITE,
@@ -302,7 +302,7 @@ class RadicalMultDiv(Scene):
 
         # 对称性对比
         sym_bg = self.card(7.4, 2.8, self.C_MUL, UP * 1.5)
-        sym_t  = Text("对比乘法与除法：", font="Noto Sans CJK SC", font_size=24, color=self.C_MUL)
+        sym_t  = Text("对比乘法与除法：", font="PingFang SC", font_size=24, color=self.C_MUL)
         sym_f1 = MathTex(r"\sqrt{a} \times \sqrt{b} = \sqrt{ab}", font_size=34, color=WHITE)
         sym_f2 = MathTex(r"\sqrt{a} \div \sqrt{b} = \sqrt{\dfrac{a}{b}}", font_size=34, color=self.C_TITLE)
         VGroup(sym_t, sym_f1, sym_f2).arrange(DOWN, buff=0.3).move_to(UP * 1.5)
@@ -312,7 +312,7 @@ class RadicalMultDiv(Scene):
         mnemonic_bg = self.card(7.4, 1.4, self.C_TITLE, DOWN * 0.5, fill="#1a1000", alpha=0.9)
         mnemonic_t  = Text(
             "口诀：根号内可以乘，也可以除！",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE,
+            font="PingFang SC", font_size=26, color=self.C_TITLE,
         ).move_to(DOWN * 0.5)
         self.play(Create(mnemonic_bg), Write(mnemonic_t), run_time=0.6)
         self.wait(2.0)
@@ -324,17 +324,17 @@ class RadicalMultDiv(Scene):
     def scene_div_ex1(self):
         title = Text(
             "例题 3  除法计算",
-            font="Noto Sans CJK SC", font_size=36, color=self.C_TITLE,
+            font="PingFang SC", font_size=36, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_DIV, UP * 5.5)
-        prob_l  = Text("计算：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_l  = Text("计算：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_f  = MathTex(r"\sqrt{12} \div \sqrt{3}", font_size=54, color=WHITE)
         VGroup(prob_l, prob_f).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_l), Write(prob_f), run_time=0.7)
 
         # 方法一：套公式
         m1_bg  = self.card(7.2, 2.0, self.C_DIV, UP * 4.0)
-        m1_tag = Text("方法一：套公式", font="Noto Sans CJK SC", font_size=24, color=self.C_DIV)
+        m1_tag = Text("方法一：套公式", font="PingFang SC", font_size=24, color=self.C_DIV)
         m1_f1  = MathTex(r"= \sqrt{\dfrac{12}{3}}", font_size=44, color=WHITE)
         m1_f2  = MathTex(r"= \sqrt{4} = 2", font_size=44, color=self.C_RESULT)
         VGroup(m1_tag, m1_f1, m1_f2).arrange(DOWN, buff=0.18).move_to(UP * 4.0)
@@ -342,7 +342,7 @@ class RadicalMultDiv(Scene):
 
         # 方法二：先化简
         m2_bg  = self.card(7.2, 2.2, self.C_FORMULA, UP * 2.1)
-        m2_tag = Text("方法二：先化简", font="Noto Sans CJK SC", font_size=24, color=self.C_FORMULA)
+        m2_tag = Text("方法二：先化简", font="PingFang SC", font_size=24, color=self.C_FORMULA)
         m2_f1  = MathTex(r"\sqrt{12} = 2\sqrt{3}", font_size=34, color=GRAY_A)
         m2_f2  = MathTex(r"\dfrac{2\sqrt{3}}{\sqrt{3}} = 2", font_size=38, color=WHITE)
         VGroup(m2_tag, m2_f1, m2_f2).arrange(DOWN, buff=0.18).move_to(UP * 2.1)
@@ -355,7 +355,7 @@ class RadicalMultDiv(Scene):
 
         note = Text(
             "12 ÷ 3 = 4，√4 = 2，得到整数！",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(DOWN * 0.9)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(2.0)
@@ -367,20 +367,20 @@ class RadicalMultDiv(Scene):
     def scene_rationalize_intro(self):
         title = Text(
             "分母有理化",
-            font="Noto Sans CJK SC", font_size=48, color=self.C_TITLE,
+            font="PingFang SC", font_size=48, color=self.C_TITLE,
         ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.6)
 
         # 问题：分母有根号不是最简
         prob_bg = self.card(7.4, 2.0, self.C_WRONG, UP * 5.1, fill="#2d0a0a", alpha=0.9)
-        prob_t1 = Text("分母含根号，不是最简！", font="Noto Sans CJK SC", font_size=26, color=self.C_WRONG)
+        prob_t1 = Text("分母含根号，不是最简！", font="PingFang SC", font_size=26, color=self.C_WRONG)
         prob_f  = MathTex(r"\dfrac{1}{\sqrt{3}} \;\longrightarrow\; \text{???}", font_size=44, color=WHITE)
         VGroup(prob_t1, prob_f).arrange(DOWN, buff=0.2).move_to(UP * 5.1)
         self.play(Create(prob_bg), Write(prob_t1), Write(prob_f), run_time=0.8)
 
         # 核心思路
         idea_bg = self.card(7.4, 2.8, self.C_RATN, UP * 3.1)
-        idea_t  = Text("核心思路：分子分母同乘以根式", font="Noto Sans CJK SC", font_size=24, color=self.C_RATN)
+        idea_t  = Text("核心思路：分子分母同乘以根式", font="PingFang SC", font_size=24, color=self.C_RATN)
         idea_f1 = MathTex(r"\dfrac{1}{\sqrt{3}} = \dfrac{1 \times \sqrt{3}}{\sqrt{3} \times \sqrt{3}}", font_size=36, color=WHITE)
         idea_f2 = MathTex(r"= \dfrac{\sqrt{3}}{(\sqrt{3})^2} = \dfrac{\sqrt{3}}{3}", font_size=36, color=self.C_RESULT)
         VGroup(idea_t, idea_f1, idea_f2).arrange(DOWN, buff=0.25).move_to(UP * 3.1)
@@ -388,14 +388,14 @@ class RadicalMultDiv(Scene):
 
         # 乘法公式说明
         why_bg = self.card(7.4, 1.6, self.C_MUL, UP * 1.25)
-        why_t  = Text("为什么乘以 √3？", font="Noto Sans CJK SC", font_size=24, color=self.C_MUL)
+        why_t  = Text("为什么乘以 √3？", font="PingFang SC", font_size=24, color=self.C_MUL)
         why_f  = MathTex(r"\sqrt{3} \times \sqrt{3} = 3 \quad (\text{integer!})", font_size=34, color=WHITE)
         VGroup(why_t, why_f).arrange(DOWN, buff=0.15).move_to(UP * 1.25)
         self.play(Create(why_bg), Write(why_t), Write(why_f), run_time=0.7)
 
         # 通用公式
         gen_bg = self.card(7.4, 1.8, self.C_FORMULA, DOWN * 0.3, fill="#0f2a0a", alpha=0.95)
-        gen_t  = Text("通用公式：", font="Noto Sans CJK SC", font_size=24, color=self.C_FORMULA)
+        gen_t  = Text("通用公式：", font="PingFang SC", font_size=24, color=self.C_FORMULA)
         gen_f  = MathTex(r"\dfrac{1}{\sqrt{a}} = \dfrac{\sqrt{a}}{a} \quad (a > 0)", font_size=38, color=WHITE)
         VGroup(gen_t, gen_f).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.3)
         self.play(Create(gen_bg), Write(gen_t), Write(gen_f), run_time=0.7)
@@ -408,10 +408,10 @@ class RadicalMultDiv(Scene):
     def scene_rationalize_ex(self):
         title = Text(
             "例题 4  分母有理化",
-            font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+            font="PingFang SC", font_size=34, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_RATN, UP * 5.55)
-        prob_l  = Text("化简：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_l  = Text("化简：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_f  = MathTex(r"\dfrac{6}{\sqrt{3}}", font_size=58, color=WHITE)
         VGroup(prob_l, prob_f).arrange(RIGHT, buff=0.3).move_to(UP * 5.55)
         self.play(Write(title), Create(prob_bg), Write(prob_l), Write(prob_f), run_time=0.7)
@@ -421,17 +421,17 @@ class RadicalMultDiv(Scene):
         s1 = MathTex(r"\dfrac{6}{\sqrt{3}}", font_size=50, color=WHITE)
         arr1 = MathTex(r"=", font_size=40, color=GRAY_A)
         s2 = MathTex(r"\dfrac{6 \times \sqrt{3}}{\sqrt{3} \times \sqrt{3}}", font_size=44, color=WHITE)
-        step1_label = Text("分子分母同乘 √3", font="Noto Sans CJK SC", font_size=20, color=self.C_RATN)
+        step1_label = Text("分子分母同乘 √3", font="PingFang SC", font_size=20, color=self.C_RATN)
         row1 = VGroup(s1, arr1, s2).arrange(RIGHT, buff=0.3)
 
         arr2 = MathTex(r"=", font_size=40, color=GRAY_A)
         s3   = MathTex(r"\dfrac{6\sqrt{3}}{3}", font_size=50, color=WHITE)
-        step2_label = Text("分母 √3×√3=3", font="Noto Sans CJK SC", font_size=20, color=self.C_RATN)
+        step2_label = Text("分母 √3×√3=3", font="PingFang SC", font_size=20, color=self.C_RATN)
         row2 = VGroup(arr2, s3).arrange(RIGHT, buff=0.3)
 
         arr3 = MathTex(r"=", font_size=40, color=GRAY_A)
         s4   = MathTex(r"2\sqrt{3}", font_size=58, color=self.C_RESULT)
-        step3_label = Text("约分 6÷3=2", font="Noto Sans CJK SC", font_size=20, color=self.C_RATN)
+        step3_label = Text("约分 6÷3=2", font="PingFang SC", font_size=20, color=self.C_RATN)
         row3 = VGroup(arr3, s4).arrange(RIGHT, buff=0.3)
 
         VGroup(row1, row2, row3).arrange(DOWN, buff=0.35).move_to(UP * 3.4)
@@ -449,7 +449,7 @@ class RadicalMultDiv(Scene):
         self.play(Indicate(ans_f, color=self.C_RESULT, scale_factor=1.07), run_time=0.6)
 
         check_bg = self.card(7.2, 1.8, self.C_FORMULA, DOWN * 0.05)
-        check_t1 = Text("验证：分母无根号，被开方数无完全平方因数", font="Noto Sans CJK SC", font_size=20, color=self.C_FORMULA)
+        check_t1 = Text("验证：分母无根号，被开方数无完全平方因数", font="PingFang SC", font_size=20, color=self.C_FORMULA)
         check_f  = MathTex(r"2\sqrt{3} \;\checkmark", font_size=36, color=self.C_RESULT)
         VGroup(check_t1, check_f).arrange(DOWN, buff=0.15).move_to(DOWN * 0.05)
         self.play(Create(check_bg), Write(check_t1), Write(check_f), run_time=0.6)
@@ -462,7 +462,7 @@ class RadicalMultDiv(Scene):
     def scene_quick_practice(self):
         title = Text(
             "综合练习",
-            font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+            font="PingFang SC", font_size=44, color=self.C_TITLE,
         ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.5)
 
@@ -485,7 +485,7 @@ class RadicalMultDiv(Scene):
             bg     = self.card(7.6, card_h, col, pos)
             prob_f = MathTex(prob,   font_size=38, color=WHITE)
             res_f  = MathTex(result, font_size=38, color=self.C_RESULT)
-            hint_t = Text(hint, font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            hint_t = Text(hint, font="PingFang SC", font_size=20, color=GRAY_A)
             top    = VGroup(prob_f, res_f).arrange(RIGHT, buff=0.4)
             VGroup(top, hint_t).arrange(DOWN, buff=0.12).move_to(pos)
 
@@ -503,7 +503,7 @@ class RadicalMultDiv(Scene):
     def scene_summary(self):
         title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+            font="PingFang SC", font_size=46, color=self.C_TITLE,
         ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.5)
 
@@ -522,7 +522,7 @@ class RadicalMultDiv(Scene):
 
         for col, pos, label_str, fml_str in blocks:
             bg  = self.card(7.6, 1.45, col, pos)
-            lbl = Text(label_str, font="Noto Sans CJK SC", font_size=24, color=col)
+            lbl = Text(label_str, font="PingFang SC", font_size=24, color=col)
             fml = MathTex(fml_str, font_size=28, color=WHITE)
             VGroup(lbl, fml).arrange(RIGHT, buff=0.4).move_to(pos)
             self.play(Create(bg), Write(lbl), Write(fml), run_time=0.45)
@@ -537,11 +537,11 @@ class RadicalMultDiv(Scene):
     def scene_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=38, color=WHITE,
+            font="PingFang SC", font_size=38, color=WHITE,
         ).move_to(UP * 2.5)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+            font="PingFang SC", font_size=28, color=GRAY_B,
         ).move_to(UP * 1.7)
 
         self.play(Transform(self.author, author_big), run_time=0.8)
@@ -549,7 +549,7 @@ class RadicalMultDiv(Scene):
 
         follow = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(UP * 0.3)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
 

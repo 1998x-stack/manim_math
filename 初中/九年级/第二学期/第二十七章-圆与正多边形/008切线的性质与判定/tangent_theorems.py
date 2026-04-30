@@ -229,7 +229,7 @@ class TangentTheorems(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -239,7 +239,7 @@ class TangentTheorems(Scene):
         # 钩子问题
         hook_text = Text(
             "什么是切线?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -286,7 +286,7 @@ class TangentTheorems(Scene):
         # 标题
         title = Text(
             "切线性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -357,7 +357,7 @@ class TangentTheorems(Scene):
         # 说明文字
         explain = Text(
             "切线垂直于过切点的半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.8)
@@ -395,7 +395,7 @@ class TangentTheorems(Scene):
         # 标题
         title = Text(
             "切线判定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -411,7 +411,7 @@ class TangentTheorems(Scene):
         # 条件1: 直线过T点
         condition_1 = Text(
             "条件1: 直线过半径外端T",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -432,7 +432,7 @@ class TangentTheorems(Scene):
         # 条件2: 垂直于半径
         condition_2 = Text(
             "条件2: 且垂直于这条半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 3.8)
@@ -459,7 +459,7 @@ class TangentTheorems(Scene):
         # 结论
         conclusion = Text(
             "则此直线是圆的切线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.8)
@@ -469,7 +469,7 @@ class TangentTheorems(Scene):
         # 关键提示
         key_hint = Text(
             "两个条件缺一不可!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_EQUAL
         ).move_to(DOWN * 4)
@@ -499,7 +499,7 @@ class TangentTheorems(Scene):
         # 标题
         title = Text(
             "切线长定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -529,7 +529,7 @@ class TangentTheorems(Scene):
         # 提示文字
         hint = Text(
             "从P引两条切线到圆...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4)
@@ -647,7 +647,7 @@ class TangentTheorems(Scene):
         # 说明文字
         explain = Text(
             "切线长相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.2)
@@ -689,7 +689,7 @@ class TangentTheorems(Scene):
         # 标题
         title = Text(
             "切线三要素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -742,7 +742,7 @@ class TangentTheorems(Scene):
         # 重点提示
         key_point = Text(
             "掌握三要素, 轻松解题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -766,7 +766,7 @@ class TangentTheorems(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -774,7 +774,7 @@ class TangentTheorems(Scene):
         # 内容
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=font_size_content,
             color=self.COLOR_AUXILIARY
         )
@@ -811,14 +811,14 @@ class TangentTheorems(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 0.5)
@@ -832,7 +832,7 @@ class TangentTheorems(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

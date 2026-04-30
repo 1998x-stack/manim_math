@@ -258,7 +258,7 @@ class TangentProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -268,7 +268,7 @@ class TangentProperties(Scene):
         # 钩子问题
         hook = Text(
             "切线有什么神奇性质?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -312,14 +312,14 @@ class TangentProperties(Scene):
         # 标题
         title = Text(
             "切线性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TANGENT
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "切线垂直于过切点的半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -362,7 +362,7 @@ class TangentProperties(Scene):
         )
         
         # 切线标签
-        tangent_label_text = Text("l", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_TANGENT)
+        tangent_label_text = Text("l", font="PingFang SC", font_size=22, color=self.COLOR_TANGENT)
         tangent_label_text.next_to(self.tangent_end, UP, buff=0.1)
         
         self.play(Create(tangent_line), Write(tangent_label_text), run_time=0.8)
@@ -398,7 +398,7 @@ class TangentProperties(Scene):
         # 公式
         formula_label = Text(
             "切线性质:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -414,7 +414,7 @@ class TangentProperties(Scene):
         # 说明文字
         explanation = Text(
             "圆的切线垂直于过切点的半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -545,14 +545,14 @@ class TangentProperties(Scene):
         # 标题
         title = Text(
             "切线判定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "如何判断一条直线是否为切线?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -562,17 +562,17 @@ class TangentProperties(Scene):
         
         # 三个判定条件卡片
         card1_icon = Circle(radius=0.15, fill_color=self.COLOR_RADIUS, fill_opacity=1, stroke_width=0)
-        card1_text = Text("① 过半径外端", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        card1_text = Text("① 过半径外端", font="PingFang SC", font_size=22, color=WHITE)
         card1 = VGroup(card1_icon, card1_text).arrange(RIGHT, buff=0.3)
         card1.move_to(UP * 1.5 + LEFT * 10)  # 初始在左侧外
         
         card2_icon = Circle(radius=0.15, fill_color=YELLOW, fill_opacity=1, stroke_width=0)
-        card2_text = Text("② 垂直于半径", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        card2_text = Text("② 垂直于半径", font="PingFang SC", font_size=22, color=WHITE)
         card2 = VGroup(card2_icon, card2_text).arrange(RIGHT, buff=0.3)
         card2.move_to(UP * 0.5 + LEFT * 10)
         
         card3_icon = Circle(radius=0.15, fill_color=self.COLOR_CIRCLE, fill_opacity=1, stroke_width=0)
-        card3_text = Text("③ 只有一个交点", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        card3_text = Text("③ 只有一个交点", font="PingFang SC", font_size=22, color=WHITE)
         card3 = VGroup(card3_icon, card3_text).arrange(RIGHT, buff=0.3)
         card3.move_to(DOWN * 0.5 + LEFT * 10)
         
@@ -629,7 +629,7 @@ class TangentProperties(Scene):
         
         explain_1 = Text(
             "不过半径外端 ✗",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=RED
         ).move_to(DOWN * 4.5)
@@ -648,7 +648,7 @@ class TangentProperties(Scene):
         
         explain_2 = Text(
             "不垂直于半径 ✗",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=RED
         ).move_to(DOWN * 4.5)
@@ -679,7 +679,7 @@ class TangentProperties(Scene):
         
         explain_3 = Text(
             "满足条件! 这是切线 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -709,14 +709,14 @@ class TangentProperties(Scene):
         # 标题
         title = Text(
             "切线长定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color="#9b59b6"  # 紫色
         ).move_to(UP * 5.5)
         
         definition = Text(
             "从圆外一点引两条切线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -839,7 +839,7 @@ class TangentProperties(Scene):
         # 说明文字1
         explain_1_text = Text(
             "切线性质:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -878,7 +878,7 @@ class TangentProperties(Scene):
         # 全等标记
         congruent_text = Text(
             "全等:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -896,7 +896,7 @@ class TangentProperties(Scene):
         # 最终结论公式
         conclusion_text = Text(
             "切线长定理:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -944,30 +944,30 @@ class TangentProperties(Scene):
     def scene_8_summary_outro(self):
         """场景8: 总结与片尾"""
         # 三个知识卡片
-        card1_title = Text("切线性质", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_TANGENT)
+        card1_title = Text("切线性质", font="PingFang SC", font_size=22, color=self.COLOR_TANGENT)
         card1_content = Text(
             "切线垂直于过切点的半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
         card1 = VGroup(card1_title, card1_content).arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         card1.move_to(UP * 2.5 + LEFT * 10)
         
-        card2_title = Text("切线判定", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HIGHLIGHT)
+        card2_title = Text("切线判定", font="PingFang SC", font_size=22, color=self.COLOR_HIGHLIGHT)
         card2_content = Text(
             "过半径外端且垂直于半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
         card2 = VGroup(card2_title, card2_content).arrange(DOWN, buff=0.2, aligned_edge=LEFT)
         card2.move_to(UP * 1 + LEFT * 10)
         
-        card3_title = Text("切线长定理", font="Noto Sans CJK SC", font_size=22, color="#9b59b6")
+        card3_title = Text("切线长定理", font="PingFang SC", font_size=22, color="#9b59b6")
         card3_content = Text(
             "从圆外一点的切线长相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -986,14 +986,14 @@ class TangentProperties(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 3)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 4)
@@ -1007,7 +1007,7 @@ class TangentProperties(Scene):
         # 关注提示
         follow = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)

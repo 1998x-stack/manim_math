@@ -97,7 +97,7 @@ class DataCollectionOrganization(Scene):
         # 作者信息（顶部，全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -107,7 +107,7 @@ class DataCollectionOrganization(Scene):
         # 钩子文字
         hook_text = Text(
             "班级要统计身高",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=50,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -132,7 +132,7 @@ class DataCollectionOrganization(Scene):
         # 问题文字
         question = Text(
             "这么多数据怎么整理？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 2)
@@ -153,7 +153,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "统计的步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -176,7 +176,7 @@ class DataCollectionOrganization(Scene):
             circle_group = VGroup(circle, number)
             
             # 文字
-            step_text = Text(text, font="Noto Sans CJK SC", font_size=28, color=color)
+            step_text = Text(text, font="PingFang SC", font_size=28, color=color)
             
             # 组合
             step_card = VGroup(circle_group, step_text).arrange(RIGHT, buff=0.4)
@@ -224,7 +224,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "数据收集方式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -234,7 +234,7 @@ class DataCollectionOrganization(Scene):
         # 普查卡片
         census_title = Text(
             "普查（全面调查）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -242,7 +242,7 @@ class DataCollectionOrganization(Scene):
         
         census_desc = Text(
             "调查全部对象",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(census_title, DOWN, buff=0.3)
@@ -266,7 +266,7 @@ class DataCollectionOrganization(Scene):
         # 抽样调查卡片
         sample_title = Text(
             "抽样调查",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -274,7 +274,7 @@ class DataCollectionOrganization(Scene):
         
         sample_desc = Text(
             "调查部分对象",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(sample_title, DOWN, buff=0.3)
@@ -308,13 +308,13 @@ class DataCollectionOrganization(Scene):
         comparison_table = Table(
             comparison_data,
             row_labels=[
-                Text("普查", font="Noto Sans CJK SC", font_size=20),
-                Text("抽样", font="Noto Sans CJK SC", font_size=20)
+                Text("普查", font="PingFang SC", font_size=20),
+                Text("抽样", font="PingFang SC", font_size=20)
             ],
             col_labels=[
-                Text("范围", font="Noto Sans CJK SC", font_size=20),
-                Text("准确", font="Noto Sans CJK SC", font_size=20),
-                Text("成本", font="Noto Sans CJK SC", font_size=20)
+                Text("范围", font="PingFang SC", font_size=20),
+                Text("准确", font="PingFang SC", font_size=20),
+                Text("成本", font="PingFang SC", font_size=20)
             ],
             include_outer_lines=True,
             line_config={"stroke_width": 1}
@@ -337,7 +337,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "原始数据",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -347,7 +347,7 @@ class DataCollectionOrganization(Scene):
         # 数据说明
         data_desc = Text(
             "学生身高（cm）：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 4.2)
@@ -391,7 +391,7 @@ class DataCollectionOrganization(Scene):
         # 问题文字
         problem_text = Text(
             "数据太乱了，怎么办？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_WARNING
         ).move_to(DOWN * 1)
@@ -414,7 +414,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "数据分组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -424,7 +424,7 @@ class DataCollectionOrganization(Scene):
         # 分组说明
         group_desc = Text(
             "按身高分成4组：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 4.2)
@@ -439,7 +439,7 @@ class DataCollectionOrganization(Scene):
             # 组名
             label = Text(
                 group_name,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=color
             )
@@ -479,7 +479,7 @@ class DataCollectionOrganization(Scene):
         for i, (box, freq) in enumerate(zip(group_boxes, self.frequencies)):
             freq_text = Text(
                 f"频数: {freq}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE
             ).move_to(box[1].get_center())
@@ -518,7 +518,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "频数分布表",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -537,12 +537,12 @@ class DataCollectionOrganization(Scene):
         freq_table = Table(
             table_data,
             row_labels=[
-                Text(g, font="Noto Sans CJK SC", font_size=24) 
+                Text(g, font="PingFang SC", font_size=24) 
                 for g in ["分组1", "分组2", "分组3", "分组4"]
             ],
             col_labels=[
-                Text("身高分组(cm)", font="Noto Sans CJK SC", font_size=24),
-                Text("频数", font="Noto Sans CJK SC", font_size=24)
+                Text("身高分组(cm)", font="PingFang SC", font_size=24),
+                Text("频数", font="PingFang SC", font_size=24)
             ],
             include_outer_lines=True,
             line_config={"stroke_width": 2},
@@ -572,7 +572,7 @@ class DataCollectionOrganization(Scene):
         # 合计行
         total_text = Text(
             f"合计: {self.total}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_SUCCESS,
             weight=BOLD
@@ -604,7 +604,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "频率",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -614,7 +614,7 @@ class DataCollectionOrganization(Scene):
         # 频率定义
         definition = Text(
             "频率表示各组数据占总数的比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -629,7 +629,7 @@ class DataCollectionOrganization(Scene):
         
         formula_cn = Text(
             "频率 = 频数 / 总数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_PRIMARY
         ).next_to(formula, DOWN, buff=0.3)
@@ -640,7 +640,7 @@ class DataCollectionOrganization(Scene):
         # 示例计算
         calc_title = Text(
             "计算示例：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 1.8)
@@ -678,9 +678,9 @@ class DataCollectionOrganization(Scene):
         complete_table = Table(
             complete_table_data,
             col_labels=[
-                Text("身高(cm)", font="Noto Sans CJK SC", font_size=20),
-                Text("频数", font="Noto Sans CJK SC", font_size=20),
-                Text("频率", font="Noto Sans CJK SC", font_size=20)
+                Text("身高(cm)", font="PingFang SC", font_size=20),
+                Text("频数", font="PingFang SC", font_size=20),
+                Text("频率", font="PingFang SC", font_size=20)
             ],
             include_outer_lines=True,
             line_config={"stroke_width": 2},
@@ -692,7 +692,7 @@ class DataCollectionOrganization(Scene):
         # 频率和性质
         sum_property = Text(
             "各组频率之和 = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_WARNING,
             weight=BOLD
@@ -740,7 +740,7 @@ class DataCollectionOrganization(Scene):
         # 标题
         title = Text(
             "柱状图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5 + LEFT * 2)
@@ -790,7 +790,7 @@ class DataCollectionOrganization(Scene):
         # 纵坐标标签
         y_label = Text(
             "频数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(chart.get_axes()[1], LEFT, buff=0.3)
@@ -800,7 +800,7 @@ class DataCollectionOrganization(Scene):
         # 图表标题
         chart_title = Text(
             "学生身高频数分布",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).next_to(chart, DOWN, buff=0.5)
@@ -829,7 +829,7 @@ class DataCollectionOrganization(Scene):
         # 总结标题
         summary_title = Text(
             "知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -848,7 +848,7 @@ class DataCollectionOrganization(Scene):
         for i, point in enumerate(points):
             point_text = Text(
                 point,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE
             ).move_to(UP * (2.5 - i * 0.8))
@@ -859,9 +859,9 @@ class DataCollectionOrganization(Scene):
         
         # 公式框
         formulas = VGroup(
-            Text("频数 = 该组出现次数", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("频率 = 频数/总数", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("频率和 = 1", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("频数 = 该组出现次数", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("频率 = 频数/总数", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("频率和 = 1", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 0.5)
         
         formula_box = SurroundingRectangle(
@@ -880,7 +880,7 @@ class DataCollectionOrganization(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
             weight=BOLD
@@ -888,7 +888,7 @@ class DataCollectionOrganization(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -902,7 +902,7 @@ class DataCollectionOrganization(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多统计技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

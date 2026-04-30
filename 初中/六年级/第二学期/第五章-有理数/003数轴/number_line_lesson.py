@@ -62,7 +62,7 @@ class NumberLineLesson(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -72,7 +72,7 @@ class NumberLineLesson(Scene):
         # 钩子问题
         hook_text = Text(
             "有理数怎么排队?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -116,7 +116,7 @@ class NumberLineLesson(Scene):
         # 标题
         title_chinese = Text(
             "数轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -136,7 +136,7 @@ class NumberLineLesson(Scene):
         # 定义
         definition = Text(
             "规定了原点、正方向和单位长度的直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.3)
@@ -170,7 +170,7 @@ class NumberLineLesson(Scene):
         # 标题
         element_title = Text(
             "要素1: 原点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ORIGIN,
             weight=BOLD
@@ -197,7 +197,7 @@ class NumberLineLesson(Scene):
         # 原点标签 O 和 0
         label_o = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(self.origin_dot, UP, buff=0.25)
@@ -217,7 +217,7 @@ class NumberLineLesson(Scene):
         # 说明文字
         explanation = Text(
             "确定数轴的基准位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -251,7 +251,7 @@ class NumberLineLesson(Scene):
         # 标题
         element_title = Text(
             "要素2: 正方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_POSITIVE,
             weight=BOLD
@@ -288,7 +288,7 @@ class NumberLineLesson(Scene):
         # 说明文字
         explanation = Text(
             "通常向右为正",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -334,7 +334,7 @@ class NumberLineLesson(Scene):
         # 标题
         element_title = Text(
             "要素3: 单位长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -385,7 +385,7 @@ class NumberLineLesson(Scene):
         
         unit_label = Text(
             "单位长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_SECONDARY
         ).next_to(unit_brace, DOWN, buff=0.1)
@@ -448,7 +448,7 @@ class NumberLineLesson(Scene):
         # 说明文字
         explanation = Text(
             "确定刻度的间隔",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -480,7 +480,7 @@ class NumberLineLesson(Scene):
         # 标题
         title_chinese = Text(
             "数轴上的点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -493,7 +493,7 @@ class NumberLineLesson(Scene):
         
         title_number = Text(
             "有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -598,7 +598,7 @@ class NumberLineLesson(Scene):
         # 说明文字
         explanation = Text(
             "每个点对应一个有理数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -621,7 +621,7 @@ class NumberLineLesson(Scene):
         # 标题
         comparison_title = Text(
             "比较大小: 右边的数 > 左边的数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -666,7 +666,7 @@ class NumberLineLesson(Scene):
         
         right_label = Text(
             "右",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_POSITIVE
         ).next_to(arrow_right, UP, buff=0.1)
@@ -735,7 +735,7 @@ class NumberLineLesson(Scene):
         
         right_label_2 = Text(
             "右",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=ORANGE
         ).next_to(arrow_right_2, UP, buff=0.1)
@@ -809,7 +809,7 @@ class NumberLineLesson(Scene):
         # 总结
         summary = Text(
             "位置越靠右，数值越大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -885,7 +885,7 @@ class NumberLineLesson(Scene):
         # 重点提示
         highlight_text = Text(
             "数轴是有理数的直观表示!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -898,7 +898,7 @@ class NumberLineLesson(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -906,7 +906,7 @@ class NumberLineLesson(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 5.3)
@@ -921,7 +921,7 @@ class NumberLineLesson(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)
@@ -979,7 +979,7 @@ class NumberLineLesson(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             weight=BOLD
@@ -988,7 +988,7 @@ class NumberLineLesson(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )

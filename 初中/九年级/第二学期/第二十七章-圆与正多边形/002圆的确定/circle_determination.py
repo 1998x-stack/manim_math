@@ -185,7 +185,7 @@ class CircleDetermination(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -195,7 +195,7 @@ class CircleDetermination(Scene):
         # 钩子问题
         hook_text = Text(
             "三个点，能画出一个圆吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -243,7 +243,7 @@ class CircleDetermination(Scene):
         # 小标题
         subtitle = Text(
             "条件：三点不能共线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -281,7 +281,7 @@ class CircleDetermination(Scene):
         # 说明文字
         explanation = Text(
             "共线的点无法确定圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -304,7 +304,7 @@ class CircleDetermination(Scene):
         # 说明
         explanation = Text(
             "不共线的三点 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -337,13 +337,13 @@ class CircleDetermination(Scene):
         self.play(Create(self.triangle), run_time=1.0)
         
         # 顶点标注
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_A, LEFT, buff=0.15
         )
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_B, RIGHT, buff=0.15
         )
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        label_C = Text("C", font="PingFang SC", font_size=20, color=WHITE).next_to(
             self.dot_C, UP, buff=0.15
         )
         
@@ -371,7 +371,7 @@ class CircleDetermination(Scene):
         # 小标题
         subtitle = Text(
             "寻找外心 - 垂直平分线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_CIRCUMCENTER
         ).move_to(UP * 5.5)
@@ -384,7 +384,7 @@ class CircleDetermination(Scene):
         
         # 中点M
         dot_M = Dot(self.M_AB, color=WHITE, radius=0.08)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(
+        label_M = Text("M", font="PingFang SC", font_size=18, color=WHITE).next_to(
             dot_M, DOWN, buff=0.1
         )
         
@@ -419,7 +419,7 @@ class CircleDetermination(Scene):
         # 说明文字
         explanation = Text(
             "垂直平分线上的点到A、B距离相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -448,7 +448,7 @@ class CircleDetermination(Scene):
         
         # 中点N
         dot_N = Dot(self.M_BC, color=WHITE, radius=0.08)
-        label_N = Text("N", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(
+        label_N = Text("N", font="PingFang SC", font_size=18, color=WHITE).next_to(
             dot_N, RIGHT, buff=0.1
         )
         
@@ -483,7 +483,7 @@ class CircleDetermination(Scene):
         # 说明文字
         explanation = Text(
             "两条垂直平分线相交",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -514,7 +514,7 @@ class CircleDetermination(Scene):
         self.play(FadeIn(dot_O, scale=0.5), run_time=0.5)
         
         # 标注"O"
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CIRCUMCENTER).next_to(
+        label_O = Text("O", font="PingFang SC", font_size=24, color=self.COLOR_CIRCUMCENTER).next_to(
             dot_O, LEFT, buff=0.15
         )
         self.play(FadeIn(label_O), run_time=0.5)
@@ -522,7 +522,7 @@ class CircleDetermination(Scene):
         # 标签"外心"
         label_circumcenter = Text(
             "外心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_CIRCUMCENTER
         ).next_to(label_O, DOWN, buff=0.05, aligned_edge=LEFT)
@@ -588,7 +588,7 @@ class CircleDetermination(Scene):
         # 说明文字
         explanation = Text(
             "这就是三角形的外接圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -607,7 +607,7 @@ class CircleDetermination(Scene):
         # 主公式
         main_formula = Text(
             "不共线的三点确定一个圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -689,7 +689,7 @@ class CircleDetermination(Scene):
         # 总结文字
         summary_text = Text(
             "掌握外接圆\n解锁几何新技能！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -710,14 +710,14 @@ class CircleDetermination(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -731,7 +731,7 @@ class CircleDetermination(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -770,7 +770,7 @@ class CircleDetermination(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -778,7 +778,7 @@ class CircleDetermination(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=GRAY_A
         )

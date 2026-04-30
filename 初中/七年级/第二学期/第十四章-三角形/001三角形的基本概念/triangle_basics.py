@@ -175,7 +175,7 @@ class TriangleBasics(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -185,7 +185,7 @@ class TriangleBasics(Scene):
         # 钩子问题
         hook_text = Text(
             "三角形，你真的了解吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -221,14 +221,14 @@ class TriangleBasics(Scene):
         # 标题
         title = Text(
             "什么是三角形？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
         
         definition = Text(
             "由三条线段首尾顺次相接围成的封闭图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -262,16 +262,16 @@ class TriangleBasics(Scene):
         self.play(Indicate(triangle, color=self.COLOR_HIGHLIGHT), run_time=0.5)
         
         # 标注顶点
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(dot_A, DOWN + LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(dot_B, DOWN + RIGHT, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(dot_C, UP, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(dot_A, DOWN + LEFT, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(dot_B, DOWN + RIGHT, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(dot_C, UP, buff=0.15)
         
         self.play(Write(label_A), Write(label_B), Write(label_C), run_time=0.5)
         
         # 说明文字
         explain_text = Text(
             "记作 △ABC",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -298,7 +298,7 @@ class TriangleBasics(Scene):
         # 子场景3.1: 三个顶点
         title_vertex = Text(
             "三个顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_VERTEX
         ).move_to(UP * 5.5)
@@ -328,7 +328,7 @@ class TriangleBasics(Scene):
         # 子场景3.2: 三条边
         title_edge = Text(
             "三条边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_EDGE
         ).move_to(UP * 5.5)
@@ -368,7 +368,7 @@ class TriangleBasics(Scene):
         # 说明对边关系
         edge_note = Text(
             "小写字母表示边，a对应顶点A的对边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -386,7 +386,7 @@ class TriangleBasics(Scene):
         # 子场景3.3: 三个内角
         title_angle = Text(
             "三个内角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ANGLE
         ).move_to(UP * 5.5)
@@ -439,7 +439,7 @@ class TriangleBasics(Scene):
         # 说明
         notation_text = Text(
             "△ABC 表示这个三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -475,7 +475,7 @@ class TriangleBasics(Scene):
         # 分类标题
         classification_title = Text(
             "三角形的分类 - 按边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -494,21 +494,21 @@ class TriangleBasics(Scene):
         # 标注边长
         edge_info = Text(
             f"a={self.a:.1f}, b={self.b:.1f}, c={self.c:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(tri_scalene, DOWN, buff=0.3)
         
         label_scalene = Text(
             "不等边三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(edge_info, DOWN, buff=0.2)
         
         explain_scalene = Text(
             "三条边长度都不相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(label_scalene, DOWN, buff=0.15)
@@ -589,14 +589,14 @@ class TriangleBasics(Scene):
         
         label_isosceles = Text(
             "等腰三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(tri_isosceles, DOWN, buff=0.5)
         
         explain_isosceles = Text(
             "有两条边相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(label_isosceles, DOWN, buff=0.15)
@@ -663,14 +663,14 @@ class TriangleBasics(Scene):
         
         label_equilateral = Text(
             "等边三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(tri_equilateral, DOWN, buff=0.5)
         
         explain_equilateral = Text(
             "三条边都相等，三个角都是60°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(label_equilateral, DOWN, buff=0.15)
@@ -709,7 +709,7 @@ class TriangleBasics(Scene):
         # 分类标题
         classification_title2 = Text(
             "三角形的分类 - 按角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -743,21 +743,21 @@ class TriangleBasics(Scene):
         
         angle_values = Text(
             f"{np.degrees(angle_A_acute):.0f}°, {np.degrees(angle_B_acute):.0f}°, {np.degrees(angle_C_acute):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(tri_acute, DOWN, buff=0.3)
         
         label_acute = Text(
             "锐角三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(angle_values, DOWN, buff=0.2)
         
         explain_acute = Text(
             "三个角都小于90°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(label_acute, DOWN, buff=0.15)
@@ -818,14 +818,14 @@ class TriangleBasics(Scene):
         
         label_right = Text(
             "直角三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(tri_right, DOWN, buff=0.5)
         
         explain_right = Text(
             "有一个角等于90°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(label_right, DOWN, buff=0.15)
@@ -874,7 +874,7 @@ class TriangleBasics(Scene):
         # 角度标注
         angle_value = Text(
             f"{np.degrees(angle_C_obtuse):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ANGLE
         ).next_to(tri_obtuse.get_vertices()[2], LEFT, buff=0.3)
@@ -883,14 +883,14 @@ class TriangleBasics(Scene):
         
         label_obtuse = Text(
             "钝角三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(tri_obtuse, DOWN, buff=0.5)
         
         explain_obtuse = Text(
             "有一个角大于90°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(label_obtuse, DOWN, buff=0.15)
@@ -918,7 +918,7 @@ class TriangleBasics(Scene):
         # 总结标题
         summary_title = Text(
             "三角形分类总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6)
@@ -928,7 +928,7 @@ class TriangleBasics(Scene):
         # 左侧: 按边分类
         left_title = Text(
             "按边分类",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EDGE
         ).move_to(LEFT * 2.5 + UP * 4.5)
@@ -949,7 +949,7 @@ class TriangleBasics(Scene):
         # 右侧: 按角分类
         right_title = Text(
             "按角分类",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ANGLE
         ).move_to(RIGHT * 2.5 + UP * 4.5)
@@ -974,7 +974,7 @@ class TriangleBasics(Scene):
         # 重点提示
         key_point = Text(
             "掌握这6种三角形，轻松解题！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -1011,7 +1011,7 @@ class TriangleBasics(Scene):
             # 名称
             name_text = Text(
                 name,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE
             )
@@ -1019,7 +1019,7 @@ class TriangleBasics(Scene):
             # 描述
             desc_text = Text(
                 description,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=16,
                 color=GRAY_A
             )
@@ -1038,14 +1038,14 @@ class TriangleBasics(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1059,7 +1059,7 @@ class TriangleBasics(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

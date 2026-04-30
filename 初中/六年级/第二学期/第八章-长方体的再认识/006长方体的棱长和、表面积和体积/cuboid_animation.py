@@ -18,7 +18,7 @@ config.frame_width  = 9
 config.frame_height = 16
 
 # ── 全局常量 ──────────────────────────────────────────
-FONT        = "Noto Sans CJK SC"
+FONT        = "PingFang SC"
 BG          = "#1a1a2e"
 AUTHOR_NAME = "上海初高中数学直通车"
 AUTHOR_ID   = "@emptyandcalm"

@@ -116,7 +116,7 @@ class FractionAdditionSubtraction(Scene):
         """场景1: 开场钩子"""
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B,
         ).move_to(UP * 7)
@@ -137,7 +137,7 @@ class FractionAdditionSubtraction(Scene):
         for qm in question_marks:
             self.play(Flash(qm, color=RED, flash_radius=0.4), run_time=0.3)
 
-        title = Text("分数的加减法", font="Noto Sans CJK SC",
+        title = Text("分数的加减法", font="PingFang SC",
                      font_size=48, color=GOLD).move_to(UP * 1)
         self.play(FadeIn(title, shift=UP * 0.3), run_time=0.5)
         self.wait(0.5)
@@ -147,9 +147,9 @@ class FractionAdditionSubtraction(Scene):
 
     def scene_2_same_denominator_addition(self):
         """场景2: 同分母加法 - 1/4 + 1/4 = 2/4 = 1/2"""
-        title = Text("同分母分数相加", font="Noto Sans CJK SC",
+        title = Text("同分母分数相加", font="PingFang SC",
                      font_size=36, color=self.COLOR_PRIMARY).move_to(UP * 6.5)
-        subtitle = Text("分母不变，分子相加", font="Noto Sans CJK SC",
+        subtitle = Text("分母不变，分子相加", font="PingFang SC",
                         font_size=24, color=GRAY_A).move_to(UP * 5.8)
         self.play(Write(title), FadeIn(subtitle), run_time=0.8)
 
@@ -177,7 +177,7 @@ class FractionAdditionSubtraction(Scene):
             (self.circle_left_pos + self.circle_right_pos) / 2 + DOWN * 0.3)
         self.play(FadeIn(plus_sign), run_time=0.3)
 
-        explain = Text("分母相同，分子直接相加", font="Noto Sans CJK SC",
+        explain = Text("分母相同，分子直接相加", font="PingFang SC",
                        font_size=22, color=GRAY_A).move_to(DOWN * 4.5)
         self.play(FadeIn(explain, shift=UP * 0.2), run_time=0.5)
 
@@ -201,7 +201,7 @@ class FractionAdditionSubtraction(Scene):
         result_2_4.next_to(result_circle, DOWN, buff=0.3)
         self.play(Write(result_2_4), run_time=0.8)
 
-        simplify_text = Text("化为最简分数", font="Noto Sans CJK SC",
+        simplify_text = Text("化为最简分数", font="PingFang SC",
                              font_size=22, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5)
         self.play(FadeIn(simplify_text), run_time=0.5)
 
@@ -239,7 +239,7 @@ class FractionAdditionSubtraction(Scene):
 
     def scene_3_same_denominator_subtraction(self):
         """场景3: 同分母减法 - 3/5 - 1/5 = 2/5"""
-        title = Text("同分母分数相减", font="Noto Sans CJK SC",
+        title = Text("同分母分数相减", font="PingFang SC",
                      font_size=36, color=self.COLOR_PRIMARY).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
@@ -269,7 +269,7 @@ class FractionAdditionSubtraction(Scene):
         self.play(Transform(label_3_5, operation[0]),
                   FadeIn(minus_sign), Write(label_1_5), run_time=0.5)
 
-        explain = Text("分母不变，分子相减", font="Noto Sans CJK SC",
+        explain = Text("分母不变，分子相减", font="PingFang SC",
                        font_size=22, color=GRAY_A).move_to(DOWN * 1)
         self.play(FadeIn(explain), run_time=0.5)
 
@@ -314,11 +314,11 @@ class FractionAdditionSubtraction(Scene):
         for _ in range(3):
             self.play(Flash(big_question, color=RED, flash_radius=0.6), run_time=0.3)
 
-        problem_text = Text("分母不同，无法直接相加!", font="Noto Sans CJK SC",
+        problem_text = Text("分母不同，无法直接相加!", font="PingFang SC",
                             font_size=28, color=RED).move_to(DOWN * 2)
         self.play(FadeIn(problem_text, shift=UP * 0.3), run_time=0.8)
 
-        solution_text = Text("需要通分!", font="Noto Sans CJK SC",
+        solution_text = Text("需要通分!", font="PingFang SC",
                              font_size=36, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 3.5)
         self.play(Write(solution_text), run_time=0.7)
         self.wait(0.5)
@@ -333,11 +333,11 @@ class FractionAdditionSubtraction(Scene):
 
     def scene_5_common_denominator_process(self):
         """场景5: 通分过程详解"""
-        step1_title = Text("步骤1: 通分", font="Noto Sans CJK SC",
+        step1_title = Text("步骤1: 通分", font="PingFang SC",
                            font_size=32, color=self.COLOR_HIGHLIGHT).move_to(UP * 5)
         self.play(Write(step1_title), run_time=0.5)
 
-        lcm_text = Text("2和3的最小公倍数 = 6", font="Noto Sans CJK SC",
+        lcm_text = Text("2和3的最小公倍数 = 6", font="PingFang SC",
                         font_size=26, color=GRAY_A).move_to(UP * 4.2)
         self.play(FadeIn(lcm_text), run_time=0.8)
 
@@ -431,7 +431,7 @@ class FractionAdditionSubtraction(Scene):
         self.play(GrowArrow(arrow_right), Write(transform_right), run_time=0.8)
 
         # ── 步骤2：相加 ───────────────────────────────────────────── #
-        step2_title = Text("步骤2: 相加", font="Noto Sans CJK SC",
+        step2_title = Text("步骤2: 相加", font="PingFang SC",
                            font_size=32, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 2)
         self.play(Write(step2_title), run_time=0.5)
 
@@ -485,7 +485,7 @@ class FractionAdditionSubtraction(Scene):
                           font_size=40, color=WHITE).move_to(UP * 6)
         self.play(Write(problem), run_time=0.5)
 
-        step_text = Text("通分到公分母6:", font="Noto Sans CJK SC",
+        step_text = Text("通分到公分母6:", font="PingFang SC",
                          font_size=26, color=GRAY_A).move_to(UP * 4.8)
         converted = MathTex(r"= \frac{4}{6} - \frac{3}{6}",
                             font_size=36, color=WHITE).move_to(UP * 4)
@@ -509,7 +509,7 @@ class FractionAdditionSubtraction(Scene):
         label_4_6 = Text("4/6", font_size=28, color=self.COLOR_PRIMARY).move_to(UP * 0.2)
         self.play(Write(label_4_6), run_time=0.4)
 
-        subtract_text = Text("减去 3/6", font="Noto Sans CJK SC",
+        subtract_text = Text("减去 3/6", font="PingFang SC",
                              font_size=24, color=self.COLOR_SECONDARY).move_to(DOWN * 0.5)
         self.play(FadeIn(subtract_text), run_time=0.4)
 
@@ -524,7 +524,7 @@ class FractionAdditionSubtraction(Scene):
                          color=self.COLOR_RESULT).move_to(DOWN * 2.5)
         self.play(Write(result), run_time=0.8)
 
-        note = Text("已经是最简分数!", font="Noto Sans CJK SC",
+        note = Text("已经是最简分数!", font="PingFang SC",
                     font_size=22, color=GRAY_A).move_to(DOWN * 3.8)
         self.play(FadeIn(note), run_time=0.6)
         self.wait(0.5)
@@ -538,7 +538,7 @@ class FractionAdditionSubtraction(Scene):
 
     def scene_7_summary_outro(self):
         """场景7: 总结和片尾"""
-        summary_title = Text("分数加减法要点", font="Noto Sans CJK SC",
+        summary_title = Text("分数加减法要点", font="PingFang SC",
                              font_size=40, color=GOLD).move_to(UP * 6.5)
         self.play(Write(summary_title), run_time=0.5)
 
@@ -571,15 +571,15 @@ class FractionAdditionSubtraction(Scene):
             run_time=0.5,
         )
 
-        author_large = Text("上海初高中数学直通车", font="Noto Sans CJK SC",
+        author_large = Text("上海初高中数学直通车", font="PingFang SC",
                             font_size=38, color=WHITE).move_to(UP * 2)
-        author_id = Text("@emptyandcalm", font="Noto Sans CJK SC",
+        author_id = Text("@emptyandcalm", font="PingFang SC",
                          font_size=30, color=GRAY_B).move_to(UP * 1)
 
         self.play(Transform(self.author_info, author_large), run_time=0.6)
         self.play(FadeIn(author_id, shift=UP * 0.3), run_time=0.5)
 
-        follow_text = Text("关注我，学更多数学技巧!", font="Noto Sans CJK SC",
+        follow_text = Text("关注我，学更多数学技巧!", font="PingFang SC",
                            font_size=32, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 0.5)
         self.play(Write(follow_text), run_time=0.8)
 
@@ -608,8 +608,8 @@ class FractionAdditionSubtraction(Scene):
     def create_summary_card(self, title, content, formula, color, position):
         """创建总结卡片"""
         icon = Circle(radius=0.25, fill_color=color, fill_opacity=1, stroke_width=0)
-        title_text = Text(title, font="Noto Sans CJK SC", font_size=26, color=WHITE)
-        content_text = Text(content, font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        title_text = Text(title, font="PingFang SC", font_size=26, color=WHITE)
+        content_text = Text(content, font="PingFang SC", font_size=20, color=GRAY_A)
         formula_text = MathTex(formula, font_size=24, color=color)
 
         text_group = VGroup(title_text, content_text, formula_text).arrange(

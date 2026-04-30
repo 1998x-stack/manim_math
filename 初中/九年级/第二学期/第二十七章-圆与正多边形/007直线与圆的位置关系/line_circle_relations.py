@@ -149,7 +149,7 @@ class LineCircleRelations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -159,7 +159,7 @@ class LineCircleRelations(Scene):
         # 钩子问题
         hook_text = Text(
             "直线与圆能有几种相遇方式?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -202,7 +202,7 @@ class LineCircleRelations(Scene):
         # 标题
         title = Text(
             "关键要素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -273,7 +273,7 @@ class LineCircleRelations(Scene):
         # 说明文字
         explain = Text(
             "d = 圆心O到直线l的距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.5)
@@ -306,8 +306,8 @@ class LineCircleRelations(Scene):
         """场景3: 相交 (d < r)"""
         # 标题
         title = VGroup(
-            Text("情况1: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("相交", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_INTERSECT)
+            Text("情况1: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("相交", font="PingFang SC", font_size=36, color=self.COLOR_INTERSECT)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -376,7 +376,7 @@ class LineCircleRelations(Scene):
         
         explain = Text(
             "相交: 有两个公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.8)
@@ -407,8 +407,8 @@ class LineCircleRelations(Scene):
         """场景4: 相切 (d = r)"""
         # 标题
         title = VGroup(
-            Text("情况2: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("相切", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_HIGHLIGHT)
+            Text("情况2: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("相切", font="PingFang SC", font_size=36, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -467,14 +467,14 @@ class LineCircleRelations(Scene):
         
         explain = Text(
             "相切: 有一个公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.8)
         
         property_text = Text(
             "切线⊥半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.8)
@@ -504,8 +504,8 @@ class LineCircleRelations(Scene):
         """场景5: 相离 (d > r)"""
         # 标题
         title = VGroup(
-            Text("情况3: ", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("相离", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_AUXILIARY)
+            Text("情况3: ", font="PingFang SC", font_size=32, color=WHITE),
+            Text("相离", font="PingFang SC", font_size=36, color=self.COLOR_AUXILIARY)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.5)
         
         self.play(Write(title), run_time=0.8)
@@ -557,7 +557,7 @@ class LineCircleRelations(Scene):
         
         explain = Text(
             "相离: 无公共点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.8)
@@ -600,7 +600,7 @@ class LineCircleRelations(Scene):
         # 标题
         title = Text(
             "位置关系判定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -625,7 +625,7 @@ class LineCircleRelations(Scene):
         formula_1[0].set_color(YELLOW)
         formula_1[1].set_color(self.COLOR_HIGHLIGHT)
         
-        explain_1 = Text("两个交点", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_AUXILIARY).move_to(
+        explain_1 = Text("两个交点", font="PingFang SC", font_size=18, color=self.COLOR_AUXILIARY).move_to(
             UP * (base_y - 1.7)
         )
         
@@ -642,7 +642,7 @@ class LineCircleRelations(Scene):
         formula_2[0].set_color(YELLOW)
         formula_2[1].set_color(self.COLOR_HIGHLIGHT)
         
-        explain_2 = Text("一个切点", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_AUXILIARY).move_to(
+        explain_2 = Text("一个切点", font="PingFang SC", font_size=18, color=self.COLOR_AUXILIARY).move_to(
             UP * (base_y - spacing - 1.7)
         )
         
@@ -659,7 +659,7 @@ class LineCircleRelations(Scene):
         formula_3[0].set_color(YELLOW)
         formula_3[1].set_color(self.COLOR_HIGHLIGHT)
         
-        explain_3 = Text("无交点", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_AUXILIARY).move_to(
+        explain_3 = Text("无交点", font="PingFang SC", font_size=18, color=self.COLOR_AUXILIARY).move_to(
             UP * (base_y - 2 * spacing - 1.7)
         )
         
@@ -684,7 +684,7 @@ class LineCircleRelations(Scene):
         # 口诀
         mnemonic = Text(
             "比半径定位置, 看距离识关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -756,7 +756,7 @@ class LineCircleRelations(Scene):
             pass
         
         # 标签
-        label = Text(label_text, font="Noto Sans CJK SC", font_size=22, color=color).next_to(
+        label = Text(label_text, font="PingFang SC", font_size=22, color=color).next_to(
             group, LEFT, buff=0.3
         )
         
@@ -785,14 +785,14 @@ class LineCircleRelations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 0.5)
@@ -806,7 +806,7 @@ class LineCircleRelations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

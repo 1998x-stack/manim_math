@@ -112,7 +112,7 @@ class MedianAndMode(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -122,7 +122,7 @@ class MedianAndMode(Scene):
         # 钩子问题
         hook = Text(
             "一组数据的中心在哪?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD,
             weight=BOLD
@@ -137,7 +137,7 @@ class MedianAndMode(Scene):
         for num in numbers:
             dot_group = VGroup(
                 Circle(radius=0.35, fill_opacity=1, color=self.COLOR_DATA, stroke_width=2, stroke_color=WHITE),
-                Text(str(num), font="Noto Sans CJK SC", font_size=32, color=WHITE)
+                Text(str(num), font="PingFang SC", font_size=32, color=WHITE)
             )
             # 随机位置
             x = rand.uniform(-3, 3)
@@ -169,14 +169,14 @@ class MedianAndMode(Scene):
         # 标题
         title = Text(
             "中位数 Median",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MEDIAN
         ).move_to(UP * 6.5)
         
         subtitle = Text(
             "数据个数为奇数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -190,7 +190,7 @@ class MedianAndMode(Scene):
         
         original_label = Text(
             "原始数据:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(original_boxes, UP, buff=0.3)
@@ -201,7 +201,7 @@ class MedianAndMode(Scene):
         # 排序提示
         sort_text = Text(
             "第一步: 从小到大排序",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -215,7 +215,7 @@ class MedianAndMode(Scene):
         
         sorted_label = Text(
             "排序后:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(sorted_boxes, UP, buff=0.3)
@@ -251,7 +251,7 @@ class MedianAndMode(Scene):
         
         middle_text = Text(
             "中间位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_MEDIAN
         ).next_to(arrow, DOWN, buff=0.1)
@@ -269,7 +269,7 @@ class MedianAndMode(Scene):
         # 公式
         formula_text = Text(
             "中位数 = 第",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -280,7 +280,7 @@ class MedianAndMode(Scene):
         )
         formula_rest = Text(
             "个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -288,7 +288,7 @@ class MedianAndMode(Scene):
         
         calculation_text = Text(
             "= 第",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -299,7 +299,7 @@ class MedianAndMode(Scene):
         )
         calculation_rest = Text(
             "个数 = 第3个数 = 5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -311,7 +311,7 @@ class MedianAndMode(Scene):
         # 结果
         result = Text(
             f"中位数 = {median_value}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_MEDIAN,
             weight=BOLD
@@ -339,14 +339,14 @@ class MedianAndMode(Scene):
         # 标题
         title = Text(
             "中位数 Median",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MEDIAN
         ).move_to(UP * 6.5)
         
         subtitle = Text(
             "数据个数为偶数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -360,7 +360,7 @@ class MedianAndMode(Scene):
         
         sorted_label = Text(
             "排序后的数据:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(sorted_boxes, UP, buff=0.3)
@@ -383,7 +383,7 @@ class MedianAndMode(Scene):
         
         brace_text = Text(
             "中间两个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_MEDIAN
         ).next_to(brace, DOWN, buff=0.1)
@@ -440,13 +440,13 @@ class MedianAndMode(Scene):
         # 公式
         formula_part1 = Text(
             "中位数 = ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         formula_middle_text1 = Text(
             "第",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -457,7 +457,7 @@ class MedianAndMode(Scene):
         )
         formula_middle_text2 = Text(
             "个数 + 第",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -468,7 +468,7 @@ class MedianAndMode(Scene):
         )
         formula_end_text = Text(
             "个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -493,7 +493,7 @@ class MedianAndMode(Scene):
         # 最终结果
         final_result = Text(
             f"中位数 = {median}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_MEDIAN,
             weight=BOLD
@@ -524,7 +524,7 @@ class MedianAndMode(Scene):
         # 标题
         title = Text(
             "中位数的特点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MEDIAN
         ).move_to(UP * 6.5)
@@ -537,7 +537,7 @@ class MedianAndMode(Scene):
         
         normal_label = Text(
             "正常数据:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(normal_boxes, UP, buff=0.3)
@@ -554,7 +554,7 @@ class MedianAndMode(Scene):
         
         median_1 = Text(
             "中位数 = 7",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_MEDIAN
         ).move_to(UP * 1.8)
@@ -569,7 +569,7 @@ class MedianAndMode(Scene):
         
         extreme_label = Text(
             "含极端值:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).next_to(extreme_boxes, UP, buff=0.3)
@@ -589,7 +589,7 @@ class MedianAndMode(Scene):
         # 中位数仍然是7
         median_2 = Text(
             "中位数仍 = 7",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_MEDIAN,
             weight=BOLD
@@ -599,8 +599,8 @@ class MedianAndMode(Scene):
         
         # 对比平均数
         comparison = VGroup(
-            Text("平均数: 7.0 → 25.2", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
-            Text("中位数: 7 → 7", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_MEDIAN, weight=BOLD)
+            Text("平均数: 7.0 → 25.2", font="PingFang SC", font_size=24, color=GRAY_A),
+            Text("中位数: 7 → 7", font="PingFang SC", font_size=24, color=self.COLOR_MEDIAN, weight=BOLD)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 1)
         
         self.play(Write(comparison), run_time=1.0)
@@ -608,7 +608,7 @@ class MedianAndMode(Scene):
         # 总结
         summary = Text(
             "中位数不受极端值影响!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -634,7 +634,7 @@ class MedianAndMode(Scene):
         # 标题
         title = Text(
             "众数 Mode",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MODE
         ).move_to(UP * 6.5)
@@ -647,7 +647,7 @@ class MedianAndMode(Scene):
         
         data_label = Text(
             "数据:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(data_boxes, UP, buff=0.3)
@@ -667,16 +667,16 @@ class MedianAndMode(Scene):
         
         # 表头
         header = VGroup(
-            Text("数值", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("次数", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("数值", font="PingFang SC", font_size=20, color=WHITE),
+            Text("次数", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(RIGHT, buff=1.5)
         
         # 表格行
         rows = VGroup()
         for val_str, count_str in table_data:
             row = VGroup(
-                Text(val_str, font="Noto Sans CJK SC", font_size=20, color=WHITE),
-                Text(count_str, font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                Text(val_str, font="PingFang SC", font_size=20, color=WHITE),
+                Text(count_str, font="PingFang SC", font_size=20, color=WHITE)
             ).arrange(RIGHT, buff=1.5)
             rows.add(row)
         
@@ -695,7 +695,7 @@ class MedianAndMode(Scene):
         
         table_title = Text(
             "频数统计:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(table_group, UP, buff=0.3)
@@ -732,7 +732,7 @@ class MedianAndMode(Scene):
         # 标记众数
         mode_label = Text(
             f"众数 = {mode_value} (出现{mode_count}次)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_MODE,
             weight=BOLD
@@ -743,7 +743,7 @@ class MedianAndMode(Scene):
         # 定义
         definition = Text(
             "众数: 出现次数最多的数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -768,7 +768,7 @@ class MedianAndMode(Scene):
         # 标题
         title = Text(
             "中位数 vs 众数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -797,16 +797,16 @@ class MedianAndMode(Scene):
         # 对比特点
         features_title = Text(
             "主要区别:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
         ).move_to(UP * 0.2)
         
         features = VGroup(
-            Text("• 中位数看位置，众数看频数", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("• 中位数需排序，众数不需要", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("• 两者可能不相等", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text("• 中位数看位置，众数看频数", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("• 中位数需排序，众数不需要", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("• 两者可能不相等", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).next_to(features_title, DOWN, buff=0.4)
         
         self.play(Write(features_title), run_time=0.5)
@@ -815,15 +815,15 @@ class MedianAndMode(Scene):
         # 应用场景
         app_title = Text(
             "应用场景:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
         ).move_to(DOWN * 2.5)
         
         applications = VGroup(
-            Text("工资水平 → 中位数", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_MEDIAN),
-            Text("鞋码统计 → 众数", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_MODE)
+            Text("工资水平 → 中位数", font="PingFang SC", font_size=20, color=self.COLOR_MEDIAN),
+            Text("鞋码统计 → 众数", font="PingFang SC", font_size=20, color=self.COLOR_MODE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).next_to(app_title, DOWN, buff=0.4)
         
         self.play(Write(app_title), run_time=0.4)
@@ -847,7 +847,7 @@ class MedianAndMode(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
             weight=BOLD
@@ -855,7 +855,7 @@ class MedianAndMode(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -869,7 +869,7 @@ class MedianAndMode(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -879,7 +879,7 @@ class MedianAndMode(Scene):
         
         # 数字装饰
         numbers = VGroup(
-            *[Text(str(i), font="Noto Sans CJK SC", font_size=40, color=self.COLOR_DATA) 
+            *[Text(str(i), font="PingFang SC", font_size=40, color=self.COLOR_DATA) 
               for i in [2, 3, 5, 7, 9]]
         )
         
@@ -916,7 +916,7 @@ class MedianAndMode(Scene):
         for value in data:
             box = VGroup(
                 Square(side_length=0.6, fill_opacity=0.8, color=color, stroke_width=2, stroke_color=WHITE),
-                Text(str(value), font="Noto Sans CJK SC", font_size=28, color=WHITE)
+                Text(str(value), font="PingFang SC", font_size=28, color=WHITE)
             )
             boxes.add(box)
         return boxes
@@ -937,7 +937,7 @@ class MedianAndMode(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
             weight=BOLD
@@ -946,7 +946,7 @@ class MedianAndMode(Scene):
         # 副标题
         subtitle = Text(
             subtitle_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=color
         ).move_to(bg.get_center())
@@ -954,7 +954,7 @@ class MedianAndMode(Scene):
         # 描述
         desc = Text(
             description,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=GRAY_A
         ).move_to(bg.get_center() + DOWN * 0.6)

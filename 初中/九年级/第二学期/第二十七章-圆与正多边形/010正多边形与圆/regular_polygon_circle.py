@@ -133,7 +133,7 @@ class RegularPolygonAndCircle(Scene):
         # --- 作者信息（顶部）---
         self.author_bar = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.C_AUTHOR
         ).move_to(UP * 7)
@@ -143,7 +143,7 @@ class RegularPolygonAndCircle(Scene):
         # --- 标题 ---
         title = Text(
             "正多边形与圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE,
             weight=BOLD
@@ -151,7 +151,7 @@ class RegularPolygonAndCircle(Scene):
 
         subtitle = Text(
             "它们之间藏着哪些秘密？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_TEXT
         ).move_to(UP * 5.1)
@@ -173,7 +173,7 @@ class RegularPolygonAndCircle(Scene):
         # --- 钩子：为什么它们完美契合？---
         hook = Text(
             "为什么正六边形与圆如此完美？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 4.8)
@@ -200,7 +200,7 @@ class RegularPolygonAndCircle(Scene):
         # --- 场景标题 ---
         sc_title = Text(
             "正多边形的重要元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 5.8)
@@ -209,7 +209,7 @@ class RegularPolygonAndCircle(Scene):
 
         # ==== 1. 中心 O ====
         center_dot = Dot(self.CENTER, radius=0.12, color=self.C_CENTER, fill_opacity=1)
-        center_label = Text("中心 O", font="Noto Sans CJK SC", font_size=22,
+        center_label = Text("中心 O", font="PingFang SC", font_size=22,
                            color=self.C_CENTER).next_to(center_dot, RIGHT, buff=0.15)
 
         self.play(FadeIn(center_dot, scale=0.3), run_time=0.5)
@@ -230,7 +230,7 @@ class RegularPolygonAndCircle(Scene):
         r_label = MathTex("R", color=self.C_RADIUS, font_size=32).next_to(
             r_mid, LEFT, buff=0.15
         )
-        r_desc = Text("外接圆半径", font="Noto Sans CJK SC", font_size=20,
+        r_desc = Text("外接圆半径", font="PingFang SC", font_size=20,
                      color=self.C_RADIUS).move_to(DOWN * 3.8)
 
         self.play(Create(radius_line), run_time=0.8)
@@ -262,7 +262,7 @@ class RegularPolygonAndCircle(Scene):
         apo_label = MathTex("r", color=self.C_APOTHEM, font_size=32).next_to(
             apo_mid, RIGHT, buff=0.12
         )
-        apo_desc = Text("边心距", font="Noto Sans CJK SC", font_size=20,
+        apo_desc = Text("边心距", font="PingFang SC", font_size=20,
                        color=self.C_APOTHEM).move_to(DOWN * 4.3)
 
         self.play(FadeOut(r_desc), run_time=0.2)
@@ -297,7 +297,7 @@ class RegularPolygonAndCircle(Scene):
         bisect_dir = bisect_dir / np.linalg.norm(bisect_dir)
         angle_label.move_to(self.CENTER + bisect_dir * 0.9)
 
-        angle_desc = Text("中心角", font="Noto Sans CJK SC", font_size=20,
+        angle_desc = Text("中心角", font="PingFang SC", font_size=20,
                          color=self.C_ANGLE).move_to(DOWN * 4.8)
 
         self.play(FadeOut(apo_desc), run_time=0.2)
@@ -306,7 +306,7 @@ class RegularPolygonAndCircle(Scene):
         self.play(FadeIn(angle_desc), run_time=0.3)
 
         # ==== 中心角公式 ====
-        formula_label = Text("中心角 =", font="Noto Sans CJK SC",
+        formula_label = Text("中心角 =", font="PingFang SC",
                             font_size=28, color=self.C_FORMULA)
         formula_math = MathTex(r"\frac{360^\circ}{n}", font_size=36, color=self.C_HIGHLIGHT)
         formula_group = VGroup(formula_label, formula_math).arrange(RIGHT, buff=0.2)
@@ -316,7 +316,7 @@ class RegularPolygonAndCircle(Scene):
         self.play(Write(formula_group), run_time=0.8)
 
         # n=6 时的具体值
-        formula_n6 = Text("正六边形: n=6  →", font="Noto Sans CJK SC",
+        formula_n6 = Text("正六边形: n=6  →", font="PingFang SC",
                          font_size=22, color=self.C_TEXT)
         formula_val = MathTex(r"\frac{360^\circ}{6} = 60^\circ", font_size=28,
                              color=self.C_HIGHLIGHT)
@@ -353,7 +353,7 @@ class RegularPolygonAndCircle(Scene):
     def scene_3_central_angle(self):
         sc_title = Text(
             "中心角随边数变化",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 5.8)
@@ -371,7 +371,7 @@ class RegularPolygonAndCircle(Scene):
         )
 
         # 公式框（保持显示）
-        formula_box_label = Text("中心角 =", font="Noto Sans CJK SC",
+        formula_box_label = Text("中心角 =", font="PingFang SC",
                                 font_size=28, color=self.C_TEXT)
         formula_box_math = MathTex(r"\frac{360^\circ}{n}", font_size=36, color=self.C_FORMULA)
         formula_box = VGroup(formula_box_label, formula_box_math).arrange(RIGHT, buff=0.2)
@@ -400,7 +400,7 @@ class RegularPolygonAndCircle(Scene):
             other_angle=(cross_z < 0)
         )
 
-        n3_info = Text("正三角形 (n=3)", font="Noto Sans CJK SC",
+        n3_info = Text("正三角形 (n=3)", font="PingFang SC",
                       font_size=26, color=self.C_POLYGON).move_to(DOWN * 3.8)
         n3_angle = MathTex(r"120^\circ", font_size=36, color=self.C_HIGHLIGHT).move_to(DOWN * 4.4)
 
@@ -431,7 +431,7 @@ class RegularPolygonAndCircle(Scene):
             other_angle=(cross_sq < 0)
         )
 
-        n4_info = Text("正四边形 (n=4)", font="Noto Sans CJK SC",
+        n4_info = Text("正四边形 (n=4)", font="PingFang SC",
                       font_size=26, color=self.C_POLYGON).move_to(DOWN * 3.8)
         n4_angle = MathTex(r"90^\circ", font_size=36, color=self.C_HIGHLIGHT).move_to(DOWN * 4.4)
 
@@ -469,7 +469,7 @@ class RegularPolygonAndCircle(Scene):
             other_angle=(cross_hex < 0)
         )
 
-        n6_info = Text("正六边形 (n=6)", font="Noto Sans CJK SC",
+        n6_info = Text("正六边形 (n=6)", font="PingFang SC",
                       font_size=26, color=self.C_POLYGON).move_to(DOWN * 3.8)
         n6_angle = MathTex(r"60^\circ", font_size=36, color=self.C_HIGHLIGHT).move_to(DOWN * 4.4)
 
@@ -491,7 +491,7 @@ class RegularPolygonAndCircle(Scene):
         # 小结
         summary_text = Text(
             "边数越多，中心角越小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -526,7 +526,7 @@ class RegularPolygonAndCircle(Scene):
     def scene_4_hexagon_special(self):
         sc_title = Text(
             "正六边形的特殊性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 5.8)
@@ -569,7 +569,7 @@ class RegularPolygonAndCircle(Scene):
         self.wait(0.3)
 
         # 显示等式
-        eq_text = Text("边长  =  外接圆半径", font="Noto Sans CJK SC",
+        eq_text = Text("边长  =  外接圆半径", font="PingFang SC",
                       font_size=28, color=self.C_TEXT).move_to(DOWN * 3.8)
         eq_math = MathTex("a = R", font_size=40, color=self.C_HIGHLIGHT).move_to(DOWN * 4.5)
 
@@ -578,7 +578,7 @@ class RegularPolygonAndCircle(Scene):
         self.wait(0.5)
 
         # 解释：因为中心角=60°，所以OV0V1是等边三角形
-        reason_title = Text("原因：中心角 = 60°", font="Noto Sans CJK SC",
+        reason_title = Text("原因：中心角 = 60°", font="PingFang SC",
                            font_size=22, color=self.C_ANGLE).move_to(DOWN * 5.2)
 
         # 连接 V0-V1 的三角形
@@ -597,7 +597,7 @@ class RegularPolygonAndCircle(Scene):
 
         reason_detail = Text(
             "△OAB是等边三角形！所以 OA=OB=AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.C_TEXT
         ).move_to(DOWN * 5.8)
@@ -621,7 +621,7 @@ class RegularPolygonAndCircle(Scene):
     def scene_5_area_formula(self):
         sc_title = Text(
             "正多边形面积公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 5.8)
@@ -636,7 +636,7 @@ class RegularPolygonAndCircle(Scene):
         ])
 
         split_hint = Text("从中心连接各顶点，分成 6 个三角形",
-                         font="Noto Sans CJK SC", font_size=22,
+                         font="PingFang SC", font_size=22,
                          color=self.C_TEXT).move_to(DOWN * 3.8)
 
         self.play(Create(dividing_lines), run_time=1.0)
@@ -695,7 +695,7 @@ class RegularPolygonAndCircle(Scene):
         self.wait(0.4)
 
         # === Step 4: 单个三角形面积 ===
-        step1_label = Text("单个三角形面积 =", font="Noto Sans CJK SC",
+        step1_label = Text("单个三角形面积 =", font="PingFang SC",
                           font_size=24, color=self.C_TEXT)
         step1_math = MathTex(r"\frac{1}{2} \times a \times r",
                             font_size=30, color=self.C_FORMULA)
@@ -706,7 +706,7 @@ class RegularPolygonAndCircle(Scene):
         self.wait(0.5)
 
         # === Step 5: 共 n=6 个三角形 ===
-        step2_label = Text("共 n=6 个三角形，总面积：", font="Noto Sans CJK SC",
+        step2_label = Text("共 n=6 个三角形，总面积：", font="PingFang SC",
                           font_size=22, color=self.C_TEXT).move_to(DOWN * 4.5)
         self.play(FadeIn(step2_label), run_time=0.5)
 
@@ -739,7 +739,7 @@ class RegularPolygonAndCircle(Scene):
             font_size=32, color=self.C_FORMULA
         ).move_to(DOWN * 5.1)
 
-        formula_C = Text("（其中 na = 周长 C）", font="Noto Sans CJK SC",
+        formula_C = Text("（其中 na = 周长 C）", font="PingFang SC",
                         font_size=20, color=self.C_TEXT).move_to(DOWN * 5.7)
 
         self.play(
@@ -811,7 +811,7 @@ class RegularPolygonAndCircle(Scene):
 
         sc_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE
         ).move_to(UP * 3.2)
@@ -820,7 +820,7 @@ class RegularPolygonAndCircle(Scene):
         # === 知识卡片 ===
         def make_card(icon_color, title_str, formula_str, pos):
             dot_icon = Dot(ORIGIN, radius=0.14, color=icon_color, fill_opacity=1)
-            title_t = Text(title_str, font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            title_t = Text(title_str, font="PingFang SC", font_size=22, color=WHITE)
             math_t = MathTex(formula_str, font_size=26, color=icon_color)
             row = VGroup(dot_icon, title_t, math_t).arrange(RIGHT, buff=0.2)
             row.move_to(pos)
@@ -839,13 +839,13 @@ class RegularPolygonAndCircle(Scene):
             UP * 0.8
         )
         card3_dot = Dot(ORIGIN, radius=0.14, color=self.C_APOTHEM, fill_opacity=1)
-        card3_title = Text("面积公式", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        card3_title = Text("面积公式", font="PingFang SC", font_size=22, color=WHITE)
         card3_math = MathTex(r"S = \frac{1}{2} \times n \times a \times r",
                             font_size=24, color=self.C_APOTHEM)
         card3 = VGroup(card3_dot, card3_title, card3_math).arrange(RIGHT, buff=0.2)
         card3.move_to(DOWN * 0.2)
 
-        card4_title = Text("等价：", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        card4_title = Text("等价：", font="PingFang SC", font_size=22, color=GRAY_A)
         card4_math = MathTex(r"S = \frac{1}{2} \times C \times r",
                             font_size=24, color=GRAY_A)
         card4 = VGroup(card4_title, card4_math).arrange(RIGHT, buff=0.2)
@@ -876,7 +876,7 @@ class RegularPolygonAndCircle(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -884,14 +884,14 @@ class RegularPolygonAndCircle(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_AUTHOR
         ).move_to(DOWN * 3.2)
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_HIGHLIGHT
         ).move_to(DOWN * 4.2)

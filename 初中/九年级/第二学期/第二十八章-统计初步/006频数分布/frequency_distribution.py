@@ -47,7 +47,7 @@ class FrequencyDistribution(Scene):
         self.COLOR_AUXILIARY = GRAY_B       # 灰色
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         
         # 原始数据（30个学生成绩）
         self.raw_data = np.array([

@@ -78,20 +78,20 @@ class SimplestRadical(Scene):
         # 作者信息（常驻）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B,
+            font="PingFang SC", font_size=18, color=GRAY_B,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
 
         chapter = Text(
             "八年级 · 第十六章 · 二次根式",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+            font="PingFang SC", font_size=20, color=GRAY_B,
         ).move_to(UP * 6.55)
         self.play(FadeIn(chapter), run_time=0.3)
 
         # 问题抛出
         hook = Text(
             "你觉得哪个更简洁？",
-            font="Noto Sans CJK SC", font_size=40, color=self.C_TITLE,
+            font="PingFang SC", font_size=40, color=self.C_TITLE,
         ).move_to(UP * 5.5)
         self.play(Write(hook), run_time=0.7)
 
@@ -109,7 +109,7 @@ class SimplestRadical(Scene):
         )
 
         # VS 标签
-        vs = Text("VS", font="Noto Sans CJK SC", font_size=36, color=GRAY_A).move_to(UP * 4.0)
+        vs = Text("VS", font="PingFang SC", font_size=36, color=GRAY_A).move_to(UP * 4.0)
         self.play(FadeIn(vs), run_time=0.3)
         self.wait(0.8)
 
@@ -122,7 +122,7 @@ class SimplestRadical(Scene):
 
         answer = Text(
             "右边是「最简二次根式」！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(UP * 2.6)
         self.play(FadeIn(answer, shift=UP * 0.2), run_time=0.5)
         self.wait(1.0)
@@ -142,21 +142,21 @@ class SimplestRadical(Scene):
     def scene_two_conditions(self):
         title = Text(
             "最简二次根式",
-            font="Noto Sans CJK SC", font_size=48, color=self.C_TITLE,
+            font="PingFang SC", font_size=48, color=self.C_TITLE,
         ).move_to(UP * 6.3)
         subtitle = Text(
             "需满足两个条件",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_A,
+            font="PingFang SC", font_size=28, color=GRAY_A,
         ).move_to(UP * 5.55)
         self.play(Write(title), run_time=0.6)
         self.play(FadeIn(subtitle), run_time=0.3)
 
         # ── 条件 1 ──
         c1_bg = self.make_card(7.5, 2.6, self.C_FORMULA, UP * 4.1)
-        c1_num = Text("①", font="Noto Sans CJK SC", font_size=36, color=self.C_FORMULA)
+        c1_num = Text("①", font="PingFang SC", font_size=36, color=self.C_FORMULA)
         c1_txt = Text(
             "被开方数不含分母",
-            font="Noto Sans CJK SC", font_size=30, color=WHITE,
+            font="PingFang SC", font_size=30, color=WHITE,
         )
         c1_bad  = MathTex(r"\sqrt{\dfrac{3}{4}}", font_size=44, color=self.C_WRONG)
         c1_arr  = MathTex(r"\rightarrow", font_size=36, color=GRAY_A)
@@ -172,17 +172,17 @@ class SimplestRadical(Scene):
 
         # ── 条件 2 ──
         c2_bg = self.make_card(7.5, 2.8, self.C_RULE, UP * 1.4)
-        c2_num = Text("②", font="Noto Sans CJK SC", font_size=36, color=self.C_RULE)
+        c2_num = Text("②", font="PingFang SC", font_size=36, color=self.C_RULE)
         c2_txt = Text(
             "被开方数不含能开得尽的因数",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE,
+            font="PingFang SC", font_size=26, color=WHITE,
         )
         c2_bad  = MathTex(r"\sqrt{12}", font_size=44, color=self.C_WRONG)
         c2_arr  = MathTex(r"\rightarrow", font_size=36, color=GRAY_A)
         c2_good = MathTex(r"2\sqrt{3}", font_size=44, color=self.C_RIGHT)
         c2_note = Text(
             "（因为 12=4×3，4=2² 可开方）",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_A,
+            font="PingFang SC", font_size=20, color=GRAY_A,
         )
         c2_ex   = VGroup(c2_bad, c2_arr, c2_good).arrange(RIGHT, buff=0.3)
         c2_inner = VGroup(c2_num, c2_txt).arrange(RIGHT, buff=0.2)
@@ -198,7 +198,7 @@ class SimplestRadical(Scene):
         slogan_bg = self.make_card(7.5, 1.4, self.C_TITLE, DOWN * 1.3, fill="#0f3460", alpha=0.9)
         slogan = Text(
             "根号内：无分母 · 无完全平方因数",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE,
+            font="PingFang SC", font_size=26, color=self.C_TITLE,
         ).move_to(DOWN * 1.3)
         self.play(Create(slogan_bg), Write(slogan), run_time=0.7)
         self.wait(2.0)
@@ -211,7 +211,7 @@ class SimplestRadical(Scene):
     def scene_method(self):
         title = Text(
             "化简步骤",
-            font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+            font="PingFang SC", font_size=44, color=self.C_TITLE,
         ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.6)
 
@@ -225,8 +225,8 @@ class SimplestRadical(Scene):
 
         for (tag, desc, formula), col, pos in zip(steps, colors, positions):
             bg = self.make_card(7.5, 1.9, col, pos)
-            tag_t  = Text(tag,  font="Noto Sans CJK SC", font_size=24, color=col)
-            desc_t = Text(desc, font="Noto Sans CJK SC", font_size=26, color=WHITE)
+            tag_t  = Text(tag,  font="PingFang SC", font_size=24, color=col)
+            desc_t = Text(desc, font="PingFang SC", font_size=26, color=WHITE)
             form_t = MathTex(formula, font_size=36, color=self.C_TITLE)
             row    = VGroup(tag_t, desc_t).arrange(RIGHT, buff=0.35)
             inner  = VGroup(row, form_t).arrange(DOWN, buff=0.15).move_to(pos)
@@ -251,11 +251,11 @@ class SimplestRadical(Scene):
     # ═══════════════════════════════════════════════════
     def scene_example1(self):
         title = Text(
-            "例题 1", font="Noto Sans CJK SC",
+            "例题 1", font="PingFang SC",
             font_size=36, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.make_card(7.2, 1.4, self.C_FORMULA, UP * 5.5)
-        prob_label = Text("化简：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_label = Text("化简：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_form  = MathTex(r"\sqrt{12}", font_size=52, color=WHITE)
         VGroup(prob_label, prob_form).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
 
@@ -283,7 +283,7 @@ class SimplestRadical(Scene):
 
         # 结论框
         ans_bg = self.make_card(6.0, 1.6, self.C_RIGHT, DOWN * 0.5, fill="#0a2e1a", alpha=0.9)
-        ans_label = Text("结果：", font="Noto Sans CJK SC", font_size=28, color=self.C_RIGHT)
+        ans_label = Text("结果：", font="PingFang SC", font_size=28, color=self.C_RIGHT)
         ans_f = MathTex(r"\sqrt{12} = 2\sqrt{3}", font_size=52, color=WHITE)
         VGroup(ans_label, ans_f).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.5)
 
@@ -293,7 +293,7 @@ class SimplestRadical(Scene):
         # 要点说明
         note = Text(
             "4 = 2² 是完全平方数，可以开方移出",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(DOWN * 2.0)
         self.play(FadeIn(note, shift=UP * 0.2), run_time=0.5)
         self.wait(2.0)
@@ -306,10 +306,10 @@ class SimplestRadical(Scene):
     def scene_example2(self):
         title = Text(
             "例题 2  — 含字母的化简",
-            font="Noto Sans CJK SC", font_size=32, color=self.C_TITLE,
+            font="PingFang SC", font_size=32, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.make_card(7.2, 1.4, self.C_FORMULA, UP * 5.5)
-        prob_label = Text("化简：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_label = Text("化简：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_form  = MathTex(r"\sqrt{a^2 b}", font_size=52, color=WHITE)
         VGroup(prob_label, prob_form).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
 
@@ -319,7 +319,7 @@ class SimplestRadical(Scene):
         cond_bg = self.make_card(7.0, 1.2, self.C_RULE, UP * 4.2)
         cond = Text(
             "已知 a ≥ 0, b ≥ 0",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_RULE,
+            font="PingFang SC", font_size=26, color=self.C_RULE,
         ).move_to(UP * 4.2)
         self.play(Create(cond_bg), Write(cond), run_time=0.5)
 
@@ -333,14 +333,14 @@ class SimplestRadical(Scene):
             color=self.C_ARROW, stroke_width=3,
             max_tip_length_to_length_ratio=0.15,
         )
-        lbl_a = Text("完全平方", font="Noto Sans CJK SC", font_size=20, color=self.C_ARROW).move_to(np.array([-2.5, 1.1, 0]))
+        lbl_a = Text("完全平方", font="PingFang SC", font_size=20, color=self.C_ARROW).move_to(np.array([-2.5, 1.1, 0]))
 
         arr_b = Arrow(
             np.array([1.8, 1.4, 0]), np.array([0.9, 2.2, 0]),
             color=self.C_FORMULA, stroke_width=3,
             max_tip_length_to_length_ratio=0.15,
         )
-        lbl_b = Text("留在根号内", font="Noto Sans CJK SC", font_size=20, color=self.C_FORMULA).move_to(np.array([2.8, 1.1, 0]))
+        lbl_b = Text("留在根号内", font="PingFang SC", font_size=20, color=self.C_FORMULA).move_to(np.array([2.8, 1.1, 0]))
 
         self.play(
             GrowArrow(arr_a), FadeIn(lbl_a),
@@ -360,7 +360,7 @@ class SimplestRadical(Scene):
 
         note = Text(
             "a² 开方得 a，b 不能开方留在根号内",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(DOWN * 2.5)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(2.0)
@@ -373,10 +373,10 @@ class SimplestRadical(Scene):
     def scene_example3(self):
         title = Text(
             "例题 3  — 根号内有分母",
-            font="Noto Sans CJK SC", font_size=32, color=self.C_TITLE,
+            font="PingFang SC", font_size=32, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.make_card(7.2, 1.4, self.C_WRONG, UP * 5.5)
-        prob_label = Text("化简：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_label = Text("化简：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_form  = MathTex(r"\sqrt{\dfrac{3}{4}}", font_size=52, color=WHITE)
         VGroup(prob_label, prob_form).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
 
@@ -386,14 +386,14 @@ class SimplestRadical(Scene):
         warn_bg = self.make_card(7.0, 1.2, self.C_WRONG, UP * 4.2, fill="#2d0a0a", alpha=0.9)
         warn = Text(
             "✗ 根号内有分母，不是最简！",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_WRONG,
+            font="PingFang SC", font_size=24, color=self.C_WRONG,
         ).move_to(UP * 4.2)
         self.play(Create(warn_bg), Write(warn), run_time=0.5)
 
         # 方法：分子分母拆开
         method_title = Text(
             "用公式：",
-            font="Noto Sans CJK SC", font_size=26, color=GRAY_A,
+            font="PingFang SC", font_size=26, color=GRAY_A,
         ).move_to(UP * 3.0)
         method_f = MathTex(
             r"\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}",
@@ -432,7 +432,7 @@ class SimplestRadical(Scene):
     def scene_judge(self):
         title = Text(
             "判断哪些是最简二次根式？",
-            font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+            font="PingFang SC", font_size=34, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
@@ -458,8 +458,8 @@ class SimplestRadical(Scene):
 
             bg = self.make_card(7.6, card_h, col, pos)
             form = MathTex(expr, font_size=40, color=WHITE)
-            sym  = Text(symbol, font="Noto Sans CJK SC", font_size=32, color=col)
-            note = Text(reason, font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            sym  = Text(symbol, font="PingFang SC", font_size=32, color=col)
+            note = Text(reason, font="PingFang SC", font_size=18, color=GRAY_A)
             VGroup(form, sym, note).arrange(RIGHT, buff=0.35).move_to(pos)
 
             self.play(Create(bg), run_time=0.18)
@@ -475,25 +475,25 @@ class SimplestRadical(Scene):
     def scene_summary(self):
         title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+            font="PingFang SC", font_size=46, color=self.C_TITLE,
         ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.5)
 
         # 定义框
         def_bg = self.make_card(7.6, 1.5, self.C_FORMULA, UP * 5.5)
-        def_t  = Text("最简二次根式定义", font="Noto Sans CJK SC", font_size=28, color=self.C_FORMULA).move_to(UP * 5.5)
+        def_t  = Text("最简二次根式定义", font="PingFang SC", font_size=28, color=self.C_FORMULA).move_to(UP * 5.5)
         self.play(Create(def_bg), Write(def_t), run_time=0.5)
 
         # 条件1
         c1_bg = self.make_card(7.6, 1.6, self.C_FORMULA, UP * 3.9)
-        c1_t  = Text("条件 ①  根号内无分母", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        c1_t  = Text("条件 ①  根号内无分母", font="PingFang SC", font_size=26, color=WHITE)
         c1_f  = MathTex(r"\sqrt{\tfrac{a}{b}} \rightarrow \tfrac{\sqrt{a}}{\sqrt{b}}", font_size=32, color=self.C_FORMULA)
         VGroup(c1_t, c1_f).arrange(RIGHT, buff=0.4).move_to(UP * 3.9)
         self.play(Create(c1_bg), Write(c1_t), Write(c1_f), run_time=0.55)
 
         # 条件2
         c2_bg = self.make_card(7.6, 1.6, self.C_RULE, UP * 2.1)
-        c2_t  = Text("条件 ②  无完全平方因数", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+        c2_t  = Text("条件 ②  无完全平方因数", font="PingFang SC", font_size=26, color=WHITE)
         c2_f  = MathTex(r"\sqrt{a^2 b} \rightarrow a\sqrt{b}", font_size=32, color=self.C_RULE)
         VGroup(c2_t, c2_f).arrange(RIGHT, buff=0.4).move_to(UP * 2.1)
         self.play(Create(c2_bg), Write(c2_t), Write(c2_f), run_time=0.55)
@@ -505,7 +505,7 @@ class SimplestRadical(Scene):
             r"\sqrt{\tfrac{a}{b}} = \tfrac{\sqrt{a}}{\sqrt{b}}",
         ]
         f_bg = self.make_card(7.6, 3.0, self.C_TITLE, DOWN * 0.45, fill="#0f3460", alpha=0.9)
-        f_title = Text("核心公式", font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE).move_to(DOWN * 0.45 + UP * 1.1)
+        f_title = Text("核心公式", font="PingFang SC", font_size=26, color=self.C_TITLE).move_to(DOWN * 0.45 + UP * 1.1)
         f_group = VGroup(*[MathTex(f, font_size=30, color=WHITE) for f in formulas])
         f_group.arrange(DOWN, buff=0.32).move_to(DOWN * 0.45 + DOWN * 0.25)
 
@@ -522,11 +522,11 @@ class SimplestRadical(Scene):
     def scene_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=38, color=WHITE,
+            font="PingFang SC", font_size=38, color=WHITE,
         ).move_to(UP * 2.5)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+            font="PingFang SC", font_size=28, color=GRAY_B,
         ).move_to(UP * 1.7)
 
         self.play(Transform(self.author, author_big), run_time=0.8)
@@ -534,7 +534,7 @@ class SimplestRadical(Scene):
 
         follow = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(UP * 0.3)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
 

@@ -50,17 +50,17 @@ class ProbabilityDefinition(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B,
+            font="PingFang SC", font_size=18, color=GRAY_B,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
 
         chapter = Text("八年级 · 第二十三章 · 概率初步",
-                       font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+                       font="PingFang SC", font_size=20, color=GRAY_B,
                        ).move_to(UP * 6.55)
         self.play(FadeIn(chapter), run_time=0.3)
 
         hook = Text("掷骰子，出现 6 的可能性有多大？",
-                    font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+                    font="PingFang SC", font_size=30, color=self.C_TITLE,
                     ).move_to(UP * 5.7)
         self.play(Write(hook), run_time=0.7)
 
@@ -91,7 +91,7 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 2 ───────────
     def scene_basic_events(self):
         title = Text("基本事件与等可能性",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE,
+                     font="PingFang SC", font_size=38, color=self.C_TITLE,
                      ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.5)
 
@@ -106,7 +106,7 @@ class ProbabilityDefinition(Scene):
             d = Circle(radius=0.32, color=c,
                        fill_color=c, fill_opacity=0.85,
                        ).move_to(np.array([x, y_dot, 0]))
-            lbl = Text(str(i + 1), font="Noto Sans CJK SC",
+            lbl = Text(str(i + 1), font="PingFang SC",
                        font_size=22, color=WHITE,
                        ).move_to(np.array([x, y_dot, 0]))
             dots.append(d); labels.append(lbl)
@@ -115,7 +115,7 @@ class ProbabilityDefinition(Scene):
             self.play(GrowFromCenter(d), Write(l), run_time=0.25)
 
         equal_t = Text("6个结果：等可能（每个概率相同）",
-                       font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+                       font="PingFang SC", font_size=24, color=GRAY_A,
                        ).move_to(UP * 4.0)
         self.play(FadeIn(equal_t), run_time=0.4)
 
@@ -123,16 +123,16 @@ class ProbabilityDefinition(Scene):
         surr = SurroundingRectangle(dots[5], color=self.C_RED,
                                     buff=0.12, corner_radius=0.1)
         target_t = Text("目标事件：出现6",
-                        font="Noto Sans CJK SC", font_size=26, color=self.C_RED,
+                        font="PingFang SC", font_size=26, color=self.C_RED,
                         ).move_to(UP * 3.0)
         self.play(Create(surr), Write(target_t), run_time=0.6)
 
         # 定义文字
         def_bg = self.card(7.4, 2.4, self.C_MAIN, UP * 1.7)
         def_l1 = Text("基本事件：试验的每个可能结果",
-                      font="Noto Sans CJK SC", font_size=24, color=WHITE)
+                      font="PingFang SC", font_size=24, color=WHITE)
         def_l2 = Text("等可能性：每个基本事件概率相同",
-                      font="Noto Sans CJK SC", font_size=24, color=self.C_RESULT)
+                      font="PingFang SC", font_size=24, color=self.C_RESULT)
         VGroup(def_l1, def_l2).arrange(DOWN, buff=0.2).move_to(UP * 1.7)
         self.play(Create(def_bg), Write(def_l1), Write(def_l2), run_time=0.7)
         self.wait(2.0)
@@ -141,7 +141,7 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 3 ───────────
     def scene_formula(self):
         title = Text("核心公式",
-                     font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+                     font="PingFang SC", font_size=46, color=self.C_TITLE,
                      ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.5)
 
@@ -154,11 +154,11 @@ class ProbabilityDefinition(Scene):
         # 用箭头标注 m 和 n
         m_label_bg = self.card(3.2, 1.4, self.C_ORANGE, UP * 3.5)
         m_text = Text("m = A包含的\n基本事件数",
-                      font="Noto Sans CJK SC", font_size=22, color=self.C_ORANGE,
+                      font="PingFang SC", font_size=22, color=self.C_ORANGE,
                       ).move_to(UP * 3.5)
         n_label_bg = self.card(3.2, 1.4, self.C_PURPLE, UP * 3.5)
         n_text = Text("n = 基本事件\n总数",
-                      font="Noto Sans CJK SC", font_size=22, color=self.C_PURPLE,
+                      font="PingFang SC", font_size=22, color=self.C_PURPLE,
                       ).move_to(UP * 3.5)
 
         VGroup(m_label_bg, m_text).move_to(UP * 3.5 + LEFT * 1.9)
@@ -171,7 +171,7 @@ class ProbabilityDefinition(Scene):
         cond_f  = MathTex(r"0 \leq P(A) \leq 1",
                           font_size=48, color=WHITE).move_to(UP * 2.3)
         cond_t  = Text("概率介于 0 和 1 之间",
-                       font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+                       font="PingFang SC", font_size=22, color=GRAY_A,
                        ).move_to(UP * 1.85)
         self.play(Create(cond_bg), Write(cond_f), FadeIn(cond_t), run_time=0.7)
 
@@ -179,11 +179,11 @@ class ProbabilityDefinition(Scene):
         events_bg = self.card(7.4, 2.8, self.C_PURPLE, UP * 0.5)
         ev1 = VGroup(
             Text("P=0：不可能事件",
-                 font="Noto Sans CJK SC", font_size=22, color=self.C_RED),
+                 font="PingFang SC", font_size=22, color=self.C_RED),
             Text("P=1：必然事件",
-                 font="Noto Sans CJK SC", font_size=22, color=self.C_GREEN),
+                 font="PingFang SC", font_size=22, color=self.C_GREEN),
             Text("0<P<1：随机事件",
-                 font="Noto Sans CJK SC", font_size=22, color=self.C_TITLE),
+                 font="PingFang SC", font_size=22, color=self.C_TITLE),
         ).arrange(DOWN, buff=0.22).move_to(UP * 0.5)
         self.play(Create(events_bg), *[Write(t) for t in ev1], run_time=0.7)
         self.wait(2.0)
@@ -192,11 +192,11 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 4 ───────────
     def scene_ex_dice(self):
         title = Text("例题 1  掷骰子",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE,
+                     font="PingFang SC", font_size=38, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_MAIN, UP * 5.5)
         prob_t = Text("掷一个骰子，求 P(偶数)",
-                      font="Noto Sans CJK SC", font_size=28, color=WHITE,
+                      font="PingFang SC", font_size=28, color=WHITE,
                       ).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_t), run_time=0.7)
 
@@ -208,7 +208,7 @@ class ProbabilityDefinition(Scene):
             d = Circle(radius=0.3, color=c,
                        fill_color=c, fill_opacity=0.85,
                        ).move_to(np.array([x, 4.2, 0]))
-            l = Text(str(i + 1), font="Noto Sans CJK SC",
+            l = Text(str(i + 1), font="PingFang SC",
                      font_size=20, color=WHITE,
                      ).move_to(np.array([x, 4.2, 0]))
             dots.append(d); lbls.append(l)
@@ -218,11 +218,11 @@ class ProbabilityDefinition(Scene):
 
         n_bg = self.card(7.2, 1.3, self.C_PURPLE, UP * 3.1)
         n_t  = Text("基本事件总数 n = 6",
-                    font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                    font="PingFang SC", font_size=26, color=WHITE,
                     ).move_to(UP * 3.1)
         m_bg = self.card(7.2, 1.3, self.C_ORANGE, UP * 1.9)
         m_t  = Text("偶数 {2,4,6}，m = 3",
-                    font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                    font="PingFang SC", font_size=26, color=WHITE,
                     ).move_to(UP * 1.9)
         self.play(Create(n_bg), Write(n_t), run_time=0.4)
         self.play(Create(m_bg), Write(m_t), run_time=0.4)
@@ -244,11 +244,11 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 5 ───────────
     def scene_ex_balls(self):
         title = Text("例题 2  摸球问题",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE,
+                     font="PingFang SC", font_size=38, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.5, self.C_MAIN, UP * 5.5)
         prob_t  = Text("袋中 3红 2蓝，随机摸 1 球，P(红球)?",
-                       font="Noto Sans CJK SC", font_size=24, color=WHITE,
+                       font="PingFang SC", font_size=24, color=WHITE,
                        ).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_t), run_time=0.7)
 
@@ -262,7 +262,7 @@ class ProbabilityDefinition(Scene):
                        fill_color=c, fill_opacity=0.85,
                        ).move_to(np.array([x, ball_y, 0]))
             lbl_str = "R" if i < 3 else "B"
-            l = Text(lbl_str, font="Noto Sans CJK SC",
+            l = Text(lbl_str, font="PingFang SC",
                      font_size=20, color=WHITE,
                      ).move_to(np.array([x, ball_y, 0]))
             balls.append(b); ball_lbls.append(l)
@@ -272,11 +272,11 @@ class ProbabilityDefinition(Scene):
 
         n_bg = self.card(7.2, 1.3, self.C_PURPLE, UP * 3.0)
         n_t  = Text("基本事件总数 n = 5",
-                    font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                    font="PingFang SC", font_size=26, color=WHITE,
                     ).move_to(UP * 3.0)
         m_bg = self.card(7.2, 1.3, self.C_RED, UP * 1.8)
         m_t  = Text("红球事件 m = 3",
-                    font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                    font="PingFang SC", font_size=26, color=WHITE,
                     ).move_to(UP * 1.8)
         self.play(Create(n_bg), Write(n_t), run_time=0.4)
         self.play(Create(m_bg), Write(m_t), run_time=0.4)
@@ -298,7 +298,7 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 6 ───────────
     def scene_prob_range(self):
         title = Text("概率的范围",
-                     font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+                     font="PingFang SC", font_size=44, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.5)
 
@@ -315,14 +315,14 @@ class ProbabilityDefinition(Scene):
                   Write(l0), Write(l1), run_time=0.6)
 
         # 三个区域标注
-        lbl_impossible = Text("不可能\nP=0", font="Noto Sans CJK SC",
+        lbl_impossible = Text("不可能\nP=0", font="PingFang SC",
                               font_size=20, color=self.C_RED,
                               ).move_to(UP * 5.1 + LEFT * 3.5 + UP * 0.7)
-        lbl_certain    = Text("必然\nP=1", font="Noto Sans CJK SC",
+        lbl_certain    = Text("必然\nP=1", font="PingFang SC",
                               font_size=20, color=self.C_GREEN,
                               ).move_to(UP * 5.1 + RIGHT * 3.5 + UP * 0.7)
         lbl_random     = Text("随机事件 0<P<1",
-                              font="Noto Sans CJK SC", font_size=22,
+                              font="PingFang SC", font_size=22,
                               color=self.C_TITLE,
                               ).move_to(UP * 4.3)
         self.play(Write(lbl_impossible), Write(lbl_certain),
@@ -337,8 +337,8 @@ class ProbabilityDefinition(Scene):
         for pstr, desc, col, pos in eg_data:
             bg = self.card(7.0, 0.95, col, pos)
             t  = VGroup(
-                Text(pstr, font="Noto Sans CJK SC", font_size=22, color=col),
-                Text(desc, font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text(pstr, font="PingFang SC", font_size=22, color=col),
+                Text(desc, font="PingFang SC", font_size=22, color=WHITE),
             ).arrange(RIGHT, buff=0.4).move_to(pos)
             self.play(Create(bg), Write(t), run_time=0.4)
 
@@ -348,7 +348,7 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 7 ───────────
     def scene_quick_practice(self):
         title = Text("综合练习",
-                     font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+                     font="PingFang SC", font_size=44, color=self.C_TITLE,
                      ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.4)
 
@@ -367,7 +367,7 @@ class ProbabilityDefinition(Scene):
             bg  = self.card(7.6, card_h, col, pos)
             pf  = MathTex(prob, font_size=28, color=WHITE)
             rf  = MathTex(res,  font_size=30, color=self.C_RESULT)
-            ht  = Text(hint, font="Noto Sans CJK SC",
+            ht  = Text(hint, font="PingFang SC",
                        font_size=19, color=GRAY_A)
             VGroup(VGroup(pf, rf).arrange(RIGHT, buff=0.3), ht
                    ).arrange(DOWN, buff=0.12).move_to(pos)
@@ -382,7 +382,7 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 8 ───────────
     def scene_summary(self):
         title = Text("知识点总结",
-                     font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+                     font="PingFang SC", font_size=46, color=self.C_TITLE,
                      ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.4)
 
@@ -400,7 +400,7 @@ class ProbabilityDefinition(Scene):
         ]
         for col, pos, lbl, fml in blocks:
             bg = self.card(7.6, 1.3, col, pos)
-            lt = Text(lbl, font="Noto Sans CJK SC", font_size=22, color=col)
+            lt = Text(lbl, font="PingFang SC", font_size=22, color=col)
             ft = MathTex(fml, font_size=28, color=WHITE)
             VGroup(lt, ft).arrange(RIGHT, buff=0.4).move_to(pos)
             self.play(Create(bg), Write(lt), Write(ft), run_time=0.42)
@@ -411,16 +411,16 @@ class ProbabilityDefinition(Scene):
     # ─────────── Scene 9 ───────────
     def scene_outro(self):
         big = Text("上海初高中数学直通车",
-                   font="Noto Sans CJK SC", font_size=38, color=WHITE,
+                   font="PingFang SC", font_size=38, color=WHITE,
                    ).move_to(UP * 2.5)
         uid = Text("@emptyandcalm",
-                   font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+                   font="PingFang SC", font_size=28, color=GRAY_B,
                    ).move_to(UP * 1.7)
         self.play(Transform(self.author, big), run_time=0.8)
         self.play(FadeIn(uid, shift=UP * 0.2), run_time=0.4)
 
         follow = Text("关注我，学更多数学知识！",
-                      font="Noto Sans CJK SC", font_size=30,
+                      font="PingFang SC", font_size=30,
                       color=self.C_TITLE).move_to(UP * 0.3)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
 

@@ -134,7 +134,7 @@ class QuadraticGeneralForm(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -144,7 +144,7 @@ class QuadraticGeneralForm(Scene):
         # 钩子问题
         hook = Text(
             "看懂a、b、c\n就能画出抛物线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.3
@@ -197,7 +197,7 @@ class QuadraticGeneralForm(Scene):
         # 标题
         title = Text(
             "配方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA_STEP
         ).move_to(UP * 5.5)
@@ -231,7 +231,7 @@ class QuadraticGeneralForm(Scene):
         
         explanation1 = Text(
             "配方：添加并减去相同的项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 2.8)
@@ -349,7 +349,7 @@ class QuadraticGeneralForm(Scene):
         
         # 顶点公式提示框
         vertex_formula_box = VGroup(
-            Text("顶点公式", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("顶点公式", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(
                 r"\left(-\frac{b}{2a}, \frac{4ac-b^2}{4a}\right)",
                 font_size=24,
@@ -445,9 +445,9 @@ class QuadraticGeneralForm(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("y轴交点", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("y轴交点", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"(0, c)", font_size=28, color=self.COLOR_Y_INTERCEPT),
-            Text("当x=0时, y=c", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("当x=0时, y=c", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(DOWN, buff=0.2).move_to(DOWN * 5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.6)
@@ -494,7 +494,7 @@ class QuadraticGeneralForm(Scene):
         # 标题
         title = Text(
             "a的作用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_PARABOLA
         ).move_to(UP * 5.5)
@@ -527,8 +527,8 @@ class QuadraticGeneralForm(Scene):
             stroke_width=4
         )
         
-        label_up = Text("a > 0", font="Noto Sans CJK SC", font_size=22, color=YELLOW).next_to(arrow_up, RIGHT, buff=0.2)
-        label_down = Text("a < 0", font="Noto Sans CJK SC", font_size=22, color=YELLOW).next_to(arrow_down, LEFT, buff=0.2)
+        label_up = Text("a > 0", font="PingFang SC", font_size=22, color=YELLOW).next_to(arrow_up, RIGHT, buff=0.2)
+        label_down = Text("a < 0", font="PingFang SC", font_size=22, color=YELLOW).next_to(arrow_down, LEFT, buff=0.2)
         
         self.play(
             GrowArrow(arrow_up),
@@ -540,9 +540,9 @@ class QuadraticGeneralForm(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("a > 0: 开口向上", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("a < 0: 开口向下", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("|a|越大，开口越窄", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("a > 0: 开口向上", font="PingFang SC", font_size=24, color=WHITE),
+            Text("a < 0: 开口向下", font="PingFang SC", font_size=24, color=WHITE),
+            Text("|a|越大，开口越窄", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.7)
@@ -567,7 +567,7 @@ class QuadraticGeneralForm(Scene):
         # 标题
         title = Text(
             "b的作用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_AXIS
         ).move_to(UP * 5.5)
@@ -608,7 +608,7 @@ class QuadraticGeneralForm(Scene):
             stroke_width=2
         )
         
-        label_left = Text("b > 0", font="Noto Sans CJK SC", font_size=20, color="#2ecc71").next_to(
+        label_left = Text("b > 0", font="PingFang SC", font_size=20, color="#2ecc71").next_to(
             self.axes.c2p(vertex_x_b_pos, 4), UP, buff=0.1
         )
         
@@ -638,7 +638,7 @@ class QuadraticGeneralForm(Scene):
             stroke_width=2
         )
         
-        label_right = Text("b < 0", font="Noto Sans CJK SC", font_size=20, color="#e67e22").next_to(
+        label_right = Text("b < 0", font="PingFang SC", font_size=20, color="#e67e22").next_to(
             self.axes.c2p(vertex_x_b_neg, 4), UP, buff=0.1
         )
         
@@ -651,8 +651,8 @@ class QuadraticGeneralForm(Scene):
         
         # 规律总结
         rule = VGroup(
-            Text("a、b同号 → 对称轴在y轴左侧", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("a、b异号 → 对称轴在y轴右侧", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            Text("a、b同号 → 对称轴在y轴左侧", font="PingFang SC", font_size=22, color=WHITE),
+            Text("a、b异号 → 对称轴在y轴右侧", font="PingFang SC", font_size=22, color=WHITE)
         ).arrange(DOWN, buff=0.25, aligned_edge=LEFT).move_to(DOWN * 5.5)
         
         self.play(FadeIn(rule, shift=UP * 0.3), run_time=0.8)
@@ -694,7 +694,7 @@ class QuadraticGeneralForm(Scene):
         # 总结标题
         summary_title = Text(
             "a、b、c的几何意义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -706,9 +706,9 @@ class QuadraticGeneralForm(Scene):
         
         # 卡片1: a的作用
         card_a_content = VGroup(
-            Text("决定开口方向", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("a>0向上, a<0向下", font="Noto Sans CJK SC", font_size=18, color=GRAY_A),
-            Text("|a|决定开口大小", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text("决定开口方向", font="PingFang SC", font_size=20, color=WHITE),
+            Text("a>0向上, a<0向下", font="PingFang SC", font_size=18, color=GRAY_A),
+            Text("|a|决定开口大小", font="PingFang SC", font_size=18, color=GRAY_A)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         
         card_a = self.create_summary_card(
@@ -720,9 +720,9 @@ class QuadraticGeneralForm(Scene):
         
         # 卡片2: b的作用
         card_b_content = VGroup(
-            Text("影响对称轴位置", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("影响对称轴位置", font="PingFang SC", font_size=20, color=WHITE),
             MathTex(r"x = -\frac{b}{2a}", font_size=22, color=WHITE),
-            Text("a、b同号→轴在左", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text("a、b同号→轴在左", font="PingFang SC", font_size=18, color=GRAY_A)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         
         card_b = self.create_summary_card(
@@ -734,7 +734,7 @@ class QuadraticGeneralForm(Scene):
         
         # 卡片3: c的作用
         card_c_content = VGroup(
-            Text("y轴交点纵坐标", font="Noto Sans CJK SC", font_size=20, color=WHITE),
+            Text("y轴交点纵坐标", font="PingFang SC", font_size=20, color=WHITE),
             MathTex(r"(0, c)", font_size=22, color=WHITE)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         
@@ -766,7 +766,7 @@ class QuadraticGeneralForm(Scene):
         # 判别式提示
         discriminant_hint = Text(
             "Δ = b² - 4ac (决定与x轴交点个数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 2.5)
@@ -776,7 +776,7 @@ class QuadraticGeneralForm(Scene):
         # 关键提示
         key_reminder = Text(
             "掌握a、b、c，抛物线尽在掌握!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW
         ).move_to(DOWN * 3.8)
@@ -798,14 +798,14 @@ class QuadraticGeneralForm(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -819,7 +819,7 @@ class QuadraticGeneralForm(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多函数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -865,7 +865,7 @@ class QuadraticGeneralForm(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             weight=BOLD

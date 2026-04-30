@@ -190,7 +190,7 @@ class CompassStraightedge(Scene):
         # 作者信息（持续存在）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.3)
@@ -200,7 +200,7 @@ class CompassStraightedge(Scene):
         # 钩子问题
         hook_text = Text(
             "只用直尺和圆规\n能画出什么？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -217,7 +217,7 @@ class CompassStraightedge(Scene):
             stroke_width=3
         ).move_to(UP * 1.5)
         
-        ruler_label = Text("直尺", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(ruler, DOWN, buff=0.2)
+        ruler_label = Text("直尺", font="PingFang SC", font_size=24, color=WHITE).next_to(ruler, DOWN, buff=0.2)
         
         # 圆规图标（简化）
         compass_circle = Circle(radius=0.8, color=self.COLOR_COMPASS, stroke_width=3).move_to(DOWN * 1.5)
@@ -225,7 +225,7 @@ class CompassStraightedge(Scene):
         compass_leg2 = Line(compass_circle.get_center() + UP * 0.3, compass_circle.get_center() + DOWN * 0.8 + LEFT * 0.3, color=self.COLOR_COMPASS, stroke_width=3)
         compass = VGroup(compass_circle, compass_leg1, compass_leg2)
         
-        compass_label = Text("圆规", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(compass, DOWN, buff=0.2)
+        compass_label = Text("圆规", font="PingFang SC", font_size=24, color=WHITE).next_to(compass, DOWN, buff=0.2)
         
         self.play(
             FadeIn(ruler, shift=RIGHT * 0.5),
@@ -255,14 +255,14 @@ class CompassStraightedge(Scene):
         """场景2: 什么是尺规作图"""
         title = Text(
             "尺规作图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         definition = Text(
             "只用没有刻度的直尺和圆规\n进行的几何作图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
             line_spacing=1.3
@@ -275,7 +275,7 @@ class CompassStraightedge(Scene):
         # 规则1
         rule1_title = Text(
             "直尺",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_RULER,
             weight=BOLD
@@ -283,7 +283,7 @@ class CompassStraightedge(Scene):
         
         rule1_text = Text(
             "无刻度，只能连接两点画直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(rule1_title, DOWN, buff=0.3)
@@ -303,7 +303,7 @@ class CompassStraightedge(Scene):
         # 规则2
         rule2_title = Text(
             "圆规",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_COMPASS,
             weight=BOLD
@@ -311,7 +311,7 @@ class CompassStraightedge(Scene):
         
         rule2_text = Text(
             "可以画圆和弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(rule2_title, DOWN, buff=0.3)
@@ -344,7 +344,7 @@ class CompassStraightedge(Scene):
         """场景3: 作一条线段等于已知线段"""
         title = Text(
             "作图1: 作等长线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_RESULT
         ).move_to(UP * 6.5)
@@ -354,7 +354,7 @@ class CompassStraightedge(Scene):
         # 步骤1: 已知线段AB
         step1 = Text(
             "已知: 线段AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -362,8 +362,8 @@ class CompassStraightedge(Scene):
         segment_AB = Line(self.A_seg, self.B_seg, color=WHITE, stroke_width=4)
         dot_A = Dot(self.A_seg, color=WHITE, radius=0.08)
         dot_B = Dot(self.B_seg, color=WHITE, radius=0.08)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_A, LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_B, RIGHT, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_A, LEFT, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_B, RIGHT, buff=0.15)
         
         self.play(FadeIn(step1), run_time=0.4)
         self.play(Create(segment_AB), run_time=0.7)
@@ -378,13 +378,13 @@ class CompassStraightedge(Scene):
         # 步骤2: 取点C
         step2 = Text(
             "作法: 取点C",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
         
         dot_C = Dot(self.C_seg, color=self.COLOR_RESULT, radius=0.08)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_C, LEFT, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_C, LEFT, buff=0.15)
         
         self.play(Transform(step1, step2), run_time=0.4)
         self.play(FadeIn(dot_C, scale=0.5), FadeIn(label_C), run_time=0.5)
@@ -394,7 +394,7 @@ class CompassStraightedge(Scene):
         # 步骤3: 圆规量取AB长度
         step3 = Text(
             "用圆规量取AB长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -416,7 +416,7 @@ class CompassStraightedge(Scene):
         # 步骤4: 以C为圆心，AB为半径画弧
         step4 = Text(
             "以C为圆心，AB为半径画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -444,13 +444,13 @@ class CompassStraightedge(Scene):
         # 步骤5: 在弧上取点D
         step5 = Text(
             "在弧上取点D",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
         
         dot_D = Dot(self.D_seg, color=self.COLOR_RESULT, radius=0.08)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_D, RIGHT, buff=0.15)
+        label_D = Text("D", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_D, RIGHT, buff=0.15)
         
         self.play(Transform(step1, step5), run_time=0.4)
         self.play(
@@ -472,7 +472,7 @@ class CompassStraightedge(Scene):
         # 结论
         result = Text(
             "CD = AB ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -504,7 +504,7 @@ class CompassStraightedge(Scene):
         
         title = Text(
             "作图2: 作等大的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_RESULT
         ).move_to(UP * 6.5)
@@ -514,7 +514,7 @@ class CompassStraightedge(Scene):
         # 步骤1: 已知角∠AOB
         step1 = Text(
             "已知: 角AOB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -522,7 +522,7 @@ class CompassStraightedge(Scene):
         ray_OA = Line(self.O_angle, self.P1_angle, color=WHITE, stroke_width=3)
         ray_OB = Line(self.O_angle, self.P2_angle, color=WHITE, stroke_width=3)
         dot_O = Dot(self.O_angle, color=WHITE, radius=0.08)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_O, DOWN, buff=0.15)
+        label_O = Text("O", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_O, DOWN, buff=0.15)
         
         self.play(FadeIn(step1), run_time=0.4)
         self.play(
@@ -536,7 +536,7 @@ class CompassStraightedge(Scene):
         # 步骤2: 以O为圆心画弧
         step2 = Text(
             "以O为圆心画弧，交两边于M、N",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -552,8 +552,8 @@ class CompassStraightedge(Scene):
         
         dot_M = Dot(self.I1_angle, color=self.COLOR_CONSTRUCTION, radius=0.07)
         dot_N = Dot(self.I2_angle, color=self.COLOR_CONSTRUCTION, radius=0.07)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(dot_M, RIGHT, buff=0.1)
-        label_N = Text("N", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(dot_N, UP, buff=0.1)
+        label_M = Text("M", font="PingFang SC", font_size=18, color=WHITE).next_to(dot_M, RIGHT, buff=0.1)
+        label_N = Text("N", font="PingFang SC", font_size=18, color=WHITE).next_to(dot_N, UP, buff=0.1)
         
         self.play(Transform(step1, step2), run_time=0.4)
         self.play(Create(arc1), run_time=1.0)
@@ -568,14 +568,14 @@ class CompassStraightedge(Scene):
         # 步骤3: 画射线O'A'
         step3 = Text(
             "画射线O'A'",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
         
         ray_new = Line(self.O_new, self.P1_new, color=WHITE, stroke_width=3)
         dot_O_new = Dot(self.O_new, color=WHITE, radius=0.08)
-        label_O_new = Text("O'", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_O_new, DOWN, buff=0.15)
+        label_O_new = Text("O'", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_O_new, DOWN, buff=0.15)
         
         self.play(Transform(step1, step3), run_time=0.4)
         self.play(
@@ -589,7 +589,7 @@ class CompassStraightedge(Scene):
         # 步骤4: 以O'为圆心，同样半径画弧
         step4 = Text(
             "以O'为圆心，相同半径画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -611,7 +611,7 @@ class CompassStraightedge(Scene):
         ).move_arc_center_to(self.O_new)
         
         dot_M_new = Dot(self.I1_new, color=self.COLOR_CONSTRUCTION, radius=0.07)
-        label_M_new = Text("M'", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(dot_M_new, RIGHT, buff=0.1)
+        label_M_new = Text("M'", font="PingFang SC", font_size=18, color=WHITE).next_to(dot_M_new, RIGHT, buff=0.1)
         
         self.play(Transform(step1, step4), run_time=0.4)
         self.play(Create(arc2), run_time=1.0)
@@ -622,7 +622,7 @@ class CompassStraightedge(Scene):
         # 步骤5: 以M'为圆心，MN为半径画弧
         step5 = Text(
             "以M'为圆心，MN为半径画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=19,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -645,7 +645,7 @@ class CompassStraightedge(Scene):
         
         # 步骤6: 两弧交点N'（已经在函数开头计算）
         dot_N_new = Dot(I2_new, color=self.COLOR_RESULT, radius=0.08)
-        label_N_new = Text("N'", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(dot_N_new, UP, buff=0.1)
+        label_N_new = Text("N'", font="PingFang SC", font_size=18, color=WHITE).next_to(dot_N_new, UP, buff=0.1)
         
         self.play(
             FadeIn(dot_N_new, scale=0.5),
@@ -666,7 +666,7 @@ class CompassStraightedge(Scene):
         # 结论
         result = Text(
             "∠A'O'N' = ∠AOB ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -692,7 +692,7 @@ class CompassStraightedge(Scene):
         """场景5: 作线段的中点"""
         title = Text(
             "作图3: 作线段中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_RESULT
         ).move_to(UP * 6.5)
@@ -702,7 +702,7 @@ class CompassStraightedge(Scene):
         # 步骤1: 线段AB
         step1 = Text(
             "已知: 线段AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -710,8 +710,8 @@ class CompassStraightedge(Scene):
         segment = Line(self.A_mid, self.B_mid, color=WHITE, stroke_width=4)
         dot_A_mid = Dot(self.A_mid, color=WHITE, radius=0.08)
         dot_B_mid = Dot(self.B_mid, color=WHITE, radius=0.08)
-        label_A_mid = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_A_mid, LEFT, buff=0.15)
-        label_B_mid = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_B_mid, RIGHT, buff=0.15)
+        label_A_mid = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_A_mid, LEFT, buff=0.15)
+        label_B_mid = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_B_mid, RIGHT, buff=0.15)
         
         self.play(FadeIn(step1), run_time=0.4)
         self.play(Create(segment), run_time=0.7)
@@ -726,7 +726,7 @@ class CompassStraightedge(Scene):
         # 步骤2: 以A为圆心画弧（上下）
         step2 = Text(
             "以A为圆心，大于AB一半的长度画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -767,7 +767,7 @@ class CompassStraightedge(Scene):
         # 步骤3: 以B为圆心画弧（上下）
         step3 = Text(
             "以B为圆心，相同长度画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -808,8 +808,8 @@ class CompassStraightedge(Scene):
         # 步骤4: 标记交点P、Q
         dot_P = Dot(self.P_mid, color=self.COLOR_RESULT, radius=0.08)
         dot_Q = Dot(self.Q_mid, color=self.COLOR_RESULT, radius=0.08)
-        label_P = Text("P", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_P, UP, buff=0.12)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_Q, DOWN, buff=0.12)
+        label_P = Text("P", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_P, UP, buff=0.12)
+        label_Q = Text("Q", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_Q, DOWN, buff=0.12)
         
         self.play(
             FadeIn(dot_P, scale=0.5),
@@ -831,7 +831,7 @@ class CompassStraightedge(Scene):
         
         # 步骤6: 标记中点M
         dot_M = Dot(self.M, color=self.COLOR_RESULT, radius=0.1)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT).next_to(dot_M, DOWN, buff=0.2)
+        label_M = Text("M", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT).next_to(dot_M, DOWN, buff=0.2)
         
         self.play(
             FadeIn(dot_M, scale=0.5),
@@ -845,7 +845,7 @@ class CompassStraightedge(Scene):
         # 结论
         result = Text(
             "M是AB的中点 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -880,7 +880,7 @@ class CompassStraightedge(Scene):
         
         title = Text(
             "作图4: 作角平分线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_RESULT
         ).move_to(UP * 6.5)
@@ -890,7 +890,7 @@ class CompassStraightedge(Scene):
         # 步骤1: 角∠AOB
         step1 = Text(
             "已知: 角AOB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -898,7 +898,7 @@ class CompassStraightedge(Scene):
         ray_OA_bisect = Line(self.O_bisect, self.A_bisect, color=WHITE, stroke_width=3)
         ray_OB_bisect = Line(self.O_bisect, self.B_bisect, color=WHITE, stroke_width=3)
         dot_O_bisect = Dot(self.O_bisect, color=WHITE, radius=0.08)
-        label_O_bisect = Text("O", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_O_bisect, LEFT, buff=0.15)
+        label_O_bisect = Text("O", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_O_bisect, LEFT, buff=0.15)
         
         self.play(FadeIn(step1), run_time=0.4)
         self.play(
@@ -912,7 +912,7 @@ class CompassStraightedge(Scene):
         # 步骤2: 以O为圆心画弧
         step2 = Text(
             "以O为圆心画弧，交两边于M、N",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -931,8 +931,8 @@ class CompassStraightedge(Scene):
         
         dot_M_bisect = Dot(self.M_bisect, color=self.COLOR_CONSTRUCTION, radius=0.07)
         dot_N_bisect = Dot(self.N_bisect, color=self.COLOR_CONSTRUCTION, radius=0.07)
-        label_M_bisect = Text("M", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_M_bisect, UR, buff=0.1)
-        label_N_bisect = Text("N", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_N_bisect, DR, buff=0.1)
+        label_M_bisect = Text("M", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_M_bisect, UR, buff=0.1)
+        label_N_bisect = Text("N", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_N_bisect, DR, buff=0.1)
         
         self.play(Transform(step1, step2), run_time=0.4)
         self.play(Create(arc_bisect), run_time=1.0)
@@ -947,7 +947,7 @@ class CompassStraightedge(Scene):
         # 步骤3: 以M为圆心画弧
         step3 = Text(
             "以M为圆心画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -971,7 +971,7 @@ class CompassStraightedge(Scene):
         # 步骤4: 以N为圆心画弧（同半径）
         step4 = Text(
             "以N为圆心，相同半径画弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -994,7 +994,7 @@ class CompassStraightedge(Scene):
         
         # 步骤5: 两弧交于P（已经在函数开头计算）
         dot_P_bisect = Dot(P_bisect_calculated, color=self.COLOR_RESULT, radius=0.08)
-        label_P_bisect = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_P_bisect, RIGHT, buff=0.15)
+        label_P_bisect = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_P_bisect, RIGHT, buff=0.15)
         
         self.play(
             FadeIn(dot_P_bisect, scale=0.5),
@@ -1015,7 +1015,7 @@ class CompassStraightedge(Scene):
         # 结论
         result = Text(
             "OP平分∠AOB ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -1042,7 +1042,7 @@ class CompassStraightedge(Scene):
         # 标题
         title = Text(
             "四个基本尺规作图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -1054,12 +1054,12 @@ class CompassStraightedge(Scene):
         icon_y_positions = [3.5, 1.8, 0.1, -1.6]
         
         # 图标1: 作等线段
-        icon1_title = Text("1. 作等长线段", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        icon1_title = Text("1. 作等长线段", font="PingFang SC", font_size=24, color=WHITE)
         icon1_line = Line(LEFT * 0.8, RIGHT * 0.8, color=self.COLOR_RESULT, stroke_width=3)
         icon1 = VGroup(icon1_title, icon1_line).arrange(RIGHT, buff=0.3).move_to(UP * icon_y_positions[0])
         
         # 图标2: 作等角
-        icon2_title = Text("2. 作等大的角", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        icon2_title = Text("2. 作等大的角", font="PingFang SC", font_size=24, color=WHITE)
         icon2_angle = VGroup(
             Line(ORIGIN, RIGHT * 0.6, color=self.COLOR_RESULT, stroke_width=2),
             Line(ORIGIN, UR * 0.6, color=self.COLOR_RESULT, stroke_width=2)
@@ -1067,13 +1067,13 @@ class CompassStraightedge(Scene):
         icon2 = VGroup(icon2_title, icon2_angle).arrange(RIGHT, buff=0.3).move_to(UP * icon_y_positions[1])
         
         # 图标3: 作中点
-        icon3_title = Text("3. 作线段中点", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        icon3_title = Text("3. 作线段中点", font="PingFang SC", font_size=24, color=WHITE)
         icon3_point = Dot(ORIGIN, color=self.COLOR_RESULT, radius=0.08)
         icon3_line = Line(LEFT * 0.6, RIGHT * 0.6, color=GRAY_B, stroke_width=2)
         icon3 = VGroup(icon3_title, VGroup(icon3_line, icon3_point)).arrange(RIGHT, buff=0.3).move_to(UP * icon_y_positions[2])
         
         # 图标4: 作角平分线
-        icon4_title = Text("4. 作角平分线", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        icon4_title = Text("4. 作角平分线", font="PingFang SC", font_size=24, color=WHITE)
         icon4_angle = VGroup(
             Line(ORIGIN, RIGHT * 0.6, color=GRAY_B, stroke_width=2),
             Line(ORIGIN, UP * 0.6, color=GRAY_B, stroke_width=2),
@@ -1095,7 +1095,7 @@ class CompassStraightedge(Scene):
         # 关键提示
         hint = Text(
             "记住：作图痕迹要保留！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -1107,14 +1107,14 @@ class CompassStraightedge(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(DOWN * 5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 5.8)
@@ -1135,7 +1135,7 @@ class CompassStraightedge(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多几何技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7)

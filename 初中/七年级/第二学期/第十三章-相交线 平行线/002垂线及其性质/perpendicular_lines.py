@@ -142,7 +142,7 @@ class PerpendicularLines(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -152,7 +152,7 @@ class PerpendicularLines(Scene):
         # 钩子问题
         hook_text = Text(
             "什么是垂线?\n它有什么神奇性质?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -194,7 +194,7 @@ class PerpendicularLines(Scene):
         # 标题
         title = Text(
             "垂线的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -211,7 +211,7 @@ class PerpendicularLines(Scene):
         
         label_l = Text(
             "l",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).next_to(self.line_l, RIGHT, buff=0.2)
@@ -223,7 +223,7 @@ class PerpendicularLines(Scene):
         self.dot_P = Dot(self.P, color=self.COLOR_SECONDARY, radius=0.08)
         self.label_P = Text(
             "P",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(self.dot_P, UP, buff=0.15)
@@ -247,7 +247,7 @@ class PerpendicularLines(Scene):
         self.dot_H = Dot(self.H, color=self.COLOR_AUXILIARY, radius=0.07)
         self.label_H = Text(
             "H",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(self.dot_H, DOWN, buff=0.15)
@@ -271,7 +271,7 @@ class PerpendicularLines(Scene):
         # 定义文字
         definition = Text(
             "两条直线相交成直角时,\n称这两条直线互相垂直",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
             line_spacing=1.2
@@ -280,7 +280,7 @@ class PerpendicularLines(Scene):
         self.play(Write(definition), run_time=1.5)
         
         # 符号表示
-        symbol_chinese = Text("记作:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        symbol_chinese = Text("记作:", font="PingFang SC", font_size=22, color=GRAY_A)
         symbol_math = MathTex(r"l \perp PH", font_size=32, color=WHITE)
         symbol_group = VGroup(symbol_chinese, symbol_math).arrange(RIGHT, buff=0.3)
         symbol_group.move_to(DOWN * 5)
@@ -290,7 +290,7 @@ class PerpendicularLines(Scene):
         # 说明垂足
         footnote = Text(
             "H 叫做垂足",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(DOWN * 6)
@@ -314,7 +314,7 @@ class PerpendicularLines(Scene):
         # 副标题
         subtitle = Text(
             "性质1: 唯一性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -404,7 +404,7 @@ class PerpendicularLines(Scene):
         # 性质文字
         property_text = Text(
             "过一点有且只有一条直线\n与已知直线垂直",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
             line_spacing=1.3
@@ -415,7 +415,7 @@ class PerpendicularLines(Scene):
         # 强调文字
         emphasis = Text(
             "有且只有 = 存在且唯一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -438,7 +438,7 @@ class PerpendicularLines(Scene):
         # 副标题
         subtitle = Text(
             "性质2: 最短距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -447,7 +447,7 @@ class PerpendicularLines(Scene):
         
         # 点A和线段PA
         dot_A = Dot(self.A, color=self.COLOR_AUXILIARY, radius=0.06)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_A, DOWN, buff=0.12)
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_A, DOWN, buff=0.12)
         
         self.play(FadeIn(dot_A), run_time=0.3)
         self.play(FadeIn(label_A), run_time=0.2)
@@ -474,7 +474,7 @@ class PerpendicularLines(Scene):
         
         # 点B和线段PB
         dot_B = Dot(self.B, color=self.COLOR_AUXILIARY, radius=0.06)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_B, DOWN, buff=0.12)
+        label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_B, DOWN, buff=0.12)
         
         self.play(FadeIn(dot_B), FadeIn(label_B), run_time=0.3)
         
@@ -531,7 +531,7 @@ class PerpendicularLines(Scene):
         # 定义文字
         distance_def = Text(
             "点到直线的距离\n= 垂线段的长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
             line_spacing=1.3
@@ -542,7 +542,7 @@ class PerpendicularLines(Scene):
         # 强调
         emphasis = Text(
             "这是最短距离!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -576,7 +576,7 @@ class PerpendicularLines(Scene):
         # 标题
         title = Text(
             "实际应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -586,7 +586,7 @@ class PerpendicularLines(Scene):
         # 问题
         question = Text(
             "求点Q到直线l的距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -595,7 +595,7 @@ class PerpendicularLines(Scene):
         
         # 点Q出现
         dot_Q = Dot(self.Q, color=self.COLOR_SECONDARY, radius=0.08)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_Q, UP, buff=0.15)
+        label_Q = Text("Q", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_Q, UP, buff=0.15)
         
         self.play(FadeIn(dot_Q, scale=0.5), run_time=0.3)
         self.play(FadeIn(label_Q), run_time=0.2)
@@ -605,7 +605,7 @@ class PerpendicularLines(Scene):
         # 步骤1
         step_text = Text(
             "① 过Q作l的垂线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -625,7 +625,7 @@ class PerpendicularLines(Scene):
         
         # 垂足K
         dot_K = Dot(self.K, color=self.COLOR_AUXILIARY, radius=0.07)
-        label_K = Text("K", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_K, DOWN, buff=0.15)
+        label_K = Text("K", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_K, DOWN, buff=0.15)
         
         self.play(FadeIn(dot_K), run_time=0.3)
         self.play(FadeIn(label_K), run_time=0.2)
@@ -633,7 +633,7 @@ class PerpendicularLines(Scene):
         # 步骤2
         step2 = Text(
             "② 标记垂足K",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -665,7 +665,7 @@ class PerpendicularLines(Scene):
         # 步骤3
         step3 = Text(
             "③ 测量QK长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -690,7 +690,7 @@ class PerpendicularLines(Scene):
         # 结论
         conclusion = Text(
             "距离 = QK长度 = " + f"{self.dist_QK:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -734,7 +734,7 @@ class PerpendicularLines(Scene):
         # 标题
         title = Text(
             "知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -780,7 +780,7 @@ class PerpendicularLines(Scene):
         # 强调语
         emphasis = Text(
             "掌握垂线, 轻松解题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -807,7 +807,7 @@ class PerpendicularLines(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
@@ -815,7 +815,7 @@ class PerpendicularLines(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -834,14 +834,14 @@ class PerpendicularLines(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -855,7 +855,7 @@ class PerpendicularLines(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

@@ -143,7 +143,7 @@ class QuadraticVertexForm(Scene):
         # 作者信息（顶部，贯穿全片）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -153,7 +153,7 @@ class QuadraticVertexForm(Scene):
         # 钩子问题
         hook_question = Text(
             "抛物线的顶点在哪?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -216,7 +216,7 @@ class QuadraticVertexForm(Scene):
         # 说明文字
         explain_text = Text(
             "先看标准形式 y=x²",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -255,7 +255,7 @@ class QuadraticVertexForm(Scene):
         vertex_dot = Dot(self.vertex_pos_1, color=self.COLOR_VERTEX, radius=0.12)
         vertex_label = Text(
             "V",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_VERTEX,
             weight=BOLD
@@ -263,7 +263,7 @@ class QuadraticVertexForm(Scene):
         
         vertex_label_2 = Text(
             "顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_VERTEX
         ).next_to(vertex_label, DOWN, buff=0.05, aligned_edge=LEFT)
@@ -339,14 +339,14 @@ class QuadraticVertexForm(Scene):
         # 说明文字
         explain_1 = Text(
             "h 决定左右位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
         
         explain_2 = Text(
             "k 决定上下位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -388,7 +388,7 @@ class QuadraticVertexForm(Scene):
         # 标题
         title = Text(
             "参数 a 控制开口方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -413,7 +413,7 @@ class QuadraticVertexForm(Scene):
         
         label_pos = Text(
             "a > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PARABOLA_POSITIVE,
             weight=BOLD
@@ -421,7 +421,7 @@ class QuadraticVertexForm(Scene):
         
         explain_pos = Text(
             "开口向上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PARABOLA_POSITIVE
         ).next_to(label_pos, DOWN, buff=0.1, aligned_edge=LEFT)
@@ -466,7 +466,7 @@ class QuadraticVertexForm(Scene):
         
         label_neg = Text(
             "a < 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PARABOLA_NEGATIVE,
             weight=BOLD
@@ -474,7 +474,7 @@ class QuadraticVertexForm(Scene):
         
         explain_neg = Text(
             "开口向下",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PARABOLA_NEGATIVE
         ).next_to(label_neg, DOWN, buff=0.1, aligned_edge=LEFT)
@@ -566,7 +566,7 @@ class QuadraticVertexForm(Scene):
         # 标题
         title = Text(
             "a > 0 时，顶点是最低点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_PARABOLA_POSITIVE
         ).move_to(UP * 5.5)
@@ -665,7 +665,7 @@ class QuadraticVertexForm(Scene):
         
         title_max = Text(
             "a < 0 时，顶点是最高点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_PARABOLA_NEGATIVE
         ).move_to(UP * 5.5)
@@ -705,7 +705,7 @@ class QuadraticVertexForm(Scene):
         # 标题
         title = Text(
             "性质总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -731,8 +731,8 @@ class QuadraticVertexForm(Scene):
         def create_property_card(icon_color, title_text, content_text, position):
             """创建属性卡片"""
             icon = Circle(radius=0.2, fill_color=icon_color, fill_opacity=1, stroke_width=0)
-            title = Text(title_text, font="Noto Sans CJK SC", font_size=22, color=WHITE, weight=BOLD)
-            content = Text(content_text, font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            title = Text(title_text, font="PingFang SC", font_size=22, color=WHITE, weight=BOLD)
+            content = Text(content_text, font="PingFang SC", font_size=18, color=GRAY_A)
             
             card = VGroup(icon, title, content).arrange(RIGHT, buff=0.25, aligned_edge=UP)
             card.move_to(position + LEFT * 10)  # 初始在左侧屏幕外
@@ -796,7 +796,7 @@ class QuadraticVertexForm(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -804,7 +804,7 @@ class QuadraticVertexForm(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -818,7 +818,7 @@ class QuadraticVertexForm(Scene):
         # 关注引导
         follow_text = Text(
             "关注我，学更多二次函数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

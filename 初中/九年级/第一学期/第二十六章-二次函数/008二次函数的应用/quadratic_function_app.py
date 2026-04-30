@@ -123,7 +123,7 @@ class QuadraticFunctionApplication(Scene):
         # 作者信息 (顶部，持续显示)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -133,7 +133,7 @@ class QuadraticFunctionApplication(Scene):
         # 钩子问题 - 吸引注意
         hook_text = Text(
             "如何定价才能赚最多钱？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -163,7 +163,7 @@ class QuadraticFunctionApplication(Scene):
         peak_dot = Dot(peak_point, color=self.COLOR_SECONDARY, radius=0.15)
         peak_label = Text(
             "最高点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_SECONDARY
         ).next_to(peak_dot, UP, buff=0.2)
@@ -193,7 +193,7 @@ class QuadraticFunctionApplication(Scene):
         # 标题
         title = Text(
             "二次函数基础",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -254,7 +254,7 @@ class QuadraticFunctionApplication(Scene):
         
         axis_label = Text(
             "对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_AUXILIARY
         ).next_to(axes.c2p(self.vertex_x_basic, 0), DOWN, buff=0.2)
@@ -273,7 +273,7 @@ class QuadraticFunctionApplication(Scene):
         # 最值说明
         max_text = Text(
             "a < 0，有最大值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(formula, DOWN, buff=0.3)
@@ -378,7 +378,7 @@ class QuadraticFunctionApplication(Scene):
         # 顶点x坐标公式
         vertex_formula_parts = VGroup(
             MathTex("x", font_size=self.FONT_SIZES["formula"], color=self.COLOR_SECONDARY),
-            Text("顶点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=self.COLOR_SECONDARY),
+            Text("顶点", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=self.COLOR_SECONDARY),
             MathTex("= -\\frac{b}{2a}", font_size=self.FONT_SIZES["formula"], color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 3.5)
         
@@ -387,7 +387,7 @@ class QuadraticFunctionApplication(Scene):
         # 代入示例数值
         example_text = Text(
             "示例: a=-1, b=4, c=5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 2.3)
@@ -397,7 +397,7 @@ class QuadraticFunctionApplication(Scene):
         # 计算步骤
         calc_step1_parts = VGroup(
             MathTex("x", font_size=self.FONT_SIZES["body"], color=WHITE),
-            Text("顶点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE),
+            Text("顶点", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=WHITE),
             MathTex("= -\\frac{4}{2 \\times (-1)} = 2", font_size=self.FONT_SIZES["body"], color=WHITE)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 1.2)
         
@@ -406,7 +406,7 @@ class QuadraticFunctionApplication(Scene):
         # y坐标计算
         y_calc_parts = VGroup(
             MathTex("y", font_size=self.FONT_SIZES["body"], color=WHITE),
-            Text("顶点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE),
+            Text("顶点", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=WHITE),
             MathTex("= -(2)^2 + 4(2) + 5 = 9", font_size=self.FONT_SIZES["body"], color=WHITE)
         ).arrange(RIGHT, buff=0.1).move_to(ORIGIN)
         
@@ -415,7 +415,7 @@ class QuadraticFunctionApplication(Scene):
         # 最终顶点
         final_vertex = Text(
             "顶点: (2, 9)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["formula"],
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -450,7 +450,7 @@ class QuadraticFunctionApplication(Scene):
         # 问题标题
         problem_title = Text(
             "实际应用: 利润最大化",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_PROFIT,
             weight=BOLD
@@ -460,15 +460,15 @@ class QuadraticFunctionApplication(Scene):
         
         # 问题详情
         problem_lines = VGroup(
-            Text("某商店销售商品:", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"]),
-            Text("• 进价: 30元/件", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"]),
-            Text("• 定价: x 元/件", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"]),
-            Text("• 销量: 100-2x 件/天", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"]),
+            Text("某商店销售商品:", font="PingFang SC", font_size=self.FONT_SIZES["body"]),
+            Text("• 进价: 30元/件", font="PingFang SC", font_size=self.FONT_SIZES["body"]),
+            Text("• 定价: x 元/件", font="PingFang SC", font_size=self.FONT_SIZES["body"]),
+            Text("• 销量: 100-2x 件/天", font="PingFang SC", font_size=self.FONT_SIZES["body"]),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(UP * 4)
         
         question = Text(
             "如何定价使每天利润最大？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -482,7 +482,7 @@ class QuadraticFunctionApplication(Scene):
         # 提示
         hint_text = Text(
             "用二次函数建模!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_PRIMARY
         ).move_to(DOWN * 0.5)
@@ -518,7 +518,7 @@ class QuadraticFunctionApplication(Scene):
         # 利润公式推导
         derivation_title = Text(
             "建立利润函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_PROFIT
         ).move_to(UP * 6.5)
@@ -528,7 +528,7 @@ class QuadraticFunctionApplication(Scene):
         # 推导步骤
         step1_parts = VGroup(
             MathTex("P =", font_size=self.FONT_SIZES["body"], color=WHITE),
-            Text("(售价 - 成本) × 销量", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"], color=WHITE)
+            Text("(售价 - 成本) × 销量", font="PingFang SC", font_size=self.FONT_SIZES["body"], color=WHITE)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5)
         
         self.play(Write(step1_parts), run_time=1.5)
@@ -563,12 +563,12 @@ class QuadraticFunctionApplication(Scene):
         ).shift(DOWN * 1.5)
         
         x_label = profit_axes.get_x_axis_label(
-            Text("价格(元)", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"]),
+            Text("价格(元)", font="PingFang SC", font_size=self.FONT_SIZES["small"]),
             direction=RIGHT,
             buff=0.3
         )
         y_label = profit_axes.get_y_axis_label(
-            Text("利润(元)", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"]),
+            Text("利润(元)", font="PingFang SC", font_size=self.FONT_SIZES["small"]),
             direction=UP,
             buff=0.3
         )
@@ -597,7 +597,7 @@ class QuadraticFunctionApplication(Scene):
         optimal_dot = Dot(optimal_point, color=self.COLOR_SECONDARY, radius=0.15)
         
         optimal_label = VGroup(
-            Text("最优点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=self.COLOR_SECONDARY),
+            Text("最优点", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=self.COLOR_SECONDARY),
             MathTex(r"(40, 200)", font_size=self.FONT_SIZES["label"], color=self.COLOR_SECONDARY)
         ).arrange(DOWN, buff=0.1).next_to(optimal_dot, UR, buff=0.2)
         
@@ -660,7 +660,7 @@ class QuadraticFunctionApplication(Scene):
         
         answer_title = Text(
             "最优方案",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -668,14 +668,14 @@ class QuadraticFunctionApplication(Scene):
         
         answer_price = Text(
             "定价: 40元/件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 5.6)
         
         answer_profit = Text(
             "最大利润: 200元/天",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_PROFIT,
             weight=BOLD
@@ -720,7 +720,7 @@ class QuadraticFunctionApplication(Scene):
         
         range_text = Text(
             "盈利区间: 30-50元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=BLUE
         ).move_to(UP * 3.8)
@@ -734,7 +734,7 @@ class QuadraticFunctionApplication(Scene):
         # 结论
         conclusion = Text(
             "二次函数找到最优解！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -762,7 +762,7 @@ class QuadraticFunctionApplication(Scene):
         # 总结标题
         summary_title = Text(
             "二次函数应用三步法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=GOLD,
             weight=BOLD
@@ -772,19 +772,19 @@ class QuadraticFunctionApplication(Scene):
         
         # 三个步骤
         step1 = VGroup(
-            Text("1", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["subtitle"], color=YELLOW, weight=BOLD),
-            Text("建立函数模型", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"])
+            Text("1", font="PingFang SC", font_size=self.FONT_SIZES["subtitle"], color=YELLOW, weight=BOLD),
+            Text("建立函数模型", font="PingFang SC", font_size=self.FONT_SIZES["body"])
         ).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
         
         step2 = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["subtitle"], color=YELLOW, weight=BOLD),
-            Text("求顶点坐标", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"]),
+            Text("2", font="PingFang SC", font_size=self.FONT_SIZES["subtitle"], color=YELLOW, weight=BOLD),
+            Text("求顶点坐标", font="PingFang SC", font_size=self.FONT_SIZES["body"]),
             MathTex(r"x = -\frac{b}{2a}", font_size=self.FONT_SIZES["body"], color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2.3)
         
         step3 = VGroup(
-            Text("3", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["subtitle"], color=YELLOW, weight=BOLD),
-            Text("解释实际意义", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"])
+            Text("3", font="PingFang SC", font_size=self.FONT_SIZES["subtitle"], color=YELLOW, weight=BOLD),
+            Text("解释实际意义", font="PingFang SC", font_size=self.FONT_SIZES["body"])
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1.1)
         
         self.play(FadeIn(step1, shift=RIGHT * 0.5), run_time=0.5)
@@ -794,9 +794,9 @@ class QuadraticFunctionApplication(Scene):
         # 关键公式
         key_formula = VGroup(
             MathTex(r"a < 0 \Rightarrow", font_size=self.FONT_SIZES["body"]),
-            Text("最大值", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"], color=RED),
+            Text("最大值", font="PingFang SC", font_size=self.FONT_SIZES["body"], color=RED),
             MathTex(r"\quad a > 0 \Rightarrow", font_size=self.FONT_SIZES["body"]),
-            Text("最小值", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"], color=BLUE)
+            Text("最小值", font="PingFang SC", font_size=self.FONT_SIZES["body"], color=BLUE)
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 0.5)
         
         self.play(Write(key_formula), run_time=0.8)
@@ -804,7 +804,7 @@ class QuadraticFunctionApplication(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -812,7 +812,7 @@ class QuadraticFunctionApplication(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=GRAY_B
         ).move_to(DOWN * 4)
@@ -827,7 +827,7 @@ class QuadraticFunctionApplication(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

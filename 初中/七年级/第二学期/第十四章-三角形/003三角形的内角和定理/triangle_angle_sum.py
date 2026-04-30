@@ -149,7 +149,7 @@ class TriangleAngleSum(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -159,7 +159,7 @@ class TriangleAngleSum(Scene):
         # 钩子问题
         hook_text = Text(
             "三个角加起来等于多少度?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -190,7 +190,7 @@ class TriangleAngleSum(Scene):
         # 问号
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -269,7 +269,7 @@ class TriangleAngleSum(Scene):
         # 标题
         title = Text(
             "三角形内角和定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -279,7 +279,7 @@ class TriangleAngleSum(Scene):
         # 说明文字
         explain = Text(
             "认识这三个内角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -303,7 +303,7 @@ class TriangleAngleSum(Scene):
         # 说明文字1
         explain_1 = Text(
             "过点C作AB的平行线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -343,7 +343,7 @@ class TriangleAngleSum(Scene):
         # 说明文字2 - 内错角相等
         explain_2 = Text(
             "内错角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -423,7 +423,7 @@ class TriangleAngleSum(Scene):
         # 说明文字
         explain_3 = Text(
             "三个角拼成一条直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -542,7 +542,7 @@ class TriangleAngleSum(Scene):
         # 结论文字
         conclusion = Text(
             "任意三角形都成立!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 4.5)
@@ -581,7 +581,7 @@ class TriangleAngleSum(Scene):
         # 推论标题
         corollary_title = Text(
             "重要推论",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -591,14 +591,14 @@ class TriangleAngleSum(Scene):
         # 推论1卡片
         corollary_1_title = Text(
             "推论1:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
         
         corollary_1_content = Text(
             "直角三角形两锐角互余",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -620,14 +620,14 @@ class TriangleAngleSum(Scene):
         # 推论2卡片
         corollary_2_title = Text(
             "推论2:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
         
         corollary_2_content = Text(
             "外角等于不相邻两内角之和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -690,7 +690,7 @@ class TriangleAngleSum(Scene):
         # 作者名放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -700,7 +700,7 @@ class TriangleAngleSum(Scene):
         # ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -710,7 +710,7 @@ class TriangleAngleSum(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

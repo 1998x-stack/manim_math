@@ -99,16 +99,16 @@ class RectangleLesson(Scene):
         ])
 
     def _badge(self, txt, color, y):
-        check = Text("✓", font="Noto Sans CJK SC", font_size=28, color=C_CHECK)
-        label = Text(txt,  font="Noto Sans CJK SC", font_size=22, color=color)
+        check = Text("✓", font="PingFang SC", font_size=28, color=C_CHECK)
+        label = Text(txt,  font="PingFang SC", font_size=22, color=color)
         return VGroup(check, label).arrange(RIGHT, buff=0.15).move_to(UP*y)
 
     def _zh(self, txt, y, color=GRAY_A, sz=22):
-        return Text(txt, font="Noto Sans CJK SC",
+        return Text(txt, font="PingFang SC",
                     font_size=sz, color=color).move_to(UP*y)
 
     def _sec(self, txt, color=C_HL, y=5.9):
-        return Text(txt, font="Noto Sans CJK SC",
+        return Text(txt, font="PingFang SC",
                     font_size=34, color=color, weight=BOLD).move_to(UP*y)
 
     def _formula(self, tex, y, color=WHITE, sz=28):
@@ -120,22 +120,22 @@ class RectangleLesson(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B
+            font="PingFang SC", font_size=20, color=GRAY_B
         ).move_to(UP*7.3)
         self.play(FadeIn(self.author, shift=DOWN*0.15), run_time=0.3)
 
         tag = Text("八年级 · 第二十二章 · 四边形",
-                   font="Noto Sans CJK SC", font_size=21, color=GRAY_B
+                   font="PingFang SC", font_size=21, color=GRAY_B
                    ).move_to(UP*6.75)
         self.play(FadeIn(tag), run_time=0.3)
 
         title = Text("矩形的性质与判定",
-                     font="Noto Sans CJK SC", font_size=46,
+                     font="PingFang SC", font_size=46,
                      color=GOLD, weight=BOLD).move_to(UP*6.05)
         self.play(Write(title), run_time=0.9)
 
         hook = Text("直角四边形的独家秘籍！",
-                    font="Noto Sans CJK SC", font_size=27,
+                    font="PingFang SC", font_size=27,
                     color=C_HL).move_to(UP*5.25)
         self.play(FadeIn(hook, shift=UP*0.2), run_time=0.5)
 
@@ -249,8 +249,8 @@ class RectangleLesson(Scene):
 
         # 推导箭头 + 结论
         arrow_grp = VGroup(
-            Text("∴", font="Noto Sans CJK SC", font_size=28, color=C_HL),
-            Text("ABCD 是矩形", font="Noto Sans CJK SC",
+            Text("∴", font="PingFang SC", font_size=28, color=C_HL),
+            Text("ABCD 是矩形", font="PingFang SC",
                  font_size=24, color=C_DET1)
         ).arrange(RIGHT, buff=0.15).move_to(UP*-5.1)
         self.play(FadeIn(arrow_grp, scale=1.05), run_time=0.5)
@@ -335,8 +335,8 @@ class RectangleLesson(Scene):
         self.play(Write(f1), run_time=0.5)
 
         arrow_grp = VGroup(
-            Text("∴", font="Noto Sans CJK SC", font_size=28, color=C_HL),
-            Text("ABCD 是矩形", font="Noto Sans CJK SC",
+            Text("∴", font="PingFang SC", font_size=28, color=C_HL),
+            Text("ABCD 是矩形", font="PingFang SC",
                  font_size=24, color=C_DET3)
         ).arrange(RIGHT, buff=0.15).move_to(UP*-5.1)
         self.play(FadeIn(arrow_grp, scale=1.05), run_time=0.5)
@@ -363,7 +363,7 @@ class RectangleLesson(Scene):
         )
 
         title = Text("矩形 · 总览",
-                     font="Noto Sans CJK SC", font_size=38,
+                     font="PingFang SC", font_size=38,
                      color=GOLD, weight=BOLD).move_to(UP*6.05)
         self.play(Write(title), run_time=0.5)
 
@@ -382,16 +382,16 @@ class RectangleLesson(Scene):
                 corner_radius=0.16, width=8.0, height=1.30,
                 color=col, fill_opacity=0.09, stroke_width=1.5
             ).move_to(UP * yc)
-            lbl = Text(lab, font="Noto Sans CJK SC",
+            lbl = Text(lab, font="PingFang SC",
                     font_size=24, color=col, weight=BOLD
                     ).move_to(bg.get_left() + RIGHT * 0.85)
 
             parts = []
             if zh_pre:
-                parts.append(Text(zh_pre, font="Noto Sans CJK SC", font_size=21, color=WHITE))
+                parts.append(Text(zh_pre, font="PingFang SC", font_size=21, color=WHITE))
             parts.append(MathTex(tex, color=WHITE, font_size=21))
             if zh_suf:
-                parts.append(Text(zh_suf, font="Noto Sans CJK SC", font_size=21, color=WHITE))
+                parts.append(Text(zh_suf, font="PingFang SC", font_size=21, color=WHITE))
 
             fml = VGroup(*parts).arrange(RIGHT, buff=0.1).next_to(lbl, RIGHT, buff=0.35)
 
@@ -422,22 +422,22 @@ class RectangleLesson(Scene):
         self.play(*[FadeIn(d, scale=0.5) for d in deco], run_time=0.6)
 
         name_big = Text("上海初高中数学直通车",
-                        font="Noto Sans CJK SC", font_size=38,
+                        font="PingFang SC", font_size=38,
                         color=WHITE, weight=BOLD).move_to(UP*1.6)
         id_txt   = Text("@emptyandcalm",
-                        font="Noto Sans CJK SC", font_size=28,
+                        font="PingFang SC", font_size=28,
                         color=GRAY_B).move_to(UP*0.7)
 
         self.play(Transform(self.author, name_big), run_time=0.7)
         self.play(FadeIn(id_txt, shift=UP*0.2), run_time=0.4)
 
         follow = Text("关注我，获得更多数学技巧！",
-                      font="Noto Sans CJK SC", font_size=30,
+                      font="PingFang SC", font_size=30,
                       color=C_HL).move_to(DOWN*0.4)
         self.play(FadeIn(follow, shift=UP*0.25, scale=1.05), run_time=0.55)
 
         tagline = Text("四直角 · 对角线相等 · 三判定",
-                       font="Noto Sans CJK SC", font_size=20,
+                       font="PingFang SC", font_size=20,
                        color=GRAY_B).move_to(DOWN*1.6)
         self.play(FadeIn(tagline), run_time=0.4)
 

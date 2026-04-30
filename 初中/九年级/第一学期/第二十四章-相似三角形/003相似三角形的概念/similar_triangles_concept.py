@@ -72,7 +72,7 @@ class SimilarTrianglesConcept(Scene):
         # 作者信息（始终显示在顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -176,7 +176,7 @@ class SimilarTrianglesConcept(Scene):
         # 钩子问题
         hook = Text(
             "两个形状'相似'意味着什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3)
@@ -220,7 +220,7 @@ class SimilarTrianglesConcept(Scene):
         # 标题
         title = Text(
             "什么是相似三角形?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -249,18 +249,18 @@ class SimilarTrianglesConcept(Scene):
         pos_B1 = self.tri1.get_vertices()[1]
         pos_C1 = self.tri1.get_vertices()[2]
         
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22).next_to(pos_A1, LEFT, buff=0.12)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22).next_to(pos_B1, DOWN, buff=0.12)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=22).next_to(pos_C1, UP, buff=0.12)
+        label_A = Text("A", font="PingFang SC", font_size=22).next_to(pos_A1, LEFT, buff=0.12)
+        label_B = Text("B", font="PingFang SC", font_size=22).next_to(pos_B1, DOWN, buff=0.12)
+        label_C = Text("C", font="PingFang SC", font_size=22).next_to(pos_C1, UP, buff=0.12)
         
         # 三角形2 - 对应顶点对应关系：A->D, B->E, C->F
         pos_D2 = self.tri2.get_vertices()[0]
         pos_E2 = self.tri2.get_vertices()[1]
         pos_F2 = self.tri2.get_vertices()[2]
         
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=22).next_to(pos_D2, LEFT, buff=0.12)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=22).next_to(pos_E2, DOWN, buff=0.12)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=22).next_to(pos_F2, UP, buff=0.12)
+        label_D = Text("D", font="PingFang SC", font_size=22).next_to(pos_D2, LEFT, buff=0.12)
+        label_E = Text("E", font="PingFang SC", font_size=22).next_to(pos_E2, DOWN, buff=0.12)
+        label_F = Text("F", font="PingFang SC", font_size=22).next_to(pos_F2, UP, buff=0.12)
         
         self.labels1 = VGroup(label_A, label_B, label_C)
         self.labels2 = VGroup(label_D, label_E, label_F)
@@ -274,14 +274,14 @@ class SimilarTrianglesConcept(Scene):
         # 定义文字
         def1 = Text(
             "① 对应角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ANGLE
         ).move_to(DOWN * 1)
         
         def2 = Text(
             "② 对应边成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 2)
@@ -314,7 +314,7 @@ class SimilarTrianglesConcept(Scene):
         # 副标题
         subtitle = Text(
             "条件1: 对应角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -379,7 +379,7 @@ class SimilarTrianglesConcept(Scene):
         # 角度值
         angle_val_A = Text(
             f"∠A = ∠D = {np.degrees(self.angle_A1):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN
         ).move_to(DOWN * 3.5)
@@ -393,7 +393,7 @@ class SimilarTrianglesConcept(Scene):
         
         angle_val_B = Text(
             f"∠B = ∠E = {np.degrees(self.angle_B1):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=YELLOW
         ).move_to(DOWN * 4.3)
@@ -410,7 +410,7 @@ class SimilarTrianglesConcept(Scene):
         
         angle_val_C = Text(
             f"∠C = ∠F = {np.degrees(self.angle_C1):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=ORANGE
         ).move_to(DOWN * 5.1)
@@ -433,7 +433,7 @@ class SimilarTrianglesConcept(Scene):
         
         angle_val_B = Text(
             f"∠B = ∠E = {np.degrees(self.angle_B1):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=YELLOW
         ).move_to(DOWN * 4.3)
@@ -465,7 +465,7 @@ class SimilarTrianglesConcept(Scene):
         
         angle_val_C = Text(
             f"∠C = ∠F = {np.degrees(self.angle_C1):.0f}°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=ORANGE
         ).move_to(DOWN * 5.1)
@@ -500,7 +500,7 @@ class SimilarTrianglesConcept(Scene):
         # 副标题
         subtitle = Text(
             "条件2: 对应边成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -524,14 +524,14 @@ class SimilarTrianglesConcept(Scene):
         
         label_AB = Text(
             f"AB={self.ab1:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(line_AB, LEFT, buff=0.1)
         
         label_DE = Text(
             f"DE={self.de2:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(line_DE, LEFT, buff=0.1)
@@ -561,14 +561,14 @@ class SimilarTrianglesConcept(Scene):
         
         label_BC = Text(
             f"BC={self.bc1:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(line_BC, DOWN, buff=0.1)
         
         label_EF = Text(
             f"EF={self.ef2:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(line_EF, DOWN, buff=0.1)
@@ -598,14 +598,14 @@ class SimilarTrianglesConcept(Scene):
         
         label_CA = Text(
             f"CA={self.ca1:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(line_CA, RIGHT, buff=0.1)
         
         label_FD = Text(
             f"FD={self.fd2:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(line_FD, RIGHT, buff=0.1)
@@ -624,7 +624,7 @@ class SimilarTrianglesConcept(Scene):
         # 总结
         summary = Text(
             f"相似比 k = {self.k:.1f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.2)
@@ -655,7 +655,7 @@ class SimilarTrianglesConcept(Scene):
         # 标题
         title = Text(
             "相似比的几何意义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -665,7 +665,7 @@ class SimilarTrianglesConcept(Scene):
         # 说明
         explanation = Text(
             "相似比 = 对应边长度的比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -686,7 +686,7 @@ class SimilarTrianglesConcept(Scene):
         # 标注 k=2
         k_label = Text(
             "k = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -706,9 +706,9 @@ class SimilarTrianglesConcept(Scene):
         
         # k值说明
         k_explanation = VGroup(
-            Text("k > 1: 放大", font="Noto Sans CJK SC", font_size=24, color=GREEN),
-            Text("k = 1: 全等", font="Noto Sans CJK SC", font_size=24, color=YELLOW),
-            Text("k < 1: 缩小", font="Noto Sans CJK SC", font_size=24, color=ORANGE)
+            Text("k > 1: 放大", font="PingFang SC", font_size=24, color=GREEN),
+            Text("k = 1: 全等", font="PingFang SC", font_size=24, color=YELLOW),
+            Text("k < 1: 缩小", font="PingFang SC", font_size=24, color=ORANGE)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 3.5)
         
         self.play(FadeIn(k_explanation, shift=UP * 0.3), run_time=1.0)
@@ -729,7 +729,7 @@ class SimilarTrianglesConcept(Scene):
         # 标题
         title = Text(
             "特殊情况: 全等三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(UP * 6)
@@ -754,7 +754,7 @@ class SimilarTrianglesConcept(Scene):
         # k=1 标注
         k_equals_1 = Text(
             "k = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
@@ -764,7 +764,7 @@ class SimilarTrianglesConcept(Scene):
         # 说明
         explanation = Text(
             "相似比为 1 的相似三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -790,7 +790,7 @@ class SimilarTrianglesConcept(Scene):
         # 关系说明
         relation = Text(
             "全等 ⊂ 相似",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -820,14 +820,14 @@ class SimilarTrianglesConcept(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 1.5)
@@ -841,7 +841,7 @@ class SimilarTrianglesConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

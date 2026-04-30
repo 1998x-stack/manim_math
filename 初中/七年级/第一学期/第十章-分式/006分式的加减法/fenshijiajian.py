@@ -32,7 +32,7 @@ C_CORRECT = "#66bb6a"   # 绿色  ─ 正确
 C_STEP    = "#80cbc4"   # 绿松石 ─ 步骤标签
 C_KEY     = YELLOW
 C_TITLE   = "#ce93d8"
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 
 # ════════════════════════════════════════════════

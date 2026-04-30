@@ -31,7 +31,7 @@ COLOR_OP    = "#f39c12"    # 橙色  — 操作
 COLOR_OK    = "#2ecc71"    # 绿色  — 正确
 COLOR_MOVED = "#9b59b6"    # 紫色  — 移项
 COLOR_CARD  = "#16213e"    # 深蓝  — 卡片
-FONT        = "Noto Sans CJK SC"
+FONT        = "PingFang SC"
 
 # ============================================================
 # 全局字体大小

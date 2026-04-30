@@ -108,7 +108,7 @@ class CircleBasicConcepts(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -118,7 +118,7 @@ class CircleBasicConcepts(Scene):
         # 钩子问题
         hook_text = Text(
             "你知道圆有多少个特殊点吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -151,7 +151,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "什么是圆？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6)
@@ -201,7 +201,7 @@ class CircleBasicConcepts(Scene):
         # 定义文字
         definition = Text(
             "到定点距离等于定长的点的集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -240,7 +240,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "圆心 O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5.5)
@@ -259,7 +259,7 @@ class CircleBasicConcepts(Scene):
         # 标签
         label_O = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).next_to(self.center_dot, DOWN + RIGHT, buff=0.15)
@@ -269,7 +269,7 @@ class CircleBasicConcepts(Scene):
         # 说明
         explanation = Text(
             "圆心是圆的中心点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -293,7 +293,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "半径 r",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_RADIUS
         ).move_to(UP * 5.5)
@@ -314,7 +314,7 @@ class CircleBasicConcepts(Scene):
         point_P = Dot(self.P_right, color=self.COLOR_RADIUS, radius=0.08)
         label_P = Text(
             "P",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_RADIUS
         ).next_to(point_P, RIGHT, buff=0.1)
@@ -348,7 +348,7 @@ class CircleBasicConcepts(Scene):
         # 说明
         explanation = Text(
             "半径：圆心到圆上任意点的距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -385,7 +385,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "直径 d",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_DIAMETER
         ).move_to(UP * 5.5)
@@ -408,8 +408,8 @@ class CircleBasicConcepts(Scene):
         # 端点标注
         point_A = Dot(self.D1, color=self.COLOR_DIAMETER, radius=0.08)
         point_B = Dot(self.D2, color=self.COLOR_DIAMETER, radius=0.08)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_DIAMETER).next_to(point_A, LEFT, buff=0.1)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_DIAMETER).next_to(point_B, RIGHT, buff=0.1)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=self.COLOR_DIAMETER).next_to(point_A, LEFT, buff=0.1)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=self.COLOR_DIAMETER).next_to(point_B, RIGHT, buff=0.1)
         
         self.play(
             FadeIn(point_A),
@@ -422,7 +422,7 @@ class CircleBasicConcepts(Scene):
         # 说明
         explanation = Text(
             "直径：通过圆心的弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -446,8 +446,8 @@ class CircleBasicConcepts(Scene):
         
         brace_left = Brace(Line(self.D1, self.O), direction=DOWN, buff=0.1, color=self.COLOR_RADIUS)
         brace_right = Brace(Line(self.O, self.D2), direction=DOWN, buff=0.1, color=self.COLOR_RADIUS)
-        label_r1 = Text("r", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_RADIUS).next_to(brace_left, DOWN, buff=0.05)
-        label_r2 = Text("r", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_RADIUS).next_to(brace_right, DOWN, buff=0.05)
+        label_r1 = Text("r", font="PingFang SC", font_size=20, color=self.COLOR_RADIUS).next_to(brace_left, DOWN, buff=0.05)
+        label_r2 = Text("r", font="PingFang SC", font_size=20, color=self.COLOR_RADIUS).next_to(brace_right, DOWN, buff=0.05)
         
         self.play(
             Create(two_radii),
@@ -483,7 +483,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "弦和弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_CHORD
         ).move_to(UP * 5.5)
@@ -503,8 +503,8 @@ class CircleBasicConcepts(Scene):
         # 端点标注
         point_C = Dot(self.C1, color=self.COLOR_CHORD, radius=0.08)
         point_D = Dot(self.C2, color=self.COLOR_CHORD, radius=0.08)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CHORD).next_to(point_C, RIGHT + DOWN, buff=0.1)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CHORD).next_to(point_D, LEFT + DOWN, buff=0.1)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=self.COLOR_CHORD).next_to(point_C, RIGHT + DOWN, buff=0.1)
+        label_D = Text("D", font="PingFang SC", font_size=24, color=self.COLOR_CHORD).next_to(point_D, LEFT + DOWN, buff=0.1)
         
         self.play(
             FadeIn(point_C),
@@ -517,7 +517,7 @@ class CircleBasicConcepts(Scene):
         # 弦说明
         chord_explanation = Text(
             "弦：连接圆上两点的线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -542,7 +542,7 @@ class CircleBasicConcepts(Scene):
         # 弧说明
         arc_explanation = Text(
             "弧：圆上两点之间的曲线部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -559,7 +559,7 @@ class CircleBasicConcepts(Scene):
         
         compare_text = Text(
             "直径是最长的弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -593,7 +593,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "圆的对称性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -671,7 +671,7 @@ class CircleBasicConcepts(Scene):
         # 说明
         explanation = Text(
             "任何直径所在直线都是对称轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -694,7 +694,7 @@ class CircleBasicConcepts(Scene):
         # 标题
         title = Text(
             "圆的基本要素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -731,7 +731,7 @@ class CircleBasicConcepts(Scene):
             # 名称
             name_text = Text(
                 name,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE,
                 weight=BOLD
@@ -740,7 +740,7 @@ class CircleBasicConcepts(Scene):
             # 描述
             desc_text = Text(
                 desc,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=16,
                 color=GRAY_A
             )
@@ -766,7 +766,7 @@ class CircleBasicConcepts(Scene):
         # 重点提示
         highlight_text = Text(
             "掌握这些要素，圆就不再神秘！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -791,7 +791,7 @@ class CircleBasicConcepts(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -804,7 +804,7 @@ class CircleBasicConcepts(Scene):
         # ID出现
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -814,7 +814,7 @@ class CircleBasicConcepts(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

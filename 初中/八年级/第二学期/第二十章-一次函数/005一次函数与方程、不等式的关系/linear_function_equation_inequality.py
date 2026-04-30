@@ -80,7 +80,7 @@ class LinearFunctionEquationInequality(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -90,7 +90,7 @@ class LinearFunctionEquationInequality(Scene):
         # 钩子问题
         hook_text = Text(
             "函数、方程、不等式\n它们有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -98,9 +98,9 @@ class LinearFunctionEquationInequality(Scene):
         self.play(Write(hook_text), run_time=0.8)
         
         # 三个关键词
-        keyword_1 = Text("函数", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_FUNCTION).move_to(UP * 1.5)
-        keyword_2 = Text("方程", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_INTERSECTION).move_to(UP * 0.5)
-        keyword_3 = Text("不等式", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_ABOVE).move_to(DOWN * 0.5)
+        keyword_1 = Text("函数", font="PingFang SC", font_size=36, color=self.COLOR_FUNCTION).move_to(UP * 1.5)
+        keyword_2 = Text("方程", font="PingFang SC", font_size=36, color=self.COLOR_INTERSECTION).move_to(UP * 0.5)
+        keyword_3 = Text("不等式", font="PingFang SC", font_size=36, color=self.COLOR_ABOVE).move_to(DOWN * 0.5)
         
         keywords = VGroup(keyword_1, keyword_2, keyword_3)
         
@@ -186,7 +186,7 @@ class LinearFunctionEquationInequality(Scene):
         
         equation_label = Text(
             "方程:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(equation, LEFT, buff=0.3)
@@ -232,7 +232,7 @@ class LinearFunctionEquationInequality(Scene):
         
         solution_label = Text(
             "解:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(solution_text, LEFT, buff=0.2)
@@ -242,7 +242,7 @@ class LinearFunctionEquationInequality(Scene):
         # 说明文字
         explanation = Text(
             "图像与x轴交点的横坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -276,7 +276,7 @@ class LinearFunctionEquationInequality(Scene):
         
         inequality_label = Text(
             "不等式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(inequality, LEFT, buff=0.3)
@@ -318,7 +318,7 @@ class LinearFunctionEquationInequality(Scene):
         
         solution_label = Text(
             "解集:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(solution_inequality, LEFT, buff=0.2)
@@ -351,7 +351,7 @@ class LinearFunctionEquationInequality(Scene):
         # 说明文字
         explanation = Text(
             "图像在x轴上方的部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.2)
@@ -387,7 +387,7 @@ class LinearFunctionEquationInequality(Scene):
         
         inequality_label = Text(
             "不等式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(inequality, LEFT, buff=0.3)
@@ -428,7 +428,7 @@ class LinearFunctionEquationInequality(Scene):
         
         solution_label = Text(
             "解集:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(solution_inequality, LEFT, buff=0.2)
@@ -461,7 +461,7 @@ class LinearFunctionEquationInequality(Scene):
         # 说明文字
         explanation = Text(
             "图像在x轴下方的部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.2)
@@ -502,7 +502,7 @@ class LinearFunctionEquationInequality(Scene):
         # 标题
         title = Text(
             "数形结合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -511,9 +511,9 @@ class LinearFunctionEquationInequality(Scene):
         
         # 三栏对比表格
         # 第一行：标题
-        col1_title = Text("方程", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_INTERSECTION)
-        col2_title = Text("不等式 >0", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_ABOVE)
-        col3_title = Text("不等式 <0", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_BELOW)
+        col1_title = Text("方程", font="PingFang SC", font_size=28, color=self.COLOR_INTERSECTION)
+        col2_title = Text("不等式 >0", font="PingFang SC", font_size=28, color=self.COLOR_ABOVE)
+        col3_title = Text("不等式 <0", font="PingFang SC", font_size=28, color=self.COLOR_BELOW)
         
         titles = VGroup(col1_title, col2_title, col3_title).arrange(RIGHT, buff=0.8).move_to(UP * 4.5)
         
@@ -530,14 +530,14 @@ class LinearFunctionEquationInequality(Scene):
         # 第三行：几何意义
         col1_geo = Text(
             "交点横坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 1.8 + LEFT * 2.5)
         
         col2_geo = Text(
             "图像在\nx轴上方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
             line_spacing=0.8
@@ -545,7 +545,7 @@ class LinearFunctionEquationInequality(Scene):
         
         col3_geo = Text(
             "图像在\nx轴下方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
             line_spacing=0.8
@@ -579,7 +579,7 @@ class LinearFunctionEquationInequality(Scene):
         # 核心提示
         core_concept = Text(
             "用图像解方程和不等式！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -604,7 +604,7 @@ class LinearFunctionEquationInequality(Scene):
         # 问题
         problem = Text(
             "求解不等式: 2x - 3 ≥ 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 6.5)
@@ -676,7 +676,7 @@ class LinearFunctionEquationInequality(Scene):
         # 答案
         answer = Text(
             "答案:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(interval_notation, LEFT, buff=0.3)
@@ -705,14 +705,14 @@ class LinearFunctionEquationInequality(Scene):
         # 作者名放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -726,7 +726,7 @@ class LinearFunctionEquationInequality(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，用图像解方程和不等式!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW
         ).move_to(DOWN * 0.5)

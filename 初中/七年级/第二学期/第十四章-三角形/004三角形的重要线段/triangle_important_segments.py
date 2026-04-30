@@ -180,7 +180,7 @@ class TriangleImportantSegments(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -190,7 +190,7 @@ class TriangleImportantSegments(Scene):
         # 钩子问题
         hook_text = Text(
             "三角形有哪些重要线段?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -201,9 +201,9 @@ class TriangleImportantSegments(Scene):
         self.play(Create(self.triangle), run_time=1.0)
         
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.A, UL, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.B, UR, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.C, DOWN, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.A, UL, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.B, UR, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.C, DOWN, buff=0.15)
         
         self.vertex_labels = VGroup(label_A, label_B, label_C)
         
@@ -218,14 +218,14 @@ class TriangleImportantSegments(Scene):
         # 标题
         title = Text(
             "中线 Median",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MEDIAN
         ).move_to(UP * 5.5)
         
         definition = Text(
             "连接顶点与对边中点的线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -237,13 +237,13 @@ class TriangleImportantSegments(Scene):
         self.play(Create(bc_line), run_time=0.4)
         
         m_bc_dot = Dot(self.M_BC, color=self.COLOR_AUXILIARY, radius=0.06)
-        m_bc_label = Text("M", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(m_bc_dot, DOWN, buff=0.1)
+        m_bc_label = Text("M", font="PingFang SC", font_size=20, color=WHITE).next_to(m_bc_dot, DOWN, buff=0.1)
         
         self.play(FadeIn(m_bc_dot), FadeIn(m_bc_label), run_time=0.4)
         
         explain_1 = Text(
             "中点: 平分对边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -261,7 +261,7 @@ class TriangleImportantSegments(Scene):
         self.play(Create(ca_line), run_time=0.4)
         
         m_ca_dot = Dot(self.M_CA, color=self.COLOR_AUXILIARY, radius=0.06)
-        m_ca_label = Text("N", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(m_ca_dot, LEFT, buff=0.1)
+        m_ca_label = Text("N", font="PingFang SC", font_size=20, color=WHITE).next_to(m_ca_dot, LEFT, buff=0.1)
         
         self.play(FadeIn(m_ca_dot), FadeIn(m_ca_label), run_time=0.3)
         
@@ -276,7 +276,7 @@ class TriangleImportantSegments(Scene):
         self.play(Create(ab_line), run_time=0.4)
         
         m_ab_dot = Dot(self.M_AB, color=self.COLOR_AUXILIARY, radius=0.06)
-        m_ab_label = Text("P", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(m_ab_dot, UP, buff=0.1)
+        m_ab_label = Text("P", font="PingFang SC", font_size=20, color=WHITE).next_to(m_ab_dot, UP, buff=0.1)
         
         self.play(FadeIn(m_ab_dot), FadeIn(m_ab_label), run_time=0.3)
         
@@ -288,8 +288,8 @@ class TriangleImportantSegments(Scene):
         
         # Step 4: 标记重心
         g_dot = Dot(self.centroid, color=self.COLOR_MEDIAN, radius=0.12)
-        g_label = Text("G", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_MEDIAN).next_to(g_dot, RIGHT, buff=0.15)
-        g_label_2 = Text("重心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_MEDIAN).next_to(g_label, DOWN, buff=0.05, aligned_edge=LEFT)
+        g_label = Text("G", font="PingFang SC", font_size=24, color=self.COLOR_MEDIAN).next_to(g_dot, RIGHT, buff=0.15)
+        g_label_2 = Text("重心", font="PingFang SC", font_size=18, color=self.COLOR_MEDIAN).next_to(g_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(g_dot, scale=0.5), run_time=0.5)
         self.play(Flash(g_dot, color=self.COLOR_MEDIAN, flash_radius=0.3), run_time=0.4)
@@ -297,7 +297,7 @@ class TriangleImportantSegments(Scene):
         
         property_text = Text(
             "三条中线交于重心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -339,14 +339,14 @@ class TriangleImportantSegments(Scene):
         # 标题
         title = Text(
             "高线 Altitude",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ALTITUDE
         ).move_to(UP * 5.5)
         
         definition = Text(
             "从顶点向对边所在直线作的垂线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -359,7 +359,7 @@ class TriangleImportantSegments(Scene):
         
         explain_1 = Text(
             "高线: 垂直于底边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -419,8 +419,8 @@ class TriangleImportantSegments(Scene):
         
         # Step 4: 标记垂心
         h_dot = Dot(self.orthocenter, color=self.COLOR_ALTITUDE, radius=0.12)
-        h_label = Text("H", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ALTITUDE).next_to(h_dot, RIGHT, buff=0.15)
-        h_label_2 = Text("垂心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ALTITUDE).next_to(h_label, DOWN, buff=0.05, aligned_edge=LEFT)
+        h_label = Text("H", font="PingFang SC", font_size=24, color=self.COLOR_ALTITUDE).next_to(h_dot, RIGHT, buff=0.15)
+        h_label_2 = Text("垂心", font="PingFang SC", font_size=18, color=self.COLOR_ALTITUDE).next_to(h_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(h_dot, scale=0.5), run_time=0.5)
         self.play(Flash(h_dot, color=self.COLOR_ALTITUDE, flash_radius=0.3), run_time=0.4)
@@ -428,7 +428,7 @@ class TriangleImportantSegments(Scene):
         
         property_text = Text(
             "三条高线交于垂心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -490,14 +490,14 @@ class TriangleImportantSegments(Scene):
         # 标题
         title = Text(
             "角平分线 Angle Bisector",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ANGLE_BISECTOR
         ).move_to(UP * 5.5)
         
         definition = Text(
             "角的平分线与对边的交点连成的线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -507,7 +507,7 @@ class TriangleImportantSegments(Scene):
         # Step 1: 角A的角平分线
         explain_1 = Text(
             "平分角度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -632,8 +632,8 @@ class TriangleImportantSegments(Scene):
         
         # Step 4: 标记内心
         i_dot = Dot(self.incenter, color=self.COLOR_ANGLE_BISECTOR, radius=0.12)
-        i_label = Text("I", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ANGLE_BISECTOR).next_to(i_dot, LEFT, buff=0.15)
-        i_label_2 = Text("内心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ANGLE_BISECTOR).next_to(i_label, DOWN, buff=0.05, aligned_edge=LEFT)
+        i_label = Text("I", font="PingFang SC", font_size=24, color=self.COLOR_ANGLE_BISECTOR).next_to(i_dot, LEFT, buff=0.15)
+        i_label_2 = Text("内心", font="PingFang SC", font_size=18, color=self.COLOR_ANGLE_BISECTOR).next_to(i_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(i_dot, scale=0.5), run_time=0.5)
         self.play(Flash(i_dot, color=self.COLOR_ANGLE_BISECTOR, flash_radius=0.3), run_time=0.4)
@@ -641,7 +641,7 @@ class TriangleImportantSegments(Scene):
         
         property_text = Text(
             "三条角平分线交于内心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -760,9 +760,9 @@ class TriangleImportantSegments(Scene):
         )
         
         # 标注三个点
-        g_label = Text("G", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_MEDIAN).next_to(self.g_small, DOWN, buff=0.08)
-        h_label = Text("H", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ALTITUDE).next_to(self.h_small, RIGHT, buff=0.08)
-        i_label = Text("I", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ANGLE_BISECTOR).next_to(self.i_small, LEFT, buff=0.08)
+        g_label = Text("G", font="PingFang SC", font_size=18, color=self.COLOR_MEDIAN).next_to(self.g_small, DOWN, buff=0.08)
+        h_label = Text("H", font="PingFang SC", font_size=18, color=self.COLOR_ALTITUDE).next_to(self.h_small, RIGHT, buff=0.08)
+        i_label = Text("I", font="PingFang SC", font_size=18, color=self.COLOR_ANGLE_BISECTOR).next_to(self.i_small, LEFT, buff=0.08)
         
         self.play(
             FadeIn(g_label),
@@ -831,7 +831,7 @@ class TriangleImportantSegments(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -839,7 +839,7 @@ class TriangleImportantSegments(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -855,7 +855,7 @@ class TriangleImportantSegments(Scene):
         # 标题
         title = Text(
             "关键性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -901,7 +901,7 @@ class TriangleImportantSegments(Scene):
         # 重点提示
         highlight = Text(
             "记住这些性质, 轻松解题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -921,13 +921,13 @@ class TriangleImportantSegments(Scene):
         """创建性质条目"""
         # 编号圆
         number_circle = Circle(radius=0.25, fill_color=self.COLOR_HIGHLIGHT, fill_opacity=1, stroke_width=0)
-        number_text = Text(number, font="Noto Sans CJK SC", font_size=22, color=BLACK).move_to(number_circle.get_center())
+        number_text = Text(number, font="PingFang SC", font_size=22, color=BLACK).move_to(number_circle.get_center())
         number_group = VGroup(number_circle, number_text)
         
         # 文字
         content = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -943,14 +943,14 @@ class TriangleImportantSegments(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -964,7 +964,7 @@ class TriangleImportantSegments(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

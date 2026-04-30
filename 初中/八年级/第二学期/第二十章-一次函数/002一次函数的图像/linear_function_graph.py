@@ -115,7 +115,7 @@ class LinearFunctionGraph(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -125,7 +125,7 @@ class LinearFunctionGraph(Scene):
         # 钩子文字
         hook_text = Text(
             "这条直线藏着什么秘密?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -167,7 +167,7 @@ class LinearFunctionGraph(Scene):
         # 标题
         title = Text(
             "一次函数的图像",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -192,7 +192,7 @@ class LinearFunctionGraph(Scene):
         # 原点标注
         origin_label = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=WHITE
         ).next_to(self.axes.c2p(0, 0), DL, buff=0.15)
@@ -202,14 +202,14 @@ class LinearFunctionGraph(Scene):
         # 轴标签
         x_label = Text(
             "x",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(self.axes.x_axis.get_end(), RIGHT, buff=0.2)
         
         y_label = Text(
             "y",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(self.axes.y_axis.get_end(), UP, buff=0.2)
@@ -219,7 +219,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字
         explanation = Text(
             "所有一次函数都在这个坐标系中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -256,7 +256,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字1
         explanation1 = Text(
             "图像是一条直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -275,7 +275,7 @@ class LinearFunctionGraph(Scene):
         
         y_intercept_label = Text(
             "y轴交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).next_to(y_intercept_dot, RIGHT, buff=0.2)
@@ -308,7 +308,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字2
         explanation2 = Text(
             "与y轴交于 (0, b)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -328,7 +328,7 @@ class LinearFunctionGraph(Scene):
         
         x_intercept_label = Text(
             "x轴交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).next_to(x_intercept_dot, DOWN, buff=0.2)
@@ -361,7 +361,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字3
         explanation3 = Text(
             "与x轴交于 (-b/k, 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -408,7 +408,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字
         explanation = Text(
             "k > 0: 直线从左下到右上倾斜",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -437,7 +437,7 @@ class LinearFunctionGraph(Scene):
         # 对比说明
         compare_text = Text(
             "|k|越大, 直线越陡",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -519,7 +519,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字
         explanation_negative = Text(
             "k < 0: 直线从左上到右下倾斜",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -606,7 +606,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字1
         explanation_b = Text(
             "b 决定直线与y轴的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -617,7 +617,7 @@ class LinearFunctionGraph(Scene):
         # 说明文字2
         explanation_b2 = Text(
             "b增大, 直线整体上移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -698,14 +698,14 @@ class LinearFunctionGraph(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -719,7 +719,7 @@ class LinearFunctionGraph(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多函数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -771,7 +771,7 @@ class LinearFunctionGraph(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -779,7 +779,7 @@ class LinearFunctionGraph(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )

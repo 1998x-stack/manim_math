@@ -148,7 +148,7 @@ class TrigonometricRatios(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -158,7 +158,7 @@ class TrigonometricRatios(Scene):
         # 钩子问题
         hook_question = Text(
             "如何用边长表示角的大小?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -196,7 +196,7 @@ class TrigonometricRatios(Scene):
         
         hint_text = Text(
             "锐角三角比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -222,7 +222,7 @@ class TrigonometricRatios(Scene):
         # 标题
         title = Text(
             "认识直角三角形的三条边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -257,14 +257,14 @@ class TrigonometricRatios(Scene):
         # === 介绍斜边 ===
         hyp_line = Line(self.C, self.A, color=self.COLOR_HYPOTENUSE, stroke_width=6)
         
-        hyp_label_cn = Text("斜边", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HYPOTENUSE)
+        hyp_label_cn = Text("斜边", font="PingFang SC", font_size=22, color=self.COLOR_HYPOTENUSE)
         hyp_label_math = MathTex("c", font_size=24, color=self.COLOR_HYPOTENUSE)
         hyp_label = VGroup(hyp_label_cn, hyp_label_math).arrange(RIGHT, buff=0.15)
         hyp_label.move_to(self.C + (self.A - self.C) * 0.5 + LEFT * 0.6)
         
         hyp_explain = Text(
             "直角的对边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -284,7 +284,7 @@ class TrigonometricRatios(Scene):
         # === 介绍对边 ===
         opp_line = Line(self.B, self.A, color=self.COLOR_OPPOSITE, stroke_width=6)
         
-        opp_label_cn = Text("对边", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_OPPOSITE)
+        opp_label_cn = Text("对边", font="PingFang SC", font_size=22, color=self.COLOR_OPPOSITE)
         opp_label_math = MathTex("a", font_size=24, color=self.COLOR_OPPOSITE)
         opp_label = VGroup(opp_label_cn, opp_label_math).arrange(RIGHT, buff=0.15)
         
@@ -293,7 +293,7 @@ class TrigonometricRatios(Scene):
         
         opp_explain = Text(
             "角A的对边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -311,7 +311,7 @@ class TrigonometricRatios(Scene):
         # === 介绍邻边 ===
         adj_line = Line(self.C, self.B, color=self.COLOR_ADJACENT, stroke_width=6)
         
-        adj_label_cn = Text("邻边", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_ADJACENT)
+        adj_label_cn = Text("邻边", font="PingFang SC", font_size=22, color=self.COLOR_ADJACENT)
         adj_label_math = MathTex("b", font_size=24, color=self.COLOR_ADJACENT)
         adj_label = VGroup(adj_label_cn, adj_label_math).arrange(RIGHT, buff=0.15)
         
@@ -320,7 +320,7 @@ class TrigonometricRatios(Scene):
         
         adj_explain = Text(
             "角A的邻边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -366,7 +366,7 @@ class TrigonometricRatios(Scene):
     def show_sine_definition(self):
         """场景3: 正弦 sinA 的定义"""
         # 标题
-        title_cn = Text("正弦", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_FORMULA)
+        title_cn = Text("正弦", font="PingFang SC", font_size=36, color=self.COLOR_FORMULA)
         title_en = MathTex(r"\text{sine}", font_size=32, color=GRAY_A)
         title = VGroup(title_cn, title_en).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         
@@ -375,7 +375,7 @@ class TrigonometricRatios(Scene):
         # 定义文字
         definition = Text(
             "对边与斜边的比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -398,9 +398,9 @@ class TrigonometricRatios(Scene):
         )
         
         # 分数：对边/斜边
-        numerator_cn = Text("对边", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_OPPOSITE)
+        numerator_cn = Text("对边", font="PingFang SC", font_size=24, color=self.COLOR_OPPOSITE)
         fraction_line = Line(LEFT * 0.6, RIGHT * 0.6, color=WHITE, stroke_width=2)
-        denominator_cn = Text("斜边", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HYPOTENUSE)
+        denominator_cn = Text("斜边", font="PingFang SC", font_size=24, color=self.COLOR_HYPOTENUSE)
         
         fraction = VGroup(
             numerator_cn,
@@ -489,7 +489,7 @@ class TrigonometricRatios(Scene):
     def show_cosine_definition(self):
         """场景4: 余弦 cosA 的定义"""
         # 标题
-        title_cn = Text("余弦", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_FORMULA)
+        title_cn = Text("余弦", font="PingFang SC", font_size=36, color=self.COLOR_FORMULA)
         title_en = MathTex(r"\text{cosine}", font_size=32, color=GRAY_A)
         title = VGroup(title_cn, title_en).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         
@@ -498,7 +498,7 @@ class TrigonometricRatios(Scene):
         # 定义文字
         definition = Text(
             "邻边与斜边的比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -518,9 +518,9 @@ class TrigonometricRatios(Scene):
         )
         
         # 分数：邻边/斜边
-        numerator_cn = Text("邻边", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ADJACENT)
+        numerator_cn = Text("邻边", font="PingFang SC", font_size=24, color=self.COLOR_ADJACENT)
         fraction_line = Line(LEFT * 0.6, RIGHT * 0.6, color=WHITE, stroke_width=2)
-        denominator_cn = Text("斜边", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HYPOTENUSE)
+        denominator_cn = Text("斜边", font="PingFang SC", font_size=24, color=self.COLOR_HYPOTENUSE)
         
         fraction = VGroup(
             numerator_cn,
@@ -595,7 +595,7 @@ class TrigonometricRatios(Scene):
     def show_tangent_definition(self):
         """场景5: 正切 tanA 的定义"""
         # 标题
-        title_cn = Text("正切", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_FORMULA)
+        title_cn = Text("正切", font="PingFang SC", font_size=36, color=self.COLOR_FORMULA)
         title_en = MathTex(r"\text{tangent}", font_size=32, color=GRAY_A)
         title = VGroup(title_cn, title_en).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         
@@ -604,7 +604,7 @@ class TrigonometricRatios(Scene):
         # 定义文字
         definition = Text(
             "对边与邻边的比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -623,9 +623,9 @@ class TrigonometricRatios(Scene):
         )
         
         # 分数：对边/邻边
-        numerator_cn = Text("对边", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_OPPOSITE)
+        numerator_cn = Text("对边", font="PingFang SC", font_size=24, color=self.COLOR_OPPOSITE)
         fraction_line = Line(LEFT * 0.6, RIGHT * 0.6, color=WHITE, stroke_width=2)
-        denominator_cn = Text("邻边", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ADJACENT)
+        denominator_cn = Text("邻边", font="PingFang SC", font_size=24, color=self.COLOR_ADJACENT)
         
         fraction = VGroup(
             numerator_cn,
@@ -668,7 +668,7 @@ class TrigonometricRatios(Scene):
         # 关系式: tan A = sin A / cos A
         relation_title = Text(
             "重要关系:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -715,7 +715,7 @@ class TrigonometricRatios(Scene):
         # 标题
         title = Text(
             "三角比只与角度有关!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -771,7 +771,7 @@ class TrigonometricRatios(Scene):
         # 标注"角A相同"
         same_angle = Text(
             "∠A 相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ANGLE
         ).move_to(UP * 4.5)
@@ -791,8 +791,8 @@ class TrigonometricRatios(Scene):
         self.play(Create(table_bg), run_time=0.5)
         
         # 表格内容
-        header_small = Text("小三角形", font="Noto Sans CJK SC", font_size=20, color=WHITE).move_to(LEFT * 2 + DOWN * 0.5)
-        header_large = Text("大三角形", font="Noto Sans CJK SC", font_size=20, color=WHITE).move_to(RIGHT * 2 + DOWN * 0.5)
+        header_small = Text("小三角形", font="PingFang SC", font_size=20, color=WHITE).move_to(LEFT * 2 + DOWN * 0.5)
+        header_large = Text("大三角形", font="PingFang SC", font_size=20, color=WHITE).move_to(RIGHT * 2 + DOWN * 0.5)
         
         self.play(Write(header_small), Write(header_large), run_time=0.5)
         
@@ -832,7 +832,7 @@ class TrigonometricRatios(Scene):
         # 结论
         conclusion = Text(
             "三角比的值与三角形大小无关!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -870,7 +870,7 @@ class TrigonometricRatios(Scene):
         # 标题
         title = Text(
             "三角比公式总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -910,7 +910,7 @@ class TrigonometricRatios(Scene):
         # 记忆口诀
         mnemonic = Text(
             "记住: 只与角度有关，与大小无关!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -979,7 +979,7 @@ class TrigonometricRatios(Scene):
         # 描述
         desc_text = Text(
             description,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -998,14 +998,14 @@ class TrigonometricRatios(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1019,7 +1019,7 @@ class TrigonometricRatios(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

@@ -74,7 +74,7 @@ class PolynomialMultiplication(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(self.AUTHOR_POS)
@@ -84,7 +84,7 @@ class PolynomialMultiplication(Scene):
         # 钩子问题
         hook_text = Text(
             "这些式子怎么相乘？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.TITLE_POS)
@@ -120,7 +120,7 @@ class PolynomialMultiplication(Scene):
         # 问号闪烁
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -144,7 +144,7 @@ class PolynomialMultiplication(Scene):
         # 标题
         title_chinese = Text(
             "规则一：单项式×单项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -164,7 +164,7 @@ class PolynomialMultiplication(Scene):
         # 步骤1: 系数相乘
         step1_text = Text(
             "步骤1: 系数相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -199,7 +199,7 @@ class PolynomialMultiplication(Scene):
         # 步骤2: 同底数幂相乘
         step2_text = Text(
             "步骤2: 同底数幂相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -242,7 +242,7 @@ class PolynomialMultiplication(Scene):
         # 结果
         result_text = Text(
             "结果:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -292,7 +292,7 @@ class PolynomialMultiplication(Scene):
         
         rule_text = Text(
             "系数相乘，同底数幂相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(rule_box.get_center())
@@ -326,7 +326,7 @@ class PolynomialMultiplication(Scene):
         # 标题
         title_chinese = Text(
             "规则二：单项式×多项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -336,7 +336,7 @@ class PolynomialMultiplication(Scene):
         # 抽象公式
         abstract_label = Text(
             "抽象形式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5 + LEFT * 2.5)
@@ -371,7 +371,7 @@ class PolynomialMultiplication(Scene):
         
         distrib_text = Text(
             "分配律：每项都要乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.3)
@@ -405,7 +405,7 @@ class PolynomialMultiplication(Scene):
         # 具体例子
         example_label = Text(
             "具体例子:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(ORIGIN + LEFT * 2.5)
@@ -426,7 +426,7 @@ class PolynomialMultiplication(Scene):
         # 第一项计算
         term1_text = Text(
             "第一项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 1.5 + LEFT * 2.8)
@@ -455,7 +455,7 @@ class PolynomialMultiplication(Scene):
         # 第二项计算
         term2_text = Text(
             "第二项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 2.8 + LEFT * 2.8)
@@ -511,7 +511,7 @@ class PolynomialMultiplication(Scene):
         # 规则总结
         rule_text = Text(
             "用分配律展开",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.2)
@@ -521,7 +521,7 @@ class PolynomialMultiplication(Scene):
         
         # 清理
         result_small = VGroup(
-            Text("规则2:", font="Noto Sans CJK SC", font_size=14, color=GRAY_A),
+            Text("规则2:", font="PingFang SC", font_size=14, color=GRAY_A),
             expanded.copy().scale(0.4)
         ).arrange(RIGHT, buff=0.1).move_to(UL * 3.5 + DOWN * 0.5)
         
@@ -550,7 +550,7 @@ class PolynomialMultiplication(Scene):
         # 标题
         title_chinese = Text(
             "规则三：多项式×多项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -570,7 +570,7 @@ class PolynomialMultiplication(Scene):
         # 提示文字
         hint1 = Text(
             "看起来复杂？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 1.5)
@@ -586,7 +586,7 @@ class PolynomialMultiplication(Scene):
         
         hint2 = Text(
             "还是用分配律！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).next_to(bulb, RIGHT, buff=0.3)
@@ -608,7 +608,7 @@ class PolynomialMultiplication(Scene):
         
         whole_text = Text(
             "把 (a+b) 看作一个整体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_COEFFICIENT
         ).move_to(DOWN * 1.5)
@@ -626,7 +626,7 @@ class PolynomialMultiplication(Scene):
         # 准备展开
         arrow_hint = Text(
             "现在展开...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -657,7 +657,7 @@ class PolynomialMultiplication(Scene):
         # 说明文字
         explain_text = Text(
             "每项与每项相乘:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 3.5)
@@ -813,7 +813,7 @@ class PolynomialMultiplication(Scene):
         # 可选：网格可视化
         grid_text = Text(
             "也可以用网格理解:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.2)
@@ -833,7 +833,7 @@ class PolynomialMultiplication(Scene):
         
         # 清理
         result_small = VGroup(
-            Text("规则3:", font="Noto Sans CJK SC", font_size=14, color=GRAY_A),
+            Text("规则3:", font="PingFang SC", font_size=14, color=GRAY_A),
             final_formula.copy().scale(0.35)
         ).arrange(RIGHT, buff=0.1).move_to(UL * 3.5 + DOWN * 1.2)
         
@@ -855,7 +855,7 @@ class PolynomialMultiplication(Scene):
         # 标题
         title_text = Text(
             "练习：算一算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.TITLE_POS)
@@ -875,7 +875,7 @@ class PolynomialMultiplication(Scene):
         # 展开过程 - 四项
         step_text = Text(
             "展开:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -944,7 +944,7 @@ class PolynomialMultiplication(Scene):
         # 合并同类项
         merge_text = Text(
             "合并同类项:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -1016,7 +1016,7 @@ class PolynomialMultiplication(Scene):
         # 标题
         title = Text(
             "三条规则总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -1059,7 +1059,7 @@ class PolynomialMultiplication(Scene):
         # 关键提示
         key_point = Text(
             "核心：分配律是关键！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -1083,14 +1083,14 @@ class PolynomialMultiplication(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -1104,7 +1104,7 @@ class PolynomialMultiplication(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -1149,7 +1149,7 @@ class PolynomialMultiplication(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(box.get_center() + UP * 0.25)
@@ -1157,7 +1157,7 @@ class PolynomialMultiplication(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(box.get_center() + DOWN * 0.25)

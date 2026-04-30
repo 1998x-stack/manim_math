@@ -45,7 +45,7 @@ class FractionComparison(Scene):
         self.COLOR_FILL = "#3498db"         # 填充色
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         self.FONT_SIZES = {
             "title": 36,
             "subtitle": 28,

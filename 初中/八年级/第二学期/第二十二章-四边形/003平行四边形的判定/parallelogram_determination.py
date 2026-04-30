@@ -149,11 +149,11 @@ class ParallelogramDetermination(Scene):
         return grp
 
     def section_title(self, txt, color=YELLOW, y=5.9):
-        return Text(txt, font="Noto Sans CJK SC",
+        return Text(txt, font="PingFang SC",
                     font_size=34, color=color, weight=BOLD).move_to(UP*y)
 
     def zh(self, txt, y, color=GRAY_A, size=22):
-        return Text(txt, font="Noto Sans CJK SC",
+        return Text(txt, font="PingFang SC",
                     font_size=size, color=color).move_to(UP*y)
 
     def formula(self, tex, y, color=WHITE, size=28):
@@ -161,9 +161,9 @@ class ParallelogramDetermination(Scene):
 
     def checkmark_badge(self, text_str, color, y):
         """带颜色勾号的判定结论小徽章"""
-        check = Text("✓", font="Noto Sans CJK SC",
+        check = Text("✓", font="PingFang SC",
                      font_size=28, color=C_CHECK)
-        label = Text(text_str, font="Noto Sans CJK SC",
+        label = Text(text_str, font="PingFang SC",
                      font_size=22, color=color)
         grp = VGroup(check, label).arrange(RIGHT, buff=0.15)
         grp.move_to(UP*y)
@@ -182,22 +182,22 @@ class ParallelogramDetermination(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B
+            font="PingFang SC", font_size=20, color=GRAY_B
         ).move_to(UP*7.3)
         self.play(FadeIn(self.author, shift=DOWN*0.15), run_time=0.3)
 
         tag = Text("八年级 · 第二十二章 · 四边形",
-                   font="Noto Sans CJK SC", font_size=21, color=GRAY_B
+                   font="PingFang SC", font_size=21, color=GRAY_B
                    ).move_to(UP*6.75)
         self.play(FadeIn(tag), run_time=0.3)
 
         title = Text("平行四边形的判定",
-                     font="Noto Sans CJK SC", font_size=46,
+                     font="PingFang SC", font_size=46,
                      color=GOLD, weight=BOLD).move_to(UP*6.0)
         self.play(Write(title), run_time=0.9)
 
         hook = Text("5种方法，一图看懂！",
-                    font="Noto Sans CJK SC", font_size=27,
+                    font="PingFang SC", font_size=27,
                     color=C_HIGHLIGHT).move_to(UP*5.2)
         self.play(FadeIn(hook, shift=UP*0.2), run_time=0.5)
 
@@ -464,7 +464,7 @@ class ParallelogramDetermination(Scene):
             run_time=0.7
         )
 
-        title = Text("5种判定方法", font="Noto Sans CJK SC",
+        title = Text("5种判定方法", font="PingFang SC",
                      font_size=38, color=GOLD, weight=BOLD).move_to(UP*6.0)
         self.play(Write(title), run_time=0.5)
 
@@ -489,9 +489,9 @@ class ParallelogramDetermination(Scene):
                 color=col, fill_opacity=0.09, stroke_width=1.5
             ).move_to(UP * (y - 0.08))
 
-            num_t  = Text(num,  font="Noto Sans CJK SC",
+            num_t  = Text(num,  font="PingFang SC",
                           font_size=26, color=col, weight=BOLD)
-            desc_t = Text(desc, font="Noto Sans CJK SC",
+            desc_t = Text(desc, font="PingFang SC",
                           font_size=22, color=col)
             header = VGroup(num_t, desc_t).arrange(RIGHT, buff=0.18)
             header.move_to(UP * y)
@@ -506,7 +506,7 @@ class ParallelogramDetermination(Scene):
 
         # 底部口诀
         tip = Text("记住这5条，判定零失误！",
-                   font="Noto Sans CJK SC", font_size=26,
+                   font="PingFang SC", font_size=26,
                    color=C_HIGHLIGHT).move_to(UP * -5.8)
         self.play(FadeIn(tip, scale=1.05), run_time=0.5)
         self.wait(1.8)
@@ -547,25 +547,25 @@ class ParallelogramDetermination(Scene):
         # 作者大名
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=38,
+            font="PingFang SC", font_size=38,
             color=WHITE, weight=BOLD
         ).move_to(UP*1.6)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_B
+            font="PingFang SC", font_size=28, color=GRAY_B
         ).move_to(UP*0.7)
 
         self.play(Transform(self.author, author_big), run_time=0.7)
         self.play(FadeIn(author_id, shift=UP*0.2), run_time=0.4)
 
         follow = Text("关注我，获得更多数学技巧！",
-                      font="Noto Sans CJK SC", font_size=30,
+                      font="PingFang SC", font_size=30,
                       color=C_HIGHLIGHT).move_to(DOWN*0.4)
         self.play(FadeIn(follow, shift=UP*0.25, scale=1.05), run_time=0.55)
 
         tagline = Text(
             "两平行 · 两相等 · 平行相等 · 对角相等 · 对角线分",
-            font="Noto Sans CJK SC", font_size=17, color=GRAY_B
+            font="PingFang SC", font_size=17, color=GRAY_B
         ).move_to(DOWN*1.7)
         self.play(FadeIn(tagline), run_time=0.4)
 

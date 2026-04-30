@@ -29,7 +29,7 @@ COLOR_OP = "#f39c12"      # 橙色 - 运算操作
 COLOR_OK = "#2ecc71"      # 绿色 - 成立/正确
 COLOR_WARN = "#e74c3c"    # 红色 - 警告
 COLOR_SCALE = "#95a5a6"   # 灰色 - 天平
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ============================================================

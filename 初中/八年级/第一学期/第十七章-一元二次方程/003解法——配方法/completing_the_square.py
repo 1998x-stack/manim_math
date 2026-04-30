@@ -47,7 +47,7 @@ class CompletingTheSquare(Scene):
         self.COLOR_GEOMETRY = "#9b59b6"       # 紫色 - 几何图形
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         self.FONT_SIZE_TITLE = 40
         self.FONT_SIZE_SUBTITLE = 28
         self.FONT_SIZE_BODY = 24

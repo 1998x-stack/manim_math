@@ -89,7 +89,7 @@ class RationalNumberAddition(Scene):
         # 数轴标签
         self.number_line_label = Text(
             "数轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(self.number_line, DOWN, buff=0.3)
@@ -99,7 +99,7 @@ class RationalNumberAddition(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -109,7 +109,7 @@ class RationalNumberAddition(Scene):
         # 钩子问题
         hook = Text(
             "正数 + 负数 = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 8,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -119,7 +119,7 @@ class RationalNumberAddition(Scene):
         # 副标题
         subtitle = Text(
             "用数轴秒懂加法!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -144,7 +144,7 @@ class RationalNumberAddition(Scene):
         # 标题
         title = Text(
             "同号加法: 正数+正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 5.5)
@@ -183,7 +183,7 @@ class RationalNumberAddition(Scene):
         
         step1_text = Text(
             "先加 +3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 0.5)
@@ -212,7 +212,7 @@ class RationalNumberAddition(Scene):
         
         step2_text = Text(
             "再加 +2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(DOWN * 0.5)
@@ -238,7 +238,7 @@ class RationalNumberAddition(Scene):
         
         rule_text = Text(
             "同号相加, 绝对值相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -268,7 +268,7 @@ class RationalNumberAddition(Scene):
         # 标题
         title = Text(
             "同号加法: 负数+负数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 5.5)
@@ -307,7 +307,7 @@ class RationalNumberAddition(Scene):
         
         step1_text = Text(
             "先加 -2 (向左)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 0.5)
@@ -336,7 +336,7 @@ class RationalNumberAddition(Scene):
         
         step2_text = Text(
             "再加 -3 (继续向左)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(DOWN * 0.5)
@@ -362,7 +362,7 @@ class RationalNumberAddition(Scene):
         
         rule_text = Text(
             "同号相加, 绝对值相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -392,7 +392,7 @@ class RationalNumberAddition(Scene):
         # 标题
         title = Text(
             "异号加法: 正数+负数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=YELLOW
         ).move_to(UP * 5.5)
@@ -431,7 +431,7 @@ class RationalNumberAddition(Scene):
         
         step1_text = Text(
             "先加 +5 (向右)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 0.5)
@@ -460,7 +460,7 @@ class RationalNumberAddition(Scene):
         
         step2_text = Text(
             "再加 -2 (向左)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(DOWN * 0.5)
@@ -486,14 +486,14 @@ class RationalNumberAddition(Scene):
         
         rule_text = Text(
             "异号相加, 绝对值相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
         
         note_text = Text(
             "正数绝对值大 → 结果为正",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_POSITIVE
         ).move_to(DOWN * 3.8)
@@ -525,7 +525,7 @@ class RationalNumberAddition(Scene):
         # 标题
         title = Text(
             "异号加法: 负数+正数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=YELLOW
         ).move_to(UP * 5.5)
@@ -564,7 +564,7 @@ class RationalNumberAddition(Scene):
         
         step1_text = Text(
             "先加 -5 (向左)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 0.5)
@@ -593,7 +593,7 @@ class RationalNumberAddition(Scene):
         
         step2_text = Text(
             "再加 +2 (向右)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(DOWN * 0.5)
@@ -619,14 +619,14 @@ class RationalNumberAddition(Scene):
         
         rule_text = Text(
             "异号相加, 绝对值相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
         
         note_text = Text(
             "负数绝对值大 → 结果为负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_NEGATIVE
         ).move_to(DOWN * 3.8)
@@ -658,7 +658,7 @@ class RationalNumberAddition(Scene):
         # 标题
         title = Text(
             "与零相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ZERO
         ).move_to(UP * 5.5)
@@ -697,7 +697,7 @@ class RationalNumberAddition(Scene):
         
         step1_text = Text(
             "先到 +3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 0.5)
@@ -718,7 +718,7 @@ class RationalNumberAddition(Scene):
         # 加0说明
         add_zero_text = Text(
             "加 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_ZERO
         ).move_to(ORIGIN)
@@ -729,7 +729,7 @@ class RationalNumberAddition(Scene):
         # 停留说明
         stay_text = Text(
             "位置不变!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -754,7 +754,7 @@ class RationalNumberAddition(Scene):
         
         rule_text = Text(
             "任何数加0都等于它本身",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -790,7 +790,7 @@ class RationalNumberAddition(Scene):
         # 大标题
         title = Text(
             "有理数加法法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 4,
             color=GOLD
         ).move_to(UP * 6)
@@ -843,7 +843,7 @@ class RationalNumberAddition(Scene):
         # 重点提示
         highlight = Text(
             "掌握法则, 轻松计算!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -867,7 +867,7 @@ class RationalNumberAddition(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             weight=BOLD
@@ -876,7 +876,7 @@ class RationalNumberAddition(Scene):
         # 副标题
         subtitle_text = Text(
             subtitle,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -884,7 +884,7 @@ class RationalNumberAddition(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -903,14 +903,14 @@ class RationalNumberAddition(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -924,7 +924,7 @@ class RationalNumberAddition(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

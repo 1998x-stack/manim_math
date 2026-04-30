@@ -55,7 +55,7 @@ class CentralSymmetry(Scene):
         # 创建全局作者信息
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -143,7 +143,7 @@ class CentralSymmetry(Scene):
         # 钩子文字
         hook = Text(
             "这两个图形有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -185,7 +185,7 @@ class CentralSymmetry(Scene):
         # 问题文字
         question = Text(
             "它们是中心对称的!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 1)
@@ -209,7 +209,7 @@ class CentralSymmetry(Scene):
         # 标题
         title = Text(
             "什么是中心对称?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -228,8 +228,8 @@ class CentralSymmetry(Scene):
         
         # 对称中心
         dot_O = Dot(self.O, color=self.COLOR_CENTER, radius=0.12)
-        label_O_text = Text("O", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CENTER)
-        label_O_sub = Text("对称中心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_CENTER)
+        label_O_text = Text("O", font="PingFang SC", font_size=24, color=self.COLOR_CENTER)
+        label_O_sub = Text("对称中心", font="PingFang SC", font_size=18, color=self.COLOR_CENTER)
         label_O = VGroup(label_O_text, label_O_sub).arrange(DOWN, buff=0.05).next_to(dot_O, DOWN, buff=0.2)
         
         self.play(FadeIn(dot_O), run_time=0.3)
@@ -237,16 +237,16 @@ class CentralSymmetry(Scene):
         self.play(FadeIn(label_O), run_time=0.4)
         
         # 定义文字框
-        def_line1 = Text("定义: 如果把一个图形绕某点", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        def_line1 = Text("定义: 如果把一个图形绕某点", font="PingFang SC", font_size=24, color=GRAY_A)
         
         # Line 2 with highlight - split into parts
-        def_line2_part1 = Text("旋转", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
-        def_line2_part2 = Text("180°", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
-        def_line2_part3 = Text("后能与另一个图形", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        def_line2_part1 = Text("旋转", font="PingFang SC", font_size=24, color=GRAY_A)
+        def_line2_part2 = Text("180°", font="PingFang SC", font_size=24, color=GRAY_A)
+        def_line2_part3 = Text("后能与另一个图形", font="PingFang SC", font_size=24, color=GRAY_A)
         def_line2 = VGroup(def_line2_part1, def_line2_part2, def_line2_part3).arrange(RIGHT, buff=0.05)
         
-        def_line3 = Text("重合, 则这两个图形", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
-        def_line4 = Text("关于这点中心对称。", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        def_line3 = Text("重合, 则这两个图形", font="PingFang SC", font_size=24, color=GRAY_A)
+        def_line4 = Text("关于这点中心对称。", font="PingFang SC", font_size=24, color=WHITE)
         
         definition_box = VGroup(def_line1, def_line2, def_line3, def_line4).arrange(DOWN, aligned_edge=LEFT, buff=0.15)
         definition_box.move_to(DOWN * 4.5)
@@ -312,7 +312,7 @@ class CentralSymmetry(Scene):
         # 性质标题
         property_title = Text(
             "性质1: 对应点连线过对称中心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -335,13 +335,13 @@ class CentralSymmetry(Scene):
         self.play(Create(triangle_2), run_time=0.8)
         
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.A, LEFT, buff=0.1)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.B, UP, buff=0.1)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.C, DOWN, buff=0.1)
+        label_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(self.A, LEFT, buff=0.1)
+        label_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(self.B, UP, buff=0.1)
+        label_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(self.C, DOWN, buff=0.1)
         
-        label_A_sym = Text("A'", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.A_sym, RIGHT, buff=0.1)
-        label_B_sym = Text("B'", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.B_sym, DOWN, buff=0.1)
-        label_C_sym = Text("C'", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(self.C_sym, UP, buff=0.1)
+        label_A_sym = Text("A'", font="PingFang SC", font_size=22, color=WHITE).next_to(self.A_sym, RIGHT, buff=0.1)
+        label_B_sym = Text("B'", font="PingFang SC", font_size=22, color=WHITE).next_to(self.B_sym, DOWN, buff=0.1)
+        label_C_sym = Text("C'", font="PingFang SC", font_size=22, color=WHITE).next_to(self.C_sym, UP, buff=0.1)
         
         labels_ABC = VGroup(label_A, label_B, label_C)
         labels_sym = VGroup(label_A_sym, label_B_sym, label_C_sym)
@@ -352,7 +352,7 @@ class CentralSymmetry(Scene):
         # 说明文字
         explain_1 = Text(
             "连接对应点...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -384,7 +384,7 @@ class CentralSymmetry(Scene):
         # 性质文字
         property_text_1 = Text(
             "所有连线都经过对称中心O!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 5.5)
@@ -420,7 +420,7 @@ class CentralSymmetry(Scene):
         # 性质标题
         property_title_2 = Text(
             "性质2: 对称中心平分连线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -436,13 +436,13 @@ class CentralSymmetry(Scene):
         
         # 大括号和标签 (线段AO)
         brace_AO = Brace(Line(self.A, self.O), direction=perp_dir * 0.5, color=YELLOW)
-        label_AO = Text("AO", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_AO, perp_dir * 0.5, buff=0.1)
+        label_AO = Text("AO", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_AO, perp_dir * 0.5, buff=0.1)
         
         self.play(Create(brace_AO), FadeIn(label_AO), run_time=0.8)
         
         # 大括号和标签 (线段OA')
         brace_OA = Brace(Line(self.O, self.A_sym), direction=perp_dir * 0.5, color=YELLOW)
-        label_OA = Text("OA'", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_OA, perp_dir * 0.5, buff=0.1)
+        label_OA = Text("OA'", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_OA, perp_dir * 0.5, buff=0.1)
         
         self.play(Create(brace_OA), FadeIn(label_OA), run_time=0.8)
         
@@ -504,7 +504,7 @@ class CentralSymmetry(Scene):
         # 性质总结文字
         property_text_2 = Text(
             "对称中心是对应点连线的中点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 5.5)
@@ -512,9 +512,9 @@ class CentralSymmetry(Scene):
         self.play(FadeIn(property_text_2), run_time=0.8)
         
         # 公式框
-        formula_line1 = Text("通用公式:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        formula_line1 = Text("通用公式:", font="PingFang SC", font_size=22, color=GRAY_A)
         formula_line2 = MathTex(r"OA = OA'", font_size=28)
-        formula_line3 = Text("且 O 在线段 AA' 上", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        formula_line3 = Text("且 O 在线段 AA' 上", font="PingFang SC", font_size=20, color=GRAY_A)
         
         formula_box = VGroup(formula_line1, formula_line2, formula_line3).arrange(DOWN, buff=0.2).move_to(DOWN * 6.5)
         
@@ -541,7 +541,7 @@ class CentralSymmetry(Scene):
         # 标题
         title = Text(
             "应用: 识别中心对称图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -551,7 +551,7 @@ class CentralSymmetry(Scene):
         # 说明
         explain = Text(
             "旋转180°后能与自己重合的图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -619,7 +619,7 @@ class CentralSymmetry(Scene):
         # 总结
         summary = Text(
             "N, S, Z 是中心对称图形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -649,7 +649,7 @@ class CentralSymmetry(Scene):
         # 标题
         title = Text(
             "应用: 平行四边形对角线互相平分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 6)
@@ -666,10 +666,10 @@ class CentralSymmetry(Scene):
         self.play(Create(parallelogram), run_time=1.0)
         
         # 顶点标签
-        label_P1 = Text("A", font="Noto Sans CJK SC", font_size=22).next_to(self.P1, LEFT)
-        label_P2 = Text("B", font="Noto Sans CJK SC", font_size=22).next_to(self.P2, UP)
-        label_P3 = Text("C", font="Noto Sans CJK SC", font_size=22).next_to(self.P3, RIGHT)
-        label_P4 = Text("D", font="Noto Sans CJK SC", font_size=22).next_to(self.P4, DOWN)
+        label_P1 = Text("A", font="PingFang SC", font_size=22).next_to(self.P1, LEFT)
+        label_P2 = Text("B", font="PingFang SC", font_size=22).next_to(self.P2, UP)
+        label_P3 = Text("C", font="PingFang SC", font_size=22).next_to(self.P3, RIGHT)
+        label_P4 = Text("D", font="PingFang SC", font_size=22).next_to(self.P4, DOWN)
         labels = VGroup(label_P1, label_P2, label_P3, label_P4)
         
         self.play(FadeIn(labels), run_time=0.5)
@@ -683,7 +683,7 @@ class CentralSymmetry(Scene):
         
         # 交点O
         dot_O = Dot(self.diag_center, color=self.COLOR_CENTER, radius=0.1)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=20).next_to(dot_O, DOWN * 0.5 + RIGHT * 0.5, buff=0.05)
+        label_O = Text("O", font="PingFang SC", font_size=20).next_to(dot_O, DOWN * 0.5 + RIGHT * 0.5, buff=0.05)
         
         self.play(FadeIn(dot_O), run_time=0.3)
         self.play(Flash(dot_O, color=self.COLOR_CENTER), run_time=0.4)
@@ -692,7 +692,7 @@ class CentralSymmetry(Scene):
         # 说明
         explain_1 = Text(
             "平行四边形关于对角线交点中心对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -745,9 +745,9 @@ class CentralSymmetry(Scene):
         )
         
         # 结论
-        conclusion_line1 = Text("根据中心对称性质:", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        conclusion_line1 = Text("根据中心对称性质:", font="PingFang SC", font_size=24, color=WHITE)
         conclusion_line2 = MathTex(r"AO = OC,\quad BO = OD", font_size=28, color=self.COLOR_HIGHLIGHT)
-        conclusion_line3 = Text("对角线互相平分!", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT)
+        conclusion_line3 = Text("对角线互相平分!", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT)
         
         conclusion = VGroup(conclusion_line1, conclusion_line2, conclusion_line3).arrange(DOWN, buff=0.2).move_to(DOWN * 6.2)
         
@@ -775,7 +775,7 @@ class CentralSymmetry(Scene):
         # 总结标题
         summary_title = Text(
             "中心对称 - 核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -784,15 +784,15 @@ class CentralSymmetry(Scene):
         
         # 知识卡片
         card_1_icon = Circle(radius=0.2, color=self.COLOR_PRIMARY, fill_opacity=1, stroke_width=0)
-        card_1_text = Text("定义: 旋转180°重合", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        card_1_text = Text("定义: 旋转180°重合", font="PingFang SC", font_size=24, color=WHITE)
         card_1 = VGroup(card_1_icon, card_1_text).arrange(RIGHT, buff=0.3).move_to(UP * 3).shift(LEFT * 10)
         
         card_2_icon = Circle(radius=0.2, color=self.COLOR_SECONDARY, fill_opacity=1, stroke_width=0)
-        card_2_text = Text("性质: 对应点连线过对称中心且被平分", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        card_2_text = Text("性质: 对应点连线过对称中心且被平分", font="PingFang SC", font_size=22, color=WHITE)
         card_2 = VGroup(card_2_icon, card_2_text).arrange(RIGHT, buff=0.3).move_to(UP * 1.5).shift(LEFT * 10)
         
         card_3_icon = Circle(radius=0.2, color=self.COLOR_HIGHLIGHT, fill_opacity=1, stroke_width=0)
-        card_3_text = Text("应用: 平行四边形、字母N/S/Z", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        card_3_text = Text("应用: 平行四边形、字母N/S/Z", font="PingFang SC", font_size=22, color=WHITE)
         card_3 = VGroup(card_3_icon, card_3_text).arrange(RIGHT, buff=0.3).move_to(ORIGIN).shift(LEFT * 10)
         
         # 卡片滑入
@@ -807,14 +807,14 @@ class CentralSymmetry(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -832,7 +832,7 @@ class CentralSymmetry(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)

@@ -109,7 +109,7 @@ class CircleArea(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -119,7 +119,7 @@ class CircleArea(Scene):
         # 钩子问题
         hook_question = Text(
             "如何求圆的面积？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -181,7 +181,7 @@ class CircleArea(Scene):
         # 说明文字
         explanation = Text(
             "已知圆的半径为 r",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -197,7 +197,7 @@ class CircleArea(Scene):
         # 标题
         title = Text(
             "转化思想: 化圆为方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -275,7 +275,7 @@ class CircleArea(Scene):
         # 说明文字
         area_constant_text = Text(
             "面积不变！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).next_to(rect_outline, DOWN, buff=0.4)
@@ -301,7 +301,7 @@ class CircleArea(Scene):
         # 说明文字
         explanation = Text(
             "分得越细，越接近长方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -425,7 +425,7 @@ class CircleArea(Scene):
         
         length_text = Text(
             "(周长的一半)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(length_label, RIGHT, buff=0.15)
@@ -454,7 +454,7 @@ class CircleArea(Scene):
         # 说明文字
         explanation = Text(
             "拼成的近似长方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -493,9 +493,9 @@ class CircleArea(Scene):
         # Step 1: 长方形面积 (使用 Text 代替 MathTex 中的中文)
         s_part = MathTex("S", font_size=32).set_color(self.COLOR_FORMULA)
         eq_part = MathTex("=", font_size=32)
-        length_part = Text("长", font="Noto Sans CJK SC", font_size=28)
+        length_part = Text("长", font="PingFang SC", font_size=28)
         times_part = MathTex(r"\times", font_size=32)
-        width_part = Text("宽", font="Noto Sans CJK SC", font_size=28)
+        width_part = Text("宽", font="PingFang SC", font_size=28)
         
         formula_1 = VGroup(s_part, eq_part, length_part, times_part, width_part).arrange(RIGHT, buff=0.2)
         formula_1.move_to(DOWN * 1)
@@ -584,7 +584,7 @@ class CircleArea(Scene):
         # 示例计算
         example_title = Text(
             "例: r = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 1.8)
@@ -616,14 +616,14 @@ class CircleArea(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -637,7 +637,7 @@ class CircleArea(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -681,7 +681,7 @@ class CircleArea(Scene):
         # 文字
         content = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )

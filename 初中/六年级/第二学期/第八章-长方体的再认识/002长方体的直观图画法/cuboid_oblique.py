@@ -127,15 +127,15 @@ class CuboidObliqueDrawing(ThreeDScene):
         return Line(s, e, color=color, stroke_width=stroke)
 
     def fixed_text(self, txt, font_size=26, color=C_WHITE, pos=ORIGIN):
-        t = Text(txt, font="Noto Sans CJK SC",
+        t = Text(txt, font="PingFang SC",
                  font_size=font_size, color=color)
         t.move_to(pos)
         return t
 
     def rule_card(self, number, desc, color, y_pos):
-        num = Text(f"规则 {number}", font="Noto Sans CJK SC",
+        num = Text(f"规则 {number}", font="PingFang SC",
                    font_size=28, color=color)
-        txt = Text(desc, font="Noto Sans CJK SC",
+        txt = Text(desc, font="PingFang SC",
                    font_size=22, color=C_WHITE)
         card = VGroup(num, txt).arrange(DOWN, buff=0.18, aligned_edge=LEFT)
         card.move_to(np.array([0, y_pos, 0]))
@@ -222,13 +222,13 @@ class CuboidObliqueDrawing(ThreeDScene):
         ax_z = Arrow(axis_o, axis_o + (RIGHT+UP)*0.707*ax_len,
                      color=C_DEPTH, stroke_width=4, buff=0, tip_length=0.2)
 
-        lx = Text("x (水平)", font="Noto Sans CJK SC",
+        lx = Text("x (水平)", font="PingFang SC",
                   font_size=22, color=C_HORIZ)
         lx.next_to(ax_x, RIGHT, buff=0.1)
-        ly = Text("y (竖直)", font="Noto Sans CJK SC",
+        ly = Text("y (竖直)", font="PingFang SC",
                   font_size=22, color=C_VERT)
         ly.next_to(ax_y, UP, buff=0.1)
-        lz = Text("z (深度)", font="Noto Sans CJK SC",
+        lz = Text("z (深度)", font="PingFang SC",
                   font_size=22, color=C_DEPTH)
         lz.next_to(ax_z, UR, buff=0.05)
 
@@ -251,7 +251,7 @@ class CuboidObliqueDrawing(ThreeDScene):
         h_line = Line(hr_start, hr_end, color=C_HORIZ, stroke_width=5)
         h_brace = BraceBetweenPoints(hr_start, hr_end, direction=DOWN,
                                      color=C_HORIZ)
-        h_brace_lbl = Text("原长 a", font="Noto Sans CJK SC",
+        h_brace_lbl = Text("原长 a", font="PingFang SC",
                            font_size=20, color=C_HORIZ)
         h_brace_lbl.next_to(h_brace, DOWN, buff=0.1)
 
@@ -275,7 +275,7 @@ class CuboidObliqueDrawing(ThreeDScene):
         v_line = Line(vr_start, vr_end, color=C_VERT, stroke_width=5)
         v_brace = BraceBetweenPoints(vr_start, vr_end, direction=RIGHT,
                                      color=C_VERT)
-        v_brace_lbl = Text("原长 b", font="Noto Sans CJK SC",
+        v_brace_lbl = Text("原长 b", font="PingFang SC",
                            font_size=20, color=C_VERT)
         v_brace_lbl.next_to(v_brace, RIGHT, buff=0.1)
 
@@ -364,10 +364,10 @@ class CuboidObliqueDrawing(ThreeDScene):
             Line(ax_o + DOWN*2.5, ax_o + UP*2.5, color=GRAY_C, stroke_width=1.5),
         )
         # x' axis label
-        ax_x_lbl = Text("x'", font="Noto Sans CJK SC",
+        ax_x_lbl = Text("x'", font="PingFang SC",
                          font_size=22, color=GRAY_C)
         ax_x_lbl.next_to(ax_o + RIGHT*3.5, RIGHT, buff=0.1)
-        ax_y_lbl = Text("y'", font="Noto Sans CJK SC",
+        ax_y_lbl = Text("y'", font="PingFang SC",
                          font_size=22, color=GRAY_C)
         ax_y_lbl.next_to(ax_o + UP*2.5, UP, buff=0.1)
         ax_z_dir = Arrow(ax_o, ax_o + RIGHT*0.6+UP*0.6,
@@ -510,11 +510,11 @@ class CuboidObliqueDrawing(ThreeDScene):
 
         # Compact rule recap
         rules = VGroup(
-            Text("① 水平方向  保持原长  →", font="Noto Sans CJK SC",
+            Text("① 水平方向  保持原长  →", font="PingFang SC",
                  font_size=26, color=C_HORIZ),
-            Text("② 竖直方向  保持原长  ↑", font="Noto Sans CJK SC",
+            Text("② 竖直方向  保持原长  ↑", font="PingFang SC",
                  font_size=26, color=C_VERT),
-            Text("③ 深度方向  减半 + 45°", font="Noto Sans CJK SC",
+            Text("③ 深度方向  减半 + 45°", font="PingFang SC",
                  font_size=26, color=C_DEPTH),
         )
         rules.arrange(DOWN, buff=0.4, aligned_edge=LEFT)

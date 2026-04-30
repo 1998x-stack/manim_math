@@ -51,33 +51,33 @@ class ProbabilityEnumeration(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B,
+            font="PingFang SC", font_size=18, color=GRAY_B,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
 
         chapter = Text("八年级 · 第二十三章 · 概率初步",
-                       font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+                       font="PingFang SC", font_size=20, color=GRAY_B,
                        ).move_to(UP * 6.55)
         self.play(FadeIn(chapter), run_time=0.3)
 
         hook = Text("同时投两枚硬币，\n两枚都是正面的概率是多少？",
-                    font="Noto Sans CJK SC", font_size=28, color=self.C_TITLE,
+                    font="PingFang SC", font_size=28, color=self.C_TITLE,
                     ).move_to(UP * 5.5)
         self.play(Write(hook), run_time=0.7)
 
         wrong_bg = self.card(6.0, 1.4, self.C_RED, UP * 3.9, fill="#2d0a0a")
-        wrong_l  = Text("直觉：1/2  ×", font="Noto Sans CJK SC",
+        wrong_l  = Text("直觉：1/2  ×", font="PingFang SC",
                         font_size=30, color=WHITE).move_to(UP * 3.9)
         self.play(Create(wrong_bg), Write(wrong_l), run_time=0.5)
 
         right_bg = self.card(6.0, 1.4, self.C_GREEN, UP * 2.7,
                              fill="#0a2e1a")
-        right_l  = Text("正确：1/4  ✓", font="Noto Sans CJK SC",
+        right_l  = Text("正确：1/4  ✓", font="PingFang SC",
                         font_size=30, color=WHITE).move_to(UP * 2.7)
         self.play(Create(right_bg), Write(right_l), run_time=0.5)
 
         method = Text("用列举法，一个都不漏！",
-                      font="Noto Sans CJK SC", font_size=28, color=self.C_TITLE,
+                      font="PingFang SC", font_size=28, color=self.C_TITLE,
                       ).move_to(UP * 1.4)
         self.play(FadeIn(method, shift=UP * 0.2), run_time=0.5)
         self.wait(1.0)
@@ -89,7 +89,7 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 2 ───────────
     def scene_steps(self):
         title = Text("列举法四步走",
-                     font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+                     font="PingFang SC", font_size=44, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.5)
 
@@ -102,8 +102,8 @@ class ProbabilityEnumeration(Scene):
         ]
         for col, pos, tag, desc in steps:
             bg   = self.card(7.5, 1.35, col, pos)
-            tag_t = Text(tag,  font="Noto Sans CJK SC", font_size=24, color=col)
-            desc_t = Text(desc, font="Noto Sans CJK SC", font_size=24,
+            tag_t = Text(tag,  font="PingFang SC", font_size=24, color=col)
+            desc_t = Text(desc, font="PingFang SC", font_size=24,
                           color=WHITE)
             VGroup(tag_t, desc_t).arrange(RIGHT, buff=0.3).move_to(pos)
             self.play(Create(bg), Write(tag_t), Write(desc_t), run_time=0.45)
@@ -111,7 +111,7 @@ class ProbabilityEnumeration(Scene):
         tool_bg = self.card(7.5, 1.5, self.C_TITLE, DOWN * 0.65,
                             fill="#1a1000")
         tool_t  = Text("工具：列表法（两步）/ 树状图（多步）",
-                       font="Noto Sans CJK SC", font_size=24,
+                       font="PingFang SC", font_size=24,
                        color=self.C_TITLE).move_to(DOWN * 0.65)
         self.play(Create(tool_bg), Write(tool_t), run_time=0.5)
         self.wait(1.8)
@@ -120,11 +120,11 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 3: Table ───────────
     def scene_table_method(self):
         title = Text("列表法  投两枚硬币",
-                     font="Noto Sans CJK SC", font_size=36, color=self.C_TITLE,
+                     font="PingFang SC", font_size=36, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.3, self.C_MAIN, UP * 5.6)
         prob_t  = Text("同时投两枚硬币，列出所有可能结果",
-                       font="Noto Sans CJK SC", font_size=24, color=WHITE,
+                       font="PingFang SC", font_size=24, color=WHITE,
                        ).move_to(UP * 5.6)
         self.play(Write(title), Create(prob_bg), Write(prob_t), run_time=0.6)
 
@@ -135,10 +135,10 @@ class ProbabilityEnumeration(Scene):
         labels_col = ["H", "T"]
 
         # 表头行
-        header_row_t = Text("硬币 2 →", font="Noto Sans CJK SC",
+        header_row_t = Text("硬币 2 →", font="PingFang SC",
                              font_size=18, color=GRAY_A,
                              ).move_to(np.array([-2.5, 4.6, 0]))
-        header_col_t = Text("硬币\n1↓", font="Noto Sans CJK SC",
+        header_col_t = Text("硬币\n1↓", font="PingFang SC",
                              font_size=18, color=GRAY_A,
                              ).move_to(np.array([-2.5, 3.7, 0]))
         self.play(Write(header_row_t), Write(header_col_t), run_time=0.4)
@@ -146,7 +146,7 @@ class ProbabilityEnumeration(Scene):
         # 列标题
         for j, lbl in enumerate(labels_row):
             x = -0.75 + j * cw
-            t = Text(lbl, font="Noto Sans CJK SC", font_size=24,
+            t = Text(lbl, font="PingFang SC", font_size=24,
                      color=self.C_ORANGE).move_to(np.array([x, 4.6, 0]))
             self.play(Write(t), run_time=0.18)
 
@@ -155,7 +155,7 @@ class ProbabilityEnumeration(Scene):
         result_mobs = []
         for i, (row_lbl, row) in enumerate(zip(labels_col, results)):
             y = 3.85 - i * ch
-            rl = Text(row_lbl, font="Noto Sans CJK SC",
+            rl = Text(row_lbl, font="PingFang SC",
                       font_size=24, color=self.C_ORANGE,
                       ).move_to(np.array([-2.5, y, 0]))
             self.play(Write(rl), run_time=0.18)
@@ -166,14 +166,14 @@ class ProbabilityEnumeration(Scene):
                                  color=col, stroke_width=1.5,
                                  fill_color="#16213e", fill_opacity=0.9,
                                  ).move_to(np.array([x, y, 0]))
-                ct = Text(cell, font="Noto Sans CJK SC",
+                ct = Text(cell, font="PingFang SC",
                           font_size=22, color=col,
                           ).move_to(np.array([x, y, 0]))
                 result_mobs.append((rect, ct, col))
                 self.play(Create(rect), Write(ct), run_time=0.22)
 
         note = Text("共 4 种等可能结果（n=4）",
-                    font="Noto Sans CJK SC", font_size=24, color=self.C_MAIN,
+                    font="PingFang SC", font_size=24, color=self.C_MAIN,
                     ).move_to(UP * 2.6)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(1.5)
@@ -182,7 +182,7 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 4: Table solve ───────────
     def scene_table_solve(self):
         title = Text("列表法  求解",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE,
+                     font="PingFang SC", font_size=38, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.4)
 
@@ -203,7 +203,7 @@ class ProbabilityEnumeration(Scene):
                                  else "#16213e",
                                  fill_opacity=0.9,
                                  ).move_to(np.array([x, y, 0]))
-                ct = Text(cell, font="Noto Sans CJK SC",
+                ct = Text(cell, font="PingFang SC",
                           font_size=22, color=col,
                           ).move_to(np.array([x, y, 0]))
                 mobs.append(rect); mobs.append(ct)
@@ -212,10 +212,10 @@ class ProbabilityEnumeration(Scene):
                     else Write(m) for m in mobs], run_time=0.6)
 
         note_n = Text("总结果数 n = 4",
-                      font="Noto Sans CJK SC", font_size=26, color=GRAY_A,
+                      font="PingFang SC", font_size=26, color=GRAY_A,
                       ).move_to(UP * 4.0)
         note_m = Text("两正 HH 只有 1 种，m = 1",
-                      font="Noto Sans CJK SC", font_size=26, color=self.C_GREEN,
+                      font="PingFang SC", font_size=26, color=self.C_GREEN,
                       ).move_to(UP * 3.1)
         self.play(Write(note_n), run_time=0.35)
         self.play(Write(note_m), run_time=0.35)
@@ -237,7 +237,7 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 5: Tree ───────────
     def scene_tree_method(self):
         title = Text("树状图法  投两枚硬币",
-                     font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+                     font="PingFang SC", font_size=34, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.5)
 
@@ -253,7 +253,7 @@ class ProbabilityEnumeration(Scene):
 
         # 根节点
         root_dot = Dot(root_pos, radius=0.15, color=WHITE)
-        root_lbl = Text("Start", font="Noto Sans CJK SC",
+        root_lbl = Text("Start", font="PingFang SC",
                         font_size=20, color=GRAY_A,
                         ).next_to(root_dot, UP, buff=0.1)
         self.play(GrowFromCenter(root_dot), Write(root_lbl), run_time=0.4)
@@ -268,7 +268,7 @@ class ProbabilityEnumeration(Scene):
             d = Dot(pos, radius=0.13, color=col)
             a = Arrow(root_pos, pos, buff=0.2, color=col,
                       stroke_width=2.5, max_tip_length_to_length_ratio=0.15)
-            t = Text(lbl, font="Noto Sans CJK SC",
+            t = Text(lbl, font="PingFang SC",
                      font_size=22, color=col).next_to(d, UP, buff=0.08)
             l1_dots.append((d, t)); l1_arrows.append(a)
             self.play(Create(a), GrowFromCenter(d), Write(t), run_time=0.35)
@@ -284,16 +284,16 @@ class ProbabilityEnumeration(Scene):
             d = Dot(pos, radius=0.12, color=col)
             a = Arrow(parent, pos, buff=0.15, color=col,
                       stroke_width=2, max_tip_length_to_length_ratio=0.15)
-            t = Text(lbl, font="Noto Sans CJK SC",
+            t = Text(lbl, font="PingFang SC",
                      font_size=20, color=col).next_to(d, UP, buff=0.06)
-            leaf = Text(leaf_lbl, font="Noto Sans CJK SC",
+            leaf = Text(leaf_lbl, font="PingFang SC",
                         font_size=22, color=leaf_col,
                         ).move_to(np.array([pos[0], leaf_y, 0]))
             self.play(Create(a), GrowFromCenter(d), Write(t),
                       Write(leaf), run_time=0.32)
 
         note = Text("共 4 个叶节点 = 4 种结果",
-                    font="Noto Sans CJK SC", font_size=24, color=self.C_MAIN,
+                    font="PingFang SC", font_size=24, color=self.C_MAIN,
                     ).move_to(DOWN * 0.3)
         self.play(FadeIn(note), run_time=0.4)
         self.wait(1.8)
@@ -302,7 +302,7 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 6: Tree solve ───────────
     def scene_tree_solve(self):
         title = Text("树状图  求解",
-                     font="Noto Sans CJK SC", font_size=38, color=self.C_TITLE,
+                     font="PingFang SC", font_size=38, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.4)
 
@@ -316,34 +316,34 @@ class ProbabilityEnumeration(Scene):
                                    color=col, fill_color="#16213e",
                                    fill_opacity=0.85, stroke_width=2,
                                    ).move_to(np.array([x, leaf_y, 0]))
-            t = Text(lbl, font="Noto Sans CJK SC",
+            t = Text(lbl, font="PingFang SC",
                      font_size=22, color=col,
                      ).move_to(np.array([x, leaf_y, 0]))
             self.play(Create(box), Write(t), run_time=0.22)
 
         n_bg = self.card(7.2, 1.2, self.C_PURPLE, UP * 4.1)
         n_t  = Text("总叶节点数 n = 4",
-                    font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                    font="PingFang SC", font_size=26, color=WHITE,
                     ).move_to(UP * 4.1)
         self.play(Create(n_bg), Write(n_t), run_time=0.4)
 
         m_bg = self.card(7.2, 1.2, self.C_GREEN, UP * 2.95)
         m_t  = Text("两正 HH 仅 1 种，m = 1",
-                    font="Noto Sans CJK SC", font_size=26, color=WHITE,
+                    font="PingFang SC", font_size=26, color=WHITE,
                     ).move_to(UP * 2.95)
         self.play(Create(m_bg), Write(m_t), run_time=0.4)
 
         # 换题：至少一正
         q2_bg = self.card(7.2, 1.3, self.C_MAIN, UP * 1.7)
         q2_t  = Text("P(至少一正) = ?",
-                     font="Noto Sans CJK SC", font_size=28, color=WHITE,
+                     font="PingFang SC", font_size=28, color=WHITE,
                      ).move_to(UP * 1.7)
         self.play(Create(q2_bg), Write(q2_t), run_time=0.4)
 
         step = MathTex(r"P(\text{at least 1H}) = \dfrac{3}{4}",
                        font_size=46, color=self.C_TITLE).move_to(UP * 0.6)
         note = Text("HH, HT, TH 都算 → m=3",
-                    font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+                    font="PingFang SC", font_size=22, color=GRAY_A,
                     ).move_to(UP * 0.0)
         self.play(Write(step), FadeIn(note), run_time=0.6)
 
@@ -360,39 +360,39 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 7: Comparison ───────────
     def scene_comparison(self):
         title = Text("两种方法对比",
-                     font="Noto Sans CJK SC", font_size=42, color=self.C_TITLE,
+                     font="PingFang SC", font_size=42, color=self.C_TITLE,
                      ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.5)
 
         # 左：列表法
         left_bg = self.card(3.6, 4.0, self.C_MAIN, UP * 4.4 + LEFT * 1.9)
-        left_title = Text("列表法", font="Noto Sans CJK SC",
+        left_title = Text("列表法", font="PingFang SC",
                           font_size=28, color=self.C_MAIN).move_to(
             UP * 5.8 + LEFT * 1.9)
         l1 = Text("适合：两步试验",
-                  font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                  font="PingFang SC", font_size=20, color=WHITE)
         l2 = Text("形式：表格",
-                  font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                  font="PingFang SC", font_size=20, color=WHITE)
         l3 = Text("优点：直观清晰",
-                  font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                  font="PingFang SC", font_size=20, color=WHITE)
         l4 = Text("例：投两枚骰子",
-                  font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+                  font="PingFang SC", font_size=20, color=GRAY_A)
         VGroup(l1, l2, l3, l4).arrange(DOWN, buff=0.28).move_to(
             UP * 4.4 + LEFT * 1.9)
 
         # 右：树状图
         right_bg = self.card(3.6, 4.0, self.C_PURPLE, UP * 4.4 + RIGHT * 1.9)
-        right_title = Text("树状图", font="Noto Sans CJK SC",
+        right_title = Text("树状图", font="PingFang SC",
                            font_size=28, color=self.C_PURPLE).move_to(
             UP * 5.8 + RIGHT * 1.9)
         r1 = Text("适合：多步试验",
-                  font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                  font="PingFang SC", font_size=20, color=WHITE)
         r2 = Text("形式：分支图",
-                  font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                  font="PingFang SC", font_size=20, color=WHITE)
         r3 = Text("优点：不遗漏",
-                  font="Noto Sans CJK SC", font_size=20, color=WHITE)
+                  font="PingFang SC", font_size=20, color=WHITE)
         r4 = Text("例：连续抛硬币",
-                  font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+                  font="PingFang SC", font_size=20, color=GRAY_A)
         VGroup(r1, r2, r3, r4).arrange(DOWN, buff=0.28).move_to(
             UP * 4.4 + RIGHT * 1.9)
 
@@ -404,7 +404,7 @@ class ProbabilityEnumeration(Scene):
         common_bg = self.card(7.4, 1.5, self.C_TITLE, UP * 2.1,
                               fill="#1a1000")
         common_t  = Text("共同目标：列出所有结果，一个不漏！",
-                         font="Noto Sans CJK SC", font_size=24,
+                         font="PingFang SC", font_size=24,
                          color=self.C_TITLE).move_to(UP * 2.1)
         self.play(Create(common_bg), Write(common_t), run_time=0.6)
         self.wait(2.0)
@@ -413,7 +413,7 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 8: Practice ───────────
     def scene_quick_practice(self):
         title = Text("综合练习",
-                     font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+                     font="PingFang SC", font_size=44, color=self.C_TITLE,
                      ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.4)
 
@@ -430,9 +430,9 @@ class ProbabilityEnumeration(Scene):
         for i, (q, res, col, hint) in enumerate(items):
             pos = UP * (start_y - i * 2.3)
             bg  = self.card(7.6, card_h, col, pos)
-            qt  = Text(q, font="Noto Sans CJK SC", font_size=23, color=WHITE)
+            qt  = Text(q, font="PingFang SC", font_size=23, color=WHITE)
             rf  = MathTex(res, font_size=34, color=self.C_RESULT)
-            ht  = Text(hint, font="Noto Sans CJK SC",
+            ht  = Text(hint, font="PingFang SC",
                        font_size=19, color=GRAY_A)
             VGroup(qt, rf, ht).arrange(DOWN, buff=0.18).move_to(pos)
             self.play(Create(bg), Write(qt), run_time=0.35)
@@ -445,7 +445,7 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 9: Summary ───────────
     def scene_summary(self):
         title = Text("知识点总结",
-                     font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+                     font="PingFang SC", font_size=46, color=self.C_TITLE,
                      ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.4)
 
@@ -463,7 +463,7 @@ class ProbabilityEnumeration(Scene):
         ]
         for col, pos, lbl, fml in blocks:
             bg = self.card(7.6, 1.3, col, pos)
-            lt = Text(lbl, font="Noto Sans CJK SC", font_size=22, color=col)
+            lt = Text(lbl, font="PingFang SC", font_size=22, color=col)
             ft = MathTex(fml, font_size=26, color=WHITE)
             VGroup(lt, ft).arrange(RIGHT, buff=0.4).move_to(pos)
             self.play(Create(bg), Write(lt), Write(ft), run_time=0.42)
@@ -474,16 +474,16 @@ class ProbabilityEnumeration(Scene):
     # ─────────── Scene 10 ───────────
     def scene_outro(self):
         big = Text("上海初高中数学直通车",
-                   font="Noto Sans CJK SC", font_size=38, color=WHITE,
+                   font="PingFang SC", font_size=38, color=WHITE,
                    ).move_to(UP * 2.5)
         uid = Text("@emptyandcalm",
-                   font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+                   font="PingFang SC", font_size=28, color=GRAY_B,
                    ).move_to(UP * 1.7)
         self.play(Transform(self.author, big), run_time=0.8)
         self.play(FadeIn(uid, shift=UP * 0.2), run_time=0.4)
 
         follow = Text("关注我，学更多数学知识！",
-                      font="Noto Sans CJK SC", font_size=30,
+                      font="PingFang SC", font_size=30,
                       color=self.C_TITLE).move_to(UP * 0.3)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
 

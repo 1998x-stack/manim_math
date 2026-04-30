@@ -147,7 +147,7 @@ class PlaneVectorConcepts(Scene):
     def make_author(self):
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B,
         ).move_to(UP * 6.8)
@@ -156,7 +156,7 @@ class PlaneVectorConcepts(Scene):
         color = color or self.C_TITLE
         return Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=color,
         ).move_to(UP * y)
@@ -190,7 +190,7 @@ class PlaneVectorConcepts(Scene):
         # ── 主问句 ────────────────────────────────────────
         hook = Text(
             "什么是向量？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.C_TITLE,
         ).move_to(UP * 5.2)
@@ -258,7 +258,7 @@ class PlaneVectorConcepts(Scene):
         # 在箭头终点附近标注方向
         direction_label = Text(
             "方  向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_TITLE,
         ).move_to(self.VA_END + RIGHT * 1.2 + UP * 0.3)
@@ -279,7 +279,7 @@ class PlaneVectorConcepts(Scene):
         mid_point = (self.VA_START + self.VA_END) / 2
         size_label = Text(
             "大  小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_MODULE,
         ).move_to(mid_point + LEFT * 1.4 + DOWN * 0.4)
@@ -312,14 +312,14 @@ class PlaneVectorConcepts(Scene):
 
         def_line1 = Text(
             "向量：既有大小，又有方向的量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(DOWN * 2.1)
 
         def_line2 = Text(
             "用有向线段来表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(DOWN * 2.8)
@@ -332,21 +332,21 @@ class PlaneVectorConcepts(Scene):
         cmp_card = self.make_card(7.8, 2.4, DOWN * 5.0, GRAY_B, "#0d0d1a")
         cmp_title = Text(
             "对比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B,
         ).move_to(DOWN * 4.1)
 
         scalar_text = Text(
             "标量（如温度）：只有大小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 4.7)
 
         vector_text = Text(
             "向量（如速度）：大小 + 方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_MAIN,
         ).move_to(DOWN * 5.4)
@@ -387,7 +387,7 @@ class PlaneVectorConcepts(Scene):
         # ── 方法一：\overrightarrow{AB} ──────────────────
         label_m1 = Text(
             "方法一：用端点字母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_TITLE,
         ).move_to(UP * 5.0)
@@ -399,9 +399,9 @@ class PlaneVectorConcepts(Scene):
 
         dot_A = Dot(A_pos, radius=0.12, color=self.C_MAIN)
         dot_B = Dot(B_pos, radius=0.12, color=self.C_MAIN)
-        lbl_A = Text("A", font="Noto Sans CJK SC", font_size=28,
+        lbl_A = Text("A", font="PingFang SC", font_size=28,
                      color=self.C_MAIN).next_to(dot_A, DL, buff=0.12)
-        lbl_B = Text("B", font="Noto Sans CJK SC", font_size=28,
+        lbl_B = Text("B", font="PingFang SC", font_size=28,
                      color=self.C_MAIN).next_to(dot_B, UR, buff=0.12)
         arrow_AB = self.make_arrow(A_pos, B_pos, self.C_MAIN, stroke=5)
 
@@ -425,7 +425,7 @@ class PlaneVectorConcepts(Scene):
         # ── 方法二：\vec{a} ───────────────────────────────
         label_m2 = Text(
             "方法二：用小写字母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_TITLE,
         ).move_to(UP * 0.8)
@@ -451,13 +451,13 @@ class PlaneVectorConcepts(Scene):
         note_card = self.make_card(7.8, 1.5, DOWN * 2.4, GRAY_B, "#0d0d1a")
         note_text = Text(
             "向量只关注：大小 + 方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(DOWN * 2.2)
         note_text2 = Text(
             "起点位置不影响向量本身！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B,
         ).move_to(DOWN * 2.8)
@@ -494,9 +494,9 @@ class PlaneVectorConcepts(Scene):
         arrow_mod = self.make_arrow(mod_start, mod_end, self.C_MODULE, stroke=6)
         dot_s = Dot(mod_start, radius=0.11, color=WHITE)
         dot_e = Dot(mod_end, radius=0.11, color=WHITE)
-        lbl_P = Text("P", font="Noto Sans CJK SC", font_size=26,
+        lbl_P = Text("P", font="PingFang SC", font_size=26,
                      color=WHITE).next_to(dot_s, DL, buff=0.1)
-        lbl_Q = Text("Q", font="Noto Sans CJK SC", font_size=26,
+        lbl_Q = Text("Q", font="PingFang SC", font_size=26,
                      color=WHITE).next_to(dot_e, UR, buff=0.1)
 
         self.play(GrowArrow(arrow_mod), run_time=0.8)
@@ -548,14 +548,14 @@ class PlaneVectorConcepts(Scene):
         )
         part2 = Text(
             "向量的长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         )
         formula_row = VGroup(part1, part2).arrange(RIGHT, buff=0.25).move_to(UP * 0.7)
 
         also_label = VGroup(
-            Text("也写作", font="Noto Sans CJK SC", font_size=28, color=GRAY_A),
+            Text("也写作", font="PingFang SC", font_size=28, color=GRAY_A),
             MathTex(r"|\vec{a}|", font_size=38, color=self.C_MODULE),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 0.0)
 
@@ -566,7 +566,7 @@ class PlaneVectorConcepts(Scene):
         # ── 特殊说明：|a| ≥ 0 ────────────────────────────
         nonneg_card = self.make_card(7.5, 1.4, DOWN * 1.3, GRAY_B, "#0d0d1a")
         nonneg_row = VGroup(
-            Text("模的性质：", font="Noto Sans CJK SC",
+            Text("模的性质：", font="PingFang SC",
                  font_size=24, color=GRAY_A),
             MathTex(r"|\vec{a}| \geq 0", font_size=36, color=self.C_MODULE),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 1.3)
@@ -626,12 +626,12 @@ class PlaneVectorConcepts(Scene):
         eq_cond_card = self.make_card(7.8, 2.0, DOWN * 4.5, self.C_EQUAL)
         eq_cond1 = Text(
             "方向相同  且  大小相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_EQUAL,
         ).move_to(DOWN * 4.2)
         eq_cond2 = VGroup(
-            Text("即", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("即", font="PingFang SC", font_size=26, color=GRAY_A),
             MathTex(r"\vec{a} = \vec{b} = \vec{c} = \vec{d}",
                     font_size=32, color=self.C_EQUAL),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 4.9)
@@ -643,7 +643,7 @@ class PlaneVectorConcepts(Scene):
         # 关键提示：起点不同也可以相等
         eq_note = Text(
             "起点不同，仍可以是相等向量！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B,
         ).move_to(DOWN * 5.7)
@@ -710,7 +710,7 @@ class PlaneVectorConcepts(Scene):
 
         opp_cond = Text(
             "大小相等  方向相反",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_OPPOSITE,
         ).move_to(DOWN * 3.5)
@@ -721,7 +721,7 @@ class PlaneVectorConcepts(Scene):
 
         opp_note = Text(
             "互为相反向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(DOWN * 5.0)
@@ -783,7 +783,7 @@ class PlaneVectorConcepts(Scene):
 
         zero_def1 = Text(
             "零向量：模为 0 的向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(UP * 0.9)
@@ -796,7 +796,7 @@ class PlaneVectorConcepts(Scene):
 
         zero_def3 = Text(
             "方向：任意（特殊规定）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B,
         ).move_to(DOWN * 0.3)
@@ -809,7 +809,7 @@ class PlaneVectorConcepts(Scene):
         # 对比提示
         cmp_zero = Text(
             "只有零向量的模为 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_TITLE,
         ).move_to(DOWN * 1.3)
@@ -831,7 +831,7 @@ class PlaneVectorConcepts(Scene):
     def scene_7_summary(self):
         sum_title = Text(
             "核心知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.C_TITLE,
         ).move_to(UP * 5.8)
@@ -862,9 +862,9 @@ class PlaneVectorConcepts(Scene):
             card_bg = self.make_card(8.0, 1.1, ypos, color)
 
             row_left = VGroup(
-                Text(cname, font="Noto Sans CJK SC",
+                Text(cname, font="PingFang SC",
                      font_size=24, color=color),
-                Text(cdesc, font="Noto Sans CJK SC",
+                Text(cdesc, font="PingFang SC",
                      font_size=18, color=GRAY_A),
             ).arrange(DOWN, aligned_edge=LEFT, buff=0.05).move_to(
                 ypos + LEFT * 2.0
@@ -883,8 +883,8 @@ class PlaneVectorConcepts(Scene):
 
         # 零向量条
         zero_row = VGroup(
-            Text("零向量", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
-            Text("模为0的特殊向量", font="Noto Sans CJK SC", font_size=18, color=GRAY_B),
+            Text("零向量", font="PingFang SC", font_size=24, color=GRAY_A),
+            Text("模为0的特殊向量", font="PingFang SC", font_size=18, color=GRAY_B),
             MathTex(r"|\vec{0}| = 0", font_size=30, color=GRAY_A),
         ).arrange(RIGHT, buff=0.5).move_to(DOWN * 0.8)
         zero_row.shift(LEFT * 11)
@@ -903,7 +903,7 @@ class PlaneVectorConcepts(Scene):
         # ── 片尾：作者信息 ────────────────────────────────
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD,
@@ -911,7 +911,7 @@ class PlaneVectorConcepts(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B,
         ).move_to(UP * 1.1)
@@ -921,7 +921,7 @@ class PlaneVectorConcepts(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_TITLE,
         ).move_to(ORIGIN)

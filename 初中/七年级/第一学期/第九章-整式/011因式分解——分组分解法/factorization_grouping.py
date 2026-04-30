@@ -73,7 +73,7 @@ class FactorizationGrouping(Scene):
         # 作者信息 (顶部，始终保留)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -83,7 +83,7 @@ class FactorizationGrouping(Scene):
         # 钩子问题
         hook_text = Text(
             "这个式子怎么分解?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -104,7 +104,7 @@ class FactorizationGrouping(Scene):
         # 提示文字
         hint_text = Text(
             "用分组分解法!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 1)
@@ -125,7 +125,7 @@ class FactorizationGrouping(Scene):
         # 标题
         title = Text(
             "分组分解法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -135,7 +135,7 @@ class FactorizationGrouping(Scene):
         # 定义
         definition = Text(
             "将多项式的项分组，使每组都能分解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -146,21 +146,21 @@ class FactorizationGrouping(Scene):
         # 策略要点
         strategy_1 = Text(
             "① 适当分组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_GROUP_A
         ).move_to(UP * 2)
         
         strategy_2 = Text(
             "② 各组提取公因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_GROUP_B
         ).move_to(UP * 1)
         
         strategy_3 = Text(
             "③ 继续分解共同因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0)
@@ -192,7 +192,7 @@ class FactorizationGrouping(Scene):
         # 例题标题
         example_title = Text(
             "例题1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -227,7 +227,7 @@ class FactorizationGrouping(Scene):
         # 说明文字
         explain_1 = Text(
             "分成两组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -257,7 +257,7 @@ class FactorizationGrouping(Scene):
         # 提示提取公因式
         explain_2 = Text(
             "提取公因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -303,7 +303,7 @@ class FactorizationGrouping(Scene):
         # 提示继续提取
         explain_3 = Text(
             "继续提取 (x+y)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -346,7 +346,7 @@ class FactorizationGrouping(Scene):
         # 例题标题
         example_title_2 = Text(
             "例题2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -396,7 +396,7 @@ class FactorizationGrouping(Scene):
         # 提示平方差公式
         explain_1 = Text(
             "平方差公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -449,7 +449,7 @@ class FactorizationGrouping(Scene):
         # 提示提取
         explain_2 = Text(
             "提取 (x-y)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -492,7 +492,7 @@ class FactorizationGrouping(Scene):
         # 标题
         summary_title = Text(
             "对比总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -517,7 +517,7 @@ class FactorizationGrouping(Scene):
         
         explain_1 = Text(
             "两组都有公因式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(arrow_1, RIGHT, buff=0.2)
@@ -538,7 +538,7 @@ class FactorizationGrouping(Scene):
         
         explain_2 = Text(
             "先公式法，再提取",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(arrow_2, RIGHT, buff=0.2)
@@ -553,7 +553,7 @@ class FactorizationGrouping(Scene):
         # 关键点
         key_point = Text(
             "分组方式很关键!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -587,7 +587,7 @@ class FactorizationGrouping(Scene):
         # 标题
         tips_title = Text(
             "分组技巧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -659,7 +659,7 @@ class FactorizationGrouping(Scene):
         # 序号
         number_text = Text(
             number,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(icon.get_center())
@@ -669,7 +669,7 @@ class FactorizationGrouping(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -685,7 +685,7 @@ class FactorizationGrouping(Scene):
         # 作者名放大
         large_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 2)
@@ -698,7 +698,7 @@ class FactorizationGrouping(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -708,7 +708,7 @@ class FactorizationGrouping(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，掌握更多因式分解技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

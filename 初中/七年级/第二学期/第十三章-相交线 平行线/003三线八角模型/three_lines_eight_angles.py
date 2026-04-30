@@ -165,7 +165,7 @@ class ThreeLinesEightAngles(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -175,14 +175,14 @@ class ThreeLinesEightAngles(Scene):
         # 钩子问题
         hook_text = Text(
             "两条线被一条线截",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         hook_question = Text(
             "会产生几个角?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD,
             weight=BOLD
@@ -221,7 +221,7 @@ class ThreeLinesEightAngles(Scene):
         # 标题
         title = Text(
             "三线八角模型",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -231,7 +231,7 @@ class ThreeLinesEightAngles(Scene):
         # Step 1: 被截线1
         explain1 = Text(
             "两条被截线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -246,7 +246,7 @@ class ThreeLinesEightAngles(Scene):
         # Step 3: 截线
         explain2 = Text(
             "截线与两条线形成两个交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -259,10 +259,10 @@ class ThreeLinesEightAngles(Scene):
         
         # Step 4: 标记交点
         dot_P = Dot(self.P, color=YELLOW, radius=0.08)
-        label_P = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_P, LEFT, buff=0.15)
+        label_P = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_P, LEFT, buff=0.15)
         
         dot_Q = Dot(self.Q, color=YELLOW, radius=0.08)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(dot_Q, LEFT, buff=0.15)
+        label_Q = Text("Q", font="PingFang SC", font_size=22, color=WHITE).next_to(dot_Q, LEFT, buff=0.15)
         
         self.play(FadeIn(dot_P), FadeIn(label_P), run_time=0.4)
         self.play(FadeIn(dot_Q), FadeIn(label_Q), run_time=0.4)
@@ -348,7 +348,7 @@ class ThreeLinesEightAngles(Scene):
         # 总结文字
         summary = Text(
             "共形成8个角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -373,7 +373,7 @@ class ThreeLinesEightAngles(Scene):
         # 标题
         title = Text(
             "同位角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_SAME_SIDE
         ).move_to(UP * 6.5)
@@ -389,14 +389,14 @@ class ThreeLinesEightAngles(Scene):
         # 定义
         definition = Text(
             "在截线同侧，被截两线的同侧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
         
         position_hint = Text(
             "位置相同的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.9)
@@ -422,7 +422,7 @@ class ThreeLinesEightAngles(Scene):
             if i == 0:
                 pair_label = Text(
                     f"∠{idx1+1} 与 ∠{idx2+1} 同位",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=22,
                     color=self.COLOR_SAME_SIDE
                 ).move_to(DOWN * 4.5)
@@ -451,7 +451,7 @@ class ThreeLinesEightAngles(Scene):
         
         summary_text = Text(
             "4对同位角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_SAME_SIDE,
             weight=BOLD
@@ -459,7 +459,7 @@ class ThreeLinesEightAngles(Scene):
         
         key_point = Text(
             "记忆口诀: 位置相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6.5)
@@ -494,7 +494,7 @@ class ThreeLinesEightAngles(Scene):
         # 标题
         title = Text(
             "内错角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_ALTERNATE
         ).move_to(UP * 6.5)
@@ -510,14 +510,14 @@ class ThreeLinesEightAngles(Scene):
         # 定义
         definition = Text(
             "在截线两侧，被截两线之间",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
         
         position_hint = Text(
             "内部交错的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.9)
@@ -539,7 +539,7 @@ class ThreeLinesEightAngles(Scene):
         
         interior_label = Text(
             "内部区域",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ALTERNATE
         ).move_to([3.5, (interior_top + interior_bottom) / 2, 0])
@@ -573,7 +573,7 @@ class ThreeLinesEightAngles(Scene):
                 
                 pair_label = Text(
                     f"∠{idx1+1} 与 ∠{idx2+1} 内错",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=22,
                     color=self.COLOR_ALTERNATE
                 ).move_to(DOWN * 4.5)
@@ -604,7 +604,7 @@ class ThreeLinesEightAngles(Scene):
         
         summary_text = Text(
             "2对内错角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_ALTERNATE,
             weight=BOLD
@@ -612,7 +612,7 @@ class ThreeLinesEightAngles(Scene):
         
         key_point = Text(
             "记忆口诀: 内部交错",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6.5)
@@ -648,7 +648,7 @@ class ThreeLinesEightAngles(Scene):
         # 标题
         title = Text(
             "同旁内角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_CONSECUTIVE
         ).move_to(UP * 6.5)
@@ -664,14 +664,14 @@ class ThreeLinesEightAngles(Scene):
         # 定义
         definition = Text(
             "在截线同侧，被截两线之间",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.5)
         
         position_hint = Text(
             "同侧内部的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.9)
@@ -720,7 +720,7 @@ class ThreeLinesEightAngles(Scene):
                 # 说明文字 - 注意使用Text和MathTex组合
                 pair_text = Text(
                     f"∠{idx1+1} 与 ∠{idx2+1} 同旁内角",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=22,
                     color=self.COLOR_CONSECUTIVE
                 ).move_to(DOWN * 4.5)
@@ -751,7 +751,7 @@ class ThreeLinesEightAngles(Scene):
         
         summary_text = Text(
             "2对同旁内角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CONSECUTIVE,
             weight=BOLD
@@ -759,7 +759,7 @@ class ThreeLinesEightAngles(Scene):
         
         key_point = Text(
             "记忆口诀: 同侧内部",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6.5)
@@ -795,7 +795,7 @@ class ThreeLinesEightAngles(Scene):
         # 标题
         title = Text(
             "三线八角 - 知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 7)
@@ -857,14 +857,14 @@ class ThreeLinesEightAngles(Scene):
         # 记忆口诀
         mnemonic_title = Text(
             "记忆口诀:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 2.5 + LEFT * 1.5)
         
         mnemonic_content = Text(
             "位置相同、内部交错、同侧内部",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).next_to(mnemonic_title, RIGHT, buff=0.2)
@@ -879,7 +879,7 @@ class ThreeLinesEightAngles(Scene):
         # 应用提示
         application = Text(
             "三线八角是平行线判定与性质的基础",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -917,7 +917,7 @@ class ThreeLinesEightAngles(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             weight=BOLD
@@ -926,7 +926,7 @@ class ThreeLinesEightAngles(Scene):
         # 数量
         count_text = Text(
             count,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=color
         )
@@ -934,7 +934,7 @@ class ThreeLinesEightAngles(Scene):
         # 口诀
         mnemonic_text = Text(
             mnemonic,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -955,7 +955,7 @@ class ThreeLinesEightAngles(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE,
             weight=BOLD
@@ -963,7 +963,7 @@ class ThreeLinesEightAngles(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -977,7 +977,7 @@ class ThreeLinesEightAngles(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

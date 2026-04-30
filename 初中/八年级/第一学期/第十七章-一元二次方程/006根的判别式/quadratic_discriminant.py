@@ -65,7 +65,7 @@ class QuadraticDiscriminant(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 6.8)
@@ -75,7 +75,7 @@ class QuadraticDiscriminant(Scene):
         # 钩子问题
         hook_text = Text(
             "如何不解方程\n就知道有几个根?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -143,7 +143,7 @@ class QuadraticDiscriminant(Scene):
         # 标题
         title = Text(
             "一元二次方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -190,7 +190,7 @@ class QuadraticDiscriminant(Scene):
         # 判别式公式
         delta_title = Text(
             "判别式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -211,7 +211,7 @@ class QuadraticDiscriminant(Scene):
         # 说明
         explanation = Text(
             "判别式决定方程根的情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 0.3)
@@ -243,7 +243,7 @@ class QuadraticDiscriminant(Scene):
         # 副标题
         subtitle = Text(
             "情况1: Δ > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_DELTA_POSITIVE
         ).move_to(UP * 5.5)
@@ -357,7 +357,7 @@ class QuadraticDiscriminant(Scene):
         # 结论
         conclusion = Text(
             "两个不相等的实数根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_DELTA_POSITIVE
         ).move_to(DOWN * 4.5)
@@ -386,7 +386,7 @@ class QuadraticDiscriminant(Scene):
         # 副标题
         subtitle = Text(
             "情况2: Δ = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_DELTA_ZERO
         ).move_to(UP * 5.5)
@@ -468,7 +468,7 @@ class QuadraticDiscriminant(Scene):
         # "相切" 标注
         tangent_text = Text(
             "相切",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=YELLOW
         ).next_to(tangent_dot, UP, buff=0.3)
@@ -497,7 +497,7 @@ class QuadraticDiscriminant(Scene):
         # 结论
         conclusion = Text(
             "两个相等的实数根 (重根)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_DELTA_ZERO
         ).move_to(DOWN * 4.5)
@@ -527,7 +527,7 @@ class QuadraticDiscriminant(Scene):
         # 副标题
         subtitle = Text(
             "情况3: Δ < 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_DELTA_NEGATIVE
         ).move_to(UP * 5.5)
@@ -634,7 +634,7 @@ class QuadraticDiscriminant(Scene):
         # 结论
         conclusion = Text(
             "没有实数根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_DELTA_NEGATIVE
         ).move_to(DOWN * 4.5)
@@ -662,7 +662,7 @@ class QuadraticDiscriminant(Scene):
         # 标题
         title = Text(
             "判别式总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -686,7 +686,7 @@ class QuadraticDiscriminant(Scene):
         
         row1_result = Text(
             "两个不等实根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DELTA_POSITIVE
         ).next_to(row1_arrow, RIGHT, buff=0.5)
@@ -740,7 +740,7 @@ class QuadraticDiscriminant(Scene):
         
         row2_result = Text(
             "两个相等实根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DELTA_ZERO
         ).next_to(row2_arrow, RIGHT, buff=0.5)
@@ -791,7 +791,7 @@ class QuadraticDiscriminant(Scene):
         
         row3_result = Text(
             "无实数根",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DELTA_NEGATIVE
         ).next_to(row3_arrow, RIGHT, buff=0.5)
@@ -844,7 +844,7 @@ class QuadraticDiscriminant(Scene):
         # 重点提示
         key_point = Text(
             "判别式是解题关键!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -867,14 +867,14 @@ class QuadraticDiscriminant(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -888,7 +888,7 @@ class QuadraticDiscriminant(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)

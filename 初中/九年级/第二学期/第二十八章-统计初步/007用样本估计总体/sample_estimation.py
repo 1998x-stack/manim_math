@@ -47,7 +47,7 @@ class SampleEstimation(Scene):
         self.COLOR_AUXILIARY = GRAY_B        # 灰色 - 辅助
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         
         # 设置随机种子（保证可重复性）
         random.seed(42)

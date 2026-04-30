@@ -45,7 +45,7 @@ class DirectSquareRootMethod(Scene):
         self.COLOR_SUCCESS = "#2ecc71"        # 绿色 - 正确答案
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"
+        self.FONT_CHINESE = "PingFang SC"
         self.FONT_SIZE_TITLE = 40
         self.FONT_SIZE_SUBTITLE = 28
         self.FONT_SIZE_BODY = 24

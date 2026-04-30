@@ -33,7 +33,7 @@ COLOR_M5    = "#42A5F5"   # 方法5 中位线
 COLOR_FILL1 = "#FF703430" # 方法1填充(透明)
 COLOR_AUX   = GRAY_B
 COLOR_HL    = YELLOW
-FONT        = "Noto Sans CJK SC"
+FONT        = "PingFang SC"
 
 # ===== 几何工具 =====
 def perp_foot(point, ls, le):

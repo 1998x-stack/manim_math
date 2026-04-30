@@ -98,7 +98,7 @@ class CircleCircumference(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -108,7 +108,7 @@ class CircleCircumference(Scene):
         # 钩子问题
         hook_text = Text(
             "圆一周有多长？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -140,7 +140,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "什么是周长？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -150,7 +150,7 @@ class CircleCircumference(Scene):
         # 定义文字
         definition = Text(
             "周长是圆一周的长度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 5)
@@ -182,7 +182,7 @@ class CircleCircumference(Scene):
         # 公式提示
         formula_hint = Text(
             "如何计算这个长度呢？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -205,7 +205,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "神奇的常数 π",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_PI
         ).move_to(UP * 6)
@@ -270,7 +270,7 @@ class CircleCircumference(Scene):
         # 说明文字
         explanation = Text(
             "圆周长是直径的π倍",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -301,7 +301,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "周长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -334,9 +334,9 @@ class CircleCircumference(Scene):
         self.play(Write(formula_1), run_time=1.0)
         
         # 公式分解说明
-        c_label = Text("周长", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_CIRCUMFERENCE).next_to(formula_1, LEFT, buff=1.5).shift(UP * 0.05)
-        pi_label = Text("圆周率", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PI).next_to(formula_1, DOWN, buff=0.3).shift(LEFT * 0.5)
-        d_label = Text("直径", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_DIAMETER).next_to(formula_1, DOWN, buff=0.3).shift(RIGHT * 0.7)
+        c_label = Text("周长", font="PingFang SC", font_size=20, color=self.COLOR_CIRCUMFERENCE).next_to(formula_1, LEFT, buff=1.5).shift(UP * 0.05)
+        pi_label = Text("圆周率", font="PingFang SC", font_size=20, color=self.COLOR_PI).next_to(formula_1, DOWN, buff=0.3).shift(LEFT * 0.5)
+        d_label = Text("直径", font="PingFang SC", font_size=20, color=self.COLOR_DIAMETER).next_to(formula_1, DOWN, buff=0.3).shift(RIGHT * 0.7)
         
         arrows_c = Arrow(c_label.get_right(), formula_1.get_left() + LEFT * 0.05, buff=0.05, color=self.COLOR_CIRCUMFERENCE, stroke_width=2, max_tip_length_to_length_ratio=0.15)
         arrow_pi = Arrow(pi_label.get_top(), formula_1.get_bottom() + DOWN * 0.05 + LEFT * 0.3, buff=0.05, color=self.COLOR_PI, stroke_width=2, max_tip_length_to_length_ratio=0.15)
@@ -355,7 +355,7 @@ class CircleCircumference(Scene):
         # 数值示例
         example_text = Text(
             "例如：直径 d = 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 2)
@@ -406,7 +406,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "另一种表达",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -441,7 +441,7 @@ class CircleCircumference(Scene):
         # 公式变换
         transform_text = Text(
             "代入公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3)
@@ -473,7 +473,7 @@ class CircleCircumference(Scene):
         # 说明
         explanation = Text(
             "两个公式都正确，可根据已知条件选用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -505,7 +505,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "验证：展开圆周",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -521,7 +521,7 @@ class CircleCircumference(Scene):
         # 标记起点
         start_point = self.O + RIGHT * self.radius
         start_dot = Dot(start_point, color=self.COLOR_HIGHLIGHT, radius=0.12)
-        start_label = Text("起点", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_HIGHLIGHT).next_to(start_dot, RIGHT, buff=0.15)
+        start_label = Text("起点", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT).next_to(start_dot, RIGHT, buff=0.15)
         
         self.play(
             FadeIn(start_dot, scale=0.5),
@@ -546,7 +546,7 @@ class CircleCircumference(Scene):
         # 说明文字
         unroll_text = Text(
             "将圆周拉直...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -629,7 +629,7 @@ class CircleCircumference(Scene):
         # 强调π ≈ 3.14
         pi_text = Text(
             "周长约等于3.14个直径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -657,7 +657,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "实际应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -667,7 +667,7 @@ class CircleCircumference(Scene):
         # 问题
         problem = Text(
             "一个圆的半径为 3 厘米，\n求周长是多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
             line_spacing=1.2
@@ -694,7 +694,7 @@ class CircleCircumference(Scene):
         # 解题步骤
         solution_title = Text(
             "解：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 2.5 + LEFT * 3.5)
@@ -732,7 +732,7 @@ class CircleCircumference(Scene):
         # 答案高亮
         answer = Text(
             "答：周长约为 18.84 厘米",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -765,7 +765,7 @@ class CircleCircumference(Scene):
         # 标题
         title = Text(
             "周长知识要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -800,7 +800,7 @@ class CircleCircumference(Scene):
             # 名称
             name_text = Text(
                 name,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE,
                 weight=BOLD
@@ -809,7 +809,7 @@ class CircleCircumference(Scene):
             # 描述
             desc_text = Text(
                 desc,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=GRAY_A
             )
@@ -835,7 +835,7 @@ class CircleCircumference(Scene):
         # 重点提示
         highlight_text = Text(
             "掌握公式，轻松计算圆周长！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -859,7 +859,7 @@ class CircleCircumference(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -872,7 +872,7 @@ class CircleCircumference(Scene):
         # ID出现
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -882,7 +882,7 @@ class CircleCircumference(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

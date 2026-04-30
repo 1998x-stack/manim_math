@@ -186,7 +186,7 @@ class ParallelogramProperties(Scene):
         """创建场景标题"""
         return Text(
             text_str,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=color
         ).move_to(UP * y_pos)
@@ -199,7 +199,7 @@ class ParallelogramProperties(Scene):
         """创建中文说明文字"""
         return Text(
             text_str,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=font_size,
             color=color
         ).move_to(UP * y_pos)
@@ -212,7 +212,7 @@ class ParallelogramProperties(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.3)
@@ -222,7 +222,7 @@ class ParallelogramProperties(Scene):
         # 章节标签
         chapter_tag = Text(
             "八年级 · 第二十二章",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_B
         ).move_to(UP * 6.8)
@@ -232,7 +232,7 @@ class ParallelogramProperties(Scene):
         # 主标题
         main_title = Text(
             "平行四边形的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD,
             weight=BOLD
@@ -243,7 +243,7 @@ class ParallelogramProperties(Scene):
         # 三大性质提示
         hint = Text(
             "3个核心性质，掌握解题利器！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=25,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.3)
@@ -612,7 +612,7 @@ class ParallelogramProperties(Scene):
 
         summary_title = Text(
             "三大性质 · 总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD,
             weight=BOLD
@@ -667,14 +667,14 @@ class ParallelogramProperties(Scene):
             # 编号 + 标题
             num_text = Text(
                 data["num"],
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=data["color"],
                 weight=BOLD
             )
             title_text = Text(
                 data["title"],
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=data["color"]
             )
@@ -751,7 +751,7 @@ class ParallelogramProperties(Scene):
         # 作者名（放大居中）
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
             weight=BOLD
@@ -759,7 +759,7 @@ class ParallelogramProperties(Scene):
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.6)
@@ -773,7 +773,7 @@ class ParallelogramProperties(Scene):
         # 关注引导
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -783,7 +783,7 @@ class ParallelogramProperties(Scene):
         # 三大性质小标语
         tagline = Text(
             "对边平行相等 · 对角相等邻角补 · 对角线平分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(DOWN * 1.8)

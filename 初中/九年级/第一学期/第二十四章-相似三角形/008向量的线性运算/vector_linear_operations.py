@@ -100,7 +100,7 @@ class VectorLinearOperations(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -110,7 +110,7 @@ class VectorLinearOperations(Scene):
         # 钩子问题
         hook_text = Text(
             "什么是向量？\n它有什么用？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.3
@@ -148,7 +148,7 @@ class VectorLinearOperations(Scene):
         # 标题
         title = Text(
             "向量的加法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -184,7 +184,7 @@ class VectorLinearOperations(Scene):
         # 说明：首尾相接
         explanation = Text(
             "首尾相接",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -233,7 +233,7 @@ class VectorLinearOperations(Scene):
         
         transition = Text(
             "平行四边形法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -262,7 +262,7 @@ class VectorLinearOperations(Scene):
         # 强调
         emphasis = Text(
             "两种方法，同一结果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GOLD
         ).move_to(DOWN * 5.5)
@@ -298,7 +298,7 @@ class VectorLinearOperations(Scene):
         # 标题
         title = Text(
             "向量的数乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -321,7 +321,7 @@ class VectorLinearOperations(Scene):
         # 说明：λ > 0，同向
         explanation_pos = Text(
             "λ > 0，同向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -369,7 +369,7 @@ class VectorLinearOperations(Scene):
         
         explanation_neg = Text(
             "λ < 0，反向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -392,7 +392,7 @@ class VectorLinearOperations(Scene):
         # 强调
         emphasis = Text(
             "方向相反，长度相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GOLD
         ).move_to(DOWN * 5.5)
@@ -426,7 +426,7 @@ class VectorLinearOperations(Scene):
         # 标题
         title = Text(
             "基底",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -478,7 +478,7 @@ class VectorLinearOperations(Scene):
         # 说明
         explanation = Text(
             "不共线！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -495,7 +495,7 @@ class VectorLinearOperations(Scene):
         # 过渡
         transition = Text(
             "任意向量都可以分解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -524,7 +524,7 @@ class VectorLinearOperations(Scene):
         # 标题
         title = Text(
             "向量的分解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -547,7 +547,7 @@ class VectorLinearOperations(Scene):
         # 问题
         question = Text(
             "如何用 e₁ 和 e₂ 表示 a？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -671,7 +671,7 @@ class VectorLinearOperations(Scene):
         # 标题
         title = Text(
             "平行向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -722,7 +722,7 @@ class VectorLinearOperations(Scene):
         # 说明
         explanation = Text(
             "方向相同或相反",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -797,7 +797,7 @@ class VectorLinearOperations(Scene):
         # 关键提示
         key_point = Text(
             "理解向量，掌握线性代数基础！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GOLD
         ).move_to(DOWN * 4)
@@ -807,7 +807,7 @@ class VectorLinearOperations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 5.5)
@@ -817,7 +817,7 @@ class VectorLinearOperations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.7)
@@ -855,7 +855,7 @@ class VectorLinearOperations(Scene):
         # 内容
         text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )

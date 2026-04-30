@@ -69,7 +69,7 @@ class FractionMultiplication(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -79,7 +79,7 @@ class FractionMultiplication(Scene):
         # 钩子问题
         hook_text = Text(
             "分数相乘，怎么算?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 4,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -128,7 +128,7 @@ class FractionMultiplication(Scene):
         # 提示文字
         hint = Text(
             "很简单! 让我来教你",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 2)
@@ -158,7 +158,7 @@ class FractionMultiplication(Scene):
         # 标题
         title = Text(
             "视觉化理解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -212,7 +212,7 @@ class FractionMultiplication(Scene):
         # 说明1
         explain_1 = Text(
             "先取 2/3 (上面2行)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FRACTION_1
         ).move_to(DOWN * 3)
@@ -254,7 +254,7 @@ class FractionMultiplication(Scene):
         # 说明2
         explain_2 = Text(
             "再从中取 3/4 (左边3列)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FRACTION_2
         ).move_to(DOWN * 4)
@@ -271,7 +271,7 @@ class FractionMultiplication(Scene):
         # 说明3
         explain_3_chinese = Text(
             "重叠部分 = ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -316,7 +316,7 @@ class FractionMultiplication(Scene):
         # 标题
         title = Text(
             "分数乘法法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -345,7 +345,7 @@ class FractionMultiplication(Scene):
         
         num_calc_chinese = Text(
             "分子: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -373,7 +373,7 @@ class FractionMultiplication(Scene):
         
         den_calc_chinese = Text(
             "分母: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -402,7 +402,7 @@ class FractionMultiplication(Scene):
         # 约分
         simplify_title = Text(
             "化简 (约分)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_SIMPLIFY
         ).move_to(DOWN * 1.5)
@@ -434,7 +434,7 @@ class FractionMultiplication(Scene):
         # 法则卡片
         rule_card = Text(
             "分数乘法: 分子相乘作分子，分母相乘作分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -467,7 +467,7 @@ class FractionMultiplication(Scene):
         # 例子1: 1/2 × 4/5
         ex1_title = Text(
             "例题 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -500,7 +500,7 @@ class FractionMultiplication(Scene):
         
         check = Text(
             "✓ 化简后得最简分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_RESULT
         ).move_to(DOWN * 1)
@@ -520,7 +520,7 @@ class FractionMultiplication(Scene):
         # 例子2: 2/3 × 9 (整数转分数)
         ex2_title = Text(
             "例题 2: 分数乘整数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -537,7 +537,7 @@ class FractionMultiplication(Scene):
         
         ex2_convert_chinese = Text(
             "整数化为分数: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         )
@@ -589,7 +589,7 @@ class FractionMultiplication(Scene):
         # 例子3: 先约分 3/4 × 8/9
         ex3_title = Text(
             "例题 3: 先约分再计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -606,7 +606,7 @@ class FractionMultiplication(Scene):
         
         tip = Text(
             "技巧: 交叉约分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SIMPLIFY
         ).move_to(UP * 2.2)
@@ -616,7 +616,7 @@ class FractionMultiplication(Scene):
         # 显示约分过程
         ex3_simplify_chinese = Text(
             "约分: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -640,7 +640,7 @@ class FractionMultiplication(Scene):
         
         advantage = Text(
             "✓ 先约分，数字更小，计算更简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_RESULT
         ).move_to(DOWN * 2.5)
@@ -663,7 +663,7 @@ class FractionMultiplication(Scene):
         # 标题
         title = Text(
             "分数乘法的运算律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -673,7 +673,7 @@ class FractionMultiplication(Scene):
         # 交换律
         law1_name = Text(
             "① 交换律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_FRACTION_1
         ).move_to(UP * 4.5 + LEFT * 2.5)
@@ -692,7 +692,7 @@ class FractionMultiplication(Scene):
         # 结合律
         law2_name = Text(
             "② 结合律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_FRACTION_2
         ).move_to(UP * 2.5 + LEFT * 3.2)
@@ -711,7 +711,7 @@ class FractionMultiplication(Scene):
         # 分配律
         law3_name = Text(
             "③ 分配律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_RESULT
         ).move_to(UP * 0.3 + LEFT * 3.2)
@@ -730,7 +730,7 @@ class FractionMultiplication(Scene):
         # 示例
         example_title = Text(
             "示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 2 + LEFT * 3)
@@ -766,7 +766,7 @@ class FractionMultiplication(Scene):
         # 标题
         title = Text(
             "计算技巧总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -776,7 +776,7 @@ class FractionMultiplication(Scene):
         # 技巧列表
         tip1 = Text(
             "① 分子相乘作分子，分母相乘作分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -786,7 +786,7 @@ class FractionMultiplication(Scene):
         
         tip2 = Text(
             "② 整数转化为分数 (分母为1)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -796,7 +796,7 @@ class FractionMultiplication(Scene):
         
         tip3 = Text(
             "③ 能约分先约分，计算更简单",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SIMPLIFY,
             weight=BOLD
@@ -807,7 +807,7 @@ class FractionMultiplication(Scene):
         
         tip4 = Text(
             "④ 最后结果要化简为最简分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -818,7 +818,7 @@ class FractionMultiplication(Scene):
         # 示例动画
         demo_title = Text(
             "快速示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -851,7 +851,7 @@ class FractionMultiplication(Scene):
         # 总结标题
         summary_title = Text(
             "分数乘法 - 知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -861,21 +861,21 @@ class FractionMultiplication(Scene):
         # 关键点列表
         key1 = Text(
             "✓ 分子×分子，分母×分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 4.5)
         
         key2 = Text(
             "✓ 先约分再计算更简单",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_SIMPLIFY
         ).move_to(UP * 3.5)
         
         key3 = Text(
             "✓ 结果记得化简",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_RESULT
         ).move_to(UP * 2.5)
@@ -890,14 +890,14 @@ class FractionMultiplication(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE + 4,
             color=WHITE
         ).move_to(UP * 0.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_B
         ).move_to(DOWN * 0.5)
@@ -911,7 +911,7 @@ class FractionMultiplication(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)

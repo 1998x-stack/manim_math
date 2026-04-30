@@ -23,7 +23,7 @@ COLOR_DIGIT      = "#ffd54f"   # 金黄  — 小数位
 COLOR_FORMULA    = "#ffd54f"
 COLOR_AXIS       = "#b0bec5"
 COLOR_AUTHOR     = "#78909c"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # √2 展开的小数位（前30位）
 SQRT2_DIGITS = "1.41421356237309504880168872420"

@@ -115,7 +115,7 @@ class AbsoluteValueConcept(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -125,7 +125,7 @@ class AbsoluteValueConcept(Scene):
         # 钩子问题
         hook_question = Text(
             "3 和 -3，谁离原点更远？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -183,10 +183,10 @@ class AbsoluteValueConcept(Scene):
         
         # 距离标注（Brace）
         brace_A = Brace(Line(self.origin_point, self.point_A), direction=DOWN, buff=0.5)
-        brace_label_A = Text("3", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(brace_A, DOWN, buff=0.1)
+        brace_label_A = Text("3", font="PingFang SC", font_size=24, color=WHITE).next_to(brace_A, DOWN, buff=0.1)
         
         brace_B = Brace(Line(self.point_B, self.origin_point), direction=DOWN, buff=0.5)
-        brace_label_B = Text("3", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(brace_B, DOWN, buff=0.1)
+        brace_label_B = Text("3", font="PingFang SC", font_size=24, color=WHITE).next_to(brace_B, DOWN, buff=0.1)
         
         self.play(
             FadeIn(brace_A),
@@ -199,7 +199,7 @@ class AbsoluteValueConcept(Scene):
         # 显示"距离相等！"
         equal_text = Text(
             "距离相等！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -209,8 +209,8 @@ class AbsoluteValueConcept(Scene):
         
         # 定义文字
         definition = VGroup(
-            Text("绝对值：", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("一个数到原点的距离", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+            Text("绝对值：", font="PingFang SC", font_size=32, color=WHITE),
+            Text("一个数到原点的距离", font="PingFang SC", font_size=28, color=GRAY_A)
         ).arrange(DOWN, buff=0.2, aligned_edge=LEFT).move_to(DOWN * 4)
         
         self.play(FadeIn(definition, shift=UP * 0.3), run_time=0.8)
@@ -240,7 +240,7 @@ class AbsoluteValueConcept(Scene):
         # 标题
         title = Text(
             "绝对值符号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -272,7 +272,7 @@ class AbsoluteValueConcept(Scene):
         
         # 重点：非负性
         highlight = VGroup(
-            Text("重点：", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_HIGHLIGHT),
+            Text("重点：", font="PingFang SC", font_size=32, color=self.COLOR_HIGHLIGHT),
             MathTex(r"|a| \geq 0", font_size=36, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.3).move_to(DOWN * 1.5)
         
@@ -297,7 +297,7 @@ class AbsoluteValueConcept(Scene):
         # 标题
         title = Text(
             "数学定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -329,7 +329,7 @@ class AbsoluteValueConcept(Scene):
         
         label_pos = Text(
             "a≥0时，|a|=a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 3)
@@ -353,7 +353,7 @@ class AbsoluteValueConcept(Scene):
         
         label_neg = Text(
             "a<0时，|a|=-a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 0.8)
@@ -394,7 +394,7 @@ class AbsoluteValueConcept(Scene):
         # 标题
         title = Text(
             "对称性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -454,7 +454,7 @@ class AbsoluteValueConcept(Scene):
         # 标注"距离相等"
         equal_dist = Text(
             "距离相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -562,7 +562,7 @@ class AbsoluteValueConcept(Scene):
         # 标题
         title = Text(
             "生活中的绝对值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -572,7 +572,7 @@ class AbsoluteValueConcept(Scene):
         # 示例1：温度
         example_1_text = Text(
             "例1：温度 -5°C",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -615,7 +615,7 @@ class AbsoluteValueConcept(Scene):
         # 解释
         explanation_1 = Text(
             "距离0°C是5度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5 + LEFT * 1.5)
@@ -639,7 +639,7 @@ class AbsoluteValueConcept(Scene):
         # 示例2：欠款
         example_2_text = Text(
             "例2：欠款300元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -671,7 +671,7 @@ class AbsoluteValueConcept(Scene):
         # 解释
         explanation_2 = Text(
             "欠款数额是300元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -700,7 +700,7 @@ class AbsoluteValueConcept(Scene):
         # 标题
         title = Text(
             "绝对值三要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -761,14 +761,14 @@ class AbsoluteValueConcept(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -779,7 +779,7 @@ class AbsoluteValueConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)
@@ -810,10 +810,10 @@ class AbsoluteValueConcept(Scene):
         )
         
         # 标题
-        title_text = Text(title, font="Noto Sans CJK SC", font_size=28, color=WHITE, weight=BOLD)
+        title_text = Text(title, font="PingFang SC", font_size=28, color=WHITE, weight=BOLD)
         
         # 内容
-        content_text = Text(content, font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        content_text = Text(content, font="PingFang SC", font_size=22, color=GRAY_A)
         
         # 组合
         text_group = VGroup(title_text, content_text).arrange(DOWN, buff=0.15, aligned_edge=LEFT)

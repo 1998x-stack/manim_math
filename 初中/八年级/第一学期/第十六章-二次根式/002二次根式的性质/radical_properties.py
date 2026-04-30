@@ -66,12 +66,12 @@ class QuadraticRadicalProperties(Scene):
     def _author(self):
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+            font="PingFang SC", font_size=20, color=GRAY_B,
         ).move_to(UP * 6.8)
 
     def _title(self, txt, color=None, y=6.0):
         return Text(
-            txt, font="Noto Sans CJK SC",
+            txt, font="PingFang SC",
             font_size=38, color=color or self.C_TITLE,
         ).move_to(UP * y)
 
@@ -109,7 +109,7 @@ class QuadraticRadicalProperties(Scene):
         # 第二问：那 √((-3)²) 呢？
         q2_bg = self._card(7.5, 1.8, UP * 3.2, self.C_NEG, "#1a0a0a")
         q2_line1 = Text(
-            "那这个呢？", font="Noto Sans CJK SC", font_size=28, color=WHITE,
+            "那这个呢？", font="PingFang SC", font_size=28, color=WHITE,
         ).move_to(UP * 3.5)
         q2_formula = MathTex(
             r"\sqrt{(-3)^2} = \;?",
@@ -138,7 +138,7 @@ class QuadraticRadicalProperties(Scene):
 
         hook_note = Text(
             "为什么？—— 性质2告诉你！",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE,
+            font="PingFang SC", font_size=26, color=self.C_TITLE,
         ).move_to(DOWN * 1.0)
         self.play(FadeIn(hook_note, shift=UP * 0.2), run_time=0.4)
         self.wait(0.8)
@@ -162,7 +162,7 @@ class QuadraticRadicalProperties(Scene):
 
         def_label = Text(
             "二次根式的定义",
-            font="Noto Sans CJK SC", font_size=26, color="#AAAAFF",
+            font="PingFang SC", font_size=26, color="#AAAAFF",
         ).move_to(UP * 4.8)
 
         def_formula = MathTex(
@@ -172,12 +172,12 @@ class QuadraticRadicalProperties(Scene):
 
         def_note1 = Text(
             "√ 叫根号，a 叫被开方数",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A,
+            font="PingFang SC", font_size=22, color=GRAY_A,
         ).move_to(UP * 3.6)
 
         def_note2 = Text(
             "⚠  被开方数 a 必须 ≥ 0",
-            font="Noto Sans CJK SC", font_size=22, color=self.C_NEG,
+            font="PingFang SC", font_size=22, color=self.C_NEG,
         ).move_to(UP * 3.1)
 
         self.play(FadeIn(def_card), run_time=0.3)
@@ -190,15 +190,15 @@ class QuadraticRadicalProperties(Scene):
         preview_card = self._card(7.8, 2.2, UP * 1.5, self.C_TITLE)
         preview_title = Text(
             "今天学习两条核心性质",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE,
+            font="PingFang SC", font_size=24, color=self.C_TITLE,
         ).move_to(UP * 2.1)
         p1_row = VGroup(
-            Text("性质1：", font="Noto Sans CJK SC", font_size=22, color=self.C_P1),
+            Text("性质1：", font="PingFang SC", font_size=22, color=self.C_P1),
             MathTex(r"(\sqrt{a})^2 = a \quad (a \geq 0)",
                     font_size=30, color=self.C_P1),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 1.5)
         p2_row = VGroup(
-            Text("性质2：", font="Noto Sans CJK SC", font_size=22, color=self.C_P2),
+            Text("性质2：", font="PingFang SC", font_size=22, color=self.C_P2),
             MathTex(r"\sqrt{a^2} = |a|",
                     font_size=30, color=self.C_P2),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 0.9)
@@ -243,14 +243,14 @@ class QuadraticRadicalProperties(Scene):
         # ── 语言解读 ─────────────────────────────────────
         interp = Text(
             "先开根 → 再平方 → 回到原数",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(UP * 3.6)
         self.play(FadeIn(interp), run_time=0.4)
 
         # ── 例子：(√9)² ──────────────────────────────────
         ex1_card = self._card(7.8, 2.0, UP * 2.3, self.C_P1)
         ex1_label = Text(
-            "验证：", font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            "验证：", font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(UP * 2.75 + LEFT * 2.8)
 
         ex1_step1 = MathTex(
@@ -283,7 +283,7 @@ class QuadraticRadicalProperties(Scene):
         mnemonic_card = self._card(7.8, 1.4, DOWN * 0.5, self.C_TITLE, "#1a1a0a")
         mnemonic = Text(
             '口诀："先根后方，回到原样"',
-            font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE,
+            font="PingFang SC", font_size=24, color=self.C_TITLE,
         ).move_to(DOWN * 0.5)
         self.play(FadeIn(mnemonic_card), FadeIn(mnemonic), run_time=0.4)
         self.wait(1.5)
@@ -310,7 +310,7 @@ class QuadraticRadicalProperties(Scene):
         wrong_card = self._card(7.8, 1.8, UP * 4.8, GRAY_B, "#0d0d1a")
         wrong_label = Text(
             "很多同学会这样认为：",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(UP * 5.2)
         wrong_formula = MathTex(
             r"\sqrt{a^2} \stackrel{?}{=} a",
@@ -323,7 +323,7 @@ class QuadraticRadicalProperties(Scene):
         # ── a = 3：验证（绿色通过）────────────────────────
         case_a_card = self._card(7.8, 2.0, UP * 3.0, self.C_POS, "#0a1a0a")
         case_a_label = Text(
-            "当 a = 3 时：", font="Noto Sans CJK SC",
+            "当 a = 3 时：", font="PingFang SC",
             font_size=24, color=self.C_POS,
         ).move_to(UP * 3.5 + LEFT * 2.2)
 
@@ -344,7 +344,7 @@ class QuadraticRadicalProperties(Scene):
         # ── a = -3：验证（红色报错）───────────────────────
         case_b_card = self._card(7.8, 2.2, UP * 1.1, self.C_NEG, "#1a0a0a")
         case_b_label = Text(
-            "当 a = -3 时：", font="Noto Sans CJK SC",
+            "当 a = -3 时：", font="PingFang SC",
             font_size=24, color=self.C_NEG,
         ).move_to(UP * 1.7 + LEFT * 2.0)
 
@@ -372,10 +372,10 @@ class QuadraticRadicalProperties(Scene):
         # ── 引出正确答案 ─────────────────────────────────
         reveal_card = self._card(7.8, 1.6, DOWN * 1.0, self.C_ABS, "#1a1800")
         reveal_text = VGroup(
-            Text("真相：答案是 ", font="Noto Sans CJK SC",
+            Text("真相：答案是 ", font="PingFang SC",
                  font_size=28, color=WHITE),
             MathTex(r"|a|", font_size=44, color=self.C_ABS),
-            Text(" ！", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text(" ！", font="PingFang SC", font_size=28, color=WHITE),
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 1.0)
 
         self.play(FadeIn(reveal_card), run_time=0.3)
@@ -406,7 +406,7 @@ class QuadraticRadicalProperties(Scene):
         ).move_to(UP * 5.0)
         domain_note = Text(
             "（对所有实数 a 都成立）",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(UP * 4.3)
         box2 = SurroundingRectangle(
             main_formula, color=self.C_P2, buff=0.22, corner_radius=0.12,
@@ -463,14 +463,14 @@ class QuadraticRadicalProperties(Scene):
         # 分两半，居中放置
         case_title = Text(
             "分类讨论：",
-            font="Noto Sans CJK SC", font_size=28, color=self.C_ABS,
+            font="PingFang SC", font_size=28, color=self.C_ABS,
         ).move_to(UP * 1.5)
         self.play(FadeIn(case_title), run_time=0.3)
 
         # 当 a ≥ 0
         pos_card = self._card(3.6, 2.6, UP * 0.3 + LEFT * 1.9, self.C_POS, "#0a1a0a")
         pos_label = Text(
-            "当 a ≥ 0", font="Noto Sans CJK SC", font_size=24, color=self.C_POS,
+            "当 a ≥ 0", font="PingFang SC", font_size=24, color=self.C_POS,
         ).move_to(UP * 0.9 + LEFT * 1.9)
         pos_formula = MathTex(
             r"\sqrt{a^2} = a",
@@ -484,7 +484,7 @@ class QuadraticRadicalProperties(Scene):
         # 当 a < 0
         neg_card = self._card(3.6, 2.6, UP * 0.3 + RIGHT * 1.9, self.C_NEG, "#1a0a0a")
         neg_label = Text(
-            "当 a < 0", font="Noto Sans CJK SC", font_size=24, color=self.C_NEG,
+            "当 a < 0", font="PingFang SC", font_size=24, color=self.C_NEG,
         ).move_to(UP * 0.9 + RIGHT * 1.9)
         neg_formula = MathTex(
             r"\sqrt{a^2} = -a",
@@ -503,7 +503,7 @@ class QuadraticRadicalProperties(Scene):
         # 注意：a<0时 -a 是正数
         neg_note = Text(
             "注意：a<0 时，-a > 0（是正数）",
-            font="Noto Sans CJK SC", font_size=22, color=self.C_NEG,
+            font="PingFang SC", font_size=22, color=self.C_NEG,
         ).move_to(DOWN * 1.5)
         self.play(FadeIn(neg_note), run_time=0.4)
         self.wait(1.8)
@@ -530,7 +530,7 @@ class QuadraticRadicalProperties(Scene):
 
         sub = Text(
             "以下哪些写法正确？",
-            font="Noto Sans CJK SC", font_size=26, color=GRAY_A,
+            font="PingFang SC", font_size=26, color=GRAY_A,
         ).move_to(UP * 5.1)
         self.play(FadeIn(sub), run_time=0.3)
 
@@ -561,12 +561,12 @@ class QuadraticRadicalProperties(Scene):
         # 核心提醒
         reminder_card = self._card(7.8, 2.0, DOWN * 1.2, self.C_ABS, "#1a1800")
         reminder_t = Text(
-            "记住：", font="Noto Sans CJK SC", font_size=26, color=self.C_ABS,
+            "记住：", font="PingFang SC", font_size=26, color=self.C_ABS,
         ).move_to(DOWN * 0.7 + LEFT * 2.5)
         # Use VGroup to combine MathTex + Text (no Chinese in MathTex)
         reminder_f2 = VGroup(
             MathTex(r"\sqrt{a^2} = |a| \geq 0", font_size=36, color=self.C_ABS),
-            Text("（恒成立）", font="Noto Sans CJK SC", font_size=26, color=self.C_ABS),
+            Text("（恒成立）", font="PingFang SC", font_size=26, color=self.C_ABS),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 1.3)
 
         self.play(FadeIn(reminder_card), run_time=0.3)
@@ -586,13 +586,13 @@ class QuadraticRadicalProperties(Scene):
     def scene_7_summary(self):
         sum_title = Text(
             "两条性质总结",
-            font="Noto Sans CJK SC", font_size=40, color=self.C_TITLE,
+            font="PingFang SC", font_size=40, color=self.C_TITLE,
         ).move_to(UP * 5.7)
         self.play(Write(sum_title), run_time=0.5)
 
         # ── 性质1 卡片 ────────────────────────────────────
         c1 = self._card(8.0, 2.8, UP * 4.0, self.C_P1)
-        c1_num = Text("性质 1", font="Noto Sans CJK SC",
+        c1_num = Text("性质 1", font="PingFang SC",
                       font_size=26, color=self.C_P1).move_to(UP * 4.7 + LEFT * 2.5)
         c1_f = MathTex(r"(\sqrt{a})^2 = a", font_size=46,
                        color=self.C_P1).move_to(UP * 4.0)
@@ -609,13 +609,13 @@ class QuadraticRadicalProperties(Scene):
 
         # ── 性质2 卡片 ────────────────────────────────────
         c2 = self._card(8.0, 2.8, UP * 1.7, self.C_P2)
-        c2_num = Text("性质 2", font="Noto Sans CJK SC",
+        c2_num = Text("性质 2", font="PingFang SC",
                       font_size=26, color=self.C_P2).move_to(UP * 2.4 + LEFT * 2.5)
         c2_f = MathTex(r"\sqrt{a^2} = |a|", font_size=46,
                        color=self.C_P2).move_to(UP * 1.7)
         c2_cond = Text(
             "对所有实数 a 成立",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(UP * 1.1)
 
         c2.shift(LEFT * 11)
@@ -630,12 +630,12 @@ class QuadraticRadicalProperties(Scene):
         warn_card = self._card(7.8, 2.0, DOWN * 0.7, self.C_ABS, "#1a1800")
         warn_row1 = VGroup(
             MathTex(r"\sqrt{a^2}", font_size=36, color=WHITE),
-            Text("结果永远", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("结果永远", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"\geq 0", font_size=36, color=self.C_ABS),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 0.4)
         warn_row2 = VGroup(
             Text("绝不能写成负数！",
-                 font="Noto Sans CJK SC", font_size=24, color=self.C_NEG),
+                 font="PingFang SC", font_size=24, color=self.C_NEG),
         ).move_to(DOWN * 1.1)
 
         warn_card.shift(LEFT * 11)
@@ -659,18 +659,18 @@ class QuadraticRadicalProperties(Scene):
         # ── 片尾 ─────────────────────────────────────────
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=42,
+            font="PingFang SC", font_size=42,
             color=WHITE, weight=BOLD,
         ).move_to(UP * 2.0)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=32, color=GRAY_B,
+            font="PingFang SC", font_size=32, color=GRAY_B,
         ).move_to(UP * 1.1)
         divider = Line(LEFT * 3.5, RIGHT * 3.5,
                        color=GRAY_B, stroke_width=1).move_to(UP * 0.5)
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(ORIGIN)
 
         # 装饰：两条公式淡显

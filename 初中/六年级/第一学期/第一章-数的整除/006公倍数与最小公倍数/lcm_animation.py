@@ -68,7 +68,7 @@ class CommonMultiplesLCM(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -78,7 +78,7 @@ class CommonMultiplesLCM(Scene):
         # 钩子问题
         hook_text = Text(
             "4和6的共同倍数是什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -88,7 +88,7 @@ class CommonMultiplesLCM(Scene):
         # 数字4出现
         num_4 = Text(
             "4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_NUMBER_LARGE,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -97,7 +97,7 @@ class CommonMultiplesLCM(Scene):
         # 数字6出现
         num_6 = Text(
             "6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_NUMBER_LARGE,
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -143,7 +143,7 @@ class CommonMultiplesLCM(Scene):
         # 标题
         title = Text(
             "回顾: 什么是倍数?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -153,7 +153,7 @@ class CommonMultiplesLCM(Scene):
         # 4的倍数
         label_4 = Text(
             "4的倍数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY
         ).move_to(LEFT * 3 + UP * 3)
@@ -162,7 +162,7 @@ class CommonMultiplesLCM(Scene):
         multiples_4 = VGroup(*[
             Text(
                 str(m),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_NUMBER_NORMAL,
                 color=self.COLOR_PRIMARY
             )
@@ -178,7 +178,7 @@ class CommonMultiplesLCM(Scene):
         # 6的倍数
         label_6 = Text(
             "6的倍数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(LEFT * 3 + UP * 0.5)
@@ -187,7 +187,7 @@ class CommonMultiplesLCM(Scene):
         multiples_6 = VGroup(*[
             Text(
                 str(m),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_NUMBER_NORMAL,
                 color=self.COLOR_SECONDARY
             )
@@ -203,7 +203,7 @@ class CommonMultiplesLCM(Scene):
         # 说明文字
         explanation = Text(
             "倍数 = 原数 × 整数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 2)
@@ -223,7 +223,7 @@ class CommonMultiplesLCM(Scene):
         
         hint = Text(
             "注意: 有些数重复出现!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -260,7 +260,7 @@ class CommonMultiplesLCM(Scene):
         # 标记4的倍数
         label_4 = Text(
             "4的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 4)
@@ -281,7 +281,7 @@ class CommonMultiplesLCM(Scene):
         # 标记6的倍数
         label_6 = Text(
             "6的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 3.3)
@@ -333,7 +333,7 @@ class CommonMultiplesLCM(Scene):
         # 标注
         annotation = Text(
             "这些就是公倍数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -365,14 +365,14 @@ class CommonMultiplesLCM(Scene):
         definition_text = VGroup(
             Text(
                 "公倍数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SUBTITLE,
                 color=WHITE,
                 weight=BOLD
             ),
             Text(
                 "两个或多个数共有的倍数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=self.COLOR_AUXILIARY
             )
@@ -387,7 +387,7 @@ class CommonMultiplesLCM(Scene):
         # 示例
         example_title = Text(
             "4和6的公倍数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -399,7 +399,7 @@ class CommonMultiplesLCM(Scene):
         common_multiples = VGroup(*[
             Text(
                 str(m),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_NUMBER_NORMAL,
                 color=self.COLOR_HIGHLIGHT
             )
@@ -450,7 +450,7 @@ class CommonMultiplesLCM(Scene):
         # 标题
         title = Text(
             "最小公倍数 (LCM)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_LCM
         ).move_to(UP * 5.5)
@@ -468,7 +468,7 @@ class CommonMultiplesLCM(Scene):
         sequence = VGroup(*[
             Text(
                 str(n),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_NUMBER_NORMAL,
                 color=WHITE
             )
@@ -503,7 +503,7 @@ class CommonMultiplesLCM(Scene):
         # "最小"文字
         min_text = Text(
             "最小的公倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_LCM
         ).next_to(sequence[0], DOWN, buff=0.8)
@@ -537,7 +537,7 @@ class CommonMultiplesLCM(Scene):
         # 说明
         explanation = Text(
             "LCM是最重要的公倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 2.5)
@@ -568,14 +568,14 @@ class CommonMultiplesLCM(Scene):
         # 标题
         title = Text(
             "如何求最小公倍数?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 6)
         
         method_name = Text(
             "方法: 短除法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY
         ).next_to(title, DOWN, buff=0.3)
@@ -659,7 +659,7 @@ class CommonMultiplesLCM(Scene):
         # 说明
         hint_1 = Text(
             "4÷2=2, 6÷2=3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(RIGHT * 2.5 + UP * 2.5)
@@ -677,7 +677,7 @@ class CommonMultiplesLCM(Scene):
         # 检查能否继续除
         hint_2 = Text(
             "2和3互质, 不能再除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_AUXILIARY
         ).move_to(RIGHT * 2 + UP * 1.8)
@@ -687,7 +687,7 @@ class CommonMultiplesLCM(Scene):
         
         # 计算LCM
         calculation = VGroup(
-            Text("LCM = 2", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("LCM = 2", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             Text("×", font_size=self.FONT_BODY, color=WHITE),
             Text("2", font_size=self.FONT_BODY, color=self.COLOR_PRIMARY),
             Text("×", font_size=self.FONT_BODY, color=WHITE),
@@ -702,7 +702,7 @@ class CommonMultiplesLCM(Scene):
         
         result = Text(
             "12",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_NUMBER_LARGE,
             color=self.COLOR_LCM,
             weight=BOLD
@@ -724,7 +724,7 @@ class CommonMultiplesLCM(Scene):
         # 验证说明
         verification = Text(
             "✓ 所有除数和最后的商相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 2.5)
@@ -756,7 +756,7 @@ class CommonMultiplesLCM(Scene):
         # 标题
         title = Text(
             "重要关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -779,7 +779,7 @@ class CommonMultiplesLCM(Scene):
         # 实例验证
         example_title = Text(
             "验证: a=4, b=6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 1.5)
@@ -806,14 +806,14 @@ class CommonMultiplesLCM(Scene):
         
         gcd_label = Text(
             "(最大公因数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_PRIMARY
         ).next_to(right_side[0], UP, buff=0.2)
         
         lcm_label = Text(
             "(最小公倍数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).next_to(right_side[2], UP, buff=0.2)
@@ -824,7 +824,7 @@ class CommonMultiplesLCM(Scene):
         # 验证结果
         check_mark = Text(
             "✓ 24 = 24",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -858,14 +858,14 @@ class CommonMultiplesLCM(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 1)
@@ -879,7 +879,7 @@ class CommonMultiplesLCM(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -891,9 +891,9 @@ class CommonMultiplesLCM(Scene):
         
         # 关键词标签
         keywords = VGroup(
-            Text("#公倍数", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PRIMARY),
+            Text("#公倍数", font="PingFang SC", font_size=22, color=self.COLOR_PRIMARY),
             Text("#LCM", font_size=22, color=self.COLOR_SECONDARY),
-            Text("#短除法", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HIGHLIGHT)
+            Text("#短除法", font="PingFang SC", font_size=22, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.5).move_to(DOWN * 2.5)
         
         self.play(

@@ -179,7 +179,7 @@ class SASCongruence(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -189,7 +189,7 @@ class SASCongruence(Scene):
         # 钩子问题
         hook = Text(
             "两个三角形什么时候全等？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD,
             weight=BOLD
@@ -206,13 +206,13 @@ class SASCongruence(Scene):
         )
         
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.A1, DL, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.B1, DR, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.C1, UP, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(self.A1, DL, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(self.B1, DR, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=20, color=WHITE).next_to(self.C1, UP, buff=0.15)
         
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.D, DL, buff=0.15)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.E, DR, buff=0.15)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(self.F, UP, buff=0.15)
+        label_D = Text("D", font="PingFang SC", font_size=20, color=WHITE).next_to(self.D, DL, buff=0.15)
+        label_E = Text("E", font="PingFang SC", font_size=20, color=WHITE).next_to(self.E, DR, buff=0.15)
+        label_F = Text("F", font="PingFang SC", font_size=20, color=WHITE).next_to(self.F, UP, buff=0.15)
         
         self.labels_ABC = VGroup(label_A, label_B, label_C)
         self.labels_DEF = VGroup(label_D, label_E, label_F)
@@ -233,7 +233,7 @@ class SASCongruence(Scene):
         # 标题
         title = Text(
             "SAS 判定法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD,
             weight=BOLD
@@ -243,11 +243,11 @@ class SASCongruence(Scene):
         
         # 定义
         definition = VGroup(
-            Text("边", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_EQUAL_MARK),
-            Text("-", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("角", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_ANGLE_MARK),
-            Text("-", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("边", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_EQUAL_MARK)
+            Text("边", font="PingFang SC", font_size=28, color=self.COLOR_EQUAL_MARK),
+            Text("-", font="PingFang SC", font_size=28, color=WHITE),
+            Text("角", font="PingFang SC", font_size=28, color=self.COLOR_ANGLE_MARK),
+            Text("-", font="PingFang SC", font_size=28, color=WHITE),
+            Text("边", font="PingFang SC", font_size=28, color=self.COLOR_EQUAL_MARK)
         ).arrange(RIGHT, buff=0.15).move_to(UP * 4.5)
         
         self.play(FadeIn(definition), run_time=0.6)
@@ -255,7 +255,7 @@ class SASCongruence(Scene):
         # 说明文字
         explanation = Text(
             "两边及其夹角分别对应相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.8)
@@ -265,7 +265,7 @@ class SASCongruence(Scene):
         # 强调"夹角"
         emphasis = Text(
             "关键: 必须是夹角！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -309,7 +309,7 @@ class SASCongruence(Scene):
         # 步骤标题
         step_title = Text(
             "① 第一条边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_EQUAL_MARK
         ).move_to(UP * 5.5)
@@ -337,7 +337,7 @@ class SASCongruence(Scene):
         # 长度标注
         length_text = Text(
             f"AB = DE = {self.AB1:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -363,7 +363,7 @@ class SASCongruence(Scene):
         # 步骤标题
         step_title = Text(
             "② 夹角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ANGLE_MARK,
             weight=BOLD
@@ -427,7 +427,7 @@ class SASCongruence(Scene):
         # 强调"夹角"
         emphasis = Text(
             "这是AB和AC的夹角！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -456,7 +456,7 @@ class SASCongruence(Scene):
         # 步骤标题
         step_title = Text(
             "③ 第二条边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_EQUAL_MARK
         ).move_to(UP * 5.5)
@@ -484,7 +484,7 @@ class SASCongruence(Scene):
         # 长度标注
         length_text = Text(
             f"AC = DF = {self.AC1:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -493,9 +493,9 @@ class SASCongruence(Scene):
         
         # SAS汇总
         summary = VGroup(
-            Text("✓ 两边: AB=DE, AC=DF", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_EQUAL_MARK),
-            Text("✓ 夹角: ∠A=∠D", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_ANGLE_MARK),
-            Text("∴ △ABC ≌ △DEF (SAS)", font="Noto Sans CJK SC", font_size=24, color=GOLD, weight=BOLD)
+            Text("✓ 两边: AB=DE, AC=DF", font="PingFang SC", font_size=22, color=self.COLOR_EQUAL_MARK),
+            Text("✓ 夹角: ∠A=∠D", font="PingFang SC", font_size=22, color=self.COLOR_ANGLE_MARK),
+            Text("∴ △ABC ≌ △DEF (SAS)", font="PingFang SC", font_size=24, color=GOLD, weight=BOLD)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(DOWN * 6.2)
         
         self.play(FadeIn(summary, shift=UP * 0.3), run_time=0.8)
@@ -520,7 +520,7 @@ class SASCongruence(Scene):
         # 标题
         title = Text(
             "验证: 完美重合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -601,7 +601,7 @@ class SASCongruence(Scene):
         # 警告标题
         warning_title = Text(
             "⚠️ 注意：SSA 不能判定全等！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_WRONG,
             weight=BOLD
@@ -613,7 +613,7 @@ class SASCongruence(Scene):
         # 说明
         explanation = Text(
             "边-边-角 的顺序",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -657,14 +657,14 @@ class SASCongruence(Scene):
         # 强调非夹角
         wrong_angle_text = Text(
             "∠Q 不是 PQ 和 PR 的夹角！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_WRONG
         ).move_to(DOWN * 4)
         
         wrong_result = Text(
             "→ 两个不同的三角形！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_WRONG,
             weight=BOLD
@@ -711,12 +711,12 @@ class SASCongruence(Scene):
         """场景8: 片尾总结"""
         # 核心要点
         key_points = VGroup(
-            Text("SAS 判定要点:", font="Noto Sans CJK SC", font_size=32, color=GOLD, weight=BOLD),
+            Text("SAS 判定要点:", font="PingFang SC", font_size=32, color=GOLD, weight=BOLD),
             Text("", font_size=8),  # 空行
-            Text("✓ 两边对应相等", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_EQUAL_MARK),
-            Text("✓ 夹角对应相等", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_ANGLE_MARK),
-            Text("✓ 顺序: 边-角-边", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("✗ SSA 不能判定全等", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_WRONG)
+            Text("✓ 两边对应相等", font="PingFang SC", font_size=26, color=self.COLOR_EQUAL_MARK),
+            Text("✓ 夹角对应相等", font="PingFang SC", font_size=26, color=self.COLOR_ANGLE_MARK),
+            Text("✓ 顺序: 边-角-边", font="PingFang SC", font_size=26, color=WHITE),
+            Text("✗ SSA 不能判定全等", font="PingFang SC", font_size=26, color=self.COLOR_WRONG)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to(UP * 2)
         
         self.play(FadeIn(key_points, shift=UP * 0.5), run_time=1.0)
@@ -725,14 +725,14 @@ class SASCongruence(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 3)
@@ -746,7 +746,7 @@ class SASCongruence(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，轻松掌握几何！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

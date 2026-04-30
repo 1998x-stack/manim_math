@@ -108,7 +108,7 @@ class LinearFunctionConcept(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -118,7 +118,7 @@ class LinearFunctionConcept(Scene):
         # 钩子问题
         hook_text = Text(
             "正比例函数的图像\n一定过原点吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -135,7 +135,7 @@ class LinearFunctionConcept(Scene):
         
         # 原点标记
         origin_dot = Dot(self.origin, radius=0.08, color=self.COLOR_SECONDARY)
-        origin_label = Text("O", font="Noto Sans CJK SC", font_size=self.FONT_SIZE_SMALL).next_to(
+        origin_label = Text("O", font="PingFang SC", font_size=self.FONT_SIZE_SMALL).next_to(
             origin_dot, DL, buff=0.1
         )
         
@@ -178,7 +178,7 @@ class LinearFunctionConcept(Scene):
         # 标题
         title = Text(
             "一次函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_TITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -200,7 +200,7 @@ class LinearFunctionConcept(Scene):
         # 说明文字
         explanation = Text(
             "正比例函数向上平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -242,7 +242,7 @@ class LinearFunctionConcept(Scene):
         
         shift_label = Text(
             "+1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).next_to(shift_arrow, RIGHT, buff=0.1)
@@ -275,7 +275,7 @@ class LinearFunctionConcept(Scene):
         # 小标题
         subtitle = Text(
             "截距 b - 与y轴交点的纵坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SUBTITLE,
             color=self.COLOR_INTERCEPT
         ).move_to(UP * 4.8)
@@ -329,7 +329,7 @@ class LinearFunctionConcept(Scene):
         # 说明文字
         explanation = Text(
             "当 x=0 时, y=b",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -365,7 +365,7 @@ class LinearFunctionConcept(Scene):
         # 小标题
         subtitle = Text(
             "斜率 k - 直线的倾斜程度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_SUBTITLE,
             color=self.COLOR_SLOPE
         ).move_to(UP * 4.8)
@@ -463,7 +463,7 @@ class LinearFunctionConcept(Scene):
         # 说明文字
         explanation = Text(
             "k > 0, 从左到右上升",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_BODY,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -515,7 +515,7 @@ class LinearFunctionConcept(Scene):
             ),
             Text(
                 "斜率 (k ≠ 0)",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_SMALL,
                 color=self.COLOR_SLOPE
             )
@@ -534,7 +534,7 @@ class LinearFunctionConcept(Scene):
             ),
             Text(
                 "截距",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_SMALL,
                 color=self.COLOR_INTERCEPT
             )
@@ -548,7 +548,7 @@ class LinearFunctionConcept(Scene):
         special_case = VGroup(
             Text(
                 "特殊情况:",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_BODY,
                 color=GRAY_A
             ),
@@ -564,7 +564,7 @@ class LinearFunctionConcept(Scene):
             ),
             Text(
                 "(正比例函数)",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_SMALL,
                 color=GRAY_A
             )
@@ -574,7 +574,7 @@ class LinearFunctionConcept(Scene):
         special_case_fixed = VGroup(
             Text(
                 "特殊情况: 当 b=0 时",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_BODY,
                 color=GRAY_A
             ),
@@ -585,7 +585,7 @@ class LinearFunctionConcept(Scene):
             ),
             Text(
                 "(正比例函数)",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_SMALL,
                 color=GRAY_A
             )
@@ -688,7 +688,7 @@ class LinearFunctionConcept(Scene):
         # 观察文字
         observation = Text(
             "k 决定倾斜\nb 决定位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_BODY,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -739,7 +739,7 @@ class LinearFunctionConcept(Scene):
         # 总结标题
         summary_title = Text(
             "一次函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD
         ).move_to(UP * 3)
@@ -751,7 +751,7 @@ class LinearFunctionConcept(Scene):
             Text("•", font_size=self.FONT_SIZE_BODY, color=WHITE),
             Text(
                 "形式:",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_BODY,
                 color=GRAY_A
             ),
@@ -771,7 +771,7 @@ class LinearFunctionConcept(Scene):
             Text("•", font_size=self.FONT_SIZE_BODY, color=WHITE),
             Text(
                 "k: 斜率 (倾斜程度)",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_BODY,
                 color=self.COLOR_SLOPE
             )
@@ -781,7 +781,7 @@ class LinearFunctionConcept(Scene):
             Text("•", font_size=self.FONT_SIZE_BODY, color=WHITE),
             Text(
                 "b: 截距 (与y轴交点)",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_BODY,
                 color=self.COLOR_INTERCEPT
             )
@@ -791,7 +791,7 @@ class LinearFunctionConcept(Scene):
             Text("•", font_size=self.FONT_SIZE_BODY, color=WHITE),
             Text(
                 "b=0 时为正比例函数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZE_BODY,
                 color=self.COLOR_SECONDARY
             )
@@ -819,14 +819,14 @@ class LinearFunctionConcept(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -840,7 +840,7 @@ class LinearFunctionConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多函数知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

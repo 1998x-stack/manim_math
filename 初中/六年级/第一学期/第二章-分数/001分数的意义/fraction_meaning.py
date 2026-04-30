@@ -110,7 +110,7 @@ class FractionMeaning(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["author"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -120,14 +120,14 @@ class FractionMeaning(Scene):
         # 钩子问题
         hook_text = Text(
             "一个披萨切成4份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE
         ).move_to(UP * 4)
         
         hook_text_2 = Text(
             "你吃了1份...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=GRAY_A
         ).move_to(UP * 3)
@@ -138,7 +138,7 @@ class FractionMeaning(Scene):
         # 问题
         question = Text(
             "你吃了多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -176,7 +176,7 @@ class FractionMeaning(Scene):
         # 标题
         title = Text(
             "分数的意义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=GOLD
         ).move_to(UP * 6)
@@ -194,7 +194,7 @@ class FractionMeaning(Scene):
         
         explain_1 = Text(
             "把披萨平均分成4份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 1)
@@ -247,7 +247,7 @@ class FractionMeaning(Scene):
         
         explain_2 = Text(
             "取其中1份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -290,7 +290,7 @@ class FractionMeaning(Scene):
         
         explain_3 = Text(
             "分成8份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 1)
@@ -347,7 +347,7 @@ class FractionMeaning(Scene):
         
         explain_4 = Text(
             "取其中3份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -373,7 +373,7 @@ class FractionMeaning(Scene):
         # 说明
         explain_5 = Text(
             "也可以用矩形表示分数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 4)
@@ -435,7 +435,7 @@ class FractionMeaning(Scene):
         
         explain_6 = Text(
             "取了6份中的5份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -461,7 +461,7 @@ class FractionMeaning(Scene):
         # 标题
         subtitle = Text(
             "分数与除法的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -556,7 +556,7 @@ class FractionMeaning(Scene):
         # 标题
         subtitle_2 = Text(
             "分数的组成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -585,14 +585,14 @@ class FractionMeaning(Scene):
         
         label_numerator = Text(
             "分子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["label"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(arrow_numerator, UP, buff=0.1)
         
         explain_numerator = Text(
             "表示取了几份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).next_to(label_numerator, RIGHT, buff=0.3)
@@ -614,7 +614,7 @@ class FractionMeaning(Scene):
         
         label_line = Text(
             "分数线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["label"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(arrow_line, LEFT, buff=0.1)
@@ -635,14 +635,14 @@ class FractionMeaning(Scene):
         
         label_denominator = Text(
             "分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["label"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(arrow_denominator, DOWN, buff=0.1)
         
         explain_denominator = Text(
             "表示平均分成几份",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).next_to(label_denominator, RIGHT, buff=0.3)
@@ -673,7 +673,7 @@ class FractionMeaning(Scene):
         # 总结标题
         summary_title = Text(
             "记住这些!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -683,21 +683,21 @@ class FractionMeaning(Scene):
         # 要点列表
         point_1 = Text(
             "• 分数 = 分子 / 分母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 3)
         
         point_2 = Text(
             "• a ÷ b = a/b (b ≠ 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 2)
         
         point_3 = Text(
             "• 表示部分与整体的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 1)
@@ -722,7 +722,7 @@ class FractionMeaning(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)

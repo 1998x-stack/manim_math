@@ -31,7 +31,7 @@ COLOR_FLIP = "#e74c3c"    # 红色  - 不等号翻转
 COLOR_CARD = "#16213e"    # 深蓝  - 卡片背景
 COLOR_NUM  = "#95a5a6"    # 灰色  - 数轴
 COLOR_SOL  = "#3498db"    # 蓝色  - 解集
-FONT       = "Noto Sans CJK SC"
+FONT       = "PingFang SC"
 
 
 # ============================================================

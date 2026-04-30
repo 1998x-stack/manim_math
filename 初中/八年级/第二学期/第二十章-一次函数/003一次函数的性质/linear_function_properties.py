@@ -59,7 +59,7 @@ class LinearFunctionProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -69,7 +69,7 @@ class LinearFunctionProperties(Scene):
         # 钩子问题
         hook_text = Text(
             "一次函数的性质\n你真的掌握了吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3)
@@ -121,7 +121,7 @@ class LinearFunctionProperties(Scene):
         # 标题
         title = Text(
             "一次函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -138,7 +138,7 @@ class LinearFunctionProperties(Scene):
         # 标题移到顶部缩小
         title_small = Text(
             "一次函数 y=kx+b",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 6.5)
@@ -214,7 +214,7 @@ class LinearFunctionProperties(Scene):
         # 箭头提示
         arrow_label = Text(
             "x增大 →",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -241,14 +241,14 @@ class LinearFunctionProperties(Scene):
         # 说明文字
         explanation = Text(
             "y 随 x 增大而增大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_POSITIVE_ZONE
         ).move_to(DOWN * 5.5)
         
         explanation_sub = Text(
             "(单调递增)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(explanation, DOWN, buff=0.1)
@@ -338,7 +338,7 @@ class LinearFunctionProperties(Scene):
         # 箭头提示
         arrow_label = Text(
             "x增大 →",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -365,14 +365,14 @@ class LinearFunctionProperties(Scene):
         # 说明文字
         explanation = Text(
             "y 随 x 增大而减小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_NEGATIVE_ZONE
         ).move_to(DOWN * 5.5)
         
         explanation_sub = Text(
             "(单调递减)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(explanation, DOWN, buff=0.1)
@@ -413,7 +413,7 @@ class LinearFunctionProperties(Scene):
         # 标题
         section_title = Text(
             "k 和 b 的符号决定象限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -530,7 +530,7 @@ class LinearFunctionProperties(Scene):
         # 左侧: k>0
         left_title = Text(
             "k > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(LEFT * 2.25 + UP * 4.5)
@@ -543,14 +543,14 @@ class LinearFunctionProperties(Scene):
         
         left_property = Text(
             "y 随 x 增大而增大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(LEFT * 2.25 + UP * 2)
         
         left_mono = Text(
             "单调递增",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_POSITIVE_ZONE
         ).next_to(left_property, DOWN, buff=0.3)
@@ -566,7 +566,7 @@ class LinearFunctionProperties(Scene):
         # 右侧: k<0
         right_title = Text(
             "k < 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(RIGHT * 2.25 + UP * 4.5)
@@ -579,14 +579,14 @@ class LinearFunctionProperties(Scene):
         
         right_property = Text(
             "y 随 x 增大而减小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(RIGHT * 2.25 + UP * 2)
         
         right_mono = Text(
             "单调递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NEGATIVE_ZONE
         ).next_to(right_property, DOWN, buff=0.3)
@@ -633,7 +633,7 @@ class LinearFunctionProperties(Scene):
         # 强化提示
         highlight_text = Text(
             "记住: k 的符号决定单调性!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=YELLOW
         ).move_to(DOWN * 4)
@@ -664,14 +664,14 @@ class LinearFunctionProperties(Scene):
         # 作者名放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -685,7 +685,7 @@ class LinearFunctionProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 0.5)

@@ -66,7 +66,7 @@ class VietaFormulas(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 6.3)
@@ -76,7 +76,7 @@ class VietaFormulas(Scene):
         # 钩子问题
         hook_text = Text(
             "不解方程\n如何求两根之和与积?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -118,7 +118,7 @@ class VietaFormulas(Scene):
         # 标题
         title = Text(
             "韦达定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -143,7 +143,7 @@ class VietaFormulas(Scene):
         # 两根标记
         root_text = Text(
             "若两根为：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 3.5 + LEFT * 2)
@@ -166,7 +166,7 @@ class VietaFormulas(Scene):
         # 核心公式 - 和
         then_text = Text(
             "则有：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 2.3 + LEFT * 3)
@@ -211,7 +211,7 @@ class VietaFormulas(Scene):
         # 说明文字
         explanation = Text(
             "根与系数的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 1.2)
@@ -251,7 +251,7 @@ class VietaFormulas(Scene):
         # 副标题
         subtitle = Text(
             "公式推导",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -293,7 +293,7 @@ class VietaFormulas(Scene):
         # 推导和
         sum_title = Text(
             "两根之和：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SUM
         ).move_to(UP * 0.5 + LEFT * 3)
@@ -344,7 +344,7 @@ class VietaFormulas(Scene):
         # 副标题
         subtitle = Text(
             "例题1：求两根之和与积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -406,7 +406,7 @@ class VietaFormulas(Scene):
         
         # 答案框
         answer = VGroup(
-            Text("答：", font="Noto Sans CJK SC", font_size=self.FONT_BODY),
+            Text("答：", font="PingFang SC", font_size=self.FONT_BODY),
             MathTex(r"x_1 + x_2 = 7,\ x_1 \times x_2 = 12", font_size=32)
         ).arrange(RIGHT, buff=0.3).move_to(DOWN * 3.5)
         
@@ -434,7 +434,7 @@ class VietaFormulas(Scene):
         # 副标题
         subtitle = Text(
             "例题2：已知两根，求方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -443,7 +443,7 @@ class VietaFormulas(Scene):
         
         # 已知条件
         given = VGroup(
-            Text("已知：", font="Noto Sans CJK SC", font_size=self.FONT_BODY),
+            Text("已知：", font="PingFang SC", font_size=self.FONT_BODY),
             MathTex(r"x_1 = 3,\ x_2 = 4", font_size=36)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
@@ -478,7 +478,7 @@ class VietaFormulas(Scene):
         # 反推公式
         reverse_title = Text(
             "构造方程：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5 + LEFT * 2.5)
@@ -534,7 +534,7 @@ class VietaFormulas(Scene):
         # 副标题
         subtitle = Text(
             "例题3：对称式计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -551,7 +551,7 @@ class VietaFormulas(Scene):
         
         # 求解目标
         target = VGroup(
-            Text("求：", font="Noto Sans CJK SC", font_size=self.FONT_BODY),
+            Text("求：", font="PingFang SC", font_size=self.FONT_BODY),
             MathTex(r"x_1^2 + x_2^2", font_size=38)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
         
@@ -564,7 +564,7 @@ class VietaFormulas(Scene):
         # 技巧公式
         trick_title = Text(
             "技巧：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2 + LEFT * 3)
@@ -642,7 +642,7 @@ class VietaFormulas(Scene):
         # 标题
         title = Text(
             "韦达定理总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -653,15 +653,15 @@ class VietaFormulas(Scene):
         applications = VGroup(
             VGroup(
                 Text("✓", font_size=40, color=GREEN),
-                Text("求两根之和与积", font="Noto Sans CJK SC", font_size=26)
+                Text("求两根之和与积", font="PingFang SC", font_size=26)
             ).arrange(RIGHT, buff=0.3),
             VGroup(
                 Text("✓", font_size=40, color=GREEN),
-                Text("已知两根构造方程", font="Noto Sans CJK SC", font_size=26)
+                Text("已知两根构造方程", font="PingFang SC", font_size=26)
             ).arrange(RIGHT, buff=0.3),
             VGroup(
                 Text("✓", font_size=40, color=GREEN),
-                Text("计算对称式", font="Noto Sans CJK SC", font_size=26)
+                Text("计算对称式", font="PingFang SC", font_size=26)
             ).arrange(RIGHT, buff=0.3)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.6).move_to(UP * 2.5)
         
@@ -672,7 +672,7 @@ class VietaFormulas(Scene):
         # 关键提示
         key_point = Text(
             "韦达定理 = 不解方程的神器",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)
@@ -683,14 +683,14 @@ class VietaFormulas(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(DOWN * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(DOWN * 2.8)
@@ -704,7 +704,7 @@ class VietaFormulas(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)

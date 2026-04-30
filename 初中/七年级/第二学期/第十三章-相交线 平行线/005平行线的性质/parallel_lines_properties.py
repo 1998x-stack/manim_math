@@ -119,7 +119,7 @@ class ParallelLinesProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -129,14 +129,14 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "平行线的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6.5)
         
         subtitle = Text(
             "由线推角的秘密",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.7)
@@ -176,9 +176,9 @@ class ParallelLinesProperties(Scene):
         
         # 交点
         self.point_A = Dot(self.intersection1, color=RED, radius=0.08)
-        self.label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(self.point_A, UP, buff=0.1)
+        self.label_A = Text("A", font="PingFang SC", font_size=20, color=RED).next_to(self.point_A, UP, buff=0.1)
         self.point_B = Dot(self.intersection2, color=RED, radius=0.08)
-        self.label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(self.point_B, DOWN, buff=0.1)
+        self.label_B = Text("B", font="PingFang SC", font_size=20, color=RED).next_to(self.point_B, DOWN, buff=0.1)
         
         self.play(
             FadeIn(self.point_A),
@@ -191,7 +191,7 @@ class ParallelLinesProperties(Scene):
         # 问题提示
         question = Text(
             "当两直线平行时，\n截线形成的角有什么关系？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -212,14 +212,14 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "同位角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
         
         definition = Text(
             "两直线平行 → 同位角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -292,7 +292,7 @@ class ParallelLinesProperties(Scene):
         # 等式
         equation = Text(
             "同位角相等", 
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             color=self.COLOR_EQUAL,
             font_size=36
         ).move_to(DOWN * 4.5)
@@ -324,14 +324,14 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "内错角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
         
         definition = Text(
             "两直线平行 → 内错角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -398,7 +398,7 @@ class ParallelLinesProperties(Scene):
         # 等式
         equation_alt = Text(
             "内错角相等", 
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             color=self.COLOR_EQUAL,
             font_size=36
         ).move_to(DOWN * 4.5)
@@ -430,14 +430,14 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "同旁内角互补",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
         
         definition = Text(
             "两直线平行 → 同旁内角互补 (和为180°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -503,7 +503,7 @@ class ParallelLinesProperties(Scene):
         # 显示互补关系
         complement_relation = Text(
             "同旁内角互补", 
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             color=self.COLOR_EQUAL,
             font_size=32
         ).move_to(DOWN * 4.5)
@@ -554,14 +554,14 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "动态验证",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
         
         explanation = Text(
             "改变截线角度，性质依然成立",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -601,9 +601,9 @@ class ParallelLinesProperties(Scene):
         self.play(
             Transform(self.transversal_line, new_transversal),
             Transform(self.point_A, Dot(new_intersection1, color=RED, radius=0.08)),
-            Transform(self.label_A, Text("A", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(new_intersection1, UP, buff=0.1)),
+            Transform(self.label_A, Text("A", font="PingFang SC", font_size=20, color=RED).next_to(new_intersection1, UP, buff=0.1)),
             Transform(self.point_B, Dot(new_intersection2, color=RED, radius=0.08)),
-            Transform(self.label_B, Text("B", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(new_intersection2, DOWN, buff=0.1)),
+            Transform(self.label_B, Text("B", font="PingFang SC", font_size=20, color=RED).next_to(new_intersection2, DOWN, buff=0.1)),
             run_time=1.5
         )
         
@@ -652,7 +652,7 @@ class ParallelLinesProperties(Scene):
         # 显示相等关系
         still_equal = Text(
             "同位角仍然相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EQUAL
         ).move_to(DOWN * 4.5)
@@ -688,9 +688,9 @@ class ParallelLinesProperties(Scene):
         self.play(
             Transform(self.transversal_line, newer_transversal),
             Transform(self.point_A, Dot(newer_intersection1, color=RED, radius=0.08)),
-            Transform(self.label_A, Text("A", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(newer_intersection1, UP, buff=0.1)),
+            Transform(self.label_A, Text("A", font="PingFang SC", font_size=20, color=RED).next_to(newer_intersection1, UP, buff=0.1)),
             Transform(self.point_B, Dot(newer_intersection2, color=RED, radius=0.08)),
-            Transform(self.label_B, Text("B", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(newer_intersection2, DOWN, buff=0.1)),
+            Transform(self.label_B, Text("B", font="PingFang SC", font_size=20, color=RED).next_to(newer_intersection2, DOWN, buff=0.1)),
             FadeOut(new_corner_angle1),
             FadeOut(new_corner_angle2),
             FadeOut(new_angle_value1),
@@ -705,7 +705,7 @@ class ParallelLinesProperties(Scene):
         # 显示最终确认
         final_confirmation = Text(
             "无论截线如何变化，\n平行线性质始终成立！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EQUAL
         ).move_to(DOWN * 3)
@@ -727,14 +727,14 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "非平行线的情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=RED
         ).move_to(UP * 6.5)
         
         explanation = Text(
             "如果不平行，这些性质还成立吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -774,7 +774,7 @@ class ParallelLinesProperties(Scene):
         self.play(
             Transform(self.parallel_line2, skewed_line2),
             Transform(self.point_B, Dot(new_intersection2_skewed, color=RED, radius=0.08)),
-            Transform(self.label_B, Text("B", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(new_intersection2_skewed, DOWN, buff=0.1)),
+            Transform(self.label_B, Text("B", font="PingFang SC", font_size=20, color=RED).next_to(new_intersection2_skewed, DOWN, buff=0.1)),
             run_time=1.5
         )
         
@@ -813,7 +813,7 @@ class ParallelLinesProperties(Scene):
         # 解释文本
         explanation2 = Text(
             "非平行线时，同位角不相等！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         ).move_to(DOWN * 4.5)
@@ -824,7 +824,7 @@ class ParallelLinesProperties(Scene):
         self.play(
             Transform(self.parallel_line2, Line(self.line2_start, self.line2_end, color=self.COLOR_PRIMARY, stroke_width=4)),
             Transform(self.point_B, Dot(self.intersection2, color=RED, radius=0.08)),
-            Transform(self.label_B, Text("B", font="Noto Sans CJK SC", font_size=20, color=RED).next_to(self.intersection2, DOWN, buff=0.1)),
+            Transform(self.label_B, Text("B", font="PingFang SC", font_size=20, color=RED).next_to(self.intersection2, DOWN, buff=0.1)),
             FadeOut(non_parallel_angle1),
             FadeOut(non_parallel_angle2),
             FadeOut(not_equal),
@@ -835,7 +835,7 @@ class ParallelLinesProperties(Scene):
         # 强调条件
         condition = Text(
             "重要条件：两直线必须平行！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_EQUAL
         ).move_to(DOWN * 4.5)
@@ -856,7 +856,7 @@ class ParallelLinesProperties(Scene):
         # 标题
         title = Text(
             "总结：平行线的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -898,7 +898,7 @@ class ParallelLinesProperties(Scene):
         # 最终强调
         emphasis = Text(
             "记住：由线的关系推断角的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EQUAL
         ).move_to(DOWN * 5)
@@ -931,7 +931,7 @@ class ParallelLinesProperties(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=color
         )
@@ -939,7 +939,7 @@ class ParallelLinesProperties(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         )
@@ -958,14 +958,14 @@ class ParallelLinesProperties(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -979,7 +979,7 @@ class ParallelLinesProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color="#f1c40f"
         ).move_to(DOWN * 0.5)

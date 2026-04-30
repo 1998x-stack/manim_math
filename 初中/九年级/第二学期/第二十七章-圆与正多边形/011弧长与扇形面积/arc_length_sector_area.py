@@ -128,7 +128,7 @@ class ArcLengthAndSectorArea(Scene):
         # 作者信息（顶部，全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -138,7 +138,7 @@ class ArcLengthAndSectorArea(Scene):
         # 钩子文字
         hook_text = Text(
             "切一块披萨",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -161,8 +161,8 @@ class ArcLengthAndSectorArea(Scene):
         
         # 问题文字
         question = VGroup(
-            Text("边缘有多长？", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("面积是多少？", font="Noto Sans CJK SC", font_size=32, color=WHITE)
+            Text("边缘有多长？", font="PingFang SC", font_size=32, color=WHITE),
+            Text("面积是多少？", font="PingFang SC", font_size=32, color=WHITE)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 4)
         
         self.play(FadeIn(question, shift=UP * 0.3), run_time=0.5)
@@ -181,7 +181,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "圆心角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -201,7 +201,7 @@ class ArcLengthAndSectorArea(Scene):
         center_dot = Dot(self.center, color=self.COLOR_HIGHLIGHT, radius=0.08)
         center_label = Text(
             "O", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=24, 
             color=WHITE
         ).next_to(center_dot, DOWN, buff=0.15)
@@ -265,7 +265,7 @@ class ArcLengthAndSectorArea(Scene):
         # 定义文字
         definition = Text(
             "顶点在圆心的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -294,7 +294,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "弧长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -310,7 +310,7 @@ class ArcLengthAndSectorArea(Scene):
         
         circ_label = Text(
             "(圆周长)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(formula_circumference, RIGHT, buff=0.3)
@@ -335,7 +335,7 @@ class ArcLengthAndSectorArea(Scene):
         # 比例关系说明
         proportion_text = Text(
             "弧长与周长的比例 = 圆心角与360°的比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 2.3)
@@ -416,7 +416,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "例题：计算弧长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -540,7 +540,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "什么是扇形？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -564,7 +564,7 @@ class ArcLengthAndSectorArea(Scene):
         # 依次高亮各部分
         # 半径1
         r1 = Line(sector_center, self.arc_start, color=YELLOW, stroke_width=6)
-        label_r1 = Text("半径", font="Noto Sans CJK SC", font_size=24, color=YELLOW).next_to(r1, DOWN, buff=0.1)
+        label_r1 = Text("半径", font="PingFang SC", font_size=24, color=YELLOW).next_to(r1, DOWN, buff=0.1)
         
         self.play(Create(r1), run_time=0.5)
         self.play(Write(label_r1), run_time=0.3)
@@ -573,7 +573,7 @@ class ArcLengthAndSectorArea(Scene):
         
         # 半径2
         r2 = Line(sector_center, self.arc_end, color=YELLOW, stroke_width=6)
-        label_r2 = Text("半径", font="Noto Sans CJK SC", font_size=24, color=YELLOW).next_to(r2, LEFT, buff=0.1)
+        label_r2 = Text("半径", font="PingFang SC", font_size=24, color=YELLOW).next_to(r2, LEFT, buff=0.1)
         
         self.play(Create(r2), run_time=0.5)
         self.play(Write(label_r2), run_time=0.3)
@@ -589,7 +589,7 @@ class ArcLengthAndSectorArea(Scene):
             color=YELLOW,
             stroke_width=8
         )
-        label_arc = Text("弧", font="Noto Sans CJK SC", font_size=24, color=YELLOW).move_to(
+        label_arc = Text("弧", font="PingFang SC", font_size=24, color=YELLOW).move_to(
             sector_center + (self.radius + 0.5) * np.array([
                 np.cos(self.angle_rad / 2),
                 np.sin(self.angle_rad / 2),
@@ -605,7 +605,7 @@ class ArcLengthAndSectorArea(Scene):
         # 定义文字
         definition = Text(
             "扇形 = 两条半径 + 一段弧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(DOWN * 4)
@@ -629,7 +629,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "扇形面积公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -645,7 +645,7 @@ class ArcLengthAndSectorArea(Scene):
         
         circle_label = Text(
             "(圆面积)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(formula_circle, RIGHT, buff=0.3)
@@ -656,7 +656,7 @@ class ArcLengthAndSectorArea(Scene):
         # 比例关系
         proportion_text = Text(
             "扇形面积与圆面积的比例 = 圆心角与360°的比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 2.3)
@@ -720,7 +720,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "第二个公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -734,7 +734,7 @@ class ArcLengthAndSectorArea(Scene):
         # 说明
         explanation = Text(
             "利用弧长公式，可以得到另一个形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -750,7 +750,7 @@ class ArcLengthAndSectorArea(Scene):
         
         hint = Text(
             "即：", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=24, 
             color=GRAY_A
         ).next_to(arc_formula_recall, LEFT, buff=0.3)
@@ -768,7 +768,7 @@ class ArcLengthAndSectorArea(Scene):
         # 代入过程
         substitution = Text(
             "代入原公式：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.3)
@@ -837,7 +837,7 @@ class ArcLengthAndSectorArea(Scene):
         # 标题
         title = Text(
             "综合练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -846,13 +846,13 @@ class ArcLengthAndSectorArea(Scene):
         
         # 题目
         problem = VGroup(
-            Text("已知：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A),
+            Text("已知：", font="PingFang SC", font_size=28, color=GRAY_A),
             MathTex(r"r = 3,\ n = 120^\circ", font_size=28, color=WHITE)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4.5)
         
         question = Text(
             "求：弧长 l 和扇形面积 S",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).next_to(problem, DOWN, buff=0.3)
@@ -879,7 +879,7 @@ class ArcLengthAndSectorArea(Scene):
         # 计算弧长
         step1_title = Text(
             "① 计算弧长：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 0.5 + LEFT * 3)
@@ -900,7 +900,7 @@ class ArcLengthAndSectorArea(Scene):
         # 计算面积（公式1）
         step2_title = Text(
             "② 计算面积（公式1）：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 1.8 + LEFT * 2.2)
@@ -921,7 +921,7 @@ class ArcLengthAndSectorArea(Scene):
         # 验证（公式2）
         step3_title = Text(
             "③ 验证（公式2）：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 3.2 + LEFT * 2.5)
@@ -938,7 +938,7 @@ class ArcLengthAndSectorArea(Scene):
         # 一致性标记
         checkmark = Text(
             "✓ 结果一致！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GREEN,
             weight=BOLD
@@ -967,7 +967,7 @@ class ArcLengthAndSectorArea(Scene):
         # 总结卡片
         summary_title = Text(
             "知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -976,15 +976,15 @@ class ArcLengthAndSectorArea(Scene):
         # 三个公式
         formulas = VGroup(
             VGroup(
-                Text("弧长：", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+                Text("弧长：", font="PingFang SC", font_size=26, color=GRAY_A),
                 MathTex(r"l = \frac{n\pi r}{180}", font_size=32, color=self.COLOR_FORMULA)
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("面积1：", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+                Text("面积1：", font="PingFang SC", font_size=26, color=GRAY_A),
                 MathTex(r"S = \frac{n\pi r^2}{360}", font_size=32, color=self.COLOR_FORMULA)
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("面积2：", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+                Text("面积2：", font="PingFang SC", font_size=26, color=GRAY_A),
                 MathTex(r"S = \frac{lr}{2}", font_size=32, color=self.COLOR_FORMULA)
             ).arrange(RIGHT, buff=0.3)
         ).arrange(DOWN, buff=0.5, aligned_edge=LEFT).move_to(UP * 1.5)
@@ -1004,7 +1004,7 @@ class ArcLengthAndSectorArea(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
             weight=BOLD
@@ -1012,7 +1012,7 @@ class ArcLengthAndSectorArea(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -1026,7 +1026,7 @@ class ArcLengthAndSectorArea(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

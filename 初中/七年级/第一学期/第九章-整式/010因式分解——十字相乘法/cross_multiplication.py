@@ -135,7 +135,7 @@ class CrossMultiplicationMethod(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -145,7 +145,7 @@ class CrossMultiplicationMethod(Scene):
         # 钩子问题
         hook_question = Text(
             "如何快速分解这个式子?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -179,7 +179,7 @@ class CrossMultiplicationMethod(Scene):
         # 提示
         hint_text = Text(
             "用十字相乘法!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 0.5)
@@ -204,7 +204,7 @@ class CrossMultiplicationMethod(Scene):
         # 标题
         title = Text(
             "十字相乘法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_TITLE,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -252,21 +252,21 @@ class CrossMultiplicationMethod(Scene):
         # 步骤说明
         step_1 = Text(
             "① 找p,q使 p×q = 常数项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(DOWN * 1.5)
         
         step_2 = Text(
             "② 验证 p+q = 一次项系数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(DOWN * 2.3)
         
         step_3 = Text(
             "③ 结果为 (x+p)(x+q)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 3.1)
@@ -298,7 +298,7 @@ class CrossMultiplicationMethod(Scene):
         # 例题标题
         example_title = Text(
             "例题1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -307,7 +307,7 @@ class CrossMultiplicationMethod(Scene):
         self.play(FadeIn(example_title, scale=1.2), run_time=0.5)
         
         # 原式
-        original_text = Text("因式分解:", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        original_text = Text("因式分解:", font="PingFang SC", font_size=24, color=WHITE)
         original_expr = MathTex(r"x^2 + 5x + 6", font_size=36, color=WHITE)
         original_group = VGroup(original_text, original_expr).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
@@ -316,7 +316,7 @@ class CrossMultiplicationMethod(Scene):
         # 分析
         analysis = Text(
             "分析: 6 = 2 × 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 2.8)
@@ -436,7 +436,7 @@ class CrossMultiplicationMethod(Scene):
         # 验证标题
         verify_title = Text(
             "验证",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 4.5)
@@ -476,7 +476,7 @@ class CrossMultiplicationMethod(Scene):
         
         compare_text = Text(
             "与原式相同!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SUCCESS
         ).move_to(DOWN * 3.5)
@@ -522,7 +522,7 @@ class CrossMultiplicationMethod(Scene):
         # 例题标题
         example_title = Text(
             "例题2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY,
             weight=BOLD
@@ -531,7 +531,7 @@ class CrossMultiplicationMethod(Scene):
         self.play(FadeIn(example_title, scale=1.2), run_time=0.5)
         
         # 原式
-        original_text = Text("因式分解:", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        original_text = Text("因式分解:", font="PingFang SC", font_size=24, color=WHITE)
         original_expr = MathTex(r"x^2 - 5x + 6", font_size=36, color=WHITE)
         original_group = VGroup(original_text, original_expr).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
@@ -547,7 +547,7 @@ class CrossMultiplicationMethod(Scene):
         # 分析
         analysis = Text(
             "注意: 两数积=6, 和=-5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -616,7 +616,7 @@ class CrossMultiplicationMethod(Scene):
         # 符号提示
         tip_text = Text(
             "提示: 负负得正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -655,7 +655,7 @@ class CrossMultiplicationMethod(Scene):
         # 挑战题标题
         challenge_title = Text(
             "挑战题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
             weight=BOLD
@@ -669,7 +669,7 @@ class CrossMultiplicationMethod(Scene):
         self.play(FadeIn(title_group, scale=1.3), run_time=0.7)
         
         # 原式
-        original_text = Text("因式分解:", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        original_text = Text("因式分解:", font="PingFang SC", font_size=24, color=WHITE)
         original_expr = MathTex(r"2x^2 + 7x + 3", font_size=36, color=WHITE)
         original_group = VGroup(original_text, original_expr).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
@@ -678,7 +678,7 @@ class CrossMultiplicationMethod(Scene):
         # 分析
         analysis = Text(
             "分析: 需要分解2和3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.8)
@@ -781,7 +781,7 @@ class CrossMultiplicationMethod(Scene):
         # 技巧提示
         tip = Text(
             "技巧: 首项系数≠1时,同时分解首项和常数项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 5.8)
@@ -821,7 +821,7 @@ class CrossMultiplicationMethod(Scene):
         # 总结标题
         summary_title = Text(
             "技巧总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZE_TITLE,
             color=GOLD,
             weight=BOLD
@@ -844,7 +844,7 @@ class CrossMultiplicationMethod(Scene):
             # 创建卡片
             tip = Text(
                 tip_text,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=WHITE
             )
@@ -875,7 +875,7 @@ class CrossMultiplicationMethod(Scene):
         # 口诀
         slogan = Text(
             "十字交叉乘，相加要相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -902,7 +902,7 @@ class CrossMultiplicationMethod(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
             weight=BOLD
@@ -910,7 +910,7 @@ class CrossMultiplicationMethod(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -924,7 +924,7 @@ class CrossMultiplicationMethod(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握更多因式分解技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

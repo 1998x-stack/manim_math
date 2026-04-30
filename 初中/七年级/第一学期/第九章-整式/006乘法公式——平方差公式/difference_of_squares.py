@@ -106,7 +106,7 @@ class DifferenceOfSquares(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -116,7 +116,7 @@ class DifferenceOfSquares(Scene):
         # 钩子问题
         hook_question = Text(
             "快速计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5)
@@ -153,7 +153,7 @@ class DifferenceOfSquares(Scene):
         # 标题
         title = Text(
             "平方差公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6)
@@ -192,7 +192,7 @@ class DifferenceOfSquares(Scene):
         # 文字解释
         explanation = Text(
             "两数和 × 两数差 = 两数平方差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -222,7 +222,7 @@ class DifferenceOfSquares(Scene):
         # 引导文字
         guide_text = Text(
             "让我们用面积来理解这个公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -273,7 +273,7 @@ class DifferenceOfSquares(Scene):
         
         area_a_text = Text(
             "面积 =",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(area_a_label, LEFT, buff=0.2)
@@ -299,7 +299,7 @@ class DifferenceOfSquares(Scene):
         # 引导文字
         guide_text = Text(
             "从中减去一个边长为 b 的正方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -377,7 +377,7 @@ class DifferenceOfSquares(Scene):
         
         remaining_text = Text(
             "剩余面积 =",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(remaining_area, LEFT, buff=0.2)
@@ -405,7 +405,7 @@ class DifferenceOfSquares(Scene):
         # 引导文字
         guide_text = Text(
             "将剩余部分重新排列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -533,7 +533,7 @@ class DifferenceOfSquares(Scene):
         
         final_text = Text(
             "面积 =",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(final_area, LEFT, buff=0.2)
@@ -579,7 +579,7 @@ class DifferenceOfSquares(Scene):
         # 例子标题
         example_title = Text(
             "让我们计算开头的问题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -599,14 +599,14 @@ class DifferenceOfSquares(Scene):
         # 标识 a 和 b
         a_label = Text(
             "a = x",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_POSITIVE
         ).move_to(UP * 2.5 + LEFT * 2)
         
         b_label = Text(
             "b = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_NEGATIVE
         ).move_to(UP * 2.5 + RIGHT * 2)
@@ -633,7 +633,7 @@ class DifferenceOfSquares(Scene):
         
         formula_hint = Text(
             "套用公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(arrow, RIGHT, buff=0.3)
@@ -692,7 +692,7 @@ class DifferenceOfSquares(Scene):
         # 逆用提示
         reverse_title = Text(
             "公式也可以反过来用!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -711,7 +711,7 @@ class DifferenceOfSquares(Scene):
         # 应用场景
         application = Text(
             "用于因式分解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -741,14 +741,14 @@ class DifferenceOfSquares(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -762,7 +762,7 @@ class DifferenceOfSquares(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

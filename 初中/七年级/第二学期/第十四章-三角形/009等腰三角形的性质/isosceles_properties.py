@@ -137,13 +137,13 @@ class IsoscelesTriangleProperties(Scene):
         return arcs
 
     def _vertex_labels(self, fa=0.15, fb=0.15, fc=0.15, sz=28):
-        lA = Text("A", font="Noto Sans CJK SC", font_size=sz).next_to(self.A, UP,  buff=fa)
-        lB = Text("B", font="Noto Sans CJK SC", font_size=sz).next_to(self.B, DL,  buff=fb)
-        lC = Text("C", font="Noto Sans CJK SC", font_size=sz).next_to(self.C, DR,  buff=fc)
+        lA = Text("A", font="PingFang SC", font_size=sz).next_to(self.A, UP,  buff=fa)
+        lB = Text("B", font="PingFang SC", font_size=sz).next_to(self.B, DL,  buff=fb)
+        lC = Text("C", font="PingFang SC", font_size=sz).next_to(self.C, DR,  buff=fc)
         return lA, lB, lC
 
     def _label_M(self, sz=26, direction=DOWN, buff=0.18):
-        return Text("M", font="Noto Sans CJK SC", font_size=sz,
+        return Text("M", font="PingFang SC", font_size=sz,
                     color=self.C_HIGHLIGHT).next_to(self.M, direction, buff=buff)
 
     def _rule_box(self, text_lines, color, pos, w=8.0, h=1.1, fsize=22):
@@ -154,7 +154,7 @@ class IsoscelesTriangleProperties(Scene):
                               fill_opacity=0.92).move_to(pos)
         texts = VGroup()
         for i, (txt, col) in enumerate(text_lines):
-            t = Text(txt, font="Noto Sans CJK SC",
+            t = Text(txt, font="PingFang SC",
                      font_size=fsize, color=col)
             texts.add(t)
         texts.arrange(DOWN, buff=0.12).move_to(pos)
@@ -162,9 +162,9 @@ class IsoscelesTriangleProperties(Scene):
 
     def _section_header(self, tag, name, tag_color):
         """场景标题：序号标签 + 名称"""
-        t_tag = Text(tag, font="Noto Sans CJK SC",
+        t_tag = Text(tag, font="PingFang SC",
                      font_size=26, color=tag_color).move_to(UP * 6.6)
-        t_name = Text(name, font="Noto Sans CJK SC",
+        t_name = Text(name, font="PingFang SC",
                       font_size=40, color=tag_color).move_to(UP * 5.9)
         return t_tag, t_name
 
@@ -174,7 +174,7 @@ class IsoscelesTriangleProperties(Scene):
                       fill_opacity=1, stroke_width=0)
         num  = Text(str(number), font_size=22,
                     color=BLACK).move_to(circ.get_center())
-        txt  = Text(name, font="Noto Sans CJK SC",
+        txt  = Text(name, font="PingFang SC",
                     font_size=22, color=color)
         badge = VGroup(VGroup(circ, num), txt).arrange(RIGHT, buff=0.22)
         badge.move_to(pos)
@@ -187,25 +187,25 @@ class IsoscelesTriangleProperties(Scene):
         # 作者栏（固定顶部，保留全程）
         self.author_bar = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=self.C_AUX
+            font="PingFang SC", font_size=20, color=self.C_AUX
         ).move_to(UP * 7.0)
         self.play(FadeIn(self.author_bar, shift=DOWN * 0.2), run_time=0.35)
 
         # 章节标签
         chap = Text("七年级 · 第十四章 · 三角形",
-                    font="Noto Sans CJK SC", font_size=22,
+                    font="PingFang SC", font_size=22,
                     color=self.C_AUX).move_to(UP * 6.2)
         self.play(FadeIn(chap), run_time=0.35)
 
         # 主标题
         title = Text("等腰三角形的性质",
-                     font="Noto Sans CJK SC", font_size=50,
+                     font="PingFang SC", font_size=50,
                      color=self.C_HIGHLIGHT).move_to(UP * 5.3)
         self.play(Write(title), run_time=0.9)
 
         # 钩子问句
         hook = Text("它有哪些神奇的性质？",
-                    font="Noto Sans CJK SC", font_size=30,
+                    font="PingFang SC", font_size=30,
                     color=WHITE).move_to(UP * 4.4)
         self.play(FadeIn(hook, shift=UP * 0.2), run_time=0.5)
 
@@ -261,7 +261,7 @@ class IsoscelesTriangleProperties(Scene):
 
         # ── 已知：高亮腰 AB = AC ──
         know_txt = Text("已知：AB = AC（两腰相等）",
-                        font="Noto Sans CJK SC", font_size=26,
+                        font="PingFang SC", font_size=26,
                         color=WHITE).move_to(DOWN * 3.4)
         self.play(FadeIn(know_txt), run_time=0.4)
 
@@ -281,7 +281,7 @@ class IsoscelesTriangleProperties(Scene):
 
         # ── 结论：∠B = ∠C 角弧出现 ──
         concl_txt = Text("∴ 两底角相等",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=self.C_ANGLE).move_to(DOWN * 5.05)
         self.play(FadeIn(concl_txt), run_time=0.4)
 
@@ -359,7 +359,7 @@ class IsoscelesTriangleProperties(Scene):
 
         # ─── 3a：中线 AM ───────────────────────────────────────
         step_txt = Text("① 中线 AM",
-                        font="Noto Sans CJK SC", font_size=28,
+                        font="PingFang SC", font_size=28,
                         color=self.C_MEDIAN).move_to(DOWN * 3.5)
         self.play(FadeIn(step_txt), run_time=0.35)
 
@@ -379,7 +379,7 @@ class IsoscelesTriangleProperties(Scene):
         # ─── 3b：高线（从 A 向 BC 作垂线）─────────────────────
         self.play(FadeOut(step_txt), FadeOut(f_median), run_time=0.3)
         step_txt2 = Text("② 高线（从 A 向 BC 的垂线）",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=self.C_ALTITUDE).move_to(DOWN * 3.5)
         self.play(FadeIn(step_txt2), run_time=0.35)
 
@@ -416,7 +416,7 @@ class IsoscelesTriangleProperties(Scene):
 
         # 惊叹：和中线重合！
         overlap_txt = Text("↑ 和中线重合！",
-                           font="Noto Sans CJK SC", font_size=22,
+                           font="PingFang SC", font_size=22,
                            color=self.C_HIGHLIGHT).move_to(DOWN * 5.05)
         self.play(FadeIn(overlap_txt, scale=0.8), run_time=0.45)
         self.wait(0.6)
@@ -427,7 +427,7 @@ class IsoscelesTriangleProperties(Scene):
             run_time=0.3
         )
         step_txt3 = Text("③ 顶角 ∠A 的平分线",
-                         font="Noto Sans CJK SC", font_size=26,
+                         font="PingFang SC", font_size=26,
                          color=self.C_BISECT).move_to(DOWN * 3.5)
         self.play(FadeIn(step_txt3), run_time=0.35)
 
@@ -451,7 +451,7 @@ class IsoscelesTriangleProperties(Scene):
         self.play(Write(f_bis), run_time=0.6)
 
         overlap_txt2 = Text("↑ 还是同一条线！",
-                            font="Noto Sans CJK SC", font_size=22,
+                            font="PingFang SC", font_size=22,
                             color=self.C_HIGHLIGHT).move_to(DOWN * 5.05)
         self.play(FadeIn(overlap_txt2, scale=0.8), run_time=0.45)
         self.wait(0.6)
@@ -470,7 +470,7 @@ class IsoscelesTriangleProperties(Scene):
         )
 
         flash_txt = Text("三线合一！",
-                         font="Noto Sans CJK SC", font_size=46,
+                         font="PingFang SC", font_size=46,
                          color=self.C_HIGHLIGHT).move_to(DOWN * 3.8)
 
         self.play(
@@ -487,12 +487,12 @@ class IsoscelesTriangleProperties(Scene):
 
         # 三行说明
         legend = VGroup(
-            Text("绿 = 中线   BM = MC",    font="Noto Sans CJK SC",
+            Text("绿 = 中线   BM = MC",    font="PingFang SC",
                  font_size=22, color=self.C_MEDIAN),
-            Text("紫 = 高线   AM ⊥ BC",   font="Noto Sans CJK SC",
+            Text("紫 = 高线   AM ⊥ BC",   font="PingFang SC",
                  font_size=22, color=self.C_ALTITUDE),
             Text("橙 = 顶角平分线  ∠BAM = ∠CAM",
-                 font="Noto Sans CJK SC", font_size=22, color=self.C_BISECT),
+                 font="PingFang SC", font_size=22, color=self.C_BISECT),
         ).arrange(DOWN, buff=0.18, aligned_edge=LEFT).move_to(DOWN * 5.3)
 
         self.play(FadeIn(legend), run_time=0.6)
@@ -536,7 +536,7 @@ class IsoscelesTriangleProperties(Scene):
                           dash_length=0.18, dashed_ratio=0.6)
 
         axis_lbl = Text("对称轴",
-                        font="Noto Sans CJK SC", font_size=24,
+                        font="PingFang SC", font_size=24,
                         color=self.C_AXIS).next_to(axis_top, UP, buff=0.08)
 
         self.play(Create(axis), run_time=0.8)
@@ -544,10 +544,10 @@ class IsoscelesTriangleProperties(Scene):
 
         # 解释文字
         exp1 = Text("等腰三角形是轴对称图形",
-                    font="Noto Sans CJK SC", font_size=27,
+                    font="PingFang SC", font_size=27,
                     color=WHITE).move_to(DOWN * 3.6)
         exp2 = Text("底边的垂直平分线是对称轴",
-                    font="Noto Sans CJK SC", font_size=25,
+                    font="PingFang SC", font_size=25,
                     color=self.C_AXIS).move_to(DOWN * 4.35)
         self.play(FadeIn(exp1), run_time=0.4)
         self.play(FadeIn(exp2), run_time=0.4)
@@ -555,7 +555,7 @@ class IsoscelesTriangleProperties(Scene):
 
         # ── 折叠动画：B 沿对称轴映射到 C ──
         fold_txt = Text("沿对称轴折叠……",
-                        font="Noto Sans CJK SC", font_size=26,
+                        font="PingFang SC", font_size=26,
                         color=self.C_HIGHLIGHT).move_to(DOWN * 5.15)
         self.play(FadeIn(fold_txt), run_time=0.35)
 
@@ -588,7 +588,7 @@ class IsoscelesTriangleProperties(Scene):
 
         # 完全重合提示
         match_txt = Text("完全重合！",
-                         font="Noto Sans CJK SC", font_size=38,
+                         font="PingFang SC", font_size=38,
                          color=self.C_SUCCESS).move_to(DOWN * 6.1)
         self.play(FadeIn(match_txt, scale=0.7), run_time=0.5)
         self.play(Flash(self.M, color=self.C_AXIS, flash_radius=0.45),
@@ -605,7 +605,7 @@ class IsoscelesTriangleProperties(Scene):
             stroke_width=3, tip_length=0.22
         )
         mirror_lbl = Text("B  →  C（对称点）",
-                          font="Noto Sans CJK SC", font_size=22,
+                          font="PingFang SC", font_size=22,
                           color=self.C_HIGHLIGHT).move_to(DOWN * 2.55)
 
         self.play(
@@ -635,7 +635,7 @@ class IsoscelesTriangleProperties(Scene):
     def scene_5_summary_outro(self):
         # ── 标题 ──
         sum_title = Text("知识总结",
-                         font="Noto Sans CJK SC", font_size=44,
+                         font="PingFang SC", font_size=44,
                          color=self.C_HIGHLIGHT).move_to(UP * 6.5)
         self.play(Write(sum_title), run_time=0.6)
 
@@ -661,11 +661,11 @@ class IsoscelesTriangleProperties(Scene):
                 fill_opacity=0.95
             ).move_to(pos)
 
-            tag_t = Text(tag, font="Noto Sans CJK SC",
+            tag_t = Text(tag, font="PingFang SC",
                          font_size=20, color=color)
-            name_t = Text(name, font="Noto Sans CJK SC",
+            name_t = Text(name, font="PingFang SC",
                           font_size=30, color=WHITE)
-            cont_t = Text(content, font="Noto Sans CJK SC",
+            cont_t = Text(content, font="PingFang SC",
                           font_size=22, color=color)
             inner = VGroup(tag_t, name_t, cont_t).arrange(DOWN, buff=0.12)
             inner.move_to(pos)
@@ -702,13 +702,13 @@ class IsoscelesTriangleProperties(Scene):
         )
 
         outro_name = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC", font_size=44,
+                          font="PingFang SC", font_size=44,
                           color=WHITE).move_to(UP * 1.8)
         outro_id   = Text("@emptyandcalm",
-                          font="Noto Sans CJK SC", font_size=32,
+                          font="PingFang SC", font_size=32,
                           color=self.C_AUX).move_to(UP * 0.8)
         cta        = Text("关注我，学更多数学技巧！",
-                          font="Noto Sans CJK SC", font_size=30,
+                          font="PingFang SC", font_size=30,
                           color=self.C_HIGHLIGHT).move_to(DOWN * 0.5)
 
         self.play(Transform(self.author_bar, outro_name), run_time=0.65)

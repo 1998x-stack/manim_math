@@ -57,7 +57,7 @@ class PercentageProblems(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -67,7 +67,7 @@ class PercentageProblems(Scene):
         # 钩子问题
         hook_text = Text(
             "百分比的三类问题\n你都会做吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             line_spacing=1.2
@@ -98,7 +98,7 @@ class PercentageProblems(Scene):
         # 标题
         title = Text(
             "三类基本问题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -162,7 +162,7 @@ class PercentageProblems(Scene):
         # 类型编号
         num_text = Text(
             type_num,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=color,
             weight=BOLD
@@ -171,7 +171,7 @@ class PercentageProblems(Scene):
         # 类型名称
         name_text = Text(
             type_name,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -179,7 +179,7 @@ class PercentageProblems(Scene):
         # 公式
         formula_text = Text(
             formula,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -199,7 +199,7 @@ class PercentageProblems(Scene):
         # 标题
         title = Text(
             "类型一: 求部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TYPE1
         ).move_to(UP * 6.5)
@@ -209,7 +209,7 @@ class PercentageProblems(Scene):
         # 问题
         question = Text(
             "一件衣服200元\n打8折，是多少钱？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
             line_spacing=1.2
@@ -227,7 +227,7 @@ class PercentageProblems(Scene):
         
         whole_label = Text(
             "200元 (整体)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(whole_rect, UP, buff=0.2)
@@ -248,7 +248,7 @@ class PercentageProblems(Scene):
         
         part_label = Text(
             "80%",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_FORMULA
         ).move_to(part_rect.get_center())
@@ -263,11 +263,11 @@ class PercentageProblems(Scene):
         
         # 公式
         formula_parts = [
-            Text("整体", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("整体", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"\times", font_size=36, color=WHITE),
-            Text("百分比", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("百分比", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"=", font_size=36, color=WHITE),
-            Text("部分", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            Text("部分", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
         ]
         
         formula = VGroup(*formula_parts).arrange(RIGHT, buff=0.3).move_to(ORIGIN)
@@ -297,7 +297,7 @@ class PercentageProblems(Scene):
         
         answer = Text(
             "160元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -332,7 +332,7 @@ class PercentageProblems(Scene):
         # 标题
         title = Text(
             "类型二: 求百分比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TYPE2
         ).move_to(UP * 6.5)
@@ -342,7 +342,7 @@ class PercentageProblems(Scene):
         # 问题
         question = Text(
             "班级50人，女生30人\n女生占百分之几？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
             line_spacing=1.2
@@ -360,7 +360,7 @@ class PercentageProblems(Scene):
         
         whole_label = Text(
             "50人 (整体)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(whole_rect, UP, buff=0.2)
@@ -380,7 +380,7 @@ class PercentageProblems(Scene):
         
         part_label = Text(
             "30人",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(part_rect.get_center())
@@ -395,9 +395,9 @@ class PercentageProblems(Scene):
         
         # 公式
         formula_parts = [
-            Text("部分", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("部分", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"\div", font_size=36, color=WHITE),
-            Text("整体", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("整体", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"\times 100\%", font_size=36, color=WHITE)
         ]
         
@@ -468,7 +468,7 @@ class PercentageProblems(Scene):
         # 标题
         title = Text(
             "类型三: 求整体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_TYPE3
         ).move_to(UP * 6.5)
@@ -478,7 +478,7 @@ class PercentageProblems(Scene):
         # 问题
         question = Text(
             "一本书，已读40页\n占全书的25%\n全书多少页？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
             line_spacing=1.2
@@ -497,7 +497,7 @@ class PercentageProblems(Scene):
         
         part_label_1 = Text(
             "40页",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(part_rect.get_center())
@@ -519,11 +519,11 @@ class PercentageProblems(Scene):
         
         # 公式
         formula_parts = [
-            Text("部分", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("部分", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"\div", font_size=36, color=WHITE),
-            Text("百分比", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("百分比", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"=", font_size=36, color=WHITE),
-            Text("整体", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            Text("整体", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
         ]
         
         formula = VGroup(*formula_parts).arrange(RIGHT, buff=0.3).move_to(UP * 0.8)
@@ -550,7 +550,7 @@ class PercentageProblems(Scene):
         
         whole_label = Text(
             "160页 (整体)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_FORMULA
         ).next_to(whole_rect, UP, buff=0.2)
@@ -576,7 +576,7 @@ class PercentageProblems(Scene):
         
         answer = Text(
             "160页",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -610,7 +610,7 @@ class PercentageProblems(Scene):
         # 总结标题
         title = Text(
             "掌握三类问题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -646,7 +646,7 @@ class PercentageProblems(Scene):
         # 关键提示
         key_point = Text(
             "关键: 找准'单位1'!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -663,14 +663,14 @@ class PercentageProblems(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 3.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 4.5)
@@ -685,7 +685,7 @@ class PercentageProblems(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -735,7 +735,7 @@ class PercentageProblems(Scene):
         # 名称
         name_text = Text(
             name,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=color,
             weight=BOLD
@@ -744,7 +744,7 @@ class PercentageProblems(Scene):
         # 公式
         formula_text = Text(
             formula,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )

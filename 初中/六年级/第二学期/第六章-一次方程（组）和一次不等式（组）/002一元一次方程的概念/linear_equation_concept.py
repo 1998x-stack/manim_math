@@ -29,7 +29,7 @@ COLOR_CONST = "#f39c12"   # 橙色  - 常数 b
 COLOR_OK    = "#2ecc71"   # 绿色  - 正确
 COLOR_WRONG = "#e74c3c"   # 红色  - 错误
 COLOR_CARD  = "#16213e"   # 深蓝  - 卡片背景
-FONT        = "Noto Sans CJK SC"
+FONT        = "PingFang SC"
 
 
 # ============================================================

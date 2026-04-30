@@ -58,7 +58,7 @@ class ProportionProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -68,7 +68,7 @@ class ProportionProperties(Scene):
         # 钩子问题
         hook_text = Text(
             "什么是比例?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -78,20 +78,20 @@ class ProportionProperties(Scene):
         
         # 第一个比 2:3
         ratio1 = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=64, color=WHITE, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=64, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=64, color=WHITE, weight=BOLD)
+            Text("2", font="PingFang SC", font_size=64, color=WHITE, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=64, color=WHITE),
+            Text("3", font="PingFang SC", font_size=64, color=WHITE, weight=BOLD)
         ).arrange(RIGHT, buff=0.2)
         ratio1.move_to(UP * 3 + LEFT * 2)
         
         # 等号
-        equals = Text("=", font="Noto Sans CJK SC", font_size=64, color=self.COLOR_PROPERTY).move_to(UP * 3)
+        equals = Text("=", font="PingFang SC", font_size=64, color=self.COLOR_PROPERTY).move_to(UP * 3)
         
         # 第二个比 4:6
         ratio2 = VGroup(
-            Text("4", font="Noto Sans CJK SC", font_size=64, color=WHITE, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=64, color=WHITE),
-            Text("6", font="Noto Sans CJK SC", font_size=64, color=WHITE, weight=BOLD)
+            Text("4", font="PingFang SC", font_size=64, color=WHITE, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=64, color=WHITE),
+            Text("6", font="PingFang SC", font_size=64, color=WHITE, weight=BOLD)
         ).arrange(RIGHT, buff=0.2)
         ratio2.move_to(UP * 3 + RIGHT * 2)
         
@@ -111,7 +111,7 @@ class ProportionProperties(Scene):
         # 问题文字
         question = Text(
             "它们有什么神奇的性质?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -134,7 +134,7 @@ class ProportionProperties(Scene):
         # 标题
         title = Text(
             "比例的意义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROPERTY,
             weight=BOLD
@@ -142,7 +142,7 @@ class ProportionProperties(Scene):
         
         definition = Text(
             "表示两个比相等的式子叫做比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.7)
@@ -159,7 +159,7 @@ class ProportionProperties(Scene):
         # 一般形式
         general_label = Text(
             "一般形式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2.5 + LEFT * 2.5)
@@ -176,7 +176,7 @@ class ProportionProperties(Scene):
         # 说明文字
         explanation = Text(
             "读作: a比b等于c比d",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 1.2)
@@ -208,7 +208,7 @@ class ProportionProperties(Scene):
         # 标题
         title = Text(
             "内项与外项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -247,7 +247,7 @@ class ProportionProperties(Scene):
         # 外项标签
         outer_label = Text(
             "外项 (两端)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_OUTER,
             weight=BOLD
@@ -277,7 +277,7 @@ class ProportionProperties(Scene):
         # 内项标签
         inner_label = Text(
             "内项 (中间)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_INNER,
             weight=BOLD
@@ -294,7 +294,7 @@ class ProportionProperties(Scene):
         # 说明文字
         explanation = Text(
             "两端的项叫外项，中间的项叫内项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -327,7 +327,7 @@ class ProportionProperties(Scene):
         # 标题
         title = Text(
             "比例的基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROPERTY,
             weight=BOLD
@@ -335,7 +335,7 @@ class ProportionProperties(Scene):
         
         property_intro = Text(
             "内项积等于外项积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.7)
@@ -402,7 +402,7 @@ class ProportionProperties(Scene):
         # 说明
         explanation = Text(
             "这是比例最重要的性质!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -439,7 +439,7 @@ class ProportionProperties(Scene):
         # 标题
         title = Text(
             "验证性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.8)
@@ -448,13 +448,13 @@ class ProportionProperties(Scene):
         
         # 具体比例 2:3 = 4:6
         proportion = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_OUTER, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=52, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_INNER, weight=BOLD),
-            Text("=", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_PROPERTY),
-            Text("4", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_INNER, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=52, color=WHITE),
-            Text("6", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_OUTER, weight=BOLD)
+            Text("2", font="PingFang SC", font_size=52, color=self.COLOR_OUTER, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=52, color=WHITE),
+            Text("3", font="PingFang SC", font_size=52, color=self.COLOR_INNER, weight=BOLD),
+            Text("=", font="PingFang SC", font_size=52, color=self.COLOR_PROPERTY),
+            Text("4", font="PingFang SC", font_size=52, color=self.COLOR_INNER, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=52, color=WHITE),
+            Text("6", font="PingFang SC", font_size=52, color=self.COLOR_OUTER, weight=BOLD)
         ).arrange(RIGHT, buff=0.15)
         proportion.move_to(UP * 3.2)
         
@@ -466,7 +466,7 @@ class ProportionProperties(Scene):
         
         # 外项积计算
         calc_outer = VGroup(
-            Text("外项积:", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("外项积:", font="PingFang SC", font_size=26, color=GRAY_A),
             MathTex(r"2 \times 6 = 12", font_size=36, color=self.COLOR_OUTER)
         ).arrange(RIGHT, buff=0.3)
         calc_outer.move_to(UP * 1)
@@ -479,7 +479,7 @@ class ProportionProperties(Scene):
         
         # 内项积计算
         calc_inner = VGroup(
-            Text("内项积:", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("内项积:", font="PingFang SC", font_size=26, color=GRAY_A),
             MathTex(r"3 \times 4 = 12", font_size=36, color=self.COLOR_INNER)
         ).arrange(RIGHT, buff=0.3)
         calc_inner.move_to(DOWN * 0.5)
@@ -525,7 +525,7 @@ class ProportionProperties(Scene):
         # 结论
         conclusion = Text(
             "性质成立!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -550,7 +550,7 @@ class ProportionProperties(Scene):
         # 标题
         title = Text(
             "判断能否组成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -560,19 +560,19 @@ class ProportionProperties(Scene):
         # 四个数
         numbers_label = Text(
             "已知四个数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.8)
         
         numbers = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=56, color=WHITE, weight=BOLD),
-            Text(",", font="Noto Sans CJK SC", font_size=48, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=56, color=WHITE, weight=BOLD),
-            Text(",", font="Noto Sans CJK SC", font_size=48, color=WHITE),
-            Text("4", font="Noto Sans CJK SC", font_size=56, color=WHITE, weight=BOLD),
-            Text(",", font="Noto Sans CJK SC", font_size=48, color=WHITE),
-            Text("6", font="Noto Sans CJK SC", font_size=56, color=WHITE, weight=BOLD)
+            Text("2", font="PingFang SC", font_size=56, color=WHITE, weight=BOLD),
+            Text(",", font="PingFang SC", font_size=48, color=WHITE),
+            Text("3", font="PingFang SC", font_size=56, color=WHITE, weight=BOLD),
+            Text(",", font="PingFang SC", font_size=48, color=WHITE),
+            Text("4", font="PingFang SC", font_size=56, color=WHITE, weight=BOLD),
+            Text(",", font="PingFang SC", font_size=48, color=WHITE),
+            Text("6", font="PingFang SC", font_size=56, color=WHITE, weight=BOLD)
         ).arrange(RIGHT, buff=0.1)
         numbers.move_to(UP * 3.5)
         
@@ -582,7 +582,7 @@ class ProportionProperties(Scene):
         # 问题
         question = Text(
             "它们能组成比例吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 2.3)
@@ -592,19 +592,19 @@ class ProportionProperties(Scene):
         # 尝试排列成比例
         attempt_label = Text(
             "尝试:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 1.3 + LEFT * 3)
         
         proportion_attempt = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_OUTER, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=48, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_INNER, weight=BOLD),
-            Text("=", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_PROPERTY),
-            Text("4", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_INNER, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=48, color=WHITE),
-            Text("6", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_OUTER, weight=BOLD)
+            Text("2", font="PingFang SC", font_size=48, color=self.COLOR_OUTER, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=48, color=WHITE),
+            Text("3", font="PingFang SC", font_size=48, color=self.COLOR_INNER, weight=BOLD),
+            Text("=", font="PingFang SC", font_size=48, color=self.COLOR_PROPERTY),
+            Text("4", font="PingFang SC", font_size=48, color=self.COLOR_INNER, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=48, color=WHITE),
+            Text("6", font="PingFang SC", font_size=48, color=self.COLOR_OUTER, weight=BOLD)
         ).arrange(RIGHT, buff=0.12)
         proportion_attempt.move_to(UP * 1.3 + RIGHT * 1)
         
@@ -652,7 +652,7 @@ class ProportionProperties(Scene):
         # 结论
         conclusion = Text(
             "能!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -663,7 +663,7 @@ class ProportionProperties(Scene):
         # 提示
         tip = Text(
             "只要内项积等于外项积，就能组成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -682,7 +682,7 @@ class ProportionProperties(Scene):
         # 总结标题
         summary_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -697,7 +697,7 @@ class ProportionProperties(Scene):
         icon_1 = Circle(radius=0.2, fill_color=self.COLOR_PROPERTY, fill_opacity=1, stroke_width=0)
         text_1 = Text(
             "比例: 两个比相等的式子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -709,7 +709,7 @@ class ProportionProperties(Scene):
         icon_2 = Circle(radius=0.2, fill_color=self.COLOR_OUTER, fill_opacity=1, stroke_width=0)
         text_2 = Text(
             "基本性质: 内项积 = 外项积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -721,7 +721,7 @@ class ProportionProperties(Scene):
         icon_3 = Circle(radius=0.2, fill_color=self.COLOR_INNER, fill_opacity=1, stroke_width=0)
         text_3 = Text(
             "可判断四个数能否组成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -735,7 +735,7 @@ class ProportionProperties(Scene):
         
         # 示例回顾
         example_recap = VGroup(
-            Text("例:", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("例:", font="PingFang SC", font_size=26, color=GRAY_A),
             MathTex(r"2:3 = 4:6", font_size=32, color=self.COLOR_PROPERTY),
             MathTex(r"\Rightarrow", font_size=28, color=WHITE),
             MathTex(r"2 \times 6 = 3 \times 4", font_size=28, color=WHITE)
@@ -751,7 +751,7 @@ class ProportionProperties(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -759,7 +759,7 @@ class ProportionProperties(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -773,7 +773,7 @@ class ProportionProperties(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -782,7 +782,7 @@ class ProportionProperties(Scene):
         
         # 装饰图标 - 等号符号
         icons = VGroup(*[
-            Text("=", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_PROPERTY, weight=BOLD)
+            Text("=", font="PingFang SC", font_size=40, color=self.COLOR_PROPERTY, weight=BOLD)
             .shift(1.5 * np.array([np.cos(i * PI / 3), np.sin(i * PI / 3), 0]))
             for i in range(6)
         ]).move_to(follow_text.get_center() + DOWN * 1.5)

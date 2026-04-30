@@ -99,7 +99,7 @@ class ArcLengthFormula(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -109,7 +109,7 @@ class ArcLengthFormula(Scene):
         # 钩子问题
         hook_text = Text(
             "如何计算弧长?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -155,7 +155,7 @@ class ArcLengthFormula(Scene):
         # 标题
         title = Text(
             "首先, 回顾圆周长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 6)
@@ -261,7 +261,7 @@ class ArcLengthFormula(Scene):
         # 标题
         title = Text(
             "弧: 圆周的一部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -319,7 +319,7 @@ class ArcLengthFormula(Scene):
         # 说明文字
         explain = Text(
             "圆心角决定弧的大小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -340,7 +340,7 @@ class ArcLengthFormula(Scene):
         # 标题
         title = Text(
             "找规律: 比例关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -350,7 +350,7 @@ class ArcLengthFormula(Scene):
         # 问题1: 圆心角是多少?
         question1 = Text(
             "这个角是多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.5 + LEFT * 3)
@@ -383,7 +383,7 @@ class ArcLengthFormula(Scene):
         # 问题2: 完整圆是多少?
         question2 = Text(
             "完整圆是多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.5 + RIGHT * 3)
@@ -420,7 +420,7 @@ class ArcLengthFormula(Scene):
         # 添加说明文字
         ratio_explain = Text(
             "(弧长/圆周长 = 角度/360°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(ratio_math, DOWN, buff=0.3)
@@ -502,7 +502,7 @@ class ArcLengthFormula(Scene):
         # 标题
         title = Text(
             "推导弧长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -523,7 +523,7 @@ class ArcLengthFormula(Scene):
         
         explain1 = Text(
             "用字母表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(step1, RIGHT, buff=0.5)
@@ -546,7 +546,7 @@ class ArcLengthFormula(Scene):
         
         explain2 = Text(
             "代入 C = 2πr",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(step2, RIGHT, buff=0.5)
@@ -569,7 +569,7 @@ class ArcLengthFormula(Scene):
         
         explain3 = Text(
             "公式形式1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_FORMULA
         ).next_to(step3, RIGHT, buff=0.5)
@@ -595,7 +595,7 @@ class ArcLengthFormula(Scene):
         
         explain4 = Text(
             "公式形式2 (化简)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_FORMULA
         ).next_to(step4, RIGHT, buff=0.5)
@@ -627,7 +627,7 @@ class ArcLengthFormula(Scene):
         # 重新排列三个公式
         formula_title = Text(
             "弧长公式的三种形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -641,7 +641,7 @@ class ArcLengthFormula(Scene):
         
         label1 = Text(
             "最常用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).next_to(final_formula1, RIGHT, buff=0.3)
@@ -655,7 +655,7 @@ class ArcLengthFormula(Scene):
         
         label2 = Text(
             "便于理解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(final_formula2, RIGHT, buff=0.3)
@@ -669,7 +669,7 @@ class ArcLengthFormula(Scene):
         
         label3 = Text(
             "弧度制 (高中)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(final_formula3, RIGHT, buff=0.3)
@@ -727,7 +727,7 @@ class ArcLengthFormula(Scene):
         # 标题
         title = Text(
             "实战演练",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -738,7 +738,7 @@ class ArcLengthFormula(Scene):
         # 题目
         problem = Text(
             "已知: r = 3cm, n = 120°\n求: 弧长 l",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
             line_spacing=1.2
@@ -840,7 +840,7 @@ class ArcLengthFormula(Scene):
         # 使用Text显示中文，MathTex显示公式
         formula_text = Text(
             "使用公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 1 + LEFT * 2)
@@ -934,7 +934,7 @@ class ArcLengthFormula(Scene):
         # 标题
         title = Text(
             "弧长公式总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -945,7 +945,7 @@ class ArcLengthFormula(Scene):
         # 要点1
         point1 = Text(
             "弧长 = 圆周长 × 角度比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -955,7 +955,7 @@ class ArcLengthFormula(Scene):
         # 要点2
         point2 = Text(
             "三种公式形式, 灵活选择",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -995,7 +995,7 @@ class ArcLengthFormula(Scene):
         # 记忆技巧
         tip = Text(
             "记住: n/360 = 角度比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -1024,14 +1024,14 @@ class ArcLengthFormula(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -1045,7 +1045,7 @@ class ArcLengthFormula(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

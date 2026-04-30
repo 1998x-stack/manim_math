@@ -72,19 +72,19 @@ class LikeRadicals(Scene):
     def scene_opening(self):
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B,
+            font="PingFang SC", font_size=18, color=GRAY_B,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
 
         chapter = Text(
             "八年级 · 第十六章 · 二次根式",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+            font="PingFang SC", font_size=20, color=GRAY_B,
         ).move_to(UP * 6.55)
         self.play(FadeIn(chapter), run_time=0.3)
 
         hook = Text(
             "下面哪组可以合并？",
-            font="Noto Sans CJK SC", font_size=40, color=self.C_TITLE,
+            font="PingFang SC", font_size=40, color=self.C_TITLE,
         ).move_to(UP * 5.6)
         self.play(Write(hook), run_time=0.7)
 
@@ -95,7 +95,7 @@ class LikeRadicals(Scene):
         left_f   = MathTex(r"2\sqrt{3} + 5\sqrt{3}", font_size=36, color=WHITE).move_to(UP * 4.0 + LEFT * 2.05)
         right_f  = MathTex(r"\sqrt{2} + \sqrt{3}", font_size=36, color=WHITE).move_to(UP * 4.0 + RIGHT * 2.05)
 
-        vs = Text("VS", font="Noto Sans CJK SC", font_size=34, color=GRAY_A).move_to(UP * 4.0)
+        vs = Text("VS", font="PingFang SC", font_size=34, color=GRAY_A).move_to(UP * 4.0)
 
         self.play(
             Create(left_bg), Write(left_f),
@@ -106,8 +106,8 @@ class LikeRadicals(Scene):
         self.wait(0.8)
 
         # 揭晓左边可合并
-        tick = Text("✓ 可以合并！", font="Noto Sans CJK SC", font_size=28, color=self.C_SAME).move_to(UP * 2.8 + LEFT * 2.05)
-        cross = Text("✗ 不能合并", font="Noto Sans CJK SC", font_size=28, color=self.C_DIFF).move_to(UP * 2.8 + RIGHT * 2.05)
+        tick = Text("✓ 可以合并！", font="PingFang SC", font_size=28, color=self.C_SAME).move_to(UP * 2.8 + LEFT * 2.05)
+        cross = Text("✗ 不能合并", font="PingFang SC", font_size=28, color=self.C_DIFF).move_to(UP * 2.8 + RIGHT * 2.05)
         self.play(
             left_bg.animate.set_stroke(color=self.C_SAME, width=5),
             Flash(left_f, color=self.C_SAME, flash_radius=0.8),
@@ -118,7 +118,7 @@ class LikeRadicals(Scene):
 
         reveal = Text(
             "关键：被开方数是否相同！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(UP * 1.8)
         self.play(FadeIn(reveal, shift=UP * 0.2), run_time=0.5)
         self.wait(1.2)
@@ -137,7 +137,7 @@ class LikeRadicals(Scene):
     def scene_definition(self):
         title = Text(
             "同类二次根式",
-            font="Noto Sans CJK SC", font_size=50, color=self.C_TITLE,
+            font="PingFang SC", font_size=50, color=self.C_TITLE,
         ).move_to(UP * 6.4)
         self.play(Write(title), run_time=0.6)
 
@@ -145,49 +145,49 @@ class LikeRadicals(Scene):
         def_bg = self.card(7.6, 2.4, self.C_FORMULA, UP * 5.0, fill="#0f3460", alpha=0.9)
         def_line1 = Text(
             "化成最简二次根式后，",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE,
+            font="PingFang SC", font_size=26, color=WHITE,
         )
         def_line2 = Text(
             "被开方数相同的二次根式",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_FORMULA,
+            font="PingFang SC", font_size=26, color=self.C_FORMULA,
         )
         def_line3 = Text(
             "叫做同类二次根式",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE,
+            font="PingFang SC", font_size=26, color=self.C_TITLE,
         )
         def_block = VGroup(def_line1, def_line2, def_line3).arrange(DOWN, buff=0.2).move_to(UP * 5.0)
         self.play(Create(def_bg), Write(def_block), run_time=0.9)
 
         # 类比：同类项
         analogy_bg = self.card(7.4, 1.5, self.C_RULE, UP * 3.2)
-        analogy_l  = Text("类比：", font="Noto Sans CJK SC", font_size=24, color=self.C_RULE)
+        analogy_l  = Text("类比：", font="PingFang SC", font_size=24, color=self.C_RULE)
         analogy_f  = MathTex(r"2x + 5x", font_size=36, color=WHITE)
-        analogy_r  = Text("↔ 同类项", font="Noto Sans CJK SC", font_size=24, color=self.C_RULE)
+        analogy_r  = Text("↔ 同类项", font="PingFang SC", font_size=24, color=self.C_RULE)
         VGroup(analogy_l, analogy_f, analogy_r).arrange(RIGHT, buff=0.3).move_to(UP * 3.2)
         self.play(Create(analogy_bg), Write(analogy_l), Write(analogy_f), Write(analogy_r), run_time=0.7)
 
         # 示例：同类 vs 非同类
-        eg_title = Text("举例：", font="Noto Sans CJK SC", font_size=26, color=GRAY_A).move_to(UP * 2.0)
+        eg_title = Text("举例：", font="PingFang SC", font_size=26, color=GRAY_A).move_to(UP * 2.0)
         self.play(FadeIn(eg_title), run_time=0.3)
 
         same_bg  = self.card(7.0, 1.5, self.C_SAME,  UP * 1.0)
-        same_lbl  = Text("同类：", font="Noto Sans CJK SC", font_size=24, color=self.C_SAME)
+        same_lbl  = Text("同类：", font="PingFang SC", font_size=24, color=self.C_SAME)
         same_f    = VGroup(
             MathTex(r"2\sqrt{3}", font_size=36, color=WHITE),
-            Text("和", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("和", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"5\sqrt{3}", font_size=36, color=WHITE),
         ).arrange(RIGHT, buff=0.15)
-        same_note = Text("（被开方数都是3）", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        same_note = Text("（被开方数都是3）", font="PingFang SC", font_size=20, color=GRAY_A)
         VGroup(same_lbl, same_f, same_note).arrange(RIGHT, buff=0.25).move_to(UP * 1.0)
 
         diff_bg  = self.card(7.0, 1.5, self.C_DIFF,  DOWN * 0.1)
-        diff_lbl  = Text("非同类：", font="Noto Sans CJK SC", font_size=24, color=self.C_DIFF)
+        diff_lbl  = Text("非同类：", font="PingFang SC", font_size=24, color=self.C_DIFF)
         diff_f    = VGroup(
             MathTex(r"\sqrt{2}", font_size=36, color=WHITE),
-            Text("和", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("和", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"\sqrt{3}", font_size=36, color=WHITE),
         ).arrange(RIGHT, buff=0.15)
-        diff_note = Text("（被开方数不同）", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        diff_note = Text("（被开方数不同）", font="PingFang SC", font_size=20, color=GRAY_A)
         VGroup(diff_lbl, diff_f, diff_note).arrange(RIGHT, buff=0.25).move_to(DOWN * 0.1)
 
         self.play(Create(same_bg),  Write(same_lbl),  Write(same_f),  FadeIn(same_note),  run_time=0.6)
@@ -197,7 +197,7 @@ class LikeRadicals(Scene):
         warn_bg = self.card(7.4, 1.6, self.C_TITLE, DOWN * 1.5, fill="#1a1000", alpha=0.9)
         warn_t  = Text(
             "⚠ 判断前必须先化成最简二次根式！",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE,
+            font="PingFang SC", font_size=24, color=self.C_TITLE,
         ).move_to(DOWN * 1.5)
         self.play(Create(warn_bg), Write(warn_t), run_time=0.6)
         self.wait(2.0)
@@ -210,7 +210,7 @@ class LikeRadicals(Scene):
     def scene_check_method(self):
         title = Text(
             "怎么判断同类？",
-            font="Noto Sans CJK SC", font_size=44, color=self.C_TITLE,
+            font="PingFang SC", font_size=44, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
@@ -227,8 +227,8 @@ class LikeRadicals(Scene):
 
         for (tag, desc, fml), col, pos in zip(steps, colors, positions):
             bg  = self.card(7.5, 1.9, col, pos)
-            tag_t  = Text(tag,  font="Noto Sans CJK SC", font_size=24, color=col)
-            desc_t = Text(desc, font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            tag_t  = Text(tag,  font="PingFang SC", font_size=24, color=col)
+            desc_t = Text(desc, font="PingFang SC", font_size=24, color=WHITE)
             form_t = MathTex(fml, font_size=30, color=self.C_TITLE)
             row    = VGroup(tag_t, desc_t).arrange(RIGHT, buff=0.3)
             VGroup(row, form_t).arrange(DOWN, buff=0.18).move_to(pos)
@@ -240,7 +240,7 @@ class LikeRadicals(Scene):
         key_bg = self.card(7.5, 1.4, self.C_COEFF, DOWN * 1.1, fill="#1a0f00", alpha=0.9)
         key_t  = Text(
             "口诀：化简 → 看根号内 → 相同即同类",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE,
+            font="PingFang SC", font_size=24, color=self.C_TITLE,
         ).move_to(DOWN * 1.1)
         self.play(Create(key_bg), Write(key_t), run_time=0.6)
         self.wait(2.0)
@@ -253,14 +253,14 @@ class LikeRadicals(Scene):
     def scene_merge_rule(self):
         title = Text(
             "合并法则",
-            font="Noto Sans CJK SC", font_size=48, color=self.C_TITLE,
+            font="PingFang SC", font_size=48, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
         # 类比同类项合并
         analogy_title = Text(
             "类比同类项合并：",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_A,
+            font="PingFang SC", font_size=28, color=GRAY_A,
         ).move_to(UP * 5.5)
         analogy_f = MathTex(
             r"2x + 5x = (2+5)x = 7x",
@@ -272,7 +272,7 @@ class LikeRadicals(Scene):
         arrow_down = MathTex(r"\Downarrow", font_size=40, color=GRAY_A).move_to(UP * 3.8)
         same_logic = Text(
             "同样地，对同类二次根式：",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE,
+            font="PingFang SC", font_size=26, color=WHITE,
         ).move_to(UP * 3.1)
         self.play(Write(arrow_down), FadeIn(same_logic), run_time=0.5)
 
@@ -284,7 +284,7 @@ class LikeRadicals(Scene):
         ).move_to(UP * 2.1)
         rule_note = Text(
             "系数相加减，根式部分不变",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_FORMULA,
+            font="PingFang SC", font_size=24, color=self.C_FORMULA,
         ).move_to(UP * 1.5)
 
         self.play(Create(rule_bg), Write(rule_f), run_time=0.7)
@@ -295,22 +295,22 @@ class LikeRadicals(Scene):
             MathTex(r"m,\ n", font_size=36).move_to(UP * 0.4),
             color=self.C_COEFF, buff=0.15, corner_radius=0.12,
         )
-        coeff_lbl = Text("系数（可变）", font="Noto Sans CJK SC", font_size=22, color=self.C_COEFF).move_to(UP * 0.4 + LEFT * 2.5)
+        coeff_lbl = Text("系数（可变）", font="PingFang SC", font_size=22, color=self.C_COEFF).move_to(UP * 0.4 + LEFT * 2.5)
 
         root_box = SurroundingRectangle(
             MathTex(r"\sqrt{a}", font_size=36).move_to(DOWN * 0.4),
             color=self.C_ROOT, buff=0.15, corner_radius=0.12,
         )
-        root_lbl = Text("根式（不变）", font="Noto Sans CJK SC", font_size=22, color=self.C_ROOT).move_to(DOWN * 0.4 + RIGHT * 2.5)
+        root_lbl = Text("根式（不变）", font="PingFang SC", font_size=22, color=self.C_ROOT).move_to(DOWN * 0.4 + RIGHT * 2.5)
 
         coeff_legend = VGroup(
-            Text("系数：", font="Noto Sans CJK SC", font_size=22, color=self.C_COEFF),
-            Text("前面的数字，相加减", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("系数：", font="PingFang SC", font_size=22, color=self.C_COEFF),
+            Text("前面的数字，相加减", font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 1.5)
 
         root_legend = VGroup(
-            Text("根式：", font="Noto Sans CJK SC", font_size=22, color=self.C_ROOT),
-            Text("根号部分，保持不变", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("根式：", font="PingFang SC", font_size=22, color=self.C_ROOT),
+            Text("根号部分，保持不变", font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 2.1)
 
         self.play(FadeIn(coeff_legend), FadeIn(root_legend), run_time=0.6)
@@ -319,7 +319,7 @@ class LikeRadicals(Scene):
         warn_bg = self.card(7.4, 1.4, self.C_DIFF, DOWN * 3.2, fill="#2d0a0a", alpha=0.9)
         warn_t  = Text(
             "⚠ 非同类二次根式不能合并！",
-            font="Noto Sans CJK SC", font_size=26, color=self.C_DIFF,
+            font="PingFang SC", font_size=26, color=self.C_DIFF,
         ).move_to(DOWN * 3.2)
         self.play(Create(warn_bg), Write(warn_t), run_time=0.6)
         self.wait(2.0)
@@ -332,10 +332,10 @@ class LikeRadicals(Scene):
     def scene_example_basic(self):
         title = Text(
             "例题 1  — 直接合并",
-            font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+            font="PingFang SC", font_size=34, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_FORMULA, UP * 5.5)
-        prob_l  = Text("计算：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_l  = Text("计算：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_f  = MathTex(r"2\sqrt{3} + 5\sqrt{3}", font_size=52, color=WHITE)
         VGroup(prob_l, prob_f).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_l), Write(prob_f), run_time=0.7)
@@ -365,7 +365,7 @@ class LikeRadicals(Scene):
 
         note = Text(
             "规律：系数 2+5=7，根式 √3 不变",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(DOWN * 1.2)
         self.play(FadeIn(note, shift=UP * 0.2), run_time=0.5)
         self.wait(2.0)
@@ -378,31 +378,31 @@ class LikeRadicals(Scene):
     def scene_example_advanced(self):
         title = Text(
             "例题 2  — 先化简再合并",
-            font="Noto Sans CJK SC", font_size=32, color=self.C_TITLE,
+            font="PingFang SC", font_size=32, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         prob_bg = self.card(7.2, 1.4, self.C_FORMULA, UP * 5.5)
-        prob_l  = Text("计算：", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+        prob_l  = Text("计算：", font="PingFang SC", font_size=28, color=GRAY_A)
         prob_f  = MathTex(r"\sqrt{12} + \sqrt{3}", font_size=52, color=WHITE)
         VGroup(prob_l, prob_f).arrange(RIGHT, buff=0.3).move_to(UP * 5.5)
         self.play(Write(title), Create(prob_bg), Write(prob_l), Write(prob_f), run_time=0.7)
 
         # Step 1: 化简 √12
         s1_bg = self.card(7.2, 1.7, self.C_COEFF, UP * 4.0)
-        s1_tag = Text("Step 1  化简 √12：", font="Noto Sans CJK SC", font_size=24, color=self.C_COEFF)
+        s1_tag = Text("Step 1  化简 √12：", font="PingFang SC", font_size=24, color=self.C_COEFF)
         s1_f   = MathTex(r"\sqrt{12} = \sqrt{4 \times 3} = 2\sqrt{3}", font_size=34, color=WHITE)
         VGroup(s1_tag, s1_f).arrange(DOWN, buff=0.15).move_to(UP * 4.0)
         self.play(Create(s1_bg), Write(s1_tag), Write(s1_f), run_time=0.7)
 
         # Step 2: 代入
         s2_bg = self.card(7.2, 1.7, self.C_RULE, UP * 2.1)
-        s2_tag = Text("Step 2  代入原式：", font="Noto Sans CJK SC", font_size=24, color=self.C_RULE)
+        s2_tag = Text("Step 2  代入原式：", font="PingFang SC", font_size=24, color=self.C_RULE)
         s2_f   = MathTex(r"2\sqrt{3} + \sqrt{3}", font_size=40, color=WHITE)
         VGroup(s2_tag, s2_f).arrange(DOWN, buff=0.15).move_to(UP * 2.1)
         self.play(Create(s2_bg), Write(s2_tag), Write(s2_f), run_time=0.6)
 
         # Step 3: 合并
         s3_bg = self.card(7.2, 1.7, self.C_SAME, UP * 0.2)
-        s3_tag = Text("Step 3  合并同类项：", font="Noto Sans CJK SC", font_size=24, color=self.C_SAME)
+        s3_tag = Text("Step 3  合并同类项：", font="PingFang SC", font_size=24, color=self.C_SAME)
         s3_f   = MathTex(r"(2 + 1)\sqrt{3} = 3\sqrt{3}", font_size=40, color=WHITE)
         VGroup(s3_tag, s3_f).arrange(DOWN, buff=0.15).move_to(UP * 0.2)
         self.play(Create(s3_bg), Write(s3_tag), Write(s3_f), run_time=0.6)
@@ -415,7 +415,7 @@ class LikeRadicals(Scene):
 
         key_note = Text(
             "看似不同类 → 化简后才发现是同类！",
-            font="Noto Sans CJK SC", font_size=22, color=self.C_TITLE,
+            font="PingFang SC", font_size=22, color=self.C_TITLE,
         ).move_to(DOWN * 2.7)
         self.play(FadeIn(key_note, shift=UP * 0.2), run_time=0.5)
         self.wait(2.0)
@@ -428,21 +428,21 @@ class LikeRadicals(Scene):
     def scene_counter_example(self):
         title = Text(
             "反例 — 不能合并的情况",
-            font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+            font="PingFang SC", font_size=34, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
         # 错误做法
         wrong_bg = self.card(7.2, 2.2, self.C_DIFF, UP * 5.1, fill="#2d0a0a", alpha=0.9)
-        wrong_tag = Text("✗  错误做法：", font="Noto Sans CJK SC", font_size=26, color=self.C_DIFF)
+        wrong_tag = Text("✗  错误做法：", font="PingFang SC", font_size=26, color=self.C_DIFF)
         wrong_f   = MathTex(r"\sqrt{2} + \sqrt{3} \neq \sqrt{5}", font_size=44, color=WHITE)
-        wrong_exp = Text("（根号内不能直接相加！）", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        wrong_exp = Text("（根号内不能直接相加！）", font="PingFang SC", font_size=20, color=GRAY_A)
         VGroup(wrong_tag, wrong_f, wrong_exp).arrange(DOWN, buff=0.18).move_to(UP * 5.1)
         self.play(Create(wrong_bg), Write(wrong_tag), Write(wrong_f), FadeIn(wrong_exp), run_time=0.8)
 
         # 数字验证
         verify_bg = self.card(7.2, 2.5, self.C_FORMULA, UP * 3.0)
-        verify_tag = Text("数字验证：", font="Noto Sans CJK SC", font_size=24, color=self.C_FORMULA)
+        verify_tag = Text("数字验证：", font="PingFang SC", font_size=24, color=self.C_FORMULA)
         verify_f1  = MathTex(r"\sqrt{2} \approx 1.414", font_size=32, color=WHITE)
         verify_f2  = MathTex(r"\sqrt{3} \approx 1.732", font_size=32, color=WHITE)
         verify_f3  = MathTex(r"\sqrt{2}+\sqrt{3} \approx 3.146 \neq \sqrt{5} \approx 2.236", font_size=28, color=self.C_DIFF)
@@ -454,9 +454,9 @@ class LikeRadicals(Scene):
 
         # 正确处理
         correct_bg = self.card(7.2, 1.8, self.C_SAME, UP * 0.8)
-        correct_tag = Text("✓  正确：", font="Noto Sans CJK SC", font_size=26, color=self.C_SAME)
+        correct_tag = Text("✓  正确：", font="PingFang SC", font_size=26, color=self.C_SAME)
         correct_f   = MathTex(r"\sqrt{2} + \sqrt{3}", font_size=40, color=WHITE)
-        correct_note= Text("已是最简，非同类，不可合并", font="Noto Sans CJK SC", font_size=22, color=self.C_SAME)
+        correct_note= Text("已是最简，非同类，不可合并", font="PingFang SC", font_size=22, color=self.C_SAME)
         VGroup(correct_tag, correct_f, correct_note).arrange(DOWN, buff=0.15).move_to(UP * 0.8)
         self.play(Create(correct_bg), Write(correct_tag), Write(correct_f), FadeIn(correct_note), run_time=0.7)
 
@@ -464,7 +464,7 @@ class LikeRadicals(Scene):
         rule_bg = self.card(7.4, 1.5, self.C_RULE, DOWN * 0.8, fill="#16102e", alpha=0.9)
         rule_t  = Text(
             "被开方数不同 = 非同类 = 不能合并",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_TITLE,
+            font="PingFang SC", font_size=24, color=self.C_TITLE,
         ).move_to(DOWN * 0.8)
         self.play(Create(rule_bg), Write(rule_t), run_time=0.6)
         self.wait(2.0)
@@ -477,7 +477,7 @@ class LikeRadicals(Scene):
     def scene_quick_judge(self):
         title = Text(
             "快速判断是否可以合并",
-            font="Noto Sans CJK SC", font_size=34, color=self.C_TITLE,
+            font="PingFang SC", font_size=34, color=self.C_TITLE,
         ).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.6)
 
@@ -501,8 +501,8 @@ class LikeRadicals(Scene):
 
             bg   = self.card(7.6, card_h, col, pos)
             expr_f = MathTex(expr, font_size=36, color=WHITE)
-            sym_t  = Text(sym, font="Noto Sans CJK SC", font_size=30, color=col)
-            reas_t = Text(reason, font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            sym_t  = Text(sym, font="PingFang SC", font_size=30, color=col)
+            reas_t = Text(reason, font="PingFang SC", font_size=18, color=GRAY_A)
             res_f  = MathTex(result, font_size=30, color=self.C_TITLE)
             top_row = VGroup(expr_f, sym_t).arrange(RIGHT, buff=0.4)
             bot_row = VGroup(reas_t, res_f).arrange(RIGHT, buff=0.3)
@@ -522,7 +522,7 @@ class LikeRadicals(Scene):
     def scene_summary(self):
         title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC", font_size=46, color=self.C_TITLE,
+            font="PingFang SC", font_size=46, color=self.C_TITLE,
         ).move_to(UP * 6.6)
         self.play(Write(title), run_time=0.5)
 
@@ -541,7 +541,7 @@ class LikeRadicals(Scene):
 
         for col, pos, label_str, fml_str in blocks:
             bg  = self.card(7.6, 1.5, col, pos)
-            lbl = Text(label_str, font="Noto Sans CJK SC", font_size=24, color=col)
+            lbl = Text(label_str, font="PingFang SC", font_size=24, color=col)
             fml = MathTex(fml_str, font_size=28, color=WHITE)
             VGroup(lbl, fml).arrange(RIGHT, buff=0.4).move_to(pos)
             self.play(Create(bg), Write(lbl), Write(fml), run_time=0.45)
@@ -556,11 +556,11 @@ class LikeRadicals(Scene):
     def scene_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=38, color=WHITE,
+            font="PingFang SC", font_size=38, color=WHITE,
         ).move_to(UP * 2.5)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+            font="PingFang SC", font_size=28, color=GRAY_B,
         ).move_to(UP * 1.7)
 
         self.play(Transform(self.author, author_big), run_time=0.8)
@@ -568,7 +568,7 @@ class LikeRadicals(Scene):
 
         follow = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC", font_size=30, color=self.C_TITLE,
+            font="PingFang SC", font_size=30, color=self.C_TITLE,
         ).move_to(UP * 0.3)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
 

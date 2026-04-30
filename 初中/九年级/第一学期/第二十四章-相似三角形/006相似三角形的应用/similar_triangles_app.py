@@ -47,7 +47,7 @@ class SimilarTrianglesApp(Scene):
         self.COLOR_HIGHLIGHT = YELLOW
         self.COLOR_RIVER = "#1abc9c"
         self.COLOR_GROUND = "#7f8c8d"
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
 
         # 预计算所有几何数据
         self.setup_geometry()

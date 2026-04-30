@@ -69,7 +69,7 @@ class PercentageMeaning(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -79,7 +79,7 @@ class PercentageMeaning(Scene):
         # 钩子问题
         hook_text = Text(
             "考试成绩85%\n是什么意思?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -115,7 +115,7 @@ class PercentageMeaning(Scene):
         # 标题
         title = Text(
             "什么是百分比?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -135,14 +135,14 @@ class PercentageMeaning(Scene):
         definition_text = VGroup(
             Text(
                 "百分比(百分数)",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SUBTITLE,
                 color=WHITE,
                 weight=BOLD
             ),
             Text(
                 "表示一个数是另一个数的百分之几",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=self.COLOR_AUXILIARY
             )
@@ -157,7 +157,7 @@ class PercentageMeaning(Scene):
         # %符号的含义
         percent_explain = Text(
             "%的含义:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1.8)
@@ -176,7 +176,7 @@ class PercentageMeaning(Scene):
         # 标注后项固定为100
         hundred_note = Text(
             "后项固定为100",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_HIGHLIGHT
         ).next_to(percent_parts[2], DOWN, buff=0.5)
@@ -198,7 +198,7 @@ class PercentageMeaning(Scene):
         
         # 示例25%
         example = VGroup(
-            Text("例如:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=GRAY_A),
+            Text("例如:", font="PingFang SC", font_size=self.FONT_BODY, color=GRAY_A),
             VGroup(
                 Text("25", font_size=self.FONT_PERCENT_NORMAL, color=self.COLOR_PERCENT),
                 Text("%", font_size=self.FONT_PERCENT_NORMAL, color=self.COLOR_PERCENT)
@@ -240,7 +240,7 @@ class PercentageMeaning(Scene):
         # 标题
         title = Text(
             "100格图示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6.5)
@@ -275,7 +275,7 @@ class PercentageMeaning(Scene):
         # 标注总数100
         total_label = Text(
             "总共100格",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 0.5)
@@ -302,7 +302,7 @@ class PercentageMeaning(Scene):
         # 标注25格
         filled_label = Text(
             "填充了25格",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_FILLED
         ).move_to(DOWN * 1.5)
@@ -351,7 +351,7 @@ class PercentageMeaning(Scene):
         # 标题
         title = Text(
             "圆形百分比图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6.5)
@@ -406,7 +406,7 @@ class PercentageMeaning(Scene):
         # 说明文字
         explanation = Text(
             "25%是整体的四分之一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 0.5)
@@ -435,7 +435,7 @@ class PercentageMeaning(Scene):
         # 标题
         title = Text(
             "百分比的三种形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -445,7 +445,7 @@ class PercentageMeaning(Scene):
         # 通用公式标题
         formula_title = Text(
             "通用公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -519,7 +519,7 @@ class PercentageMeaning(Scene):
         # 具体示例标题
         example_title = Text(
             "具体示例: 25%",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 1.8)
@@ -598,7 +598,7 @@ class PercentageMeaning(Scene):
         # 标题
         title = Text(
             "常用百分比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6.5)
@@ -619,9 +619,9 @@ class PercentageMeaning(Scene):
         
         # 表头
         header = VGroup(
-            Text("百分比", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PERCENT),
-            Text("分数", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FRACTION),
-            Text("小数", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_DECIMAL)
+            Text("百分比", font="PingFang SC", font_size=22, color=self.COLOR_PERCENT),
+            Text("分数", font="PingFang SC", font_size=22, color=self.COLOR_FRACTION),
+            Text("小数", font="PingFang SC", font_size=22, color=self.COLOR_DECIMAL)
         ).arrange(RIGHT, buff=1.2).move_to(UP * y_start)
         
         self.play(Create(header), run_time=1.0)
@@ -649,7 +649,7 @@ class PercentageMeaning(Scene):
         # 提示记忆
         hint = Text(
             "这些是最常用的百分比,建议记住!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -671,7 +671,7 @@ class PercentageMeaning(Scene):
         # 标题
         title = Text(
             "百分比在生活中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -683,14 +683,14 @@ class PercentageMeaning(Scene):
             Text("📊", font_size=40),
             Text(
                 "考试成绩",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ),
             VGroup(
                 Text("85", font_size=28, color=self.COLOR_PERCENT, weight=BOLD),
                 Text("%", font_size=28, color=self.COLOR_PERCENT, weight=BOLD),
-                Text(" - 优秀!", font="Noto Sans CJK SC", font_size=20, color=GREEN)
+                Text(" - 优秀!", font="PingFang SC", font_size=20, color=GREEN)
             ).arrange(RIGHT, buff=0.05)
         ).arrange(DOWN, buff=0.25).move_to(UP * 3.5)
         
@@ -701,14 +701,14 @@ class PercentageMeaning(Scene):
             Text("💰", font_size=40),
             Text(
                 "打折优惠",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ),
             VGroup(
                 Text("20", font_size=28, color=self.COLOR_PERCENT, weight=BOLD),
                 Text("% off", font_size=28, color=self.COLOR_PERCENT, weight=BOLD),
-                Text(" - 打8折", font="Noto Sans CJK SC", font_size=20, color=YELLOW)
+                Text(" - 打8折", font="PingFang SC", font_size=20, color=YELLOW)
             ).arrange(RIGHT, buff=0.05)
         ).arrange(DOWN, buff=0.25).move_to(UP * 1)
         
@@ -719,14 +719,14 @@ class PercentageMeaning(Scene):
             Text("📈", font_size=40),
             Text(
                 "增长率",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ),
             VGroup(
                 Text("+15", font_size=28, color=self.COLOR_PERCENT, weight=BOLD),
                 Text("%", font_size=28, color=self.COLOR_PERCENT, weight=BOLD),
-                Text(" - 正增长", font="Noto Sans CJK SC", font_size=20, color=BLUE)
+                Text(" - 正增长", font="PingFang SC", font_size=20, color=BLUE)
             ).arrange(RIGHT, buff=0.05)
         ).arrange(DOWN, buff=0.25).move_to(DOWN * 1.5)
         
@@ -751,14 +751,14 @@ class PercentageMeaning(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 1)
@@ -772,7 +772,7 @@ class PercentageMeaning(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -784,9 +784,9 @@ class PercentageMeaning(Scene):
         
         # 关键词标签
         keywords = VGroup(
-            Text("#百分比", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PERCENT),
-            Text("#百分数", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FRACTION),
-            Text("#数学", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HIGHLIGHT)
+            Text("#百分比", font="PingFang SC", font_size=22, color=self.COLOR_PERCENT),
+            Text("#百分数", font="PingFang SC", font_size=22, color=self.COLOR_FRACTION),
+            Text("#数学", font="PingFang SC", font_size=22, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.5).move_to(DOWN * 2.5)
         
         self.play(

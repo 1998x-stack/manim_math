@@ -110,7 +110,7 @@ class ProportionalSegments(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.2)
@@ -120,7 +120,7 @@ class ProportionalSegments(Scene):
         # 钩子问题
         hook_text = Text(
             "这四条线段有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -171,14 +171,14 @@ class ProportionalSegments(Scene):
         # 标题
         title = Text(
             "Proportional Segments",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6.2)
         
         subtitle = Text(
             "比例线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -191,7 +191,7 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_A
         )
-        label_a = Text("a", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_a = Text("a", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_a.next_to(seg_a, LEFT, buff=0.3)
         
         seg_b = Line(
@@ -199,7 +199,7 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_B
         )
-        label_b = Text("b", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_b = Text("b", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_b.next_to(seg_b, LEFT, buff=0.3)
         
         seg_c = Line(
@@ -207,7 +207,7 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_C
         )
-        label_c = Text("c", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_c = Text("c", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_c.next_to(seg_c, LEFT, buff=0.3)
         
         seg_d = Line(
@@ -215,7 +215,7 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_D
         )
-        label_d = Text("d", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_d = Text("d", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_d.next_to(seg_d, LEFT, buff=0.3)
         
         # 依次创建
@@ -229,10 +229,10 @@ class ProportionalSegments(Scene):
         
         # 标注长度
         length_labels = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(seg_a, RIGHT, buff=0.2),
-            Text("3", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(seg_b, RIGHT, buff=0.2),
-            Text("4", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(seg_c, RIGHT, buff=0.2),
-            Text("6", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(seg_d, RIGHT, buff=0.2),
+            Text("2", font="PingFang SC", font_size=20, color=GRAY_A).next_to(seg_a, RIGHT, buff=0.2),
+            Text("3", font="PingFang SC", font_size=20, color=GRAY_A).next_to(seg_b, RIGHT, buff=0.2),
+            Text("4", font="PingFang SC", font_size=20, color=GRAY_A).next_to(seg_c, RIGHT, buff=0.2),
+            Text("6", font="PingFang SC", font_size=20, color=GRAY_A).next_to(seg_d, RIGHT, buff=0.2),
         )
         
         self.play(*[FadeIn(label) for label in length_labels], run_time=0.6)
@@ -284,7 +284,7 @@ class ProportionalSegments(Scene):
         # 定义文字
         definition = Text(
             "这四条线段成比例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 6)
@@ -318,14 +318,14 @@ class ProportionalSegments(Scene):
         # 标题
         title = Text(
             "Inner & Outer Terms",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6.2)
         
         subtitle = Text(
             "内项与外项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -350,7 +350,7 @@ class ProportionalSegments(Scene):
         # 标注外项
         outer_label = Text(
             "外项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -393,7 +393,7 @@ class ProportionalSegments(Scene):
         
         inner_label = Text(
             "内项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -437,7 +437,7 @@ class ProportionalSegments(Scene):
         # 基本性质
         property_text = Text(
             "基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1.2)
@@ -509,14 +509,14 @@ class ProportionalSegments(Scene):
         # 标题
         title = Text(
             "Geometric Mean",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6.2)
         
         subtitle = Text(
             "比例中项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -534,9 +534,9 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_A
         )
-        label_a_mid = Text("a", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_a_mid = Text("a", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_a_mid.next_to(seg_a_mid, LEFT, buff=0.3)
-        len_a_label = Text("2", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        len_a_label = Text("2", font="PingFang SC", font_size=20, color=GRAY_A)
         len_a_label.next_to(seg_a_mid, RIGHT, buff=0.2)
         
         seg_b_mid = Line(
@@ -545,9 +545,9 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_B
         )
-        label_b_mid = Text("b", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_b_mid = Text("b", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_b_mid.next_to(seg_b_mid, LEFT, buff=0.3)
-        len_b_label = Text("4", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        len_b_label = Text("4", font="PingFang SC", font_size=20, color=GRAY_A)
         len_b_label.next_to(seg_b_mid, RIGHT, buff=0.2)
         
         seg_c_mid = Line(
@@ -556,9 +556,9 @@ class ProportionalSegments(Scene):
             stroke_width=6,
             color=self.COLOR_SEGMENT_C
         )
-        label_c_mid = Text("c", font="Noto Sans CJK SC", font_size=self.FONT_LABEL, color=WHITE)
+        label_c_mid = Text("c", font="PingFang SC", font_size=self.FONT_LABEL, color=WHITE)
         label_c_mid.next_to(seg_c_mid, LEFT, buff=0.3)
-        len_c_label = Text("8", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        len_c_label = Text("8", font="PingFang SC", font_size=20, color=GRAY_A)
         len_c_label.next_to(seg_c_mid, RIGHT, buff=0.2)
         
         segments_mid = VGroup(
@@ -602,7 +602,7 @@ class ProportionalSegments(Scene):
         # b是比例中项
         mid_text = Text(
             "b 是 a 和 c 的比例中项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY - 2,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -658,14 +658,14 @@ class ProportionalSegments(Scene):
         # 标题
         title = Text(
             "Properties of Proportions",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE - 2,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6.2)
         
         subtitle = Text(
             "比例的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -684,14 +684,14 @@ class ProportionalSegments(Scene):
         # 性质1：合比性质
         property_1_title = Text(
             "1. Componendo",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 2.8 + LEFT * 2.5)
         
         property_1_cn = Text(
             "合比性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(property_1_title, RIGHT, buff=0.3)
@@ -711,14 +711,14 @@ class ProportionalSegments(Scene):
         # 性质2：等比性质
         property_2_title = Text(
             "2. Equal Ratios",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 0.2 + LEFT * 2.5)
         
         property_2_cn = Text(
             "等比性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(property_2_title, RIGHT, buff=0.3)
@@ -738,7 +738,7 @@ class ProportionalSegments(Scene):
         # 提示
         hint = Text(
             "前提条件很重要!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -763,7 +763,7 @@ class ProportionalSegments(Scene):
         # 标题
         title = Text(
             "核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -780,7 +780,7 @@ class ProportionalSegments(Scene):
         
         card1_title = Text(
             "比例定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -806,7 +806,7 @@ class ProportionalSegments(Scene):
         
         card2_title = Text(
             "基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -832,7 +832,7 @@ class ProportionalSegments(Scene):
         
         card3_title = Text(
             "比例中项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         )
@@ -853,7 +853,7 @@ class ProportionalSegments(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE,
             weight=BOLD
@@ -861,7 +861,7 @@ class ProportionalSegments(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 3.5)
@@ -875,7 +875,7 @@ class ProportionalSegments(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多相似三角形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

@@ -50,7 +50,7 @@ class FactorizationMethod(Scene):
         self.COLOR_AUXILIARY = GRAY_B       # 灰色 - 辅助
         
         # 字体配置
-        self.FONT_CHINESE = "Noto Sans CJK SC"  # 或 "SimHei"
+        self.FONT_CHINESE = "PingFang SC"  # 或 "SimHei"
         self.AUTHOR_NAME = "上海初高中数学直通车"
         self.AUTHOR_ID = "@emptyandcalm"
         

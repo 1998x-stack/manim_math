@@ -130,7 +130,7 @@ class CongruentTriangles(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -140,7 +140,7 @@ class CongruentTriangles(Scene):
         # 钩子问题
         hook_text = Text(
             "这两个三角形有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -174,7 +174,7 @@ class CongruentTriangles(Scene):
         # 标题
         title = Text(
             "全等三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE,
             weight=BOLD
@@ -185,7 +185,7 @@ class CongruentTriangles(Scene):
         # 定义
         definition = Text(
             "能够完全重合的两个三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4)
@@ -204,7 +204,7 @@ class CongruentTriangles(Scene):
         # 标题缩小并移到顶部
         self.title_small = Text(
             "全等三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 6.5)
@@ -222,7 +222,7 @@ class CongruentTriangles(Scene):
         # 提示文字
         hint_text = Text(
             "让我们试试能否重合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -268,7 +268,7 @@ class CongruentTriangles(Scene):
         
         success_text = Text(
             "完全重合!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CONGRUENT,
             weight=BOLD
@@ -305,7 +305,7 @@ class CongruentTriangles(Scene):
         # 读法说明
         reading_text = Text(
             "读作：三角形ABC全等于三角形DEF",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -344,13 +344,13 @@ class CongruentTriangles(Scene):
         vertices_DEF = self.triangle_DEF.get_vertices()
         
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_ABC[0], LEFT, buff=0.2)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_ABC[1], RIGHT, buff=0.2)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_ABC[2], UP, buff=0.2)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(vertices_ABC[0], LEFT, buff=0.2)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(vertices_ABC[1], RIGHT, buff=0.2)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(vertices_ABC[2], UP, buff=0.2)
         
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_DEF[0], LEFT, buff=0.2)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_DEF[1], RIGHT, buff=0.2)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(vertices_DEF[2], UP, buff=0.2)
+        label_D = Text("D", font="PingFang SC", font_size=24, color=WHITE).next_to(vertices_DEF[0], LEFT, buff=0.2)
+        label_E = Text("E", font="PingFang SC", font_size=24, color=WHITE).next_to(vertices_DEF[1], RIGHT, buff=0.2)
+        label_F = Text("F", font="PingFang SC", font_size=24, color=WHITE).next_to(vertices_DEF[2], UP, buff=0.2)
         
         self.labels_ABC = VGroup(label_A, label_B, label_C)
         self.labels_DEF = VGroup(label_D, label_E, label_F)
@@ -364,7 +364,7 @@ class CongruentTriangles(Scene):
         # 说明文字
         correspondence_text = Text(
             "确定对应关系很重要!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -422,7 +422,7 @@ class CongruentTriangles(Scene):
         # 性质标题
         property_title = Text(
             "性质1：对应边相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_CONGRUENT
         ).move_to(DOWN * 3)
@@ -492,7 +492,7 @@ class CongruentTriangles(Scene):
         # 性质标题
         property_title = Text(
             "性质2：对应角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_CONGRUENT
         ).move_to(DOWN * 3)
@@ -590,7 +590,7 @@ class CongruentTriangles(Scene):
         # 重点提示
         warning_text = Text(
             "重要提示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -600,7 +600,7 @@ class CongruentTriangles(Scene):
         
         note = Text(
             "对应顶点的书写顺序要对应!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2)
@@ -610,13 +610,13 @@ class CongruentTriangles(Scene):
         
         # 正确示例
         correct_example = VGroup(
-            Text("✓ 正确:", font="Noto Sans CJK SC", font_size=24, color=GREEN),
+            Text("✓ 正确:", font="PingFang SC", font_size=24, color=GREEN),
             MathTex(r"\triangle ABC \cong \triangle DEF", font_size=26, color=GREEN)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 0.5)
         
         # 错误示例
         wrong_example = VGroup(
-            Text("✗ 错误:", font="Noto Sans CJK SC", font_size=24, color=RED),
+            Text("✗ 错误:", font="PingFang SC", font_size=24, color=RED),
             MathTex(r"\triangle ABC \cong \triangle EDF", font_size=26, color=RED)
         ).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.5)
         
@@ -651,14 +651,14 @@ class CongruentTriangles(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -672,7 +672,7 @@ class CongruentTriangles(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

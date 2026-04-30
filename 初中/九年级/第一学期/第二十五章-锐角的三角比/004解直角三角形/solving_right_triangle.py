@@ -138,7 +138,7 @@ class SolvingRightTriangle(Scene):
         # 作者信息(顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -148,7 +148,7 @@ class SolvingRightTriangle(Scene):
         # 钩子问题
         hook_text = Text(
             "只知道两个条件\n能求出整个三角形吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.3
@@ -276,7 +276,7 @@ class SolvingRightTriangle(Scene):
         # 说明文字
         explanation = Text(
             "直角三角形有6个元素:\n3条边 + 3个角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
             line_spacing=1.2
@@ -292,7 +292,7 @@ class SolvingRightTriangle(Scene):
         # 标题
         title = Text(
             "情况1: 已知两边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_KNOWN
         ).move_to(UP * 6)
@@ -302,7 +302,7 @@ class SolvingRightTriangle(Scene):
         # 高亮已知边 a 和 c
         known_text = Text(
             "已知: a = 3, c = 5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_KNOWN
         ).move_to(UP * 5)
@@ -319,7 +319,7 @@ class SolvingRightTriangle(Scene):
         # 步骤1: 用勾股定理求b
         step1_title = Text(
             "① 用勾股定理求边b",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 3.8)
@@ -348,7 +348,7 @@ class SolvingRightTriangle(Scene):
         # 步骤2: 用三角比求角A
         step2_title = Text(
             "② 用sin求角A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 0.8)
@@ -377,7 +377,7 @@ class SolvingRightTriangle(Scene):
         # 步骤3: 互余关系求角B
         step3_title = Text(
             "③ 互余关系求角B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 2)
@@ -397,7 +397,7 @@ class SolvingRightTriangle(Scene):
         checkmark = Text("✓", font_size=60, color=GREEN).move_to(DOWN * 4.5)
         completion_text = Text(
             "所有未知元素都求出了!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN
         ).next_to(checkmark, RIGHT, buff=0.3)
@@ -432,7 +432,7 @@ class SolvingRightTriangle(Scene):
         # 标题
         title = Text(
             "情况2: 已知一边一角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_KNOWN
         ).move_to(UP * 6)
@@ -442,7 +442,7 @@ class SolvingRightTriangle(Scene):
         # 已知条件
         known_text = Text(
             "已知: c = 5, ∠A = 37°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_KNOWN
         ).move_to(UP * 5)
@@ -459,7 +459,7 @@ class SolvingRightTriangle(Scene):
         # 步骤1: 用sin求a
         step1_title = Text(
             "① 用sin求边a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 3.8)
@@ -488,7 +488,7 @@ class SolvingRightTriangle(Scene):
         # 步骤2: 用cos求b
         step2_title = Text(
             "② 用cos求边b",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 0.8)
@@ -517,7 +517,7 @@ class SolvingRightTriangle(Scene):
         # 步骤3: 互余关系求角B
         step3_title = Text(
             "③ 互余关系求角B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 2)
@@ -537,7 +537,7 @@ class SolvingRightTriangle(Scene):
         checkmark = Text("✓", font_size=60, color=GREEN).move_to(DOWN * 4.5)
         completion_text = Text(
             "同样全部求出!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN
         ).next_to(checkmark, RIGHT, buff=0.3)
@@ -577,7 +577,7 @@ class SolvingRightTriangle(Scene):
         # 重要文字
         important_text = Text(
             "重要!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=RED,
             weight=BOLD
@@ -588,7 +588,7 @@ class SolvingRightTriangle(Scene):
         # 核心提示
         core_message = Text(
             "至少要知道一条边!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2)
@@ -600,14 +600,14 @@ class SolvingRightTriangle(Scene):
         # 错误示例
         wrong_example = Text(
             "错误示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(ORIGIN)
         
         wrong_condition = Text(
             "已知: ∠A = 30°, ∠B = 60°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).next_to(wrong_example, DOWN, buff=0.5)
@@ -626,7 +626,7 @@ class SolvingRightTriangle(Scene):
         # 说明
         explanation = Text(
             "只知道角度，无法确定大小\n所有角度相同的三角形都相似",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
             line_spacing=1.3
@@ -663,7 +663,7 @@ class SolvingRightTriangle(Scene):
         # 标题
         title = Text(
             "解直角三角形三大工具",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -672,22 +672,22 @@ class SolvingRightTriangle(Scene):
         
         # 创建三个工具卡片
         card1_icon = MathTex(r"a^2 + b^2 = c^2", font_size=28, color=self.COLOR_PRIMARY)
-        card1_title = Text("勾股定理", font="Noto Sans CJK SC", font_size=26, color=WHITE)
-        card1_desc = Text("知两边求第三边", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        card1_title = Text("勾股定理", font="PingFang SC", font_size=26, color=WHITE)
+        card1_desc = Text("知两边求第三边", font="PingFang SC", font_size=20, color=GRAY_A)
         card1 = VGroup(card1_icon, card1_title, card1_desc).arrange(DOWN, buff=0.2)
         card1.move_to(UP * 3.5)
         card1.shift(LEFT * 10)
         
         card2_icon = MathTex(r"\sin, \cos, \tan", font_size=28, color=self.COLOR_PRIMARY)
-        card2_title = Text("三角比", font="Noto Sans CJK SC", font_size=26, color=WHITE)
-        card2_desc = Text("边角互求", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        card2_title = Text("三角比", font="PingFang SC", font_size=26, color=WHITE)
+        card2_desc = Text("边角互求", font="PingFang SC", font_size=20, color=GRAY_A)
         card2 = VGroup(card2_icon, card2_title, card2_desc).arrange(DOWN, buff=0.2)
         card2.move_to(UP * 1.5)
         card2.shift(LEFT * 10)
         
         card3_icon = MathTex(r"A + B = 90^\circ", font_size=28, color=self.COLOR_PRIMARY)
-        card3_title = Text("互余关系", font="Noto Sans CJK SC", font_size=26, color=WHITE)
-        card3_desc = Text("知一角求另一角", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        card3_title = Text("互余关系", font="PingFang SC", font_size=26, color=WHITE)
+        card3_desc = Text("知一角求另一角", font="PingFang SC", font_size=20, color=GRAY_A)
         card3 = VGroup(card3_icon, card3_title, card3_desc).arrange(DOWN, buff=0.2)
         card3.move_to(DOWN * 0.5)
         card3.shift(LEFT * 10)
@@ -708,7 +708,7 @@ class SolvingRightTriangle(Scene):
         # 核心提示
         core_tip = Text(
             "记住: 至少一边 + 一个其他条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -732,7 +732,7 @@ class SolvingRightTriangle(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=WHITE
         ).move_to(UP * 2)
@@ -745,7 +745,7 @@ class SolvingRightTriangle(Scene):
         # 账号ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -755,7 +755,7 @@ class SolvingRightTriangle(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 解题更轻松!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

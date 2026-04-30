@@ -91,7 +91,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 作者信息（全局保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["author"],
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7.5)
@@ -104,7 +104,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 标题
         title = Text(
             "两点确定一条直线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=GOLD
         ).move_to(UP * 6)
@@ -114,7 +114,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 问题文字
         question = Text(
             "知道两个点的坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=WHITE
         ).move_to(UP * 4.5)
@@ -149,7 +149,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 提示文字
         hint = Text(
             "能求出函数解析式吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -206,7 +206,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         
         # 点A标签
         label_A = VGroup(
-            Text("A", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=self.COLOR_POINT_A),
+            Text("A", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=self.COLOR_POINT_A),
             MathTex(r"(1, 3)", font_size=self.FONT_SIZES["label"], color=WHITE)
         ).arrange(RIGHT, buff=0.1).next_to(self.dot_A_initial, UL, buff=0.15)
         
@@ -220,7 +220,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         
         # 点B标签
         label_B = VGroup(
-            Text("B", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=self.COLOR_POINT_B),
+            Text("B", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=self.COLOR_POINT_B),
             MathTex(r"(3, 7)", font_size=self.FONT_SIZES["label"], color=WHITE)
         ).arrange(RIGHT, buff=0.1).next_to(self.dot_B_initial, UR, buff=0.15)
         
@@ -229,7 +229,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 说明文字
         explain = Text(
             "已知两点坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 5)
@@ -253,7 +253,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 方法标题
         method_title = Text(
             "待定系数法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5.5)
@@ -275,7 +275,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         
         k_explain = Text(
             "斜率(待定)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 3.2 + LEFT * 1.5)
@@ -296,7 +296,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         
         b_explain = Text(
             "截距(待定)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 3.2 + RIGHT * 1.5)
@@ -314,7 +314,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 核心思想
         core_idea = Text(
             "代入已知点求出k和b",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -347,7 +347,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 提示文字
         hint_step1 = Text(
             "代入点A(1, 3)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_POINT_A
         ).move_to(DOWN * 3.5)
@@ -408,7 +408,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         )
         
         # 添加编号
-        num_1 = Text("①", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_1, LEFT, buff=0.2)
+        num_1 = Text("①", font="PingFang SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_1, LEFT, buff=0.2)
         self.play(FadeIn(num_1), run_time=0.3)
         
         self.wait(0.5)
@@ -421,7 +421,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 提示文字
         hint_step2 = Text(
             "代入点B(3, 7)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_POINT_B
         ).move_to(DOWN * 3.5)
@@ -482,7 +482,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         )
         
         # 添加编号
-        num_2 = Text("②", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_2, LEFT, buff=0.2)
+        num_2 = Text("②", font="PingFang SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(equation_2, LEFT, buff=0.2)
         self.play(FadeIn(num_2), run_time=0.3)
         
         # 大括号
@@ -498,7 +498,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # "方程组"标注
         system_label = Text(
             "方程组",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(brace, LEFT, buff=0.1)
@@ -516,7 +516,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 提示：相减消元
         solve_hint = Text(
             "②-①消元",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(RIGHT * 2 + DOWN * 1.5)
@@ -549,7 +549,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 代入求b
         calc_b_text = Text(
             "代入①求b:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_AUXILIARY
         ).move_to(RIGHT * 2 + DOWN * 4.0)
@@ -640,7 +640,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 添加"验证通过"提示
         check_text = Text(
             "✓ 直线经过A和B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -673,7 +673,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 总结标题
         summary_title = Text(
             "待定系数法四步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=GOLD
         ).move_to(UP * 5.5)
@@ -696,18 +696,18 @@ class LinearFunctionUndeterminedCoefficients(Scene):
                 fill_opacity=1,
                 stroke_width=0
             )
-            num_text = Text(num, font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            num_text = Text(num, font="PingFang SC", font_size=20, color=WHITE)
 
             if mode == "math":
                 content_text = MathTex(content, font_size=22)
             elif mode == "mixed":
                 content_text = VGroup(
                     MathTex(r"k", font_size=22),
-                    Text("和", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                    Text("和", font="PingFang SC", font_size=22, color=WHITE),
                     MathTex(r"b", font_size=22),
                 ).arrange(RIGHT, buff=0.15)
             else:
-                content_text = Text(content, font="Noto Sans CJK SC", font_size=22, color=WHITE)
+                content_text = Text(content, font="PingFang SC", font_size=22, color=WHITE)
 
             card = VGroup(icon, num_text, content_text).arrange(RIGHT, buff=0.3)
             card.move_to(UP * (3.5 - i * 1.0))
@@ -730,14 +730,14 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 3.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.5)
@@ -751,7 +751,7 @@ class LinearFunctionUndeterminedCoefficients(Scene):
         # 关注提示
         follow_hint = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.8)

@@ -17,7 +17,7 @@ config.frame_width  = 9
 config.frame_height = 16
 
 # ─── 品牌 & 字体 ──────────────────────────────────────────────
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 AUTHOR    = "上海初高中数学直通车"
 AUTHOR_ID = "@emptyandcalm"
 

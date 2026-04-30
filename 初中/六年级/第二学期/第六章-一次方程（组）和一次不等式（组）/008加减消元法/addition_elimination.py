@@ -48,7 +48,7 @@ COLOR_RESULT    = "#2ecc71"   # 绿   — 解
 COLOR_HIGHLIGHT = YELLOW
 COLOR_CARD      = "#0f3460"
 COLOR_DARK      = "#16213e"
-FONT            = "Noto Sans CJK SC"
+FONT            = "PingFang SC"
 
 # ─────────────────────────────────────────────
 # 工具

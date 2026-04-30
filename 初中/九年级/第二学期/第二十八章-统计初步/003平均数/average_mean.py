@@ -105,7 +105,7 @@ class AverageMean(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -115,7 +115,7 @@ class AverageMean(Scene):
         # 钩子问题
         question = Text(
             "班级平均分是多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD,
             weight=BOLD
@@ -140,14 +140,14 @@ class AverageMean(Scene):
                 ),
                 Text(
                     f"{score}",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=36,
                     color=WHITE,
                     weight=BOLD
                 ),
                 Text(
                     f"学生{i+1}",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=18,
                     color=GRAY_A
                 ).shift(DOWN * 0.4)
@@ -175,7 +175,7 @@ class AverageMean(Scene):
         # 标题
         title = Text(
             "算术平均数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ARITHMETIC_MEAN,
             weight=BOLD
@@ -186,7 +186,7 @@ class AverageMean(Scene):
         # 说明
         subtitle = Text(
             "所有数据的平均水平",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -220,7 +220,7 @@ class AverageMean(Scene):
             
             label = Text(
                 str(value),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE
             ).next_to(dot, UP, buff=0.3)
@@ -237,7 +237,7 @@ class AverageMean(Scene):
         
         balance_label = Text(
             "平衡点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).next_to(fulcrum, DOWN, buff=0.2)
@@ -256,13 +256,13 @@ class AverageMean(Scene):
         mean_label = VGroup(
             Text(
                 "平均值",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=self.COLOR_ARITHMETIC_MEAN
             ),
             Text(
                 f"{self.simple_mean}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=self.COLOR_ARITHMETIC_MEAN,
                 weight=BOLD
@@ -304,7 +304,7 @@ class AverageMean(Scene):
         # 副标题
         subtitle = Text(
             "计算步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 6)
@@ -314,7 +314,7 @@ class AverageMean(Scene):
         # 数据
         data_text = Text(
             "数据: 6, 7, 8, 9, 10",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -325,7 +325,7 @@ class AverageMean(Scene):
         step1 = VGroup(
             Text(
                 "第一步：求和",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=self.COLOR_HIGHLIGHT
             ),
@@ -343,7 +343,7 @@ class AverageMean(Scene):
         step2 = VGroup(
             Text(
                 "第二步：数据个数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=self.COLOR_HIGHLIGHT
             ),
@@ -361,7 +361,7 @@ class AverageMean(Scene):
         step3 = VGroup(
             Text(
                 "第三步：相除",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=self.COLOR_HIGHLIGHT
             ),
@@ -388,7 +388,7 @@ class AverageMean(Scene):
         # 答案说明
         answer_text = Text(
             "平均数是 8",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ARITHMETIC_MEAN,
             weight=BOLD
@@ -415,7 +415,7 @@ class AverageMean(Scene):
         # 标题
         title = Text(
             "加权平均数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_WEIGHTED_MEAN,
             weight=BOLD
@@ -426,7 +426,7 @@ class AverageMean(Scene):
         # 场景说明
         context = Text(
             "考试成绩：不同部分有不同的重要性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -451,13 +451,13 @@ class AverageMean(Scene):
                 ),
                 Text(
                     label,
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=22,
                     color=GRAY_A
                 ).shift(UP * 0.5),
                 Text(
                     f"{score}分",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=32,
                     color=WHITE,
                     weight=BOLD
@@ -465,13 +465,13 @@ class AverageMean(Scene):
                 VGroup(
                     Text(
                         "权重",
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=18,
                         color=self.COLOR_HIGHLIGHT
                     ),
                     Text(
                         weight,
-                        font="Noto Sans CJK SC",
+                        font="PingFang SC",
                         font_size=24,
                         color=self.COLOR_HIGHLIGHT,
                         weight=BOLD
@@ -487,7 +487,7 @@ class AverageMean(Scene):
         # 权重说明
         weight_explain = Text(
             "权重表示重要程度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(UP * 1.8)
@@ -529,7 +529,7 @@ class AverageMean(Scene):
         comparison = VGroup(
             Text(
                 "如果不考虑权重（算术平均）:",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             ),
@@ -544,7 +544,7 @@ class AverageMean(Scene):
         
         diff_text = Text(
             "考虑权重后，期末占比更大！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.2)
@@ -570,7 +570,7 @@ class AverageMean(Scene):
         # 标题
         title = Text(
             "平均数的特点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_EXTREME,
             weight=BOLD
@@ -581,7 +581,7 @@ class AverageMean(Scene):
         # 副标题
         subtitle = Text(
             "易受极端值影响",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -592,7 +592,7 @@ class AverageMean(Scene):
         normal_group = VGroup(
             Text(
                 "正常数据: 6, 7, 8, 9, 10",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=WHITE
             ),
@@ -619,7 +619,7 @@ class AverageMean(Scene):
         normal_labels = VGroup(*[
             Text(
                 str(val),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=WHITE
             ).next_to(dot, UP, buff=0.2)
@@ -638,7 +638,7 @@ class AverageMean(Scene):
         
         change_text = Text(
             "将最后一个数改为 50",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_EXTREME
         ).next_to(arrow, UP, buff=0.1)
@@ -648,7 +648,7 @@ class AverageMean(Scene):
         # 变换最后一个点
         new_label = Text(
             "50",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_EXTREME,
             weight=BOLD
@@ -663,7 +663,7 @@ class AverageMean(Scene):
         # 极端值标注
         extreme_label = Text(
             "极端值!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_EXTREME,
             weight=BOLD
@@ -675,7 +675,7 @@ class AverageMean(Scene):
         extreme_group = VGroup(
             Text(
                 "新数据: 6, 7, 8, 9, 50",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=WHITE
             ),
@@ -700,19 +700,19 @@ class AverageMean(Scene):
         comparison_text = VGroup(
             Text(
                 "从 8",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=self.COLOR_ARITHMETIC_MEAN
             ),
             Text(
                 "变为 16",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=self.COLOR_EXTREME
             ),
             Text(
                 "增加了 8!",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=YELLOW,
                 weight=BOLD
@@ -726,20 +726,20 @@ class AverageMean(Scene):
         warning = VGroup(
             Text(
                 "⚠️ 注意",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=self.COLOR_EXTREME,
                 weight=BOLD
             ),
             Text(
                 "平均数容易受极端值影响",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=GRAY_A
             ).shift(DOWN * 0.35),
             Text(
                 "不能很好代表整体水平",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=22,
                 color=GRAY_A
             ).shift(DOWN * 0.7)
@@ -770,7 +770,7 @@ class AverageMean(Scene):
         # 标题
         title = Text(
             "平均数知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
             weight=BOLD
@@ -791,7 +791,7 @@ class AverageMean(Scene):
             ),
             Text(
                 "1",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE,
                 weight=BOLD
@@ -802,14 +802,14 @@ class AverageMean(Scene):
         point1_text = VGroup(
             Text(
                 "算术平均数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=WHITE,
                 weight=BOLD
             ),
             Text(
                 "所有数相加除以个数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             ).shift(DOWN * 0.35)
@@ -828,7 +828,7 @@ class AverageMean(Scene):
             ),
             Text(
                 "2",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE,
                 weight=BOLD
@@ -839,14 +839,14 @@ class AverageMean(Scene):
         point2_text = VGroup(
             Text(
                 "加权平均数",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=WHITE,
                 weight=BOLD
             ),
             Text(
                 "考虑不同数据的重要性（权重）",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             ).shift(DOWN * 0.35)
@@ -865,7 +865,7 @@ class AverageMean(Scene):
             ),
             Text(
                 "3",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE,
                 weight=BOLD
@@ -876,14 +876,14 @@ class AverageMean(Scene):
         point3_text = VGroup(
             Text(
                 "注意极端值",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=26,
                 color=WHITE,
                 weight=BOLD
             ),
             Text(
                 "会影响平均数的代表性",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=GRAY_A
             ).shift(DOWN * 0.35)
@@ -915,13 +915,13 @@ class AverageMean(Scene):
         formula_labels = VGroup(
             Text(
                 "算术",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=GRAY_A
             ).next_to(formulas[0], UP, buff=0.2),
             Text(
                 "加权",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=GRAY_A
             ).next_to(formulas[1], UP, buff=0.2)
@@ -932,7 +932,7 @@ class AverageMean(Scene):
         # 关键提示
         key_point = Text(
             "选择合适的平均数计算方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -956,7 +956,7 @@ class AverageMean(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
             weight=BOLD
@@ -964,7 +964,7 @@ class AverageMean(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -978,7 +978,7 @@ class AverageMean(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

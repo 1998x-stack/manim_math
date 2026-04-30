@@ -188,7 +188,7 @@ class VectorAdditionSubtraction(Scene):
         # 作者信息 (顶部，持续显示)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -198,7 +198,7 @@ class VectorAdditionSubtraction(Scene):
         # 钩子问题 - 主标题
         hook_title = Text(
             "箭头能加减吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=46,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -206,7 +206,7 @@ class VectorAdditionSubtraction(Scene):
         # 副标题
         hook_subtitle = Text(
             "向量运算，其实很简单！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A
         ).move_to(UP * 4.6)
@@ -226,7 +226,7 @@ class VectorAdditionSubtraction(Scene):
         # 问号
         question = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -250,7 +250,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "什么是向量?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -285,8 +285,8 @@ class VectorAdditionSubtraction(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("向量：既有大小又有方向", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("用箭头表示", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text("向量：既有大小又有方向", font="PingFang SC", font_size=22, color=WHITE),
+            Text("用箭头表示", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(DOWN * 5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.6)
@@ -310,7 +310,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "三角形法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_VECTOR_SUM,
             weight=BOLD
@@ -339,7 +339,7 @@ class VectorAdditionSubtraction(Scene):
         # 标注 "首尾相接"
         annotation = Text(
             "首尾相接",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).next_to(self.A, RIGHT, buff=0.4)
@@ -389,8 +389,8 @@ class VectorAdditionSubtraction(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("第二个向量起点接在第一个终点", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("结果：从第一个起点到第二个终点", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_VECTOR_SUM)
+            Text("第二个向量起点接在第一个终点", font="PingFang SC", font_size=20, color=WHITE),
+            Text("结果：从第一个起点到第二个终点", font="PingFang SC", font_size=20, color=self.COLOR_VECTOR_SUM)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(DOWN * 5.5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.8)
@@ -418,7 +418,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "平行四边形法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_VECTOR_SUM,
             weight=BOLD
@@ -451,7 +451,7 @@ class VectorAdditionSubtraction(Scene):
         # 标注 "同起点"
         annotation = Text(
             "同起点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).next_to(self.O, LEFT, buff=0.4)
@@ -502,8 +502,8 @@ class VectorAdditionSubtraction(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("两向量从同一点出发", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("和向量是平行四边形的对角线", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_VECTOR_SUM)
+            Text("两向量从同一点出发", font="PingFang SC", font_size=20, color=WHITE),
+            Text("和向量是平行四边形的对角线", font="PingFang SC", font_size=20, color=self.COLOR_VECTOR_SUM)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(DOWN * 5.5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.8)
@@ -532,7 +532,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "两种方法，结果相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -550,7 +550,7 @@ class VectorAdditionSubtraction(Scene):
         vec_b_left = Arrow(a_left, c_left, buff=0, color=self.COLOR_VECTOR_B, stroke_width=4)
         vec_sum_left = Arrow(o_left, c_left, buff=0, color=self.COLOR_VECTOR_SUM, stroke_width=5)
         
-        label_left = Text("三角形法则", font="Noto Sans CJK SC", font_size=18, color=WHITE).move_to(o_left + DOWN * 1.2)
+        label_left = Text("三角形法则", font="PingFang SC", font_size=18, color=WHITE).move_to(o_left + DOWN * 1.2)
         
         left_group.add(vec_a_left, vec_b_left, vec_sum_left, label_left)
         
@@ -566,7 +566,7 @@ class VectorAdditionSubtraction(Scene):
         para_right = Polygon(o_right, a_right, d_right, b_right, color=GRAY_B, stroke_width=2)
         vec_sum_right = Arrow(o_right, d_right, buff=0, color=self.COLOR_VECTOR_SUM, stroke_width=5)
         
-        label_right = Text("平行四边形法则", font="Noto Sans CJK SC", font_size=18, color=WHITE).move_to(o_right + DOWN * 1.2)
+        label_right = Text("平行四边形法则", font="PingFang SC", font_size=18, color=WHITE).move_to(o_right + DOWN * 1.2)
         
         right_group.add(para_right, vec_a_right, vec_b_right, vec_sum_right, label_right)
         
@@ -588,7 +588,7 @@ class VectorAdditionSubtraction(Scene):
         # 说明文字
         explanation = Text(
             "可根据题目选择合适方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -611,7 +611,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "相反向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_VECTOR_NEG,
             weight=BOLD
@@ -629,9 +629,9 @@ class VectorAdditionSubtraction(Scene):
         # 公式
         formula_neg = VGroup(
             MathTex(r"-\vec{b}", font_size=24, color=self.COLOR_VECTOR_NEG),
-            Text("：与", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("：与", font="PingFang SC", font_size=24, color=WHITE),
             MathTex(r"\vec{b}", font_size=24, color=WHITE),
-            Text("长度相等，方向相反", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+            Text("长度相等，方向相反", font="PingFang SC", font_size=24, color=WHITE),
         ).arrange(RIGHT, buff=0.15).move_to(UP * 5.5)
         
         self.play(Write(formula_neg), run_time=0.8)
@@ -662,8 +662,8 @@ class VectorAdditionSubtraction(Scene):
         
         # 说明文字
         explanation = VGroup(
-            Text("长度相等", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("方向相反（掉头）", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_VECTOR_NEG)
+            Text("长度相等", font="PingFang SC", font_size=22, color=WHITE),
+            Text("方向相反（掉头）", font="PingFang SC", font_size=22, color=self.COLOR_VECTOR_NEG)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(DOWN * 5)
         
         self.play(FadeIn(explanation, shift=UP * 0.3), run_time=0.8)
@@ -706,7 +706,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "向量减法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_VECTOR_DIFF,
             weight=BOLD
@@ -759,7 +759,7 @@ class VectorAdditionSubtraction(Scene):
         # 应用三角形法则
         annotation = Text(
             "应用三角形法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -795,7 +795,7 @@ class VectorAdditionSubtraction(Scene):
         # 说明文字
         explanation = Text(
             "减法 = 加上相反向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -825,7 +825,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             "向量运算总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -885,14 +885,14 @@ class VectorAdditionSubtraction(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -906,7 +906,7 @@ class VectorAdditionSubtraction(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)
@@ -941,7 +941,7 @@ class VectorAdditionSubtraction(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=color,
             weight=BOLD
@@ -950,7 +950,7 @@ class VectorAdditionSubtraction(Scene):
         # 内容
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=WHITE
         )

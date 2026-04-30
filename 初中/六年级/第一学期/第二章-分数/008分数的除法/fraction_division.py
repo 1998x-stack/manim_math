@@ -69,7 +69,7 @@ class FractionDivision(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -94,7 +94,7 @@ class FractionDivision(Scene):
         # 困惑文字
         confused_text = Text(
             "分数除法好难？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=RED
         ).move_to(UP * 1)
@@ -104,7 +104,7 @@ class FractionDivision(Scene):
         # 提示
         hint_text = Text(
             "其实很简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -114,7 +114,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             "分数的除法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(DOWN * 2.5)
@@ -137,7 +137,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             "什么是倒数？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RECIPROCAL
         ).move_to(UP * 6.5)
@@ -147,7 +147,7 @@ class FractionDivision(Scene):
         # 定义
         definition = Text(
             "乘积为1的两个数互为倒数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -157,7 +157,7 @@ class FractionDivision(Scene):
         # 示例1: 2 × 1/2 = 1
         example1_text = Text(
             "例如:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.2 + LEFT * 3)
@@ -181,7 +181,7 @@ class FractionDivision(Scene):
         # 高亮"互为倒数"
         reciprocal_text = Text(
             "所以 2 和 1/2 互为倒数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.3)
@@ -204,7 +204,7 @@ class FractionDivision(Scene):
         # 示例2: 如何求倒数
         example2_title = Text(
             "如何求倒数？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4)
@@ -214,7 +214,7 @@ class FractionDivision(Scene):
         # 3/4 的倒数
         question_text = Text(
             "3/4 的倒数是多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3)
@@ -238,7 +238,7 @@ class FractionDivision(Scene):
         
         swap_text = Text(
             "分子分母交换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).next_to(arrow, UP, buff=0.1)
@@ -261,7 +261,7 @@ class FractionDivision(Scene):
         # 验证
         verify_text = Text(
             "验证:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 0.5 + LEFT * 3.5)
@@ -298,7 +298,7 @@ class FractionDivision(Scene):
         # 口诀
         mantra = Text(
             "口诀: 分子分母交换位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -308,7 +308,7 @@ class FractionDivision(Scene):
         # 特例提示
         warning = Text(
             "注意: 0没有倒数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         ).move_to(DOWN * 4)
@@ -343,7 +343,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             "分数除法法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_DIVISION
         ).move_to(UP * 6.5)
@@ -353,7 +353,7 @@ class FractionDivision(Scene):
         # 法则陈述
         rule_text = Text(
             "除以一个数 = 乘以这个数的倒数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.3)
@@ -455,7 +455,7 @@ class FractionDivision(Scene):
         # 提示
         reminder = Text(
             "记住这个法则!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -482,7 +482,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             "实例1: 计算 2/3 ÷ 1/2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -509,7 +509,7 @@ class FractionDivision(Scene):
         # 步骤1: 找倒数
         step1_title = Text(
             "步骤1: 找倒数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -541,7 +541,7 @@ class FractionDivision(Scene):
         # 步骤2: 变乘法
         step2_title = Text(
             "步骤2: 变乘法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.8)
@@ -573,7 +573,7 @@ class FractionDivision(Scene):
         # 步骤3: 计算
         step3_title = Text(
             "步骤3: 计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -619,7 +619,7 @@ class FractionDivision(Scene):
         
         mixed_label = Text(
             "(带分数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(mixed_number, DOWN, buff=0.1)
@@ -664,7 +664,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             "实例2: 3/4 ÷ 2/5",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -674,7 +674,7 @@ class FractionDivision(Scene):
         # 原式
         step1_label = Text(
             "原式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5 + LEFT * 3.5)
@@ -699,7 +699,7 @@ class FractionDivision(Scene):
         # 找倒数
         step2_label = Text(
             "找倒数:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5 + LEFT * 3.5)
@@ -719,7 +719,7 @@ class FractionDivision(Scene):
         # 变乘法
         step3_label = Text(
             "变乘法:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2 + LEFT * 3.5)
@@ -744,7 +744,7 @@ class FractionDivision(Scene):
         # 计算标注
         calc_label = Text(
             "计算:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.3 + LEFT * 3.5)
@@ -764,7 +764,7 @@ class FractionDivision(Scene):
         # 结果
         result_label = Text(
             "结果:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 1.5 + LEFT * 3.5)
@@ -781,7 +781,7 @@ class FractionDivision(Scene):
         # 检查
         check_text = Text(
             "已是最简分数 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GREEN
         ).move_to(DOWN * 3)
@@ -791,7 +791,7 @@ class FractionDivision(Scene):
         # 完整流程展示
         summary_text = Text(
             "完整流程:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.2)
@@ -811,7 +811,7 @@ class FractionDivision(Scene):
         # 强调
         emphasis = Text(
             "就这么简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)
@@ -848,7 +848,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             "分数除法三步走",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -894,7 +894,7 @@ class FractionDivision(Scene):
         # 口诀
         mantra = Text(
             "除法变乘法，倒数来帮忙!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.8)
@@ -904,7 +904,7 @@ class FractionDivision(Scene):
         # 特别提醒
         reminder = Text(
             "特别提醒: 0没有倒数!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         ).move_to(DOWN * 5.5)
@@ -936,7 +936,7 @@ class FractionDivision(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -944,7 +944,7 @@ class FractionDivision(Scene):
         # 内容
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -971,14 +971,14 @@ class FractionDivision(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -992,7 +992,7 @@ class FractionDivision(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

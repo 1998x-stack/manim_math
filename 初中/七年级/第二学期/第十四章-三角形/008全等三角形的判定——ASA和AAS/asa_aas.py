@@ -118,13 +118,13 @@ class ASA_AAS(Scene):
         return g
 
     def _label(self, text, pt, direction, buff=0.18, sz=26, color=WHITE):
-        return Text(text, font="Noto Sans CJK SC",
+        return Text(text, font="PingFang SC",
                     font_size=sz, color=color).next_to(pt, direction, buff=buff)
 
     def _header(self, tag, name, tag_col):
-        tg = Text(tag,  font="Noto Sans CJK SC", font_size=25,
+        tg = Text(tag,  font="PingFang SC", font_size=25,
                   color=tag_col).move_to(UP*6.7)
-        nm = Text(name, font="Noto Sans CJK SC", font_size=42,
+        nm = Text(name, font="PingFang SC", font_size=42,
                   color=tag_col).move_to(UP*6.0)
         return tg, nm
 
@@ -134,7 +134,7 @@ class ASA_AAS(Scene):
                               fill_color=ManimColor(color).interpolate(BLACK, 0.84),
                               fill_opacity=0.94).move_to(pos)
         texts = VGroup(*[
-            Text(t, font="Noto Sans CJK SC", font_size=sz, color=c)
+            Text(t, font="PingFang SC", font_size=sz, color=c)
             for t, c, sz in lines
         ]).arrange(DOWN, buff=0.1).move_to(pos)
         return VGroup(bg, texts)
@@ -157,22 +157,22 @@ class ASA_AAS(Scene):
     def scene_1_opening(self):
         self.author_bar = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=self.C_AUX
+            font="PingFang SC", font_size=20, color=self.C_AUX
         ).move_to(UP*7.0)
         self.play(FadeIn(self.author_bar, shift=DOWN*0.2), run_time=0.35)
 
         chap = Text("七年级 · 第十四章 · 三角形",
-                    font="Noto Sans CJK SC", font_size=22,
+                    font="PingFang SC", font_size=22,
                     color=self.C_AUX).move_to(UP*6.1)
         self.play(FadeIn(chap), run_time=0.35)
 
         title = Text("全等三角形的判定",
-                     font="Noto Sans CJK SC", font_size=48,
+                     font="PingFang SC", font_size=48,
                      color=self.C_HIGHLIGHT).move_to(UP*5.2)
         self.play(Write(title), run_time=0.85)
 
         hook = Text("知道两角和一条边——能判定全等吗？",
-                    font="Noto Sans CJK SC", font_size=26,
+                    font="PingFang SC", font_size=26,
                     color=WHITE).move_to(UP*4.3)
         self.play(FadeIn(hook, shift=UP*0.2), run_time=0.5)
 
@@ -191,7 +191,7 @@ class ASA_AAS(Scene):
                                   color=color,
                                   fill_color=ManimColor(color).interpolate(BLACK, 0.8),
                                   fill_opacity=0.9).move_to(pos)
-            t = Text(txt, font="Noto Sans CJK SC", font_size=26,
+            t = Text(txt, font="PingFang SC", font_size=26,
                      color=color).move_to(pos)
             return VGroup(bg, t)
 
@@ -215,15 +215,15 @@ class ASA_AAS(Scene):
     # ═══════════════════════════════════════════════════
     def scene_2_congruence_review(self):
         review_title = Text("什么是全等三角形？",
-                            font="Noto Sans CJK SC", font_size=36,
+                            font="PingFang SC", font_size=36,
                             color=self.C_HIGHLIGHT).move_to(UP*6.3)
         self.play(FadeIn(review_title), run_time=0.45)
 
         defn1 = Text("形状和大小完全相同的两个三角形",
-                     font="Noto Sans CJK SC", font_size=26,
+                     font="PingFang SC", font_size=26,
                      color=WHITE).move_to(UP*5.4)
         defn2 = Text("叫做全等三角形",
-                     font="Noto Sans CJK SC", font_size=26,
+                     font="PingFang SC", font_size=26,
                      color=WHITE).move_to(UP*4.85)
         self.play(FadeIn(defn1), FadeIn(defn2), run_time=0.5)
 
@@ -287,7 +287,7 @@ class ASA_AAS(Scene):
         )
 
         step1 = Text("① ∠A = ∠D",
-                     font="Noto Sans CJK SC", font_size=28,
+                     font="PingFang SC", font_size=28,
                      color=self.C_ANG1).move_to(DOWN*3.3)
         self.play(FadeIn(step1), run_time=0.35)
 
@@ -307,7 +307,7 @@ class ASA_AAS(Scene):
 
         self.play(FadeOut(step1), run_time=0.25)
         step2 = Text("② AB = DE（夹边）",
-                     font="Noto Sans CJK SC", font_size=28,
+                     font="PingFang SC", font_size=28,
                      color=self.C_SIDE).move_to(DOWN*3.3)
         self.play(FadeIn(step2), run_time=0.35)
 
@@ -320,14 +320,14 @@ class ASA_AAS(Scene):
         self.play(FadeIn(tick_AB), FadeIn(tick_DE), run_time=0.35)
 
         jia_lbl = Text("← 夹边",
-                       font="Noto Sans CJK SC", font_size=22,
+                       font="PingFang SC", font_size=22,
                        color=self.C_SIDE).move_to(DOWN*4.1)
         self.play(FadeIn(jia_lbl), run_time=0.3)
         self.wait(0.35)
 
         self.play(FadeOut(step2), FadeOut(jia_lbl), run_time=0.25)
         step3 = Text("③ ∠B = ∠E",
-                     font="Noto Sans CJK SC", font_size=28,
+                     font="PingFang SC", font_size=28,
                      color=self.C_ANG2).move_to(DOWN*3.3)
         self.play(FadeIn(step3), run_time=0.35)
 
@@ -348,7 +348,7 @@ class ASA_AAS(Scene):
         self.play(FadeOut(step3), run_time=0.25)
 
         clip_explain = Text("AB 在 ∠A 和 ∠B 之间，是夹边",
-                            font="Noto Sans CJK SC", font_size=24,
+                            font="PingFang SC", font_size=24,
                             color=self.C_SIDE).move_to(DOWN*3.5)
         self.play(FadeIn(clip_explain), run_time=0.4)
         self.wait(0.6)
@@ -413,7 +413,7 @@ class ASA_AAS(Scene):
         )
 
         step1 = Text("① ∠A = ∠D",
-                     font="Noto Sans CJK SC", font_size=28,
+                     font="PingFang SC", font_size=28,
                      color=self.C_ANG1).move_to(DOWN*3.3)
         self.play(FadeIn(step1), run_time=0.35)
 
@@ -432,7 +432,7 @@ class ASA_AAS(Scene):
 
         self.play(FadeOut(step1), run_time=0.25)
         step2 = Text("② ∠B = ∠E",
-                     font="Noto Sans CJK SC", font_size=28,
+                     font="PingFang SC", font_size=28,
                      color=self.C_ANG2).move_to(DOWN*3.3)
         self.play(FadeIn(step2), run_time=0.35)
 
@@ -451,7 +451,7 @@ class ASA_AAS(Scene):
 
         self.play(FadeOut(step2), run_time=0.25)
         step3 = Text("③ BC = EF（∠A 的对边）",
-                     font="Noto Sans CJK SC", font_size=26,
+                     font="PingFang SC", font_size=26,
                      color=self.C_SIDE).move_to(DOWN*3.3)
         self.play(FadeIn(step3), run_time=0.35)
 
@@ -467,13 +467,13 @@ class ASA_AAS(Scene):
 
         compare_box = VGroup(
             Text("与 ASA 对比：边的位置不同！",
-                 font="Noto Sans CJK SC", font_size=23,
+                 font="PingFang SC", font_size=23,
                  color=self.C_HIGHLIGHT),
             Text("ASA → AB 是 ∠A 和 ∠B 的 夹 边",
-                 font="Noto Sans CJK SC", font_size=21,
+                 font="PingFang SC", font_size=21,
                  color=self.C_ASA),
             Text("AAS → BC 是 ∠A 的 对 边",
-                 font="Noto Sans CJK SC", font_size=21,
+                 font="PingFang SC", font_size=21,
                  color=self.C_AAS),
         ).arrange(DOWN, buff=0.15).move_to(DOWN*4.0)
         self.play(FadeIn(compare_box), run_time=0.6)
@@ -527,7 +527,7 @@ class ASA_AAS(Scene):
                   FadeIn(nm, shift=DOWN*0.15), run_time=0.55)
 
         warn = Text("三角对应相等 ≠ 全等！",
-                    font="Noto Sans CJK SC", font_size=30,
+                    font="PingFang SC", font_size=30,
                     color=self.C_WRONG).move_to(UP*5.0)
         self.play(FadeIn(warn), run_time=0.45)
 
@@ -571,7 +571,7 @@ class ASA_AAS(Scene):
 
         ang_txt = Text(
             f"∠A=∠A'≈{np.degrees(aA_big):.0f}°   ∠B=∠B'≈{np.degrees(aB_big):.0f}°",
-            font="Noto Sans CJK SC", font_size=21,
+            font="PingFang SC", font_size=21,
             color=self.C_ANG1).move_to(DOWN*0.6)
         self.play(FadeIn(ang_txt), run_time=0.5)
 
@@ -588,7 +588,7 @@ class ASA_AAS(Scene):
         self.wait(0.4)
 
         but_txt = Text("但是……边长不同！",
-                       font="Noto Sans CJK SC", font_size=28,
+                       font="PingFang SC", font_size=28,
                        color=self.C_WRONG).move_to(DOWN*1.6)
         self.play(FadeIn(but_txt, scale=0.8), run_time=0.5)
 
@@ -611,7 +611,7 @@ class ASA_AAS(Scene):
         self.wait(0.5)
 
         cross_mark = Text("✕",
-                          font="Noto Sans CJK SC", font_size=80,
+                          font="PingFang SC", font_size=80,
                           color=self.C_WRONG).move_to(DOWN*2.9)
         self.play(FadeIn(cross_mark, scale=0.3), run_time=0.5)
 
@@ -640,7 +640,7 @@ class ASA_AAS(Scene):
     # ═══════════════════════════════════════════════════
     def scene_6_summary_outro(self):
         sum_title = Text("知识总结",
-                         font="Noto Sans CJK SC", font_size=44,
+                         font="PingFang SC", font_size=44,
                          color=self.C_HIGHLIGHT).move_to(UP*6.5)
         self.play(Write(sum_title), run_time=0.6)
 
@@ -651,12 +651,12 @@ class ASA_AAS(Scene):
             fill_opacity=0.95
         ).move_to(UP*4.6)
 
-        asa_tag  = Text("ASA  角-边-角", font="Noto Sans CJK SC",
+        asa_tag  = Text("ASA  角-边-角", font="PingFang SC",
                         font_size=30, color=self.C_ASA)
         asa_line1 = Text("∠A=∠D，AB=DE（夹边），∠B=∠E",
-                         font="Noto Sans CJK SC", font_size=22, color=WHITE)
+                         font="PingFang SC", font_size=22, color=WHITE)
         asa_line2 = Text("→  △ABC ≌ △DEF",
-                         font="Noto Sans CJK SC", font_size=24,
+                         font="PingFang SC", font_size=24,
                          color=self.C_CONGRUENT)
         VGroup(asa_tag, asa_line1, asa_line2)\
             .arrange(DOWN, buff=0.14).move_to(UP*4.6)
@@ -674,12 +674,12 @@ class ASA_AAS(Scene):
             fill_opacity=0.95
         ).move_to(UP*1.8)
 
-        aas_tag  = Text("AAS  角-角-边", font="Noto Sans CJK SC",
+        aas_tag  = Text("AAS  角-角-边", font="PingFang SC",
                         font_size=30, color=self.C_AAS)
         aas_line1 = Text("∠A=∠D，∠B=∠E，BC=EF（对边）",
-                         font="Noto Sans CJK SC", font_size=22, color=WHITE)
+                         font="PingFang SC", font_size=22, color=WHITE)
         aas_line2 = Text("→  △ABC ≌ △DEF",
-                         font="Noto Sans CJK SC", font_size=24,
+                         font="PingFang SC", font_size=24,
                          color=self.C_CONGRUENT)
         VGroup(aas_tag, aas_line1, aas_line2)\
             .arrange(DOWN, buff=0.14).move_to(UP*1.8)
@@ -698,10 +698,10 @@ class ASA_AAS(Scene):
         ).move_to(DOWN*1.0)
 
         aaa_tag  = Text("✕  AAA  三角对应相等",
-                        font="Noto Sans CJK SC", font_size=26,
+                        font="PingFang SC", font_size=26,
                         color=self.C_WRONG)
         aaa_line = Text("只能说明相似，不能判定全等！",
-                        font="Noto Sans CJK SC", font_size=22,
+                        font="PingFang SC", font_size=22,
                         color=WHITE)
         VGroup(aaa_tag, aaa_line)\
             .arrange(DOWN, buff=0.14).move_to(DOWN*1.0)
@@ -716,7 +716,7 @@ class ASA_AAS(Scene):
             fill_opacity=0.95
         ).move_to(DOWN*2.6)
         trick_txt = Text("记忆：夹边→ASA，对边→AAS",
-                         font="Noto Sans CJK SC", font_size=25,
+                         font="PingFang SC", font_size=25,
                          color=self.C_HIGHLIGHT).move_to(DOWN*2.6)
         self.play(FadeIn(trick_box), FadeIn(trick_txt), run_time=0.5)
 
@@ -732,13 +732,13 @@ class ASA_AAS(Scene):
         )
 
         outro_name = Text("上海初高中数学直通车",
-                          font="Noto Sans CJK SC", font_size=44,
+                          font="PingFang SC", font_size=44,
                           color=WHITE).move_to(UP*1.8)
         outro_id   = Text("@emptyandcalm",
-                          font="Noto Sans CJK SC", font_size=32,
+                          font="PingFang SC", font_size=32,
                           color=self.C_AUX).move_to(UP*0.8)
         cta        = Text("关注我，学更多数学技巧！",
-                          font="Noto Sans CJK SC", font_size=30,
+                          font="PingFang SC", font_size=30,
                           color=self.C_HIGHLIGHT).move_to(DOWN*0.4)
 
         self.play(Transform(self.author_bar, outro_name), run_time=0.65)

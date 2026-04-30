@@ -23,7 +23,7 @@ COLOR_FORMULA   = "#ffd54f"   # 金黄  — 公式
 COLOR_WARN      = "#ef5350"   # 红    — 警告（负数无平方根）
 COLOR_AXIS      = "#b0bec5"   # 灰白  — 数轴
 COLOR_AUTHOR    = "#78909c"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class SquareRootConcept(Scene):

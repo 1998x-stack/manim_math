@@ -187,7 +187,7 @@ class CuboidElements(ThreeDScene):
         # ===== 作者信息（常驻顶部）=====
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.AUTHOR_COLOR
         )
@@ -200,7 +200,7 @@ class CuboidElements(ThreeDScene):
         # ===== 钩子问题 =====
         hook_text = Text(
             "长方体有多少个元素？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         )
@@ -235,7 +235,7 @@ class CuboidElements(ThreeDScene):
         # ===== 标题和定义 =====
         title = Text(
             "顶点 Vertices",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_VERTEX
         )
@@ -243,7 +243,7 @@ class CuboidElements(ThreeDScene):
         
         definition = Text(
             "长方体的角点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -307,7 +307,7 @@ class CuboidElements(ThreeDScene):
         # ===== 结论 =====
         conclusion = Text(
             "共 8 个顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_VERTEX
         )
@@ -324,7 +324,7 @@ class CuboidElements(ThreeDScene):
         
         hint = Text(
             "记住这个数字！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         )
@@ -366,7 +366,7 @@ class CuboidElements(ThreeDScene):
         # ===== 标题和定义 =====
         title = Text(
             "棱 Edges",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_EDGE
         )
@@ -374,7 +374,7 @@ class CuboidElements(ThreeDScene):
         
         definition = Text(
             "连接顶点的线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -394,7 +394,7 @@ class CuboidElements(ThreeDScene):
         # ===== 长度方向的4条棱 =====
         explain_1 = Text(
             "长度方向（深度）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         )
@@ -417,7 +417,7 @@ class CuboidElements(ThreeDScene):
         
         parallel_hint = Text(
             "互相平行且相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -437,7 +437,7 @@ class CuboidElements(ThreeDScene):
         
         explain_2 = Text(
             "宽度方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN
         )
@@ -468,7 +468,7 @@ class CuboidElements(ThreeDScene):
         
         explain_3 = Text(
             "高度方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=BLUE
         )
@@ -506,7 +506,7 @@ class CuboidElements(ThreeDScene):
         
         summary = Text(
             "3组，每组4条平行棱",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_EDGE
         )
@@ -549,7 +549,7 @@ class CuboidElements(ThreeDScene):
         # ===== 标题和定义 =====
         title = Text(
             "面 Faces",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FACE
         )
@@ -557,7 +557,7 @@ class CuboidElements(ThreeDScene):
         
         definition = Text(
             "由4条棱围成的平面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -577,7 +577,7 @@ class CuboidElements(ThreeDScene):
         # ===== 前后两个面 =====
         hint_1 = Text(
             "前后 2 个面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         )
@@ -624,7 +624,7 @@ class CuboidElements(ThreeDScene):
         
         hint_2 = Text(
             "左右 2 个面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN
         )
@@ -676,7 +676,7 @@ class CuboidElements(ThreeDScene):
         
         hint_3 = Text(
             "上下 2 个面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=BLUE
         )
@@ -731,7 +731,7 @@ class CuboidElements(ThreeDScene):
         
         opposite_hint = Text(
             "对面完全相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         )
@@ -773,7 +773,7 @@ class CuboidElements(ThreeDScene):
         # ===== 回顾标题 =====
         title = Text(
             "验证一个神奇的公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         )
@@ -863,7 +863,7 @@ class CuboidElements(ThreeDScene):
         
         euler_title = Text(
             "欧拉公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         )
@@ -872,7 +872,7 @@ class CuboidElements(ThreeDScene):
         
         explanation = Text(
             "适用于所有凸多面体！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -889,7 +889,7 @@ class CuboidElements(ThreeDScene):
         # ===== 神奇常数强调 =====
         emphasis = Text(
             "神奇的常数 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         )
@@ -943,7 +943,7 @@ class CuboidElements(ThreeDScene):
         if "V-E+F" in text:
             label = MathTex(text, font_size=24, color=WHITE)
         else:
-            label = Text(text, font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            label = Text(text, font="PingFang SC", font_size=24, color=WHITE)
         
         # 组合
         card = VGroup(icon, label).arrange(RIGHT, buff=0.3)
@@ -957,7 +957,7 @@ class CuboidElements(ThreeDScene):
         # ===== 标题 =====
         title = Text(
             "特殊的长方体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         )
@@ -981,7 +981,7 @@ class CuboidElements(ThreeDScene):
         
         hint = Text(
             "长宽高逐渐相等...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -1003,7 +1003,7 @@ class CuboidElements(ThreeDScene):
         # ===== 正方体标注 =====
         cube_label = Text(
             "正方体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         )
@@ -1016,7 +1016,7 @@ class CuboidElements(ThreeDScene):
         # ===== 性质说明 =====
         property_1 = Text(
             "12条棱全部相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_EDGE
         )
@@ -1028,7 +1028,7 @@ class CuboidElements(ThreeDScene):
         
         property_2 = Text(
             "6个面都是正方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_FACE
         )
@@ -1040,7 +1040,7 @@ class CuboidElements(ThreeDScene):
         
         conclusion = Text(
             "正方体是特殊的长方体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         )
@@ -1078,7 +1078,7 @@ class CuboidElements(ThreeDScene):
         # 要点快闪
         point_1 = Text(
             "8个顶点 ●",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_VERTEX
         )
@@ -1090,7 +1090,7 @@ class CuboidElements(ThreeDScene):
         
         point_2 = Text(
             "12条棱 ━",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_EDGE
         )
@@ -1102,7 +1102,7 @@ class CuboidElements(ThreeDScene):
         
         point_3 = Text(
             "6个面 ▢",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_FACE
         )
@@ -1142,7 +1142,7 @@ class CuboidElements(ThreeDScene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         )
@@ -1156,7 +1156,7 @@ class CuboidElements(ThreeDScene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         )
@@ -1169,7 +1169,7 @@ class CuboidElements(ThreeDScene):
         # ===== 关注提示 =====
         follow_text = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         )

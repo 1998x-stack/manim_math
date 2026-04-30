@@ -15,7 +15,7 @@ class 平行线的性质Animation(Scene):
         circle.shift(LEFT * 3)
         
         # 添加标签
-        formula = Text("两直线平行 ⟹ 同位角相等", font="Noto Sans CJK SC", font_size=36)
+        formula = Text("两直线平行 ⟹ 同位角相等", font="PingFang SC", font_size=36)
         formula.next_to(circle, RIGHT, buff=1)
         
         # 动画序列

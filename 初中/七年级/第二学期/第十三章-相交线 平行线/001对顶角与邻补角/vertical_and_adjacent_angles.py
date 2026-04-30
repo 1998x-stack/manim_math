@@ -202,7 +202,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -212,7 +212,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 钩子问题
         hook_text = Text(
             "两条直线相交\n会形成什么有趣的角度关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -269,7 +269,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 标题
         title = Text(
             "相交线与角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -280,7 +280,7 @@ class VerticalAndAdjacentAngles(Scene):
         dot_O = Dot(self.O, color=YELLOW, radius=0.08)
         label_O = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(dot_O, DOWN + LEFT, buff=0.15)
@@ -407,7 +407,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 说明文字
         explanation = Text(
             "两条直线相交，形成四个角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -429,7 +429,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 标题
         title = Text(
             "对顶角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -439,7 +439,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 定义
         definition = Text(
             "有公共顶点，但没有公共边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -469,7 +469,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 说明
         explain_1 = Text(
             "∠1 和 ∠3 是对顶角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -480,7 +480,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 性质
         property_text = Text(
             "对顶角相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -557,7 +557,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 标题
         title = Text(
             "邻补角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -567,7 +567,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 定义
         definition = Text(
             "有公共顶点和一条公共边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -601,7 +601,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 说明
         explain_1 = Text(
             "∠1 和 ∠2 是邻补角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 3.5)
@@ -612,7 +612,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 性质
         property_text = Text(
             "邻补角互补 (和为180°)!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -684,7 +684,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 标题
         title = Text(
             "实例验证",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -694,7 +694,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 假设条件
         assumption_text = Text(
             "假设",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         )
@@ -725,7 +725,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 推导角3 (对顶角)
         deduction_3_text = Text(
             "对顶角:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -759,7 +759,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 推导角2 (邻补角)
         deduction_2_text = Text(
             "邻补角:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -793,7 +793,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 推导角4 (对顶角)
         deduction_4_text = Text(
             "对顶角:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -827,7 +827,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 验证
         verification_text = Text(
             "验证:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         )
@@ -879,7 +879,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 标题
         title = Text(
             "知识要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -908,7 +908,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 知识卡片1: 对顶角
         card_1_title = Text(
             "对顶角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -916,7 +916,7 @@ class VerticalAndAdjacentAngles(Scene):
         
         card_1_content = Text(
             "相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -951,7 +951,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 知识卡片2: 邻补角
         card_2_title = Text(
             "邻补角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -959,7 +959,7 @@ class VerticalAndAdjacentAngles(Scene):
         
         card_2_content = Text(
             "互补 (和为180°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -999,7 +999,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 应用提示
         tip = Text(
             "解题利器: 由一角求其他角!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -1023,14 +1023,14 @@ class VerticalAndAdjacentAngles(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1045,7 +1045,7 @@ class VerticalAndAdjacentAngles(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

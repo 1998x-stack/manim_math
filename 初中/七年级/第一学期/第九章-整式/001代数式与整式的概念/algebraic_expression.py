@@ -60,7 +60,7 @@ class AlgebraicExpressionConcept(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -70,7 +70,7 @@ class AlgebraicExpressionConcept(Scene):
         # 钩子问题
         hook_text = Text(
             "数学式子的秘密",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -95,7 +95,7 @@ class AlgebraicExpressionConcept(Scene):
         # 提问
         question = Text(
             "它们都是什么？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 2)
@@ -116,7 +116,7 @@ class AlgebraicExpressionConcept(Scene):
         # 标题
         title = Text(
             "代数式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_ALGEBRAIC,
             weight=BOLD
@@ -127,7 +127,7 @@ class AlgebraicExpressionConcept(Scene):
         # 定义
         definition = Text(
             "用运算符号把数和字母\n连接而成的式子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
             line_spacing=1.2
@@ -145,8 +145,8 @@ class AlgebraicExpressionConcept(Scene):
         arrow_1 = Arrow(UP * 2 + LEFT * 1.5, UP * 0.8 + LEFT * 1.5, color=self.COLOR_HIGHLIGHT, buff=0.1)
         arrow_2 = Arrow(UP * 2 + RIGHT * 1.5, UP * 0.8 + RIGHT * 1.5, color=self.COLOR_HIGHLIGHT, buff=0.1)
         
-        label_a = Text("a", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ALGEBRAIC).next_to(arrow_1, LEFT, buff=0.1)
-        label_b = Text("b", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_ALGEBRAIC).next_to(arrow_2, RIGHT, buff=0.1)
+        label_a = Text("a", font="PingFang SC", font_size=24, color=self.COLOR_ALGEBRAIC).next_to(arrow_1, LEFT, buff=0.1)
+        label_b = Text("b", font="PingFang SC", font_size=24, color=self.COLOR_ALGEBRAIC).next_to(arrow_2, RIGHT, buff=0.1)
         
         example_abstract = MathTex(r"a + b", font_size=44, color=self.COLOR_ALGEBRAIC).move_to(ORIGIN)
         
@@ -164,7 +164,7 @@ class AlgebraicExpressionConcept(Scene):
         plus_highlight = SurroundingRectangle(example_abstract[0][1], color=self.COLOR_HIGHLIGHT, buff=0.08)
         operator_label = Text(
             "运算符号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).next_to(plus_highlight, DOWN, buff=0.3)
@@ -181,7 +181,7 @@ class AlgebraicExpressionConcept(Scene):
         
         examples_title = Text(
             "更多例子：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(more_examples, UP, buff=0.3)
@@ -223,7 +223,7 @@ class AlgebraicExpressionConcept(Scene):
         # 标题
         title = Text(
             "单项式 Monomial",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_MONOMIAL,
             weight=BOLD
@@ -251,7 +251,7 @@ class AlgebraicExpressionConcept(Scene):
         coefficient_brace = Brace(coefficient_box, DOWN, color=self.COLOR_COEFFICIENT)
         coefficient_label = Text(
             "系数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_COEFFICIENT
         ).next_to(coefficient_brace, DOWN, buff=0.1)
@@ -274,7 +274,7 @@ class AlgebraicExpressionConcept(Scene):
         letters_brace = Brace(letters_box, DOWN, color=BLUE)
         letters_label = Text(
             "字母",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=BLUE
         ).next_to(letters_brace, DOWN, buff=0.1)
@@ -299,7 +299,7 @@ class AlgebraicExpressionConcept(Scene):
         
         x_exponent_label = Text(
             "指数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_DEGREE
         ).next_to(x_exponent_arrow, UP, buff=0.05)
@@ -314,7 +314,7 @@ class AlgebraicExpressionConcept(Scene):
         # 定义文字
         definition = Text(
             "数与字母的乘积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 1)
@@ -355,7 +355,7 @@ class AlgebraicExpressionConcept(Scene):
         # === 系数部分 ===
         subtitle1 = Text(
             "系数 Coefficient",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_COEFFICIENT
         ).move_to(UP * 2.5)
@@ -380,7 +380,7 @@ class AlgebraicExpressionConcept(Scene):
         ).move_to(UP * 1.2)
         
         # 修正：使用Text代替MathTex中的中文
-        coef_text = Text("系数", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_COEFFICIENT)
+        coef_text = Text("系数", font="PingFang SC", font_size=28, color=self.COLOR_COEFFICIENT)
         coef_equals = MathTex("=", font_size=36, color=self.COLOR_COEFFICIENT)
         coef_num = MathTex("3", font_size=36, color=self.COLOR_COEFFICIENT)
         coefficient_display = VGroup(coef_text, coef_equals, coef_num).arrange(RIGHT, buff=0.2).move_to(UP * 1.2)
@@ -398,7 +398,7 @@ class AlgebraicExpressionConcept(Scene):
         # === 次数部分 ===
         subtitle2 = Text(
             "次数 Degree",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_DEGREE
         ).move_to(UP * 2.5)
@@ -407,7 +407,7 @@ class AlgebraicExpressionConcept(Scene):
         
         explanation = Text(
             "所有字母指数之和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 1.8)
@@ -448,7 +448,7 @@ class AlgebraicExpressionConcept(Scene):
         self.play(FadeIn(result, scale=1.3), run_time=0.5)
         
         # 次数标签
-        degree_text = Text("次数", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_DEGREE)
+        degree_text = Text("次数", font="PingFang SC", font_size=28, color=self.COLOR_DEGREE)
         degree_eq = MathTex("=", font_size=36, color=self.COLOR_DEGREE)
         degree_val = MathTex("3", font_size=36, color=self.COLOR_DEGREE)
         degree_display = VGroup(degree_text, degree_eq, degree_val).arrange(RIGHT, buff=0.2).move_to(DOWN * 2)
@@ -459,9 +459,9 @@ class AlgebraicExpressionConcept(Scene):
         # 更多例子快闪
         examples_group = VGroup(
             MathTex(r"-5a^3b", font_size=28, color=self.COLOR_MONOMIAL),
-            Text("系数=-5, 次数=4", font="Noto Sans CJK SC", font_size=18, color=GRAY_A),
+            Text("系数=-5, 次数=4", font="PingFang SC", font_size=18, color=GRAY_A),
             MathTex(r"xy^2z^3", font_size=28, color=self.COLOR_MONOMIAL),
-            Text("系数=1, 次数=6", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text("系数=1, 次数=6", font="PingFang SC", font_size=18, color=GRAY_A)
         ).arrange_in_grid(rows=2, cols=2, buff=(0.5, 0.3)).move_to(DOWN * 4)
         
         for item in examples_group:
@@ -488,7 +488,7 @@ class AlgebraicExpressionConcept(Scene):
         # 标题
         title = Text(
             "多项式 Polynomial",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_POLYNOMIAL,
             weight=BOLD
@@ -520,9 +520,9 @@ class AlgebraicExpressionConcept(Scene):
         term3 = MathTex(r"-1", font_size=40, color=self.COLOR_MONOMIAL).move_to(UP * 1.5 + RIGHT * 2.5)
         
         # 标注"单项式"
-        label1 = Text("单项式", font="Noto Sans CJK SC", font_size=18, color=GRAY_A).next_to(term1, DOWN, buff=0.2)
-        label2 = Text("单项式", font="Noto Sans CJK SC", font_size=18, color=GRAY_A).next_to(term2, DOWN, buff=0.2)
-        label3 = Text("单项式", font="Noto Sans CJK SC", font_size=18, color=GRAY_A).next_to(term3, DOWN, buff=0.2)
+        label1 = Text("单项式", font="PingFang SC", font_size=18, color=GRAY_A).next_to(term1, DOWN, buff=0.2)
+        label2 = Text("单项式", font="PingFang SC", font_size=18, color=GRAY_A).next_to(term2, DOWN, buff=0.2)
+        label3 = Text("单项式", font="PingFang SC", font_size=18, color=GRAY_A).next_to(term3, DOWN, buff=0.2)
         
         # 箭头
         arrow1 = Arrow(polynomial.get_bottom() + LEFT * 1, term1.get_top(), color=self.COLOR_HIGHLIGHT, buff=0.1, stroke_width=2)
@@ -556,7 +556,7 @@ class AlgebraicExpressionConcept(Scene):
         # 定义文字
         definition = Text(
             "几个单项式的和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_POLYNOMIAL,
             weight=BOLD
@@ -602,7 +602,7 @@ class AlgebraicExpressionConcept(Scene):
         # 标题
         title = Text(
             "整式 Integral Expression",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD,
             weight=BOLD
@@ -621,7 +621,7 @@ class AlgebraicExpressionConcept(Scene):
         
         box_label = Text(
             "整式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD,
             weight=BOLD
@@ -655,7 +655,7 @@ class AlgebraicExpressionConcept(Scene):
         # 公式
         formula_text = Text(
             "整式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         )
@@ -664,7 +664,7 @@ class AlgebraicExpressionConcept(Scene):
         
         formula_mono = Text(
             "单项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_MONOMIAL
         )
@@ -673,7 +673,7 @@ class AlgebraicExpressionConcept(Scene):
         
         formula_poly = Text(
             "多项式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_POLYNOMIAL
         )
@@ -725,7 +725,7 @@ class AlgebraicExpressionConcept(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=color,
             weight=BOLD
@@ -742,7 +742,7 @@ class AlgebraicExpressionConcept(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD
@@ -756,7 +756,7 @@ class AlgebraicExpressionConcept(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -766,7 +766,7 @@ class AlgebraicExpressionConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多代数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8)
@@ -775,15 +775,15 @@ class AlgebraicExpressionConcept(Scene):
         
         # 三个知识点图标
         icon1 = Circle(radius=0.4, fill_color=self.COLOR_ALGEBRAIC, fill_opacity=0.8, stroke_width=0)
-        icon1_text = Text("代数式", font="Noto Sans CJK SC", font_size=16, color=WHITE).move_to(icon1.get_center())
+        icon1_text = Text("代数式", font="PingFang SC", font_size=16, color=WHITE).move_to(icon1.get_center())
         icon1_group = VGroup(icon1, icon1_text).move_to(DOWN * 2.5 + LEFT * 2.2)
         
         icon2 = Circle(radius=0.4, fill_color=self.COLOR_MONOMIAL, fill_opacity=0.8, stroke_width=0)
-        icon2_text = Text("单项式", font="Noto Sans CJK SC", font_size=16, color=WHITE).move_to(icon2.get_center())
+        icon2_text = Text("单项式", font="PingFang SC", font_size=16, color=WHITE).move_to(icon2.get_center())
         icon2_group = VGroup(icon2, icon2_text).move_to(DOWN * 2.5)
         
         icon3 = Circle(radius=0.4, fill_color=self.COLOR_POLYNOMIAL, fill_opacity=0.8, stroke_width=0)
-        icon3_text = Text("多项式", font="Noto Sans CJK SC", font_size=16, color=WHITE).move_to(icon3.get_center())
+        icon3_text = Text("多项式", font="PingFang SC", font_size=16, color=WHITE).move_to(icon3.get_center())
         icon3_group = VGroup(icon3, icon3_text).move_to(DOWN * 2.5 + RIGHT * 2.2)
         
         icons = VGroup(icon1_group, icon2_group, icon3_group)

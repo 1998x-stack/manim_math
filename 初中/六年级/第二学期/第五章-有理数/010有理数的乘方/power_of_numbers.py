@@ -57,7 +57,7 @@ class PowerOfNumbers(Scene):
         # 作者信息（全程显示）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["author"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -78,7 +78,7 @@ class PowerOfNumbers(Scene):
         # 钩子问题
         hook_question = Text(
             "这样写太麻烦了！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -110,7 +110,7 @@ class PowerOfNumbers(Scene):
         # 提示
         hint_text = Text(
             "用乘方可以简化！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_PRIMARY
         ).move_to(DOWN * 0.5)
@@ -132,7 +132,7 @@ class PowerOfNumbers(Scene):
         # 标题
         title = Text(
             "什么是乘方？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -140,7 +140,7 @@ class PowerOfNumbers(Scene):
         # 定义
         definition = Text(
             "n 个相同因数 a 相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 4)
@@ -162,7 +162,7 @@ class PowerOfNumbers(Scene):
         base_brace = Brace(general_form[0][0], DOWN, buff=0.3, color=self.COLOR_POSITIVE)
         base_label = Text(
             "底数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_POSITIVE
         ).next_to(base_brace, DOWN, buff=0.1)
@@ -170,14 +170,14 @@ class PowerOfNumbers(Scene):
         exponent_brace = Brace(general_form[0][1], UP, buff=0.3, color=self.COLOR_SECONDARY)
         exponent_label = Text(
             "指数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_SECONDARY
         ).next_to(exponent_brace, UP, buff=0.1)
         
         power_label = Text(
             "幂",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(general_form, RIGHT, buff=0.8)
@@ -310,7 +310,7 @@ class PowerOfNumbers(Scene):
         # 计算过程
         calculation = Text(
             "4 个 2 相乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -399,7 +399,7 @@ class PowerOfNumbers(Scene):
         # 警告标题
         warning_title = Text(
             "⚠️ 注意！负号的位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
@@ -416,7 +416,7 @@ class PowerOfNumbers(Scene):
         
         left_title = Text(
             "负数的乘方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_PRIMARY
         ).next_to(left_box, UP, buff=0.2)
@@ -431,7 +431,7 @@ class PowerOfNumbers(Scene):
         
         right_title = Text(
             "负号在外面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_SECONDARY
         ).next_to(right_box, UP, buff=0.2)
@@ -465,7 +465,7 @@ class PowerOfNumbers(Scene):
         
         note1 = Text(
             "偶次幂",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=self.COLOR_POSITIVE
         ).next_to(result1, DOWN, buff=0.2)
@@ -496,7 +496,7 @@ class PowerOfNumbers(Scene):
         
         note2 = Text(
             "奇次幂",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=self.COLOR_NEGATIVE
         ).next_to(result2, DOWN, buff=0.2)
@@ -534,7 +534,7 @@ class PowerOfNumbers(Scene):
         
         note3 = Text(
             "负号不参与乘方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=self.COLOR_SECONDARY
         ).next_to(result3, DOWN, buff=0.2)
@@ -582,7 +582,7 @@ class PowerOfNumbers(Scene):
         # 标题
         title = Text(
             "负数乘方的规律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -593,13 +593,13 @@ class PowerOfNumbers(Scene):
         rule1 = VGroup(
             Text(
                 "偶次幂：",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZES["body"],
                 color=WHITE
             ),
             VGroup(
                 MathTex(r"(-a)^n", font_size=self.FONT_SIZES["body"], color=self.COLOR_POSITIVE),
-                Text("(n偶数) = 正数", font="Noto Sans CJK SC",
+                Text("(n偶数) = 正数", font="PingFang SC",
                     font_size=self.FONT_SIZES["body"], color=self.COLOR_POSITIVE)
             ).arrange(RIGHT, buff=0.2).shift(RIGHT * 0.5)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
@@ -617,13 +617,13 @@ class PowerOfNumbers(Scene):
         rule2 = VGroup(
             Text(
                 "奇次幂：",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZES["body"],
                 color=WHITE
             ),
             VGroup(
                 MathTex(r"(-a)^n", font_size=self.FONT_SIZES["body"], color=self.COLOR_NEGATIVE),
-                Text("(n奇数) = 负数", font="Noto Sans CJK SC",
+                Text("(n奇数) = 负数", font="PingFang SC",
                     font_size=self.FONT_SIZES["body"], color=self.COLOR_NEGATIVE)
             ).arrange(RIGHT, buff=0.2).shift(RIGHT * 0.5)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2)
@@ -650,7 +650,7 @@ class PowerOfNumbers(Scene):
         # 记忆提示
         memory_tip = Text(
             "记住：偶正奇负！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -676,7 +676,7 @@ class PowerOfNumbers(Scene):
         # 总结卡片
         summary_title = Text(
             "今天学了什么？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5)
@@ -685,9 +685,9 @@ class PowerOfNumbers(Scene):
         
         # 要点
         points = VGroup(
-            Text("✓ 乘方的定义：aⁿ", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("✓ 0次幂规则：a⁰ = 1", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("✓ 负数乘方：偶正奇负", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
+            Text("✓ 乘方的定义：aⁿ", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("✓ 0次幂规则：a⁰ = 1", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("✓ 负数乘方：偶正奇负", font="PingFang SC", font_size=22, color=GRAY_A),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.4).move_to(UP * 2.5)
         
         for point in points:
@@ -698,14 +698,14 @@ class PowerOfNumbers(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE
         ).move_to(DOWN * 0.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_B
         ).move_to(DOWN * 1.5)
@@ -719,7 +719,7 @@ class PowerOfNumbers(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)

@@ -220,7 +220,7 @@ class PythagoreanTheorem(Scene):
         # ── 作者信息 ──
         self.author_info = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B,
         ).move_to(UP * 7.2)
@@ -229,13 +229,13 @@ class PythagoreanTheorem(Scene):
         # ── 钩子问题 ──
         hook_line1 = Text(
             "直角三角形的三边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE,
         ).move_to(UP * 6.0)
         hook_line2 = Text(
             "之间有什么神奇关系？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_FORMULA,
         ).move_to(UP * 5.3)
@@ -254,17 +254,17 @@ class PythagoreanTheorem(Scene):
         # ── 标注三边 a, b, c ──
         # a: CA边 中点下方
         mid_CA = (self.C + self.A) / 2
-        label_a = Text("a", font="Noto Sans CJK SC", font_size=28,
+        label_a = Text("a", font="PingFang SC", font_size=28,
                        color=self.C_SIDE_A).move_to(mid_CA + DOWN * 0.35)
 
         # b: CB边 中点左方
         mid_CB = (self.C + self.B) / 2
-        label_b = Text("b", font="Noto Sans CJK SC", font_size=28,
+        label_b = Text("b", font="PingFang SC", font_size=28,
                        color=self.C_SIDE_B).move_to(mid_CB + LEFT * 0.35)
 
         # c: AB边 中点右方偏上
         mid_AB = (self.A + self.B) / 2
-        label_c = Text("c", font="Noto Sans CJK SC", font_size=28,
+        label_c = Text("c", font="PingFang SC", font_size=28,
                        color=self.C_SIDE_C).move_to(mid_AB + RIGHT * 0.4)
 
         self.play(
@@ -275,14 +275,14 @@ class PythagoreanTheorem(Scene):
         )
 
         # 直角标注
-        right_text = Text("直角", font="Noto Sans CJK SC", font_size=20,
+        right_text = Text("直角", font="PingFang SC", font_size=20,
                           color=self.C_RIGHT).move_to(self.C + DOWN * 0.35 + LEFT * 0.35)
         self.play(FadeIn(right_text), run_time=0.4)
         self.wait(0.5)
 
         # ── 引入公式悬念 ──
         question = Text("a, b, c 之间有什么关系？",
-                        font="Noto Sans CJK SC", font_size=26,
+                        font="PingFang SC", font_size=26,
                         color=self.C_HIGHLIGHT).move_to(DOWN * 3.5)
         self.play(FadeIn(question, shift=UP * 0.3), run_time=0.6)
         self.wait(0.8)
@@ -311,10 +311,10 @@ class PythagoreanTheorem(Scene):
         """构造三个正方形，可视化 a², b², c²"""
 
         # ── 标题 ──
-        title = Text("勾股定理", font="Noto Sans CJK SC", font_size=38,
+        title = Text("勾股定理", font="PingFang SC", font_size=38,
                      color=self.C_FORMULA).move_to(UP * 5.8)
         subtitle = Text("在三条边上分别画正方形",
-                        font="Noto Sans CJK SC", font_size=24,
+                        font="PingFang SC", font_size=24,
                         color=GRAY_A).move_to(UP * 5.1)
 
         self.play(Write(title), run_time=0.7)
@@ -322,7 +322,7 @@ class PythagoreanTheorem(Scene):
 
         # ── 正方形 a² ──
         hint_a = Text("以直角边 a 为边，向外作正方形",
-                      font="Noto Sans CJK SC", font_size=22,
+                      font="PingFang SC", font_size=22,
                       color=self.C_SIDE_A).move_to(DOWN * 4.8)
         self.play(FadeIn(hint_a), run_time=0.4)
 
@@ -338,7 +338,7 @@ class PythagoreanTheorem(Scene):
 
         # ── 正方形 b² ──
         hint_b = Text("以直角边 b 为边，向外作正方形",
-                      font="Noto Sans CJK SC", font_size=22,
+                      font="PingFang SC", font_size=22,
                       color=self.C_SIDE_B).move_to(DOWN * 4.8)
         self.play(FadeIn(hint_b), run_time=0.4)
 
@@ -354,7 +354,7 @@ class PythagoreanTheorem(Scene):
 
         # ── 正方形 c² ──
         hint_c = Text("以斜边 c 为边，向外作正方形",
-                      font="Noto Sans CJK SC", font_size=22,
+                      font="PingFang SC", font_size=22,
                       color=self.C_SIDE_C).move_to(DOWN * 4.8)
         self.play(FadeIn(hint_c), run_time=0.4)
 
@@ -383,7 +383,7 @@ class PythagoreanTheorem(Scene):
         )
 
         key_question = Text("三个正方形的面积有什么关系？",
-                            font="Noto Sans CJK SC", font_size=26,
+                            font="PingFang SC", font_size=26,
                             color=self.C_HIGHLIGHT).move_to(DOWN * 4.5)
         self.play(FadeIn(key_question, shift=UP * 0.3), run_time=0.6)
         self.wait(1.5)
@@ -408,16 +408,16 @@ class PythagoreanTheorem(Scene):
         """揭示 a² + b² = c²"""
 
         # ── 面积数值展示 (以3:4:5为例) ──
-        title = Text("面积关系", font="Noto Sans CJK SC", font_size=36,
+        title = Text("面积关系", font="PingFang SC", font_size=36,
                      color=self.C_FORMULA).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.5)
 
         # 面积数字
-        area_a = Text("面积 = 9", font="Noto Sans CJK SC", font_size=22,
+        area_a = Text("面积 = 9", font="PingFang SC", font_size=22,
                       color=self.C_SIDE_A)
-        area_b = Text("面积 = 16", font="Noto Sans CJK SC", font_size=22,
+        area_b = Text("面积 = 16", font="PingFang SC", font_size=22,
                       color=self.C_SIDE_B)
-        area_c = Text("面积 = 25", font="Noto Sans CJK SC", font_size=22,
+        area_c = Text("面积 = 25", font="PingFang SC", font_size=22,
                       color=self.C_SIDE_C)
 
         # 放在对应正方形旁边
@@ -465,7 +465,7 @@ class PythagoreanTheorem(Scene):
         self.play(Create(formula_box), run_time=0.5)
 
         # 公式名称
-        theorem_name = Text("勾股定理", font="Noto Sans CJK SC",
+        theorem_name = Text("勾股定理", font="PingFang SC",
                             font_size=28, color=self.C_FORMULA).next_to(formula_box, DOWN, buff=0.2)
         self.play(FadeIn(theorem_name, shift=UP * 0.2), run_time=0.5)
 
@@ -506,10 +506,10 @@ class PythagoreanTheorem(Scene):
         )
 
         # ── 标题 ──
-        title = Text("数值验证", font="Noto Sans CJK SC", font_size=36,
+        title = Text("数值验证", font="PingFang SC", font_size=36,
                      color=self.C_FORMULA).move_to(UP * 5.8)
         subtitle = Text("经典勾股数: 3, 4, 5",
-                        font="Noto Sans CJK SC", font_size=26,
+                        font="PingFang SC", font_size=26,
                         color=GRAY_A).move_to(UP * 5.1)
         self.play(Write(title), FadeIn(subtitle), run_time=0.6)
 
@@ -518,11 +518,11 @@ class PythagoreanTheorem(Scene):
         mid_CB = (self.C + self.B) / 2
         mid_AB = (self.A + self.B) / 2
 
-        val_a = Text("a = 3", font="Noto Sans CJK SC", font_size=26,
+        val_a = Text("a = 3", font="PingFang SC", font_size=26,
                      color=self.C_SIDE_A).move_to(mid_CA + DOWN * 0.4)
-        val_b = Text("b = 4", font="Noto Sans CJK SC", font_size=26,
+        val_b = Text("b = 4", font="PingFang SC", font_size=26,
                      color=self.C_SIDE_B).move_to(mid_CB + LEFT * 0.5)
-        val_c = Text("c = ?", font="Noto Sans CJK SC", font_size=26,
+        val_c = Text("c = ?", font="PingFang SC", font_size=26,
                      color=self.C_SIDE_C).move_to(mid_AB + RIGHT * 0.5)
 
         # 更新边标注
@@ -563,12 +563,12 @@ class PythagoreanTheorem(Scene):
         self.wait(0.3)
 
         # 更新 c 标注
-        val_c_ans = Text("c = 5", font="Noto Sans CJK SC", font_size=26,
+        val_c_ans = Text("c = 5", font="PingFang SC", font_size=26,
                          color=self.C_SIDE_C).move_to(mid_AB + RIGHT * 0.5)
         self.play(ReplacementTransform(val_c, val_c_ans), run_time=0.5)
 
         # 验证符号
-        checkmark = Text("✓  验证成立！", font="Noto Sans CJK SC",
+        checkmark = Text("✓  验证成立！", font="PingFang SC",
                          font_size=32, color="#4CAF50").move_to(DOWN * 6.0)
         self.play(FadeIn(checkmark, scale=1.2), run_time=0.5)
         self.wait(2.0)
@@ -590,10 +590,10 @@ class PythagoreanTheorem(Scene):
         """展示公式的三种变形"""
 
         # ── 标题 ──
-        title = Text("公式变形", font="Noto Sans CJK SC", font_size=36,
+        title = Text("公式变形", font="PingFang SC", font_size=36,
                      color=self.C_FORMULA).move_to(UP * 5.8)
         subtitle = Text("已知两边，求第三边",
-                        font="Noto Sans CJK SC", font_size=26,
+                        font="PingFang SC", font_size=26,
                         color=GRAY_A).move_to(UP * 5.1)
         self.play(Write(title), FadeIn(subtitle), run_time=0.6)
 
@@ -606,7 +606,7 @@ class PythagoreanTheorem(Scene):
         # 变形1: 求斜边c
         arrow1 = MathTex(r"\Downarrow", font_size=36, color=GRAY_A).move_to(UP * 2.9)
         label1 = Text("已知 a, b 求斜边 c",
-                      font="Noto Sans CJK SC", font_size=22,
+                      font="PingFang SC", font_size=22,
                       color=self.C_SIDE_C).move_to(UP * 2.1)
         var1 = MathTex(r"c = \sqrt{a^2 + b^2}",
                        font_size=40, color=self.C_SIDE_C).move_to(UP * 1.3)
@@ -618,7 +618,7 @@ class PythagoreanTheorem(Scene):
         # 变形2: 求直角边a
         arrow2 = MathTex(r"\Downarrow", font_size=36, color=GRAY_A).move_to(UP * 0.4)
         label2 = Text("已知 b, c 求直角边 a",
-                      font="Noto Sans CJK SC", font_size=22,
+                      font="PingFang SC", font_size=22,
                       color=self.C_SIDE_A).move_to(DOWN * 0.4)
         var2 = MathTex(r"a = \sqrt{c^2 - b^2}",
                        font_size=40, color=self.C_SIDE_A).move_to(DOWN * 1.2)
@@ -630,7 +630,7 @@ class PythagoreanTheorem(Scene):
         # 变形3: 求直角边b
         arrow3 = MathTex(r"\Downarrow", font_size=36, color=GRAY_A).move_to(DOWN * 2.1)
         label3 = Text("已知 a, c 求直角边 b",
-                      font="Noto Sans CJK SC", font_size=22,
+                      font="PingFang SC", font_size=22,
                       color=self.C_SIDE_B).move_to(DOWN * 2.9)
         var3 = MathTex(r"b = \sqrt{c^2 - a^2}",
                        font_size=40, color=self.C_SIDE_B).move_to(DOWN * 3.7)
@@ -641,7 +641,7 @@ class PythagoreanTheorem(Scene):
 
         # ── 核心记忆点 ──
         memory_tip = Text("记住: 直角边² + 直角边² = 斜边²",
-                          font="Noto Sans CJK SC", font_size=24,
+                          font="PingFang SC", font_size=24,
                           color=self.C_FORMULA).move_to(DOWN * 5.0)
         self.play(FadeIn(memory_tip, shift=UP * 0.3), run_time=0.6)
         self.wait(1.5)
@@ -681,7 +681,7 @@ class PythagoreanTheorem(Scene):
         deco_line_r = Line(RIGHT * 0.5, RIGHT * 3.5,
                            color=self.C_FORMULA, stroke_width=2).move_to(UP * 1.5)
 
-        text_core = Text("勾股定理", font="Noto Sans CJK SC",
+        text_core = Text("勾股定理", font="PingFang SC",
                          font_size=34, color=WHITE).move_to(UP * 1.5)
         self.play(
             Create(deco_line_l), Create(deco_line_r),
@@ -717,7 +717,7 @@ class PythagoreanTheorem(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_HIGHLIGHT,
         ).move_to(DOWN * 1.2)
@@ -726,13 +726,13 @@ class PythagoreanTheorem(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         ).move_to(DOWN * 2.2)
         author_id_big = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_B,
         ).move_to(DOWN * 3.0)

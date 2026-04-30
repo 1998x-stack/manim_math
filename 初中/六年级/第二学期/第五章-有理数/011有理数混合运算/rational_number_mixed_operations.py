@@ -75,7 +75,7 @@ class RationalNumberMixedOperations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -104,7 +104,7 @@ class RationalNumberMixedOperations(Scene):
         # 副标题
         subtitle = Text(
             "运算顺序很重要!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_RESULT
         ).move_to(UP * 3.5)
@@ -125,7 +125,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "运算顺序",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=GOLD
         ).move_to(UP * 6)
@@ -134,8 +134,8 @@ class RationalNumberMixedOperations(Scene):
         
         # 法则卡片 - 第一级：乘方
         power_card = VGroup(
-            Text("第一级", font="Noto Sans CJK SC", font_size=24, color=WHITE, weight=BOLD),
-            Text("乘方", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_POWER),
+            Text("第一级", font="PingFang SC", font_size=24, color=WHITE, weight=BOLD),
+            Text("乘方", font="PingFang SC", font_size=28, color=self.COLOR_POWER),
             MathTex(r"a^n", font_size=24, color=self.COLOR_POWER)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
@@ -143,8 +143,8 @@ class RationalNumberMixedOperations(Scene):
         
         # 法则卡片 - 第二级：乘除
         multiply_card = VGroup(
-            Text("第二级", font="Noto Sans CJK SC", font_size=24, color=WHITE, weight=BOLD),
-            Text("乘除", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_MULTIPLY),
+            Text("第二级", font="PingFang SC", font_size=24, color=WHITE, weight=BOLD),
+            Text("乘除", font="PingFang SC", font_size=28, color=self.COLOR_MULTIPLY),
             MathTex(r"\times, \div", font_size=24, color=self.COLOR_MULTIPLY)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2.5)
         
@@ -152,8 +152,8 @@ class RationalNumberMixedOperations(Scene):
         
         # 法则卡片 - 第三级：加减
         add_card = VGroup(
-            Text("第三级", font="Noto Sans CJK SC", font_size=24, color=WHITE, weight=BOLD),
-            Text("加减", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_ADD),
+            Text("第三级", font="PingFang SC", font_size=24, color=WHITE, weight=BOLD),
+            Text("加减", font="PingFang SC", font_size=28, color=self.COLOR_ADD),
             MathTex(r"+, -", font_size=24, color=self.COLOR_ADD)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1)
         
@@ -167,8 +167,8 @@ class RationalNumberMixedOperations(Scene):
         
         # 括号规则
         bracket_rule = VGroup(
-            Text("特殊规则", font="Noto Sans CJK SC", font_size=26, color=YELLOW, weight=BOLD),
-            Text("括号优先!", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_BRACKET_SMALL)
+            Text("特殊规则", font="PingFang SC", font_size=26, color=YELLOW, weight=BOLD),
+            Text("括号优先!", font="PingFang SC", font_size=24, color=self.COLOR_BRACKET_SMALL)
         ).arrange(DOWN, buff=0.2).move_to(DOWN * 0.5)
         
         bracket_order = MathTex(
@@ -201,7 +201,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "只有加减：从左到右",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ADD
         ).move_to(UP * 5.5)
@@ -225,7 +225,7 @@ class RationalNumberMixedOperations(Scene):
         )
         step1_text = Text(
             "① 先算 5-3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_STEP
         ).move_to(UP * 2.5)
@@ -255,7 +255,7 @@ class RationalNumberMixedOperations(Scene):
         )
         step2_text = Text(
             "② 再算 2+2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_STEP
         ).move_to(UP * 2.5)
@@ -291,7 +291,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "先乘除，后加减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=YELLOW
         ).move_to(UP * 5.5)
@@ -315,7 +315,7 @@ class RationalNumberMixedOperations(Scene):
         
         hint = Text(
             "先算乘除",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_MULTIPLY
         ).move_to(UP * 3.2)
@@ -369,7 +369,7 @@ class RationalNumberMixedOperations(Scene):
         # 步骤3: 加减运算
         hint2 = Text(
             "再算加减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_ADD
         ).move_to(UP * 3.2)
@@ -403,7 +403,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "先算乘方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_POWER
         ).move_to(UP * 5.5)
@@ -425,9 +425,9 @@ class RationalNumberMixedOperations(Scene):
         formula[4:6].set_color(self.COLOR_POWER)
         
         labels = VGroup(
-            Text("①", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_POWER).next_to(formula[5], UR, buff=0.1),
-            Text("②", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_MULTIPLY).next_to(formula[3], UP, buff=0.1),
-            Text("③", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ADD).next_to(formula[1], UP, buff=0.1)
+            Text("①", font="PingFang SC", font_size=20, color=self.COLOR_POWER).next_to(formula[5], UR, buff=0.1),
+            Text("②", font="PingFang SC", font_size=20, color=self.COLOR_MULTIPLY).next_to(formula[3], UP, buff=0.1),
+            Text("③", font="PingFang SC", font_size=20, color=self.COLOR_ADD).next_to(formula[1], UP, buff=0.1)
         )
         
         self.play(FadeIn(labels), run_time=0.6)
@@ -512,7 +512,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "括号优先",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_BRACKET_SMALL
         ).move_to(UP * 5.5)
@@ -536,7 +536,7 @@ class RationalNumberMixedOperations(Scene):
         
         hint = Text(
             "先算括号内",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_BRACKET_SMALL
         ).move_to(UP * 3)
@@ -580,7 +580,7 @@ class RationalNumberMixedOperations(Scene):
         
         compare_text = Text(
             "对比（无括号）:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).next_to(compare, UP, buff=0.2)
@@ -609,7 +609,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "多层括号：由内到外",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=YELLOW
         ).move_to(UP * 5.5)
@@ -642,7 +642,7 @@ class RationalNumberMixedOperations(Scene):
         )
         step1_text = Text(
             "① 最内层: (4-1)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_BRACKET_SMALL
         ).move_to(UP * 2.8)
@@ -675,7 +675,7 @@ class RationalNumberMixedOperations(Scene):
         )
         step2_text = Text(
             "② 中间层: [3+3]",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_BRACKET_MID
         ).move_to(UP * 2.8)
@@ -706,7 +706,7 @@ class RationalNumberMixedOperations(Scene):
         )
         step3_text = Text(
             "③ 最外层: {2×6}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_BRACKET_BIG
         ).move_to(UP * 2.8)
@@ -741,7 +741,7 @@ class RationalNumberMixedOperations(Scene):
         # 标题
         title = Text(
             "常见错误",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ERROR
         ).move_to(UP * 6)
@@ -751,7 +751,7 @@ class RationalNumberMixedOperations(Scene):
         # 错误1: 忽略括号
         error1 = VGroup(
             MathTex(r"(3+2)\times 4 = 3+2\times 4", font_size=26, color=self.COLOR_ERROR),
-            Text("✗ 忽略括号", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ERROR)
+            Text("✗ 忽略括号", font="PingFang SC", font_size=20, color=self.COLOR_ERROR)
         ).arrange(DOWN, buff=0.2).move_to(UP * 4)
         
         self.play(Write(error1), run_time=0.8)
@@ -760,7 +760,7 @@ class RationalNumberMixedOperations(Scene):
         # 错误2: 运算顺序错误
         error2 = VGroup(
             MathTex(r"3+2\times 5 = 5\times 5", font_size=26, color=self.COLOR_ERROR),
-            Text("✗ 先算了加法", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ERROR)
+            Text("✗ 先算了加法", font="PingFang SC", font_size=20, color=self.COLOR_ERROR)
         ).arrange(DOWN, buff=0.2).move_to(UP * 1.5)
         
         self.play(Write(error2), run_time=0.8)
@@ -769,7 +769,7 @@ class RationalNumberMixedOperations(Scene):
         # 错误3: 负号处理错误
         error3 = VGroup(
             MathTex(r"-3^2 = 9", font_size=26, color=self.COLOR_ERROR),
-            Text("✗ 应该是 -9", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ERROR)
+            Text("✗ 应该是 -9", font="PingFang SC", font_size=20, color=self.COLOR_ERROR)
         ).arrange(DOWN, buff=0.2).move_to(DOWN * 1)
         
         self.play(Write(error3), run_time=0.8)
@@ -800,7 +800,7 @@ class RationalNumberMixedOperations(Scene):
         # 大标题
         title = Text(
             "运算口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE + 4,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -811,7 +811,7 @@ class RationalNumberMixedOperations(Scene):
         # 口诀1
         line1 = Text(
             "括号优先第一位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_BRACKET_SMALL
         ).move_to(UP * 4.5)
@@ -822,7 +822,7 @@ class RationalNumberMixedOperations(Scene):
         # 口诀2
         line2 = Text(
             "乘方紧随其后来",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_POWER
         ).move_to(UP * 3)
@@ -833,7 +833,7 @@ class RationalNumberMixedOperations(Scene):
         # 口诀3
         line3 = Text(
             "乘除运算第三级",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_MULTIPLY
         ).move_to(UP * 1.5)
@@ -844,7 +844,7 @@ class RationalNumberMixedOperations(Scene):
         # 口诀4
         line4 = Text(
             "加减最后算出来",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ADD
         ).move_to(ORIGIN)
@@ -864,7 +864,7 @@ class RationalNumberMixedOperations(Scene):
         # 重点提示
         highlight = Text(
             "记住顺序，不出错!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=YELLOW
         ).move_to(DOWN * 2.5)
@@ -889,14 +889,14 @@ class RationalNumberMixedOperations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -910,7 +910,7 @@ class RationalNumberMixedOperations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 0.5)

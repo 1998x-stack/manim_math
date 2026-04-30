@@ -57,7 +57,7 @@ class RatioProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -67,7 +67,7 @@ class RatioProperties(Scene):
         # 钩子问题
         hook_text = Text(
             "比是什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -78,7 +78,7 @@ class RatioProperties(Scene):
         # 展示比 4:6
         num_4 = Text(
             "4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=self.COLOR_RATIO_A,
             weight=BOLD
@@ -86,7 +86,7 @@ class RatioProperties(Scene):
         
         colon = Text(
             ":",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=WHITE,
             weight=BOLD
@@ -94,7 +94,7 @@ class RatioProperties(Scene):
         
         num_6 = Text(
             "6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=72,
             color=self.COLOR_RATIO_B,
             weight=BOLD
@@ -116,7 +116,7 @@ class RatioProperties(Scene):
         # 问题文字
         question = Text(
             "这个比能化简吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -139,7 +139,7 @@ class RatioProperties(Scene):
         # 标题
         title = Text(
             "比的基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROPERTY,
             weight=BOLD
@@ -147,7 +147,7 @@ class RatioProperties(Scene):
         
         property_text = Text(
             "前项和后项同时乘以同一个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -163,8 +163,8 @@ class RatioProperties(Scene):
         
         # 显示 ×2 操作
         multiply_op = VGroup(
-            Text("×", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_MULTIPLY),
-            Text("2", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_MULTIPLY)
+            Text("×", font="PingFang SC", font_size=36, color=self.COLOR_MULTIPLY),
+            Text("2", font="PingFang SC", font_size=36, color=self.COLOR_MULTIPLY)
         ).arrange(RIGHT, buff=0.1)
         multiply_op.move_to(LEFT * 2.5 + UP * 0.8)
         
@@ -182,9 +182,9 @@ class RatioProperties(Scene):
         
         # 计算过程 - 4×2
         calc_4 = VGroup(
-            Text("4", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_A),
-            Text("×2 =", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_MULTIPLY),
-            Text("8", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_A, weight=BOLD)
+            Text("4", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_A),
+            Text("×2 =", font="PingFang SC", font_size=28, color=self.COLOR_MULTIPLY),
+            Text("8", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_A, weight=BOLD)
         ).arrange(RIGHT, buff=0.15)
         calc_4.move_to(LEFT * 2.5 + DOWN * 0.2)
         
@@ -192,9 +192,9 @@ class RatioProperties(Scene):
         
         # 计算过程 - 6×2
         calc_6 = VGroup(
-            Text("6", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_B),
-            Text("×2 =", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_MULTIPLY),
-            Text("12", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_B, weight=BOLD)
+            Text("6", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_B),
+            Text("×2 =", font="PingFang SC", font_size=28, color=self.COLOR_MULTIPLY),
+            Text("12", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_B, weight=BOLD)
         ).arrange(RIGHT, buff=0.15)
         calc_6.move_to(LEFT * 2.5 + DOWN * 1.2)
         
@@ -202,16 +202,16 @@ class RatioProperties(Scene):
         
         # 新比例 8:12
         new_ratio = VGroup(
-            Text("8", font="Noto Sans CJK SC", font_size=64, color=self.COLOR_RATIO_A, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=64, color=WHITE),
-            Text("12", font="Noto Sans CJK SC", font_size=64, color=self.COLOR_RATIO_B, weight=BOLD)
+            Text("8", font="PingFang SC", font_size=64, color=self.COLOR_RATIO_A, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=64, color=WHITE),
+            Text("12", font="PingFang SC", font_size=64, color=self.COLOR_RATIO_B, weight=BOLD)
         ).arrange(RIGHT, buff=0.2)
         new_ratio.move_to(RIGHT * 2.5 + UP * 2)
         
         self.play(FadeIn(new_ratio, scale=0.5), run_time=0.6)
         
         # 等号
-        equals = Text("=", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_PROPERTY).move_to(UP * 2)
+        equals = Text("=", font="PingFang SC", font_size=48, color=self.COLOR_PROPERTY).move_to(UP * 2)
         self.play(Write(equals), run_time=0.4)
         
         # 公式
@@ -226,7 +226,7 @@ class RatioProperties(Scene):
         # 说明文字
         explanation = Text(
             "比值不变!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -256,7 +256,7 @@ class RatioProperties(Scene):
         # 新例子引入
         new_example = Text(
             "化简比: 找最大公因数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -265,9 +265,9 @@ class RatioProperties(Scene):
         
         # 12:18 比例
         ratio_12_18 = VGroup(
-            Text("12", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_RATIO_A, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=72, color=WHITE),
-            Text("18", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_RATIO_B, weight=BOLD)
+            Text("12", font="PingFang SC", font_size=72, color=self.COLOR_RATIO_A, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=72, color=WHITE),
+            Text("18", font="PingFang SC", font_size=72, color=self.COLOR_RATIO_B, weight=BOLD)
         ).arrange(RIGHT, buff=0.2)
         ratio_12_18.move_to(LEFT * 2.5 + UP * 2.5)
         
@@ -275,14 +275,14 @@ class RatioProperties(Scene):
         
         # ÷6 操作
         divide_op = VGroup(
-            Text("÷", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_DIVIDE),
-            Text("6", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_DIVIDE)
+            Text("÷", font="PingFang SC", font_size=36, color=self.COLOR_DIVIDE),
+            Text("6", font="PingFang SC", font_size=36, color=self.COLOR_DIVIDE)
         ).arrange(RIGHT, buff=0.1)
         divide_op.move_to(LEFT * 2.5 + UP * 1.2)
         
         gcd_hint = Text(
             "GCD(12,18) = 6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(LEFT * 2.5 + UP * 0.5)
@@ -302,9 +302,9 @@ class RatioProperties(Scene):
         
         # 计算过程 - 12÷6
         calc_12 = VGroup(
-            Text("12", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_A),
-            Text("÷6 =", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_DIVIDE),
-            Text("2", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_A, weight=BOLD)
+            Text("12", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_A),
+            Text("÷6 =", font="PingFang SC", font_size=28, color=self.COLOR_DIVIDE),
+            Text("2", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_A, weight=BOLD)
         ).arrange(RIGHT, buff=0.15)
         calc_12.move_to(LEFT * 2.5 + DOWN * 0.5)
         
@@ -312,9 +312,9 @@ class RatioProperties(Scene):
         
         # 计算过程 - 18÷6
         calc_18 = VGroup(
-            Text("18", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_B),
-            Text("÷6 =", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_DIVIDE),
-            Text("3", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_RATIO_B, weight=BOLD)
+            Text("18", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_B),
+            Text("÷6 =", font="PingFang SC", font_size=28, color=self.COLOR_DIVIDE),
+            Text("3", font="PingFang SC", font_size=32, color=self.COLOR_RATIO_B, weight=BOLD)
         ).arrange(RIGHT, buff=0.15)
         calc_18.move_to(LEFT * 2.5 + DOWN * 1.5)
         
@@ -322,16 +322,16 @@ class RatioProperties(Scene):
         
         # 化简后 2:3
         simplified_ratio = VGroup(
-            Text("2", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_RATIO_A, weight=BOLD),
-            Text(":", font="Noto Sans CJK SC", font_size=72, color=WHITE),
-            Text("3", font="Noto Sans CJK SC", font_size=72, color=self.COLOR_RATIO_B, weight=BOLD)
+            Text("2", font="PingFang SC", font_size=72, color=self.COLOR_RATIO_A, weight=BOLD),
+            Text(":", font="PingFang SC", font_size=72, color=WHITE),
+            Text("3", font="PingFang SC", font_size=72, color=self.COLOR_RATIO_B, weight=BOLD)
         ).arrange(RIGHT, buff=0.2)
         simplified_ratio.move_to(RIGHT * 2.5 + UP * 2.5)
         
         self.play(FadeIn(simplified_ratio, scale=0.5), run_time=0.6)
         
         # 等号
-        equals = Text("=", font="Noto Sans CJK SC", font_size=48, color=self.COLOR_PROPERTY).move_to(UP * 2.5)
+        equals = Text("=", font="PingFang SC", font_size=48, color=self.COLOR_PROPERTY).move_to(UP * 2.5)
         self.play(Write(equals), run_time=0.4)
         
         # 公式
@@ -346,7 +346,7 @@ class RatioProperties(Scene):
         # "最简整数比"
         simplest_form = Text(
             "最简整数比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -389,7 +389,7 @@ class RatioProperties(Scene):
         # 标题
         title = Text(
             "视觉化理解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -439,9 +439,9 @@ class RatioProperties(Scene):
         )
         
         # 标注
-        label_4 = Text("4", font="Noto Sans CJK SC", font_size=28, 
+        label_4 = Text("4", font="PingFang SC", font_size=28, 
                       color=self.COLOR_RATIO_A, weight=BOLD).next_to(segments_blue, UP, buff=0.3)
-        label_6 = Text("6", font="Noto Sans CJK SC", font_size=28,
+        label_6 = Text("6", font="PingFang SC", font_size=28,
                       color=self.COLOR_RATIO_B, weight=BOLD).next_to(segments_red, UP, buff=0.3)
         
         self.play(FadeIn(label_4), FadeIn(label_6), run_time=0.5)
@@ -482,7 +482,7 @@ class RatioProperties(Scene):
         # 变换说明
         transform_text = Text(
             "重新分组 →",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -498,9 +498,9 @@ class RatioProperties(Scene):
         )
         
         # 新标注
-        label_2 = Text("2", font="Noto Sans CJK SC", font_size=28,
+        label_2 = Text("2", font="PingFang SC", font_size=28,
                       color=self.COLOR_RATIO_A, weight=BOLD).next_to(segments_blue_5, UP, buff=0.3)
-        label_3 = Text("3", font="Noto Sans CJK SC", font_size=28,
+        label_3 = Text("3", font="PingFang SC", font_size=28,
                       color=self.COLOR_RATIO_B, weight=BOLD).next_to(segments_red_5, UP, buff=0.3)
         
         self.play(FadeIn(label_2), FadeIn(label_3), run_time=0.5)
@@ -524,7 +524,7 @@ class RatioProperties(Scene):
         # 结论
         conclusion = Text(
             "比值相等!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PROPERTY,
             weight=BOLD
@@ -551,7 +551,7 @@ class RatioProperties(Scene):
         # 标题
         title = Text(
             "比与分数的联系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROPERTY
         ).move_to(UP * 6.5)
@@ -592,7 +592,7 @@ class RatioProperties(Scene):
         
         # 性质1: 比
         property_ratio = VGroup(
-            Text("比:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("比:", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"a:b = (a \times k):(b \times k)", font_size=24, color=self.COLOR_RATIO_A)
         ).arrange(RIGHT, buff=0.3)
         property_ratio.move_to(UP * 1)
@@ -601,7 +601,7 @@ class RatioProperties(Scene):
         
         # 性质2: 分数
         property_fraction = VGroup(
-            Text("分数:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("分数:", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"\frac{a}{b} = \frac{a \times k}{b \times k}", font_size=24, color=self.COLOR_RATIO_B)
         ).arrange(RIGHT, buff=0.3)
         property_fraction.move_to(DOWN * 0.5)
@@ -618,7 +618,7 @@ class RatioProperties(Scene):
         # 结论
         conclusion = Text(
             "比的性质类似于分数的基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_PROPERTY,
             weight=BOLD
@@ -642,7 +642,7 @@ class RatioProperties(Scene):
         # 总结标题
         summary_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -658,7 +658,7 @@ class RatioProperties(Scene):
                        fill_opacity=1, stroke_width=0)
         text_1 = Text(
             "前项和后项同时乘以一个数，比值不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -671,7 +671,7 @@ class RatioProperties(Scene):
                        fill_opacity=1, stroke_width=0)
         text_2 = Text(
             "前项和后项同时除以一个数，比值不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -684,7 +684,7 @@ class RatioProperties(Scene):
                        fill_opacity=1, stroke_width=0)
         text_3 = Text(
             "利用这个性质可以化简比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         )
@@ -703,7 +703,7 @@ class RatioProperties(Scene):
         
         # 示例回顾
         example_recap = VGroup(
-            Text("示例:", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("示例:", font="PingFang SC", font_size=26, color=GRAY_A),
             MathTex(r"12:18 = 2:3", font_size=28, color=self.COLOR_PROPERTY)
         ).arrange(DOWN, buff=0.3).move_to(UP * 0)
         
@@ -717,7 +717,7 @@ class RatioProperties(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -725,7 +725,7 @@ class RatioProperties(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -739,7 +739,7 @@ class RatioProperties(Scene):
         # 关注文字
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -748,7 +748,7 @@ class RatioProperties(Scene):
         
         # 装饰图标 - 比例符号
         icons = VGroup(*[
-            Text(":", font="Noto Sans CJK SC", font_size=40, 
+            Text(":", font="PingFang SC", font_size=40, 
                 color=self.COLOR_PROPERTY, weight=BOLD)
             .shift(1.5 * np.array([np.cos(i * PI / 3), np.sin(i * PI / 3), 0]))
             for i in range(6)

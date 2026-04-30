@@ -102,7 +102,7 @@ class AngleOperations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -112,7 +112,7 @@ class AngleOperations(Scene):
         # 钩子问题
         hook_text = Text(
             "角可以像数字一样加减吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -162,7 +162,7 @@ class AngleOperations(Scene):
         # 标题
         title = Text(
             "角的和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -171,27 +171,27 @@ class AngleOperations(Scene):
         
         # 绘制射线OA (绿色)
         ray_OA = Line(self.O, self.A, color=self.COLOR_ANGLE_1, stroke_width=3)
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.A, LEFT, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.A, LEFT, buff=0.15)
         
         self.play(Create(ray_OA, run_time=0.5))
         self.play(FadeIn(label_A, scale=0.8), run_time=0.3)
         
         # 绘制射线OC (蓝色)
         ray_OC = Line(self.O, self.C, color=self.COLOR_PRIMARY, stroke_width=3)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.C, RIGHT, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.C, RIGHT, buff=0.15)
         
         self.play(Create(ray_OC, run_time=0.5))
         self.play(FadeIn(label_C, scale=0.8), run_time=0.3)
         
         # 顶点O标注
         dot_O = Dot(self.O, radius=0.06, color=WHITE)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.O, DOWN, buff=0.15)
+        label_O = Text("O", font="PingFang SC", font_size=24, color=WHITE).next_to(self.O, DOWN, buff=0.15)
         
         self.play(FadeIn(dot_O), FadeIn(label_O), run_time=0.3)
         
         # 插入射线OB (橙色)
         ray_OB = Line(self.O, self.B, color=self.COLOR_ANGLE_2, stroke_width=3)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.B, UR, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.B, UR, buff=0.15)
         
         self.play(Create(ray_OB, run_time=1.0))
         self.play(FadeIn(label_B, scale=0.8), run_time=0.3)
@@ -237,7 +237,7 @@ class AngleOperations(Scene):
         # 说明文字
         explanation = Text(
             "把两个角拼在一起",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -316,7 +316,7 @@ class AngleOperations(Scene):
         # 标题
         title = Text(
             "角的差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5.5)
@@ -328,9 +328,9 @@ class AngleOperations(Scene):
         ray_OC = Line(self.O, self.C, color=self.COLOR_PRIMARY, stroke_width=3)
         dot_O = Dot(self.O, radius=0.06, color=WHITE)
         
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.A, LEFT, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.C, RIGHT, buff=0.15)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.O, DOWN, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.A, LEFT, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.C, RIGHT, buff=0.15)
+        label_O = Text("O", font="PingFang SC", font_size=24, color=WHITE).next_to(self.O, DOWN, buff=0.15)
         
         self.play(
             Create(ray_OA),
@@ -364,7 +364,7 @@ class AngleOperations(Scene):
         # 说明
         explanation = Text(
             "从大角中拿走一个小角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -374,7 +374,7 @@ class AngleOperations(Scene):
         
         # 添加射线OB
         ray_OB = Line(self.O, self.B, color=self.COLOR_ANGLE_2, stroke_width=3)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.B, UR, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.B, UR, buff=0.15)
         
         self.play(Create(ray_OB), FadeIn(label_B), run_time=0.6)
         
@@ -454,7 +454,7 @@ class AngleOperations(Scene):
         # 标题
         title = Text(
             "角的倍数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -519,7 +519,7 @@ class AngleOperations(Scene):
         # 说明
         explanation = Text(
             "两个相等的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -588,7 +588,7 @@ class AngleOperations(Scene):
         # 标题
         title = Text(
             "角平分线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -600,9 +600,9 @@ class AngleOperations(Scene):
         ray_OB = Line(self.O2, self.B2, color=self.COLOR_PRIMARY, stroke_width=3)
         dot_O = Dot(self.O2, radius=0.06, color=WHITE)
         
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.A2, LEFT, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.B2, RIGHT, buff=0.15)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.O2, DOWN, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.A2, LEFT, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.B2, RIGHT, buff=0.15)
+        label_O = Text("O", font="PingFang SC", font_size=24, color=WHITE).next_to(self.O2, DOWN, buff=0.15)
         
         arc_AOB = Arc(
             radius=0.6,
@@ -634,7 +634,7 @@ class AngleOperations(Scene):
         # 说明
         explanation = Text(
             "平分成两个相等的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -650,7 +650,7 @@ class AngleOperations(Scene):
             stroke_width=3,
             dash_length=0.1
         )
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT).next_to(self.C2, UP, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT).next_to(self.C2, UP, buff=0.15)
         
         self.play(Create(ray_OC, run_time=1.5))
         self.play(FadeIn(label_C, scale=0.8), run_time=0.3)
@@ -733,7 +733,7 @@ class AngleOperations(Scene):
         # 标题
         title = Text(
             "试一试",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -742,10 +742,10 @@ class AngleOperations(Scene):
         
         # 题目
         problem = VGroup(
-            Text("已知:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("已知:", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"\angle AOC = 90^\circ", font_size=24, color=WHITE),
             MathTex(r"\angle BOC = 35^\circ", font_size=24, color=WHITE),
-            Text("求:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("求:", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"\angle AOB = \ ?", font_size=24, color=self.COLOR_HIGHLIGHT)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(UP * 4)
         
@@ -762,10 +762,10 @@ class AngleOperations(Scene):
         ray_OB = Line(O_app, B_app, color=self.COLOR_ANGLE_2, stroke_width=3)
         ray_OC = Line(O_app, C_app, color=self.COLOR_PRIMARY, stroke_width=3)
         
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(A_app, LEFT, buff=0.1)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(B_app, UP, buff=0.1)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(C_app, RIGHT, buff=0.1)
-        label_O = Text("O", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(O_app, DOWN, buff=0.1)
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(A_app, LEFT, buff=0.1)
+        label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(B_app, UP, buff=0.1)
+        label_C = Text("C", font="PingFang SC", font_size=20, color=WHITE).next_to(C_app, RIGHT, buff=0.1)
+        label_O = Text("O", font="PingFang SC", font_size=20, color=WHITE).next_to(O_app, DOWN, buff=0.1)
         
         # 角AOC = 90°
         arc_AOC = Arc(
@@ -820,7 +820,7 @@ class AngleOperations(Scene):
         
         # 计算过程
         solution = VGroup(
-            Text("解:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
+            Text("解:", font="PingFang SC", font_size=22, color=GRAY_A),
             MathTex(r"\angle AOB = \angle AOC - \angle BOC", font_size=22, color=WHITE),
             MathTex(r"= 90^\circ - 35^\circ", font_size=22, color=WHITE),
             MathTex(r"= 55^\circ", font_size=26, color=self.COLOR_HIGHLIGHT)
@@ -870,7 +870,7 @@ class AngleOperations(Scene):
         # 标题
         title = Text(
             "记住这些!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -888,8 +888,8 @@ class AngleOperations(Scene):
         ]
         
         for i, (point, detail, color) in enumerate(card_contents):
-            point_text = Text(point, font="Noto Sans CJK SC", font_size=24, color=color)
-            detail_text = Text(detail, font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            point_text = Text(point, font="PingFang SC", font_size=24, color=color)
+            detail_text = Text(detail, font="PingFang SC", font_size=18, color=GRAY_A)
             
             card = VGroup(point_text, detail_text).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
             card.move_to(UP * (3 - i * 1.5))
@@ -908,14 +908,14 @@ class AngleOperations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 4)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 5)
@@ -929,7 +929,7 @@ class AngleOperations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)

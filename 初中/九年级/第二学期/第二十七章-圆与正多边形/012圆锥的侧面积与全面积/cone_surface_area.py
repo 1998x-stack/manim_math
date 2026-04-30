@@ -167,7 +167,7 @@ class ConeSurfaceArea(Scene):
         # 作者信息（顶部，全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -177,7 +177,7 @@ class ConeSurfaceArea(Scene):
         # 钩子文字
         hook_text = Text(
             "这个甜筒装多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -208,7 +208,7 @@ class ConeSurfaceArea(Scene):
         # 问题文字
         question = Text(
             "表面积是多少？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(DOWN * 4)
@@ -230,7 +230,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "圆锥的组成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -270,7 +270,7 @@ class ConeSurfaceArea(Scene):
         
         base_label = Text(
             "底面（圆）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_BASE
         ).next_to(self.cone[2], DOWN, buff=0.3)
@@ -294,14 +294,14 @@ class ConeSurfaceArea(Scene):
         slant_brace = Brace(slant_line, direction=RIGHT, buff=0.1, color=self.COLOR_SLANT)
         slant_label = Text(
             "l", 
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SLANT
         ).next_to(slant_brace, RIGHT, buff=0.1)
         
         slant_text = Text(
             "母线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SLANT
         ).next_to(slant_label, RIGHT, buff=0.2)
@@ -330,7 +330,7 @@ class ConeSurfaceArea(Scene):
         
         lateral_label = Text(
             "侧面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CONE
         ).move_to(cone_center + UP * 0.5)
@@ -362,7 +362,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "侧面展开图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -372,7 +372,7 @@ class ConeSurfaceArea(Scene):
         # 提示文字
         hint_text = Text(
             "剪开侧面，展平...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -446,7 +446,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "参数对应",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -483,7 +483,7 @@ class ConeSurfaceArea(Scene):
         # 对应关系1
         relation_1 = Text(
             "扇形半径 = 母线长 l",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 0.8)
@@ -521,7 +521,7 @@ class ConeSurfaceArea(Scene):
         # 对应关系2
         relation_2 = Text(
             "扇形弧长 = 底面周长 2πr",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(ORIGIN)
@@ -600,7 +600,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "侧面积公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -610,7 +610,7 @@ class ConeSurfaceArea(Scene):
         # 扇形面积公式
         step_1_text = Text(
             "扇形面积:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 3.5 + LEFT * 2.5)
@@ -632,7 +632,7 @@ class ConeSurfaceArea(Scene):
         # 代入提示
         hint = Text(
             "弧长 = 2πr, 半径 = l",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 2.3)
@@ -719,7 +719,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "底面积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -811,7 +811,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "全面积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5.5)
@@ -835,7 +835,7 @@ class ConeSurfaceArea(Scene):
         # 全面积定义
         definition = Text(
             "全面积 = 侧面积 + 底面积",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 0.3)
@@ -857,7 +857,7 @@ class ConeSurfaceArea(Scene):
         # 提取公因式
         hint = Text(
             "提取公因式 πr:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 2)
@@ -927,7 +927,7 @@ class ConeSurfaceArea(Scene):
         # 标题
         title = Text(
             "综合练习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -937,14 +937,14 @@ class ConeSurfaceArea(Scene):
         # 题目
         problem_text = Text(
             "已知：r = 3, h = 4",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE
         ).move_to(UP * 4.3)
         
         question_text = Text(
             "求：l, S侧, S底, S全",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(problem_text, DOWN, buff=0.3)
@@ -960,7 +960,7 @@ class ConeSurfaceArea(Scene):
         cone_diagram = self.create_cone_2d(cone_center, scale=0.8)
         
         # 标注
-        base_r = Text("r=3", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_BASE).next_to(
+        base_r = Text("r=3", font="PingFang SC", font_size=20, color=self.COLOR_BASE).next_to(
             cone_diagram[2], DOWN, buff=0.1
         )
         height_line = DashedLine(
@@ -969,7 +969,7 @@ class ConeSurfaceArea(Scene):
             color=self.COLOR_AUXILIARY,
             dash_length=0.08
         )
-        height_label = Text("h=4", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(
+        height_label = Text("h=4", font="PingFang SC", font_size=20, color=self.COLOR_AUXILIARY).next_to(
             height_line, LEFT, buff=0.1
         )
         
@@ -990,7 +990,7 @@ class ConeSurfaceArea(Scene):
         # 1. 计算母线
         step_1_title = Text(
             "① 母线：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(LEFT * 3 + UP * calc_y_start)
@@ -1008,7 +1008,7 @@ class ConeSurfaceArea(Scene):
         # 2. 侧面积
         step_2_title = Text(
             "② 侧面积：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(LEFT * 2.8 + UP * (calc_y_start - 1.2))
@@ -1035,7 +1035,7 @@ class ConeSurfaceArea(Scene):
         # 3. 底面积
         step_3_title = Text(
             "③ 底面积：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(LEFT * 2.8 + UP * (calc_y_start - 2.4))
@@ -1061,7 +1061,7 @@ class ConeSurfaceArea(Scene):
         # 4. 全面积
         step_4_title = Text(
             "④ 全面积：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(LEFT * 2.8 + UP * (calc_y_start - 3.6))
@@ -1087,7 +1087,7 @@ class ConeSurfaceArea(Scene):
         # 验证
         verify_text = Text(
             "验证：15π + 9π = 24π ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GREEN,
             weight=BOLD
@@ -1120,7 +1120,7 @@ class ConeSurfaceArea(Scene):
         # 总结标题
         summary_title = Text(
             "公式总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -1131,15 +1131,15 @@ class ConeSurfaceArea(Scene):
         # 三个公式
         formulas = VGroup(
             VGroup(
-                Text("侧面积:", font="Noto Sans CJK SC", font_size=28, color=GRAY_A),
+                Text("侧面积:", font="PingFang SC", font_size=28, color=GRAY_A),
                 MathTex(r"S = \pi r l", font_size=36, color=self.COLOR_CONE)
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("底面积:", font="Noto Sans CJK SC", font_size=28, color=GRAY_A),
+                Text("底面积:", font="PingFang SC", font_size=28, color=GRAY_A),
                 MathTex(r"S = \pi r^2", font_size=36, color=self.COLOR_BASE)
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("全面积:", font="Noto Sans CJK SC", font_size=28, color=GRAY_A),
+                Text("全面积:", font="PingFang SC", font_size=28, color=GRAY_A),
                 MathTex(r"S = \pi r(l+r)", font_size=36, color=self.COLOR_FORMULA)
             ).arrange(RIGHT, buff=0.3)
         ).arrange(DOWN, buff=0.6, aligned_edge=LEFT).move_to(UP * 2)
@@ -1157,7 +1157,7 @@ class ConeSurfaceArea(Scene):
         # 记忆技巧
         tips = Text(
             "记住：展开是扇形，底面是圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -1167,7 +1167,7 @@ class ConeSurfaceArea(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
             weight=BOLD
@@ -1175,7 +1175,7 @@ class ConeSurfaceArea(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -1189,7 +1189,7 @@ class ConeSurfaceArea(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

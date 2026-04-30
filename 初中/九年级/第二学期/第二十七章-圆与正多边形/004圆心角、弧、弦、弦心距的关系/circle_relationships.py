@@ -104,7 +104,7 @@ class CircleRelationships(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).to_edge(UP, buff=0.3)
@@ -114,21 +114,21 @@ class CircleRelationships(Scene):
         # 钩子问题
         hook_line1 = Text(
             "圆中的四个量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
         
         hook_line2 = Text(
             "有一个相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 4.2)
         
         hook_line3 = Text(
             "其余全等？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 3.4)
@@ -163,7 +163,7 @@ class CircleRelationships(Scene):
         # 副标题
         subtitle = Text(
             "让我们一探究竟...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -187,7 +187,7 @@ class CircleRelationships(Scene):
         # 标题
         title = Text(
             "四个关键元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -238,7 +238,7 @@ class CircleRelationships(Scene):
         # ① 圆心角
         explanation_1 = Text(
             "① 圆心角 ∠AOB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -261,7 +261,7 @@ class CircleRelationships(Scene):
         # ② 弧
         explanation_2 = Text(
             "② 弧 ⌒AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -284,7 +284,7 @@ class CircleRelationships(Scene):
         # ③ 弦
         explanation_3 = Text(
             "③ 弦 AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -306,7 +306,7 @@ class CircleRelationships(Scene):
         # ④ 弦心距
         explanation_4 = Text(
             "④ 弦心距 OM",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -340,7 +340,7 @@ class CircleRelationships(Scene):
         # 说明文字
         summary = Text(
             "圆心角 → 弧 → 弦 → 弦心距",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -364,7 +364,7 @@ class CircleRelationships(Scene):
         # 说明
         instruction = Text(
             "再取相等的圆心角 ∠COD",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -477,7 +477,7 @@ class CircleRelationships(Scene):
         # 标题
         title = Text(
             "① 圆心角相等 → 弧相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -538,7 +538,7 @@ class CircleRelationships(Scene):
         # 等于符号
         equals = Text(
             "弧相等！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -573,7 +573,7 @@ class CircleRelationships(Scene):
         # 标题
         title = Text(
             "② 弧相等 → 弦相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -620,7 +620,7 @@ class CircleRelationships(Scene):
         # 等于符号
         equals = Text(
             "弦相等！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -660,7 +660,7 @@ class CircleRelationships(Scene):
         # 标题
         title = Text(
             "③ 弦相等 → 弦心距相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -707,7 +707,7 @@ class CircleRelationships(Scene):
         # 等于符号
         equals = Text(
             "弦心距相等！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -771,7 +771,7 @@ class CircleRelationships(Scene):
         # 总结标题
         summary_title = Text(
             "四个量的等价关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3)
@@ -785,25 +785,25 @@ class CircleRelationships(Scene):
         # 圆心角
         icon_1 = VGroup(
             Arc(radius=icon_size, angle=PI/2, color=self.COLOR_SECONDARY, stroke_width=3),
-            Text("圆心角", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("圆心角", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(DOWN, buff=0.2)
         
         # 弧
         icon_2 = VGroup(
             Arc(radius=icon_size, angle=PI/2, color=self.COLOR_ARC_1, stroke_width=4),
-            Text("弧", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("弧", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(DOWN, buff=0.2)
         
         # 弦
         icon_3 = VGroup(
             Line(LEFT * icon_size, RIGHT * icon_size, color=self.COLOR_CHORD_1, stroke_width=4),
-            Text("弦", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("弦", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(DOWN, buff=0.2)
         
         # 弦心距
         icon_4 = VGroup(
             DashedLine(ORIGIN, DOWN * icon_size, color=self.COLOR_AUXILIARY, dash_length=0.05),
-            Text("弦心距", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+            Text("弦心距", font="PingFang SC", font_size=18, color=WHITE)
         ).arrange(DOWN, buff=0.2)
         
         # 排列图标
@@ -835,7 +835,7 @@ class CircleRelationships(Scene):
         # 核心公式
         formula = Text(
             "任一个相等 → 其余全等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -846,7 +846,7 @@ class CircleRelationships(Scene):
         # 强调"反之亦然"
         reverse_text = Text(
             "⇄ 反之亦然",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=YELLOW
         ).move_to(DOWN * 2)
@@ -857,7 +857,7 @@ class CircleRelationships(Scene):
         # 应用提示
         application = Text(
             "这是圆中进行等量代换的重要依据",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 3.2)
@@ -883,7 +883,7 @@ class CircleRelationships(Scene):
         # 作者名放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -896,7 +896,7 @@ class CircleRelationships(Scene):
         # ID
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -906,7 +906,7 @@ class CircleRelationships(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

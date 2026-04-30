@@ -106,7 +106,7 @@ class SpecialAngleTrigonometry(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -116,14 +116,14 @@ class SpecialAngleTrigonometry(Scene):
         # 钩子问题
         hook_text = Text(
             "30°、45°、60°的三角比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         hook_question = Text(
             "你能记住吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -156,14 +156,14 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "30° 角的推导",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_30
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "等边三角形的一半",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -180,9 +180,9 @@ class SpecialAngleTrigonometry(Scene):
         self.play(Create(triangle_30), run_time=1.0)
         
         # 标注顶点
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20).next_to(self.A_30, DL, buff=0.15)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20).next_to(self.B_30, DR, buff=0.15)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20).next_to(self.C_30, UP, buff=0.15)
+        label_A = Text("A", font="PingFang SC", font_size=20).next_to(self.A_30, DL, buff=0.15)
+        label_B = Text("B", font="PingFang SC", font_size=20).next_to(self.B_30, DR, buff=0.15)
+        label_C = Text("C", font="PingFang SC", font_size=20).next_to(self.C_30, UP, buff=0.15)
         
         self.play(Write(label_A), Write(label_B), Write(label_C), run_time=0.5)
         
@@ -194,7 +194,7 @@ class SpecialAngleTrigonometry(Scene):
         )
         
         point_D = Dot(self.D_30, color=self.COLOR_AUXILIARY, radius=0.06)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=20).next_to(self.D_30, DOWN, buff=0.15)
+        label_D = Text("D", font="PingFang SC", font_size=20).next_to(self.D_30, DOWN, buff=0.15)
         
         self.play(
             Create(altitude_CD),
@@ -242,7 +242,7 @@ class SpecialAngleTrigonometry(Scene):
         # 说明文字
         explanation = Text(
             "等边三角形高线平分底边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -266,7 +266,7 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "30° 的三角比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_30
         ).move_to(UP * 5.5)
@@ -279,7 +279,7 @@ class SpecialAngleTrigonometry(Scene):
         
         # sin30°
         # 修正：MathTex中不能有中文，需要分离
-        sin_label = Text("sin 30° = 对边/斜边 = ", font="Noto Sans CJK SC", font_size=20)
+        sin_label = Text("sin 30° = 对边/斜边 = ", font="PingFang SC", font_size=20)
         sin_calc = MathTex(r"\frac{1}{2}", font_size=26)
         sin_group = VGroup(sin_label, sin_calc).arrange(RIGHT, buff=0.1).move_to(formula_y_start)
         
@@ -293,7 +293,7 @@ class SpecialAngleTrigonometry(Scene):
         self.wait(0.3)
         
         # cos30°
-        cos_label = Text("cos 30° = 邻边/斜边 = ", font="Noto Sans CJK SC", font_size=20)
+        cos_label = Text("cos 30° = 邻边/斜边 = ", font="PingFang SC", font_size=20)
         cos_calc = MathTex(r"\frac{\sqrt{3}}{2}", font_size=26)
         cos_group = VGroup(cos_label, cos_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing
@@ -308,7 +308,7 @@ class SpecialAngleTrigonometry(Scene):
         self.wait(0.3)
         
         # tan30°
-        tan_label = Text("tan 30° = 对边/邻边 = ", font="Noto Sans CJK SC", font_size=20)
+        tan_label = Text("tan 30° = 对边/邻边 = ", font="PingFang SC", font_size=20)
         tan_calc = MathTex(r"\frac{\sqrt{3}}{3}", font_size=26)
         tan_group = VGroup(tan_label, tan_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing * 2
@@ -332,14 +332,14 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "45° 角的推导",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_45
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "等腰直角三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -356,9 +356,9 @@ class SpecialAngleTrigonometry(Scene):
         self.play(Create(triangle_45), run_time=1.0)
         
         # 标注顶点
-        label_P = Text("P", font="Noto Sans CJK SC", font_size=20).next_to(self.P_45, DL, buff=0.15)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=20).next_to(self.Q_45, DR, buff=0.15)
-        label_R = Text("R", font="Noto Sans CJK SC", font_size=20).next_to(self.R_45, UP, buff=0.15)
+        label_P = Text("P", font="PingFang SC", font_size=20).next_to(self.P_45, DL, buff=0.15)
+        label_Q = Text("Q", font="PingFang SC", font_size=20).next_to(self.Q_45, DR, buff=0.15)
+        label_R = Text("R", font="PingFang SC", font_size=20).next_to(self.R_45, UP, buff=0.15)
         
         self.play(Write(label_P), Write(label_Q), Write(label_R), run_time=0.5)
         
@@ -401,7 +401,7 @@ class SpecialAngleTrigonometry(Scene):
         # 说明文字
         explanation = Text(
             "两条直角边相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -425,7 +425,7 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "45° 的三角比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_45
         ).move_to(UP * 5.5)
@@ -437,7 +437,7 @@ class SpecialAngleTrigonometry(Scene):
         formula_spacing = 0.8
         
         # sin45°
-        sin_label = Text("sin 45° = ", font="Noto Sans CJK SC", font_size=20)
+        sin_label = Text("sin 45° = ", font="PingFang SC", font_size=20)
         sin_calc = MathTex(r"\frac{\sqrt{2}}{2}", font_size=26)
         sin_group = VGroup(sin_label, sin_calc).arrange(RIGHT, buff=0.1).move_to(formula_y_start)
         
@@ -451,7 +451,7 @@ class SpecialAngleTrigonometry(Scene):
         self.wait(0.3)
         
         # cos45°
-        cos_label = Text("cos 45° = ", font="Noto Sans CJK SC", font_size=20)
+        cos_label = Text("cos 45° = ", font="PingFang SC", font_size=20)
         cos_calc = MathTex(r"\frac{\sqrt{2}}{2}", font_size=26)
         cos_group = VGroup(cos_label, cos_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing
@@ -466,7 +466,7 @@ class SpecialAngleTrigonometry(Scene):
         self.wait(0.3)
         
         # tan45°
-        tan_label = Text("tan 45° = ", font="Noto Sans CJK SC", font_size=20)
+        tan_label = Text("tan 45° = ", font="PingFang SC", font_size=20)
         tan_calc = MathTex("1", font_size=26)
         tan_group = VGroup(tan_label, tan_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing * 2
@@ -493,14 +493,14 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "60° 角的推导",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_60
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "与30°互为余角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -560,7 +560,7 @@ class SpecialAngleTrigonometry(Scene):
         # 说明文字
         explanation = Text(
             "60°角的对边和邻边与30°互换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -583,7 +583,7 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "60° 的三角比值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_60
         ).move_to(UP * 5.5)
@@ -595,7 +595,7 @@ class SpecialAngleTrigonometry(Scene):
         formula_spacing = 0.8
         
         # sin60°
-        sin_label = Text("sin 60° = ", font="Noto Sans CJK SC", font_size=20)
+        sin_label = Text("sin 60° = ", font="PingFang SC", font_size=20)
         sin_calc = MathTex(r"\frac{\sqrt{3}}{2}", font_size=26)
         sin_group = VGroup(sin_label, sin_calc).arrange(RIGHT, buff=0.1).move_to(formula_y_start)
         
@@ -609,7 +609,7 @@ class SpecialAngleTrigonometry(Scene):
         self.wait(0.3)
         
         # cos60°
-        cos_label = Text("cos 60° = ", font="Noto Sans CJK SC", font_size=20)
+        cos_label = Text("cos 60° = ", font="PingFang SC", font_size=20)
         cos_calc = MathTex(r"\frac{1}{2}", font_size=26)
         cos_group = VGroup(cos_label, cos_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing
@@ -624,7 +624,7 @@ class SpecialAngleTrigonometry(Scene):
         self.wait(0.3)
         
         # tan60°
-        tan_label = Text("tan 60° = ", font="Noto Sans CJK SC", font_size=20)
+        tan_label = Text("tan 60° = ", font="PingFang SC", font_size=20)
         tan_calc = MathTex(r"\sqrt{3}", font_size=26)
         tan_group = VGroup(tan_label, tan_calc).arrange(RIGHT, buff=0.1).move_to(
             formula_y_start + DOWN * formula_spacing * 2
@@ -648,7 +648,7 @@ class SpecialAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "特殊角三角比值汇总",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -675,7 +675,7 @@ class SpecialAngleTrigonometry(Scene):
             if any(char in element for char in ['^', '_', '\\', '{', '}']) and ('\\' in element or '^' in element or '_' in element):
                 return MathTex(element, font_size=24)
             elif element == "角度":
-                return Text(element, font="Noto Sans CJK SC", font_size=24)
+                return Text(element, font="PingFang SC", font_size=24)
             else:
                 return MathTex(element, font_size=24)
         
@@ -706,21 +706,21 @@ class SpecialAngleTrigonometry(Scene):
         # 记忆提示
         tip_1 = Text(
             "sin和cos互换: sin30°=cos60°",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 2.5)
         
         tip_2 = Text(
             "45°的sin和cos相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.2)
         
         tip_3 = Text(
             "tan45°=1 最好记!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.9)
@@ -747,14 +747,14 @@ class SpecialAngleTrigonometry(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -768,7 +768,7 @@ class SpecialAngleTrigonometry(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

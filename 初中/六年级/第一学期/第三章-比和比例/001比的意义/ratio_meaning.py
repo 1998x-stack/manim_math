@@ -66,7 +66,7 @@ class RatioMeaning(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -76,7 +76,7 @@ class RatioMeaning(Scene):
         # 钩子问题
         hook_text = Text(
             "果汁:水 = 2:3\n是什么意思?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -86,13 +86,13 @@ class RatioMeaning(Scene):
         # 两个杯子(用矩形表示)
         cup_juice = VGroup(
             Rectangle(width=0.8, height=1.5, color=self.COLOR_PRIMARY, fill_opacity=0.3),
-            Text("果汁", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY)
+            Text("果汁", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY)
             .move_to(DOWN * 0.2)
         ).arrange(DOWN, buff=0.1).move_to(LEFT * 1.5 + UP * 3)
         
         cup_water = VGroup(
             Rectangle(width=0.8, height=1.5, color=self.COLOR_SECONDARY, fill_opacity=0.3),
-            Text("水", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY)
+            Text("水", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY)
             .move_to(DOWN * 0.2)
         ).arrange(DOWN, buff=0.1).move_to(RIGHT * 1.5 + UP * 3)
         
@@ -130,7 +130,7 @@ class RatioMeaning(Scene):
         # 标题
         title = Text(
             "什么是比?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -150,14 +150,14 @@ class RatioMeaning(Scene):
         definition_text = VGroup(
             Text(
                 "比",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SUBTITLE,
                 color=WHITE,
                 weight=BOLD
             ),
             Text(
                 "表示两个数相除的关系",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=self.COLOR_AUXILIARY
             )
@@ -172,7 +172,7 @@ class RatioMeaning(Scene):
         # 两种写法
         format_title = Text(
             "比的写法:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 2)
@@ -181,7 +181,7 @@ class RatioMeaning(Scene):
         
         # 写法1: a:b
         format_1 = VGroup(
-            Text("方法1:", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A),
+            Text("方法1:", font="PingFang SC", font_size=self.FONT_SMALL, color=GRAY_A),
             VGroup(
                 Text("a", font_size=self.FONT_RATIO_NORMAL, color=self.COLOR_PRIMARY),
                 Text(":", font_size=self.FONT_RATIO_NORMAL, color=WHITE),
@@ -193,7 +193,7 @@ class RatioMeaning(Scene):
         
         # 写法2: a/b - 修复这里：使用带有颜色的MathTex
         format_2 = VGroup(
-            Text("方法2:", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A),
+            Text("方法2:", font="PingFang SC", font_size=self.FONT_SMALL, color=GRAY_A),
             MathTex(r"\frac{a}{b}", font_size=50, color=WHITE)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 1)
         
@@ -207,7 +207,7 @@ class RatioMeaning(Scene):
         
         # 替换format_2的第二个元素
         format_2 = VGroup(
-            Text("方法2:", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A),
+            Text("方法2:", font="PingFang SC", font_size=self.FONT_SMALL, color=GRAY_A),
             fraction_parts
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 1)
         
@@ -215,7 +215,7 @@ class RatioMeaning(Scene):
         
         # 示例
         example = VGroup(
-            Text("例如:", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A),
+            Text("例如:", font="PingFang SC", font_size=self.FONT_SMALL, color=GRAY_A),
             VGroup(
                 Text("2", font_size=self.FONT_RATIO_NORMAL, color=self.COLOR_PRIMARY),
                 Text(":", font_size=self.FONT_RATIO_NORMAL, color=WHITE),
@@ -237,7 +237,7 @@ class RatioMeaning(Scene):
         
         label_前项 = Text(
             "前项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_PRIMARY
         ).next_to(arrow_前项, DOWN, buff=0.1)
@@ -253,7 +253,7 @@ class RatioMeaning(Scene):
         
         label_后项 = Text(
             "后项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_SECONDARY
         ).next_to(arrow_后项, DOWN, buff=0.1)
@@ -293,7 +293,7 @@ class RatioMeaning(Scene):
         # 标题
         title = Text(
             "比的组成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -312,7 +312,7 @@ class RatioMeaning(Scene):
         # 标注前项
         label_前项 = Text(
             "前项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_PRIMARY
         ).next_to(num_6, UP, buff=0.5)
@@ -335,7 +335,7 @@ class RatioMeaning(Scene):
         # 标注后项
         label_后项 = Text(
             "后项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).next_to(num_3, UP, buff=0.5)
@@ -358,7 +358,7 @@ class RatioMeaning(Scene):
         # 标注比号
         label_比号 = Text(
             "比号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).next_to(colon, DOWN, buff=0.5)
@@ -381,7 +381,7 @@ class RatioMeaning(Scene):
         # 比值说明
         ratio_value_text = Text(
             "比值 = 前项 ÷ 后项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -428,7 +428,7 @@ class RatioMeaning(Scene):
         # 标题
         title = Text(
             "比的三种形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_RELATION
         ).move_to(UP * 6.5)
@@ -520,7 +520,7 @@ class RatioMeaning(Scene):
         # 示例标题
         example_title = Text(
             "例如: 4 和 5 的比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 1.5)
@@ -625,7 +625,7 @@ class RatioMeaning(Scene):
         # 警告文字
         warning_text = Text(
             "重要: 比的后项不能为0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_WARNING,
             weight=BOLD
@@ -656,7 +656,7 @@ class RatioMeaning(Scene):
         # 解释原因
         explanation = Text(
             "因为除数不能为0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(UP * 0.8)
@@ -677,7 +677,7 @@ class RatioMeaning(Scene):
         # 补充说明
         supplement = Text(
             "5 ÷ 0 = ? (无意义)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_B
         ).move_to(DOWN * 0.2)
@@ -710,7 +710,7 @@ class RatioMeaning(Scene):
         # 标题
         title = Text(
             "比在生活中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -722,14 +722,14 @@ class RatioMeaning(Scene):
             Text("🥤", font_size=40),
             Text(
                 "调配饮料",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ),
             VGroup(
-                Text("水", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY),
+                Text("水", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY),
                 Text(":", font_size=20, color=WHITE),
-                Text("糖浆", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY),
+                Text("糖浆", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY),
                 Text("=", font_size=20, color=WHITE),
                 Text("3", font_size=20, color=WHITE),
                 Text(":", font_size=20, color=WHITE),
@@ -744,14 +744,14 @@ class RatioMeaning(Scene):
             Text("🗺", font_size=40),
             Text(
                 "地图比例",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ),
             VGroup(
-                Text("图上", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY),
+                Text("图上", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY),
                 Text(":", font_size=20, color=WHITE),
-                Text("实际", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY),
+                Text("实际", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY),
                 Text("=", font_size=20, color=WHITE),
                 Text("1", font_size=20, color=WHITE),
                 Text(":", font_size=20, color=WHITE),
@@ -766,14 +766,14 @@ class RatioMeaning(Scene):
             Text("🍞", font_size=40),
             Text(
                 "配方比例",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_BODY,
                 color=WHITE
             ),
             VGroup(
-                Text("面粉", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY),
+                Text("面粉", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY),
                 Text(":", font_size=20, color=WHITE),
-                Text("水", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY),
+                Text("水", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY),
                 Text("=", font_size=20, color=WHITE),
                 Text("5", font_size=20, color=WHITE),
                 Text(":", font_size=20, color=WHITE),
@@ -802,14 +802,14 @@ class RatioMeaning(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 1)
@@ -823,7 +823,7 @@ class RatioMeaning(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -835,9 +835,9 @@ class RatioMeaning(Scene):
         
         # 关键词标签
         keywords = VGroup(
-            Text("#比", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_PRIMARY),
-            Text("#比例", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SECONDARY),
-            Text("#数学", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_HIGHLIGHT)
+            Text("#比", font="PingFang SC", font_size=22, color=self.COLOR_PRIMARY),
+            Text("#比例", font="PingFang SC", font_size=22, color=self.COLOR_SECONDARY),
+            Text("#数学", font="PingFang SC", font_size=22, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.5).move_to(DOWN * 2.5)
         
         self.play(

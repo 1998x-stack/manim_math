@@ -91,13 +91,13 @@ class FractionDecimalConversion(Scene):
         """
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_B,
+            font="PingFang SC", font_size=20, color=GRAY_B,
         ).move_to(self.AUTHOR_POS)
         self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
 
         hook_text = Text(
             "分数和小数怎么互相转换?",
-            font="Noto Sans CJK SC", font_size=36, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=36, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5)
         self.play(Write(hook_text), run_time=1.2)
 
@@ -134,15 +134,15 @@ class FractionDecimalConversion(Scene):
         """
         # 标题
         title = VGroup(
-            Text("分数", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_FRACTION),
+            Text("分数", font="PingFang SC", font_size=36, color=self.COLOR_FRACTION),
             MathTex(r"\rightarrow", font_size=36, color=WHITE),
-            Text("小数", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_DECIMAL),
+            Text("小数", font="PingFang SC", font_size=36, color=self.COLOR_DECIMAL),
         ).arrange(RIGHT, buff=0.3).move_to(self.TITLE_POS)
         self.play(Write(title), run_time=0.8)
 
         rule_text = Text(
             "分子除以分母",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_A,
+            font="PingFang SC", font_size=28, color=GRAY_A,
         ).move_to(self.SUBTITLE_POS)
         self.play(FadeIn(rule_text), run_time=0.5)
 
@@ -175,7 +175,7 @@ class FractionDecimalConversion(Scene):
         # 长除法演示
         division_title = Text(
             "列竖式计算:",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(UP * 1.2)
         self.play(FadeIn(division_title), run_time=0.4)
 
@@ -195,7 +195,7 @@ class FractionDecimalConversion(Scene):
         # 步骤1
         step1_text = Text(
             "3÷4不够除,变成30÷4",
-            font="Noto Sans CJK SC", font_size=20, color=GRAY_A,
+            font="PingFang SC", font_size=20, color=GRAY_A,
         ).move_to(DOWN * 0.5)
         quotient_0 = MathTex(r"0.", font_size=36, color=self.COLOR_DECIMAL)
         quotient_0.next_to(quotient_line, UP, buff=0.1).align_to(dividend, LEFT)
@@ -205,7 +205,7 @@ class FractionDecimalConversion(Scene):
         # 步骤2
         step2_calc = VGroup(
             MathTex(r"30 \div 4 = 7", font_size=24, color=self.COLOR_DIVISION),
-            Text("余", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_DIVISION),
+            Text("余", font="PingFang SC", font_size=24, color=self.COLOR_DIVISION),
             MathTex(r"2", font_size=24, color=self.COLOR_DIVISION),
         ).arrange(RIGHT, buff=0.15).move_to(DOWN * 1.2)
         quotient_7 = MathTex(r"7", font_size=36, color=self.COLOR_DECIMAL).next_to(quotient_0, RIGHT, buff=0.05)
@@ -231,7 +231,7 @@ class FractionDecimalConversion(Scene):
         )
         result_label = Text(
             "结果:",
-            font="Noto Sans CJK SC", font_size=28, color=self.COLOR_DECIMAL,
+            font="PingFang SC", font_size=28, color=self.COLOR_DECIMAL,
         ).next_to(self.decimal_example, LEFT, buff=0.3)
         self.play(FadeIn(result_label), run_time=0.3)
         self.play(Circumscribe(self.decimal_example, color=self.COLOR_DECIMAL), run_time=0.6)
@@ -264,15 +264,15 @@ class FractionDecimalConversion(Scene):
         完全使用局部变量，与场景1/2的实例变量无关。
         """
         title = VGroup(
-            Text("小数", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_DECIMAL),
+            Text("小数", font="PingFang SC", font_size=36, color=self.COLOR_DECIMAL),
             MathTex(r"\rightarrow", font_size=36, color=WHITE),
-            Text("分数", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_FRACTION),
+            Text("分数", font="PingFang SC", font_size=36, color=self.COLOR_FRACTION),
         ).arrange(RIGHT, buff=0.3).move_to(self.TITLE_POS)
         self.play(Write(title), run_time=0.8)
 
         rule_text = Text(
             "小数位数决定分母",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_A,
+            font="PingFang SC", font_size=28, color=GRAY_A,
         ).move_to(self.SUBTITLE_POS)
         self.play(FadeIn(rule_text), run_time=0.5)
 
@@ -288,7 +288,7 @@ class FractionDecimalConversion(Scene):
         ])
         digit_text = Text(
             "3位小数",
-            font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT,
         ).next_to(digit_dots, DOWN, buff=0.3)
         self.play(FadeIn(digit_dots, shift=UP * 0.2), run_time=0.5)
         self.play(FadeIn(digit_text), run_time=0.4)
@@ -302,15 +302,15 @@ class FractionDecimalConversion(Scene):
         )
         self.play(GrowArrow(arrow), run_time=0.5)
 
-        denom_label = Text("分母:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(LEFT * 2)
+        denom_label = Text("分母:", font="PingFang SC", font_size=24, color=GRAY_A).move_to(LEFT * 2)
         denominator = MathTex(r"1000", font_size=40, color=self.COLOR_FRACTION).next_to(denom_label, RIGHT, buff=0.3)
         explanation = MathTex(r"= 10^3", font_size=28, color=GRAY_A).next_to(denominator, RIGHT, buff=0.2)
         self.play(FadeIn(denom_label), Write(denominator), FadeIn(explanation), run_time=0.8)
         self.wait(0.5)
 
-        numer_label = Text("分子:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(LEFT * 2 + DOWN * 0.8)
+        numer_label = Text("分子:", font="PingFang SC", font_size=24, color=GRAY_A).move_to(LEFT * 2 + DOWN * 0.8)
         numerator   = MathTex(r"125", font_size=40, color=self.COLOR_FRACTION).next_to(numer_label, RIGHT, buff=0.3)
-        note        = Text("(小数部分)", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(numerator, RIGHT, buff=0.2)
+        note        = Text("(小数部分)", font="PingFang SC", font_size=20, color=GRAY_A).next_to(numerator, RIGHT, buff=0.2)
         self.play(FadeIn(numer_label), Write(numerator), FadeIn(note), run_time=0.8)
         self.wait(0.5)
 
@@ -331,7 +331,7 @@ class FractionDecimalConversion(Scene):
 
         simplify_hint = Text(
             "需要约分!",
-            font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.5)
         self.play(FadeIn(simplify_hint, shift=UP * 0.2), run_time=0.5)
 
@@ -366,7 +366,7 @@ class FractionDecimalConversion(Scene):
         """场景4: 数轴可视化对比（完全使用局部变量）"""
         title = Text(
             "在数轴上是同一个点!",
-            font="Noto Sans CJK SC", font_size=36, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=36, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
         self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.5)
 
@@ -411,7 +411,7 @@ class FractionDecimalConversion(Scene):
 
         conclusion = Text(
             "分数和小数表示同一个数!",
-            font="Noto Sans CJK SC", font_size=24, color=GRAY_A,
+            font="PingFang SC", font_size=24, color=GRAY_A,
         ).move_to(DOWN * 4)
         self.play(FadeIn(conclusion, shift=UP * 0.2), run_time=0.5)
         self.wait(1.5)
@@ -429,23 +429,23 @@ class FractionDecimalConversion(Scene):
         """场景5: 有限小数判定法则"""
         question_title = Text(
             "如何判断能否化为有限小数?",
-            font="Noto Sans CJK SC", font_size=32, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=32, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 6.5)
         self.play(Write(question_title), run_time=1.0)
 
         rule_box  = Rectangle(width=7, height=1.2, color=self.COLOR_PRIME, stroke_width=3, fill_opacity=0.1).move_to(UP * 5)
-        rule_text = Text("分母的素因数只含2和5", font="Noto Sans CJK SC", font_size=28, color=WHITE).move_to(rule_box.get_center())
+        rule_text = Text("分母的素因数只含2和5", font="PingFang SC", font_size=28, color=WHITE).move_to(rule_box.get_center())
         rule_group = VGroup(rule_box, rule_text)
         rule_group.shift(LEFT * 10)
         self.play(rule_group.animate.shift(RIGHT * 10), run_time=0.8)
         self.wait(0.5)
 
         def make_example_row(label_str, num_str, den_str, factor_tex, concl_str, concl_color, y):
-            label   = Text(label_str, font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(LEFT * 3.5 + UP * y)
+            label   = Text(label_str, font="PingFang SC", font_size=24, color=GRAY_A).move_to(LEFT * 3.5 + UP * y)
             frac    = self.make_fraction(num_str, den_str, self.COLOR_FRACTION, font_size=32, line_width=0.2)
             frac.next_to(label, RIGHT, buff=0.3)
             factor  = MathTex(factor_tex, font_size=28, color=self.COLOR_PRIME).next_to(frac, RIGHT, buff=0.5)
-            concl   = Text(concl_str, font="Noto Sans CJK SC", font_size=22, color=concl_color).next_to(factor, RIGHT, buff=0.4)
+            concl   = Text(concl_str, font="PingFang SC", font_size=22, color=concl_color).next_to(factor, RIGHT, buff=0.4)
             return label, frac, factor, concl
 
         l1, f1, fa1, c1 = make_example_row("示例1:", "3", "4", r"4 = 2^2",         "只含2 → 有限 ✓", GREEN, 3)
@@ -460,7 +460,7 @@ class FractionDecimalConversion(Scene):
 
         formula_box  = Rectangle(width=7, height=1.0, color=YELLOW, stroke_width=4, fill_opacity=0.15).move_to(DOWN * 3)
         formula_text = VGroup(
-            Text("分母", font="Noto Sans CJK SC", font_size=32, color=YELLOW),
+            Text("分母", font="PingFang SC", font_size=32, color=YELLOW),
             MathTex(r"= 2^m \times 5^n", font_size=32, color=YELLOW),
         ).arrange(RIGHT, buff=0.2).move_to(formula_box.get_center())
         formula_group = VGroup(formula_box, formula_text)
@@ -482,13 +482,13 @@ class FractionDecimalConversion(Scene):
         """场景6: 互动练习题"""
         practice_title = Text(
             "快速练习",
-            font="Noto Sans CJK SC", font_size=40, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=40, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 6.5)
         self.play(FadeIn(practice_title, scale=1.1), run_time=0.5)
 
         problem_text = Text(
             "判断 2/5 能否化为有限小数?",
-            font="Noto Sans CJK SC", font_size=32, color=WHITE,
+            font="PingFang SC", font_size=32, color=WHITE,
         ).move_to(UP * 5)
         self.play(Write(problem_text), run_time=0.8)
 
@@ -497,31 +497,31 @@ class FractionDecimalConversion(Scene):
 
         # 倒计时
         countdown = DecimalNumber(3, num_decimal_places=0, font_size=60, color=YELLOW).move_to(UP * 1.5)
-        thinking  = Text("思考中...", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).next_to(countdown, DOWN, buff=0.5)
+        thinking  = Text("思考中...", font="PingFang SC", font_size=24, color=GRAY_A).next_to(countdown, DOWN, buff=0.5)
         self.play(FadeIn(countdown), FadeIn(thinking), run_time=0.3)
         for val in [2, 1, 0]:
             self.play(countdown.animate.set_value(val), run_time=1.0)
         self.play(FadeOut(countdown), FadeOut(thinking), run_time=0.3)
 
         # 解答
-        step1 = Text("步骤1: 看分母", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(UP * 0.5)
+        step1 = Text("步骤1: 看分母", font="PingFang SC", font_size=24, color=GRAY_A).move_to(UP * 0.5)
         denom_hl = MathTex(r"5", font_size=48, color=YELLOW).move_to(ORIGIN)
         self.play(FadeIn(step1), run_time=0.4)
         self.play(FadeIn(denom_hl, scale=1.2), run_time=0.5)
         self.wait(0.5)
 
-        step2       = Text("步骤2: 素因数分解", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN * 1)
+        step2       = Text("步骤2: 素因数分解", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 1)
         factorization = MathTex(r"5 = 5^1", font_size=36, color=self.COLOR_PRIME).move_to(DOWN * 1.8)
         self.play(FadeOut(step1), run_time=0.2)
         self.play(FadeIn(step2), Write(factorization), run_time=1.0)
         self.wait(0.5)
 
-        step3 = Text("步骤3: 只含5", font="Noto Sans CJK SC", font_size=24, color=GREEN).move_to(DOWN * 3)
+        step3 = Text("步骤3: 只含5", font="PingFang SC", font_size=24, color=GREEN).move_to(DOWN * 3)
         self.play(FadeOut(step2), run_time=0.2)
         self.play(FadeIn(step3, shift=UP * 0.2), run_time=0.5)
         self.wait(0.5)
 
-        conclusion = Text("能化为有限小数! ✓", font="Noto Sans CJK SC", font_size=36, color=GREEN).move_to(DOWN * 4.5)
+        conclusion = Text("能化为有限小数! ✓", font="PingFang SC", font_size=36, color=GREEN).move_to(DOWN * 4.5)
         self.play(FadeIn(conclusion, scale=1.2), run_time=0.6)
         self.play(Flash(conclusion, color=GREEN, flash_radius=0.8), run_time=0.5)
         self.wait(0.5)
@@ -541,14 +541,14 @@ class FractionDecimalConversion(Scene):
         """场景7: 总结 + 片尾"""
         summary_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC", font_size=40, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=40, color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 6.5)
         self.play(Write(summary_title), run_time=0.8)
 
         def make_card(title, content, color, position):
             icon    = Circle(radius=0.25, fill_color=color, fill_opacity=1, stroke_width=0)
-            t_text  = Text(title,   font="Noto Sans CJK SC", font_size=26, color=WHITE)
-            c_text  = Text(content, font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            t_text  = Text(title,   font="PingFang SC", font_size=26, color=WHITE)
+            c_text  = Text(content, font="PingFang SC", font_size=22, color=GRAY_A)
             card    = VGroup(icon, VGroup(t_text, c_text).arrange(DOWN, buff=0.1, aligned_edge=LEFT))
             card.arrange(RIGHT, buff=0.4).move_to(position).shift(LEFT * 10)
             return card
@@ -564,11 +564,11 @@ class FractionDecimalConversion(Scene):
 
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=32, color=WHITE,
+            font="PingFang SC", font_size=32, color=WHITE,
         ).move_to(DOWN * 3)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_B,
+            font="PingFang SC", font_size=28, color=GRAY_B,
         ).next_to(author_large, DOWN, buff=0.3)
 
         self.play(Transform(self.author_info, author_large), run_time=0.6)
@@ -576,7 +576,7 @@ class FractionDecimalConversion(Scene):
 
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT,
+            font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 5.5)
         self.play(FadeIn(follow_text, shift=UP * 0.3, scale=1.1), run_time=0.6)
 

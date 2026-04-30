@@ -54,7 +54,7 @@ class QuadraticRadical(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B,
         ).move_to(UP * 7.2)
@@ -64,7 +64,7 @@ class QuadraticRadical(Scene):
         # 章节标签
         chapter = Text(
             "八年级 · 第十六章",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B,
         ).move_to(UP * 6.5)
@@ -73,7 +73,7 @@ class QuadraticRadical(Scene):
         # 钩子问题
         hook = Text(
             "√(-4) 有意义吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.C_TITLE,
         ).move_to(UP * 5.0)
@@ -88,7 +88,7 @@ class QuadraticRadical(Scene):
         # 悬念提示
         question = Text(
             "a 可以是任意数吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         ).move_to(UP * 0.5)
@@ -109,7 +109,7 @@ class QuadraticRadical(Scene):
         # 标题
         title = Text(
             "二次根式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=self.C_TITLE,
         ).move_to(UP * 6.0)
@@ -117,7 +117,7 @@ class QuadraticRadical(Scene):
 
         subtitle = Text(
             "Quadratic Radical",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_B,
         ).move_to(UP * 5.2)
@@ -137,14 +137,14 @@ class QuadraticRadical(Scene):
 
         def_text = Text(
             "形如",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         )
         def_formula = MathTex(r"\sqrt{a}\ (a \geq 0)", font_size=42, color=self.C_FORMULA)
         def_text2 = Text(
             "的式子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         )
@@ -152,7 +152,7 @@ class QuadraticRadical(Scene):
 
         def_name = Text(
             "叫做二次根式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_TITLE,
         ).move_to(UP * 3.1)
@@ -164,7 +164,7 @@ class QuadraticRadical(Scene):
         # 解析结构图
         struct_title = Text(
             "结构解析",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
         ).move_to(UP * 2.0)
@@ -185,7 +185,7 @@ class QuadraticRadical(Scene):
         )
         label1 = Text(
             "根号（√）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_HIGHLIGHT,
         ).move_to(np.array([-3.0, -0.5, 0]))
@@ -201,13 +201,13 @@ class QuadraticRadical(Scene):
         )
         label2 = Text(
             "被开方数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_VALID,
         ).move_to(np.array([3.0, -0.5, 0]))
         label2b = Text(
             "（a）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_VALID,
         ).move_to(np.array([3.0, -0.9, 0]))
@@ -221,7 +221,7 @@ class QuadraticRadical(Scene):
         # 2次根式说明
         note = Text(
             "'二次'指开2次方（平方根）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 0.8)
@@ -247,7 +247,7 @@ class QuadraticRadical(Scene):
     def scene_condition(self):
         title = Text(
             "有意义的条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE,
         ).move_to(UP * 6.2)
@@ -256,14 +256,14 @@ class QuadraticRadical(Scene):
         # 核心问题
         q_text = Text(
             "什么时候",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         )
         q_formula = MathTex(r"\sqrt{a}", font_size=50, color=self.C_FORMULA)
         q_text2 = Text(
             "有意义？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         )
@@ -277,9 +277,9 @@ class QuadraticRadical(Scene):
             color=self.C_VALID, stroke_width=2,
             fill_color="#0f3460", fill_opacity=0.6,
         ).move_to(UP * 3.3)
-        case1_label = Text("a > 0  正数", font="Noto Sans CJK SC", font_size=26, color=self.C_VALID)
+        case1_label = Text("a > 0  正数", font="PingFang SC", font_size=26, color=self.C_VALID)
         case1_ex = MathTex(r"\sqrt{4} = 2\quad \sqrt{9} = 3", font_size=30, color=WHITE)
-        case1_check = Text("✓ 有意义", font="Noto Sans CJK SC", font_size=24, color=self.C_VALID)
+        case1_check = Text("✓ 有意义", font="PingFang SC", font_size=24, color=self.C_VALID)
         VGroup(case1_label, case1_ex, case1_check).arrange(RIGHT, buff=0.4).move_to(UP * 3.3)
 
         self.play(Create(case1_bg), run_time=0.3)
@@ -292,9 +292,9 @@ class QuadraticRadical(Scene):
             color=self.C_VALID, stroke_width=2,
             fill_color="#0f3460", fill_opacity=0.6,
         ).move_to(UP * 1.2)
-        case2_label = Text("a = 0  零", font="Noto Sans CJK SC", font_size=26, color=self.C_VALID)
+        case2_label = Text("a = 0  零", font="PingFang SC", font_size=26, color=self.C_VALID)
         case2_ex = MathTex(r"\sqrt{0} = 0", font_size=30, color=WHITE)
-        case2_check = Text("✓ 有意义", font="Noto Sans CJK SC", font_size=24, color=self.C_VALID)
+        case2_check = Text("✓ 有意义", font="PingFang SC", font_size=24, color=self.C_VALID)
         VGroup(case2_label, case2_ex, case2_check).arrange(RIGHT, buff=0.4).move_to(UP * 1.2)
 
         self.play(Create(case2_bg), run_time=0.3)
@@ -307,9 +307,9 @@ class QuadraticRadical(Scene):
             color=self.C_INVALID, stroke_width=2,
             fill_color="#2d0a0a", fill_opacity=0.8,
         ).move_to(DOWN * 0.9)
-        case3_label = Text("a < 0  负数", font="Noto Sans CJK SC", font_size=26, color=self.C_INVALID)
+        case3_label = Text("a < 0  负数", font="PingFang SC", font_size=26, color=self.C_INVALID)
         case3_ex = MathTex(r"\sqrt{-4} = \;?", font_size=30, color=WHITE)
-        case3_check = Text("✗ 无意义!", font="Noto Sans CJK SC", font_size=24, color=self.C_INVALID)
+        case3_check = Text("✗ 无意义!", font="PingFang SC", font_size=24, color=self.C_INVALID)
         VGroup(case3_label, case3_ex, case3_check).arrange(RIGHT, buff=0.4).move_to(DOWN * 0.9)
 
         self.play(Create(case3_bg), run_time=0.3)
@@ -323,9 +323,9 @@ class QuadraticRadical(Scene):
             fill_color="#16213e", fill_opacity=0.9,
         ).move_to(DOWN * 3.0)
 
-        rule_text = Text("关键规则：", font="Noto Sans CJK SC", font_size=26, color=self.C_RULE)
+        rule_text = Text("关键规则：", font="PingFang SC", font_size=26, color=self.C_RULE)
         rule_formula_l = MathTex(r"\sqrt{a}", font_size=30, color=self.C_TITLE)
-        rule_formula_mid = Text("有意义", font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE)
+        rule_formula_mid = Text("有意义", font="PingFang SC", font_size=26, color=self.C_TITLE)
         rule_formula_r = MathTex(r"\Longleftrightarrow\ a \geq 0", font_size=30, color=self.C_TITLE)
         rule_formula = VGroup(rule_formula_l, rule_formula_mid, rule_formula_r).arrange(RIGHT, buff=0.15)
         VGroup(rule_text, rule_formula).arrange(RIGHT, buff=0.2).move_to(DOWN * 3.0)
@@ -348,7 +348,7 @@ class QuadraticRadical(Scene):
     def scene_examples(self):
         title = Text(
             "来做几道判断题！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.C_TITLE,
         ).move_to(UP * 6.5)
@@ -388,8 +388,8 @@ class QuadraticRadical(Scene):
             ).move_to(pos)
 
             formula = MathTex(expr, font_size=44, color=WHITE)
-            sym = Text(symbol, font="Noto Sans CJK SC", font_size=36, color=col)
-            reason_text = Text(reason, font="Noto Sans CJK SC", font_size=20, color=reason_col)
+            sym = Text(symbol, font="PingFang SC", font_size=36, color=col)
+            reason_text = Text(reason, font="PingFang SC", font_size=20, color=reason_col)
 
             group = VGroup(formula, sym, reason_text).arrange(RIGHT, buff=0.5).move_to(pos)
 
@@ -405,7 +405,7 @@ class QuadraticRadical(Scene):
         # 条件题重点说明
         note = Text(
             "含字母时，令被开方数 ≥ 0 求解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A,
         ).move_to(DOWN * 2.5)
@@ -420,7 +420,7 @@ class QuadraticRadical(Scene):
     def scene_double_nonneg(self):
         title = Text(
             "双重非负性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=50,
             color=self.C_TITLE,
         ).move_to(UP * 6.5)
@@ -428,7 +428,7 @@ class QuadraticRadical(Scene):
 
         subtitle = Text(
             "二次根式有两个'非负'",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A,
         ).move_to(UP * 5.6)
@@ -441,9 +441,9 @@ class QuadraticRadical(Scene):
             color=self.C_VALID, stroke_width=2,
             fill_color="#0a2e1a", fill_opacity=0.8,
         ).move_to(UP * 3.8)
-        title1 = Text("① 被开方数非负", font="Noto Sans CJK SC", font_size=28, color=self.C_VALID).move_to(UP * 4.35)
+        title1 = Text("① 被开方数非负", font="PingFang SC", font_size=28, color=self.C_VALID).move_to(UP * 4.35)
         formula1 = MathTex(r"a \geq 0", font_size=52, color=WHITE).move_to(UP * 3.65)
-        note1 = Text("（二次根式存在的前提）", font="Noto Sans CJK SC", font_size=18, color=GRAY_A).move_to(UP * 3.0)
+        note1 = Text("（二次根式存在的前提）", font="PingFang SC", font_size=18, color=GRAY_A).move_to(UP * 3.0)
 
         self.play(Create(box1), run_time=0.4)
         self.play(Write(title1), Write(formula1), FadeIn(note1), run_time=0.7)
@@ -455,9 +455,9 @@ class QuadraticRadical(Scene):
             color=self.C_RULE, stroke_width=2,
             fill_color="#0a0a2e", fill_opacity=0.8,
         ).move_to(UP * 1.5)
-        title2 = Text("② 根式的值非负", font="Noto Sans CJK SC", font_size=28, color=self.C_RULE).move_to(UP * 2.05)
+        title2 = Text("② 根式的值非负", font="PingFang SC", font_size=28, color=self.C_RULE).move_to(UP * 2.05)
         formula2 = MathTex(r"\sqrt{a} \geq 0", font_size=52, color=WHITE).move_to(UP * 1.35)
-        note2 = Text("（算术平方根 ≥ 0）", font="Noto Sans CJK SC", font_size=18, color=GRAY_A).move_to(UP * 0.7)
+        note2 = Text("（算术平方根 ≥ 0）", font="PingFang SC", font_size=18, color=GRAY_A).move_to(UP * 0.7)
 
         self.play(Create(box2), run_time=0.4)
         self.play(Write(title2), Write(formula2), FadeIn(note2), run_time=0.7)
@@ -469,9 +469,9 @@ class QuadraticRadical(Scene):
             color=self.C_TITLE, stroke_width=3,
             fill_color="#16213e", fill_opacity=0.9,
         ).move_to(DOWN * 0.8)
-        combined_label = Text("双重非负：", font="Noto Sans CJK SC", font_size=26, color=self.C_TITLE)
+        combined_label = Text("双重非负：", font="PingFang SC", font_size=26, color=self.C_TITLE)
         combined_f1 = MathTex(r"a \geq 0", font_size=32, color=WHITE)
-        combined_and = Text("且", font="Noto Sans CJK SC", font_size=28, color=WHITE)
+        combined_and = Text("且", font="PingFang SC", font_size=28, color=WHITE)
         combined_f2 = MathTex(r"\sqrt{a} \geq 0", font_size=32, color=WHITE)
         combined_formula = VGroup(combined_f1, combined_and, combined_f2).arrange(RIGHT, buff=0.2)
         VGroup(combined_label, combined_formula).arrange(RIGHT, buff=0.2).move_to(DOWN * 0.8)
@@ -482,13 +482,13 @@ class QuadraticRadical(Scene):
         # 特殊结论
         special = Text(
             "若 √a = 0，则 a = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_HIGHLIGHT,
         ).move_to(DOWN * 2.3)
         special2 = Text(
             "（等号成立当且仅当 a = 0）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A,
         ).move_to(DOWN * 3.0)
@@ -503,7 +503,7 @@ class QuadraticRadical(Scene):
     def scene_summary(self):
         title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=46,
             color=self.C_TITLE,
         ).move_to(UP * 6.5)
@@ -512,7 +512,7 @@ class QuadraticRadical(Scene):
         # 数轴可视化
         axis_label = Text(
             "a 的范围 → 数轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
         ).move_to(UP * 5.5)
@@ -539,7 +539,7 @@ class QuadraticRadical(Scene):
             color=self.C_VALID, stroke_width=4,
             max_tip_length_to_length_ratio=0.2,
         )
-        valid_label = Text("√a 有意义", font="Noto Sans CJK SC", font_size=20, color=self.C_VALID).next_to(number_line, UP, buff=0.15).shift(RIGHT * 1.5)
+        valid_label = Text("√a 有意义", font="PingFang SC", font_size=20, color=self.C_VALID).next_to(number_line, UP, buff=0.15).shift(RIGHT * 1.5)
 
         # 负区域标记 (a < 0)
         invalid_region = Line(
@@ -547,7 +547,7 @@ class QuadraticRadical(Scene):
             color=self.C_INVALID, stroke_width=8,
         )
         invalid_open_dot = Circle(radius=0.1, color=self.C_INVALID, stroke_width=2).move_to(number_line.n2p(0))
-        invalid_label = Text("√a 无意义", font="Noto Sans CJK SC", font_size=20, color=self.C_INVALID).next_to(number_line, UP, buff=0.15).shift(LEFT * 1.5)
+        invalid_label = Text("√a 无意义", font="PingFang SC", font_size=20, color=self.C_INVALID).next_to(number_line, UP, buff=0.15).shift(LEFT * 1.5)
 
         self.play(
             Create(valid_region), FadeIn(valid_dot),
@@ -576,7 +576,7 @@ class QuadraticRadical(Scene):
                 stroke_width=1.5,
                 fill_color="#16213e", fill_opacity=0.7,
             ).move_to(pos)
-            lbl = Text(label_str, font="Noto Sans CJK SC", font_size=22,
+            lbl = Text(label_str, font="PingFang SC", font_size=22,
                        color=[self.C_FORMULA, self.C_VALID, self.C_RULE][i])
             fml = MathTex(formula_str, font_size=26, color=WHITE)
             VGroup(lbl, fml).arrange(RIGHT, buff=0.4).move_to(pos)
@@ -593,13 +593,13 @@ class QuadraticRadical(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE,
         ).move_to(UP * 2.5)
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B,
         ).move_to(UP * 1.6)
@@ -613,7 +613,7 @@ class QuadraticRadical(Scene):
         # 结束语
         follow = Text(
             "关注我，学更多数学知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_TITLE,
         ).move_to(UP * 0.3)

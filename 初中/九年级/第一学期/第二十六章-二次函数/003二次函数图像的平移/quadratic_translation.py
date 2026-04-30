@@ -64,7 +64,7 @@ class QuadraticTranslation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -74,7 +74,7 @@ class QuadraticTranslation(Scene):
         # 钩子问题
         hook_text = Text(
             "抛物线会跳舞?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -205,7 +205,7 @@ class QuadraticTranslation(Scene):
         # 标题
         title_vertical = Text(
             "上下平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_VERTICAL
         ).move_to(UP * 6.5)
@@ -277,7 +277,7 @@ class QuadraticTranslation(Scene):
         # 提示文字
         hint_up = Text(
             "k > 0  向上平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -351,7 +351,7 @@ class QuadraticTranslation(Scene):
         # 提示文字
         hint_down = Text(
             "k < 0  向下平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -361,7 +361,7 @@ class QuadraticTranslation(Scene):
         # 口诀
         slogan_v = Text(
             "上加下减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -402,7 +402,7 @@ class QuadraticTranslation(Scene):
         # 标题
         title_horizontal = Text(
             "左右平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HORIZONTAL
         ).move_to(UP * 6.5)
@@ -474,7 +474,7 @@ class QuadraticTranslation(Scene):
         # 提示文字
         hint_right = Text(
             "h > 0  向右平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -484,7 +484,7 @@ class QuadraticTranslation(Scene):
         # 特别提示
         warning = Text(
             "注意: (x - 2) 向右!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.3)
@@ -559,7 +559,7 @@ class QuadraticTranslation(Scene):
         # 提示文字
         hint_left = Text(
             "(x + 1) 向左!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -569,7 +569,7 @@ class QuadraticTranslation(Scene):
         # 口诀
         slogan_h = Text(
             "左加右减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -610,7 +610,7 @@ class QuadraticTranslation(Scene):
         # 标题
         title_combined = Text(
             "综合平移",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_COMBINED
         ).move_to(UP * 6.5)
@@ -630,7 +630,7 @@ class QuadraticTranslation(Scene):
         # === 步骤1: 先向右平移 ===
         step1_text = Text(
             "① 先向右平移 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.3)
@@ -673,7 +673,7 @@ class QuadraticTranslation(Scene):
         # === 步骤2: 再向上平移 ===
         step2_text = Text(
             "② 再向上平移 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -746,7 +746,7 @@ class QuadraticTranslation(Scene):
         # 标题
         title_summary = Text(
             "平移口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -779,7 +779,7 @@ class QuadraticTranslation(Scene):
         
         card1_text = Text(
             "左加右减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HORIZONTAL,
             weight=BOLD
@@ -801,7 +801,7 @@ class QuadraticTranslation(Scene):
         
         card2_text = Text(
             "上加下减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_VERTICAL,
             weight=BOLD
@@ -814,7 +814,7 @@ class QuadraticTranslation(Scene):
         # 完整口诀
         full_slogan = Text(
             "左加右减, 上加下减!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -835,25 +835,25 @@ class QuadraticTranslation(Scene):
         # 右上: 向右
         demo1_axes = Axes(**demo_axes_config).move_to(UP * 0.2 + RIGHT * 2.5).scale(0.5)
         demo1_graph = demo1_axes.plot(lambda x: (x - 0.5)**2, color=self.COLOR_HORIZONTAL, stroke_width=2)
-        demo1_label = Text("右", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(demo1_axes, DOWN, buff=0.1)
+        demo1_label = Text("右", font="PingFang SC", font_size=18, color=WHITE).next_to(demo1_axes, DOWN, buff=0.1)
         demo1 = VGroup(demo1_axes, demo1_graph, demo1_label)
         
         # 左上: 向左
         demo2_axes = Axes(**demo_axes_config).move_to(UP * 0.2 + LEFT * 2.5).scale(0.5)
         demo2_graph = demo2_axes.plot(lambda x: (x + 0.5)**2, color=self.COLOR_HORIZONTAL, stroke_width=2)
-        demo2_label = Text("左", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(demo2_axes, DOWN, buff=0.1)
+        demo2_label = Text("左", font="PingFang SC", font_size=18, color=WHITE).next_to(demo2_axes, DOWN, buff=0.1)
         demo2 = VGroup(demo2_axes, demo2_graph, demo2_label)
         
         # 右下: 向上
         demo3_axes = Axes(**demo_axes_config).move_to(DOWN * 1.2 + RIGHT * 2.5).scale(0.5)
         demo3_graph = demo3_axes.plot(lambda x: x**2 + 0.5, color=self.COLOR_VERTICAL, stroke_width=2)
-        demo3_label = Text("上", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(demo3_axes, DOWN, buff=0.1)
+        demo3_label = Text("上", font="PingFang SC", font_size=18, color=WHITE).next_to(demo3_axes, DOWN, buff=0.1)
         demo3 = VGroup(demo3_axes, demo3_graph, demo3_label)
         
         # 左下: 向下
         demo4_axes = Axes(**demo_axes_config).move_to(DOWN * 1.2 + LEFT * 2.5).scale(0.5)
         demo4_graph = demo4_axes.plot(lambda x: x**2 - 0.3, color=self.COLOR_VERTICAL, stroke_width=2)
-        demo4_label = Text("下", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(demo4_axes, DOWN, buff=0.1)
+        demo4_label = Text("下", font="PingFang SC", font_size=18, color=WHITE).next_to(demo4_axes, DOWN, buff=0.1)
         demo4 = VGroup(demo4_axes, demo4_graph, demo4_label)
         
         demo_group = VGroup(demo1, demo2, demo3, demo4)
@@ -912,7 +912,7 @@ class QuadraticTranslation(Scene):
         # 作者名称放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
@@ -925,7 +925,7 @@ class QuadraticTranslation(Scene):
         # 抖音ID
         douyin_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -935,7 +935,7 @@ class QuadraticTranslation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

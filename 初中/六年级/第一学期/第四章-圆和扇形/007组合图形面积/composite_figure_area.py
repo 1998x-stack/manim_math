@@ -176,7 +176,7 @@ class CompositeFigureArea(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -186,7 +186,7 @@ class CompositeFigureArea(Scene):
         # 钩子问题
         hook_text = Text(
             "这个图形的面积怎么算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -220,7 +220,7 @@ class CompositeFigureArea(Scene):
         # 标题
         title = Text(
             "割补法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -231,7 +231,7 @@ class CompositeFigureArea(Scene):
         # 说明文字
         explanation = Text(
             "把复杂图形分成简单图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.7)
@@ -277,7 +277,7 @@ class CompositeFigureArea(Scene):
         # 步骤标题
         step_title = Text(
             "第一步：找出正方形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -363,7 +363,7 @@ class CompositeFigureArea(Scene):
         # 步骤标题
         step_title = Text(
             "第二步：找出半圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -447,7 +447,7 @@ class CompositeFigureArea(Scene):
         # 步骤标题
         step_title = Text(
             "第三步：注意多余部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -479,7 +479,7 @@ class CompositeFigureArea(Scene):
         # 警告文字
         warning = Text(
             "这部分要减掉!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=RED,
             weight=BOLD
@@ -544,7 +544,7 @@ class CompositeFigureArea(Scene):
         # 标题
         title = Text(
             "组合计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -592,7 +592,7 @@ class CompositeFigureArea(Scene):
         
         unit = Text(
             "平方单位",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(final_answer, RIGHT, buff=0.3)
@@ -659,7 +659,7 @@ class CompositeFigureArea(Scene):
         # 关键点提示框
         key_points_title = Text(
             "割补法三步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -671,21 +671,21 @@ class CompositeFigureArea(Scene):
         # 三个关键点
         point_1 = Text(
             "① 识别基本图形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 2.5)
         
         point_2 = Text(
             "② 加上凸出部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 1.5)
         
         point_3 = Text(
             "③ 减去重叠部分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 0.5)
@@ -709,14 +709,14 @@ class CompositeFigureArea(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -730,7 +730,7 @@ class CompositeFigureArea(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
