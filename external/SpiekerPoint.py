@@ -302,7 +302,7 @@ class SpiekerPointScene(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -312,7 +312,7 @@ class SpiekerPointScene(Scene):
         # 钩子问题
         hook_text = Text(
             "周长的重心在哪里?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -338,7 +338,7 @@ class SpiekerPointScene(Scene):
         # 提示文字
         hint = Text(
             "答案藏在中点三角形里...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -366,7 +366,7 @@ class SpiekerPointScene(Scene):
         # 标题
         title = Text(
             "中点三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MEDIAL
         ).move_to(UP * 5.5)
@@ -387,7 +387,7 @@ class SpiekerPointScene(Scene):
         self.play(Create(bc_edge), run_time=0.4)
         
         dot_D = Dot(self.D, color=self.COLOR_MEDIAL, radius=0.08)
-        label_D = Text("D", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        label_D = Text("D", font="PingFang SC", font_size=22, color=WHITE).next_to(
             dot_D, DOWN, buff=0.1
         )
         
@@ -403,7 +403,7 @@ class SpiekerPointScene(Scene):
         self.play(Create(ca_edge), FadeOut(bc_edge), run_time=0.4)
         
         dot_E = Dot(self.E, color=self.COLOR_MEDIAL, radius=0.08)
-        label_E = Text("E", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        label_E = Text("E", font="PingFang SC", font_size=22, color=WHITE).next_to(
             dot_E, LEFT, buff=0.1
         )
         
@@ -419,7 +419,7 @@ class SpiekerPointScene(Scene):
         self.play(Create(ab_edge), FadeOut(ca_edge), run_time=0.4)
         
         dot_F = Dot(self.F, color=self.COLOR_MEDIAL, radius=0.08)
-        label_F = Text("F", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        label_F = Text("F", font="PingFang SC", font_size=22, color=WHITE).next_to(
             dot_F, UP, buff=0.1
         )
         
@@ -437,7 +437,7 @@ class SpiekerPointScene(Scene):
         # 定义说明
         definition = Text(
             "连接三边中点形成的三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -467,7 +467,7 @@ class SpiekerPointScene(Scene):
         # 标题
         title = Text(
             "斯皮克点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SPIEKER
         ).move_to(UP * 5.5)
@@ -483,7 +483,7 @@ class SpiekerPointScene(Scene):
         # 定义
         definition = Text(
             "中点三角形 △DEF 的内心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -523,7 +523,7 @@ class SpiekerPointScene(Scene):
         
         explain_1 = Text(
             "作角平分线...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -552,14 +552,14 @@ class SpiekerPointScene(Scene):
         sp_dot = Dot(self.Sp, color=self.COLOR_SPIEKER, radius=0.12)
         sp_label = Text(
             "Sp",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SPIEKER
         ).next_to(sp_dot, RIGHT, buff=0.15)
         
         sp_label_2 = Text(
             "斯皮克点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_SPIEKER
         ).next_to(sp_label, DOWN, buff=0.05, aligned_edge=LEFT)
@@ -571,7 +571,7 @@ class SpiekerPointScene(Scene):
         # 核心概念
         core_concept = Text(
             "三条角平分线交于一点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -606,7 +606,7 @@ class SpiekerPointScene(Scene):
         # 标题
         title = Text(
             "斯皮克圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_INCIRCLE
         ).move_to(UP * 5.5)
@@ -654,7 +654,7 @@ class SpiekerPointScene(Scene):
         # 说明文字
         equal_dist_text = Text(
             "到三边距离相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -673,7 +673,7 @@ class SpiekerPointScene(Scene):
         # 圆标签
         circle_label = Text(
             "斯皮克圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_INCIRCLE
         ).next_to(spieker_circle, RIGHT, buff=0.2)
@@ -683,7 +683,7 @@ class SpiekerPointScene(Scene):
         # 性质说明
         property_text = Text(
             "中点三角形的内切圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -748,7 +748,7 @@ class SpiekerPointScene(Scene):
         # 标题
         title = Text(
             "周长重心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SPIEKER
         ).move_to(UP * 5.5)
@@ -764,7 +764,7 @@ class SpiekerPointScene(Scene):
         # 说明
         definition = Text(
             "如果三角形是均匀铁丝框...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -786,7 +786,7 @@ class SpiekerPointScene(Scene):
         # 框架说明
         frame_text = Text(
             "只有边, 没有面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -817,14 +817,14 @@ class SpiekerPointScene(Scene):
         g_dot = Dot(self.G, color=self.COLOR_CENTROID, radius=0.10)
         g_label = Text(
             "G",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_CENTROID
         ).next_to(g_dot, DOWN, buff=0.1)
         
         g_label_2 = Text(
             "重心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_CENTROID
         ).next_to(g_label, DOWN, buff=0.05, aligned_edge=LEFT)
@@ -838,9 +838,9 @@ class SpiekerPointScene(Scene):
         
         # 对比说明
         comparison_text = VGroup(
-            Text("面积重心", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_CENTROID),
+            Text("面积重心", font="PingFang SC", font_size=20, color=self.COLOR_CENTROID),
             Text(" vs ", font_size=20, color=GRAY_A),
-            Text("周长重心", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SPIEKER)
+            Text("周长重心", font="PingFang SC", font_size=20, color=self.COLOR_SPIEKER)
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 5.5)
         
         self.play(FadeIn(comparison_text), run_time=0.6)
@@ -848,7 +848,7 @@ class SpiekerPointScene(Scene):
         # 核心结论
         core_text = Text(
             "斯皮克点 = 周长的质心!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -889,7 +889,7 @@ class SpiekerPointScene(Scene):
         # 标题
         title = Text(
             "三点共线关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -906,14 +906,14 @@ class SpiekerPointScene(Scene):
         na_dot = Dot(self.Na, color=self.COLOR_NAGEL, radius=0.10)
         na_label = Text(
             "Na",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_NAGEL
         ).next_to(na_dot, UP, buff=0.1)
         
         na_label_2 = Text(
             "奈格尔点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_NAGEL
         ).next_to(na_label, DOWN, buff=0.05, aligned_edge=LEFT)
@@ -928,7 +928,7 @@ class SpiekerPointScene(Scene):
         # 简短说明Na
         na_brief = Text(
             "(与旁切圆相关的点)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(DOWN * 4.5)
@@ -987,7 +987,7 @@ class SpiekerPointScene(Scene):
         # 结论
         conclusion = Text(
             "斯皮克点是重心与奈格尔点的中点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.5)
@@ -1021,7 +1021,7 @@ class SpiekerPointScene(Scene):
         # 标题
         title = Text(
             "数学表达",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -1055,7 +1055,7 @@ class SpiekerPointScene(Scene):
         # 解释
         explain_1 = Text(
             "重心坐标表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(formula_bary, DOWN, buff=0.3)
@@ -1073,7 +1073,7 @@ class SpiekerPointScene(Scene):
         
         explain_2 = Text(
             "三线坐标表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(formula_trilinear, DOWN, buff=0.3)
@@ -1089,7 +1089,7 @@ class SpiekerPointScene(Scene):
         
         incenter_label = Text(
             "内心 (对比)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(incenter_formula, DOWN, buff=0.2)
@@ -1103,7 +1103,7 @@ class SpiekerPointScene(Scene):
         # 总结说明
         comparison = Text(
             "边长的对称组合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -1145,7 +1145,7 @@ class SpiekerPointScene(Scene):
         # 总结标题
         summary_title = Text(
             "斯皮克点 - 核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD,
             weight=BOLD
@@ -1197,7 +1197,7 @@ class SpiekerPointScene(Scene):
         # 应用场景
         applications = Text(
             "在三角形周长相关问题中有重要作用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -1216,7 +1216,7 @@ class SpiekerPointScene(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
             weight=BOLD
@@ -1230,7 +1230,7 @@ class SpiekerPointScene(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1240,7 +1240,7 @@ class SpiekerPointScene(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 探索更多几何奥秘!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -1294,7 +1294,7 @@ class SpiekerPointScene(Scene):
         # 文本
         content = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )

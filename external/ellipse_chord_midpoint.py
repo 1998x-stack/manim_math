@@ -121,7 +121,7 @@ class EllipseChordMidpoint(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -131,7 +131,7 @@ class EllipseChordMidpoint(Scene):
         # 钩子主标题
         hook_main = Text(
             "椭圆的中点弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -139,7 +139,7 @@ class EllipseChordMidpoint(Scene):
         # 钩子副标题
         hook_sub = Text(
             "已知中点M，弦AB的斜率是多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -207,9 +207,9 @@ class EllipseChordMidpoint(Scene):
         
         # 条件1: A在椭圆上
         cond_1 = VGroup(
-            Text("条件1: ", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("条件1: ", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"A(x_1, y_1)", font_size=24, color=self.COLOR_CHORD),
-            Text(" 在椭圆上", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+            Text(" 在椭圆上", font="PingFang SC", font_size=24, color=GRAY_A)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 4.5 + LEFT * 2)
         
         self.play(FadeIn(cond_1, shift=UP * 0.2), run_time=0.5)
@@ -222,9 +222,9 @@ class EllipseChordMidpoint(Scene):
         
         # 条件2: B在椭圆上
         cond_2 = VGroup(
-            Text("条件2: ", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("条件2: ", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"B(x_2, y_2)", font_size=24, color=self.COLOR_CHORD),
-            Text(" 在椭圆上", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+            Text(" 在椭圆上", font="PingFang SC", font_size=24, color=GRAY_A)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 3.8 + LEFT * 2)
         
         self.play(FadeIn(cond_2, shift=UP * 0.2), run_time=0.5)
@@ -237,9 +237,9 @@ class EllipseChordMidpoint(Scene):
         
         # 条件3: M是中点
         cond_3 = VGroup(
-            Text("条件3: ", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("条件3: ", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"M(x_0, y_0)", font_size=24, color=self.COLOR_MIDPOINT),
-            Text(" 是中点", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+            Text(" 是中点", font="PingFang SC", font_size=24, color=GRAY_A)
         ).arrange(RIGHT, buff=0.1).move_to(UP * 3.1 + LEFT * 2)
         
         self.play(FadeIn(cond_3, shift=UP * 0.2), run_time=0.5)
@@ -256,7 +256,7 @@ class EllipseChordMidpoint(Scene):
         
         # 目标框
         goal_box = VGroup(
-            Text("求: 弦AB的斜率", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT),
+            Text("求: 弦AB的斜率", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT),
             MathTex(r"k = ?", font_size=32, color=self.COLOR_SLOPE_LINE)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 5)
         
@@ -287,7 +287,7 @@ class EllipseChordMidpoint(Scene):
         # 标题
         title_method = Text(
             "点差法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6.5)
@@ -295,7 +295,7 @@ class EllipseChordMidpoint(Scene):
         # 核心思想
         idea_text = Text(
             "两点都在椭圆上 → 两式相减 → 得到关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -335,7 +335,7 @@ class EllipseChordMidpoint(Scene):
         # 提示
         subtract_hint = Text(
             "两式相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -380,7 +380,7 @@ class EllipseChordMidpoint(Scene):
         # 因式分解提示
         factor_hint = Text(
             "因式分解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -405,7 +405,7 @@ class EllipseChordMidpoint(Scene):
         # 中点公式提示
         midpoint_hint = Text(
             "利用中点坐标关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -459,7 +459,7 @@ class EllipseChordMidpoint(Scene):
         # 提示
         divide_hint = Text(
             "两边同时除以 (x₁ - x₂)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 2.0)
@@ -483,7 +483,7 @@ class EllipseChordMidpoint(Scene):
         
         # 最终公式
         final_formula_content = VGroup(
-            Text("中点弦斜率公式:", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT),
+            Text("中点弦斜率公式:", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT),
             MathTex(
                 r"k = -\frac{b^2 x_0}{a^2 y_0}",
                 font_size=36,
@@ -527,7 +527,7 @@ class EllipseChordMidpoint(Scene):
         # 验证说明
         verify_text = Text(
             "几何验证",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -570,7 +570,7 @@ class EllipseChordMidpoint(Scene):
         # 验证提示
         check_text = Text(
             "用两点坐标验证:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -596,7 +596,7 @@ class EllipseChordMidpoint(Scene):
         # 成功标记
         checkmark = Text(
             "✓ 验证成功!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GREEN
         ).move_to(DOWN * 6.5)
@@ -635,7 +635,7 @@ class EllipseChordMidpoint(Scene):
         # 标题
         special_title = Text(
             "特殊情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -644,9 +644,9 @@ class EllipseChordMidpoint(Scene):
         
         # 情况1: y₀ = 0
         card_1 = VGroup(
-            Text("情况1: ", font="Noto Sans CJK SC", font_size=24, color=YELLOW),
+            Text("情况1: ", font="PingFang SC", font_size=24, color=YELLOW),
             MathTex(r"y_0 = 0", font_size=24),
-            Text(" → 弦垂直于x轴", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text(" → 弦垂直于x轴", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 5.0 + LEFT * 10)
         
         self.play(card_1.animate.shift(RIGHT * 10), run_time=0.8)
@@ -671,9 +671,9 @@ class EllipseChordMidpoint(Scene):
         
         # 情况2: x₀ = 0
         card_2 = VGroup(
-            Text("情况2: ", font="Noto Sans CJK SC", font_size=24, color=YELLOW),
+            Text("情况2: ", font="PingFang SC", font_size=24, color=YELLOW),
             MathTex(r"x_0 = 0", font_size=24),
-            Text(" → 弦平行于x轴", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text(" → 弦平行于x轴", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 3.5 + LEFT * 10)
         
         self.play(card_2.animate.shift(RIGHT * 10), run_time=0.8)
@@ -698,7 +698,7 @@ class EllipseChordMidpoint(Scene):
         
         # 情况3: M在椭圆上
         card_3 = VGroup(
-            Text("情况3: M在椭圆上 → 切线斜率", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text("情况3: M在椭圆上 → 切线斜率", font="PingFang SC", font_size=20, color=GRAY_A)
         ).move_to(UP * 2.0 + LEFT * 10)
         
         self.play(card_3.animate.shift(RIGHT * 10), run_time=0.8)
@@ -725,7 +725,7 @@ class EllipseChordMidpoint(Scene):
         # 汇总
         summary_text = Text(
             "公式适用于: M在椭圆内部, y₀≠0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -757,7 +757,7 @@ class EllipseChordMidpoint(Scene):
         # 标题变换
         summary_title = Text(
             "核心总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -786,9 +786,9 @@ class EllipseChordMidpoint(Scene):
         )
         
         # 三要点卡片
-        point_1 = Text("✓ 点差法: 两式相减", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(UP * 2.5)
-        point_2 = Text("✓ 利用中点坐标关系", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(UP * 1.5)
-        point_3 = Text("✓ 适用于椭圆/双曲线/抛物线", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(UP * 0.5)
+        point_1 = Text("✓ 点差法: 两式相减", font="PingFang SC", font_size=24, color=GRAY_A).move_to(UP * 2.5)
+        point_2 = Text("✓ 利用中点坐标关系", font="PingFang SC", font_size=24, color=GRAY_A).move_to(UP * 1.5)
+        point_3 = Text("✓ 适用于椭圆/双曲线/抛物线", font="PingFang SC", font_size=24, color=GRAY_A).move_to(UP * 0.5)
         
         for point in [point_1, point_2, point_3]:
             self.play(FadeIn(point, shift=RIGHT * 0.5), run_time=0.6)
@@ -805,7 +805,7 @@ class EllipseChordMidpoint(Scene):
         # 应用场景
         application_text = Text(
             "应用: 求弦方程、弦长、对称问题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.0)
@@ -815,14 +815,14 @@ class EllipseChordMidpoint(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(DOWN * 3.0)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(DOWN * 4.0)
@@ -836,7 +836,7 @@ class EllipseChordMidpoint(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握更多解题技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)

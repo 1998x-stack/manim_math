@@ -122,7 +122,7 @@ class MongeCircle(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -132,14 +132,14 @@ class MongeCircle(Scene):
         # 钩子主标题
         hook_main = Text(
             "椭圆的蒙日圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
         
         hook_sub = Text(
             "两条垂直切线的交点在哪里?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -184,7 +184,7 @@ class MongeCircle(Scene):
         # 说明文字
         demo_text = Text(
             "从圆上的点作椭圆的两条垂直切线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -308,7 +308,7 @@ class MongeCircle(Scene):
         # 标题
         title = Text(
             "蒙日圆定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6.5)
@@ -364,8 +364,8 @@ class MongeCircle(Scene):
         
         # 说明
         explanation = VGroup(
-            Text("圆心: 椭圆中心O", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
-            Text("两条垂直切线交点的轨迹", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+            Text("圆心: 椭圆中心O", font="PingFang SC", font_size=24, color=GRAY_A),
+            Text("两条垂直切线交点的轨迹", font="PingFang SC", font_size=24, color=GRAY_A)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 5)
         
         self.play(FadeIn(explanation), run_time=0.8)
@@ -396,7 +396,7 @@ class MongeCircle(Scene):
         # 方法标题
         method_title = Text(
             "证明方法一: 代数法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -406,7 +406,7 @@ class MongeCircle(Scene):
         # 步骤1
         step1 = Text(
             "步骤1: 椭圆切线方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -432,7 +432,7 @@ class MongeCircle(Scene):
         # 步骤2
         step2 = Text(
             "步骤2: 垂直条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 1.5)
@@ -475,7 +475,7 @@ class MongeCircle(Scene):
         # 继续推导
         continue_text = Text(
             "继续推导...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.5)
@@ -485,7 +485,7 @@ class MongeCircle(Scene):
         # 整理
         step_text = Text(
             "(省略复杂代数步骤)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_B
         ).move_to(UP * 4)
@@ -513,7 +513,7 @@ class MongeCircle(Scene):
         # 说明
         conclusion_text = Text(
             "因此交点T(x₀,y₀)在圆上!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 1)
@@ -537,7 +537,7 @@ class MongeCircle(Scene):
         # 方法2标题
         method2_title = Text(
             "证明方法二: 判别式法 (更简洁)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -612,7 +612,7 @@ class MongeCircle(Scene):
         # 标题
         geo_title = Text(
             "几何意义与应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -621,7 +621,7 @@ class MongeCircle(Scene):
         
         # 位置关系
         position_text = VGroup(
-            Text("蒙日圆完全在椭圆外部", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("蒙日圆完全在椭圆外部", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"R = \sqrt{a^2 + b^2} > a", font_size=26)
         ).arrange(DOWN, buff=0.3).move_to(UP * 4.5)
         
@@ -663,7 +663,7 @@ class MongeCircle(Scene):
         # 应用示例
         example_text = Text(
             "应用: 判断点能否作垂直切线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 4)
@@ -672,9 +672,9 @@ class MongeCircle(Scene):
         
         # 示例
         example = VGroup(
-            Text("例: P(2,3) 能作垂直切线吗?", font="Noto Sans CJK SC", font_size=22),
+            Text("例: P(2,3) 能作垂直切线吗?", font="PingFang SC", font_size=22),
             MathTex(r"2^2 + 3^2 = 13 = a^2 + b^2", font_size=22),
-            Text("✓ 能! P在蒙日圆上", font="Noto Sans CJK SC", font_size=22, color=GREEN)
+            Text("✓ 能! P在蒙日圆上", font="PingFang SC", font_size=22, color=GREEN)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 5.5)
         
         for item in example:
@@ -700,7 +700,7 @@ class MongeCircle(Scene):
         # 总结标题
         summary_title = Text(
             "核心总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -732,8 +732,8 @@ class MongeCircle(Scene):
         
         # 关键点
         key_points = VGroup(
-            Text("✓ 两条垂直切线交点轨迹", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
-            Text("✓ 圆心在椭圆中心", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("✓ 两条垂直切线交点轨迹", font="PingFang SC", font_size=24, color=GRAY_A),
+            Text("✓ 圆心在椭圆中心", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"\text{✓ 半径 } R = \sqrt{a^2 + b^2}", font_size=24, color=GRAY_A)
         ).arrange(DOWN, buff=0.4, aligned_edge=LEFT).move_to(UP * 1.5)
         
@@ -750,14 +750,14 @@ class MongeCircle(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(DOWN * 3)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(DOWN * 4)
@@ -772,7 +772,7 @@ class MongeCircle(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握圆锥曲线技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 5.5)

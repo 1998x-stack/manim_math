@@ -197,14 +197,14 @@ class LemoinePoint(Scene):
     def make_author(self):
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=self.C_AUX
+            font="PingFang SC", font_size=18, color=self.C_AUX
         ).move_to(np.array([0, 7.2, 0]))
 
     # ================================================================
     # 辅助：底部说明文字
     # ================================================================
     def make_bottom_text(self, txt, color=None, y=-5.2, size=22):
-        return Text(txt, font="Noto Sans CJK SC", font_size=size,
+        return Text(txt, font="PingFang SC", font_size=size,
                     color=color or self.C_LABEL).move_to(np.array([0, y, 0]))
 
     # ================================================================
@@ -218,7 +218,7 @@ class LemoinePoint(Scene):
         }
         labels = VGroup()
         for name, pt in [('A', self.A), ('B', self.B), ('C', self.C)]:
-            lbl = Text(name, font="Noto Sans CJK SC", font_size=24,
+            lbl = Text(name, font="PingFang SC", font_size=24,
                        color=self.C_LABEL, weight=BOLD)
             lbl.move_to(pt + offsets[name])
             labels.add(lbl)
@@ -233,10 +233,10 @@ class LemoinePoint(Scene):
         self.author_mob = author
 
         # 钩子标题
-        title = Text("来莫恩点", font="Noto Sans CJK SC",
+        title = Text("来莫恩点", font="PingFang SC",
                      font_size=52, color=self.C_LEMOINE, weight=BOLD
                      ).move_to(np.array([0, 5.8, 0]))
-        sub = Text("三角形中最优美的秘密点", font="Noto Sans CJK SC",
+        sub = Text("三角形中最优美的秘密点", font="PingFang SC",
                    font_size=26, color=self.C_AUX
                    ).move_to(np.array([0, 5.0, 0]))
 
@@ -254,7 +254,7 @@ class LemoinePoint(Scene):
 
         # 钩子提问
         hook = Text("你知道这个点有什么神奇性质吗？",
-                    font="Noto Sans CJK SC", font_size=24,
+                    font="PingFang SC", font_size=24,
                     color=self.C_HIGHLIGHT
                     ).move_to(np.array([0, -5.5, 0]))
         self.play(FadeIn(hook, shift=UP * 0.2), run_time=0.5)
@@ -270,7 +270,7 @@ class LemoinePoint(Scene):
     def scene_median_centroid(self):
         # 标题
         title = Text("第一步：回顾中线与重心",
-                     font="Noto Sans CJK SC", font_size=30,
+                     font="PingFang SC", font_size=30,
                      color=self.C_MEDIAN).move_to(np.array([0, 5.8, 0]))
         self.play(Write(title), run_time=0.5)
 
@@ -287,11 +287,11 @@ class LemoinePoint(Scene):
             Dot(self.M_AB, radius=0.07, color=self.C_MEDIAN),
         )
         m_labels = VGroup(
-            Text("$M_a$", font="Noto Sans CJK SC", font_size=18, color=self.C_MEDIAN
+            Text("$M_a$", font="PingFang SC", font_size=18, color=self.C_MEDIAN
                  ).move_to(self.M_BC + np.array([0.25, 0.15, 0])),
-            Text("$M_b$", font="Noto Sans CJK SC", font_size=18, color=self.C_MEDIAN
+            Text("$M_b$", font="PingFang SC", font_size=18, color=self.C_MEDIAN
                  ).move_to(self.M_CA + np.array([-0.32, 0.12, 0])),
-            Text("$M_c$", font="Noto Sans CJK SC", font_size=18, color=self.C_MEDIAN
+            Text("$M_c$", font="PingFang SC", font_size=18, color=self.C_MEDIAN
                  ).move_to(self.M_AB + np.array([0.0, -0.28, 0])),
         )
 
@@ -310,7 +310,7 @@ class LemoinePoint(Scene):
 
         # 重心
         g_dot = Dot(self.G, radius=0.12, color=self.C_CENTROID, z_index=5)
-        g_label = Text("G（重心）", font="Noto Sans CJK SC", font_size=20,
+        g_label = Text("G（重心）", font="PingFang SC", font_size=20,
                        color=self.C_CENTROID
                        ).move_to(self.G + np.array([0.55, -0.28, 0]))
         self.play(FadeIn(g_dot, scale=0.3), run_time=0.3)
@@ -331,7 +331,7 @@ class LemoinePoint(Scene):
     # ================================================================
     def scene_bisector_intro(self):
         title = Text("第二步：角平分线的回顾",
-                     font="Noto Sans CJK SC", font_size=30,
+                     font="PingFang SC", font_size=30,
                      color=self.C_BISECTOR).move_to(np.array([0, 5.8, 0]))
         self.play(Write(title), run_time=0.5)
 
@@ -360,11 +360,11 @@ class LemoinePoint(Scene):
                    color=self.C_BISECTOR, stroke_width=1.5).move_to(self.A)
 
         # 等号标记
-        alpha_label = Text("α", font="Noto Sans CJK SC", font_size=18, color=self.C_BISECTOR)
+        alpha_label = Text("α", font="PingFang SC", font_size=18, color=self.C_BISECTOR)
         mid_ang1 = (ang_AB + ang_bis) / 2
         alpha_label.move_to(self.A + 0.95 * np.array([np.cos(mid_ang1), np.sin(mid_ang1), 0]))
 
-        alpha_label2 = Text("α", font="Noto Sans CJK SC", font_size=18, color=self.C_BISECTOR)
+        alpha_label2 = Text("α", font="PingFang SC", font_size=18, color=self.C_BISECTOR)
         mid_ang2 = (ang_bis + ang_AC) / 2
         alpha_label2.move_to(self.A + 0.95 * np.array([np.cos(mid_ang2), np.sin(mid_ang2), 0]))
 
@@ -384,10 +384,10 @@ class LemoinePoint(Scene):
     # ================================================================
     def scene_symmedian_construction(self):
         title = Text("第三步：类似中线的构造",
-                     font="Noto Sans CJK SC", font_size=30,
+                     font="PingFang SC", font_size=30,
                      color=self.C_SYMMEDIAN).move_to(np.array([0, 5.8, 0]))
         sub = Text("中线关于角平分线的对称线",
-                   font="Noto Sans CJK SC", font_size=22,
+                   font="PingFang SC", font_size=22,
                    color=self.C_AUX).move_to(np.array([0, 5.1, 0]))
 
         self.play(Write(title), run_time=0.5)
@@ -401,7 +401,7 @@ class LemoinePoint(Scene):
         # --- Step 1: 画从A出发的中线 ---
         med_A = Line(self.A, self.M_BC, color=self.C_MEDIAN, stroke_width=2.5)
         m_dot = Dot(self.M_BC, radius=0.07, color=self.C_MEDIAN)
-        m_lbl = Text("$M_a$", font="Noto Sans CJK SC", font_size=18, color=self.C_MEDIAN
+        m_lbl = Text("$M_a$", font="PingFang SC", font_size=18, color=self.C_MEDIAN
                      ).move_to(self.M_BC + np.array([0.22, 0.15, 0]))
 
         self.play(Create(med_A), FadeIn(m_dot), run_time=0.5)
@@ -426,7 +426,7 @@ class LemoinePoint(Scene):
         # 类似中线从 A 到 K_a
         sym_A = Line(self.A, self.K_a, color=self.C_SYMMEDIAN, stroke_width=3)
         ka_dot = Dot(self.K_a, radius=0.08, color=self.C_SYMMEDIAN)
-        ka_lbl = Text("$K_a$", font="Noto Sans CJK SC", font_size=18,
+        ka_lbl = Text("$K_a$", font="PingFang SC", font_size=18,
                        color=self.C_SYMMEDIAN
                        ).move_to(self.K_a + np.array([0.22, 0.12, 0]))
 
@@ -442,7 +442,7 @@ class LemoinePoint(Scene):
 
         ratio_txt = Text(
             "$BK_a : CK_a = AB^2 : AC^2 = c^2 : b^2$",
-            font="Noto Sans CJK SC", font_size=20, color=self.C_LEMOINE
+            font="PingFang SC", font_size=20, color=self.C_LEMOINE
         ).move_to(np.array([0, -4.8, 0]))
         self.play(FadeIn(ratio_txt), run_time=0.5)
         self.wait(1.2)
@@ -457,7 +457,7 @@ class LemoinePoint(Scene):
     # ================================================================
     def scene_lemoine_concurrence(self):
         title = Text("第四步：来莫恩点 — 三线共点",
-                     font="Noto Sans CJK SC", font_size=30,
+                     font="PingFang SC", font_size=30,
                      color=self.C_LEMOINE).move_to(np.array([0, 5.8, 0]))
         self.play(Write(title), run_time=0.5)
 
@@ -478,11 +478,11 @@ class LemoinePoint(Scene):
             Dot(self.K_c, radius=0.07, color=self.C_SYMMEDIAN),
         ]
         ka_labels = [
-            Text("$K_a$", font="Noto Sans CJK SC", font_size=17, color=self.C_SYMMEDIAN
+            Text("$K_a$", font="PingFang SC", font_size=17, color=self.C_SYMMEDIAN
                  ).move_to(self.K_a + np.array([0.25, 0.1, 0])),
-            Text("$K_b$", font="Noto Sans CJK SC", font_size=17, color=self.C_SYMMEDIAN
+            Text("$K_b$", font="PingFang SC", font_size=17, color=self.C_SYMMEDIAN
                  ).move_to(self.K_b + np.array([-0.3, 0.1, 0])),
-            Text("$K_c$", font="Noto Sans CJK SC", font_size=17, color=self.C_SYMMEDIAN
+            Text("$K_c$", font="PingFang SC", font_size=17, color=self.C_SYMMEDIAN
                  ).move_to(self.K_c + np.array([0.0, -0.28, 0])),
         ]
 
@@ -493,7 +493,7 @@ class LemoinePoint(Scene):
 
         # 来莫恩点
         k_dot = Dot(self.K, radius=0.14, color=self.C_LEMOINE, z_index=5)
-        k_label = Text("K（来莫恩点）", font="Noto Sans CJK SC", font_size=20,
+        k_label = Text("K（来莫恩点）", font="PingFang SC", font_size=20,
                        color=self.C_LEMOINE, weight=BOLD
                        ).move_to(self.K + np.array([0.7, -0.35, 0]))
 
@@ -514,7 +514,7 @@ class LemoinePoint(Scene):
     # ================================================================
     def scene_properties_ratio(self):
         title = Text("性质一：比例与面积",
-                     font="Noto Sans CJK SC", font_size=30,
+                     font="PingFang SC", font_size=30,
                      color=self.C_LEMOINE).move_to(np.array([0, 5.8, 0]))
         self.play(Write(title), run_time=0.5)
 
@@ -550,11 +550,11 @@ class LemoinePoint(Scene):
         center_KCA = (self.K + self.C + self.A) / 3
         center_KAB = (self.K + self.A + self.B) / 3
 
-        s_kbc = Text("$S_1$", font="Noto Sans CJK SC", font_size=20, color="#e17055"
+        s_kbc = Text("$S_1$", font="PingFang SC", font_size=20, color="#e17055"
                      ).move_to(center_KBC)
-        s_kca = Text("$S_2$", font="Noto Sans CJK SC", font_size=20, color="#0984e3"
+        s_kca = Text("$S_2$", font="PingFang SC", font_size=20, color="#0984e3"
                      ).move_to(center_KCA)
-        s_kab = Text("$S_3$", font="Noto Sans CJK SC", font_size=20, color="#6c5ce7"
+        s_kab = Text("$S_3$", font="PingFang SC", font_size=20, color="#6c5ce7"
                      ).move_to(center_KAB)
 
         self.play(FadeIn(s_kbc), FadeIn(s_kca), FadeIn(s_kab), run_time=0.4)
@@ -581,10 +581,10 @@ class LemoinePoint(Scene):
     # ================================================================
     def scene_properties_minsum(self):
         title = Text("性质二：距离平方和最小",
-                     font="Noto Sans CJK SC", font_size=30,
+                     font="PingFang SC", font_size=30,
                      color=self.C_LEMOINE).move_to(np.array([0, 5.8, 0]))
         sub = Text("来莫恩点是到三边距离平方和最小的点",
-                   font="Noto Sans CJK SC", font_size=21,
+                   font="PingFang SC", font_size=21,
                    color=self.C_AUX).move_to(np.array([0, 5.1, 0]))
         self.play(Write(title), run_time=0.5)
         self.play(FadeIn(sub), run_time=0.3)
@@ -596,7 +596,7 @@ class LemoinePoint(Scene):
 
         # 来莫恩点
         k_dot = Dot(self.K, radius=0.11, color=self.C_LEMOINE, z_index=5)
-        k_lbl = Text("K", font="Noto Sans CJK SC", font_size=20,
+        k_lbl = Text("K", font="PingFang SC", font_size=20,
                      color=self.C_LEMOINE, weight=BOLD
                      ).move_to(self.K + np.array([0.2, 0.18, 0]))
         self.play(FadeIn(k_dot), FadeIn(k_lbl), run_time=0.3)
@@ -625,11 +625,11 @@ class LemoinePoint(Scene):
         mid_pAB = (self.K + foot_AB) / 2
 
         d_labels = VGroup(
-            Text("$d_a$", font="Noto Sans CJK SC", font_size=18, color="#e17055"
+            Text("$d_a$", font="PingFang SC", font_size=18, color="#e17055"
                  ).move_to(mid_pBC + np.array([0.2, -0.05, 0])),
-            Text("$d_b$", font="Noto Sans CJK SC", font_size=18, color="#0984e3"
+            Text("$d_b$", font="PingFang SC", font_size=18, color="#0984e3"
                  ).move_to(mid_pCA + np.array([-0.25, 0.0, 0])),
-            Text("$d_c$", font="Noto Sans CJK SC", font_size=18, color="#6c5ce7"
+            Text("$d_c$", font="PingFang SC", font_size=18, color="#6c5ce7"
                  ).move_to(mid_pAB + np.array([0.0, -0.22, 0])),
         )
         self.play(FadeIn(d_labels), run_time=0.4)
@@ -640,7 +640,7 @@ class LemoinePoint(Scene):
             r"d_a^2 + d_b^2 + d_c^2",
             font_size=24, color=self.C_LEMOINE
         )
-        formula_txt = Text("取最小值", font="Noto Sans CJK SC", font_size=22,
+        formula_txt = Text("取最小值", font="PingFang SC", font_size=22,
                            color=self.C_LEMOINE)
         formula = VGroup(formula_math, formula_txt).arrange(RIGHT, buff=0.2)
         formula.move_to(np.array([0, -4.5, 0]))
@@ -665,10 +665,10 @@ class LemoinePoint(Scene):
     def scene_outro(self):
         # 渐大作者名
         name = Text("上海初高中数学直通车",
-                    font="Noto Sans CJK SC", font_size=38,
+                    font="PingFang SC", font_size=38,
                     color=WHITE, weight=BOLD).move_to(np.array([0, 2.0, 0]))
         handle = Text("@emptyandcalm",
-                      font="Noto Sans CJK SC", font_size=26,
+                      font="PingFang SC", font_size=26,
                       color=self.C_AUX).move_to(np.array([0, 1.2, 0]))
 
         self.play(FadeOut(self.author_mob), run_time=0.3)
@@ -676,7 +676,7 @@ class LemoinePoint(Scene):
         self.play(FadeIn(handle), run_time=0.4)
 
         follow = Text("关注我，学更多数学技巧！",
-                      font="Noto Sans CJK SC", font_size=28,
+                      font="PingFang SC", font_size=28,
                       color=self.C_HIGHLIGHT).move_to(np.array([0, 0.0, 0]))
         self.play(FadeIn(follow, shift=UP * 0.2), run_time=0.5)
 

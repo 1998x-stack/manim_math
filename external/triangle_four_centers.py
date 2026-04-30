@@ -182,7 +182,7 @@ class TriangleFourCenters(Scene):
         # 作者信息 (顶部,贯穿全片)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -192,7 +192,7 @@ class TriangleFourCenters(Scene):
         # 钩子问题
         hook_text = Text(
             "一个三角形有几个特殊中心?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -221,7 +221,7 @@ class TriangleFourCenters(Scene):
         # 提示文字
         hint = Text(
             "答案是: 四个!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -242,14 +242,14 @@ class TriangleFourCenters(Scene):
         # 标题
         title = Text(
             "外心 Circumcenter",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CIRCUMCENTER
         ).move_to(UP * 5.5)
         
         definition = Text(
             "三边垂直平分线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -261,7 +261,7 @@ class TriangleFourCenters(Scene):
         self.play(Create(ab_line), run_time=0.5)
         
         m_ab_dot = Dot(self.M_AB, color=self.COLOR_AUXILIARY, radius=0.06)
-        m_ab_label = Text("M", font="Noto Sans CJK SC", font_size=20).next_to(m_ab_dot, UP, buff=0.1)
+        m_ab_label = Text("M", font="PingFang SC", font_size=20).next_to(m_ab_dot, UP, buff=0.1)
         
         self.play(FadeIn(m_ab_dot), FadeIn(m_ab_label), run_time=0.4)
         
@@ -280,7 +280,7 @@ class TriangleFourCenters(Scene):
         
         explain_1 = Text(
             "垂直平分线: 过中点且垂直",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -312,9 +312,9 @@ class TriangleFourCenters(Scene):
         
         # 外心O
         o_dot = Dot(self.circumcenter, color=self.COLOR_CIRCUMCENTER, radius=0.12)
-        o_label = Text("O", font="Noto Sans CJK SC", font_size=24, 
+        o_label = Text("O", font="PingFang SC", font_size=24, 
                       color=self.COLOR_CIRCUMCENTER).next_to(o_dot, RIGHT, buff=0.15)
-        o_label_2 = Text("外心", font="Noto Sans CJK SC", font_size=18, 
+        o_label_2 = Text("外心", font="PingFang SC", font_size=18, 
                         color=self.COLOR_CIRCUMCENTER).next_to(o_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(o_dot, scale=0.5), run_time=0.5)
@@ -342,7 +342,7 @@ class TriangleFourCenters(Scene):
         
         property_text = Text(
             "到三顶点距离相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -378,14 +378,14 @@ class TriangleFourCenters(Scene):
         """场景3: 内心 - 角平分线交点"""
         title = Text(
             "内心 Incenter",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_INCENTER
         ).move_to(UP * 5.5)
         
         definition = Text(
             "三条角平分线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -405,7 +405,7 @@ class TriangleFourCenters(Scene):
         
         explain_1 = Text(
             "角平分线: 平分角度",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -427,9 +427,9 @@ class TriangleFourCenters(Scene):
         
         # 内心I
         i_dot = Dot(self.incenter, color=self.COLOR_INCENTER, radius=0.12)
-        i_label = Text("I", font="Noto Sans CJK SC", font_size=24, 
+        i_label = Text("I", font="PingFang SC", font_size=24, 
                       color=self.COLOR_INCENTER).next_to(i_dot, RIGHT, buff=0.15)
-        i_label_2 = Text("内心", font="Noto Sans CJK SC", font_size=18, 
+        i_label_2 = Text("内心", font="PingFang SC", font_size=18, 
                         color=self.COLOR_INCENTER).next_to(i_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(i_dot, scale=0.5), run_time=0.5)
@@ -463,7 +463,7 @@ class TriangleFourCenters(Scene):
         
         property_text = Text(
             "到三边距离相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -495,14 +495,14 @@ class TriangleFourCenters(Scene):
         """场景4: 重心 - 中线交点"""
         title = Text(
             "重心 Centroid",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CENTROID
         ).move_to(UP * 5.5)
         
         definition = Text(
             "三条中线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -511,7 +511,7 @@ class TriangleFourCenters(Scene):
         
         # 中线AM
         m_bc_dot = Dot(self.M_BC, color=self.COLOR_AUXILIARY, radius=0.06)
-        m_bc_label = Text("M", font="Noto Sans CJK SC", font_size=20).next_to(m_bc_dot, DOWN, buff=0.1)
+        m_bc_label = Text("M", font="PingFang SC", font_size=20).next_to(m_bc_dot, DOWN, buff=0.1)
         
         self.play(FadeIn(m_bc_dot), FadeIn(m_bc_label), run_time=0.4)
         
@@ -519,7 +519,7 @@ class TriangleFourCenters(Scene):
         
         explain_1 = Text(
             "中线: 顶点到对边中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -536,9 +536,9 @@ class TriangleFourCenters(Scene):
         
         # 重心G
         g_dot = Dot(self.centroid, color=self.COLOR_CENTROID, radius=0.12)
-        g_label = Text("G", font="Noto Sans CJK SC", font_size=24, 
+        g_label = Text("G", font="PingFang SC", font_size=24, 
                       color=self.COLOR_CENTROID).next_to(g_dot, RIGHT, buff=0.15)
-        g_label_2 = Text("重心", font="Noto Sans CJK SC", font_size=18, 
+        g_label_2 = Text("重心", font="PingFang SC", font_size=18, 
                         color=self.COLOR_CENTROID).next_to(g_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(g_dot, scale=0.5), run_time=0.5)
@@ -548,14 +548,14 @@ class TriangleFourCenters(Scene):
         # 2:1比例标注
         property_text = Text(
             "重心分中线为 2:1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
         
         property_text_2 = Text(
             "物理重心 (平衡点)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -593,14 +593,14 @@ class TriangleFourCenters(Scene):
         """场景5: 垂心 - 高线交点"""
         title = Text(
             "垂心 Orthocenter",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ORTHOCENTER
         ).move_to(UP * 5.5)
         
         definition = Text(
             "三条高线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -621,7 +621,7 @@ class TriangleFourCenters(Scene):
         
         explain_1 = Text(
             "高线: 顶点到对边的垂线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -644,9 +644,9 @@ class TriangleFourCenters(Scene):
         
         # 垂心H
         h_dot = Dot(self.orthocenter, color=self.COLOR_ORTHOCENTER, radius=0.12)
-        h_label = Text("H", font="Noto Sans CJK SC", font_size=24, 
+        h_label = Text("H", font="PingFang SC", font_size=24, 
                       color=self.COLOR_ORTHOCENTER).next_to(h_dot, RIGHT, buff=0.15)
-        h_label_2 = Text("垂心", font="Noto Sans CJK SC", font_size=18, 
+        h_label_2 = Text("垂心", font="PingFang SC", font_size=18, 
                         color=self.COLOR_ORTHOCENTER).next_to(h_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.play(FadeIn(h_dot, scale=0.5), run_time=0.5)
@@ -659,7 +659,7 @@ class TriangleFourCenters(Scene):
         
         property_text = Text(
             "三条高线共点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -734,13 +734,13 @@ class TriangleFourCenters(Scene):
         )
         
         # 标注四心
-        o_label = Text("O", font="Noto Sans CJK SC", font_size=18, 
+        o_label = Text("O", font="PingFang SC", font_size=18, 
                       color=self.COLOR_CIRCUMCENTER).next_to(self.o_small, RIGHT, buff=0.08)
-        i_label = Text("I", font="Noto Sans CJK SC", font_size=18, 
+        i_label = Text("I", font="PingFang SC", font_size=18, 
                       color=self.COLOR_INCENTER).next_to(self.i_small, LEFT, buff=0.08)
-        g_label = Text("G", font="Noto Sans CJK SC", font_size=18, 
+        g_label = Text("G", font="PingFang SC", font_size=18, 
                       color=self.COLOR_CENTROID).next_to(self.g_small, DOWN, buff=0.08)
-        h_label = Text("H", font="Noto Sans CJK SC", font_size=18, 
+        h_label = Text("H", font="PingFang SC", font_size=18, 
                       color=self.COLOR_ORTHOCENTER).next_to(self.h_small, UP, buff=0.08)
         
         self.play(
@@ -795,7 +795,7 @@ class TriangleFourCenters(Scene):
         # 重点提示
         highlight = Text(
             "掌握四心, 轻松解题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -825,14 +825,14 @@ class TriangleFourCenters(Scene):
         
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=font_size_content,
             color=GRAY_A
         )
@@ -854,11 +854,11 @@ class TriangleFourCenters(Scene):
         self.g_small = Dot(self.centroid, color=self.COLOR_CENTROID, radius=0.10)
         self.h_small = Dot(self.orthocenter, color=self.COLOR_ORTHOCENTER, radius=0.10)
         
-        o_label = Text("O", font="Noto Sans CJK SC", font_size=20, 
+        o_label = Text("O", font="PingFang SC", font_size=20, 
                       color=self.COLOR_CIRCUMCENTER).next_to(self.o_small, RIGHT, buff=0.1)
-        g_label = Text("G", font="Noto Sans CJK SC", font_size=20, 
+        g_label = Text("G", font="PingFang SC", font_size=20, 
                       color=self.COLOR_CENTROID).next_to(self.g_small, DOWN, buff=0.1)
-        h_label = Text("H", font="Noto Sans CJK SC", font_size=20, 
+        h_label = Text("H", font="PingFang SC", font_size=20, 
                       color=self.COLOR_ORTHOCENTER).next_to(self.h_small, LEFT, buff=0.1)
         
         self.play(
@@ -883,14 +883,14 @@ class TriangleFourCenters(Scene):
         
         title = Text(
             "欧拉线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
         
         explanation = Text(
             "外心、重心、垂心共线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -929,14 +929,14 @@ class TriangleFourCenters(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -950,7 +950,7 @@ class TriangleFourCenters(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

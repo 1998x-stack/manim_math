@@ -45,7 +45,7 @@ COL_NINE_POINTS = "#1abc9c"    # 9特征点 - 青绿
 COL_AUX = "#7f8c8d"            # 辅助线 - 灰蓝
 COL_HIGHLIGHT = "#f1c40f"      # 高亮 - 黄
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class NinePointCircle(Scene):

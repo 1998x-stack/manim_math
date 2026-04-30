@@ -192,7 +192,7 @@ class SimsonLineScene(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.3)
@@ -202,7 +202,7 @@ class SimsonLineScene(Scene):
         # 钩子文字
         hook_text = Text(
             "三个垂足竟然共线?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -210,7 +210,7 @@ class SimsonLineScene(Scene):
         
         subtitle = Text(
             "这就是神奇的西姆松线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -294,7 +294,7 @@ class SimsonLineScene(Scene):
         # 标题
         title = Text(
             "西姆松线定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_SIMSON_LINE,
             weight=BOLD
@@ -312,7 +312,7 @@ class SimsonLineScene(Scene):
         # 条件说明
         cond1 = Text(
             "① 三角形△ABC及其外接圆Γ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 4.5 + LEFT * 0.5)
@@ -323,7 +323,7 @@ class SimsonLineScene(Scene):
         # 点P出现并移动
         cond2 = Text(
             "② P为Γ上任意一点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 3.9 + LEFT * 0.5)
@@ -331,7 +331,7 @@ class SimsonLineScene(Scene):
         self.play(FadeIn(cond2, shift=UP * 0.2), run_time=0.5)
         
         P_dot = Dot(self.P, color=self.COLOR_POINT_P, radius=0.10)
-        P_label = Text("P", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_POINT_P).next_to(P_dot, UR, buff=0.1)
+        P_label = Text("P", font="PingFang SC", font_size=24, color=self.COLOR_POINT_P).next_to(P_dot, UR, buff=0.1)
         
         self.play(FadeIn(P_dot, scale=0.5), FadeIn(P_label), run_time=0.5)
         
@@ -353,7 +353,7 @@ class SimsonLineScene(Scene):
         # 条件3: 作垂线
         cond3 = Text(
             "③ 从P向三边作垂线，垂足为D, E, F",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 3.3 + LEFT * 0.5)
@@ -382,9 +382,9 @@ class SimsonLineScene(Scene):
         )
         
         feet_labels = VGroup(
-            Text("D", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_FEET).next_to(self.D, DOWN, buff=0.1),
-            Text("E", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_FEET).next_to(self.E, LEFT, buff=0.1),
-            Text("F", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_FEET).next_to(self.F, UR, buff=0.1)
+            Text("D", font="PingFang SC", font_size=20, color=self.COLOR_FEET).next_to(self.D, DOWN, buff=0.1),
+            Text("E", font="PingFang SC", font_size=20, color=self.COLOR_FEET).next_to(self.E, LEFT, buff=0.1),
+            Text("F", font="PingFang SC", font_size=20, color=self.COLOR_FEET).next_to(self.F, UR, buff=0.1)
         )
         
         self.play(FadeIn(feet_dots), FadeIn(feet_labels), run_time=0.5)
@@ -392,7 +392,7 @@ class SimsonLineScene(Scene):
         # 结论
         conclusion = Text(
             "则 D, E, F 三点共线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -414,7 +414,7 @@ class SimsonLineScene(Scene):
         
         simson_label = Text(
             "西姆松线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SIMSON_LINE
         ).move_to(self.E + extension * 0.7 * self.simson_direction_normalized + UP * 0.3)
@@ -447,14 +447,14 @@ class SimsonLineScene(Scene):
         """场景3: 构造第一条垂线PD"""
         # 恢复点P
         P_dot = Dot(self.P, color=self.COLOR_POINT_P, radius=0.10)
-        P_label = Text("P", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_POINT_P).next_to(P_dot, UR, buff=0.1)
+        P_label = Text("P", font="PingFang SC", font_size=24, color=self.COLOR_POINT_P).next_to(P_dot, UR, buff=0.1)
         
         self.play(FadeIn(P_dot), FadeIn(P_label), run_time=0.3)
         
         # 步骤标题
         step_title = Text(
             "步骤1: 向BC作垂线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -472,7 +472,7 @@ class SimsonLineScene(Scene):
         
         # 垂足标记
         D_dot = Dot(self.D, color=self.COLOR_FEET, radius=0.08)
-        D_label = Text("D", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FEET).next_to(D_dot, DOWN, buff=0.12)
+        D_label = Text("D", font="PingFang SC", font_size=22, color=self.COLOR_FEET).next_to(D_dot, DOWN, buff=0.12)
         
         self.play(
             FadeIn(D_dot, scale=0.5),
@@ -488,7 +488,7 @@ class SimsonLineScene(Scene):
         # 说明文字
         explain = Text(
             "PD ⊥ BC",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -517,7 +517,7 @@ class SimsonLineScene(Scene):
         """场景4: 构造第二条垂线PE"""
         step_title = Text(
             "步骤2: 向CA作垂线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -534,7 +534,7 @@ class SimsonLineScene(Scene):
         
         # 垂足标记
         E_dot = Dot(self.E, color=self.COLOR_FEET, radius=0.08)
-        E_label = Text("E", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FEET).next_to(E_dot, LEFT, buff=0.12)
+        E_label = Text("E", font="PingFang SC", font_size=22, color=self.COLOR_FEET).next_to(E_dot, LEFT, buff=0.12)
         
         self.play(FadeIn(E_dot, scale=0.5), FadeIn(E_label), run_time=0.5)
         self.play(Flash(E_dot, color=self.COLOR_FEET, flash_radius=0.25), run_time=0.4)
@@ -546,7 +546,7 @@ class SimsonLineScene(Scene):
         # 说明
         explain = Text(
             "PE ⊥ CA",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -568,7 +568,7 @@ class SimsonLineScene(Scene):
         """场景5: 构造第三条垂线PF"""
         step_title = Text(
             "步骤3: 向AB作垂线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -585,7 +585,7 @@ class SimsonLineScene(Scene):
         
         # 垂足标记
         F_dot = Dot(self.F, color=self.COLOR_FEET, radius=0.08)
-        F_label = Text("F", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FEET).next_to(F_dot, UR, buff=0.12)
+        F_label = Text("F", font="PingFang SC", font_size=22, color=self.COLOR_FEET).next_to(F_dot, UR, buff=0.12)
         
         self.play(FadeIn(F_dot, scale=0.5), FadeIn(F_label), run_time=0.5)
         self.play(Flash(F_dot, color=self.COLOR_FEET, flash_radius=0.25), run_time=0.4)
@@ -597,7 +597,7 @@ class SimsonLineScene(Scene):
         # 说明
         explain = Text(
             "PF ⊥ AB",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -631,7 +631,7 @@ class SimsonLineScene(Scene):
         # 提问文字
         question = Text(
             "神奇的事情发生了...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -650,7 +650,7 @@ class SimsonLineScene(Scene):
         # 惊叹文字
         surprise = Text(
             "它们在同一直线上!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -684,7 +684,7 @@ class SimsonLineScene(Scene):
         # 标签
         simson_label = Text(
             "西姆松线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SIMSON_LINE,
             weight=BOLD
@@ -699,7 +699,7 @@ class SimsonLineScene(Scene):
         # 定义文字
         definition = Text(
             "点P的西姆松线 (Simson Line)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -730,7 +730,7 @@ class SimsonLineScene(Scene):
         # 提示文字
         hint = Text(
             "当P在圆上移动时...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -764,7 +764,7 @@ class SimsonLineScene(Scene):
         
         P_label_dynamic = always_redraw(lambda: Text(
             "P",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_POINT_P
         ).next_to(get_P_pos(angle_tracker.get_value()), UR, buff=0.1))
@@ -789,21 +789,21 @@ class SimsonLineScene(Scene):
         
         D_label_dynamic = always_redraw(lambda: Text(
             "D",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_FEET
         ).next_to(get_feet_and_simson(angle_tracker.get_value())[0], DOWN, buff=0.1))
         
         E_label_dynamic = always_redraw(lambda: Text(
             "E",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_FEET
         ).next_to(get_feet_and_simson(angle_tracker.get_value())[1], LEFT, buff=0.1))
         
         F_label_dynamic = always_redraw(lambda: Text(
             "F",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_FEET
         ).next_to(get_feet_and_simson(angle_tracker.get_value())[2], UR, buff=0.1))
@@ -851,7 +851,7 @@ class SimsonLineScene(Scene):
         # 说明文字
         property_text = Text(
             "西姆松线随P点旋转变化",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -891,7 +891,7 @@ class SimsonLineScene(Scene):
         # 总结标题
         summary_title = Text(
             "西姆松线 - 要点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_SIMSON_LINE,
             weight=BOLD
@@ -902,21 +902,21 @@ class SimsonLineScene(Scene):
         # 要点
         point1 = Text(
             "✓ 三角形 + 外接圆 + 圆上一点P",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 4)
         
         point2 = Text(
             "✓ 从P向三边作垂线，得垂足D, E, F",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 3.2)
         
         point3 = Text(
             "✓ D, E, F 三点必共线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -964,7 +964,7 @@ class SimsonLineScene(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -972,7 +972,7 @@ class SimsonLineScene(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 2.8)
@@ -986,7 +986,7 @@ class SimsonLineScene(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

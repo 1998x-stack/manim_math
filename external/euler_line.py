@@ -212,7 +212,7 @@ class EulerLineScene(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.3)
@@ -222,7 +222,7 @@ class EulerLineScene(Scene):
         # 钩子文字
         hook_text = Text(
             "四个中心竟然共线?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=46,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -272,7 +272,7 @@ class EulerLineScene(Scene):
         # 惊叹文字
         surprise = Text(
             "这就是欧拉线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -296,7 +296,7 @@ class EulerLineScene(Scene):
         # 标题
         title = Text(
             "欧拉线定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_EULER_LINE,
             weight=BOLD
@@ -313,10 +313,10 @@ class EulerLineScene(Scene):
         
         # 四个中心说明
         centers_desc = VGroup(
-            Text("• 外心O: 外接圆圆心", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("• 重心G: 中线交点", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("• 垂心H: 高线交点", font="Noto Sans CJK SC", font_size=20, color=WHITE),
-            Text("• 九点圆圆心N", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+            Text("• 外心O: 外接圆圆心", font="PingFang SC", font_size=20, color=WHITE),
+            Text("• 重心G: 中线交点", font="PingFang SC", font_size=20, color=WHITE),
+            Text("• 垂心H: 高线交点", font="PingFang SC", font_size=20, color=WHITE),
+            Text("• 九点圆圆心N", font="PingFang SC", font_size=20, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to(UP * 4)
         
         for desc in centers_desc:
@@ -326,7 +326,7 @@ class EulerLineScene(Scene):
         # 核心结论
         conclusion = Text(
             "O, G, H, N 四点共线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -343,7 +343,7 @@ class EulerLineScene(Scene):
         
         midpoint_text = Text(
             "N 是 OH 的中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 0.8)
@@ -369,14 +369,14 @@ class EulerLineScene(Scene):
         # 步骤标题
         step_title = Text(
             "步骤1: 作外心O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         explanation = Text(
             "三边垂直平分线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -419,7 +419,7 @@ class EulerLineScene(Scene):
         O_dot = Dot(self.O, color=self.COLOR_CIRCUMCENTER, radius=0.11)
         O_label = VGroup(
             Text("O", font_size=26, color=self.COLOR_CIRCUMCENTER),
-            Text("外心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_CIRCUMCENTER)
+            Text("外心", font="PingFang SC", font_size=18, color=self.COLOR_CIRCUMCENTER)
         ).arrange(DOWN, buff=0.05)
         O_label.next_to(O_dot, RIGHT, buff=0.15)
         
@@ -460,14 +460,14 @@ class EulerLineScene(Scene):
         """场景4: 构造重心G"""
         step_title = Text(
             "步骤2: 作重心G",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         explanation = Text(
             "三条中线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -496,7 +496,7 @@ class EulerLineScene(Scene):
         G_dot = Dot(self.G, color=self.COLOR_CENTROID, radius=0.11)
         G_label = VGroup(
             Text("G", font_size=26, color=self.COLOR_CENTROID),
-            Text("重心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_CENTROID)
+            Text("重心", font="PingFang SC", font_size=18, color=self.COLOR_CENTROID)
         ).arrange(DOWN, buff=0.05)
         G_label.next_to(G_dot, LEFT, buff=0.15)
         
@@ -535,14 +535,14 @@ class EulerLineScene(Scene):
         """场景5: 构造垂心H"""
         step_title = Text(
             "步骤3: 作垂心H",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         explanation = Text(
             "三条高线的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -582,7 +582,7 @@ class EulerLineScene(Scene):
         H_dot = Dot(self.H, color=self.COLOR_ORTHOCENTER, radius=0.11)
         H_label = VGroup(
             Text("H", font_size=26, color=self.COLOR_ORTHOCENTER),
-            Text("垂心", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ORTHOCENTER)
+            Text("垂心", font="PingFang SC", font_size=18, color=self.COLOR_ORTHOCENTER)
         ).arrange(DOWN, buff=0.05)
         H_label.next_to(H_dot, UP + RIGHT, buff=0.12)
         
@@ -614,7 +614,7 @@ class EulerLineScene(Scene):
         # 提问
         question = Text(
             "这三个点有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -643,7 +643,7 @@ class EulerLineScene(Scene):
         # 惊叹
         surprise = Text(
             "它们共线!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -680,7 +680,7 @@ class EulerLineScene(Scene):
         # 标签
         euler_label = Text(
             "欧拉线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_EULER_LINE,
             weight=BOLD
@@ -718,14 +718,14 @@ class EulerLineScene(Scene):
         """场景7: 九点圆圆心N"""
         step_title = Text(
             "步骤4: 九点圆圆心N",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
         
         explanation = Text(
             "通过9个特殊点的圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -764,7 +764,7 @@ class EulerLineScene(Scene):
         N_dot = Dot(self.N, color=self.COLOR_NINE_POINT_CENTER, radius=0.11)
         N_label = VGroup(
             Text("N", font_size=26, color=self.COLOR_NINE_POINT_CENTER),
-            Text("九点圆圆心", font="Noto Sans CJK SC", font_size=16, color=self.COLOR_NINE_POINT_CENTER)
+            Text("九点圆圆心", font="PingFang SC", font_size=16, color=self.COLOR_NINE_POINT_CENTER)
         ).arrange(DOWN, buff=0.05)
         N_label.next_to(N_dot, DOWN + LEFT, buff=0.12)
         
@@ -775,7 +775,7 @@ class EulerLineScene(Scene):
         # 惊叹
         surprise = Text(
             "N也在欧拉线上!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -792,7 +792,7 @@ class EulerLineScene(Scene):
         # 中点性质
         midpoint_text = Text(
             "N 是 OH 的中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 5.5)
@@ -830,7 +830,7 @@ class EulerLineScene(Scene):
         # 总结标题
         summary_title = Text(
             "欧拉线 - 要点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_EULER_LINE,
             weight=BOLD
@@ -840,10 +840,10 @@ class EulerLineScene(Scene):
         
         # 要点列表
         points = VGroup(
-            Text("✓ 四个中心: O, G, H, N", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("✓ 四点共线，构成欧拉线", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("✓ 比例关系: OG:GH = 1:2", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("✓ 中点性质: N是OH的中点", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            Text("✓ 四个中心: O, G, H, N", font="PingFang SC", font_size=24, color=WHITE),
+            Text("✓ 四点共线，构成欧拉线", font="PingFang SC", font_size=24, color=WHITE),
+            Text("✓ 比例关系: OG:GH = 1:2", font="PingFang SC", font_size=24, color=WHITE),
+            Text("✓ 中点性质: N是OH的中点", font="PingFang SC", font_size=24, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(UP * 4)
         
         for point in points:
@@ -880,10 +880,10 @@ class EulerLineScene(Scene):
         
         # 历史卡片
         history = VGroup(
-            Text("瑞士数学家", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
-            Text("莱昂哈德·欧拉", font="Noto Sans CJK SC", font_size=22, color=WHITE, weight=BOLD),
+            Text("瑞士数学家", font="PingFang SC", font_size=20, color=GRAY_A),
+            Text("莱昂哈德·欧拉", font="PingFang SC", font_size=22, color=WHITE, weight=BOLD),
             Text("Leonhard Euler", font_size=18, color=GRAY_A),
-            Text("1765年首次发现并证明", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text("1765年首次发现并证明", font="PingFang SC", font_size=18, color=GRAY_A)
         ).arrange(DOWN, buff=0.15).move_to(DOWN * 1.5)
         
         self.play(FadeIn(history), run_time=0.8)
@@ -891,7 +891,7 @@ class EulerLineScene(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             weight=BOLD
@@ -899,7 +899,7 @@ class EulerLineScene(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(DOWN * 4.6)
@@ -913,7 +913,7 @@ class EulerLineScene(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

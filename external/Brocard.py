@@ -208,7 +208,7 @@ class BrocardPointsScene(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -218,7 +218,7 @@ class BrocardPointsScene(Scene):
         # 钩子标题
         hook_text = Text(
             "三角形中的神秘孪生点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -247,7 +247,7 @@ class BrocardPointsScene(Scene):
         # 提示文字
         hint = Text(
             "满足优美的等角性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -280,14 +280,14 @@ class BrocardPointsScene(Scene):
         # 标题
         title = Text(
             "第一布罗卡点 Ω",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_BROCARD_1
         ).move_to(UP * 6)
         
         definition = Text(
             "∠ΩAB = ∠ΩBC = ∠ΩCA = ω",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -385,14 +385,14 @@ class BrocardPointsScene(Scene):
         # 标题
         title = Text(
             "第二布罗卡点 Ω'",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_BROCARD_2
         ).move_to(UP * 6)
         
         definition = Text(
             "∠Ω'BA = ∠Ω'CB = ∠Ω'AC = ω",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -437,7 +437,7 @@ class BrocardPointsScene(Scene):
         
         symmetry_text = Text(
             "等角共轭点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -465,7 +465,7 @@ class BrocardPointsScene(Scene):
         # 标题
         title = Text(
             "布罗卡角 ω",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ANGLE
         ).move_to(UP * 6.2)
@@ -493,7 +493,7 @@ class BrocardPointsScene(Scene):
         # 数值示例
         example_title = Text(
             "本例计算:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.3)
@@ -521,7 +521,7 @@ class BrocardPointsScene(Scene):
         # 取值范围说明
         range_text = Text(
             "0° < ω ≤ 30°  (等边时取等)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 1.8)
@@ -546,7 +546,7 @@ class BrocardPointsScene(Scene):
         # 标题
         title = Text(
             "如何构造布罗卡点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -556,7 +556,7 @@ class BrocardPointsScene(Scene):
         # 说明文字
         method_text = Text(
             "需要三个特殊圆的交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -565,9 +565,9 @@ class BrocardPointsScene(Scene):
         
         # 显示圆的说明（简化，不实际绘制复杂圆）
         circle_desc = VGroup(
-            Text("圆1: 过A, B且切BC于B", font="Noto Sans CJK SC", font_size=22, color=GRAY_B),
-            Text("圆2: 过B, C且切CA于C", font="Noto Sans CJK SC", font_size=22, color=GRAY_B),
-            Text("圆3: 过C, A且切AB于A", font="Noto Sans CJK SC", font_size=22, color=GRAY_B)
+            Text("圆1: 过A, B且切BC于B", font="PingFang SC", font_size=22, color=GRAY_B),
+            Text("圆2: 过B, C且切CA于C", font="PingFang SC", font_size=22, color=GRAY_B),
+            Text("圆3: 过C, A且切AB于A", font="PingFang SC", font_size=22, color=GRAY_B)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(UP * 3)
         
         for desc in circle_desc:
@@ -579,7 +579,7 @@ class BrocardPointsScene(Scene):
         omega_1_highlight = Dot(self.brocard_1, radius=0.15, color=self.COLOR_BROCARD_1)
         intersection_label = Text(
             "三圆交点 → Ω",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_BROCARD_1
         ).next_to(omega_1_highlight, DOWN, buff=0.5)
@@ -618,7 +618,7 @@ class BrocardPointsScene(Scene):
         # 标题
         title = Text(
             "特例: 等边三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6)
@@ -654,7 +654,7 @@ class BrocardPointsScene(Scene):
         centroid_dot = Dot(centroid_eq, radius=0.12, color=GREEN)
         centroid_label = Text(
             "重心 = 布罗卡点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GREEN
         ).next_to(centroid_dot, DOWN, buff=0.4)
@@ -671,7 +671,7 @@ class BrocardPointsScene(Scene):
         # 四心合一提示
         hint = Text(
             "等边三角形: 四心合一",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -702,7 +702,7 @@ class BrocardPointsScene(Scene):
         # 标题
         title = Text(
             "布罗卡点的性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 6)
@@ -749,7 +749,7 @@ class BrocardPointsScene(Scene):
         # 高亮
         highlight = Text(
             "探索几何之美!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -773,14 +773,14 @@ class BrocardPointsScene(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1.0)
@@ -794,7 +794,7 @@ class BrocardPointsScene(Scene):
         # 关注文案
         follow_text = Text(
             "关注我, 探索更多几何奥秘!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -856,14 +856,14 @@ class BrocardPointsScene(Scene):
         
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
         
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )

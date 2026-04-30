@@ -300,7 +300,7 @@ class NapoleonPoint(Scene):
         # 作者信息（顶部小字）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -310,7 +310,7 @@ class NapoleonPoint(Scene):
         # 钩子问题
         hook_text = Text(
             "任意三角形中隐藏的秘密",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=GOLD
         ).move_to(UP * 5.5)
@@ -327,13 +327,13 @@ class NapoleonPoint(Scene):
         self.play(Create(self.triangle), run_time=1.2)
         
         # 顶点标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE)
+        label_A = Text("A", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=WHITE)
         label_A.next_to(self.A, DL, buff=0.15)
         
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE)
+        label_B = Text("B", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=WHITE)
         label_B.next_to(self.B, DR, buff=0.15)
         
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=WHITE)
+        label_C = Text("C", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=WHITE)
         label_C.next_to(self.C, DOWN, buff=0.15)
         
         self.labels_ABC = VGroup(label_A, label_B, label_C)
@@ -343,7 +343,7 @@ class NapoleonPoint(Scene):
         # 提示文字
         hint = Text(
             "拿破仑点是什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -361,14 +361,14 @@ class NapoleonPoint(Scene):
         # 标题
         title = Text(
             "外拿破仑点构造",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_OUTER_TRIANGLE
         ).move_to(UP * 6)
         
         subtitle = Text(
             "以各边为底, 向外作正三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -378,7 +378,7 @@ class NapoleonPoint(Scene):
         # Step 1: 构造第一个外侧正三角形△BCA'
         explain_1 = Text(
             "以BC为底边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -402,7 +402,7 @@ class NapoleonPoint(Scene):
         
         # 标记A'点
         dot_A_outer = Dot(self.A_outer, color=self.COLOR_OUTER_TRIANGLE, radius=0.08)
-        label_A_outer = Text("A'", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE)
+        label_A_outer = Text("A'", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=WHITE)
         label_A_outer.next_to(dot_A_outer, UP, buff=0.1)
         
         self.play(FadeIn(dot_A_outer), FadeIn(label_A_outer), run_time=0.4)
@@ -448,10 +448,10 @@ class NapoleonPoint(Scene):
         dot_B_outer = Dot(self.B_outer, color=self.COLOR_OUTER_TRIANGLE, radius=0.08)
         dot_C_outer = Dot(self.C_outer, color=self.COLOR_OUTER_TRIANGLE, radius=0.08)
         
-        label_B_outer = Text("B'", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE)
+        label_B_outer = Text("B'", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=WHITE)
         label_B_outer.next_to(dot_B_outer, LEFT, buff=0.1)
         
-        label_C_outer = Text("C'", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=WHITE)
+        label_C_outer = Text("C'", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=WHITE)
         label_C_outer.next_to(dot_C_outer, RIGHT, buff=0.1)
         
         self.play(
@@ -487,7 +487,7 @@ class NapoleonPoint(Scene):
         # Step 4: 连接三个中心形成外拿破仑三角形
         text_connect = Text(
             "连接三个中心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -510,7 +510,7 @@ class NapoleonPoint(Scene):
         
         text_equilateral = Text(
             "这是一个正三角形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.3)
@@ -521,7 +521,7 @@ class NapoleonPoint(Scene):
         # Step 5: 标记外拿破仑点
         self.dot_N_outer = Dot(self.N_outer, color=GOLD, radius=0.14)
         
-        label_N_outer = Text("外拿破仑点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=GOLD)
+        label_N_outer = Text("外拿破仑点", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=GOLD)
         label_N_outer.next_to(self.dot_N_outer, RIGHT, buff=0.15)
         
         self.play(
@@ -565,14 +565,14 @@ class NapoleonPoint(Scene):
         # 标题
         title = Text(
             "内拿破仑点构造",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_INNER_TRIANGLE
         ).move_to(UP * 6)
         
         subtitle = Text(
             "以各边为底, 向内作正三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(UP * 5.3)
@@ -641,7 +641,7 @@ class NapoleonPoint(Scene):
         # 连接内侧中心
         text_connect = Text(
             "连接内侧中心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -661,7 +661,7 @@ class NapoleonPoint(Scene):
         
         text_also = Text(
             "同样是正三角形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6.3)
@@ -672,7 +672,7 @@ class NapoleonPoint(Scene):
         # 标记内拿破仑点
         self.dot_N_inner = Dot(self.N_inner, color=PURPLE, radius=0.14)
         
-        label_N_inner = Text("内拿破仑点", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=PURPLE)
+        label_N_inner = Text("内拿破仑点", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=PURPLE)
         label_N_inner.next_to(self.dot_N_inner, LEFT, buff=0.15)
         
         self.play(
@@ -730,7 +730,7 @@ class NapoleonPoint(Scene):
         # 定理标题
         theorem_title = Text(
             "拿破仑定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=GOLD,
             weight=BOLD
@@ -741,28 +741,28 @@ class NapoleonPoint(Scene):
         # 定理陈述
         statement_1 = Text(
             "1. 以任意三角形各边为底",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"]+2,
             color=WHITE
         ).move_to(UP * 0.3)
         
         statement_2 = Text(
             "2. 向外/内作正三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"]+2,
             color=WHITE
         ).next_to(statement_1, DOWN, buff=0.3, aligned_edge=LEFT)
         
         statement_3 = Text(
             "3. 连接三个正三角形的中心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"]+2,
             color=WHITE
         ).next_to(statement_2, DOWN, buff=0.3, aligned_edge=LEFT)
         
         statement_4 = Text(
             "4. 得到的三角形必为正三角形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"]+2,
             color=self.COLOR_HIGHLIGHT
         ).next_to(statement_3, DOWN, buff=0.3, aligned_edge=LEFT)
@@ -785,7 +785,7 @@ class NapoleonPoint(Scene):
         # 强调"必为正三角形"
         emphasis = Text(
             "必然是正三角形!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GOLD,
             weight=BOLD
@@ -838,7 +838,7 @@ class NapoleonPoint(Scene):
         # 提示神奇性质
         amazing_text = Text(
             "更神奇的性质...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -867,7 +867,7 @@ class NapoleonPoint(Scene):
         midpoint_N = GeometryCalculator.midpoint(self.N_outer, self.N_inner)
         dot_M = Dot(midpoint_N, color=YELLOW, radius=0.10)
         
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["small"], color=YELLOW)
+        label_M = Text("M", font="PingFang SC", font_size=self.FONT_SIZES["small"], color=YELLOW)
         label_M.next_to(dot_M, UP, buff=0.1)
         
         self.play(
@@ -878,7 +878,7 @@ class NapoleonPoint(Scene):
         
         text_midpoint = Text(
             "连线的中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -889,12 +889,12 @@ class NapoleonPoint(Scene):
         # 显示重心
         dot_G = Dot(self.G, color=GREEN, radius=0.12)
         
-        label_G = Text("G", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["label"], color=GREEN, weight=BOLD)
+        label_G = Text("G", font="PingFang SC", font_size=self.FONT_SIZES["label"], color=GREEN, weight=BOLD)
         label_G.next_to(dot_G, DOWN, buff=0.15)
         
         text_centroid = Text(
             "三角形的重心",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GREEN
         ).move_to(DOWN * 6.3)
@@ -925,7 +925,7 @@ class NapoleonPoint(Scene):
         # 结论
         conclusion = Text(
             "中点恰好是重心!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GOLD,
             weight=BOLD
@@ -1022,14 +1022,14 @@ class NapoleonPoint(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1043,7 +1043,7 @@ class NapoleonPoint(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -1085,7 +1085,7 @@ class NapoleonPoint(Scene):
         # 文字
         text_obj = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"]+2,
             color=WHITE
         )

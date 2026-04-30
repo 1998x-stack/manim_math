@@ -135,7 +135,7 @@ class ApollonianCircle(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -145,14 +145,14 @@ class ApollonianCircle(Scene):
         # 钩子问题 (分两行)
         hook_line1 = Text(
             "如果你到两个点的距离之比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 6)
         
         hook_line2 = Text(
             "永远是 2:1，你会画出什么轨迹?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.3)
@@ -164,8 +164,8 @@ class ApollonianCircle(Scene):
         self.dot_A = Dot(self.A, color=self.COLOR_POINT_A, radius=0.12)
         self.dot_B = Dot(self.B, color=self.COLOR_POINT_B, radius=0.12)
         
-        self.label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.dot_A, DOWN, buff=0.15)
-        self.label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.dot_B, DOWN, buff=0.15)
+        self.label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.dot_A, DOWN, buff=0.15)
+        self.label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.dot_B, DOWN, buff=0.15)
         
         self.play(FadeIn(self.dot_A, scale=0.5), run_time=0.3)
         self.play(Flash(self.dot_A, color=self.COLOR_POINT_A, flash_radius=0.4), run_time=0.3)
@@ -194,7 +194,7 @@ class ApollonianCircle(Scene):
         # 标题
         title = Text(
             "阿波罗尼斯圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -213,7 +213,7 @@ class ApollonianCircle(Scene):
         # 答案文字
         answer_text = Text(
             "答案: 这是一个圆!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -239,14 +239,14 @@ class ApollonianCircle(Scene):
         
         length_PA = Text(
             f"PA={PA_length:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_POINT_A
         ).next_to(line_PA.get_center(), LEFT, buff=0.1)
         
         length_PB = Text(
             f"PB={PB_length:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_POINT_B
         ).next_to(line_PB.get_center(), RIGHT, buff=0.1)
@@ -282,7 +282,7 @@ class ApollonianCircle(Scene):
         # 问题文字
         question_text = Text(
             "如何用尺规画出这个圆?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -309,7 +309,7 @@ class ApollonianCircle(Scene):
         # 提示文字
         hint_text = Text(
             "关键: 找到圆与直线AB的两个交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -329,7 +329,7 @@ class ApollonianCircle(Scene):
         # 说明
         explanation = Text(
             "CD是直径!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -357,14 +357,14 @@ class ApollonianCircle(Scene):
         # 标题
         step_title = Text(
             "步骤1: 寻找内分点C",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_INTERNAL
         ).move_to(UP * 5.5)
         
         explanation_1 = Text(
             "在AB内，AC:CB = 2:1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -380,7 +380,7 @@ class ApollonianCircle(Scene):
         
         aux_text = Text(
             "作辅助射线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -390,7 +390,7 @@ class ApollonianCircle(Scene):
         
         # 4.2 在射线上截取AM=MN
         dot_M = Dot(self.M, color=self.COLOR_AUXILIARY, radius=0.08)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_M, UP, buff=0.1)
+        label_M = Text("M", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_M, UP, buff=0.1)
         
         self.play(FadeIn(dot_M), FadeIn(label_M), run_time=0.3)
         
@@ -398,7 +398,7 @@ class ApollonianCircle(Scene):
         self.play(Create(segment_AM), run_time=0.5)
         
         dot_N = Dot(self.N, color=self.COLOR_AUXILIARY, radius=0.08)
-        label_N = Text("N", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_N, UP, buff=0.1)
+        label_N = Text("N", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_N, UP, buff=0.1)
         
         self.play(FadeIn(dot_N), FadeIn(label_N), run_time=0.3)
         
@@ -407,7 +407,7 @@ class ApollonianCircle(Scene):
         
         equal_text = Text(
             "AM = MN",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=YELLOW
         ).move_to(DOWN * 5.5)
@@ -423,7 +423,7 @@ class ApollonianCircle(Scene):
         # 4.4 过M作NB的平行线
         parallel_text = Text(
             "过M作NB的平行线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -459,15 +459,15 @@ class ApollonianCircle(Scene):
             run_time=0.6
         )
         
-        self.label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.dot_C, DOWN, buff=0.15)
+        self.label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.dot_C, DOWN, buff=0.15)
         self.play(FadeIn(self.label_C), run_time=0.3)
         
         # 标注AC和CB
         brace_AC = Brace(Line(self.A, self.C), direction=DOWN, buff=0.1, color=YELLOW)
-        brace_label_AC = Text("2", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_AC, DOWN, buff=0.05)
+        brace_label_AC = Text("2", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_AC, DOWN, buff=0.05)
         
         brace_CB = Brace(Line(self.C, self.B), direction=DOWN, buff=0.1, color=YELLOW)
-        brace_label_CB = Text("1", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_CB, DOWN, buff=0.05)
+        brace_label_CB = Text("1", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_CB, DOWN, buff=0.05)
         
         self.play(
             FadeIn(brace_AC),
@@ -479,7 +479,7 @@ class ApollonianCircle(Scene):
         
         ratio_AC_CB = Text(
             "AC:CB = 2:1 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -515,14 +515,14 @@ class ApollonianCircle(Scene):
         # 标题
         step_title_2 = Text(
             "步骤2: 寻找外分点D",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_EXTERNAL
         ).move_to(UP * 5.5)
         
         explanation_2 = Text(
             "在AB外，AD:DB = 2:1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -533,7 +533,7 @@ class ApollonianCircle(Scene):
         # 5.2 在射线上截取AN=NQ
         continue_text = Text(
             "在之前射线上继续截取",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -544,8 +544,8 @@ class ApollonianCircle(Scene):
         
         dot_M = Dot(self.M, color=self.COLOR_AUXILIARY, radius=0.08)
         dot_N = Dot(self.N, color=self.COLOR_AUXILIARY, radius=0.08)
-        label_M = Text("M", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(dot_M, UP, buff=0.08)
-        label_N = Text("N", font="Noto Sans CJK SC", font_size=18, color=WHITE).next_to(dot_N, UP, buff=0.08)
+        label_M = Text("M", font="PingFang SC", font_size=18, color=WHITE).next_to(dot_M, UP, buff=0.08)
+        label_N = Text("N", font="PingFang SC", font_size=18, color=WHITE).next_to(dot_N, UP, buff=0.08)
         
         self.play(
             FadeIn(continue_text),
@@ -559,7 +559,7 @@ class ApollonianCircle(Scene):
         
         # Q点出现
         dot_Q = Dot(self.Q, color=self.COLOR_AUXILIARY, radius=0.08)
-        label_Q = Text("Q", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(dot_Q, UP, buff=0.1)
+        label_Q = Text("Q", font="PingFang SC", font_size=20, color=WHITE).next_to(dot_Q, UP, buff=0.1)
         
         self.play(FadeIn(dot_Q), FadeIn(label_Q), run_time=0.3)
         
@@ -568,7 +568,7 @@ class ApollonianCircle(Scene):
         
         equal_text_2 = Text(
             "NQ = AM = MN",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=YELLOW
         ).move_to(DOWN * 5.5)
@@ -584,7 +584,7 @@ class ApollonianCircle(Scene):
         # 5.4 过N作QB的平行线
         parallel_text_2 = Text(
             "过N作QB的平行线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -618,15 +618,15 @@ class ApollonianCircle(Scene):
             run_time=0.6
         )
         
-        self.label_D = Text("D", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.dot_D, DOWN, buff=0.15)
+        self.label_D = Text("D", font="PingFang SC", font_size=24, color=WHITE).next_to(self.dot_D, DOWN, buff=0.15)
         self.play(FadeIn(self.label_D), run_time=0.3)
         
         # 标注AD和DB
         brace_AD = Brace(Line(self.A, self.D), direction=DOWN, buff=0.1, color=YELLOW)
-        brace_label_AD = Text("2", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_AD, DOWN, buff=0.05)
+        brace_label_AD = Text("2", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_AD, DOWN, buff=0.05)
         
         brace_DB = Brace(Line(self.D, self.B), direction=DOWN, buff=0.1, color=YELLOW)
-        brace_label_DB = Text("1", font="Noto Sans CJK SC", font_size=20, color=YELLOW).next_to(brace_DB, DOWN, buff=0.05)
+        brace_label_DB = Text("1", font="PingFang SC", font_size=20, color=YELLOW).next_to(brace_DB, DOWN, buff=0.05)
         
         self.play(
             FadeIn(brace_AD),
@@ -638,7 +638,7 @@ class ApollonianCircle(Scene):
         
         ratio_AD_DB = Text(
             "AD:DB = 2:1 ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -675,7 +675,7 @@ class ApollonianCircle(Scene):
         # 标题
         step_title_3 = Text(
             "步骤3: 确定圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -689,7 +689,7 @@ class ApollonianCircle(Scene):
         
         diameter_text = Text(
             "CD是直径!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -700,7 +700,7 @@ class ApollonianCircle(Scene):
         # 6.2 取CD中点为圆心O
         midpoint_text = Text(
             "取CD的中点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.8)
@@ -712,12 +712,12 @@ class ApollonianCircle(Scene):
         self.play(Flash(self.dot_O, color=self.COLOR_PRIMARY, flash_radius=0.4), run_time=0.3)
         self.play(FadeIn(self.dot_O), run_time=0.3)
         
-        self.label_O = Text("O", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.dot_O, UP, buff=0.15)
+        self.label_O = Text("O", font="PingFang SC", font_size=24, color=WHITE).next_to(self.dot_O, UP, buff=0.15)
         self.play(FadeIn(self.label_O), run_time=0.3)
         
         center_text = Text(
             "这就是圆心!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -778,7 +778,7 @@ class ApollonianCircle(Scene):
         # 标题
         verify_title = Text(
             "验证: 圆上所有点都满足 PA/PB = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -820,14 +820,14 @@ class ApollonianCircle(Scene):
         
         length_PA_text = Text(
             f"PA={PA_val:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_POINT_A
         ).move_to(DOWN * 4.5 + LEFT * 1.5)
         
         length_PB_text = Text(
             f"PB={PB_val:.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_POINT_B
         ).move_to(DOWN * 4.5 + RIGHT * 1.5)
@@ -836,7 +836,7 @@ class ApollonianCircle(Scene):
         
         ratio_val_text = Text(
             f"PA/PB = {PA_val/PB_val:.2f} ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -862,28 +862,28 @@ class ApollonianCircle(Scene):
         # 总结卡片
         summary_1 = Text(
             "定义: PA/PB = k (常数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 2)
         
         summary_2 = Text(
             "轨迹是圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 0.5)
         
         summary_3 = Text(
             "内外分点法构造",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_INTERNAL
         ).move_to(DOWN * 1)
         
         summary_4 = Text(
             "CD是直径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -895,7 +895,7 @@ class ApollonianCircle(Scene):
         
         beauty_title = Text(
             "阿波罗尼斯圆的美!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(DOWN * 4.5)
@@ -933,7 +933,7 @@ class ApollonianCircle(Scene):
         
         follow_text = Text(
             "关注我，学更多几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

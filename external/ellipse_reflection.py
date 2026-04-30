@@ -140,7 +140,7 @@ class EllipseFocalReflection(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -150,7 +150,7 @@ class EllipseFocalReflection(Scene):
         # 钩子问题
         hook_text = Text(
             "为什么椭圆镜面\n能汇聚光线?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -171,8 +171,8 @@ class EllipseFocalReflection(Scene):
         # 焦点
         f1_dot = Dot(self.F1, color=self.COLOR_FOCUS, radius=0.08)
         f2_dot = Dot(self.F2, color=self.COLOR_FOCUS, radius=0.08)
-        f1_label = Text("F₁", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FOCUS).next_to(f1_dot, DOWN, buff=0.1)
-        f2_label = Text("F₂", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_FOCUS).next_to(f2_dot, DOWN, buff=0.1)
+        f1_label = Text("F₁", font="PingFang SC", font_size=22, color=self.COLOR_FOCUS).next_to(f1_dot, DOWN, buff=0.1)
+        f2_label = Text("F₂", font="PingFang SC", font_size=22, color=self.COLOR_FOCUS).next_to(f2_dot, DOWN, buff=0.1)
         
         self.play(
             FadeIn(f1_dot, scale=0.5),
@@ -223,7 +223,7 @@ class EllipseFocalReflection(Scene):
         # 标题
         title = Text(
             "椭圆的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -232,7 +232,7 @@ class EllipseFocalReflection(Scene):
         
         # 在椭圆上添加一个动点P
         p_dot = Dot(self.P, color=WHITE, radius=0.08)
-        p_label = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(p_dot, UR, buff=0.1)
+        p_label = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(p_dot, UR, buff=0.1)
         
         self.play(FadeIn(p_dot, scale=0.5), FadeIn(p_label), run_time=0.3)
         
@@ -314,7 +314,7 @@ class EllipseFocalReflection(Scene):
         # 标题
         title = Text(
             "反射定律",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -335,7 +335,7 @@ class EllipseFocalReflection(Scene):
         
         tangent_label = Text(
             "切线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_TANGENT
         ).next_to(tangent_end, RIGHT, buff=0.15)
@@ -357,7 +357,7 @@ class EllipseFocalReflection(Scene):
         
         normal_label = Text(
             "法线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_NORMAL
         ).next_to(normal_end, UP, buff=0.1)
@@ -476,7 +476,7 @@ class EllipseFocalReflection(Scene):
         # 标题
         title = Text(
             "为什么反射必过另一焦点?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -486,7 +486,7 @@ class EllipseFocalReflection(Scene):
         # 说明文字1
         explain_1 = Text(
             "观察PF₁与切线的夹角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -522,7 +522,7 @@ class EllipseFocalReflection(Scene):
         self.play(FadeOut(explain_1), run_time=0.3)
         explain_2 = Text(
             "观察PF₂与切线的夹角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -557,7 +557,7 @@ class EllipseFocalReflection(Scene):
         self.play(FadeOut(explain_2), run_time=0.3)
         property_text = Text(
             "椭圆切线性质:\n∠(PF₁,切线) = ∠(PF₂,切线)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A,
             line_spacing=0.8
@@ -577,9 +577,9 @@ class EllipseFocalReflection(Scene):
         
         # 推导
         derivation = VGroup(
-            Text("因为 α = β", font="Noto Sans CJK SC", font_size=18, color=GRAY_A),
-            Text("且 切线⊥法线", font="Noto Sans CJK SC", font_size=18, color=GRAY_A),
-            Text("所以 θ₁ = θ₂", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_HIGHLIGHT)
+            Text("因为 α = β", font="PingFang SC", font_size=18, color=GRAY_A),
+            Text("且 切线⊥法线", font="PingFang SC", font_size=18, color=GRAY_A),
+            Text("所以 θ₁ = θ₂", font="PingFang SC", font_size=18, color=self.COLOR_HIGHLIGHT)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(DOWN * 6.5)
         
         self.play(FadeIn(derivation, shift=UP * 0.3), run_time=1.5)
@@ -587,7 +587,7 @@ class EllipseFocalReflection(Scene):
         # 箭头指向结论
         conclusion = Text(
             "反射光线必定经过F₂!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7.5)
@@ -621,7 +621,7 @@ class EllipseFocalReflection(Scene):
         # 标题
         title = Text(
             "费马原理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -631,7 +631,7 @@ class EllipseFocalReflection(Scene):
         # 费马原理说明
         fermat_text = Text(
             "光沿所有可能路径中\n的稳定路径传播",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A,
             line_spacing=0.9
@@ -664,7 +664,7 @@ class EllipseFocalReflection(Scene):
         # 标注：所有路径长度相同
         equal_lengths_text = Text(
             "所有路径: |PF₁| + |PF₂| = 2a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -684,7 +684,7 @@ class EllipseFocalReflection(Scene):
         # 说明：唯一稳定路径
         stable_text = Text(
             "满足反射定律的路径\n是唯一的稳定路径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A,
             line_spacing=0.9
@@ -701,7 +701,7 @@ class EllipseFocalReflection(Scene):
         # 结论
         conclusion = Text(
             "光线在椭圆镜面上的反射\n总是经过两个焦点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=0.9
@@ -740,7 +740,7 @@ class EllipseFocalReflection(Scene):
         # 标题
         title = Text(
             "实际应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -778,21 +778,21 @@ class EllipseFocalReflection(Scene):
         # 应用场景文字
         app_1 = Text(
             "1. 医疗碎石 - 椭圆反射聚焦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
         
         app_2 = Text(
             "2. 耳语廊 - 声波传播",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
         
         app_3 = Text(
             "3. 天文望远镜 - 光学系统",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -822,14 +822,14 @@ class EllipseFocalReflection(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -843,7 +843,7 @@ class EllipseFocalReflection(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

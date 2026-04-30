@@ -102,7 +102,7 @@ class GergonnePoint(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -112,13 +112,13 @@ class GergonnePoint(Scene):
         # 钩子问题
         hook_line1 = Text(
             "连接顶点与内切圆切点，",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
         hook_line2 = Text(
             "这三条线会交于一点？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         )
@@ -174,14 +174,14 @@ class GergonnePoint(Scene):
         # 标题
         title = Text(
             "热尔岗点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_GERGONNE
         ).move_to(UP * 6.5)
         
         title_en = Text(
             "Gergonne Point",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(title, DOWN, buff=0.2)
@@ -190,9 +190,9 @@ class GergonnePoint(Scene):
         self.play(FadeIn(title_en), run_time=0.4)
         
         # 定义文字
-        def_line1 = Text("连接三角形顶点与", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
-        def_line2 = Text("内切圆在对边上切点的", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
-        def_line3 = Text("三条线段的交点", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        def_line1 = Text("连接三角形顶点与", font="PingFang SC", font_size=24, color=GRAY_A)
+        def_line2 = Text("内切圆在对边上切点的", font="PingFang SC", font_size=24, color=GRAY_A)
+        def_line3 = Text("三条线段的交点", font="PingFang SC", font_size=24, color=WHITE)
         
         definition = VGroup(def_line1, def_line2, def_line3).arrange(DOWN, buff=0.2).move_to(UP * 4.8)
         
@@ -208,9 +208,9 @@ class GergonnePoint(Scene):
         self.play(Create(self.incircle), run_time=1.2)
         
         self.i_dot = Dot(self.I, color=self.COLOR_INCENTER, radius=0.08)
-        i_label = Text("I", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_INCENTER)
+        i_label = Text("I", font="PingFang SC", font_size=20, color=self.COLOR_INCENTER)
         i_label.next_to(self.i_dot, RIGHT, buff=0.1)
-        i_label_cn = Text("内心", font="Noto Sans CJK SC", font_size=16, color=self.COLOR_INCENTER)
+        i_label_cn = Text("内心", font="PingFang SC", font_size=16, color=self.COLOR_INCENTER)
         i_label_cn.next_to(i_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.i_label_group = VGroup(i_label, i_label_cn)
@@ -234,7 +234,7 @@ class GergonnePoint(Scene):
         # 步骤标题
         step_text = Text(
             "步骤1: 找到内切圆与三边的切点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 5.8)
@@ -243,7 +243,7 @@ class GergonnePoint(Scene):
         
         explain_text = Text(
             "内心到切点垂直于边",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -264,7 +264,7 @@ class GergonnePoint(Scene):
         self.play(Create(perp_id), run_time=0.6)
         
         # 标签D
-        d_label = Text("D", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_TANGENT)
+        d_label = Text("D", font="PingFang SC", font_size=20, color=self.COLOR_TANGENT)
         d_label.next_to(self.d_dot, UR, buff=0.1)
         self.d_label = d_label
         self.play(FadeIn(d_label), run_time=0.3)
@@ -282,7 +282,7 @@ class GergonnePoint(Scene):
         perp_ie = DashedLine(self.I, self.E, color=self.COLOR_AUXILIARY, dash_length=0.08)
         self.play(Create(perp_ie), run_time=0.6)
         
-        e_label = Text("E", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_TANGENT)
+        e_label = Text("E", font="PingFang SC", font_size=20, color=self.COLOR_TANGENT)
         e_label.next_to(self.e_dot, UL, buff=0.1)
         self.e_label = e_label
         self.play(FadeIn(e_label), run_time=0.3)
@@ -299,7 +299,7 @@ class GergonnePoint(Scene):
         perp_if = DashedLine(self.I, self.F, color=self.COLOR_AUXILIARY, dash_length=0.08)
         self.play(Create(perp_if), run_time=0.6)
         
-        f_label = Text("F", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_TANGENT)
+        f_label = Text("F", font="PingFang SC", font_size=20, color=self.COLOR_TANGENT)
         f_label.next_to(self.f_dot, DOWN, buff=0.1)
         self.f_label = f_label
         self.play(FadeIn(f_label), run_time=0.3)
@@ -325,15 +325,15 @@ class GergonnePoint(Scene):
         # 步骤标题
         step2_text = Text(
             "步骤2: 连接顶点到对边切点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 5.8)
         
         self.play(FadeIn(step2_text), run_time=0.5)
         
-        explain_line1 = Text("A的对边是BC，切点是D", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
-        explain_line2 = Text("B的对边是CA，切点是E", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        explain_line1 = Text("A的对边是BC，切点是D", font="PingFang SC", font_size=20, color=GRAY_A)
+        explain_line2 = Text("B的对边是CA，切点是E", font="PingFang SC", font_size=20, color=GRAY_A)
         explain_opposite = VGroup(explain_line1, explain_line2).arrange(DOWN, buff=0.2).move_to(DOWN * 5.5)
         
         self.play(FadeIn(explain_opposite), run_time=0.5)
@@ -386,9 +386,9 @@ class GergonnePoint(Scene):
         self.play(Flash(self.ge_dot, color=self.COLOR_GERGONNE, flash_radius=0.4), run_time=0.5)
         
         # 标签
-        ge_label = Text("Ge", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_GERGONNE)
+        ge_label = Text("Ge", font="PingFang SC", font_size=24, color=self.COLOR_GERGONNE)
         ge_label.next_to(self.ge_dot, LEFT, buff=0.15)
-        ge_label_cn = Text("热尔岗点", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_GERGONNE)
+        ge_label_cn = Text("热尔岗点", font="PingFang SC", font_size=18, color=self.COLOR_GERGONNE)
         ge_label_cn.next_to(ge_label, DOWN, buff=0.05, aligned_edge=LEFT)
         
         self.ge_label_group = VGroup(ge_label, ge_label_cn)
@@ -399,7 +399,7 @@ class GergonnePoint(Scene):
         # 惊叹文字
         amazing_text = Text(
             "三线共点！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -408,8 +408,8 @@ class GergonnePoint(Scene):
         self.wait(1.5)
         
         # 性质文字
-        prop_line1 = Text("这就是热尔岗点", font="Noto Sans CJK SC", font_size=26, color=WHITE)
-        prop_line2 = Text("三角形的一个特殊中心", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        prop_line1 = Text("这就是热尔岗点", font="PingFang SC", font_size=26, color=WHITE)
+        prop_line2 = Text("三角形的一个特殊中心", font="PingFang SC", font_size=24, color=GRAY_A)
         property_text = VGroup(prop_line1, prop_line2).arrange(DOWN, buff=0.2).move_to(DOWN * 5.5)
         
         self.play(FadeIn(property_text), run_time=0.8)
@@ -428,7 +428,7 @@ class GergonnePoint(Scene):
         # 标题
         ceva_title = Text(
             "塞瓦定理验证",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -444,8 +444,8 @@ class GergonnePoint(Scene):
         self.play(Write(ceva_formula), run_time=1.2)
         
         # 计算说明
-        calc_line1 = Text("根据切线长定理:", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
-        calc_line2 = Text("BD=BF=x, CD=CE=y, AE=AF=z", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        calc_line1 = Text("根据切线长定理:", font="PingFang SC", font_size=22, color=GRAY_A)
+        calc_line2 = Text("BD=BF=x, CD=CE=y, AE=AF=z", font="PingFang SC", font_size=22, color=WHITE)
         calc_explain = VGroup(calc_line1, calc_line2).arrange(DOWN, buff=0.2).move_to(UP * 3.8)
         
         self.play(FadeIn(calc_explain), run_time=0.8)
@@ -482,7 +482,7 @@ class GergonnePoint(Scene):
         # 成功文字
         success_text = Text(
             "证明成立！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5)
@@ -532,7 +532,7 @@ class GergonnePoint(Scene):
         # 特性标题
         properties_title = Text(
             "热尔岗点的特性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_GERGONNE
         ).move_to(UP * 2)
@@ -565,7 +565,7 @@ class GergonnePoint(Scene):
         # 作者名放大
         large_author = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -578,7 +578,7 @@ class GergonnePoint(Scene):
         # ID出现
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -588,7 +588,7 @@ class GergonnePoint(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多几何奇点！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -628,7 +628,7 @@ class GergonnePoint(Scene):
         """创建特性卡片"""
         card = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(position)
