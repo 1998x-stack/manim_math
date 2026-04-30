@@ -68,7 +68,7 @@ class LineBarChartCompareLesson(Scene):
         # 作者标识（始终显示在顶部）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -77,14 +77,14 @@ class LineBarChartCompareLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "条形图 vs 折线图",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=COLOR_HIGHLIGHT,
         ).move_to(UP * 5.5)
 
         hook_line2 = Text(
             "你知道什么时候用哪个吗？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_TEXT,
         ).move_to(UP * 4.6)
@@ -100,12 +100,12 @@ class LineBarChartCompareLesson(Scene):
         line_icon = self._make_mini_line()
         line_icon.move_to(RIGHT * 2.2 + UP * 2.5)
 
-        vs_text = Text("VS", font="Heiti SC", font_size=36, color=COLOR_HIGHLIGHT)
+        vs_text = Text("VS", font="PingFang SC", font_size=36, color=COLOR_HIGHLIGHT)
         vs_text.move_to(UP * 2.5)
 
-        bar_label = Text("条形图", font="Heiti SC", font_size=24, color=COLOR_BAR)
+        bar_label = Text("条形图", font="PingFang SC", font_size=24, color=COLOR_BAR)
         bar_label.move_to(LEFT * 2.2 + UP * 1.2)
-        line_label = Text("折线图", font="Heiti SC", font_size=24, color=COLOR_LINE)
+        line_label = Text("折线图", font="PingFang SC", font_size=24, color=COLOR_LINE)
         line_label.move_to(RIGHT * 2.2 + UP * 1.2)
 
         self.play(
@@ -135,14 +135,14 @@ class LineBarChartCompareLesson(Scene):
     def scene_2_bar_chart(self):
         title = Text(
             "条形统计图",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_BAR
         ).move_to(UP * 6.2)
 
         subtitle = Text(
             "适合比较不同类别的数量大小",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_TEXT
         ).move_to(UP * 5.4)
@@ -163,14 +163,14 @@ class LineBarChartCompareLesson(Scene):
         # 解说文字
         explain1 = Text(
             "一眼看出：上海游客最多",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.0)
 
         explain2 = Text(
             "广州游客最少",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.7)
@@ -214,14 +214,14 @@ class LineBarChartCompareLesson(Scene):
     def scene_3_line_chart(self):
         title = Text(
             "折线统计图",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_LINE
         ).move_to(UP * 6.2)
 
         subtitle = Text(
             "适合显示数据随时间的变化趋势",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_TEXT
         ).move_to(UP * 5.4)
@@ -254,14 +254,14 @@ class LineBarChartCompareLesson(Scene):
         # 说明趋势
         explain1 = Text(
             "整体呈上升趋势",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.0)
 
         explain2 = Text(
             "3月有一次下降，5月又回落",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.7)
@@ -310,7 +310,7 @@ class LineBarChartCompareLesson(Scene):
     def scene_4_comparison(self):
         title = Text(
             "同样的数据，选哪种图？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -320,7 +320,7 @@ class LineBarChartCompareLesson(Scene):
         # 情景 A：比较城市人口 → 条形图
         scene_a_q = Text(
             "问题①：哪个城市的游客最多？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -334,7 +334,7 @@ class LineBarChartCompareLesson(Scene):
 
         answer_a = Text(
             "选条形图！对比各城市数量大小",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_BAR
         ).move_to(UP * 0.8)
@@ -356,7 +356,7 @@ class LineBarChartCompareLesson(Scene):
         # 情景 B：月气温变化 → 折线图
         scene_b_q = Text(
             "问题②：气温如何随月份变化？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_TEXT
         ).move_to(UP * 5.5)
@@ -370,7 +370,7 @@ class LineBarChartCompareLesson(Scene):
 
         answer_b = Text(
             "选折线图！看温度升降变化趋势",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=COLOR_LINE
         ).move_to(UP * 0.8)
@@ -397,7 +397,7 @@ class LineBarChartCompareLesson(Scene):
     def scene_5_summary(self):
         title = Text(
             "记住这个口诀！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -439,14 +439,14 @@ class LineBarChartCompareLesson(Scene):
 
         formula_line1 = Text(
             "数量大小 → 条形图",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_BAR
         ).move_to(DOWN * 2.2)
 
         formula_line2 = Text(
             "变化趋势 → 折线图",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_LINE
         ).move_to(DOWN * 2.9)
@@ -473,14 +473,14 @@ class LineBarChartCompareLesson(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=COLOR_TEXT
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color="#6b7280"
         ).move_to(UP * 1.2)
@@ -493,7 +493,7 @@ class LineBarChartCompareLesson(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=COLOR_HIGHLIGHT
         ).move_to(UP * 0.0)
@@ -590,13 +590,13 @@ class LineBarChartCompareLesson(Scene):
                 np.array([origin[0], y, 0]),
                 color=COLOR_AXIS, stroke_width=1.5
             )
-            label = Text(str(v), font="Heiti SC", font_size=14, color=COLOR_AXIS)
+            label = Text(str(v), font="PingFang SC", font_size=14, color=COLOR_AXIS)
             label.move_to(np.array([origin[0] - 0.5, y, 0]))
             y_ticks.add(tick)
             y_labels.add(label)
 
         # 单位标签
-        unit_label = Text("（万人）", font="Heiti SC", font_size=14, color=COLOR_AXIS)
+        unit_label = Text("（万人）", font="PingFang SC", font_size=14, color=COLOR_AXIS)
         unit_label.move_to(np.array([origin[0] + 0.5, origin[1] + y_len + 0.3, 0]))
 
         axes_vg = VGroup(x_axis, y_axis, y_ticks, y_labels, unit_label)
@@ -620,17 +620,17 @@ class LineBarChartCompareLesson(Scene):
             bar.move_to(np.array([x, origin[1] + bar_h / 2, 0]))
             bars.add(bar)
 
-            city_lbl = Text(city, font="Heiti SC", font_size=16, color=COLOR_TEXT)
+            city_lbl = Text(city, font="PingFang SC", font_size=16, color=COLOR_TEXT)
             city_lbl.move_to(np.array([x, origin[1] - 0.3, 0]))
             city_labels.add(city_lbl)
 
-            val_lbl = Text(str(val), font="Heiti SC", font_size=14, color=COLOR_HIGHLIGHT)
+            val_lbl = Text(str(val), font="PingFang SC", font_size=14, color=COLOR_HIGHLIGHT)
             val_lbl.move_to(np.array([x, origin[1] + bar_h + 0.2, 0]))
             val_labels.add(val_lbl)
 
         chart_title = Text(
             "四城市2023年游客人数（万人）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color=COLOR_TEXT
         ).move_to(np.array([origin[0] + x_len / 2, origin[1] + y_len + 0.65, 0]))
@@ -663,12 +663,12 @@ class LineBarChartCompareLesson(Scene):
                 np.array([origin[0], y, 0]),
                 color=COLOR_AXIS, stroke_width=1.5
             )
-            label = Text(str(v), font="Heiti SC", font_size=14, color=COLOR_AXIS)
+            label = Text(str(v), font="PingFang SC", font_size=14, color=COLOR_AXIS)
             label.move_to(np.array([origin[0] - 0.45, y, 0]))
             y_ticks.add(tick)
             y_labels.add(label)
 
-        unit_label = Text("（元）", font="Heiti SC", font_size=14, color=COLOR_AXIS)
+        unit_label = Text("（元）", font="PingFang SC", font_size=14, color=COLOR_AXIS)
         unit_label.move_to(np.array([origin[0] + 0.3, origin[1] + y_len + 0.3, 0]))
 
         axes_part = VGroup(x_axis, y_axis, y_ticks, y_labels, unit_label)
@@ -676,7 +676,7 @@ class LineBarChartCompareLesson(Scene):
         # X轴标签
         month_labels = VGroup()
         for i, m in enumerate(self.months):
-            lbl = Text(m, font="Heiti SC", font_size=15, color=COLOR_TEXT)
+            lbl = Text(m, font="PingFang SC", font_size=15, color=COLOR_TEXT)
             lbl.move_to(np.array([origin[0] + i * x_step, origin[1] - 0.3, 0]))
             month_labels.add(lbl)
 
@@ -692,7 +692,7 @@ class LineBarChartCompareLesson(Scene):
         # 数值标签（点上方）
         val_labels = VGroup()
         for i, (p, v) in enumerate(zip(pts, self.values)):
-            vl = Text(str(v), font="Heiti SC", font_size=14, color=COLOR_HIGHLIGHT)
+            vl = Text(str(v), font="PingFang SC", font_size=14, color=COLOR_HIGHLIGHT)
             vl.move_to(p + UP * 0.28)
             val_labels.add(vl)
 
@@ -704,7 +704,7 @@ class LineBarChartCompareLesson(Scene):
 
         chart_title = Text(
             "某同学1~6月零花钱（元）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color=COLOR_TEXT
         ).move_to(np.array([origin[0] + x_len / 2, origin[1] + y_len + 0.62, 0]))
@@ -744,7 +744,7 @@ class LineBarChartCompareLesson(Scene):
             bar.move_to(np.array([x, origin[1] + bar_h / 2, 0]))
             bars.add(bar)
 
-            lbl = Text(city, font="Heiti SC", font_size=14, color=COLOR_TEXT)
+            lbl = Text(city, font="PingFang SC", font_size=14, color=COLOR_TEXT)
             lbl.move_to(np.array([x, origin[1] - 0.28, 0]))
             city_labels.add(lbl)
 
@@ -775,7 +775,7 @@ class LineBarChartCompareLesson(Scene):
         ])
         month_lbls = VGroup()
         for i, m in enumerate(self.months):
-            lbl = Text(m, font="Heiti SC", font_size=12, color=COLOR_TEXT)
+            lbl = Text(m, font="PingFang SC", font_size=12, color=COLOR_TEXT)
             lbl.move_to(np.array([origin[0] + i * x_step, origin[1] - 0.28, 0]))
             month_lbls.add(lbl)
 
@@ -790,10 +790,10 @@ class LineBarChartCompareLesson(Scene):
             fill_opacity=0.85,
             stroke_width=0
         )
-        h_text = Text(heading, font="Heiti SC", font_size=22, color=WHITE)
+        h_text = Text(heading, font="PingFang SC", font_size=22, color=WHITE)
         h_text.move_to(bg.get_center() + UP * 0.45)
 
-        c_text = Text(content, font="Heiti SC", font_size=18, color="#ecf0f1")
+        c_text = Text(content, font="PingFang SC", font_size=18, color="#ecf0f1")
         c_text.move_to(bg.get_center() + DOWN * 0.2)
 
         return VGroup(bg, h_text, c_text)
@@ -826,13 +826,13 @@ class LineBarChartCompareLesson(Scene):
         )
         accent_bar.move_to(position + LEFT * 3.73)
 
-        h_text = Text(heading, font="Heiti SC", font_size=26, color=accent_color)
+        h_text = Text(heading, font="PingFang SC", font_size=26, color=accent_color)
         h_text.move_to(position + UP * 0.55 + LEFT * 0.3)
 
-        s_text = Text(sub, font="Heiti SC", font_size=22, color=COLOR_TEXT)
+        s_text = Text(sub, font="PingFang SC", font_size=22, color=COLOR_TEXT)
         s_text.move_to(position + DOWN * 0.1 + LEFT * 0.3)
 
-        d_text = Text(detail, font="Heiti SC", font_size=18, color="#95a5a6")
+        d_text = Text(detail, font="PingFang SC", font_size=18, color="#95a5a6")
         d_text.move_to(position + DOWN * 0.65 + LEFT * 0.3)
 
         return VGroup(card_bg, accent_bar, h_text, s_text, d_text)

@@ -65,7 +65,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 作者信息（顶部固定）
         self.author_label = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -74,14 +74,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "6.8 ÷ 4 = ?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_TITLE,
         ).move_to(UP * 4.5)
 
         hook_line2 = Text(
             "小数怎么除整数？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE,
         ).move_to(UP * 3.3)
@@ -93,14 +93,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 章节标题
         chapter = Text(
             "小数除以整数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 1.8)
 
         subtitle = Text(
             "四年级 · 第五章",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY,
         ).move_to(UP * 1.0)
@@ -117,28 +117,28 @@ class DecimalDivideIntegerLesson(Scene):
         # 三条核心规则预告
         rules_title = Text(
             "今天学习三个关键点:",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.5)
 
         rule1 = Text(
             "① 按整数除法计算",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 1.5)
 
         rule2 = Text(
             "② 小数点与被除数对齐",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 2.4)
 
         rule3 = Text(
             "③ 余数后补0继续除",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PURPLE,
         ).move_to(DOWN * 3.3)
@@ -165,7 +165,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         section_title = Text(
             "算理：转化为整数除法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.0)
@@ -174,7 +174,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 思路说明
         idea = Text(
             "把 6.8 看成 68 个 0.1",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(UP * 4.8)
@@ -218,14 +218,14 @@ class DecimalDivideIntegerLesson(Scene):
 
         int_label = Text(
             "6（个）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PRIMARY,
         ).move_to(np.array([2.5, 2.6, 0]))
 
         dec_label = Text(
             "8（个0.1）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([2.6, 2.0, 0]))
@@ -237,7 +237,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         total_label = Text(
             "合计：68 个 0.1",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 1.0)
@@ -246,7 +246,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 分组：每4个一组
         divide_text = Text(
             "÷ 4：每份 17 个 0.1",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_GREEN,
         ).move_to(UP * 0.2)
@@ -254,7 +254,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         result_text = Text(
             "17 × 0.1 = 1.7",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.8)
@@ -281,7 +281,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         section_title = Text(
             "竖式计算：6.8 ÷ 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.5)
@@ -300,7 +300,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 除数标签
         divisor_text = Text(
             "4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=WHITE,
         ).move_to(np.array([-2.2, 3.8, 0]))
@@ -323,7 +323,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 被除数 "6.8"
         dividend_6 = Text(
             "6",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=WHITE,
         ).move_to(np.array([0.5, 3.8, 0]))
@@ -331,14 +331,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 小数点（红色高亮）
         dividend_dot = Text(
             ".",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_DECIMAL_PT,
         ).move_to(np.array([1.05, 3.6, 0]))
 
         dividend_8 = Text(
             "8",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=WHITE,
         ).move_to(np.array([1.65, 3.8, 0]))
@@ -358,7 +358,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         step_hint = Text(
             "第一步：先算整数部分 6 ÷ 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 0.5)
@@ -369,7 +369,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 商的第一位 "1"
         quotient_1 = Text(
             "1",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_GREEN,
         ).move_to(np.array([0.5, 5.2, 0]))
@@ -387,7 +387,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 乘法：1 × 4 = 4
         mult_line1 = Text(
             "1 × 4 = 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUXILIARY,
         ).move_to(np.array([3.5, 3.8, 0]))
@@ -396,7 +396,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 写出"4"在被除数下方，并画横线
         sub_4 = Text(
             "4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_AUXILIARY,
         ).move_to(np.array([0.5, 2.9, 0]))
@@ -413,14 +413,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 余数 2
         remainder_2 = Text(
             "2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([0.5, 1.8, 0]))
 
         remainder_hint = Text(
             "余 2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([3.5, 1.8, 0]))
@@ -436,7 +436,7 @@ class DecimalDivideIntegerLesson(Scene):
         # -------- Step 2: 对齐小数点 --------
         step2_hint = Text(
             "第二步：商的小数点对齐被除数小数点",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 0.5)
@@ -445,7 +445,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 商的小数点（红色大号）
         quotient_dot = Text(
             ".",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_DECIMAL_PT,
         ).move_to(np.array([1.05, 5.0, 0]))
@@ -479,7 +479,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 把 8 拉下来
         step3_hint = Text(
             "第三步：落下 8，算 28 ÷ 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 0.5)
@@ -488,7 +488,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 显示"2" "8"组合（余数2+落下的8=28）
         drop_8 = Text(
             "8",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=WHITE,
         ).move_to(np.array([1.65, 1.8, 0]))
@@ -510,7 +510,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 28 ÷ 4 = 7
         div28_hint = Text(
             "28 ÷ 4 = 7",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUXILIARY,
         ).move_to(np.array([3.5, 1.0, 0]))
@@ -518,7 +518,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         quotient_7 = Text(
             "7",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_GREEN,
         ).move_to(np.array([1.65, 5.2, 0]))
@@ -534,13 +534,13 @@ class DecimalDivideIntegerLesson(Scene):
         )
         sub_28_2 = Text(
             "2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_AUXILIARY,
         ).move_to(np.array([0.9, 0.1, 0]))
         sub_28_8 = Text(
             "8",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_AUXILIARY,
         ).move_to(np.array([1.65, 0.1, 0]))
@@ -555,7 +555,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 余数 0
         remainder_0 = Text(
             "0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_GREEN,
         ).move_to(np.array([1.65, -0.8, 0]))
@@ -574,7 +574,7 @@ class DecimalDivideIntegerLesson(Scene):
         )
         answer_text = Text(
             "所以：6.8 ÷ 4 = 1.7",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.2)
@@ -623,7 +623,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         section_title = Text(
             "核心规则：小数点对齐",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.5)
@@ -631,7 +631,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         rule_box = Text(
             "商的小数点要与被除数的小数点对齐",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(UP * 5.3)
@@ -653,7 +653,7 @@ class DecimalDivideIntegerLesson(Scene):
         # --- 正确示例 ---
         correct_label = Text(
             "正确",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_GREEN,
         ).move_to(np.array([-1.8, 3.8, 0]))
@@ -661,14 +661,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 竖式（简化）
         correct_dividend = Text(
             "6.8",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(np.array([-1.8, 3.0, 0]))
 
         correct_quotient = Text(
             "1.7",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_GREEN,
         ).move_to(np.array([-1.8, 4.5, 0]))
@@ -684,7 +684,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         correct_check = Text(
             "✓",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_GREEN,
         ).move_to(np.array([-0.2, 3.7, 0]))
@@ -692,14 +692,14 @@ class DecimalDivideIntegerLesson(Scene):
         # --- 错误示例 ---
         wrong_label = Text(
             "错误",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([2.2, 3.8, 0]))
 
         wrong_dividend = Text(
             "6.8",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(np.array([2.2, 3.0, 0]))
@@ -707,14 +707,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 错误商（小数点位移）
         wrong_quotient = Text(
             "17.",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([2.2, 4.5, 0]))
 
         wrong_cross = Text(
             "✗",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([3.5, 3.7, 0]))
@@ -754,7 +754,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 口诀强调
         mnemonic = Text(
             "口诀：小数点上下对齐",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 1.0)
@@ -765,13 +765,13 @@ class DecimalDivideIntegerLesson(Scene):
         # 补充说明
         note1 = Text(
             "整数部分不够除时，",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
         ).move_to(UP * 0.0)
         note2 = Text(
             "在个位（整数位）写 0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_PURPLE,
         ).move_to(DOWN * 0.7)
@@ -779,13 +779,13 @@ class DecimalDivideIntegerLesson(Scene):
         # 示例：0.8 ÷ 4 商的个位要写0
         example_title = Text(
             "例：0.8 ÷ 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUXILIARY,
         ).move_to(DOWN * 1.8)
         example_result = Text(
             "商 = 0.2（个位写0！）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_PURPLE,
         ).move_to(DOWN * 2.6)
@@ -829,7 +829,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         section_title = Text(
             "进阶：余数补0继续除",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.5)
@@ -838,7 +838,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 例：2.5 ÷ 4
         example_intro = Text(
             "例题：2.5 ÷ 4 = ?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE,
         ).move_to(UP * 5.4)
@@ -848,7 +848,7 @@ class DecimalDivideIntegerLesson(Scene):
         div_x2 = -0.8
         divisor2 = Text(
             "4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=WHITE,
         ).move_to(np.array([-2.2, 3.5, 0]))
@@ -868,21 +868,21 @@ class DecimalDivideIntegerLesson(Scene):
 
         dividend2_2 = Text(
             "2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=WHITE,
         ).move_to(np.array([0.3, 3.5, 0]))
 
         dividend2_dot = Text(
             ".",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_DECIMAL_PT,
         ).move_to(np.array([0.75, 3.3, 0]))
 
         dividend2_5 = Text(
             "5",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=WHITE,
         ).move_to(np.array([1.3, 3.5, 0]))
@@ -903,7 +903,7 @@ class DecimalDivideIntegerLesson(Scene):
         # Step A: 2 ÷ 4，不够除，商0
         stepA = Text(
             "2 ÷ 4：不够！个位商 0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 0.5)
@@ -911,14 +911,14 @@ class DecimalDivideIntegerLesson(Scene):
 
         quot2_0 = Text(
             "0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_PURPLE,
         ).move_to(np.array([0.3, 4.8, 0]))
 
         quot2_dot = Text(
             ".",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_DECIMAL_PT,
         ).move_to(np.array([0.75, 4.6, 0]))
@@ -941,7 +941,7 @@ class DecimalDivideIntegerLesson(Scene):
         # Step B: 落下5，25 ÷ 4 = 6，余1
         stepB = Text(
             "落下 5，算 25 ÷ 4 = 6，余 1",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 0.5)
@@ -949,7 +949,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         quot2_6 = Text(
             "6",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_GREEN,
         ).move_to(np.array([1.3, 4.8, 0]))
@@ -970,7 +970,7 @@ class DecimalDivideIntegerLesson(Scene):
         # Step C: 补0！关键步骤
         stepC = Text(
             "余数不为0！在余数后面补 0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.5)
@@ -979,7 +979,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 补0动画
         add_zero = Text(
             "0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(np.array([2.1, 1.4, 0]))
@@ -1001,7 +1001,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 10 ÷ 4 = 2，余 2，继续补0
         step_10 = Text(
             "10 ÷ 4 = 2，余 2，继续补 0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 1.5)
@@ -1009,7 +1009,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         quot2_2 = Text(
             "2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_GREEN,
         ).move_to(np.array([2.1, 4.8, 0]))
@@ -1017,7 +1017,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         step_25 = Text(
             "20 ÷ 4 = 5，整除！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 2.3)
@@ -1025,7 +1025,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         quot2_5 = Text(
             "5",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_GREEN,
         ).move_to(np.array([2.8, 4.8, 0]))
@@ -1036,7 +1036,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 答案
         ans2 = Text(
             "2.5 ÷ 4 = 0.625",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.0)
@@ -1049,7 +1049,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 补0规则总结
         zero_rule = Text(
             "规则：余数后补0，继续除，直到余数为0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_PURPLE,
         ).move_to(DOWN * 4.2)
@@ -1094,7 +1094,7 @@ class DecimalDivideIntegerLesson(Scene):
 
         section_title = Text(
             "三步口诀总结",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TITLE,
         ).move_to(UP * 6.5)
@@ -1123,14 +1123,14 @@ class DecimalDivideIntegerLesson(Scene):
 
             step_text = Text(
                 step,
-                font="Heiti SC",
+                font="PingFang SC",
                 font_size=28,
                 color=color,
             ).move_to(np.array([-2.5, y_pos + 0.2, 0]))
 
             content_text = Text(
                 content,
-                font="Heiti SC",
+                font="PingFang SC",
                 font_size=22,
                 color=WHITE,
             ).move_to(np.array([0.8, y_pos - 0.2, 0]))
@@ -1145,14 +1145,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 公式展示
         formula_line1 = Text(
             "记住：",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(np.array([-2.5, -2.8, 0]))
 
         formula_line2 = Text(
             "小数 ÷ 整数 = 小数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(np.array([1.2, -2.8, 0]))
@@ -1188,14 +1188,14 @@ class DecimalDivideIntegerLesson(Scene):
         # 作者名放大居中
         author_big = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_AUXILIARY,
         ).move_to(UP * 1.0)
@@ -1209,7 +1209,7 @@ class DecimalDivideIntegerLesson(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.5)
@@ -1242,28 +1242,28 @@ class DecimalDivideIntegerLesson(Scene):
 
         review_title = Text(
             "小数除以整数 — 三步法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_PRIMARY,
         ).move_to(DOWN * 2.7)
 
         review_r1 = Text(
             "① 按整数除法计算",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 3.4)
 
         review_r2 = Text(
             "② 小数点对齐被除数小数点",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 4.1)
 
         review_r3 = Text(
             "③ 余数后补0继续除",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PURPLE,
         ).move_to(DOWN * 4.8)

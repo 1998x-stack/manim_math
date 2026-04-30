@@ -35,7 +35,7 @@ COLOR_PURPLE    = "#a78bfa"   # 紫色 - 分数标注
 COLOR_HL        = "#fbbf24"   # 黄色 - 高亮
 COLOR_UNIT1     = "#06b6d4"   # 青色 - 单位"1"
 COLOR_AUTHOR    = "#6b7280"   # 灰色 - 作者
-FONT            = "Heiti SC"
+FONT            = "PingFang SC"
 
 
 # ======================================================================

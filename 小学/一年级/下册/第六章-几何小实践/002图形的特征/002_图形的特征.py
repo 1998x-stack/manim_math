@@ -48,7 +48,7 @@ class ShapeFeatureLesson(Scene):
         # 作者信息（始终显示）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -149,7 +149,7 @@ class ShapeFeatureLesson(Scene):
         """开场：吸引注意力"""
         title = Text(
             "你认识这些图形吗?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -192,10 +192,10 @@ class ShapeFeatureLesson(Scene):
             fill_color=self.COLOR_CIR
         ).move_to(np.array([2.2, -0.2, 0]))
 
-        lbl_rect = Text("长方形", font="Heiti SC", font_size=22, color=self.COLOR_RECT).next_to(rect_demo, DOWN, buff=0.15)
-        lbl_sq   = Text("正方形", font="Heiti SC", font_size=22, color=self.COLOR_SQ  ).next_to(sq_demo,   DOWN, buff=0.15)
-        lbl_tri  = Text("三角形", font="Heiti SC", font_size=22, color=self.COLOR_TRI ).next_to(tri_demo,  DOWN, buff=0.15)
-        lbl_cir  = Text("圆",     font="Heiti SC", font_size=22, color=self.COLOR_CIR ).next_to(circle_demo, DOWN, buff=0.15)
+        lbl_rect = Text("长方形", font="PingFang SC", font_size=22, color=self.COLOR_RECT).next_to(rect_demo, DOWN, buff=0.15)
+        lbl_sq   = Text("正方形", font="PingFang SC", font_size=22, color=self.COLOR_SQ  ).next_to(sq_demo,   DOWN, buff=0.15)
+        lbl_tri  = Text("三角形", font="PingFang SC", font_size=22, color=self.COLOR_TRI ).next_to(tri_demo,  DOWN, buff=0.15)
+        lbl_cir  = Text("圆",     font="PingFang SC", font_size=22, color=self.COLOR_CIR ).next_to(circle_demo, DOWN, buff=0.15)
 
         shapes = VGroup(rect_demo, sq_demo, tri_demo, circle_demo)
         labels = VGroup(lbl_rect, lbl_sq, lbl_tri, lbl_cir)
@@ -224,7 +224,7 @@ class ShapeFeatureLesson(Scene):
 
         subtitle = Text(
             "今天我们来认识它们的特征!",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 2.0)
@@ -247,7 +247,7 @@ class ShapeFeatureLesson(Scene):
         """长方形特征：对边相等，四个直角"""
         title = Text(
             "长方形",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_RECT
         ).move_to(UP * 5.8)
@@ -267,7 +267,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征1：对边相等 ----
         feat1_title = Text(
             "特征一：对边相等",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -281,9 +281,9 @@ class ShapeFeatureLesson(Scene):
 
         top_brace = BraceBetweenPoints(self.R_TL, self.R_TR, direction=UP)
         bot_brace = BraceBetweenPoints(self.R_BL, self.R_BR, direction=DOWN)
-        top_lbl = Text("上边", font="Heiti SC", font_size=20, color=WHITE)
+        top_lbl = Text("上边", font="PingFang SC", font_size=20, color=WHITE)
         top_lbl.next_to(top_brace, UP, buff=0.08)
-        bot_lbl = Text("下边", font="Heiti SC", font_size=20, color=WHITE)
+        bot_lbl = Text("下边", font="PingFang SC", font_size=20, color=WHITE)
         bot_lbl.next_to(bot_brace, DOWN, buff=0.08)
 
         self.play(
@@ -294,7 +294,7 @@ class ShapeFeatureLesson(Scene):
 
         equal_hint1 = Text(
             "上边 = 下边",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_SIDE
         ).move_to(DOWN * 1.8)
@@ -314,9 +314,9 @@ class ShapeFeatureLesson(Scene):
 
         left_brace  = BraceBetweenPoints(self.R_BL, self.R_TL, direction=LEFT)
         right_brace = BraceBetweenPoints(self.R_TR, self.R_BR, direction=RIGHT)
-        left_lbl = Text("左边", font="Heiti SC", font_size=20, color=WHITE)
+        left_lbl = Text("左边", font="PingFang SC", font_size=20, color=WHITE)
         left_lbl.next_to(left_brace, LEFT, buff=0.08)
-        right_lbl = Text("右边", font="Heiti SC", font_size=20, color=WHITE)
+        right_lbl = Text("右边", font="PingFang SC", font_size=20, color=WHITE)
         right_lbl.next_to(right_brace, RIGHT, buff=0.08)
         self.play(
             FadeIn(left_brace), FadeIn(right_brace),
@@ -326,7 +326,7 @@ class ShapeFeatureLesson(Scene):
 
         equal_hint2 = Text(
             "左边 = 右边",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_SIDE
         ).move_to(DOWN * 2.5)
@@ -345,7 +345,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征2：四个直角 ----
         feat2_title = Text(
             "特征二：四个角都是直角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -369,7 +369,7 @@ class ShapeFeatureLesson(Scene):
 
         angle_count = Text(
             "4个直角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ANGLE
         ).move_to(DOWN * 2.0)
@@ -378,7 +378,7 @@ class ShapeFeatureLesson(Scene):
 
         summary_rect = Text(
             "长方形：对边相等，四个直角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 3.2)
@@ -399,7 +399,7 @@ class ShapeFeatureLesson(Scene):
         """正方形特征：四边相等，四个直角"""
         title = Text(
             "正方形",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_SQ
         ).move_to(UP * 5.8)
@@ -418,7 +418,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征1：四边都相等 ----
         feat1_title = Text(
             "特征一：四条边都相等",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -460,7 +460,7 @@ class ShapeFeatureLesson(Scene):
 
         equal_all = Text(
             "四条边都相等!",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SIDE
         ).move_to(DOWN * 1.8)
@@ -476,7 +476,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征2：四个直角 ----
         feat2_title = Text(
             "特征二：四个角都是直角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -500,7 +500,7 @@ class ShapeFeatureLesson(Scene):
 
         angle_count_sq = Text(
             "4个直角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ANGLE
         ).move_to(DOWN * 2.0)
@@ -509,7 +509,7 @@ class ShapeFeatureLesson(Scene):
 
         compare_hint = Text(
             "比长方形多了：四边相等!",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SQ
         ).move_to(DOWN * 2.8)
@@ -518,7 +518,7 @@ class ShapeFeatureLesson(Scene):
 
         summary_sq = Text(
             "正方形：四边相等，四个直角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 3.8)
@@ -540,7 +540,7 @@ class ShapeFeatureLesson(Scene):
         """三角形特征：三条边，三个角"""
         title = Text(
             "三角形",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_TRI
         ).move_to(UP * 5.8)
@@ -558,9 +558,9 @@ class ShapeFeatureLesson(Scene):
         dot_A = Dot(self.T_A, color=self.COLOR_TRI, radius=0.1)
         dot_B = Dot(self.T_B, color=self.COLOR_TRI, radius=0.1)
         dot_C = Dot(self.T_C, color=self.COLOR_TRI, radius=0.1)
-        lbl_A = Text("A", font="Heiti SC", font_size=22, color=WHITE).next_to(self.T_A, UP,  buff=0.12)
-        lbl_B = Text("B", font="Heiti SC", font_size=22, color=WHITE).next_to(self.T_B, DL,  buff=0.12)
-        lbl_C = Text("C", font="Heiti SC", font_size=22, color=WHITE).next_to(self.T_C, DR,  buff=0.12)
+        lbl_A = Text("A", font="PingFang SC", font_size=22, color=WHITE).next_to(self.T_A, UP,  buff=0.12)
+        lbl_B = Text("B", font="PingFang SC", font_size=22, color=WHITE).next_to(self.T_B, DL,  buff=0.12)
+        lbl_C = Text("C", font="PingFang SC", font_size=22, color=WHITE).next_to(self.T_C, DR,  buff=0.12)
 
         self.play(
             FadeIn(dot_A), FadeIn(dot_B), FadeIn(dot_C),
@@ -572,7 +572,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征1：三条边 ----
         feat1_title = Text(
             "特征一：有三条边",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -582,11 +582,11 @@ class ShapeFeatureLesson(Scene):
         side_BC = Line(self.T_B, self.T_C, color=self.COLOR_HIGHLIGHT, stroke_width=8)
         side_CA = Line(self.T_C, self.T_A, color=self.COLOR_HIGHLIGHT, stroke_width=8)
 
-        lbl_side1 = Text("边1", font="Heiti SC", font_size=20, color=self.COLOR_HIGHLIGHT)
+        lbl_side1 = Text("边1", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT)
         lbl_side1.move_to((self.T_A + self.T_B) / 2 + np.array([-0.4, 0.1, 0]))
-        lbl_side2 = Text("边2", font="Heiti SC", font_size=20, color=self.COLOR_HIGHLIGHT)
+        lbl_side2 = Text("边2", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT)
         lbl_side2.move_to((self.T_B + self.T_C) / 2 + np.array([0, -0.35, 0]))
-        lbl_side3 = Text("边3", font="Heiti SC", font_size=20, color=self.COLOR_HIGHLIGHT)
+        lbl_side3 = Text("边3", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT)
         lbl_side3.move_to((self.T_C + self.T_A) / 2 + np.array([0.4, 0.1, 0]))
 
         self.play(Create(side_AB), FadeIn(lbl_side1), run_time=0.5)
@@ -595,7 +595,7 @@ class ShapeFeatureLesson(Scene):
 
         sides_count = Text(
             "共 3 条边",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_SIDE
         ).move_to(DOWN * 1.5)
@@ -612,7 +612,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征2：三个角 ----
         feat2_title = Text(
             "特征二：有三个角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -634,11 +634,11 @@ class ShapeFeatureLesson(Scene):
         angle_C = Angle(line_CB_from_C, line_CA_from_C, radius=0.45,
                         color=self.COLOR_ANGLE, stroke_width=3)
 
-        ang_lbl_A = Text("角A", font="Heiti SC", font_size=18, color=self.COLOR_ANGLE)
+        ang_lbl_A = Text("角A", font="PingFang SC", font_size=18, color=self.COLOR_ANGLE)
         ang_lbl_A.next_to(self.T_A, DOWN, buff=0.5)
-        ang_lbl_B = Text("角B", font="Heiti SC", font_size=18, color=self.COLOR_ANGLE)
+        ang_lbl_B = Text("角B", font="PingFang SC", font_size=18, color=self.COLOR_ANGLE)
         ang_lbl_B.next_to(self.T_B, RIGHT, buff=0.35)
-        ang_lbl_C = Text("角C", font="Heiti SC", font_size=18, color=self.COLOR_ANGLE)
+        ang_lbl_C = Text("角C", font="PingFang SC", font_size=18, color=self.COLOR_ANGLE)
         ang_lbl_C.next_to(self.T_C, LEFT, buff=0.35)
 
         self.play(
@@ -653,7 +653,7 @@ class ShapeFeatureLesson(Scene):
 
         angles_count = Text(
             "共 3 个角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ANGLE
         ).move_to(DOWN * 1.5)
@@ -662,7 +662,7 @@ class ShapeFeatureLesson(Scene):
 
         summary_tri = Text(
             "三角形：三条边，三个角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 2.8)
@@ -687,7 +687,7 @@ class ShapeFeatureLesson(Scene):
         """圆的特征：曲线围成，没有角"""
         title = Text(
             "圆",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_CIR
         ).move_to(UP * 5.8)
@@ -707,7 +707,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征1：曲线围成 ----
         feat1_title = Text(
             "特征一：由曲线围成",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -724,7 +724,7 @@ class ShapeFeatureLesson(Scene):
         arrow_tip = circ_center + np.array([1.8 * np.cos(PI / 5), 1.8 * np.sin(PI / 5), 0])
         curve_label = Text(
             "圆滑的曲线",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(circ_center + np.array([2.6, 0.7, 0]))
@@ -749,7 +749,7 @@ class ShapeFeatureLesson(Scene):
         # ---- 特征2：没有角 ----
         feat2_title = Text(
             "特征二：没有角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.0)
@@ -766,7 +766,7 @@ class ShapeFeatureLesson(Scene):
             fill_opacity=0.15,
             fill_color=self.COLOR_TRI
         )
-        tri_label = Text("有角", font="Heiti SC", font_size=20, color=self.COLOR_TRI)
+        tri_label = Text("有角", font="PingFang SC", font_size=20, color=self.COLOR_TRI)
         tri_label.move_to(tri_ctr + np.array([0, -1.1, 0]))
 
         mini_angle_mark = self.make_right_angle_mark(
@@ -778,7 +778,7 @@ class ShapeFeatureLesson(Scene):
 
         no_angle_symbol = Text(
             "没有角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CIR
         ).move_to(np.array([2.2, -0.8, 0]))
@@ -790,7 +790,7 @@ class ShapeFeatureLesson(Scene):
 
         no_corner_text = Text(
             "圆没有角，处处一样圆!",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=25,
             color=self.COLOR_CIR
         ).move_to(DOWN * 2.2)
@@ -799,7 +799,7 @@ class ShapeFeatureLesson(Scene):
 
         summary_circle = Text(
             "圆：曲线围成，没有角",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 3.4)
@@ -823,7 +823,7 @@ class ShapeFeatureLesson(Scene):
         """汇总对比四种图形特征"""
         title = Text(
             "图形特征总结",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -839,7 +839,7 @@ class ShapeFeatureLesson(Scene):
             fill_opacity=0.2,
             fill_color=self.COLOR_RECT
         ).move_to(np.array([-3.2, CARD_Y, 0]))
-        rect_name = Text("长方形", font="Heiti SC", font_size=20, color=self.COLOR_RECT).next_to(rect_s, DOWN, buff=0.12)
+        rect_name = Text("长方形", font="PingFang SC", font_size=20, color=self.COLOR_RECT).next_to(rect_s, DOWN, buff=0.12)
 
         sq_s = Square(
             side_length=1.0,
@@ -848,7 +848,7 @@ class ShapeFeatureLesson(Scene):
             fill_opacity=0.2,
             fill_color=self.COLOR_SQ
         ).move_to(np.array([-1.0, CARD_Y, 0]))
-        sq_name = Text("正方形", font="Heiti SC", font_size=20, color=self.COLOR_SQ).next_to(sq_s, DOWN, buff=0.12)
+        sq_name = Text("正方形", font="PingFang SC", font_size=20, color=self.COLOR_SQ).next_to(sq_s, DOWN, buff=0.12)
 
         tri_ctr = np.array([1.2, CARD_Y, 0])
         tri_s = Polygon(
@@ -860,7 +860,7 @@ class ShapeFeatureLesson(Scene):
             fill_opacity=0.2,
             fill_color=self.COLOR_TRI
         )
-        tri_name = Text("三角形", font="Heiti SC", font_size=20, color=self.COLOR_TRI).move_to(tri_ctr + np.array([0, -0.78, 0]))
+        tri_name = Text("三角形", font="PingFang SC", font_size=20, color=self.COLOR_TRI).move_to(tri_ctr + np.array([0, -0.78, 0]))
 
         cir_s = Circle(
             radius=0.5,
@@ -869,7 +869,7 @@ class ShapeFeatureLesson(Scene):
             fill_opacity=0.2,
             fill_color=self.COLOR_CIR
         ).move_to(np.array([3.2, CARD_Y, 0]))
-        cir_name = Text("圆", font="Heiti SC", font_size=20, color=self.COLOR_CIR).next_to(cir_s, DOWN, buff=0.12)
+        cir_name = Text("圆", font="PingFang SC", font_size=20, color=self.COLOR_CIR).next_to(cir_s, DOWN, buff=0.12)
 
         shapes_group = VGroup(rect_s, sq_s, tri_s, cir_s)
         names_group  = VGroup(rect_name, sq_name, tri_name, cir_name)
@@ -894,8 +894,8 @@ class ShapeFeatureLesson(Scene):
         ]
         feat_labels = VGroup()
         for pos, f1_str, f2_str, color in feat_data:
-            f1 = Text(f1_str, font="Heiti SC", font_size=18, color=color)
-            f2 = Text(f2_str, font="Heiti SC", font_size=18, color=color)
+            f1 = Text(f1_str, font="PingFang SC", font_size=18, color=color)
+            f2 = Text(f2_str, font="PingFang SC", font_size=18, color=color)
             col = VGroup(f1, f2).arrange(DOWN, buff=0.18)
             col.move_to(pos)
             feat_labels.add(col)
@@ -915,7 +915,7 @@ class ShapeFeatureLesson(Scene):
         )
         special_note = Text(
             "正方形是特殊的长方形!",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.6)
@@ -927,14 +927,14 @@ class ShapeFeatureLesson(Scene):
         # 记忆口诀
         rhyme_title = Text(
             "记忆口诀:",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(DOWN * 1.8)
 
         rhyme = Text(
             "长方对边两两等，\n正方四边全相同，\n三角三边加三角，\n圆无角来曲线成。",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.3
@@ -990,19 +990,19 @@ class ShapeFeatureLesson(Scene):
 
         author_main = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 0.8)
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color="#6b7280"
         ).move_to(UP * 0.0)
         follow_text = Text(
             "关注我，获得更多数学技巧!",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.2)
@@ -1014,16 +1014,16 @@ class ShapeFeatureLesson(Scene):
         # 快速复习
         review = Text(
             "今天学了：",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 2.8)
 
         review_items = VGroup(
-            Text("长方形 - 对边相等，四个直角", font="Heiti SC", font_size=20, color=self.COLOR_RECT),
-            Text("正方形 - 四边相等，四个直角", font="Heiti SC", font_size=20, color=self.COLOR_SQ),
-            Text("三角形 - 三条边，三个角",   font="Heiti SC", font_size=20, color=self.COLOR_TRI),
-            Text("圆 - 曲线围成，没有角",     font="Heiti SC", font_size=20, color=self.COLOR_CIR),
+            Text("长方形 - 对边相等，四个直角", font="PingFang SC", font_size=20, color=self.COLOR_RECT),
+            Text("正方形 - 四边相等，四个直角", font="PingFang SC", font_size=20, color=self.COLOR_SQ),
+            Text("三角形 - 三条边，三个角",   font="PingFang SC", font_size=20, color=self.COLOR_TRI),
+            Text("圆 - 曲线围成，没有角",     font="PingFang SC", font_size=20, color=self.COLOR_CIR),
         ).arrange(DOWN, buff=0.22, aligned_edge=LEFT).move_to(DOWN * 4.5)
 
         self.play(FadeIn(review), run_time=0.4)

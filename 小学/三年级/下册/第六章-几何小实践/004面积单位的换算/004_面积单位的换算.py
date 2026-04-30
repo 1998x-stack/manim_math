@@ -46,7 +46,7 @@ class AreaUnitConvertLesson(Scene):
         # 品牌信息 (顶部固定)
         self.author_brand = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -70,28 +70,28 @@ class AreaUnitConvertLesson(Scene):
 
         hook_q = Text(
             "你知道吗?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
 
         hook_line1 = Text(
             "1分米 × 1分米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_TEXT
         ).move_to(UP * 4.5)
 
         hook_line2 = Text(
             "= 100 平方厘米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CM
         ).move_to(UP * 3.7)
 
         hook_line3 = Text(
             "为什么不是10?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.8)
@@ -120,7 +120,7 @@ class AreaUnitConvertLesson(Scene):
 
         title = Text(
             "面积单位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.2)
@@ -134,11 +134,11 @@ class AreaUnitConvertLesson(Scene):
             fill_color=self.COLOR_CM,
             fill_opacity=0.15
         )
-        sq_cm_label_top = Text("1cm", font="Heiti SC", font_size=20, color=self.COLOR_CM)
+        sq_cm_label_top = Text("1cm", font="PingFang SC", font_size=20, color=self.COLOR_CM)
         sq_cm_label_top.next_to(sq_cm_box, UP, buff=0.1)
-        sq_cm_label_side = Text("1cm", font="Heiti SC", font_size=20, color=self.COLOR_CM)
+        sq_cm_label_side = Text("1cm", font="PingFang SC", font_size=20, color=self.COLOR_CM)
         sq_cm_label_side.next_to(sq_cm_box, LEFT, buff=0.1)
-        sq_cm_name = Text("平方厘米", font="Heiti SC", font_size=22, color=self.COLOR_CM)
+        sq_cm_name = Text("平方厘米", font="PingFang SC", font_size=22, color=self.COLOR_CM)
         sq_cm_name.next_to(sq_cm_box, DOWN, buff=0.15)
         sq_cm_symbol = MathTex(r"\text{cm}^2", font_size=28, color=self.COLOR_CM)
         sq_cm_symbol.next_to(sq_cm_name, DOWN, buff=0.08)
@@ -151,11 +151,11 @@ class AreaUnitConvertLesson(Scene):
             fill_color=self.COLOR_DM,
             fill_opacity=0.15
         )
-        sq_dm_label_top = Text("1dm", font="Heiti SC", font_size=20, color=self.COLOR_DM)
+        sq_dm_label_top = Text("1dm", font="PingFang SC", font_size=20, color=self.COLOR_DM)
         sq_dm_label_top.next_to(sq_dm_box, UP, buff=0.1)
-        sq_dm_label_side = Text("1dm", font="Heiti SC", font_size=20, color=self.COLOR_DM)
+        sq_dm_label_side = Text("1dm", font="PingFang SC", font_size=20, color=self.COLOR_DM)
         sq_dm_label_side.next_to(sq_dm_box, LEFT, buff=0.1)
-        sq_dm_name = Text("平方分米", font="Heiti SC", font_size=22, color=self.COLOR_DM)
+        sq_dm_name = Text("平方分米", font="PingFang SC", font_size=22, color=self.COLOR_DM)
         sq_dm_name.next_to(sq_dm_box, DOWN, buff=0.15)
         sq_dm_symbol = MathTex(r"\text{dm}^2", font_size=28, color=self.COLOR_DM)
         sq_dm_symbol.next_to(sq_dm_name, DOWN, buff=0.08)
@@ -185,11 +185,11 @@ class AreaUnitConvertLesson(Scene):
             fill_color=self.COLOR_M,
             fill_opacity=0.12
         )
-        sq_m_label_top = Text("1m", font="Heiti SC", font_size=20, color=self.COLOR_M)
+        sq_m_label_top = Text("1m", font="PingFang SC", font_size=20, color=self.COLOR_M)
         sq_m_label_top.next_to(sq_m_box, UP, buff=0.1)
-        sq_m_label_side = Text("1m", font="Heiti SC", font_size=20, color=self.COLOR_M)
+        sq_m_label_side = Text("1m", font="PingFang SC", font_size=20, color=self.COLOR_M)
         sq_m_label_side.next_to(sq_m_box, LEFT, buff=0.1)
-        sq_m_name = Text("平方米", font="Heiti SC", font_size=22, color=self.COLOR_M)
+        sq_m_name = Text("平方米", font="PingFang SC", font_size=22, color=self.COLOR_M)
         sq_m_name.next_to(sq_m_box, DOWN, buff=0.15)
         sq_m_symbol = MathTex(r"\text{m}^2", font_size=28, color=self.COLOR_M)
         sq_m_symbol.next_to(sq_m_name, DOWN, buff=0.08)
@@ -206,7 +206,7 @@ class AreaUnitConvertLesson(Scene):
 
         arrow_hint = Text(
             "它们之间如何换算?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.2)
@@ -231,7 +231,7 @@ class AreaUnitConvertLesson(Scene):
 
         title = Text(
             "1平方分米 = 多少平方厘米?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.3)
@@ -250,14 +250,14 @@ class AreaUnitConvertLesson(Scene):
 
         dm_label_top = Text(
             "1 分米 = 10 厘米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_DM
         ).next_to(dm_square, UP, buff=0.18)
 
         dm_label_left = Text(
             "1 分米\n= 10 厘米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_DM
         ).next_to(dm_square, LEFT, buff=0.18)
@@ -268,7 +268,7 @@ class AreaUnitConvertLesson(Scene):
 
         key_note = Text(
             "因为 1dm = 10cm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.0)
@@ -312,9 +312,9 @@ class AreaUnitConvertLesson(Scene):
         self.play(Create(grid_lines), run_time=1.2)
 
         # 标注网格数量
-        label_10h = Text("10格", font="Heiti SC", font_size=20, color=self.COLOR_CM)
+        label_10h = Text("10格", font="PingFang SC", font_size=20, color=self.COLOR_CM)
         label_10h.next_to(dm_square, DOWN, buff=0.12)
-        label_10v = Text("10格", font="Heiti SC", font_size=20, color=self.COLOR_CM)
+        label_10v = Text("10格", font="PingFang SC", font_size=20, color=self.COLOR_CM)
         label_10v.next_to(dm_square, RIGHT, buff=0.12)
 
         self.play(FadeIn(label_10h), FadeIn(label_10v), run_time=0.4)
@@ -331,7 +331,7 @@ class AreaUnitConvertLesson(Scene):
 
         cell_label = Text(
             "1cm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=13,
             color=WHITE
         ).move_to(highlight_cell.get_center())
@@ -343,7 +343,7 @@ class AreaUnitConvertLesson(Scene):
         # 计算过程
         calc_text = Text(
             "每行 10 格，共 10 行",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(DOWN * 5.0)
@@ -361,7 +361,7 @@ class AreaUnitConvertLesson(Scene):
 
         conclusion = Text(
             "1平方分米 = 100平方厘米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7.0)
@@ -395,7 +395,7 @@ class AreaUnitConvertLesson(Scene):
 
         title = Text(
             "1平方米 = 多少平方分米?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.3)
@@ -414,14 +414,14 @@ class AreaUnitConvertLesson(Scene):
 
         m_label_top = Text(
             "1 米 = 10 分米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_M
         ).next_to(m_square, UP, buff=0.18)
 
         m_label_left = Text(
             "1 米\n= 10 分米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_M
         ).next_to(m_square, LEFT, buff=0.18)
@@ -431,7 +431,7 @@ class AreaUnitConvertLesson(Scene):
 
         key_note = Text(
             "因为 1m = 10dm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.0)
@@ -472,9 +472,9 @@ class AreaUnitConvertLesson(Scene):
 
         self.play(Create(grid_lines), run_time=1.2)
 
-        label_10h = Text("10格", font="Heiti SC", font_size=20, color=self.COLOR_DM)
+        label_10h = Text("10格", font="PingFang SC", font_size=20, color=self.COLOR_DM)
         label_10h.next_to(m_square, DOWN, buff=0.12)
-        label_10v = Text("10格", font="Heiti SC", font_size=20, color=self.COLOR_DM)
+        label_10v = Text("10格", font="PingFang SC", font_size=20, color=self.COLOR_DM)
         label_10v.next_to(m_square, RIGHT, buff=0.12)
 
         self.play(FadeIn(label_10h), FadeIn(label_10v), run_time=0.4)
@@ -491,7 +491,7 @@ class AreaUnitConvertLesson(Scene):
 
         cell_label = Text(
             "1dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=12,
             color=WHITE
         ).move_to(highlight_cell.get_center())
@@ -502,7 +502,7 @@ class AreaUnitConvertLesson(Scene):
 
         calc_text = Text(
             "每行 10 格，共 10 行",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(DOWN * 5.0)
@@ -520,7 +520,7 @@ class AreaUnitConvertLesson(Scene):
 
         conclusion = Text(
             "1平方米 = 100平方分米",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7.0)
@@ -553,7 +553,7 @@ class AreaUnitConvertLesson(Scene):
 
         title = Text(
             "为什么进率是100，不是10?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.3)
@@ -563,7 +563,7 @@ class AreaUnitConvertLesson(Scene):
         # --- 长度对比 ---
         len_title = Text(
             "长度单位: 1dm = 10cm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DM
         ).move_to(UP * 5.4)
@@ -596,7 +596,7 @@ class AreaUnitConvertLesson(Scene):
         # 标注一格
         first_seg_label = Text(
             "1cm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=17,
             color=self.COLOR_CM
         ).move_to(np.array([-2.8 + seg / 2, line_y + 0.45, 0]))
@@ -605,7 +605,7 @@ class AreaUnitConvertLesson(Scene):
 
         len_result = Text(
             "一维: 进率 = 10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_TEXT
         ).move_to(UP * 3.7)
@@ -625,7 +625,7 @@ class AreaUnitConvertLesson(Scene):
         # --- 面积对比 ---
         area_title = Text(
             "面积单位: 两个方向都 ×10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_CM
         ).move_to(UP * 2.6)
@@ -652,7 +652,7 @@ class AreaUnitConvertLesson(Scene):
 
         arr_h_label = Text(
             "横向 ×10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_CM
         ).next_to(arr_h, UP, buff=0.08)
@@ -668,7 +668,7 @@ class AreaUnitConvertLesson(Scene):
 
         arr_v_label = Text(
             "纵向 ×10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_DM
         ).next_to(arr_v, RIGHT, buff=0.08)
@@ -693,14 +693,14 @@ class AreaUnitConvertLesson(Scene):
 
         conclusion_text = Text(
             "面积是二维的！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.7)
 
         conclusion_sub = Text(
             "所以进率 = 10 × 10 = 100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_TEXT
         ).move_to(DOWN * 3.5)
@@ -712,7 +712,7 @@ class AreaUnitConvertLesson(Scene):
         # 记忆口诀
         mnemonic = Text(
             "记住: 面积进率是 100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.0)
@@ -747,7 +747,7 @@ class AreaUnitConvertLesson(Scene):
 
         title = Text(
             "换算练习",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.3)
@@ -765,14 +765,14 @@ class AreaUnitConvertLesson(Scene):
 
         formula1 = Text(
             "1dm² = 100cm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_DM
         ).move_to(UP * 5.45)
 
         formula2 = Text(
             "1m² = 100dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_M
         ).move_to(UP * 4.75)
@@ -792,14 +792,14 @@ class AreaUnitConvertLesson(Scene):
 
         q1_text = Text(
             "5dm² = ____ cm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TEXT
         ).move_to(UP * 3.5)
 
         q1_hint = Text(
             "1dm²=100cm², 所以×100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=17,
             color=self.COLOR_SUBTEXT
         ).move_to(UP * 2.9)
@@ -811,7 +811,7 @@ class AreaUnitConvertLesson(Scene):
 
         q1_answer = Text(
             "5 × 100 = 500cm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_CM
         ).move_to(UP * 2.1)
@@ -830,14 +830,14 @@ class AreaUnitConvertLesson(Scene):
 
         q2_text = Text(
             "3m² = ____ dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TEXT
         ).move_to(UP * 1.2)
 
         q2_hint = Text(
             "1m²=100dm², 所以×100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=17,
             color=self.COLOR_SUBTEXT
         ).move_to(UP * 0.6)
@@ -849,7 +849,7 @@ class AreaUnitConvertLesson(Scene):
 
         q2_answer = Text(
             "3 × 100 = 300dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_DM
         ).move_to(DOWN * 0.2)
@@ -868,14 +868,14 @@ class AreaUnitConvertLesson(Scene):
 
         q3_text = Text(
             "200cm² = ____ dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_TEXT
         ).move_to(DOWN * 1.2)
 
         q3_hint = Text(
             "100cm²=1dm², 所以÷100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=17,
             color=self.COLOR_SUBTEXT
         ).move_to(DOWN * 1.8)
@@ -887,7 +887,7 @@ class AreaUnitConvertLesson(Scene):
 
         q3_answer = Text(
             "200 ÷ 100 = 2dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_M
         ).move_to(DOWN * 2.6)
@@ -898,14 +898,14 @@ class AreaUnitConvertLesson(Scene):
         # 换算技巧提示
         tip1 = Text(
             "大单位 → 小单位：× 100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.8)
 
         tip2 = Text(
             "小单位 → 大单位：÷ 100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.6)
@@ -934,7 +934,7 @@ class AreaUnitConvertLesson(Scene):
 
         summary_title = Text(
             "面积单位换算 · 总结",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.8)
@@ -952,7 +952,7 @@ class AreaUnitConvertLesson(Scene):
 
         card1_text = Text(
             "1dm² = 100cm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_DM
         ).move_to(UP * 4.3)
@@ -967,7 +967,7 @@ class AreaUnitConvertLesson(Scene):
 
         card2_text = Text(
             "1m² = 100dm²",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_M
         ).move_to(UP * 2.6)
@@ -982,7 +982,7 @@ class AreaUnitConvertLesson(Scene):
 
         card3_text = Text(
             "面积进率: 100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.9)
@@ -995,7 +995,7 @@ class AreaUnitConvertLesson(Scene):
         # 原因说明
         reason = Text(
             "原因: 面积是二维，10×10=100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUBTEXT
         ).move_to(DOWN * 0.4)
@@ -1013,7 +1013,7 @@ class AreaUnitConvertLesson(Scene):
         )
         arr_right_label = Text(
             "大→小  ×100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_CM
         ).next_to(arr_right, UP, buff=0.1)
@@ -1027,7 +1027,7 @@ class AreaUnitConvertLesson(Scene):
         )
         arr_left_label = Text(
             "小→大  ÷100",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_M
         ).next_to(arr_left, DOWN, buff=0.1)
@@ -1039,7 +1039,7 @@ class AreaUnitConvertLesson(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.2)
@@ -1049,14 +1049,14 @@ class AreaUnitConvertLesson(Scene):
         # 作者信息放大显示
         author_big = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 5.3)
 
         author_id_big = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SUBTEXT
         ).move_to(DOWN * 6.1)

@@ -61,7 +61,7 @@ class DivisionPropertyLesson(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -71,14 +71,14 @@ class DivisionPropertyLesson(Scene):
         # 主标题
         title = Text(
             "除法运算性质",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 4.5)
 
         subtitle = Text(
             "四年级 · 简便计算",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_AUX,
         ).move_to(UP * 3.5)
@@ -99,7 +99,7 @@ class DivisionPropertyLesson(Scene):
 
         hook_line1 = Text(
             "你能快速算出",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(DOWN * 0.1)
@@ -117,7 +117,7 @@ class DivisionPropertyLesson(Scene):
 
         hint = Text(
             "今天学的技巧，让你秒算！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 2.8)
@@ -141,7 +141,7 @@ class DivisionPropertyLesson(Scene):
         # 章节标题
         sec_title = Text(
             "先来试试普通算法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 5.8)
@@ -156,7 +156,7 @@ class DivisionPropertyLesson(Scene):
         # 步骤1: 先算 400 ÷ 25
         step1_label = Text(
             "第一步：先算  400 ÷ 25",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_AUX,
         ).move_to(UP * 2.4)
@@ -173,7 +173,7 @@ class DivisionPropertyLesson(Scene):
         # 步骤2: 再算 16 ÷ 4
         step2_label = Text(
             "第二步：再算  16 ÷ 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_AUX,
         ).move_to(UP * 0.0)
@@ -190,7 +190,7 @@ class DivisionPropertyLesson(Scene):
         # 结果框
         result_text = Text(
             "答案 = 4",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ACCENT,
         )
@@ -204,7 +204,7 @@ class DivisionPropertyLesson(Scene):
         # 思考提示
         think = Text(
             "但是……400 ÷ 25 不好算！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY,
         ).move_to(DOWN * 4.2)
@@ -213,7 +213,7 @@ class DivisionPropertyLesson(Scene):
 
         think2 = Text(
             "有没有更简单的方法？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 5.2)
@@ -239,7 +239,7 @@ class DivisionPropertyLesson(Scene):
     def scene_3_discover_pattern(self):
         sec_title = Text(
             "发现简便方法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 6.2)
@@ -256,7 +256,7 @@ class DivisionPropertyLesson(Scene):
         # 用大括号标注 25 × 4
         arrow_down = Text(
             "观察：25 × 4 = 100，整数！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 3.6)
@@ -285,7 +285,7 @@ class DivisionPropertyLesson(Scene):
         )
         transform_label = Text(
             "把后两个除数合并为积！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_ACCENT,
         ).next_to(arrow, RIGHT, buff=0.2)
@@ -318,7 +318,7 @@ class DivisionPropertyLesson(Scene):
         # 结果对比
         compare_label = Text(
             "简单多了！只需一步除法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_GREEN,
         ).move_to(DOWN * 3.8)
@@ -343,7 +343,7 @@ class DivisionPropertyLesson(Scene):
         # 对比框架
         compare_title = Text(
             "两种算法对比",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=WHITE,
         ).move_to(UP * 4.5)
@@ -352,7 +352,7 @@ class DivisionPropertyLesson(Scene):
         # 左侧：普通算法
         left_title = Text(
             "普通算法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_AUX,
         ).move_to(np.array([-2.2, 3.3, 0]))
@@ -372,7 +372,7 @@ class DivisionPropertyLesson(Scene):
 
         left_pain = Text(
             "难算！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SECONDARY,
         ).move_to(np.array([-2.2, -0.3, 0]))
@@ -380,7 +380,7 @@ class DivisionPropertyLesson(Scene):
         # 右侧：简便算法
         right_title = Text(
             "简便算法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_PRIMARY,
         ).move_to(np.array([2.2, 3.3, 0]))
@@ -399,7 +399,7 @@ class DivisionPropertyLesson(Scene):
 
         right_good = Text(
             "轻松！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GREEN,
         ).move_to(np.array([2.2, 0.1, 0]))
@@ -451,7 +451,7 @@ class DivisionPropertyLesson(Scene):
     def scene_4_formula(self):
         sec_title = Text(
             "除法运算性质",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 6.5)
@@ -477,7 +477,7 @@ class DivisionPropertyLesson(Scene):
 
         condition_text = Text(
             "（b、c 均不为 0）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUX,
         ).move_to(UP * 4.0)
@@ -490,7 +490,7 @@ class DivisionPropertyLesson(Scene):
         # 语言描述
         desc_title = Text(
             "用语言描述：",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 2.6)
@@ -498,14 +498,14 @@ class DivisionPropertyLesson(Scene):
 
         desc_line1 = Text(
             "一个数连续除以两个数，",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 1.8)
 
         desc_line2 = Text(
             "等于这个数除以这两个数的积。",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE,
         ).move_to(UP * 1.1)
@@ -515,9 +515,9 @@ class DivisionPropertyLesson(Scene):
         self.wait(1.0)
 
         # 关键词高亮
-        key1 = Text("连续除以两个数", font="Heiti SC", font_size=26, color=self.COLOR_SECONDARY)
-        key_arrow = Text("=", font="Heiti SC", font_size=26, color=WHITE)
-        key2 = Text("除以两个数的积", font="Heiti SC", font_size=26, color=self.COLOR_GREEN)
+        key1 = Text("连续除以两个数", font="PingFang SC", font_size=26, color=self.COLOR_SECONDARY)
+        key_arrow = Text("=", font="PingFang SC", font_size=26, color=WHITE)
+        key2 = Text("除以两个数的积", font="PingFang SC", font_size=26, color=self.COLOR_GREEN)
         key_group = VGroup(key1, key_arrow, key2).arrange(RIGHT, buff=0.25).move_to(DOWN * 0.2)
         self.play(FadeIn(key_group, shift=UP * 0.2), run_time=0.6)
 
@@ -561,7 +561,7 @@ class DivisionPropertyLesson(Scene):
     def scene_5_verification(self):
         sec_title = Text(
             "举例验证",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 6.5)
@@ -587,7 +587,7 @@ class DivisionPropertyLesson(Scene):
         # 例1: 400 ÷ 25 ÷ 4
         ex1_label = Text(
             "例1：",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([-3.0, 3.8, 0]))
@@ -618,7 +618,7 @@ class DivisionPropertyLesson(Scene):
         # 验证标记
         check1 = Text(
             "✓ 和之前结果相同！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GREEN,
         ).move_to(np.array([0, 1.3, 0]))
@@ -638,7 +638,7 @@ class DivisionPropertyLesson(Scene):
         # 例2: 600 ÷ 12 ÷ 5
         ex2_label = Text(
             "例2：",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([-3.0, 0.0, 0]))
@@ -668,7 +668,7 @@ class DivisionPropertyLesson(Scene):
 
         check2 = Text(
             "✓ 12 × 5 = 60，更易计算！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_GREEN,
         ).move_to(np.array([0, -2.5, 0]))
@@ -695,7 +695,7 @@ class DivisionPropertyLesson(Scene):
     def scene_6_practice(self):
         sec_title = Text(
             "记住这个性质",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 6.5)
@@ -722,7 +722,7 @@ class DivisionPropertyLesson(Scene):
 
         cond = Text(
             "b ≠ 0，c ≠ 0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUX,
         ).move_to(UP * 4.1)
@@ -740,8 +740,8 @@ class DivisionPropertyLesson(Scene):
 
         point_group = VGroup()
         for num, text, color in points:
-            num_text = Text(num, font="Heiti SC", font_size=28, color=color)
-            content_text = Text(text, font="Heiti SC", font_size=26, color=WHITE)
+            num_text = Text(num, font="PingFang SC", font_size=28, color=color)
+            content_text = Text(text, font="PingFang SC", font_size=26, color=WHITE)
             row = VGroup(num_text, content_text).arrange(RIGHT, buff=0.3)
             point_group.add(row)
 
@@ -765,21 +765,21 @@ class DivisionPropertyLesson(Scene):
 
         tip_title = Text(
             "使用技巧",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_GREEN,
         ).move_to(np.array([0, -0.3, 0]))
 
         tip_body1 = Text(
             "观察后两个除数能否凑成",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
         ).move_to(np.array([0, -1.0, 0]))
 
         tip_body2 = Text(
             "整十、整百等好计算的数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_ACCENT,
         ).move_to(np.array([0, -1.65, 0]))
@@ -793,7 +793,7 @@ class DivisionPropertyLesson(Scene):
         # 练一练
         practice_title = Text(
             "练一练",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 3.0)
@@ -806,7 +806,7 @@ class DivisionPropertyLesson(Scene):
 
         hint_text = Text(
             "提示：36 × 25 = 900",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUX,
         ).move_to(DOWN * 5.0)
@@ -859,7 +859,7 @@ class DivisionPropertyLesson(Scene):
 
         summary_title = Text(
             "今天学了什么？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_PRIMARY,
         ).move_to(UP * 4.2)
@@ -872,7 +872,7 @@ class DivisionPropertyLesson(Scene):
 
         summary_line = Text(
             "连续除以两个数 = 除以两数之积",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=25,
             color=WHITE,
         ).move_to(UP * 2.3)
@@ -893,14 +893,14 @@ class DivisionPropertyLesson(Scene):
         # 作者大名片
         author_name = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(DOWN * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_AUX,
         ).move_to(DOWN * 2.3)
@@ -914,7 +914,7 @@ class DivisionPropertyLesson(Scene):
         # 关注呼吁
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_ACCENT,
         ).move_to(DOWN * 3.5)

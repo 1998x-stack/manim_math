@@ -63,7 +63,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 作者信息（顶部）
         self.author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color=self.C_AUX
         ).move_to(UP * 7.0)
@@ -72,7 +72,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 钩子问题
         hook_q = Text(
             "0.3 × 5 = ?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=72,
             color=self.C_TITLE,
             weight=BOLD
@@ -80,14 +80,14 @@ class DecimalTimesIntegerLesson(Scene):
 
         hook_sub = Text(
             "小数也能乘整数！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 3.0)
 
         hint = Text(
             "把它变成整数就简单啦",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_DECIMAL
         ).move_to(UP * 1.8)
@@ -111,7 +111,7 @@ class DecimalTimesIntegerLesson(Scene):
     def scene_2_algorithm_principle(self):
         title = Text(
             "算理：积的变化规律",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.C_TITLE,
             weight=BOLD
@@ -121,7 +121,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 核心思路说明
         idea_text = Text(
             "0.3 就是 3 的 十分之一",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(UP * 4.8)
@@ -130,9 +130,9 @@ class DecimalTimesIntegerLesson(Scene):
 
         # 关系演示
         # 大号展示: 3 vs 0.3
-        label_3 = Text("3", font="Heiti SC", font_size=88, color=self.C_INT)
-        label_vs = Text("vs", font="Heiti SC", font_size=40, color=self.C_AUX)
-        label_03 = Text("0.3", font="Heiti SC", font_size=88, color=self.C_DECIMAL)
+        label_3 = Text("3", font="PingFang SC", font_size=88, color=self.C_INT)
+        label_vs = Text("vs", font="PingFang SC", font_size=40, color=self.C_AUX)
+        label_03 = Text("0.3", font="PingFang SC", font_size=88, color=self.C_DECIMAL)
         compare_row = VGroup(label_3, label_vs, label_03).arrange(RIGHT, buff=0.5).move_to(UP * 3.0)
 
         self.play(FadeIn(compare_row), run_time=0.6)
@@ -146,7 +146,7 @@ class DecimalTimesIntegerLesson(Scene):
             stroke_width=4,
             max_tip_length_to_length_ratio=0.25
         )
-        lbl_div10 = Text("÷ 10", font="Heiti SC", font_size=30, color=self.C_ARROW, weight=BOLD)
+        lbl_div10 = Text("÷ 10", font="PingFang SC", font_size=30, color=self.C_ARROW, weight=BOLD)
         lbl_div10.next_to(arr_div10, UP, buff=0.15)
 
         self.play(GrowArrow(arr_div10), FadeIn(lbl_div10), run_time=0.6)
@@ -154,16 +154,16 @@ class DecimalTimesIntegerLesson(Scene):
 
         # 因此推导
         therefore_text = VGroup(
-            Text("因数缩小10倍，积也缩小10倍！", font="Heiti SC", font_size=30, color=self.C_RULE),
+            Text("因数缩小10倍，积也缩小10倍！", font="PingFang SC", font_size=30, color=self.C_RULE),
         ).move_to(UP * 1.6)
 
         # 算式推导: 3×5=15  →  0.3×5=1.5
         eq_int = VGroup(
-            Text("3", font="Heiti SC", font_size=52, color=self.C_INT),
-            Text("×", font="Heiti SC", font_size=44, color=WHITE),
-            Text("5", font="Heiti SC", font_size=52, color=self.C_PRIMARY),
-            Text("=", font="Heiti SC", font_size=44, color=WHITE),
-            Text("15", font="Heiti SC", font_size=52, color=self.C_INT),
+            Text("3", font="PingFang SC", font_size=52, color=self.C_INT),
+            Text("×", font="PingFang SC", font_size=44, color=WHITE),
+            Text("5", font="PingFang SC", font_size=52, color=self.C_PRIMARY),
+            Text("=", font="PingFang SC", font_size=44, color=WHITE),
+            Text("15", font="PingFang SC", font_size=52, color=self.C_INT),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 0.4)
 
         eq_arr = Arrow(
@@ -174,15 +174,15 @@ class DecimalTimesIntegerLesson(Scene):
             stroke_width=3,
             max_tip_length_to_length_ratio=0.3
         )
-        eq_lbl = Text("÷10", font="Heiti SC", font_size=26, color=self.C_ARROW, weight=BOLD)
+        eq_lbl = Text("÷10", font="PingFang SC", font_size=26, color=self.C_ARROW, weight=BOLD)
         eq_lbl.next_to(eq_arr, RIGHT, buff=0.1)
 
         eq_dec = VGroup(
-            Text("0.3", font="Heiti SC", font_size=52, color=self.C_DECIMAL),
-            Text("×", font="Heiti SC", font_size=44, color=WHITE),
-            Text("5", font="Heiti SC", font_size=52, color=self.C_PRIMARY),
-            Text("=", font="Heiti SC", font_size=44, color=WHITE),
-            Text("1.5", font="Heiti SC", font_size=52, color=self.C_DECIMAL),
+            Text("0.3", font="PingFang SC", font_size=52, color=self.C_DECIMAL),
+            Text("×", font="PingFang SC", font_size=44, color=WHITE),
+            Text("5", font="PingFang SC", font_size=52, color=self.C_PRIMARY),
+            Text("=", font="PingFang SC", font_size=44, color=WHITE),
+            Text("1.5", font="PingFang SC", font_size=52, color=self.C_DECIMAL),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 1.2)
 
         self.play(FadeIn(therefore_text), run_time=0.5)
@@ -223,7 +223,7 @@ class DecimalTimesIntegerLesson(Scene):
 
         step_title = Text(
             "先按整数乘法计算",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE,
             weight=BOLD
@@ -231,13 +231,13 @@ class DecimalTimesIntegerLesson(Scene):
         self.play(FadeIn(step_title), run_time=0.4)
 
         # 原算式展示
-        orig_label = Text("原算式：", font="Heiti SC", font_size=26, color=self.C_AUX)
+        orig_label = Text("原算式：", font="PingFang SC", font_size=26, color=self.C_AUX)
         orig_eq = VGroup(
-            Text("0.3", font="Heiti SC", font_size=56, color=self.C_DECIMAL, weight=BOLD),
-            Text("×", font="Heiti SC", font_size=48, color=WHITE),
-            Text("5", font="Heiti SC", font_size=56, color=self.C_PRIMARY, weight=BOLD),
-            Text("=", font="Heiti SC", font_size=48, color=WHITE),
-            Text("?", font="Heiti SC", font_size=56, color=self.C_AUX),
+            Text("0.3", font="PingFang SC", font_size=56, color=self.C_DECIMAL, weight=BOLD),
+            Text("×", font="PingFang SC", font_size=48, color=WHITE),
+            Text("5", font="PingFang SC", font_size=56, color=self.C_PRIMARY, weight=BOLD),
+            Text("=", font="PingFang SC", font_size=48, color=WHITE),
+            Text("?", font="PingFang SC", font_size=56, color=self.C_AUX),
         ).arrange(RIGHT, buff=0.25)
         orig_row = VGroup(orig_label, orig_eq).arrange(RIGHT, buff=0.3).move_to(UP * 4.0)
         self.play(FadeIn(orig_row), run_time=0.6)
@@ -246,20 +246,20 @@ class DecimalTimesIntegerLesson(Scene):
         # 变换过程说明
         convert_note = Text(
             "0.3 → 扩大10倍 → 3",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_RULE
         ).move_to(UP * 2.8)
         self.play(FadeIn(convert_note, shift=RIGHT * 0.3), run_time=0.5)
 
         # 变换后整数算式 3×5
-        convert_label = Text("转化为：", font="Heiti SC", font_size=26, color=self.C_AUX)
+        convert_label = Text("转化为：", font="PingFang SC", font_size=26, color=self.C_AUX)
         convert_eq = VGroup(
-            Text("3", font="Heiti SC", font_size=56, color=self.C_INT, weight=BOLD),
-            Text("×", font="Heiti SC", font_size=48, color=WHITE),
-            Text("5", font="Heiti SC", font_size=56, color=self.C_PRIMARY, weight=BOLD),
-            Text("=", font="Heiti SC", font_size=48, color=WHITE),
-            Text("15", font="Heiti SC", font_size=56, color=self.C_INT, weight=BOLD),
+            Text("3", font="PingFang SC", font_size=56, color=self.C_INT, weight=BOLD),
+            Text("×", font="PingFang SC", font_size=48, color=WHITE),
+            Text("5", font="PingFang SC", font_size=56, color=self.C_PRIMARY, weight=BOLD),
+            Text("=", font="PingFang SC", font_size=48, color=WHITE),
+            Text("15", font="PingFang SC", font_size=56, color=self.C_INT, weight=BOLD),
         ).arrange(RIGHT, buff=0.25)
         convert_row = VGroup(convert_label, convert_eq).arrange(RIGHT, buff=0.3).move_to(UP * 1.5)
 
@@ -284,7 +284,7 @@ class DecimalTimesIntegerLesson(Scene):
         ).move_to(DOWN * 0.3)
         note_text = Text(
             "整数乘法 3 × 5 = 15  ✓",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_RULE
         ).move_to(DOWN * 0.3)
@@ -311,7 +311,7 @@ class DecimalTimesIntegerLesson(Scene):
 
         step_title = Text(
             "确定积的小数点位置",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE,
             weight=BOLD
@@ -331,13 +331,13 @@ class DecimalTimesIntegerLesson(Scene):
 
         rule_line1 = Text(
             "因数中有几位小数，",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 4.35)
         rule_line2 = Text(
             "积就从右边数出几位点小数点",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_DOT
         ).move_to(UP * 3.75)
@@ -349,8 +349,8 @@ class DecimalTimesIntegerLesson(Scene):
 
         # 演示计数过程
         # 展示 0.3 并标注"1位小数"
-        dec_show_label = Text("因数：", font="Heiti SC", font_size=26, color=self.C_AUX)
-        dec_show_eq = Text("0.3", font="Heiti SC", font_size=64, color=self.C_DECIMAL, weight=BOLD)
+        dec_show_label = Text("因数：", font="PingFang SC", font_size=26, color=self.C_AUX)
+        dec_show_eq = Text("0.3", font="PingFang SC", font_size=64, color=self.C_DECIMAL, weight=BOLD)
         dec_show_row = VGroup(dec_show_label, dec_show_eq).arrange(RIGHT, buff=0.3).move_to(UP * 2.3)
         self.play(FadeIn(dec_show_row), run_time=0.5)
 
@@ -364,7 +364,7 @@ class DecimalTimesIntegerLesson(Scene):
         )
         dec_count_label = Text(
             "1 位小数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_ARROW,
             weight=BOLD
@@ -374,8 +374,8 @@ class DecimalTimesIntegerLesson(Scene):
         self.wait(0.4)
 
         # 展示整数积 15 并标注数小数点
-        prod_label = Text("整数积：", font="Heiti SC", font_size=26, color=self.C_AUX)
-        prod_digits = Text("15", font="Heiti SC", font_size=64, color=self.C_INT, weight=BOLD)
+        prod_label = Text("整数积：", font="PingFang SC", font_size=26, color=self.C_AUX)
+        prod_digits = Text("15", font="PingFang SC", font_size=64, color=self.C_INT, weight=BOLD)
         prod_row = VGroup(prod_label, prod_digits).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.2)
         self.play(FadeIn(prod_row), run_time=0.5)
 
@@ -390,7 +390,7 @@ class DecimalTimesIntegerLesson(Scene):
         )
         count_text = Text(
             "从右边数 1 位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_DOT
         ).move_to(DOWN * 1.3)
@@ -399,8 +399,8 @@ class DecimalTimesIntegerLesson(Scene):
         self.wait(0.4)
 
         # 加上小数点 → 1.5
-        result_label = Text("积：", font="Heiti SC", font_size=26, color=self.C_AUX)
-        result_eq = Text("1.5", font="Heiti SC", font_size=64, color=self.C_DOT, weight=BOLD)
+        result_label = Text("积：", font="PingFang SC", font_size=26, color=self.C_AUX)
+        result_eq = Text("1.5", font="PingFang SC", font_size=64, color=self.C_DOT, weight=BOLD)
         result_row = VGroup(result_label, result_eq).arrange(RIGHT, buff=0.3).move_to(DOWN * 2.5)
 
         self.play(FadeIn(result_row, scale=1.1), run_time=0.5)
@@ -422,7 +422,7 @@ class DecimalTimesIntegerLesson(Scene):
         ).move_to(DOWN * 4.0)
         ans_text = Text(
             "0.3 × 5 = 1.5",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.C_TITLE,
             weight=BOLD
@@ -455,7 +455,7 @@ class DecimalTimesIntegerLesson(Scene):
 
         step_title = Text(
             "积末尾有零要化简！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.C_TITLE,
             weight=BOLD
@@ -465,7 +465,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 举例: 0.4 × 5 = ?
         example_label = Text(
             "例：0.4 × 5 = ?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.C_PRIMARY
         ).move_to(UP * 4.1)
@@ -474,15 +474,15 @@ class DecimalTimesIntegerLesson(Scene):
 
         # 步骤1: 4×5=20
         int_step = VGroup(
-            Text("整数算：", font="Heiti SC", font_size=28, color=self.C_AUX),
-            Text("4 × 5 = 20", font="Heiti SC", font_size=40, color=self.C_INT, weight=BOLD),
+            Text("整数算：", font="PingFang SC", font_size=28, color=self.C_AUX),
+            Text("4 × 5 = 20", font="PingFang SC", font_size=40, color=self.C_INT, weight=BOLD),
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2.9)
         self.play(FadeIn(int_step, shift=RIGHT * 0.3), run_time=0.5)
         self.wait(0.3)
 
         # 步骤2: 确定小数点 2.0
-        dec_step_label = Text("定小数点：", font="Heiti SC", font_size=28, color=self.C_AUX)
-        dec_step_val = Text("2.0", font="Heiti SC", font_size=48, color=self.C_DOT, weight=BOLD)
+        dec_step_label = Text("定小数点：", font="PingFang SC", font_size=28, color=self.C_AUX)
+        dec_step_val = Text("2.0", font="PingFang SC", font_size=48, color=self.C_DOT, weight=BOLD)
         dec_step_row = VGroup(dec_step_label, dec_step_val).arrange(RIGHT, buff=0.3).move_to(UP * 1.7)
 
         self.play(FadeIn(dec_step_row), run_time=0.5)
@@ -497,7 +497,7 @@ class DecimalTimesIntegerLesson(Scene):
         )
         zero_label = Text(
             "末尾有 0！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_DECIMAL,
             weight=BOLD
@@ -525,7 +525,7 @@ class DecimalTimesIntegerLesson(Scene):
         )
         simplify_result = Text(
             "2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=56,
             color=self.C_TITLE,
             weight=BOLD
@@ -547,7 +547,7 @@ class DecimalTimesIntegerLesson(Scene):
         ).move_to(DOWN * 0.3)
         ans_text = Text(
             "0.4 × 5 = 2",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE,
             weight=BOLD
@@ -572,13 +572,13 @@ class DecimalTimesIntegerLesson(Scene):
         ).move_to(DOWN * 2.1)
         tip_text_line1 = Text(
             "小数部分末尾的 0 要去掉",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_DECIMAL
         ).move_to(DOWN * 1.9)
         tip_text_line2 = Text(
             "2.0 化简为 2  （整数）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.C_RULE
         ).move_to(DOWN * 2.5)
@@ -606,7 +606,7 @@ class DecimalTimesIntegerLesson(Scene):
     def scene_6_second_example(self):
         ex2_title = Text(
             "再试一题！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE,
             weight=BOLD
@@ -615,7 +615,7 @@ class DecimalTimesIntegerLesson(Scene):
 
         ex2_q = Text(
             "0.25 × 4 = ?",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=60,
             color=WHITE,
             weight=BOLD
@@ -626,11 +626,11 @@ class DecimalTimesIntegerLesson(Scene):
         # 步骤展示卡片
         def make_step_card(num_str, title_str, content_str, title_color, content_color, pos):
             badge = Circle(radius=0.3, fill_color=title_color, fill_opacity=1, stroke_width=0)
-            badge_label = Text(num_str, font="Heiti SC", font_size=26, color=WHITE, weight=BOLD)
+            badge_label = Text(num_str, font="PingFang SC", font_size=26, color=WHITE, weight=BOLD)
             badge_group = VGroup(badge, badge_label)
 
-            t = Text(title_str, font="Heiti SC", font_size=24, color=title_color)
-            c = Text(content_str, font="Heiti SC", font_size=30, color=content_color, weight=BOLD)
+            t = Text(title_str, font="PingFang SC", font_size=24, color=title_color)
+            c = Text(content_str, font="PingFang SC", font_size=30, color=content_color, weight=BOLD)
             text_group = VGroup(t, c).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
             card = VGroup(badge_group, text_group).arrange(RIGHT, buff=0.25)
             card.move_to(pos)
@@ -678,7 +678,7 @@ class DecimalTimesIntegerLesson(Scene):
         ).move_to(DOWN * 1.5)
         ans2_text = Text(
             "0.25 × 4 = 1",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.C_TITLE,
             weight=BOLD
@@ -695,7 +695,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 验证说明
         verify_text = Text(
             "验证：0.25 是 25 的百分之一，积也是100的百分之一",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=20,
             color=self.C_AUX
         ).move_to(DOWN * 2.7)
@@ -716,7 +716,7 @@ class DecimalTimesIntegerLesson(Scene):
     def scene_7_summary(self):
         sum_title = Text(
             "小数乘整数  口诀",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=44,
             color=self.C_TITLE,
             weight=BOLD
@@ -747,11 +747,11 @@ class DecimalTimesIntegerLesson(Scene):
         cards = []
         for i, (num, head, body, color) in enumerate(step_data):
             num_circle = Circle(radius=0.36, fill_color=color, fill_opacity=1, stroke_width=0)
-            num_text = Text(num, font="Heiti SC", font_size=28, color=WHITE, weight=BOLD)
+            num_text = Text(num, font="PingFang SC", font_size=28, color=WHITE, weight=BOLD)
             num_group = VGroup(num_circle, num_text)
 
-            head_text = Text(head, font="Heiti SC", font_size=30, color=color, weight=BOLD)
-            body_text = Text(body, font="Heiti SC", font_size=22, color=self.C_AUX)
+            head_text = Text(head, font="PingFang SC", font_size=30, color=color, weight=BOLD)
+            body_text = Text(body, font="PingFang SC", font_size=22, color=self.C_AUX)
 
             text_col = VGroup(head_text, body_text).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
             card = VGroup(num_group, text_col).arrange(RIGHT, buff=0.3)
@@ -769,11 +769,11 @@ class DecimalTimesIntegerLesson(Scene):
 
         # 例题小卡片
         ex_row = VGroup(
-            Text("0.3×5=1.5", font="Heiti SC", font_size=28, color=self.C_PRIMARY, weight=BOLD),
-            Text("   |   ", font="Heiti SC", font_size=28, color=self.C_AUX),
-            Text("0.4×5=2", font="Heiti SC", font_size=28, color=self.C_PRIMARY, weight=BOLD),
-            Text("   |   ", font="Heiti SC", font_size=28, color=self.C_AUX),
-            Text("0.25×4=1", font="Heiti SC", font_size=28, color=self.C_PRIMARY, weight=BOLD),
+            Text("0.3×5=1.5", font="PingFang SC", font_size=28, color=self.C_PRIMARY, weight=BOLD),
+            Text("   |   ", font="PingFang SC", font_size=28, color=self.C_AUX),
+            Text("0.4×5=2", font="PingFang SC", font_size=28, color=self.C_PRIMARY, weight=BOLD),
+            Text("   |   ", font="PingFang SC", font_size=28, color=self.C_AUX),
+            Text("0.25×4=1", font="PingFang SC", font_size=28, color=self.C_PRIMARY, weight=BOLD),
         ).arrange(RIGHT, buff=0.1).move_to(DOWN * 1.3)
 
         self.play(FadeIn(ex_row, shift=UP * 0.2), run_time=0.6)
@@ -790,7 +790,7 @@ class DecimalTimesIntegerLesson(Scene):
             stroke_width=2.5
         ).move_to(DOWN * 2.4)
         core_text = VGroup(
-            Text("因数几位小数 → 积就几位小数", font="Heiti SC", font_size=26, color=self.C_INT),
+            Text("因数几位小数 → 积就几位小数", font="PingFang SC", font_size=26, color=self.C_INT),
         ).move_to(DOWN * 2.4)
 
         self.play(FadeIn(core_bg), FadeIn(core_text), run_time=0.5)
@@ -813,7 +813,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 总结句
         great_text = Text(
             "掌握这3步，小数乘法不怕啦！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_TITLE,
             weight=BOLD
@@ -824,7 +824,7 @@ class DecimalTimesIntegerLesson(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=YELLOW,
             weight=BOLD
@@ -834,14 +834,14 @@ class DecimalTimesIntegerLesson(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.C_AUX
         ).move_to(UP * 1.1)
@@ -851,9 +851,9 @@ class DecimalTimesIntegerLesson(Scene):
 
         # 公式快闪装饰
         formulas = VGroup(
-            Text("0.3×5=1.5", font="Heiti SC", font_size=26, color=self.C_PRIMARY),
-            Text("0.4×5=2", font="Heiti SC", font_size=26, color=self.C_INT),
-            Text("0.25×4=1", font="Heiti SC", font_size=26, color=self.C_DOT),
+            Text("0.3×5=1.5", font="PingFang SC", font_size=26, color=self.C_PRIMARY),
+            Text("0.4×5=2", font="PingFang SC", font_size=26, color=self.C_INT),
+            Text("0.25×4=1", font="PingFang SC", font_size=26, color=self.C_DOT),
         ).arrange(DOWN, buff=0.35).move_to(DOWN * 0.8)
 
         self.play(LaggedStart(
@@ -901,5 +901,5 @@ class DecimalTimesIntegerLesson(Scene):
             fill_opacity=1,
             stroke_width=0
         )
-        label = Text(text_str, font="Heiti SC", font_size=font_size, color=WHITE, weight=BOLD)
+        label = Text(text_str, font="PingFang SC", font_size=font_size, color=WHITE, weight=BOLD)
         return VGroup(pill, label)

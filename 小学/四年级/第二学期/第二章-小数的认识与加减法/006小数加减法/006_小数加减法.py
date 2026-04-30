@@ -35,7 +35,7 @@ COLOR_DOT    = "#a78bfa"   # 紫色 - 小数点
 COLOR_FILL   = "#0f172a"   # 深色填充背景
 COLOR_AUTHOR = "#6b7280"   # 灰色作者
 COLOR_CARRY  = "#f97316"   # 橙色 - 进位/借位
-FONT         = "Heiti SC"
+FONT         = "PingFang SC"
 
 
 # ======================================================================

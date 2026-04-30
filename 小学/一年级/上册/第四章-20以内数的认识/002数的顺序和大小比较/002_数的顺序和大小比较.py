@@ -60,7 +60,7 @@ class NumberOrderComparison(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280"
         ).move_to(UP * 7.0)
@@ -70,7 +70,7 @@ class NumberOrderComparison(Scene):
         # 钩子问题
         hook = Text(
             "12 和 15，谁更大？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -81,14 +81,14 @@ class NumberOrderComparison(Scene):
         # 副标题
         subtitle = Text(
             "数的顺序和大小比较",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 3.5)
 
         grade_label = Text(
             "一年级 · 20以内数的认识",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color="#90a4ae"
         ).move_to(UP * 2.8)
@@ -100,7 +100,7 @@ class NumberOrderComparison(Scene):
         # 展示三个关键符号
         symbols_label = Text(
             "今天学习三个符号：",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color="#cfd8dc"
         ).move_to(UP * 1.5)
@@ -112,9 +112,9 @@ class NumberOrderComparison(Scene):
         symbols_row = VGroup(sym_greater, sym_less, sym_equal).arrange(RIGHT, buff=1.2)
         symbols_row.move_to(UP * 0.3)
 
-        lbl_greater = Text("大于", font="Heiti SC", font_size=22, color=self.COLOR_GREATER)
-        lbl_less = Text("小于", font="Heiti SC", font_size=22, color=self.COLOR_LESS)
-        lbl_equal = Text("等于", font="Heiti SC", font_size=22, color=self.COLOR_EQUAL)
+        lbl_greater = Text("大于", font="PingFang SC", font_size=22, color=self.COLOR_GREATER)
+        lbl_less = Text("小于", font="PingFang SC", font_size=22, color=self.COLOR_LESS)
+        lbl_equal = Text("等于", font="PingFang SC", font_size=22, color=self.COLOR_EQUAL)
 
         labels_row = VGroup(lbl_greater, lbl_less, lbl_equal).arrange(RIGHT, buff=1.2)
         labels_row.move_to(DOWN * 0.7)
@@ -158,7 +158,7 @@ class NumberOrderComparison(Scene):
 
         title = Text(
             "数轴上的数的顺序",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.0)
@@ -203,7 +203,7 @@ class NumberOrderComparison(Scene):
             if i % 5 == 0:
                 lbl = Text(
                     str(i),
-                    font="Heiti SC",
+                    font="PingFang SC",
                     font_size=20,
                     color=WHITE
                 ).move_to(np.array([x, y - 0.45, 0]))
@@ -215,7 +215,7 @@ class NumberOrderComparison(Scene):
         # 说明文字：数轴特点
         explain1 = Text(
             "从左到右，数越来越大",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.7)
@@ -251,7 +251,7 @@ class NumberOrderComparison(Scene):
 
         explain2 = Text(
             "右边的数 > 左边的数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 0.4)
@@ -296,7 +296,7 @@ class NumberOrderComparison(Scene):
 
         pos = np.array([x_new, y_new, 0])
         dot = Dot(pos, radius=0.13, color=color)
-        lbl = Text(str(number), font="Heiti SC", font_size=26, color=color)
+        lbl = Text(str(number), font="PingFang SC", font_size=26, color=color)
         lbl.move_to(pos + np.array([0, -0.5 * scale, 0]))
         return VGroup(dot, lbl), pos
 
@@ -306,7 +306,7 @@ class NumberOrderComparison(Scene):
 
         title = Text(
             "比较 12 和 10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.0)
@@ -331,7 +331,7 @@ class NumberOrderComparison(Scene):
         )
         right_label = Text(
             "12 在 10 的右边",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.8)
@@ -341,9 +341,9 @@ class NumberOrderComparison(Scene):
         self.wait(0.5)
 
         # 写出结论
-        conclusion_lhs = Text("12", font="Heiti SC", font_size=64, color=self.COLOR_GREATER)
+        conclusion_lhs = Text("12", font="PingFang SC", font_size=64, color=self.COLOR_GREATER)
         conclusion_sym = MathTex(r">", font_size=72, color=WHITE)
-        conclusion_rhs = Text("10", font="Heiti SC", font_size=64, color=self.COLOR_LESS)
+        conclusion_rhs = Text("10", font="PingFang SC", font_size=64, color=self.COLOR_LESS)
 
         conclusion = VGroup(conclusion_lhs, conclusion_sym, conclusion_rhs)
         conclusion.arrange(RIGHT, buff=0.35)
@@ -359,7 +359,7 @@ class NumberOrderComparison(Scene):
         # 读法
         read_text = Text(
             "读作：十二  大于  十",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color="#cfd8dc"
         ).move_to(DOWN * 0.5)
@@ -382,7 +382,7 @@ class NumberOrderComparison(Scene):
 
         tip_text = Text(
             "记忆口诀：开口朝大数！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(tip_box.get_center())
@@ -410,7 +410,7 @@ class NumberOrderComparison(Scene):
 
         title = Text(
             "比较 15 和 18",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.0)
@@ -435,7 +435,7 @@ class NumberOrderComparison(Scene):
         )
         left_label = Text(
             "15 在 18 的左边",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.8)
@@ -445,9 +445,9 @@ class NumberOrderComparison(Scene):
         self.wait(0.5)
 
         # 写出结论
-        conclusion_lhs = Text("15", font="Heiti SC", font_size=64, color=self.COLOR_LESS)
+        conclusion_lhs = Text("15", font="PingFang SC", font_size=64, color=self.COLOR_LESS)
         conclusion_sym = MathTex(r"<", font_size=72, color=WHITE)
-        conclusion_rhs = Text("18", font="Heiti SC", font_size=64, color=self.COLOR_GREATER)
+        conclusion_rhs = Text("18", font="PingFang SC", font_size=64, color=self.COLOR_GREATER)
 
         conclusion = VGroup(conclusion_lhs, conclusion_sym, conclusion_rhs)
         conclusion.arrange(RIGHT, buff=0.35)
@@ -463,7 +463,7 @@ class NumberOrderComparison(Scene):
         # 读法
         read_text = Text(
             "读作：十五  小于  十八",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color="#cfd8dc"
         ).move_to(DOWN * 0.5)
@@ -484,7 +484,7 @@ class NumberOrderComparison(Scene):
 
         tip_text = Text(
             "开口朝大数 18，所以用 <",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(tip_box.get_center())
@@ -512,7 +512,7 @@ class NumberOrderComparison(Scene):
 
         title = Text(
             "比较 13 和 13",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.0)
@@ -528,7 +528,7 @@ class NumberOrderComparison(Scene):
         # 两个数指向同一个位置
         same_label = Text(
             "两个数在同一个位置！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.8)
@@ -537,9 +537,9 @@ class NumberOrderComparison(Scene):
         self.wait(0.3)
 
         # 写出结论
-        conclusion_lhs = Text("13", font="Heiti SC", font_size=64, color=self.COLOR_EQUAL)
+        conclusion_lhs = Text("13", font="PingFang SC", font_size=64, color=self.COLOR_EQUAL)
         conclusion_sym = MathTex(r"=", font_size=72, color=WHITE)
-        conclusion_rhs = Text("13", font="Heiti SC", font_size=64, color=self.COLOR_EQUAL)
+        conclusion_rhs = Text("13", font="PingFang SC", font_size=64, color=self.COLOR_EQUAL)
 
         conclusion = VGroup(conclusion_lhs, conclusion_sym, conclusion_rhs)
         conclusion.arrange(RIGHT, buff=0.35)
@@ -555,7 +555,7 @@ class NumberOrderComparison(Scene):
         # 读法
         read_text = Text(
             "读作：十三  等于  十三",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color="#cfd8dc"
         ).move_to(DOWN * 0.5)
@@ -576,7 +576,7 @@ class NumberOrderComparison(Scene):
 
         tip_text = Text(
             "相同的数用 = 连接",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(tip_box.get_center())
@@ -605,7 +605,7 @@ class NumberOrderComparison(Scene):
 
         title = Text(
             "总结",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -613,19 +613,19 @@ class NumberOrderComparison(Scene):
         self.play(Write(title), run_time=0.5)
 
         # 三条例题回顾
-        ex1_lhs = Text("12", font="Heiti SC", font_size=52, color=self.COLOR_GREATER)
+        ex1_lhs = Text("12", font="PingFang SC", font_size=52, color=self.COLOR_GREATER)
         ex1_sym = MathTex(r">", font_size=60, color=WHITE)
-        ex1_rhs = Text("10", font="Heiti SC", font_size=52, color=self.COLOR_LESS)
+        ex1_rhs = Text("10", font="PingFang SC", font_size=52, color=self.COLOR_LESS)
         ex1 = VGroup(ex1_lhs, ex1_sym, ex1_rhs).arrange(RIGHT, buff=0.3)
 
-        ex2_lhs = Text("15", font="Heiti SC", font_size=52, color=self.COLOR_LESS)
+        ex2_lhs = Text("15", font="PingFang SC", font_size=52, color=self.COLOR_LESS)
         ex2_sym = MathTex(r"<", font_size=60, color=WHITE)
-        ex2_rhs = Text("18", font="Heiti SC", font_size=52, color=self.COLOR_GREATER)
+        ex2_rhs = Text("18", font="PingFang SC", font_size=52, color=self.COLOR_GREATER)
         ex2 = VGroup(ex2_lhs, ex2_sym, ex2_rhs).arrange(RIGHT, buff=0.3)
 
-        ex3_lhs = Text("13", font="Heiti SC", font_size=52, color=self.COLOR_EQUAL)
+        ex3_lhs = Text("13", font="PingFang SC", font_size=52, color=self.COLOR_EQUAL)
         ex3_sym = MathTex(r"=", font_size=60, color=WHITE)
-        ex3_rhs = Text("13", font="Heiti SC", font_size=52, color=self.COLOR_EQUAL)
+        ex3_rhs = Text("13", font="PingFang SC", font_size=52, color=self.COLOR_EQUAL)
         ex3 = VGroup(ex3_lhs, ex3_sym, ex3_rhs).arrange(RIGHT, buff=0.3)
 
         all_ex = VGroup(ex1, ex2, ex3).arrange(DOWN, buff=0.6)
@@ -648,7 +648,7 @@ class NumberOrderComparison(Scene):
         # 规律卡片标题
         rule_title = Text(
             "比大小的方法",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 1.0)
@@ -667,7 +667,7 @@ class NumberOrderComparison(Scene):
 
         rule1_text = Text(
             "数轴上，右边的数 > 左边的数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(rule1_box.get_center())
@@ -686,7 +686,7 @@ class NumberOrderComparison(Scene):
 
         rule2_text = Text(
             "开口朝大数：大嘴巴张向大数",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(rule2_box.get_center())
@@ -705,7 +705,7 @@ class NumberOrderComparison(Scene):
 
         rule3_text = Text(
             "两个数相同，用 = 连接",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(rule3_box.get_center())
@@ -725,14 +725,14 @@ class NumberOrderComparison(Scene):
 
         slogan_line1 = Text(
             "口诀：大嘴张向大数吃，",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.9)
 
         slogan_line2 = Text(
             "右大左小要记牢！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -767,14 +767,14 @@ class NumberOrderComparison(Scene):
         # 作者名字放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2.0)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color="#90a4ae"
         ).move_to(UP * 1.2)
@@ -788,7 +788,7 @@ class NumberOrderComparison(Scene):
         # 关注口号
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.1)

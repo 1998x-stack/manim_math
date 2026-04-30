@@ -62,7 +62,7 @@ class PlaceValueLesson(Scene):
         # 作者信息
         author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=18,
             color="#6b7280",
         ).move_to(UP * 7.0)
@@ -72,19 +72,19 @@ class PlaceValueLesson(Scene):
         # 钩子问题
         hook_line1 = Text(
             "你知道",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_TITLE,
         )
         hook_line2 = Text(
             "1后面9个0",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=52,
             color=self.COLOR_HIGHLIGHT,
         )
         hook_line3 = Text(
             "是多少吗？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_TITLE,
         )
@@ -100,13 +100,13 @@ class PlaceValueLesson(Scene):
         # 显示数字
         big_num = Text(
             "1,000,000,000",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_ACCENT,
         ).move_to(UP * 1.8)
         num_label = Text(
             "十亿！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=56,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 0.5)
@@ -118,13 +118,13 @@ class PlaceValueLesson(Scene):
         # 主题
         subtitle = Text(
             "今天我们来学习",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_BODY,
         ).move_to(DOWN * 1.0)
         title_main = Text(
             "计数单位与数位顺序表",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 2.0)
@@ -149,7 +149,7 @@ class PlaceValueLesson(Scene):
     def scene_2_ge_ji(self):
         section_title = Text(
             "第一步：个级计数单位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_GE_JI,
         ).move_to(UP * 6.0)
@@ -158,7 +158,7 @@ class PlaceValueLesson(Scene):
         # 介绍语
         intro = Text(
             "我们已经认识了这些计数单位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_BODY,
         ).move_to(UP * 5.0)
@@ -179,7 +179,7 @@ class PlaceValueLesson(Scene):
                 stroke_color=c,
                 stroke_width=2.5,
             )
-            lbl = Text(u, font="Heiti SC", font_size=36, color=c)
+            lbl = Text(u, font="PingFang SC", font_size=36, color=c)
             lbl.move_to(box.get_center())
             ge_group.add(VGroup(box, lbl))
 
@@ -209,7 +209,7 @@ class PlaceValueLesson(Scene):
                 max_tip_length_to_length_ratio=0.25,
             )
             arr_lbl = Text(
-                "x10", font="Heiti SC", font_size=20, color=self.COLOR_HIGHLIGHT
+                "x10", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT
             ).next_to(arr, DOWN, buff=0.08)
             arrows.add(arr)
             arrow_labels.add(arr_lbl)
@@ -226,19 +226,19 @@ class PlaceValueLesson(Scene):
         # 说明文字
         explain1 = Text(
             "10个一 = 1个十",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 1.2)
         explain2 = Text(
             "10个十 = 1个百",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 0.4)
         explain3 = Text(
             "10个百 = 1个千",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 0.4)
@@ -251,7 +251,7 @@ class PlaceValueLesson(Scene):
         # 底部提示
         note = Text(
             "这四个是个级的计数单位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_GE_JI,
         ).move_to(DOWN * 1.5)
@@ -280,7 +280,7 @@ class PlaceValueLesson(Scene):
 
         # 添加"个级"标签
         ge_ji_label = Text(
-            "个级", font="Heiti SC", font_size=22, color=self.COLOR_GE_JI
+            "个级", font="PingFang SC", font_size=22, color=self.COLOR_GE_JI
         ).next_to(ge_group, LEFT, buff=0.3)
         self.play(FadeIn(ge_ji_label), run_time=0.3)
         self.ge_ji_label = ge_ji_label
@@ -291,7 +291,7 @@ class PlaceValueLesson(Scene):
     def scene_3_wan_ji(self):
         section_title = Text(
             "第二步：认识万级",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_WAN_JI,
         ).move_to(UP * 3.8)
@@ -299,7 +299,7 @@ class PlaceValueLesson(Scene):
 
         intro = Text(
             "10个千 = 1个万，继续往上…",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_BODY,
         ).move_to(UP * 3.0)
@@ -320,7 +320,7 @@ class PlaceValueLesson(Scene):
                 stroke_color=c,
                 stroke_width=2.5,
             )
-            lbl = Text(u, font="Heiti SC", font_size=30, color=c)
+            lbl = Text(u, font="PingFang SC", font_size=30, color=c)
             lbl.move_to(box.get_center())
             wan_group.add(VGroup(box, lbl))
 
@@ -333,7 +333,7 @@ class PlaceValueLesson(Scene):
         # 提示：10个千=1个万
         tip1 = Text(
             "10个千 = 1个万",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 0.5)
@@ -363,7 +363,7 @@ class PlaceValueLesson(Scene):
                 max_tip_length_to_length_ratio=0.25,
             )
             arr_lbl = Text(
-                "x10", font="Heiti SC", font_size=20, color=self.COLOR_HIGHLIGHT
+                "x10", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT
             ).next_to(arr, DOWN, buff=0.08)
             wan_arrows.add(arr)
             wan_arr_labels.add(arr_lbl)
@@ -375,7 +375,7 @@ class PlaceValueLesson(Scene):
         # 说明
         explain = Text(
             "万、十万、百万、千万\n都是万级的计数单位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_WAN_JI,
         ).move_to(DOWN * 1.0)
@@ -398,7 +398,7 @@ class PlaceValueLesson(Scene):
             run_time=0.6,
         )
         wan_ji_label = Text(
-            "万级", font="Heiti SC", font_size=22, color=self.COLOR_WAN_JI
+            "万级", font="PingFang SC", font_size=22, color=self.COLOR_WAN_JI
         ).next_to(wan_group, LEFT, buff=0.3)
         self.play(FadeIn(wan_ji_label), run_time=0.3)
         self.wan_ji_label = wan_ji_label
@@ -416,7 +416,7 @@ class PlaceValueLesson(Scene):
     def scene_4_yi_ji(self):
         section_title = Text(
             "第三步：认识亿级",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_YI_JI,
         ).move_to(UP * 2.4)
@@ -424,7 +424,7 @@ class PlaceValueLesson(Scene):
 
         intro = Text(
             "10个千万 = 1个亿！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 1.6)
@@ -446,7 +446,7 @@ class PlaceValueLesson(Scene):
                 stroke_color=c,
                 stroke_width=2.5,
             )
-            lbl = Text(u, font="Heiti SC", font_size=30, color=c)
+            lbl = Text(u, font="PingFang SC", font_size=30, color=c)
             lbl.move_to(box.get_center())
             yi_group.add(VGroup(box, lbl))
 
@@ -474,7 +474,7 @@ class PlaceValueLesson(Scene):
                 max_tip_length_to_length_ratio=0.25,
             )
             arr_lbl = Text(
-                "x10", font="Heiti SC", font_size=20, color=self.COLOR_HIGHLIGHT
+                "x10", font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT
             ).next_to(arr, DOWN, buff=0.08)
             yi_arrows.add(arr)
             yi_arr_labels.add(arr_lbl)
@@ -484,7 +484,7 @@ class PlaceValueLesson(Scene):
 
         explain = Text(
             "亿、十亿、百亿、千亿\n是亿级的计数单位",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_YI_JI,
         ).move_to(DOWN * 1.5)
@@ -507,7 +507,7 @@ class PlaceValueLesson(Scene):
             run_time=0.6,
         )
         yi_ji_label = Text(
-            "亿级", font="Heiti SC", font_size=22, color=self.COLOR_YI_JI
+            "亿级", font="PingFang SC", font_size=22, color=self.COLOR_YI_JI
         ).next_to(yi_group, LEFT, buff=0.3)
         self.play(FadeIn(yi_ji_label), run_time=0.3)
         self.yi_ji_label = yi_ji_label
@@ -538,7 +538,7 @@ class PlaceValueLesson(Scene):
 
         title = Text(
             "数位顺序表",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 6.5)
@@ -593,13 +593,13 @@ class PlaceValueLesson(Scene):
         ).move_to(np.array([start_x + col_w * 9.5, level_y_val, 0]))
 
         yi_lbl = Text(
-            "亿级", font="Heiti SC", font_size=22, color=self.COLOR_YI_JI
+            "亿级", font="PingFang SC", font_size=22, color=self.COLOR_YI_JI
         ).move_to(level_bg_yi.get_center())
         wan_lbl = Text(
-            "万级", font="Heiti SC", font_size=22, color=self.COLOR_WAN_JI
+            "万级", font="PingFang SC", font_size=22, color=self.COLOR_WAN_JI
         ).move_to(level_bg_wan.get_center())
         ge_lbl = Text(
-            "个级", font="Heiti SC", font_size=22, color=self.COLOR_GE_JI
+            "个级", font="PingFang SC", font_size=22, color=self.COLOR_GE_JI
         ).move_to(level_bg_ge.get_center())
 
         level_row = VGroup(
@@ -627,7 +627,7 @@ class PlaceValueLesson(Scene):
                 stroke_width=1.2,
             ).move_to(np.array([x, name_y_val, 0]))
             txt = Text(
-                name, font="Heiti SC", font_size=17, color=color
+                name, font="PingFang SC", font_size=17, color=color
             ).move_to(cell.get_center())
             name_cells.add(cell)
             name_texts.add(txt)
@@ -661,7 +661,7 @@ class PlaceValueLesson(Scene):
                 stroke_width=1.2,
             ).move_to(np.array([x, unit_y_val, 0]))
             txt = Text(
-                u, font="Heiti SC", font_size=16, color=color
+                u, font="PingFang SC", font_size=16, color=color
             ).move_to(cell.get_center())
             unit_cells.add(cell)
             unit_texts.add(txt)
@@ -685,10 +685,10 @@ class PlaceValueLesson(Scene):
 
         # 行标签
         row_label_name = Text(
-            "数位", font="Heiti SC", font_size=19, color=self.COLOR_BODY
+            "数位", font="PingFang SC", font_size=19, color=self.COLOR_BODY
         ).next_to(name_cells[0], LEFT, buff=0.12)
         row_label_unit = Text(
-            "计数\n单位", font="Heiti SC", font_size=15, color=self.COLOR_BODY
+            "计数\n单位", font="PingFang SC", font_size=15, color=self.COLOR_BODY
         ).next_to(unit_cells[0], LEFT, buff=0.05)
 
         self.play(FadeIn(row_label_name), FadeIn(row_label_unit), run_time=0.4)
@@ -722,7 +722,7 @@ class PlaceValueLesson(Scene):
     def scene_6_si_wei_yi_ji(self):
         section_title = Text(
             "四位一级",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.2)
@@ -730,7 +730,7 @@ class PlaceValueLesson(Scene):
 
         explain = Text(
             "每4个数位为一级",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_BODY,
         ).move_to(DOWN * 2.1)
@@ -747,7 +747,7 @@ class PlaceValueLesson(Scene):
 
         tip_ge = Text(
             "个、十、百、千 → 个级（4个）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_GE_JI,
         ).move_to(DOWN * 3.2)
@@ -766,7 +766,7 @@ class PlaceValueLesson(Scene):
 
         tip_wan = Text(
             "万、十万、百万、千万 → 万级（4个）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_WAN_JI,
         ).move_to(DOWN * 3.2)
@@ -785,7 +785,7 @@ class PlaceValueLesson(Scene):
 
         tip_yi = Text(
             "亿、十亿、百亿、千亿 → 亿级（4个）",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_YI_JI,
         ).move_to(DOWN * 3.2)
@@ -796,7 +796,7 @@ class PlaceValueLesson(Scene):
         # 总结
         summary = Text(
             "记住：四位一级！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.2)
@@ -816,7 +816,7 @@ class PlaceValueLesson(Scene):
     def scene_7_jin_lv(self):
         section_title = Text(
             "相邻计数单位的进率",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 1.0)
@@ -824,13 +824,13 @@ class PlaceValueLesson(Scene):
 
         rule = Text(
             "相邻计数单位之间的进率是",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_BODY,
         ).move_to(DOWN * 2.0)
         rule_num = Text(
             "10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=72,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 3.2)
@@ -862,7 +862,7 @@ class PlaceValueLesson(Scene):
 
         times10_label = Text(
             "每向左一位 x10",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(DOWN * 4.4)
@@ -892,7 +892,7 @@ class PlaceValueLesson(Scene):
         # 总结卡片
         summary_title = Text(
             "今天学了什么？",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT,
         ).move_to(UP * 5.0)
@@ -916,13 +916,13 @@ class PlaceValueLesson(Scene):
             )
             key_text = Text(
                 key + "：",
-                font="Heiti SC",
+                font="PingFang SC",
                 font_size=24,
                 color=color,
             )
             val_text = Text(
                 val,
-                font="Heiti SC",
+                font="PingFang SC",
                 font_size=22,
                 color=self.COLOR_BODY,
             )
@@ -939,20 +939,20 @@ class PlaceValueLesson(Scene):
         # 作者信息放大
         author_big = Text(
             "上海初高中数学直通车",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
         ).move_to(DOWN * 3.0)
         author_id = Text(
             "@emptyandcalm",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color="#6b7280",
         ).next_to(author_big, DOWN, buff=0.3)
 
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Heiti SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT,
         ).next_to(author_id, DOWN, buff=0.5)
