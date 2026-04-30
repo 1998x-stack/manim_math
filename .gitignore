@@ -1,19 +1,27 @@
-.DS_store
-__pycache__
-*/__pycache__
-*/*/__pycache__
-*/*/*/__pycache__
-*/*/*/*/__pycache__
-media
-*/media
-*/*/media
-*/*/*/media
-*/*/*/*/media
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Manim
+**/media/
+
+# LaTeX artifacts
+*.aux
+*.dvi
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Logs
 *.log
-*/*.log
-*/*/*.log
-*/*/*/*.log
-*/*/*/*/*.log
+
+# Videos (rendered output)
+*.mp4
+
+# Editor / tools
+.claude/
+.opencode/
 doc.md
-.claude
-.opencode
