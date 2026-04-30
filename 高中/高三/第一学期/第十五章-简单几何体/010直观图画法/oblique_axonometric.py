@@ -181,15 +181,15 @@ class ObliqueAxonometric(Scene):
         # 作者信息 (顶部常驻)
         self.author_top = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY_B
+            font="PingFang SC", font_size=18, color=GRAY_B
         ).move_to(UP * 7.1)
         self.play(FadeIn(self.author_top, shift=DOWN * 0.2), run_time=0.3)
         
         # 钩子文字
         q1 = Text("在平面上画立体图形",
-                  font="Noto Sans CJK SC", font_size=38, color=WHITE).move_to(UP * 5.8)
+                  font="PingFang SC", font_size=38, color=WHITE).move_to(UP * 5.8)
         q2 = Text("你会吗？",
-                  font="Noto Sans CJK SC", font_size=52, color=YELLOW).move_to(UP * 4.9)
+                  font="PingFang SC", font_size=52, color=YELLOW).move_to(UP * 4.9)
         
         self.play(Write(q1), run_time=0.6)
         self.play(Write(q2), run_time=0.5)
@@ -239,15 +239,15 @@ class ObliqueAxonometric(Scene):
         
         main_title = Text(
             "斜二测画法",
-            font="Noto Sans CJK SC", font_size=54, color=GOLD
+            font="PingFang SC", font_size=54, color=GOLD
         ).move_to(UP * 5.5)
         subtitle = Text(
             "直观图绘制标准方法",
-            font="Noto Sans CJK SC", font_size=28, color=GRAY_A
+            font="PingFang SC", font_size=28, color=GRAY_A
         ).move_to(UP * 4.5)
         chapter_tag = Text(
             "高三 · 第15章 · 简单几何体",
-            font="Noto Sans CJK SC", font_size=20, color=self.AXIS_COLOR
+            font="PingFang SC", font_size=20, color=self.AXIS_COLOR
         ).move_to(UP * 3.7)
         
         self.play(Write(main_title), run_time=0.8)
@@ -263,7 +263,7 @@ class ObliqueAxonometric(Scene):
         
         step_title = Text(
             "步骤一：建立坐标系",
-            font="Noto Sans CJK SC", font_size=32, color=GOLD
+            font="PingFang SC", font_size=32, color=GOLD
         ).move_to(UP * 5.8)
         self.play(Write(step_title), run_time=0.5)
         
@@ -282,7 +282,7 @@ class ObliqueAxonometric(Scene):
         
         explain_x = Text(
             "x 轴：水平方向",
-            font="Noto Sans CJK SC", font_size=28, color=self.X_COLOR
+            font="PingFang SC", font_size=28, color=self.X_COLOR
         ).move_to(DOWN * 3.0)
         
         self.play(GrowArrow(x_axis), run_time=0.8)
@@ -301,7 +301,7 @@ class ObliqueAxonometric(Scene):
         
         explain_y = Text(
             "y' 轴：与 x 轴成 45° 角",
-            font="Noto Sans CJK SC", font_size=28, color=self.Y_COLOR
+            font="PingFang SC", font_size=28, color=self.Y_COLOR
         ).move_to(DOWN * 3.0)
         
         self.play(FadeOut(explain_x), run_time=0.2)
@@ -358,7 +358,7 @@ class ObliqueAxonometric(Scene):
         
         rule_title = Text(
             "规则一：x 方向长度不变",
-            font="Noto Sans CJK SC", font_size=30, color=self.X_COLOR
+            font="PingFang SC", font_size=30, color=self.X_COLOR
         ).move_to(UP * 5.8)
         self.play(Write(rule_title), run_time=0.5)
         
@@ -394,7 +394,7 @@ class ObliqueAxonometric(Scene):
         )
         equal_note = Text(
             "直观图中：长度相同",
-            font="Noto Sans CJK SC", font_size=26, color=YELLOW
+            font="PingFang SC", font_size=26, color=YELLOW
         ).move_to(DOWN * 3.2)
         
         self.play(GrowArrow(arrow_eq), run_time=0.4)
@@ -410,7 +410,7 @@ class ObliqueAxonometric(Scene):
         
         checkmark = Text(
             "✓  x 方向：原长不变",
-            font="Noto Sans CJK SC", font_size=28, color=self.X_COLOR
+            font="PingFang SC", font_size=28, color=self.X_COLOR
         ).move_to(DOWN * 4.2)
         self.play(FadeIn(checkmark, scale=1.1), run_time=0.4)
         self.wait(1.5)
@@ -429,12 +429,12 @@ class ObliqueAxonometric(Scene):
         
         rule_title = Text(
             "规则二：y 方向变为原来的",
-            font="Noto Sans CJK SC", font_size=27, color=self.Y_COLOR
+            font="PingFang SC", font_size=27, color=self.Y_COLOR
         ).move_to(UP * 5.9)
         rule_title2_math = MathTex(r"\frac{1}{2}", color=YELLOW, font_size=36)
         rule_title2_text = Text(
             "，且沿 y' 轴方向",
-            font="Noto Sans CJK SC", font_size=27, color=self.Y_COLOR
+            font="PingFang SC", font_size=27, color=self.Y_COLOR
         )
         rule_title_row2 = VGroup(rule_title2_math, rule_title2_text).arrange(RIGHT, buff=0.1)
         rule_title_row2.move_to(UP * 5.1)
@@ -459,7 +459,7 @@ class ObliqueAxonometric(Scene):
         orig_h_lbl.next_to(orig_seg, LEFT, buff=0.2)
         orig_caption = Text(
             "原来 y 方向",
-            font="Noto Sans CJK SC", font_size=20, color=BLUE_C
+            font="PingFang SC", font_size=20, color=BLUE_C
         ).next_to(orig_base, DOWN, buff=0.2)
         
         self.play(
@@ -487,7 +487,7 @@ class ObliqueAxonometric(Scene):
         obq_h_lbl.next_to(obq_end, UR, buff=0.15)
         obq_caption = Text(
             "直观图 y' 方向",
-            font="Noto Sans CJK SC", font_size=20, color=self.Y_COLOR
+            font="PingFang SC", font_size=20, color=self.Y_COLOR
         ).next_to(obq_base, DOWN, buff=0.2)
         
         self.play(
@@ -499,7 +499,7 @@ class ObliqueAxonometric(Scene):
         # 强调1: 长度是½
         half_note = Text(
             "长度 ×",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE
+            font="PingFang SC", font_size=26, color=WHITE
         )
         half_frac = MathTex(r"\frac{1}{2}", color=YELLOW, font_size=36)
         half_row = VGroup(half_note, half_frac).arrange(RIGHT, buff=0.15)
@@ -510,7 +510,7 @@ class ObliqueAxonometric(Scene):
         # 强调2: 方向是45°
         angle_note = Text(
             "方向沿 y' 轴（45°角）",
-            font="Noto Sans CJK SC", font_size=24, color=self.Y_COLOR
+            font="PingFang SC", font_size=24, color=self.Y_COLOR
         ).move_to(DOWN * 4.0)
         self.play(FadeIn(angle_note, shift=UP * 0.2), run_time=0.3)
         
@@ -539,7 +539,7 @@ class ObliqueAxonometric(Scene):
         
         demo_title = Text(
             "实例：画矩形的直观图",
-            font="Noto Sans CJK SC", font_size=30, color=GOLD
+            font="PingFang SC", font_size=30, color=GOLD
         ).move_to(UP * 5.8)
         self.play(Write(demo_title), run_time=0.5)
         
@@ -558,14 +558,14 @@ class ObliqueAxonometric(Scene):
         orig_rect = Polygon(orig_A, orig_B, orig_C, orig_D,
                             color=self.ORIG_COLOR, stroke_width=3)
         orig_caption = Text("原矩形",
-                            font="Noto Sans CJK SC", font_size=22, color=self.ORIG_COLOR)
+                            font="PingFang SC", font_size=22, color=self.ORIG_COLOR)
         orig_caption.next_to(orig_rect, UP, buff=0.15)
         
         orig_w_lbl = Text("宽 a",
-                          font="Noto Sans CJK SC", font_size=18, color=self.ORIG_COLOR)
+                          font="PingFang SC", font_size=18, color=self.ORIG_COLOR)
         orig_w_lbl.next_to(orig_rect, DOWN, buff=0.15)
         orig_h_lbl = Text("高 b",
-                          font="Noto Sans CJK SC", font_size=18, color=self.ORIG_COLOR)
+                          font="PingFang SC", font_size=18, color=self.ORIG_COLOR)
         orig_h_lbl.next_to(orig_rect, LEFT, buff=0.15)
         
         self.play(Create(orig_rect), run_time=0.6)
@@ -574,7 +574,7 @@ class ObliqueAxonometric(Scene):
         
         # 转变箭头
         step0_note = Text("斜二测画法 →",
-                          font="Noto Sans CJK SC", font_size=26, color=WHITE).move_to(DOWN * 2.5)
+                          font="PingFang SC", font_size=26, color=WHITE).move_to(DOWN * 2.5)
         self.play(FadeIn(step0_note, shift=UP * 0.2), run_time=0.3)
         self.wait(0.3)
         
@@ -593,15 +593,15 @@ class ObliqueAxonometric(Scene):
         
         # Step 1: 画 x 轴方向 A'B'
         step1 = Text("① A'B'：x 方向，长度 = a（不变）",
-                     font="Noto Sans CJK SC", font_size=20, color=self.X_COLOR).move_to(DOWN * 2.8)
+                     font="PingFang SC", font_size=20, color=self.X_COLOR).move_to(DOWN * 2.8)
         self.play(FadeIn(step1, shift=UP * 0.2), run_time=0.3)
         
         dot_A = Dot(A, color=WHITE, radius=0.09)
         dot_B = Dot(B, color=WHITE, radius=0.09)
         line_AB = Line(A, B, color=self.X_COLOR, stroke_width=4.5)
-        lbl_A = Text("A'", font="Noto Sans CJK SC", font_size=21, color=WHITE)
+        lbl_A = Text("A'", font="PingFang SC", font_size=21, color=WHITE)
         lbl_A.next_to(dot_A, DL, buff=0.08)
-        lbl_B = Text("B'", font="Noto Sans CJK SC", font_size=21, color=WHITE)
+        lbl_B = Text("B'", font="PingFang SC", font_size=21, color=WHITE)
         lbl_B.next_to(dot_B, DR, buff=0.08)
         
         self.play(FadeIn(dot_A), FadeIn(dot_B), run_time=0.2)
@@ -611,12 +611,12 @@ class ObliqueAxonometric(Scene):
         
         # Step 2: 从 A' 画 A'D'（沿y'方向, 长b/2）
         step2 = Text("② A'D'：沿 y' 方向，长度 = b/2",
-                     font="Noto Sans CJK SC", font_size=20, color=self.Y_COLOR).move_to(DOWN * 2.8)
+                     font="PingFang SC", font_size=20, color=self.Y_COLOR).move_to(DOWN * 2.8)
         self.play(FadeOut(step1), FadeIn(step2, shift=UP * 0.2), run_time=0.3)
         
         dot_D = Dot(D, color=WHITE, radius=0.09)
         line_AD = Line(A, D, color=self.Y_COLOR, stroke_width=4.5)
-        lbl_D = Text("D'", font="Noto Sans CJK SC", font_size=21, color=WHITE)
+        lbl_D = Text("D'", font="PingFang SC", font_size=21, color=WHITE)
         lbl_D.next_to(dot_D, LEFT, buff=0.08)
         
         # b/2 长度标注
@@ -630,12 +630,12 @@ class ObliqueAxonometric(Scene):
         
         # Step 3: 从 B' 画 B'C'（平行于 A'D'，同长）
         step3 = Text("③ B'C'：平行于 A'D'，等长",
-                     font="Noto Sans CJK SC", font_size=20, color=self.Y_COLOR).move_to(DOWN * 2.8)
+                     font="PingFang SC", font_size=20, color=self.Y_COLOR).move_to(DOWN * 2.8)
         self.play(FadeOut(step2), FadeIn(step3, shift=UP * 0.2), run_time=0.3)
         
         dot_C = Dot(C, color=WHITE, radius=0.09)
         line_BC = Line(B, C, color=self.Y_COLOR, stroke_width=4.5)
-        lbl_C = Text("C'", font="Noto Sans CJK SC", font_size=21, color=WHITE)
+        lbl_C = Text("C'", font="PingFang SC", font_size=21, color=WHITE)
         lbl_C.next_to(dot_C, RIGHT, buff=0.08)
         
         self.play(Create(line_BC), run_time=0.8)
@@ -644,7 +644,7 @@ class ObliqueAxonometric(Scene):
         
         # Step 4: 连接 D'C'
         step4 = Text("④ 连接 D'C'，完成！",
-                     font="Noto Sans CJK SC", font_size=22, color=GOLD).move_to(DOWN * 2.8)
+                     font="PingFang SC", font_size=22, color=GOLD).move_to(DOWN * 2.8)
         self.play(FadeOut(step3), FadeIn(step4, shift=UP * 0.2), run_time=0.3)
         
         line_DC = Line(D, C, color=self.X_COLOR, stroke_width=4.5)
@@ -661,7 +661,7 @@ class ObliqueAxonometric(Scene):
                                       fill_color=GOLD, fill_opacity=0.2,
                                       stroke_color=GOLD, stroke_width=2)
         success_text = Text("直观图绘制完成 ✓",
-                            font="Noto Sans CJK SC", font_size=26, color=GOLD)
+                            font="PingFang SC", font_size=26, color=GOLD)
         success_group = VGroup(success_bg, success_text)
         success_group.arrange(ORIGIN).move_to(DOWN * 4.2)
         
@@ -687,7 +687,7 @@ class ObliqueAxonometric(Scene):
         
         title = Text(
             "斜二测画法 · 三条规则",
-            font="Noto Sans CJK SC", font_size=32, color=GOLD
+            font="PingFang SC", font_size=32, color=GOLD
         ).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.5)
         
@@ -705,8 +705,8 @@ class ObliqueAxonometric(Scene):
                 fill_color=self.RULE_BG, fill_opacity=1,
                 stroke_color=color, stroke_width=2.5
             )
-            t1 = Text(title_ch, font="Noto Sans CJK SC", font_size=24, color=color)
-            t2 = Text(desc_ch, font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            t1 = Text(title_ch, font="PingFang SC", font_size=24, color=color)
+            t2 = Text(desc_ch, font="PingFang SC", font_size=20, color=GRAY_A)
             texts = VGroup(t1, t2).arrange(DOWN, buff=0.08, aligned_edge=LEFT)
             card = VGroup(bg, texts)
             card.move_to(ORIGIN)
@@ -725,7 +725,7 @@ class ObliqueAxonometric(Scene):
         self.play(FadeIn(half_math), run_time=0.3)
         
         # 面积公式
-        area_line1 = Text("面积关系：", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        area_line1 = Text("面积关系：", font="PingFang SC", font_size=22, color=WHITE)
         area_line2 = MathTex(r"S_{\rm oblique} = \frac{\sqrt{2}}{4} \, S_{\rm original}",
                              font_size=26, color=YELLOW)
         area_row = VGroup(area_line1, area_line2).arrange(RIGHT, buff=0.15)
@@ -751,17 +751,17 @@ class ObliqueAxonometric(Scene):
         
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=42, color=WHITE
+            font="PingFang SC", font_size=42, color=WHITE
         ).move_to(UP * 1.8)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=32, color=GRAY_B
+            font="PingFang SC", font_size=32, color=GRAY_B
         ).move_to(UP * 0.8)
         
         follow = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC", font_size=30, color=YELLOW
+            font="PingFang SC", font_size=30, color=YELLOW
         ).move_to(DOWN * 0.5)
         
         self.play(

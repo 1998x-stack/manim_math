@@ -37,7 +37,7 @@ COLOR_GRAY   = "#a0a0b0"
 # 学生颜色
 STUDENT_COLORS = ["#ff6b6b", "#45b7d1", "#96ceb4", "#f6c90e", "#c084fc"]
 
-FONT_CN = "Noto Sans CJK SC"
+FONT_CN = "PingFang SC"
 
 
 class CombinationLesson(Scene):

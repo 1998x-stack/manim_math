@@ -39,7 +39,7 @@ C_SS      = "#ecf0f1"    # 浅灰 — 样本空间框
 C_HL      = YELLOW
 C_AX      = "#7f8c8d"
 C_CARD    = "#16213e"
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 
 # ══════════════════════════════════════════════════════════

@@ -49,13 +49,13 @@ class InequalityPropertiesFull(Scene):
     
     def show_opening(self):
         """开场"""
-        author = Text("上海初高中数学直通车 @emptyandcalm", font="Noto Sans CJK SC", font_size=20, color=GRAY_B).move_to(UP * 7)
+        author = Text("上海初高中数学直通车 @emptyandcalm", font="PingFang SC", font_size=20, color=GRAY_B).move_to(UP * 7)
         self.author_info = author
         self.play(FadeIn(author), run_time=0.3)
         
-        hook1 = Text("3 > 1", font="Noto Sans CJK SC", font_size=52, color=YELLOW, weight=BOLD).move_to(UP * 3)
-        hook2 = Text("两边同时乘以 -2", font="Noto Sans CJK SC", font_size=36, color=WHITE).move_to(UP * 1.5)
-        hook3 = Text("会发生什么？", font="Noto Sans CJK SC", font_size=40, color=self.C_SECONDARY, weight=BOLD).move_to(ORIGIN)
+        hook1 = Text("3 > 1", font="PingFang SC", font_size=52, color=YELLOW, weight=BOLD).move_to(UP * 3)
+        hook2 = Text("两边同时乘以 -2", font="PingFang SC", font_size=36, color=WHITE).move_to(UP * 1.5)
+        hook3 = Text("会发生什么？", font="PingFang SC", font_size=40, color=self.C_SECONDARY, weight=BOLD).move_to(ORIGIN)
         qmark = Text("?", font_size=80, color=self.C_WARNING).move_to(DOWN * 2)
         
         self.play(Write(hook1), run_time=0.8)
@@ -68,7 +68,7 @@ class InequalityPropertiesFull(Scene):
     
     def show_property_1(self):
         """性质1: 对称性"""
-        title = Text("性质1：对称性", font="Noto Sans CJK SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
+        title = Text("性质1：对称性", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
         self.play(FadeIn(title), run_time=0.5)
         
         nl = NumberLine(**self.nl_config).move_to(UP * 2.5)
@@ -104,7 +104,7 @@ class InequalityPropertiesFull(Scene):
         arrow2 = Arrow(pos_b + DOWN * 0.5, pos_a + DOWN * 0.5, color=self.C_SECONDARY, buff=0.1, stroke_width=4)
         self.play(Transform(arrow1, arrow2), run_time=0.8)
         
-        exp = Text("不等号两边交换，方向改变", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN * 3)
+        exp = Text("不等号两边交换，方向改变", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 3)
         self.play(FadeIn(exp), run_time=0.5)
         self.wait(1.2)
         
@@ -112,7 +112,7 @@ class InequalityPropertiesFull(Scene):
     
     def show_property_2(self):
         """性质2: 传递性"""
-        title = Text("性质2：传递性", font="Noto Sans CJK SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
+        title = Text("性质2：传递性", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
         self.play(FadeIn(title), run_time=0.5)
         
         nl = NumberLine(**self.nl_config).move_to(UP * 3)
@@ -163,7 +163,7 @@ class InequalityPropertiesFull(Scene):
         self.play(GrowArrow(arrow_direct), run_time=0.6)
         self.play(Indicate(arrow_direct, scale_factor=1.2), run_time=0.5)
         
-        exp = Text("大于关系可以传递", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN * 4)
+        exp = Text("大于关系可以传递", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 4)
         self.play(FadeIn(exp), run_time=0.5)
         self.wait(1.2)
         
@@ -171,7 +171,7 @@ class InequalityPropertiesFull(Scene):
     
     def show_property_3(self):
         """性质3: 加法"""
-        title = Text("性质3：加法法则", font="Noto Sans CJK SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
+        title = Text("性质3：加法法则", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
         self.play(FadeIn(title), run_time=0.5)
         
         nl1 = NumberLine(**self.nl_config).move_to(UP * 3)
@@ -192,7 +192,7 @@ class InequalityPropertiesFull(Scene):
         f1[2].set_color(self.C_SECONDARY)
         self.play(Write(f1), run_time=0.6)
         
-        add_text = Text("两边同时 +2", font="Noto Sans CJK SC", font_size=28, color=self.C_POSITIVE).move_to(ORIGIN)
+        add_text = Text("两边同时 +2", font="PingFang SC", font_size=28, color=self.C_POSITIVE).move_to(ORIGIN)
         self.play(FadeIn(add_text), run_time=0.5)
         self.wait(0.5)
         
@@ -214,7 +214,7 @@ class InequalityPropertiesFull(Scene):
         f2[2].set_color(self.C_SECONDARY)
         self.play(Write(f2), run_time=0.6)
         
-        exp = Text("两边同加，不等号不变", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN * 6)
+        exp = Text("两边同加，不等号不变", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 6)
         self.play(FadeIn(exp), run_time=0.5)
         self.wait(1.2)
         
@@ -222,7 +222,7 @@ class InequalityPropertiesFull(Scene):
     
     def show_property_4(self):
         """性质4: 乘正数"""
-        title = Text("性质4：乘以正数", font="Noto Sans CJK SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
+        title = Text("性质4：乘以正数", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
         self.play(FadeIn(title), run_time=0.5)
         
         nl1 = NumberLine(**self.nl_config).move_to(UP * 3)
@@ -243,8 +243,8 @@ class InequalityPropertiesFull(Scene):
         f1[2].set_color(self.C_SECONDARY)
         self.play(Write(f1), run_time=0.6)
         
-        mul_text = Text("两边同时 ×2", font="Noto Sans CJK SC", font_size=28, color=self.C_POSITIVE, weight=BOLD).move_to(ORIGIN)
-        pos_note = Text("(正数)", font="Noto Sans CJK SC", font_size=24, color=self.C_POSITIVE).next_to(mul_text, RIGHT, buff=0.2)
+        mul_text = Text("两边同时 ×2", font="PingFang SC", font_size=28, color=self.C_POSITIVE, weight=BOLD).move_to(ORIGIN)
+        pos_note = Text("(正数)", font="PingFang SC", font_size=24, color=self.C_POSITIVE).next_to(mul_text, RIGHT, buff=0.2)
         
         self.play(FadeIn(VGroup(mul_text, pos_note)), run_time=0.5)
         self.wait(0.5)
@@ -267,7 +267,7 @@ class InequalityPropertiesFull(Scene):
         f2[2].set_color(self.C_SECONDARY)
         self.play(Write(f2), run_time=0.6)
         
-        exp = Text("乘以正数，不等号不变", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN * 6)
+        exp = Text("乘以正数，不等号不变", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 6)
         self.play(FadeIn(exp), run_time=0.5)
         self.wait(1.2)
         
@@ -275,9 +275,9 @@ class InequalityPropertiesFull(Scene):
     
     def show_property_5(self):
         """性质5: 乘负数 ⚠️ 重点"""
-        title = Text("性质5：乘以负数", font="Noto Sans CJK SC", font_size=36, color=self.C_NEGATIVE, weight=BOLD).move_to(UP * 6)
+        title = Text("性质5：乘以负数", font="PingFang SC", font_size=36, color=self.C_NEGATIVE, weight=BOLD).move_to(UP * 6)
         warning_icon = Text("⚠️", font_size=40, color=self.C_WARNING).next_to(title, LEFT, buff=0.3)
-        warning_text = Text("易错点！", font="Noto Sans CJK SC", font_size=24, color=self.C_WARNING, weight=BOLD).next_to(title, RIGHT, buff=0.3)
+        warning_text = Text("易错点！", font="PingFang SC", font_size=24, color=self.C_WARNING, weight=BOLD).next_to(title, RIGHT, buff=0.3)
         
         self.play(FadeIn(title), FadeIn(warning_icon, scale=1.5), FadeIn(warning_text), run_time=0.6)
         self.play(Flash(warning_icon, color=self.C_WARNING), Wiggle(warning_text), run_time=0.5)
@@ -303,8 +303,8 @@ class InequalityPropertiesFull(Scene):
         box1 = SurroundingRectangle(f1, color=self.C_PRIMARY, buff=0.15)
         self.play(Create(box1), run_time=0.4)
         
-        mul_text = Text("两边同时 ×(-2)", font="Noto Sans CJK SC", font_size=28, color=self.C_NEGATIVE, weight=BOLD).move_to(ORIGIN)
-        neg_note = Text("(负数！)", font="Noto Sans CJK SC", font_size=24, color=self.C_WARNING, weight=BOLD).next_to(mul_text, RIGHT, buff=0.2)
+        mul_text = Text("两边同时 ×(-2)", font="PingFang SC", font_size=28, color=self.C_NEGATIVE, weight=BOLD).move_to(ORIGIN)
+        neg_note = Text("(负数！)", font="PingFang SC", font_size=24, color=self.C_WARNING, weight=BOLD).next_to(mul_text, RIGHT, buff=0.2)
         
         self.play(FadeIn(VGroup(mul_text, neg_note)), Flash(neg_note, color=self.C_WARNING), run_time=0.6)
         self.wait(0.8)
@@ -332,7 +332,7 @@ class InequalityPropertiesFull(Scene):
         self.play(Write(f2), Create(box2), run_time=0.8)
         self.play(Indicate(f2[1], scale_factor=1.5, color=self.C_WARNING), Flash(f2[1], color=self.C_WARNING), run_time=0.6)
         
-        key_exp = Text("乘以负数，不等号要变向！", font="Noto Sans CJK SC", font_size=28, color=self.C_WARNING, weight=BOLD).move_to(UP * 4.8)
+        key_exp = Text("乘以负数，不等号要变向！", font="PingFang SC", font_size=28, color=self.C_WARNING, weight=BOLD).move_to(UP * 4.8)
         
         self.play(FadeIn(key_exp, scale=1.2), run_time=0.6)
         self.play(Flash(key_exp, color=self.C_WARNING), Wiggle(key_exp), run_time=0.6)
@@ -342,7 +342,7 @@ class InequalityPropertiesFull(Scene):
     
     def show_property_6(self):
         """性质6: 平方"""
-        title = Text("性质6：平方性质", font="Noto Sans CJK SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
+        title = Text("性质6：平方性质", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
         self.play(FadeIn(title), run_time=0.5)
         
         condition = MathTex("a", ">", "b", ">", "0", font_size=32).move_to(UP * 4.8)
@@ -371,8 +371,8 @@ class InequalityPropertiesFull(Scene):
         conclusion[3].set_color(self.C_SECONDARY)
         self.play(Write(conclusion), run_time=0.8)
         
-        exp = Text("正数平方，大小关系保持", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).move_to(DOWN * 3.5)
-        note = Text("(注意：必须都是正数)", font="Noto Sans CJK SC", font_size=20, color=GRAY_B).move_to(DOWN * 4.5)
+        exp = Text("正数平方，大小关系保持", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 3.5)
+        note = Text("(注意：必须都是正数)", font="PingFang SC", font_size=20, color=GRAY_B).move_to(DOWN * 4.5)
         
         self.play(FadeIn(exp), FadeIn(note), run_time=0.5)
         self.wait(1.2)
@@ -381,7 +381,7 @@ class InequalityPropertiesFull(Scene):
     
     def show_summary(self):
         """总结"""
-        title = Text("不等式六大性质", font="Noto Sans CJK SC", font_size=42, color=GOLD, weight=BOLD).move_to(UP * 6.5)
+        title = Text("不等式六大性质", font="PingFang SC", font_size=42, color=GOLD, weight=BOLD).move_to(UP * 6.5)
         self.play(Write(title), run_time=0.8)
         
         props = [
@@ -396,7 +396,7 @@ class InequalityPropertiesFull(Scene):
         cards = VGroup()
         for i, (name, formula, color) in enumerate(props):
             bg = RoundedRectangle(width=7.5, height=1.0, corner_radius=0.15, fill_opacity=0.1, fill_color=color, stroke_color=color, stroke_width=2).move_to(UP * (4.5 - i * 1.4))
-            n = Text(name, font="Noto Sans CJK SC", font_size=24, color=color, weight=BOLD).move_to(bg.get_left() + RIGHT * 1.2)
+            n = Text(name, font="PingFang SC", font_size=24, color=color, weight=BOLD).move_to(bg.get_left() + RIGHT * 1.2)
             f = MathTex(formula, font_size=28, color=color).move_to(bg.get_right() + LEFT * 2.5)
             
             card = VGroup(bg, n, f)
@@ -414,7 +414,7 @@ class InequalityPropertiesFull(Scene):
         self.wait(1.0)
         
         wbox = RoundedRectangle(width=7.5, height=1.2, corner_radius=0.2, fill_opacity=0.2, fill_color=self.C_WARNING, stroke_color=self.C_WARNING, stroke_width=3).move_to(DOWN * 5)
-        wtext = Text("记住：乘以负数，不等号要变向！", font="Noto Sans CJK SC", font_size=26, color=self.C_WARNING, weight=BOLD).move_to(wbox)
+        wtext = Text("记住：乘以负数，不等号要变向！", font="PingFang SC", font_size=26, color=self.C_WARNING, weight=BOLD).move_to(wbox)
         
         self.play(Create(wbox), FadeIn(wtext, scale=1.1), run_time=0.6)
         self.play(Flash(wbox, color=self.C_WARNING), Wiggle(wtext), run_time=0.6)
@@ -424,13 +424,13 @@ class InequalityPropertiesFull(Scene):
     
     def show_outro(self):
         """片尾"""
-        author_name = Text("上海初高中数学直通车", font="Noto Sans CJK SC", font_size=40, color=WHITE, weight=BOLD).move_to(UP * 1.5)
-        author_id = Text("@emptyandcalm", font="Noto Sans CJK SC", font_size=32, color=GRAY_B).move_to(UP * 0.5)
+        author_name = Text("上海初高中数学直通车", font="PingFang SC", font_size=40, color=WHITE, weight=BOLD).move_to(UP * 1.5)
+        author_id = Text("@emptyandcalm", font="PingFang SC", font_size=32, color=GRAY_B).move_to(UP * 0.5)
         
         self.play(Transform(self.author_info, author_name), run_time=0.8)
         self.play(FadeIn(author_id), run_time=0.5)
         
-        follow = Text("关注我，学更多数学技巧！", font="Noto Sans CJK SC", font_size=32, color=YELLOW, weight=BOLD).move_to(DOWN * 0.8)
+        follow = Text("关注我，学更多数学技巧！", font="PingFang SC", font_size=32, color=YELLOW, weight=BOLD).move_to(DOWN * 0.8)
         self.play(FadeIn(follow, scale=1.1), run_time=0.6)
         
         decs = VGroup(

@@ -18,7 +18,7 @@ config.pixel_height = 1920
 config.frame_width  = 9
 config.frame_height = 16
 
-FONT     = "Noto Sans CJK SC"
+FONT     = "PingFang SC"
 BG_COLOR = "#0d0d1a"
 
 C_SPHERE  = "#4fc3f7"   # light blue sphere

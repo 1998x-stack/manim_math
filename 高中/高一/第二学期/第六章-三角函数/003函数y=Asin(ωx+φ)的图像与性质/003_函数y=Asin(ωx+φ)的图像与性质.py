@@ -78,7 +78,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -88,7 +88,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 标题
         title = Text(
             "函数y=Asin(ωx+φ)的图像与性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -106,7 +106,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 提示文字
         hint = Text(
             "四个参数如何影响图像？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -503,7 +503,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 参数总结
         summary_title = Text(
             "参数作用总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -533,14 +533,14 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 作者信息
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -551,7 +551,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多三角函数知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(ORIGIN)

@@ -22,7 +22,7 @@ COLOR_IND    = "#f39c12"   # 橙 - 个体
 COLOR_ACCENT = "#2ecc71"   # 绿 - 强调
 COLOR_GOLD   = GOLD
 COLOR_GRAY   = GRAY_B
-FONT         = "Noto Sans CJK SC"
+FONT         = "PingFang SC"
 
 
 class PopulationSample(Scene):

@@ -133,7 +133,7 @@ class PyramidLesson(ThreeDScene):
     # ════════════════════════════════
     def ft(self, txt, size=26, color=WHITE):
         """Short helper: create a fixed-frame Chinese Text mobject."""
-        return Text(txt, font="Noto Sans CJK SC", font_size=size, color=color)
+        return Text(txt, font="PingFang SC", font_size=size, color=color)
 
     def add_ft(self, *mobs):
         """add_fixed_in_frame_mobjects shortcut."""

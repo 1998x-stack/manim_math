@@ -148,7 +148,7 @@ class SumDifferenceAngles(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -169,7 +169,7 @@ class SumDifferenceAngles(Scene):
         # 提示文字
         hint_text = Text(
             "能直接计算吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).next_to(hook_question, DOWN, buff=0.8)
@@ -189,7 +189,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "单位圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -259,7 +259,7 @@ class SumDifferenceAngles(Scene):
         # 说明文字
         explanation = Text(
             "半径为1的圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5)
@@ -285,7 +285,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "两个角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -427,7 +427,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "余弦差角公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_DIFF
         ).move_to(UP * 6)
@@ -449,7 +449,7 @@ class SumDifferenceAngles(Scene):
         # 说明文字
         explanation = Text(
             "利用两点距离公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -512,7 +512,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "余弦和角公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SUM
         ).move_to(UP * 6)
@@ -523,7 +523,7 @@ class SumDifferenceAngles(Scene):
         # 说明
         explanation = Text(
             "利用 cos(α+β) = cos[α-(-β)]",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -576,7 +576,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "正弦和差公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -587,7 +587,7 @@ class SumDifferenceAngles(Scene):
         # 说明
         explanation = Text(
             "利用诱导公式推导",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -664,7 +664,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "正切和差公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -723,7 +723,7 @@ class SumDifferenceAngles(Scene):
         # 条件说明
         condition = Text(
             "* 要求分母不为0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_WARNING
         ).move_to(UP * 0.5)
@@ -750,7 +750,7 @@ class SumDifferenceAngles(Scene):
         # 标题
         title = Text(
             "两角和差公式总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -791,7 +791,7 @@ class SumDifferenceAngles(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
@@ -799,7 +799,7 @@ class SumDifferenceAngles(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -814,7 +814,7 @@ class SumDifferenceAngles(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多三角函数技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

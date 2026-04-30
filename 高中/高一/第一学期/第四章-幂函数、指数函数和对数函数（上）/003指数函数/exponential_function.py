@@ -94,19 +94,19 @@ class ExponentialFunctions(Scene):
         
         self.author = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=self.C_AUX,
+            font="PingFang SC", font_size=20, color=self.C_AUX,
         ).move_to(UP * 7.2)
         opening_group.add(self.author)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
 
-        title = Text("指数函数", font="Noto Sans CJK SC",
+        title = Text("指数函数", font="PingFang SC",
                       font_size=52, color=GOLD).move_to(UP * 6.2)
         opening_group.add(title)
         self.play(Write(title), run_time=0.7)
 
         hook = Text(
             "为什么细菌 24 小时能繁殖万亿个？",
-            font="Noto Sans CJK SC", font_size=25, color=WHITE,
+            font="PingFang SC", font_size=25, color=WHITE,
         ).move_to(UP * 5.2)
         opening_group.add(hook)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.5)
@@ -123,7 +123,7 @@ class ExponentialFunctions(Scene):
         annots = [(0, 1, "1"), (1, 2, "2"), (2, 4, "4"), (2.3, 4.9, "≈5")]
         for x, y, label_str in annots:
             dot = Dot(axes.c2p(x, y), color=YELLOW, radius=0.07)
-            lab  = Text(label_str, font="Noto Sans CJK SC",
+            lab  = Text(label_str, font="PingFang SC",
                          font_size=18, color=YELLOW).next_to(dot, UR, buff=0.05)
             opening_group.add(dot, lab)
             self.play(FadeIn(dot), FadeIn(lab), run_time=0.25)
@@ -141,7 +141,7 @@ class ExponentialFunctions(Scene):
     def scene_2_definition(self):
         definition_group = VGroup()
 
-        sc_title = Text("指数函数的定义", font="Noto Sans CJK SC",
+        sc_title = Text("指数函数的定义", font="PingFang SC",
                          font_size=32, color=GOLD).move_to(UP * 6.2)
         definition_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
@@ -158,10 +158,10 @@ class ExponentialFunctions(Scene):
 
         # 为什么 a≠1？
         why_text = Text("为何 a ≠ 1？",
-                         font="Noto Sans CJK SC", font_size=24, color=self.C_AUX
+                         font="PingFang SC", font_size=24, color=self.C_AUX
                          ).move_to(UP * 3.4)
         why_ans  = Text("因为 1^x = 1，是常数函数，不是指数函数",
-                         font="Noto Sans CJK SC", font_size=20, color=WHITE
+                         font="PingFang SC", font_size=20, color=WHITE
                          ).move_to(UP * 2.8)
         definition_group.add(why_text, why_ans)
         self.play(FadeIn(why_text), run_time=0.4)
@@ -169,7 +169,7 @@ class ExponentialFunctions(Scene):
 
         # 为什么 a>0？
         why2 = Text("为何 a > 0？  保证实数域内有意义",
-                     font="Noto Sans CJK SC", font_size=20, color=WHITE
+                     font="PingFang SC", font_size=20, color=WHITE
                      ).move_to(UP * 2.1)
         definition_group.add(why2)
         self.play(FadeIn(why2), run_time=0.4)
@@ -186,7 +186,7 @@ class ExponentialFunctions(Scene):
         axes = self.axes
 
         sc_title = Text("当 a > 1：单调递增",
-                         font="Noto Sans CJK SC", font_size=30, color=self.C_A2
+                         font="PingFang SC", font_size=30, color=self.C_A2
                          ).move_to(UP * 6.2)
         increasing_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
@@ -234,11 +234,11 @@ class ExponentialFunctions(Scene):
 
         notes = VGroup(
             Text("x 越大，y 越大",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
             Text("x→+∞，y→+∞",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
             Text("x→-∞，y→0⁺（趋近 x 轴）",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 3.5)
         increasing_group.add(notes)
         self.play(Write(notes), run_time=0.7)
@@ -255,7 +255,7 @@ class ExponentialFunctions(Scene):
         axes = self.axes
 
         sc_title = Text("当 0 < a < 1：单调递减",
-                         font="Noto Sans CJK SC", font_size=30, color=self.C_AH
+                         font="PingFang SC", font_size=30, color=self.C_AH
                          ).move_to(UP * 6.2)
         decreasing_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
@@ -302,11 +302,11 @@ class ExponentialFunctions(Scene):
 
         notes = VGroup(
             Text("x 越大，y 越小",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
             Text("x→-∞，y→+∞",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
             Text("x→+∞，y→0⁺（趋近 x 轴）",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 3.5)
         decreasing_group.add(notes)
         self.play(Write(notes), run_time=0.7)
@@ -323,7 +323,7 @@ class ExponentialFunctions(Scene):
         axes = self.axes
 
         sc_title = Text("a > 1 与 0 < a < 1 的关系",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD
+                         font="PingFang SC", font_size=28, color=GOLD
                          ).move_to(UP * 6.2)
         compare_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
@@ -345,7 +345,7 @@ class ExponentialFunctions(Scene):
             color=YELLOW, dash_length=0.15, stroke_width=2,
         )
         sym_label = Text("关于 y 轴对称",
-                          font="Noto Sans CJK SC", font_size=22, color=YELLOW
+                          font="PingFang SC", font_size=22, color=YELLOW
                           ).move_to(DOWN * 1.5)
         compare_group.add(yaxis_dashed, sym_label)
         self.play(Create(yaxis_dashed), FadeIn(sym_label), run_time=0.6)
@@ -371,14 +371,14 @@ class ExponentialFunctions(Scene):
         self.play(FadeOut(self.axes), run_time=0.4)
 
         sc_title = Text("指数函数性质总结",
-                         font="Noto Sans CJK SC", font_size=32, color=GOLD
+                         font="PingFang SC", font_size=32, color=GOLD
                          ).move_to(UP * 6.2)
         properties_group.add(sc_title)
         self.play(Write(sc_title), run_time=0.5)
 
         # 两列对比表
         headers = VGroup(
-            Text("性质", font="Noto Sans CJK SC", font_size=24, color=GOLD),
+            Text("性质", font="PingFang SC", font_size=24, color=GOLD),
             MathTex(r"a > 1",            font_size=26, color=self.C_A2),
             MathTex(r"0 < a < 1",        font_size=26, color=self.C_AH),
         ).arrange(RIGHT, buff=1.0).move_to(UP * 5.3)
@@ -401,23 +401,23 @@ class ExponentialFunctions(Scene):
         row_mobs = []
         for i, (prop, v1, v2) in enumerate(rows_data):
             y_pos = 4.4 - i * 1.0
-            prop_m = Text(prop, font="Noto Sans CJK SC",
+            prop_m = Text(prop, font="PingFang SC",
                            font_size=22, color=WHITE)
             # v1, v2 有时是中文
             try:
                 v1_m = MathTex(v1, font_size=22, color=self.C_A2)
             except Exception:
-                v1_m = Text(v1, font="Noto Sans CJK SC", font_size=22, color=self.C_A2)
+                v1_m = Text(v1, font="PingFang SC", font_size=22, color=self.C_A2)
             try:
                 v2_m = MathTex(v2, font_size=22, color=self.C_AH)
             except Exception:
-                v2_m = Text(v2, font="Noto Sans CJK SC", font_size=22, color=self.C_AH)
+                v2_m = Text(v2, font="PingFang SC", font_size=22, color=self.C_AH)
 
             # 中文单调性用 Text
             if "单调" in v1:
-                v1_m = Text(v1, font="Noto Sans CJK SC", font_size=22, color=self.C_A2)
+                v1_m = Text(v1, font="PingFang SC", font_size=22, color=self.C_A2)
             if "单调" in v2:
-                v2_m = Text(v2, font="Noto Sans CJK SC", font_size=22, color=self.C_AH)
+                v2_m = Text(v2, font="PingFang SC", font_size=22, color=self.C_AH)
 
             row = VGroup(prop_m, v1_m, v2_m).arrange(RIGHT, buff=0.9).move_to(UP * y_pos)
             properties_group.add(row)
@@ -436,13 +436,13 @@ class ExponentialFunctions(Scene):
         outro_group = VGroup()
         
         name_big = Text("上海初高中数学直通车",
-                         font="Noto Sans CJK SC", font_size=40, color=WHITE
+                         font="PingFang SC", font_size=40, color=WHITE
                          ).move_to(UP * 1.5)
         id_text  = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=28, color=self.C_AUX
+                         font="PingFang SC", font_size=28, color=self.C_AUX
                          ).move_to(UP * 0.6)
         call     = Text("关注我，获得更多数学技巧！",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD
+                         font="PingFang SC", font_size=28, color=GOLD
                          ).move_to(DOWN * 0.3)
         outro_group.add(name_big, id_text, call)
 

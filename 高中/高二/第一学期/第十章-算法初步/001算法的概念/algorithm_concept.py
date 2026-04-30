@@ -74,7 +74,7 @@ class AlgorithmConcept(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -84,7 +84,7 @@ class AlgorithmConcept(Scene):
         # 钩子问题
         hook_question = Text(
             "计算机是如何解决问题的?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -107,7 +107,7 @@ class AlgorithmConcept(Scene):
         # 引导文字
         hint_text = Text(
             "答案就是: 算法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -128,7 +128,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "算法 Algorithm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -138,7 +138,7 @@ class AlgorithmConcept(Scene):
         # 定义框
         definition_text = Text(
             "按照一定规则解决某一类问题的\n明确和有限的步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE,
             line_spacing=1.2
@@ -157,10 +157,10 @@ class AlgorithmConcept(Scene):
         
         # 关键词高亮
         keywords = VGroup(
-            Text("规则", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
-            Text("明确", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
-            Text("有限", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
-            Text("步骤", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT)
+            Text("规则", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
+            Text("明确", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
+            Text("有限", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
+            Text("步骤", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.8).move_to(DOWN * 2)
         
         for i, word in enumerate(keywords):
@@ -186,7 +186,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "算法的五个基本特征",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -199,7 +199,7 @@ class AlgorithmConcept(Scene):
             circle = Circle(radius=0.4, color=self.COLOR_PRIMARY, stroke_width=3)
             number = Text(
                 str(i),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=self.COLOR_PRIMARY
             )
@@ -213,7 +213,7 @@ class AlgorithmConcept(Scene):
         # 提示文字
         hint = Text(
             "让我们逐个了解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -234,7 +234,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "① 有穷性 Finiteness",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -281,7 +281,7 @@ class AlgorithmConcept(Scene):
         # 说明文字
         explanation = Text(
             "算法必须在有限步骤内结束",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -300,7 +300,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "② 确定性 Determinacy",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -309,10 +309,10 @@ class AlgorithmConcept(Scene):
         
         # 图示 - 相同输入产生相同输出
         # 第一行
-        input1 = Text("输入A", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_IO)
+        input1 = Text("输入A", font="PingFang SC", font_size=18, color=self.COLOR_IO)
         process1 = Rectangle(width=1.5, height=0.8, color=self.COLOR_PROCESS)
-        process1_text = Text("处理", font="Noto Sans CJK SC", font_size=16, color=WHITE)
-        output1 = Text("输出B", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_SUCCESS)
+        process1_text = Text("处理", font="PingFang SC", font_size=16, color=WHITE)
+        output1 = Text("输出B", font="PingFang SC", font_size=18, color=self.COLOR_SUCCESS)
         
         arrow1_1 = Arrow(ORIGIN, RIGHT * 0.8, buff=0.1, stroke_width=2, color=self.COLOR_AUXILIARY)
         arrow1_2 = Arrow(ORIGIN, RIGHT * 0.8, buff=0.1, stroke_width=2, color=self.COLOR_AUXILIARY)
@@ -322,10 +322,10 @@ class AlgorithmConcept(Scene):
         process1_text.move_to(process1.get_center())
         
         # 第二行
-        input2 = Text("输入A", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_IO)
+        input2 = Text("输入A", font="PingFang SC", font_size=18, color=self.COLOR_IO)
         process2 = Rectangle(width=1.5, height=0.8, color=self.COLOR_PROCESS)
-        process2_text = Text("处理", font="Noto Sans CJK SC", font_size=16, color=WHITE)
-        output2 = Text("输出B", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_SUCCESS)
+        process2_text = Text("处理", font="PingFang SC", font_size=16, color=WHITE)
+        output2 = Text("输出B", font="PingFang SC", font_size=18, color=self.COLOR_SUCCESS)
         
         arrow2_1 = Arrow(ORIGIN, RIGHT * 0.8, buff=0.1, stroke_width=2, color=self.COLOR_AUXILIARY)
         arrow2_2 = Arrow(ORIGIN, RIGHT * 0.8, buff=0.1, stroke_width=2, color=self.COLOR_AUXILIARY)
@@ -341,7 +341,7 @@ class AlgorithmConcept(Scene):
         # 说明文字
         explanation = Text(
             "相同输入必产生相同输出",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -360,7 +360,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "③ 可行性 Feasibility",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -370,12 +370,12 @@ class AlgorithmConcept(Scene):
         # 图示 - 可执行 vs 不可执行
         feasible = VGroup(
             Text("✓", font_size=36, color=self.COLOR_SUCCESS),
-            Text("可执行的操作", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+            Text("可执行的操作", font="PingFang SC", font_size=18, color=WHITE)
         ).arrange(RIGHT, buff=0.3)
         
         infeasible = VGroup(
             Text("✗", font_size=36, color=self.COLOR_SECONDARY),
-            Text("不可执行的操作", font="Noto Sans CJK SC", font_size=18, color=GRAY_A)
+            Text("不可执行的操作", font="PingFang SC", font_size=18, color=GRAY_A)
         ).arrange(RIGHT, buff=0.3)
         
         diagram = VGroup(feasible, infeasible).arrange(DOWN, buff=0.8).move_to(UP * 2)
@@ -387,7 +387,7 @@ class AlgorithmConcept(Scene):
         # 说明文字
         explanation = Text(
             "每一步都必须可执行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -406,7 +406,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "④ 输入 Input",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -421,7 +421,7 @@ class AlgorithmConcept(Scene):
         arrow = Arrow(ORIGIN, RIGHT * 1.2, buff=0.1, stroke_width=3, color=self.COLOR_AUXILIARY)
         
         algo_box = Rectangle(width=2.0, height=0.8, color=self.COLOR_PROCESS)
-        algo_text = Text("算法", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        algo_text = Text("算法", font="PingFang SC", font_size=18, color=WHITE)
         algo_text.move_to(algo_box.get_center())
         
         diagram = VGroup(input_box, input_text, arrow, algo_box, algo_text).arrange(RIGHT, buff=0.2).move_to(UP * 2)
@@ -431,7 +431,7 @@ class AlgorithmConcept(Scene):
         # 注释
         note = Text(
             "可以有0个或多个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=GRAY_A
         ).next_to(diagram, DOWN, buff=0.5)
@@ -441,7 +441,7 @@ class AlgorithmConcept(Scene):
         # 说明文字
         explanation = Text(
             "算法接收外部数据",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -460,7 +460,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "⑤ 输出 Output",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -469,7 +469,7 @@ class AlgorithmConcept(Scene):
         
         # 图示 - 算法到输出
         algo_box = Rectangle(width=2.0, height=0.8, color=self.COLOR_PROCESS)
-        algo_text = Text("算法", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        algo_text = Text("算法", font="PingFang SC", font_size=18, color=WHITE)
         algo_text.move_to(algo_box.get_center())
         
         arrow = Arrow(ORIGIN, RIGHT * 1.2, buff=0.1, stroke_width=3, color=self.COLOR_AUXILIARY)
@@ -485,7 +485,7 @@ class AlgorithmConcept(Scene):
         # 注释
         note = Text(
             "至少有1个",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=16,
             color=GRAY_A
         ).next_to(diagram, DOWN, buff=0.5)
@@ -495,7 +495,7 @@ class AlgorithmConcept(Scene):
         # 说明文字
         explanation = Text(
             "算法必须产生结果",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -514,7 +514,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "流程图示例: 求最大值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 7)
@@ -534,7 +534,7 @@ class AlgorithmConcept(Scene):
         # 1. 开始节点（椭圆）
         start_ellipse = Ellipse(width=1.8, height=0.8, color=self.COLOR_START_END, fill_opacity=0.2)
         start_ellipse.move_to(start_pos)
-        start_text = Text("开始", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        start_text = Text("开始", font="PingFang SC", font_size=18, color=WHITE)
         start_text.move_to(start_pos)
         start_node = VGroup(start_ellipse, start_text)
         
@@ -553,7 +553,7 @@ class AlgorithmConcept(Scene):
             color=self.COLOR_IO,
             fill_opacity=0.2
         )
-        input_text = Text("输入 a, b", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+        input_text = Text("输入 a, b", font="PingFang SC", font_size=16, color=WHITE)
         input_text.move_to(input_pos)
         input_node = VGroup(input_para, input_text)
         
@@ -579,7 +579,7 @@ class AlgorithmConcept(Scene):
         self.play(FadeIn(decision_node), run_time=1.0)
         
         # 左分支（是）
-        yes_label = Text("是", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_SUCCESS)
+        yes_label = Text("是", font="PingFang SC", font_size=14, color=self.COLOR_SUCCESS)
         yes_label.move_to(decision_pos + LEFT * 0.8 + DOWN * 0.3)
         
         arrow3_left = Arrow(
@@ -605,7 +605,7 @@ class AlgorithmConcept(Scene):
         self.play(FadeIn(process_left_node), run_time=0.5)
         
         # 右分支（否）
-        no_label = Text("否", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_SECONDARY)
+        no_label = Text("否", font="PingFang SC", font_size=14, color=self.COLOR_SECONDARY)
         no_label.move_to(decision_pos + RIGHT * 0.8 + DOWN * 0.3)
         
         arrow3_right = Arrow(
@@ -653,7 +653,7 @@ class AlgorithmConcept(Scene):
             color=self.COLOR_IO,
             fill_opacity=0.2
         )
-        output_text = Text("输出 max", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+        output_text = Text("输出 max", font="PingFang SC", font_size=16, color=WHITE)
         output_text.move_to(output_pos)
         output_node = VGroup(output_para, output_text)
         
@@ -666,7 +666,7 @@ class AlgorithmConcept(Scene):
         # 5. 结束节点
         end_ellipse = Ellipse(width=1.8, height=0.8, color=self.COLOR_START_END, fill_opacity=0.2)
         end_ellipse.move_to(end_pos)
-        end_text = Text("结束", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        end_text = Text("结束", font="PingFang SC", font_size=18, color=WHITE)
         end_text.move_to(end_pos)
         end_node = VGroup(end_ellipse, end_text)
         
@@ -695,7 +695,7 @@ class AlgorithmConcept(Scene):
         # 标题
         title = Text(
             "算法五要素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -704,11 +704,11 @@ class AlgorithmConcept(Scene):
         
         # 五要素列表
         features = VGroup(
-            Text("① 有穷性 - 有限步骤", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
-            Text("② 确定性 - 明确无歧义", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
-            Text("③ 可行性 - 可执行", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
-            Text("④ 输入 - 0个或多个", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
-            Text("⑤ 输出 - 1个或多个", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE)
+            Text("① 有穷性 - 有限步骤", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("② 确定性 - 明确无歧义", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("③ 可行性 - 可执行", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("④ 输入 - 0个或多个", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("⑤ 输出 - 1个或多个", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.5).move_to(UP * 1)
         
         self.play(FadeIn(features, lag_ratio=0.2), run_time=2.0)
@@ -729,7 +729,7 @@ class AlgorithmConcept(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车\n@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             line_spacing=1.2
@@ -743,7 +743,7 @@ class AlgorithmConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多算法技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

@@ -43,7 +43,7 @@ AXIS_COL      = "#444466"
 # ─── Helpers ───────────────────────────────────────────────────────────────────
 def cn(text: str, size: int = 28, color=WHITE, **kw) -> Text:
     """Chinese text using correct font."""
-    return Text(text, font="Noto Sans CJK SC", font_size=size, color=color, **kw)
+    return Text(text, font="PingFang SC", font_size=size, color=color, **kw)
 
 
 def formula_box(

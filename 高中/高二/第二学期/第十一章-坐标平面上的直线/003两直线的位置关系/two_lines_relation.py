@@ -37,7 +37,7 @@ COLOR_COINCIDE = "#9b59b6"  # 紫色 - 重合
 COLOR_AXES = GRAY_B
 COLOR_HIGHLIGHT = YELLOW
 COLOR_CARD_BG = "#16213e"
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 # ==============================================================

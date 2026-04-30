@@ -47,7 +47,7 @@ class FunctionParity(Scene):
         self.COLOR_AUXILIARY = GRAY_B
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         
         # 定义示例函数
         self.f_even = lambda x: x**2
@@ -869,11 +869,11 @@ class FunctionParity(Scene):
         
         proof_steps = VGroup(
             VGroup(
-                Text("已知:", font="Noto Sans CJK SC", font_size=24, color=WHITE),
+                Text("已知:", font="PingFang SC", font_size=24, color=WHITE),
                 MathTex(r"f(-x) = -f(x)", font_size=24, color=WHITE)
             ).arrange(RIGHT, buff=0.15),
             VGroup(
-                Text("令", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+                Text("令", font="PingFang SC", font_size=24, color=GRAY_A),
                 MathTex(r"x = 0 :", font_size=24, color=GRAY_A)
             ).arrange(RIGHT, buff=0.15),
             MathTex(r"f(-0) = -f(0)", font_size=24, color=WHITE),

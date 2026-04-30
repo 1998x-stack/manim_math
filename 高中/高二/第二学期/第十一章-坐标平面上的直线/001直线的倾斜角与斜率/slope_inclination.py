@@ -22,7 +22,7 @@ C_ZERO = "#2ecc71"   # 绿 k=0
 C_INF  = "#9b59b6"   # 紫 无斜率
 C_ANG  = "#f39c12"   # 橙 倾斜角弧
 C_AUX  = "#888888"   # 灰 辅助
-FONT   = "Noto Sans CJK SC"
+FONT   = "PingFang SC"
 
 
 class SlopeAndInclinationAngle(Scene):

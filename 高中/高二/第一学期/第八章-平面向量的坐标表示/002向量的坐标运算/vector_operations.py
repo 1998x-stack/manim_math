@@ -132,7 +132,7 @@ class VectorCoordinateOperations(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color="#95a5a6"
         ).move_to(UP * 7)
@@ -142,7 +142,7 @@ class VectorCoordinateOperations(Scene):
         # 钩子问题
         hook = Text(
             "向量怎么算？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -168,7 +168,7 @@ class VectorCoordinateOperations(Scene):
         # 标题
         title = Text(
             "向量的坐标表示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -238,7 +238,7 @@ class VectorCoordinateOperations(Scene):
         # 标题
         title = Text(
             "向量加法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(UP * 5.5)
@@ -339,7 +339,7 @@ class VectorCoordinateOperations(Scene):
         # 标题
         title = Text(
             "向量减法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(UP * 5.5)
@@ -369,7 +369,7 @@ class VectorCoordinateOperations(Scene):
         # 说明
         explanation = Text(
             "减法 = 加上相反向量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color="#95a5a6"
         ).move_to(DOWN * 4)
@@ -437,7 +437,7 @@ class VectorCoordinateOperations(Scene):
         # 标题
         title = Text(
             "数乘运算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(UP * 5.5)
@@ -489,7 +489,7 @@ class VectorCoordinateOperations(Scene):
         brace_original = Brace(self.vector_a, direction=DOWN, buff=0.1, color=self.COLOR_VECTOR_A)
         brace_label_1 = Text(
             "长度 = L",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_VECTOR_A
         ).next_to(brace_original, DOWN, buff=0.1)
@@ -497,7 +497,7 @@ class VectorCoordinateOperations(Scene):
         brace_scaled = Brace(vector_a_copy, direction=UP, buff=0.1, color=self.COLOR_RESULT)
         brace_label_2 = Text(
             "长度 = 2L",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_RESULT
         ).next_to(brace_scaled, UP, buff=0.1)
@@ -530,7 +530,7 @@ class VectorCoordinateOperations(Scene):
         # 标题
         title = Text(
             "向量平行条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -582,7 +582,7 @@ class VectorCoordinateOperations(Scene):
         # 平行标记
         parallel_text = Text(
             "c ∥ d",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -650,7 +650,7 @@ class VectorCoordinateOperations(Scene):
         # 标题
         title = Text(
             "向量坐标运算总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -704,14 +704,14 @@ class VectorCoordinateOperations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(DOWN * 4)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color="#95a5a6"
         ).next_to(author_name, DOWN, buff=0.3)
@@ -725,7 +725,7 @@ class VectorCoordinateOperations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)
@@ -758,7 +758,7 @@ class VectorCoordinateOperations(Scene):
         # 标签
         label_text = Text(
             label,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=color,
             weight=BOLD

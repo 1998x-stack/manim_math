@@ -15,7 +15,7 @@ config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 C_BG = "#1a1a2e"
 C_PARA = "#e74c3c"
 C_PERP = "#3498db"

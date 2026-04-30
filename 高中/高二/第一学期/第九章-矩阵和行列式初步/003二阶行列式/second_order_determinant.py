@@ -64,7 +64,7 @@ class SecondOrderDeterminant(Scene):
         # 作者信息 (持续显示)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -112,7 +112,7 @@ class SecondOrderDeterminant(Scene):
         # 钩子问题
         hook = Text(
             "四个数能算出一个数?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.TITLE_POS)
@@ -145,7 +145,7 @@ class SecondOrderDeterminant(Scene):
         # 过渡文字
         transition = Text(
             "行列式来揭秘!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(self.EXPLAIN_POS)
@@ -166,7 +166,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "二阶行列式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -182,7 +182,7 @@ class SecondOrderDeterminant(Scene):
         # 定义说明
         definition = Text(
             "2×2数表按规则计算的数值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.5)
@@ -193,7 +193,7 @@ class SecondOrderDeterminant(Scene):
         # 符号说明
         symbol_note = Text(
             "竖线 | | 表示行列式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -217,7 +217,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "主对角线 \\",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_MAIN_DIAG
         ).move_to(self.TITLE_POS)
@@ -279,7 +279,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "副对角线 /",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ANTI_DIAG
         ).move_to(self.TITLE_POS)
@@ -341,7 +341,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "对角线法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(self.TITLE_POS)
@@ -379,7 +379,7 @@ class SecondOrderDeterminant(Scene):
         # 记忆提示
         hint = Text(
             "记忆口诀: 主减副",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -406,7 +406,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "计算示例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(self.TITLE_POS)
@@ -509,7 +509,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "行列式的应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(self.TITLE_POS)
@@ -518,18 +518,18 @@ class SecondOrderDeterminant(Scene):
         
         # 三个应用
         app1 = VGroup(
-            Text("① 解方程组", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("(克拉默法则)", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text("① 解方程组", font="PingFang SC", font_size=26, color=WHITE),
+            Text("(克拉默法则)", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(DOWN, buff=0.2).move_to(UP * 2.5)
         
         app2 = VGroup(
-            Text("② 判断向量平行", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("② 判断向量平行", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(r"\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} = 0", font_size=22)
         ).arrange(DOWN, buff=0.2).move_to(UP * 0.5)
         
         app3 = VGroup(
-            Text("③ 计算面积", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("(平行四边形)", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+            Text("③ 计算面积", font="PingFang SC", font_size=26, color=WHITE),
+            Text("(平行四边形)", font="PingFang SC", font_size=20, color=GRAY_A)
         ).arrange(DOWN, buff=0.2).move_to(DOWN * 1.5)
         
         applications = VGroup(app1, app2, app3)
@@ -541,7 +541,7 @@ class SecondOrderDeterminant(Scene):
         # 提示
         hint = Text(
             "后续课程详细讲解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -562,7 +562,7 @@ class SecondOrderDeterminant(Scene):
         # 标题
         title = Text(
             "重要性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(self.TITLE_POS)
@@ -572,7 +572,7 @@ class SecondOrderDeterminant(Scene):
         # 性质1: 转置
         prop1_title = Text(
             "性质1: 转置值不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -591,7 +591,7 @@ class SecondOrderDeterminant(Scene):
         # 性质2: 交换行变号
         prop2_title = Text(
             "性质2: 交换行变号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 1)
@@ -610,7 +610,7 @@ class SecondOrderDeterminant(Scene):
         # 性质3: 数乘提取
         prop3_title = Text(
             "性质3: 数乘可提取",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 1.5)
@@ -629,7 +629,7 @@ class SecondOrderDeterminant(Scene):
         # 总结
         summary = Text(
             "掌握这些性质, 计算更轻松!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -653,7 +653,7 @@ class SecondOrderDeterminant(Scene):
         # 片尾关注
         outro = Text(
             "关注我, 学更多行列式知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_RESULT
         ).move_to(UP * 1)

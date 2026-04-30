@@ -24,7 +24,7 @@ C_POINT   = "#FF8A65"
 C_GOLD    = "#FFD700"
 C_GRAY    = GRAY_B
 C_RA      = "#A5D6A7"    # 直角标记
-FONT_CN   = "Noto Sans CJK SC"
+FONT_CN   = "PingFang SC"
 
 
 def iso(x, y, z, sx=0.85, sy=0.55):

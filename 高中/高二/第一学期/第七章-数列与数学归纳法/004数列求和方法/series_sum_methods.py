@@ -77,7 +77,7 @@ class SeriesSumMethods(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -87,7 +87,7 @@ class SeriesSumMethods(Scene):
         # 钩子标题
         hook_title = Text(
             "数列求和难题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -101,7 +101,7 @@ class SeriesSumMethods(Scene):
         
         question_mark = Text(
             "如何求和？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3)
@@ -125,7 +125,7 @@ class SeriesSumMethods(Scene):
             # 圆圈
             circle = Circle(radius=0.35, color=color, fill_opacity=0.3, stroke_width=3)
             # 文字
-            text = Text(name, font="Noto Sans CJK SC", font_size=16, color=WHITE)
+            text = Text(name, font="PingFang SC", font_size=16, color=WHITE)
             
             icon = VGroup(circle, text)
             icons.add(icon)
@@ -164,7 +164,7 @@ class SeriesSumMethods(Scene):
         # 标题
         title = Text(
             "五种求和方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -185,7 +185,7 @@ class SeriesSumMethods(Scene):
         for i, (name, desc, color) in enumerate(methods_data):
             method_name = Text(
                 name,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZES["body"],
                 color=color,
                 weight=BOLD
@@ -193,7 +193,7 @@ class SeriesSumMethods(Scene):
             
             method_desc = Text(
                 f"- {desc}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZES["body"] - 2,
                 color=GRAY_A
             )
@@ -237,7 +237,7 @@ class SeriesSumMethods(Scene):
         # 说明
         note = Text(
             "今天重点讲解 ③ 和 ④",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -271,7 +271,7 @@ class SeriesSumMethods(Scene):
         # 标题
         title = Text(
             "裂项相消法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_METHOD_3,
             weight=BOLD
@@ -308,7 +308,7 @@ class SeriesSumMethods(Scene):
         # 验证标题
         verify_title = Text(
             "验证：通分",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 0.8)
@@ -394,7 +394,7 @@ class SeriesSumMethods(Scene):
         # 裂项标题
         split_title = Text(
             "裂项：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_METHOD_3,
             weight=BOLD
@@ -494,7 +494,7 @@ class SeriesSumMethods(Scene):
         # 剩余项说明
         remaining_note = Text(
             "剩余：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1.5 + LEFT * 3.5)
@@ -564,7 +564,7 @@ class SeriesSumMethods(Scene):
         # 标题
         title = Text(
             "错位相减法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_METHOD_4,
             weight=BOLD
@@ -575,7 +575,7 @@ class SeriesSumMethods(Scene):
         # 适用场景
         scenario = Text(
             "适用：等差数列 × 等比数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -593,7 +593,7 @@ class SeriesSumMethods(Scene):
         # 方法说明
         method_note = Text(
             "方法：乘以公比q，然后相减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_METHOD_4
         ).move_to(UP * 2.3)
@@ -662,7 +662,7 @@ class SeriesSumMethods(Scene):
         # 简化说明
         simplified_note = Text(
             "前四项是等比数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 4.2)
@@ -767,7 +767,7 @@ class SeriesSumMethods(Scene):
         
         general_note = Text(
             "（当等差首项为1，公差为1时）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_A
         ).next_to(general_formula, DOWN, buff=0.2)
@@ -803,7 +803,7 @@ class SeriesSumMethods(Scene):
         # 标题
         title = Text(
             "方法选择技巧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -824,7 +824,7 @@ class SeriesSumMethods(Scene):
         for tip in tips:
             tip_text = Text(
                 tip,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZES["body"] - 2,
                 color=WHITE
             )
@@ -842,7 +842,7 @@ class SeriesSumMethods(Scene):
         # 重点提示
         highlight_note = Text(
             "多练习，熟能生巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -879,7 +879,7 @@ class SeriesSumMethods(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -887,7 +887,7 @@ class SeriesSumMethods(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -901,7 +901,7 @@ class SeriesSumMethods(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握更多求和技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

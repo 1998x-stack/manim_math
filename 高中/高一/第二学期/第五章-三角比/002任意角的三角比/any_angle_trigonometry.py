@@ -122,7 +122,7 @@ class AnyAngleTrigonometry(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -132,14 +132,14 @@ class AnyAngleTrigonometry(Scene):
         # 钩子问题
         hook_line1 = Text(
             "锐角的 sin、cos、tan 你会算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE
         ).move_to(UP * 2.5)
         
         hook_line2 = Text(
             "那钝角、负角呢?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.2)
@@ -181,7 +181,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "单位圆上的三角函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -222,7 +222,7 @@ class AnyAngleTrigonometry(Scene):
         
         circle_label = Text(
             "单位圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(circle, UR, buff=0.1)
@@ -235,7 +235,7 @@ class AnyAngleTrigonometry(Scene):
         # 定义说明
         definition = Text(
             "设角α的终边与单位圆交于点 P(x, y)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -275,7 +275,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "第一象限 (0° < α < 90°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_Q1
         ).move_to(UP * 6)
@@ -379,7 +379,7 @@ class AnyAngleTrigonometry(Scene):
         
         # 结论
         conclusion = VGroup(
-            Text("x > 0, y > 0", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_POSITIVE),
+            Text("x > 0, y > 0", font="PingFang SC", font_size=26, color=self.COLOR_POSITIVE),
             MathTex(r"\sin\alpha > 0,\ \cos\alpha > 0,\ \tan\alpha > 0", font_size=26, color=self.COLOR_POSITIVE)
         ).arrange(DOWN, buff=0.3).move_to(DOWN * 5.5)
         
@@ -416,7 +416,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "第二象限 (90° < α < 180°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_Q2
         ).move_to(UP * 6)
@@ -486,7 +486,7 @@ class AnyAngleTrigonometry(Scene):
         
         # 结论
         conclusion = VGroup(
-            Text("x < 0, y > 0", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("x < 0, y > 0", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(
                 r"\sin\alpha ", r"> 0,\ ",
                 r"\cos\alpha ", r"< 0,\ ",
@@ -505,7 +505,7 @@ class AnyAngleTrigonometry(Scene):
         # 重点提示
         hint = Text(
             "只有 sin 为正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7)
@@ -529,7 +529,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "第三象限 (180° < α < 270°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_Q3
         ).move_to(UP * 6)
@@ -598,7 +598,7 @@ class AnyAngleTrigonometry(Scene):
         
         # 结论
         conclusion = VGroup(
-            Text("x < 0, y < 0", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("x < 0, y < 0", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(
                 r"\sin\alpha ", r"< 0,\ ",
                 r"\cos\alpha ", r"< 0,\ ",
@@ -617,7 +617,7 @@ class AnyAngleTrigonometry(Scene):
         # 重点提示
         hint = Text(
             "只有 tan 为正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7)
@@ -641,7 +641,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "第四象限 (270° < α < 360°)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_Q4
         ).move_to(UP * 6)
@@ -710,7 +710,7 @@ class AnyAngleTrigonometry(Scene):
         
         # 结论
         conclusion = VGroup(
-            Text("x > 0, y < 0", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+            Text("x > 0, y < 0", font="PingFang SC", font_size=26, color=WHITE),
             MathTex(
                 r"\sin\alpha ", r"< 0,\ ",
                 r"\cos\alpha ", r"> 0,\ ",
@@ -729,7 +729,7 @@ class AnyAngleTrigonometry(Scene):
         # 重点提示
         hint = Text(
             "只有 cos 为正!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7)
@@ -762,7 +762,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "记忆口诀",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6)
@@ -772,7 +772,7 @@ class AnyAngleTrigonometry(Scene):
         # 口诀
         mnemonic = Text(
             "一全二正弦三正切四余弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -854,7 +854,7 @@ class AnyAngleTrigonometry(Scene):
         # 象限标记
         quadrant_label = Text(
             f"第{quadrant_num}象限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=color,
             weight=BOLD
@@ -863,7 +863,7 @@ class AnyAngleTrigonometry(Scene):
         # 说明
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -871,7 +871,7 @@ class AnyAngleTrigonometry(Scene):
         # 公式
         formula = Text(
             formula_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -899,7 +899,7 @@ class AnyAngleTrigonometry(Scene):
         # 标题
         title = Text(
             "角度旋转演示",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -965,7 +965,7 @@ class AnyAngleTrigonometry(Scene):
         # 总结文本
         summary = Text(
             "随着角度变化，三角比也在周期性变化",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 5)
@@ -995,14 +995,14 @@ class AnyAngleTrigonometry(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -1016,7 +1016,7 @@ class AnyAngleTrigonometry(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，轻松学三角!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -1026,7 +1026,7 @@ class AnyAngleTrigonometry(Scene):
         # 口诀重复
         mnemonic = Text(
             "一全二正弦三正切四余弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD
         ).move_to(DOWN * 2.5)

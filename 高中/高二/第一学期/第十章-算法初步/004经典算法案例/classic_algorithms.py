@@ -49,7 +49,7 @@ class ClassicAlgorithms(Scene):
         self.COLOR_ALGORITHM_3 = "#9b59b6"  # 进制转换
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         
         # 执行动画序列
         self.show_opening()

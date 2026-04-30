@@ -133,7 +133,7 @@ class QuadraticInequality(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -143,7 +143,7 @@ class QuadraticInequality(Scene):
         # 钩子问题
         hook_text = Text(
             "一元二次不等式怎么解?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -207,7 +207,7 @@ class QuadraticInequality(Scene):
         # 标题
         title = Text(
             "核心思路",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -237,7 +237,7 @@ class QuadraticInequality(Scene):
         # 说明文字
         explain = Text(
             "求 y > 0 对应的 x 范围",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -292,7 +292,7 @@ class QuadraticInequality(Scene):
                 continue
             label = Text(
                 str(x),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=GRAY_A
             ).move_to(self.axes.c2p(x, 0) + DOWN * 0.3)
@@ -304,7 +304,7 @@ class QuadraticInequality(Scene):
                 continue
             label = Text(
                 str(y),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=GRAY_A
             ).move_to(self.axes.c2p(0, y) + LEFT * 0.3)
@@ -313,7 +313,7 @@ class QuadraticInequality(Scene):
         # 原点标注
         origin_label = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).move_to(self.axes.c2p(0, 0) + DL * 0.35)
@@ -359,7 +359,7 @@ class QuadraticInequality(Scene):
         # 说明文字
         explain = Text(
             "a > 0, 开口向上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -374,7 +374,7 @@ class QuadraticInequality(Scene):
         # 标题
         title = Text(
             "第一步: 解方程找交点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -468,7 +468,7 @@ class QuadraticInequality(Scene):
         # 标题
         title = Text(
             "第二步: 观察函数值正负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -478,7 +478,7 @@ class QuadraticInequality(Scene):
         # 说明 y > 0
         explain1 = Text(
             "y > 0: 抛物线在 x 轴上方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_POSITIVE
         ).move_to(DOWN * 5.3)
@@ -509,7 +509,7 @@ class QuadraticInequality(Scene):
         # 说明 y < 0
         explain2 = Text(
             "y < 0: 抛物线在 x 轴下方",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_NEGATIVE
         ).move_to(DOWN * 5.3)
@@ -538,7 +538,7 @@ class QuadraticInequality(Scene):
         # 显示解集
         solution = VGroup(
             MathTex(r"x < 1", font_size=40, color=self.COLOR_HIGHLIGHT),
-            Text("或", font="Noto Sans CJK SC", font_size=40, color=self.COLOR_HIGHLIGHT),
+            Text("或", font="PingFang SC", font_size=40, color=self.COLOR_HIGHLIGHT),
             MathTex(r"x > 2", font_size=40, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.2).move_to(DOWN * 6.2)
         
@@ -581,7 +581,7 @@ class QuadraticInequality(Scene):
         # 标题
         title = Text(
             "判别式 Δ 决定根的情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -622,14 +622,14 @@ class QuadraticInequality(Scene):
         
         case1_title = Text(
             "Δ > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(case1_axes, UP, buff=0.3)
         
         case1_solution = Text(
             "x < x₁ 或 x > x₂",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_POSITIVE
         ).next_to(case1_axes, DOWN, buff=0.3)
@@ -655,7 +655,7 @@ class QuadraticInequality(Scene):
         
         case2_title = Text(
             "Δ = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(case2_axes, UP, buff=0.3)
@@ -685,7 +685,7 @@ class QuadraticInequality(Scene):
         
         case3_title = Text(
             "Δ < 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(case3_axes, UP, buff=0.3)
@@ -731,7 +731,7 @@ class QuadraticInequality(Scene):
         # 总结说明
         summary = Text(
             "(a > 0 时，不等式 > 0 的解)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -756,7 +756,7 @@ class QuadraticInequality(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -769,7 +769,7 @@ class QuadraticInequality(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -779,7 +779,7 @@ class QuadraticInequality(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多解题技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

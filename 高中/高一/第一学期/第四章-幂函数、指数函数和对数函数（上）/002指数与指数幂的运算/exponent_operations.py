@@ -51,18 +51,18 @@ class ExponentOperations(Scene):
     def scene_1_opening(self):
         self.author = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=self.C_AUX,
+            font="PingFang SC", font_size=20, color=self.C_AUX,
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
 
         title = Text("指数幂的运算法则",
-                      font="Noto Sans CJK SC", font_size=44, color=GOLD
+                      font="PingFang SC", font_size=44, color=GOLD
                       ).move_to(UP * 6.2)
         self.play(Write(title), run_time=0.7)
 
         hook = Text(
             "记住这 4 条，指数计算不发愁！",
-            font="Noto Sans CJK SC", font_size=26, color=WHITE,
+            font="PingFang SC", font_size=26, color=WHITE,
         ).move_to(UP * 5.2)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.5)
 
@@ -117,7 +117,7 @@ class ExponentOperations(Scene):
     def _show_rule_card(self, rule):
         # 法则名称
         name_mob = Text(
-            rule["name"], font="Noto Sans CJK SC",
+            rule["name"], font="PingFang SC",
             font_size=26, color=self.C_HL,
         ).move_to(UP * 6.0)
         self.play(Write(name_mob), run_time=0.5)
@@ -130,7 +130,7 @@ class ExponentOperations(Scene):
         self.play(Write(rule_mob), Create(box), run_time=0.7)
 
         # 例子
-        eg_label = Text("例：", font="Noto Sans CJK SC",
+        eg_label = Text("例：", font="PingFang SC",
                          font_size=24, color=self.C_AUX).move_to(UP * 3.4 + LEFT * 2.5)
         eg_mob = MathTex(rule["eg"], font_size=30, color=self.C_EG
                           ).move_to(UP * 3.4)
@@ -138,7 +138,7 @@ class ExponentOperations(Scene):
 
         # 箭头指向变化的部分 + tip
         tip_mob = Text(
-            rule["tip"], font="Noto Sans CJK SC",
+            rule["tip"], font="PingFang SC",
             font_size=22, color=self.C_INC,
         ).move_to(UP * 2.2)
         self.play(FadeIn(tip_mob, shift=UP * 0.2), run_time=0.4)
@@ -161,18 +161,18 @@ class ExponentOperations(Scene):
     # ══════════════════════════════════════════════
     def scene_3_special(self):
         sc_title = Text("特殊指数",
-                         font="Noto Sans CJK SC", font_size=34, color=self.C_SPECIAL
+                         font="PingFang SC", font_size=34, color=self.C_SPECIAL
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
         # ── 零次幂 ──
         zero_title = Text("零次幂",
-                           font="Noto Sans CJK SC", font_size=28, color=WHITE
+                           font="PingFang SC", font_size=28, color=WHITE
                            ).move_to(UP * 5.2)
         zero_formula = MathTex(r"a^0 = 1 \quad (a \neq 0)",
                                 font_size=40, color=self.C_RULE).move_to(UP * 4.3)
         zero_why = Text("理解：a³ ÷ a³ = a³⁻³ = a⁰，同时 = 1",
-                         font="Noto Sans CJK SC", font_size=20, color=self.C_AUX
+                         font="PingFang SC", font_size=20, color=self.C_AUX
                          ).move_to(UP * 3.5)
         zero_eg = MathTex(r"5^0 = 1,\quad (-3)^0 = 1,\quad \pi^0 = 1",
                            font_size=26, color=self.C_EG).move_to(UP * 2.7)
@@ -184,7 +184,7 @@ class ExponentOperations(Scene):
 
         # ── 负整数幂 ──
         neg_title = Text("负整数幂",
-                          font="Noto Sans CJK SC", font_size=28, color=WHITE
+                          font="PingFang SC", font_size=28, color=WHITE
                           ).move_to(UP * 1.5)
         neg_formula = MathTex(r"a^{-n} = \frac{1}{a^n} \quad (a \neq 0)",
                                font_size=40, color=self.C_RULE).move_to(UP * 0.5)
@@ -210,7 +210,7 @@ class ExponentOperations(Scene):
     # ══════════════════════════════════════════════
     def scene_4_rational(self):
         sc_title = Text("有理数指数幂",
-                         font="Noto Sans CJK SC", font_size=34, color=GOLD
+                         font="PingFang SC", font_size=34, color=GOLD
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -226,12 +226,12 @@ class ExponentOperations(Scene):
         # 直觉说明
         intuition = Text(
             "分子是指数，分母是根号次数",
-            font="Noto Sans CJK SC", font_size=22, color=self.C_AUX,
+            font="PingFang SC", font_size=22, color=self.C_AUX,
         ).move_to(UP * 3.9)
         self.play(FadeIn(intuition), run_time=0.4)
 
         # 例 1
-        eg1_label = Text("例 1：", font="Noto Sans CJK SC",
+        eg1_label = Text("例 1：", font="PingFang SC",
                           font_size=24, color=self.C_AUX).move_to(UP * 3.0 + LEFT * 2.5)
         eg1 = MathTex(
             r"8^{\frac{2}{3}} = \sqrt[3]{8^2} = \sqrt[3]{64} = 4",
@@ -240,7 +240,7 @@ class ExponentOperations(Scene):
         self.play(FadeIn(eg1_label), Write(eg1), run_time=0.7)
 
         # 例 2
-        eg2_label = Text("例 2：", font="Noto Sans CJK SC",
+        eg2_label = Text("例 2：", font="PingFang SC",
                           font_size=24, color=self.C_AUX).move_to(UP * 2.0 + LEFT * 2.5)
         eg2 = MathTex(
             r"4^{\frac{3}{2}} = \sqrt{4^3} = \sqrt{64} = 8",
@@ -249,7 +249,7 @@ class ExponentOperations(Scene):
         self.play(FadeIn(eg2_label), Write(eg2), run_time=0.7)
 
         # 例 3（分数指数→根号互化）
-        eg3_label = Text("例 3：", font="Noto Sans CJK SC",
+        eg3_label = Text("例 3：", font="PingFang SC",
                           font_size=24, color=self.C_AUX).move_to(UP * 1.0 + LEFT * 2.5)
         eg3 = MathTex(
             r"\sqrt[4]{a^3} = a^{\frac{3}{4}}",
@@ -260,7 +260,7 @@ class ExponentOperations(Scene):
         # 总结提示
         summary = Text(
             "根式 ⟺ 分数指数  随时互换！",
-            font="Noto Sans CJK SC", font_size=24, color=self.C_INC,
+            font="PingFang SC", font_size=24, color=self.C_INC,
         ).move_to(DOWN * 0.3)
         sum_box = SurroundingRectangle(summary, color=self.C_INC, buff=0.2,
                                        corner_radius=0.1)
@@ -281,30 +281,30 @@ class ExponentOperations(Scene):
     # Scene 5: 总结 + 片尾
     # ══════════════════════════════════════════════
     def scene_5_outro(self):
-        sc_title = Text("指数运算口诀", font="Noto Sans CJK SC",
+        sc_title = Text("指数运算口诀", font="PingFang SC",
                          font_size=34, color=GOLD).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
         rules_summary = VGroup(
             VGroup(
-                Text("①", font="Noto Sans CJK SC", font_size=26, color=self.C_HL),
+                Text("①", font="PingFang SC", font_size=26, color=self.C_HL),
                 MathTex(r"a^m \cdot a^n = a^{m+n}", font_size=26, color=self.C_RULE),
-                Text("加", font="Noto Sans CJK SC", font_size=22, color=self.C_INC),
+                Text("加", font="PingFang SC", font_size=22, color=self.C_INC),
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("②", font="Noto Sans CJK SC", font_size=26, color=self.C_HL),
+                Text("②", font="PingFang SC", font_size=26, color=self.C_HL),
                 MathTex(r"\frac{a^m}{a^n} = a^{m-n}", font_size=26, color=self.C_RULE),
-                Text("减", font="Noto Sans CJK SC", font_size=22, color=self.C_INC),
+                Text("减", font="PingFang SC", font_size=22, color=self.C_INC),
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("③", font="Noto Sans CJK SC", font_size=26, color=self.C_HL),
+                Text("③", font="PingFang SC", font_size=26, color=self.C_HL),
                 MathTex(r"(a^m)^n = a^{mn}", font_size=26, color=self.C_RULE),
-                Text("乘", font="Noto Sans CJK SC", font_size=22, color=self.C_INC),
+                Text("乘", font="PingFang SC", font_size=22, color=self.C_INC),
             ).arrange(RIGHT, buff=0.3),
             VGroup(
-                Text("④", font="Noto Sans CJK SC", font_size=26, color=self.C_HL),
+                Text("④", font="PingFang SC", font_size=26, color=self.C_HL),
                 MathTex(r"(ab)^n = a^n b^n", font_size=26, color=self.C_RULE),
-                Text("分配", font="Noto Sans CJK SC", font_size=22, color=self.C_INC),
+                Text("分配", font="PingFang SC", font_size=22, color=self.C_INC),
             ).arrange(RIGHT, buff=0.3),
         ).arrange(DOWN, buff=0.55, aligned_edge=LEFT).move_to(UP * 3.8)
 
@@ -329,13 +329,13 @@ class ExponentOperations(Scene):
         )
 
         name_big = Text("上海初高中数学直通车",
-                         font="Noto Sans CJK SC", font_size=40, color=WHITE
+                         font="PingFang SC", font_size=40, color=WHITE
                          ).move_to(UP * 1.5)
         id_text  = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=28, color=self.C_AUX
+                         font="PingFang SC", font_size=28, color=self.C_AUX
                          ).move_to(UP * 0.6)
         call     = Text("关注我，获得更多数学技巧！",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD
+                         font="PingFang SC", font_size=28, color=GOLD
                          ).move_to(DOWN * 0.3)
 
         self.play(Transform(self.author, name_big), run_time=0.7)

@@ -159,7 +159,7 @@ class CircleEquation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -169,7 +169,7 @@ class CircleEquation(Scene):
         # 钩子问题
         hook = Text(
             "如何用方程描述一个圆？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -201,7 +201,7 @@ class CircleEquation(Scene):
         # 标题
         title = Text(
             "圆的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -216,7 +216,7 @@ class CircleEquation(Scene):
         )
         center_label = Text(
             "O",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_SECONDARY
         ).next_to(center_dot, DOWN + RIGHT, buff=0.1)
@@ -258,7 +258,7 @@ class CircleEquation(Scene):
         # 定义文字
         definition = Text(
             "到定点距离等于定长的点的轨迹",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -284,7 +284,7 @@ class CircleEquation(Scene):
         # 标题
         title = Text(
             "标准方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -345,7 +345,7 @@ class CircleEquation(Scene):
         # 标题
         title = Text(
             "一般方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -365,7 +365,7 @@ class CircleEquation(Scene):
         # 配方过程提示
         hint = Text(
             "通过配方可得:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 3.5)
@@ -410,7 +410,7 @@ class CircleEquation(Scene):
         
         condition_text = Text(
             "(表示圆)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(condition, RIGHT, buff=0.2)
@@ -440,7 +440,7 @@ class CircleEquation(Scene):
         # 标题
         title = Text(
             "直线与圆的位置关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_LINE
         ).move_to(UP * 5.5)
@@ -450,7 +450,7 @@ class CircleEquation(Scene):
         # 副标题
         subtitle = Text(
             "1. 相离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.8)
@@ -545,7 +545,7 @@ class CircleEquation(Scene):
         # 更新副标题
         subtitle = Text(
             "2. 相切",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.8)
@@ -566,7 +566,7 @@ class CircleEquation(Scene):
         # 切点
         tangent_point = self.center + self.radius_pixels * UP
         tangent_dot = Dot(tangent_point, color=self.COLOR_HIGHLIGHT, radius=0.06)
-        tangent_label = Text("P", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(
+        tangent_label = Text("P", font="PingFang SC", font_size=20, color=WHITE).next_to(
             tangent_dot, RIGHT, buff=0.1
         )
         
@@ -622,7 +622,7 @@ class CircleEquation(Scene):
         # 更新副标题
         subtitle = Text(
             "3. 相交",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.8)
@@ -699,20 +699,20 @@ class CircleEquation(Scene):
         # 总结
         summary_title = Text(
             "三种位置关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
         
         summary_content = VGroup(
             MathTex(r"d > r", font_size=24, color=RED).next_to(summary_title, DOWN, buff=0.4, aligned_edge=LEFT).shift(RIGHT * 0.5),
-            Text("相离", font="Noto Sans CJK SC", font_size=22, color=GRAY_A).next_to(summary_title, DOWN, buff=0.4, aligned_edge=LEFT).shift(RIGHT * 2),
+            Text("相离", font="PingFang SC", font_size=22, color=GRAY_A).next_to(summary_title, DOWN, buff=0.4, aligned_edge=LEFT).shift(RIGHT * 2),
             
             MathTex(r"d = r", font_size=24, color=YELLOW).next_to(summary_title, DOWN, buff=0.9, aligned_edge=LEFT).shift(RIGHT * 0.5),
-            Text("相切", font="Noto Sans CJK SC", font_size=22, color=GRAY_A).next_to(summary_title, DOWN, buff=0.9, aligned_edge=LEFT).shift(RIGHT * 2),
+            Text("相切", font="PingFang SC", font_size=22, color=GRAY_A).next_to(summary_title, DOWN, buff=0.9, aligned_edge=LEFT).shift(RIGHT * 2),
             
             MathTex(r"d < r", font_size=24, color=GREEN).next_to(summary_title, DOWN, buff=1.4, aligned_edge=LEFT).shift(RIGHT * 0.5),
-            Text("相交", font="Noto Sans CJK SC", font_size=22, color=GRAY_A).next_to(summary_title, DOWN, buff=1.4, aligned_edge=LEFT).shift(RIGHT * 2),
+            Text("相交", font="PingFang SC", font_size=22, color=GRAY_A).next_to(summary_title, DOWN, buff=1.4, aligned_edge=LEFT).shift(RIGHT * 2),
         )
         
         self.play(FadeIn(summary_title), run_time=0.6)
@@ -761,14 +761,14 @@ class CircleEquation(Scene):
         # 作者名称放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -782,7 +782,7 @@ class CircleEquation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

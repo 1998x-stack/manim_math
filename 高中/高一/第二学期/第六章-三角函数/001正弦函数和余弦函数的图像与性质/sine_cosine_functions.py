@@ -123,7 +123,7 @@ class SineCosineFunctions(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -133,7 +133,7 @@ class SineCosineFunctions(Scene):
         # 钩子标题
         hook_title = Text(
             "正弦和余弦有什么区别?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -165,7 +165,7 @@ class SineCosineFunctions(Scene):
         # 标题
         title = Text(
             "正弦函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SINE
         ).move_to(UP * 6.5)
@@ -193,7 +193,7 @@ class SineCosineFunctions(Scene):
         # 五点法说明
         five_point_text = Text(
             "「五点法」绘图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 5)
@@ -294,10 +294,10 @@ class SineCosineFunctions(Scene):
         """场景3: 正弦函数性质标注"""
         # 性质列表
         properties = VGroup(
-            Text("定义域: R", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("值域: [-1, 1]", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("周期: 2π", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("奇函数 (关于原点对称)", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("定义域: R", font="PingFang SC", font_size=22, color=WHITE),
+            Text("值域: [-1, 1]", font="PingFang SC", font_size=22, color=WHITE),
+            Text("周期: 2π", font="PingFang SC", font_size=22, color=WHITE),
+            Text("奇函数 (关于原点对称)", font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to(DOWN * 4.5)
         
         # 依次显示性质
@@ -320,7 +320,7 @@ class SineCosineFunctions(Scene):
         # 单调性标注
         monotone_text = Text(
             "单调递增: [-π/2, π/2]",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 6.5)
@@ -351,7 +351,7 @@ class SineCosineFunctions(Scene):
         # 更新标题
         new_title = Text(
             "余弦函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_COSINE
         ).move_to(UP * 6.5)
@@ -374,7 +374,7 @@ class SineCosineFunctions(Scene):
         # 五点法说明
         five_point_text = Text(
             "「五点法」绘图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 5)
@@ -453,10 +453,10 @@ class SineCosineFunctions(Scene):
         """场景5: 余弦函数性质标注"""
         # 性质列表
         properties = VGroup(
-            Text("定义域: R", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("值域: [-1, 1]", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("周期: 2π", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("偶函数 (关于y轴对称)", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("定义域: R", font="PingFang SC", font_size=22, color=WHITE),
+            Text("值域: [-1, 1]", font="PingFang SC", font_size=22, color=WHITE),
+            Text("周期: 2π", font="PingFang SC", font_size=22, color=WHITE),
+            Text("偶函数 (关于y轴对称)", font="PingFang SC", font_size=22, color=WHITE),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to(DOWN * 4.5)
         
         # 依次显示性质
@@ -467,7 +467,7 @@ class SineCosineFunctions(Scene):
         # 单调性标注
         monotone_text = Text(
             "单调递减: [0, π]",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 6.5)
@@ -505,7 +505,7 @@ class SineCosineFunctions(Scene):
         # 新标题
         title = Text(
             "正弦与余弦的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -591,7 +591,7 @@ class SineCosineFunctions(Scene):
         # 总结卡片
         summary_title = Text(
             "核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -601,15 +601,15 @@ class SineCosineFunctions(Scene):
         
         # 性质对比卡片
         sine_card = VGroup(
-            Text("y = sin x", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SINE, weight=BOLD),
-            Text("奇函数", font="Noto Sans CJK SC", font_size=18, color=WHITE),
-            Text("关于原点对称", font="Noto Sans CJK SC", font_size=16, color=GRAY_A),
+            Text("y = sin x", font="PingFang SC", font_size=24, color=self.COLOR_SINE, weight=BOLD),
+            Text("奇函数", font="PingFang SC", font_size=18, color=WHITE),
+            Text("关于原点对称", font="PingFang SC", font_size=16, color=GRAY_A),
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         
         cosine_card = VGroup(
-            Text("y = cos x", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_COSINE, weight=BOLD),
-            Text("偶函数", font="Noto Sans CJK SC", font_size=18, color=WHITE),
-            Text("关于y轴对称", font="Noto Sans CJK SC", font_size=16, color=GRAY_A),
+            Text("y = cos x", font="PingFang SC", font_size=24, color=self.COLOR_COSINE, weight=BOLD),
+            Text("偶函数", font="PingFang SC", font_size=18, color=WHITE),
+            Text("关于y轴对称", font="PingFang SC", font_size=16, color=GRAY_A),
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         
         cards = VGroup(sine_card, cosine_card).arrange(RIGHT, buff=1.5).move_to(UP * 0.5)
@@ -620,7 +620,7 @@ class SineCosineFunctions(Scene):
         # 共同性质
         common = Text(
             "定义域R, 值域[-1,1], 周期2π",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 1.5)
@@ -641,7 +641,7 @@ class SineCosineFunctions(Scene):
         # 片尾 - 关注提示
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
             weight=BOLD
@@ -649,7 +649,7 @@ class SineCosineFunctions(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=GRAY_B
         ).move_to(UP * 0.8)
@@ -663,7 +663,7 @@ class SineCosineFunctions(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

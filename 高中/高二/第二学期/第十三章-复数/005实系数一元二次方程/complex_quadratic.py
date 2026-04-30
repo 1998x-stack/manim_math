@@ -31,7 +31,7 @@ COL_GRAY      = "#95a5a6"
 COL_WHITE     = WHITE
 COL_YELLOW    = YELLOW
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ─────────────────────────────────────────────
 # 主场景

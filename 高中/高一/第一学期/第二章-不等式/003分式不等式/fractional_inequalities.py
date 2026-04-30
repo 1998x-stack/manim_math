@@ -75,7 +75,7 @@ class FractionalInequalities(Scene):
         # 作者信息 (顶部，一直保留到结束)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -85,14 +85,14 @@ class FractionalInequalities(Scene):
         # 标题
         title = Text(
             "分式不等式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
 
         subtitle = Text(
             "f(x)/g(x) > 0 的解法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -111,7 +111,7 @@ class FractionalInequalities(Scene):
         # 钩子问题
         hook_text = Text(
             "如何解这种不等式？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1)
@@ -141,14 +141,14 @@ class FractionalInequalities(Scene):
         # 说明不能交叉相乘
         cross_multiply_warning = Text(
             "不能直接交叉相乘！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=RED
         ).move_to(UP * 4.5)
 
         explanation = Text(
             "因为不知道g(x)的正负",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.8)
@@ -186,7 +186,7 @@ class FractionalInequalities(Scene):
         # 强调分母不为0
         condition = Text(
             "注意：g(x) ≠ 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=YELLOW
         ).move_to(UP * 0.5)
@@ -228,7 +228,7 @@ class FractionalInequalities(Scene):
         # 强调分母不为0的条件
         condition_note = Text(
             "且 x ≠ -2 (分母不为0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=RED
         ).move_to(UP * 3.8)
@@ -238,7 +238,7 @@ class FractionalInequalities(Scene):
         # 显示关键点
         key_points_text = Text(
             "关键点: x = 1 (分子为0), x = -2 (分母为0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 2.8)
@@ -294,7 +294,7 @@ class FractionalInequalities(Scene):
             )
             label = Text(
                 str(point),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=WHITE
             ).next_to(dot, DOWN, buff=0.15)
@@ -323,7 +323,7 @@ class FractionalInequalities(Scene):
             mid_point = (start + end) / 2
             sign_text = Text(
                 sign,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=GREEN if sign == "+" else RED
             ).move_to(number_line.n2p(mid_point) + UP * 0.5)
@@ -336,7 +336,7 @@ class FractionalInequalities(Scene):
         # 解释"奇穿偶不穿"概念
         explanation = Text(
             "奇穿偶不穿：奇次根穿过数轴，偶次根不穿过",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 1)
@@ -388,7 +388,7 @@ class FractionalInequalities(Scene):
         # 因式分解说明
         factorization_note = Text(
             "分子: x-1, 分母: x+2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -398,7 +398,7 @@ class FractionalInequalities(Scene):
         # 关键点说明
         key_points_note = Text(
             "关键点: x = -2 (分母为0), x = 1 (分子为0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 4.8)
@@ -412,7 +412,7 @@ class FractionalInequalities(Scene):
         # 解集
         solution_intervals = Text(
             "解集: x ∈ (-∞, -2) ∪ [1, +∞)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
@@ -436,7 +436,7 @@ class FractionalInequalities(Scene):
         # 分母不为0的约束
         constraint_note = Text(
             "注意：x ≠ -2 (分母不能为0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=RED
         ).move_to(DOWN * 1.5)
@@ -460,17 +460,17 @@ class FractionalInequalities(Scene):
         # 总结解题步骤
         steps_title = Text(
             "解题步骤总结:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 5.5)
 
         steps = VGroup(
-            Text("1. 确定分子分母零点", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("2. 在数轴上标出关键点", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("3. 用'奇穿偶不穿'标正负", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("4. 根据不等号选区间", font="Noto Sans CJK SC", font_size=24, color=WHITE),
-            Text("5. 注意分母不能为0", font="Noto Sans CJK SC", font_size=24, color=RED)
+            Text("1. 确定分子分母零点", font="PingFang SC", font_size=24, color=WHITE),
+            Text("2. 在数轴上标出关键点", font="PingFang SC", font_size=24, color=WHITE),
+            Text("3. 用'奇穿偶不穿'标正负", font="PingFang SC", font_size=24, color=WHITE),
+            Text("4. 根据不等号选区间", font="PingFang SC", font_size=24, color=WHITE),
+            Text("5. 注意分母不能为0", font="PingFang SC", font_size=24, color=RED)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.4).move_to(UP * 2.5)
 
         self.play(Write(steps_title), run_time=0.5)
@@ -482,7 +482,7 @@ class FractionalInequalities(Scene):
         # 强调分母不为0的重要性
         denominator_warning = Text(
             "★ 分母不能为0 ★",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=RED
         ).move_to(UP * 0.5)
@@ -502,7 +502,7 @@ class FractionalInequalities(Scene):
         # 关注信息
         follow_message = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)

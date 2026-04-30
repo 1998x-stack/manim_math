@@ -146,7 +146,7 @@ class VectorDotProduct(Scene):
         # 作者信息
         self.author_bar = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B,
         ).move_to(UP * 7.2)
@@ -155,14 +155,14 @@ class VectorDotProduct(Scene):
         # 钩子问题
         hook_line1 = Text(
             "两个向量能相乘吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=YELLOW,
         ).move_to(UP * 5.5)
 
         hook_line2 = Text(
             "结果是什么？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE,
         ).move_to(UP * 4.7)
@@ -233,14 +233,14 @@ class VectorDotProduct(Scene):
         # 标题
         title = Text(
             "数量积的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 6.2)
 
         subtitle = Text(
             "（点积 / 内积）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_B,
         ).next_to(title, DOWN, buff=0.1)
@@ -315,7 +315,7 @@ class VectorDotProduct(Scene):
         # 说明1: θ的范围
         range_text = Text(
             "夹角范围：0 ≤ θ ≤ π",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A,
         ).move_to(DOWN * 5.0)
@@ -336,7 +336,7 @@ class VectorDotProduct(Scene):
 
         scalar_text = Text(
             "结果是标量（数），不是向量！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_RESULT,
         ).move_to(DOWN * 5.9)
@@ -366,7 +366,7 @@ class VectorDotProduct(Scene):
     def scene_3_coordinate_formula(self):
         title = Text(
             "坐标计算公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -474,7 +474,7 @@ class VectorDotProduct(Scene):
     def scene_4_verify(self):
         title = Text(
             "两种公式，结果相同！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -493,7 +493,7 @@ class VectorDotProduct(Scene):
         # 等于号连接
         equal_text = Text(
             "都等于",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A,
         ).move_to(UP * 1.6)
@@ -547,7 +547,7 @@ class VectorDotProduct(Scene):
 
         title = Text(
             "向量垂直的条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -691,7 +691,7 @@ class VectorDotProduct(Scene):
     def scene_6_magnitude(self):
         title = Text(
             "向量的模长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA,
         ).move_to(UP * 6.2)
@@ -761,7 +761,7 @@ class VectorDotProduct(Scene):
         # 总结卡片
         summary_title = Text(
             "核心公式总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 2.2)
@@ -812,14 +812,14 @@ class VectorDotProduct(Scene):
         # 作者信息放大
         outro_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=WHITE,
         ).move_to(UP * 2.0)
 
         outro_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B,
         ).next_to(outro_name, DOWN, buff=0.3)
@@ -832,7 +832,7 @@ class VectorDotProduct(Scene):
 
         follow_text = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 0.5)

@@ -35,7 +35,7 @@ C_GN       = "#9b59b6"   # 一般式  紫
 C_AX       = "#7f8c8d"   # 轴色
 C_HL       = YELLOW      # 高亮
 C_BG_CARD  = "#16213e"   # 卡片背景
-FONT       = "Noto Sans CJK SC"
+FONT       = "PingFang SC"
 
 
 # ══════════════════════════════════════════════

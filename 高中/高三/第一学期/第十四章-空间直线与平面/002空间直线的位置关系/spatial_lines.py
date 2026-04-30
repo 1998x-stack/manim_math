@@ -24,7 +24,7 @@ C_ANGLE    = "#A5D6A7"   # 浅绿  — 角度
 C_SKEW     = "#CE93D8"   # 紫色  — 异面
 C_GOLD     = "#FFD700"
 C_GRAY     = GRAY_B
-FONT_CN    = "Noto Sans CJK SC"
+FONT_CN    = "PingFang SC"
 
 
 # ============================================================

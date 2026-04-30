@@ -20,7 +20,7 @@ COLOR_BLUE = "#3498db"
 COLOR_GREEN = "#2ecc71"
 COLOR_PURPLE = "#9b59b6"
 COLOR_ORANGE = "#f39c12"
-FONT_CN = "Noto Sans CJK SC"
+FONT_CN = "PingFang SC"
 
 
 class AbsoluteValueInequalities(Scene):
@@ -240,7 +240,7 @@ class AbsoluteValueInequalities(Scene):
         # 通用公式框
         general = VGroup(
             MathTex(r"\lvert x \rvert > a \;\Longleftrightarrow\; x < -a", font_size=30, color=YELLOW),
-            Text("或", font="Noto Sans CJK SC", font_size=30, color=YELLOW),
+            Text("或", font="PingFang SC", font_size=30, color=YELLOW),
             MathTex(r"x > a", font_size=30, color=YELLOW),
         ).arrange(RIGHT, buff=0.15).move_to([0, -6.0, 0])
         note = Text("(a > 0)", font=FONT_CN, font_size=22, color=GRAY_A).next_to(general, DOWN, buff=0.2)
@@ -299,7 +299,7 @@ class AbsoluteValueInequalities(Scene):
         # 转化公式
         equiv = VGroup(
             MathTex(r"x < -3", font_size=38, color=COLOR_RED),
-            Text("或", font="Noto Sans CJK SC", font_size=38, color=COLOR_RED),
+            Text("或", font="PingFang SC", font_size=38, color=COLOR_RED),
             MathTex(r"x > 3", font_size=38, color=COLOR_RED),
         ).arrange(RIGHT, buff=0.3).move_to([0, -4.8, 0])
         self.play(FadeOut(meaning), Write(equiv), run_time=0.6)
@@ -334,7 +334,7 @@ class AbsoluteValueInequalities(Scene):
 
         # 例题
         prob = VGroup(
-            Text("解：", font="Noto Sans CJK SC", font_size=48, color=WHITE),
+            Text("解：", font="PingFang SC", font_size=48, color=WHITE),
             MathTex(r"\lvert x - 2 \rvert < 3", font_size=48, color=WHITE),
         ).arrange(RIGHT, buff=0.2).move_to([0, 4.4, 0])
         self.play(Write(prob), run_time=0.8)
@@ -472,7 +472,7 @@ class AbsoluteValueInequalities(Scene):
 
         f2 = VGroup(
             MathTex(r"\lvert x \rvert > a \;\Longleftrightarrow\; x < -a", font_size=28, color=COLOR_RED),
-            Text("或", font="Noto Sans CJK SC", font_size=28, color=COLOR_RED),
+            Text("或", font="PingFang SC", font_size=28, color=COLOR_RED),
             MathTex(r"x > a", font_size=28, color=COLOR_RED),
         ).arrange(RIGHT, buff=0.15).move_to([0, 2.5, 0])
         t2 = Text("(a > 0)  解集：两段", font=FONT_CN, font_size=20, color=GRAY_A).move_to([0, 2.0, 0])

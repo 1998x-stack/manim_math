@@ -36,7 +36,7 @@ COLOR_EXPLAIN  = "#94a3b8"      # 灰蓝说明
 COLOR_HL       = "#facc15"      # 黄色高亮
 COLOR_PERSON   = ["#ef4444", "#3b82f6", "#a855f7",
                   "#22c55e", "#f97316"]  # 5种人物颜色
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ─────────────────────────────────────────────────────────────
 # 辅助函数

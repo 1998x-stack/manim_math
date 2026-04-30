@@ -30,7 +30,7 @@ COLOR_INTERVAL = "#ff6b6b"   # 红橙 - 区间
 COLOR_FORMULA  = "#a8e6cf"   # 浅绿 - 公式
 COLOR_MU       = "#fdcb6e"   # 暖橙 - μ 真实参数
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ── 字体大小 ──────────────────────────────────────────────
 FS_TITLE   = 40

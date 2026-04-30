@@ -88,7 +88,7 @@ class SufficientNecessaryConditions(Scene):
         # 作者信息 (顶部)
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -98,14 +98,14 @@ class SufficientNecessaryConditions(Scene):
         # 标题
         title = Text(
             "充分条件与必要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
 
         subtitle = Text(
             "逻辑推理的重要概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -121,7 +121,7 @@ class SufficientNecessaryConditions(Scene):
 
         concept_explanation = Text(
             "若p则q",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(concept, DOWN, buff=0.3)
@@ -147,7 +147,7 @@ class SufficientNecessaryConditions(Scene):
         # 标题
         title = Text(
             "充分条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_SUFFICIENT
         ).move_to(UP * 6)
@@ -165,7 +165,7 @@ class SufficientNecessaryConditions(Scene):
 
         label_p = Text(
             "P",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(self.CENTER_P)
@@ -180,7 +180,7 @@ class SufficientNecessaryConditions(Scene):
 
         label_q = Text(
             "Q",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(set_q.get_center())
@@ -212,7 +212,7 @@ class SufficientNecessaryConditions(Scene):
         # 充分条件定义
         sufficient_def = Text(
             "p是q的充分条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SUFFICIENT
         ).move_to(UP * 1.5)
@@ -222,7 +222,7 @@ class SufficientNecessaryConditions(Scene):
         # 充分条件解释
         sufficient_explanation = Text(
             "P⊂Q 时，p⇒q\n有它一定行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE,
             line_spacing=1.2
@@ -282,7 +282,7 @@ class SufficientNecessaryConditions(Scene):
         # 使用上一个场景保留的集合图示，解释必要条件
         necessary_title = Text(
             "必要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_NECESSARY
         ).move_to(UP * 6)
@@ -311,7 +311,7 @@ class SufficientNecessaryConditions(Scene):
         # 必要条件定义
         necessary_def = Text(
             "q是p的必要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_NECESSARY
         ).move_to(UP * 4.5)
@@ -321,7 +321,7 @@ class SufficientNecessaryConditions(Scene):
         # 必要条件解释
         necessary_explanation = Text(
             "P⊂Q 时，q是p的必要条件\n没它一定不行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE,
             line_spacing=1.2
@@ -330,16 +330,16 @@ class SufficientNecessaryConditions(Scene):
         self.play(FadeIn(necessary_explanation), run_time=0.6)
 
         # 示例说明
-        example_part1 = Text("例如：若 ", font="Noto Sans CJK SC", font_size=26)
+        example_part1 = Text("例如：若 ", font="PingFang SC", font_size=26)
         example_math = MathTex("x > 2", font_size=28)
-        example_part2 = Text(" ，则 ", font="Noto Sans CJK SC", font_size=26)
+        example_part2 = Text(" ，则 ", font="PingFang SC", font_size=26)
         example_math2 = MathTex("x > 0", font_size=28)
 
         example = VGroup(example_part1, example_math, example_part2, example_math2).arrange(RIGHT, buff=0.1).move_to(UP * 1.5)
 
         example_meaning = Text(
             "x>2 是 x>0 的充分条件\nx>0 是 x>2 的必要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A,
             line_spacing=1.2
@@ -396,7 +396,7 @@ class SufficientNecessaryConditions(Scene):
         # 标题
         equivalent_title = Text(
             "充要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_EQUIVALENT
         ).move_to(UP * 6)
@@ -433,14 +433,14 @@ class SufficientNecessaryConditions(Scene):
 
         label_p_eq = Text(
             "P",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(center + LEFT * 0.3)  # 轻微偏移避免重叠
 
         label_q_eq = Text(
             "Q",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(center + RIGHT * 0.3)
@@ -477,7 +477,7 @@ class SufficientNecessaryConditions(Scene):
         # 充要条件定义
         equivalent_def = Text(
             "充要条件 (充分必要条件)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_EQUIVALENT
         ).move_to(UP * 0.5)
@@ -487,7 +487,7 @@ class SufficientNecessaryConditions(Scene):
         # 充要条件解释
         equivalent_explanation = Text(
             "P = Q 时，p⟺q\n互为充要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE,
             line_spacing=1.2
@@ -524,7 +524,7 @@ class SufficientNecessaryConditions(Scene):
         # 标题
         title = Text(
             "总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
@@ -533,19 +533,19 @@ class SufficientNecessaryConditions(Scene):
 
         # 创建条件对比表
         sufficient_row = VGroup(
-            Text("充分条件", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SUFFICIENT),
+            Text("充分条件", font="PingFang SC", font_size=24, color=self.COLOR_SUFFICIENT),
             MathTex("p \\Rightarrow q", font_size=28),
             Text("P⊂Q", font_size=24)
         ).arrange(RIGHT, buff=1).move_to(UP * 4)
 
         necessary_row = VGroup(
-            Text("必要条件", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_NECESSARY),
+            Text("必要条件", font="PingFang SC", font_size=24, color=self.COLOR_NECESSARY),
             MathTex("q \\Leftarrow p", font_size=28),
             Text("Q⊃P", font_size=24)
         ).arrange(RIGHT, buff=1).move_to(UP * 2.5)
 
         equivalent_row = VGroup(
-            Text("充要条件", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_EQUIVALENT),
+            Text("充要条件", font="PingFang SC", font_size=24, color=self.COLOR_EQUIVALENT),
             MathTex("p \\iff q", font_size=28),
             Text("P=Q", font_size=24)
         ).arrange(RIGHT, buff=1).move_to(UP * 1)
@@ -560,7 +560,7 @@ class SufficientNecessaryConditions(Scene):
         # 记忆口诀
         mnemonic = Text(
             "记忆口诀：\n充分条件 - 有它一定行\n必要条件 - 没它一定不行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE,
             line_spacing=1.3
@@ -571,7 +571,7 @@ class SufficientNecessaryConditions(Scene):
         # 学习建议
         advice = Text(
             "理解集合关系是掌握\n充分条件与必要条件的关键！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.3
@@ -582,7 +582,7 @@ class SufficientNecessaryConditions(Scene):
         # 作者信息
         final_author = Text(
             "上海初高中数学直通车\n@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(DOWN * 6.5)
@@ -592,7 +592,7 @@ class SufficientNecessaryConditions(Scene):
         # 关注提示
         follow_up = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 7.5)

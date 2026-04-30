@@ -80,7 +80,7 @@ class InfiniteGeometricSeries(Scene):
         # 作者信息 (顶部常驻)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -89,14 +89,14 @@ class InfiniteGeometricSeries(Scene):
         
         # 钩子问题 - 一行显示
         question = VGroup(
-            Text("0.999...", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_HIGHLIGHT),
+            Text("0.999...", font="PingFang SC", font_size=52, color=self.COLOR_HIGHLIGHT),
             MathTex("=", font_size=60, color=WHITE),
-            Text("1", font="Noto Sans CJK SC", font_size=52, color=self.COLOR_HIGHLIGHT)
+            Text("1", font="PingFang SC", font_size=52, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 3)
         
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 1.5)
@@ -113,7 +113,7 @@ class InfiniteGeometricSeries(Scene):
         # 神秘提示
         hint = Text(
             "这是真的吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -134,7 +134,7 @@ class InfiniteGeometricSeries(Scene):
         # 标题
         title = Text(
             "等比数列回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -164,7 +164,7 @@ class InfiniteGeometricSeries(Scene):
         ).move_to(UP * 1.5)
         
         # 坐标轴标签
-        x_label = Text("n", font="Noto Sans CJK SC", font_size=24, color=GRAY_A).next_to(axes.x_axis, RIGHT, buff=0.1)
+        x_label = Text("n", font="PingFang SC", font_size=24, color=GRAY_A).next_to(axes.x_axis, RIGHT, buff=0.1)
         y_label = MathTex("a_n", font_size=24, color=GRAY_A).next_to(axes.y_axis, UP, buff=0.1)
         
         self.play(Create(axes), run_time=1.0)
@@ -213,7 +213,7 @@ class InfiniteGeometricSeries(Scene):
         # 标题
         title = Text(
             "前n项和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -286,7 +286,7 @@ class InfiniteGeometricSeries(Scene):
         # 标题
         title = Text(
             "当 n → ∞ 会怎样？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -296,7 +296,7 @@ class InfiniteGeometricSeries(Scene):
         # 关键条件
         condition_text = Text(
             "当 |q| < 1 时",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_CONVERGENT
         ).move_to(UP * 5.2)
@@ -394,7 +394,7 @@ class InfiniteGeometricSeries(Scene):
         # 标题
         title = Text(
             "经典例子",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5)
@@ -430,7 +430,7 @@ class InfiniteGeometricSeries(Scene):
         
         # 识别为等比数列
         identification = VGroup(
-            Text("这是一个等比数列!", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_HIGHLIGHT),
+            Text("这是一个等比数列!", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT),
             MathTex(r"a_1 = \frac{9}{10}, \quad q = \frac{1}{10}", font_size=28, color=self.COLOR_CONVERGENT)
         ).arrange(DOWN, buff=0.3).move_to(UP * 1)
         
@@ -478,7 +478,7 @@ class InfiniteGeometricSeries(Scene):
         # 结论
         conclusion = Text(
             "0.999... = 1 是正确的！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2.5)
@@ -506,7 +506,7 @@ class InfiniteGeometricSeries(Scene):
         # 标题
         title = Text(
             "当 |q| ≥ 1 时",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_DIVERGENT
         ).move_to(UP * 6)
@@ -516,7 +516,7 @@ class InfiniteGeometricSeries(Scene):
         # 条件说明
         condition = Text(
             "数列不收敛",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -561,8 +561,8 @@ class InfiniteGeometricSeries(Scene):
         
         # 警告文字
         warning = VGroup(
-            Text("级数发散！", font="Noto Sans CJK SC", font_size=36, color=self.COLOR_DIVERGENT, weight=BOLD),
-            Text("不存在有限和", font="Noto Sans CJK SC", font_size=28, color=GRAY_A)
+            Text("级数发散！", font="PingFang SC", font_size=36, color=self.COLOR_DIVERGENT, weight=BOLD),
+            Text("不存在有限和", font="PingFang SC", font_size=28, color=GRAY_A)
         ).arrange(DOWN, buff=0.3).move_to(UP * 2)
         
         self.play(Write(warning), run_time=1.0)
@@ -582,7 +582,7 @@ class InfiniteGeometricSeries(Scene):
         # 总结标题
         title = Text(
             "无穷等比数列求和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -596,7 +596,7 @@ class InfiniteGeometricSeries(Scene):
                 font_size=40,
                 color=WHITE
             ),
-            Text("(当 |q| < 1 时)", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_CONVERGENT)
+            Text("(当 |q| < 1 时)", font="PingFang SC", font_size=28, color=self.COLOR_CONVERGENT)
         ).arrange(DOWN, buff=0.4).move_to(UP * 3.5)
         
         formula_rect = SurroundingRectangle(
@@ -612,10 +612,10 @@ class InfiniteGeometricSeries(Scene):
         
         # 应用说明
         applications = VGroup(
-            Text("应用:", font="Noto Sans CJK SC", font_size=28, color=GRAY_A, weight=BOLD),
-            Text("• 循环小数化分数", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
-            Text("• 物理衰减问题", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
-            Text("• 概率论求和", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+            Text("应用:", font="PingFang SC", font_size=28, color=GRAY_A, weight=BOLD),
+            Text("• 循环小数化分数", font="PingFang SC", font_size=24, color=GRAY_A),
+            Text("• 物理衰减问题", font="PingFang SC", font_size=24, color=GRAY_A),
+            Text("• 概率论求和", font="PingFang SC", font_size=24, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to(UP * 0.8)
         
         self.play(FadeIn(applications, shift=UP * 0.3), run_time=1.0)
@@ -633,14 +633,14 @@ class InfiniteGeometricSeries(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -654,7 +654,7 @@ class InfiniteGeometricSeries(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

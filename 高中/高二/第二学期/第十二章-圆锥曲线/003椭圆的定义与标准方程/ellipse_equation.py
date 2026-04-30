@@ -156,7 +156,7 @@ class EllipseEquation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -166,7 +166,7 @@ class EllipseEquation(Scene):
         # 钩子问题
         hook = Text(
             "椭圆是怎么画出来的？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -196,7 +196,7 @@ class EllipseEquation(Scene):
         # 标题
         title = Text(
             "椭圆的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -233,7 +233,7 @@ class EllipseEquation(Scene):
         
         # 椭圆上一点P（右顶点开始）
         point_P = Dot(self.A2, color=YELLOW, radius=0.08)
-        p_label = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        p_label = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(
             point_P, UP + RIGHT, buff=0.1
         )
         
@@ -365,7 +365,7 @@ class EllipseEquation(Scene):
         # 标题
         title = Text(
             "用定义画椭圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -465,14 +465,14 @@ class EllipseEquation(Scene):
         # 标题
         title = Text(
             "标准方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
         
         subtitle = Text(
             "焦点在x轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.9)
@@ -557,7 +557,7 @@ class EllipseEquation(Scene):
         # 副标题
         subtitle = Text(
             "焦点在y轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.2)
@@ -618,7 +618,7 @@ class EllipseEquation(Scene):
         # 对比提示
         comparison = Text(
             "注意：a、b位置互换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -662,7 +662,7 @@ class EllipseEquation(Scene):
         # 标题
         title = Text(
             "a、b、c的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -783,7 +783,7 @@ class EllipseEquation(Scene):
         # 标题
         title = Text(
             "椭圆的顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -841,7 +841,7 @@ class EllipseEquation(Scene):
         # 总结文字
         summary = Text(
             "四个顶点：(±a, 0)和(0, ±b)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -883,7 +883,7 @@ class EllipseEquation(Scene):
         # 总结标题
         summary_title = Text(
             "椭圆知识总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -929,14 +929,14 @@ class EllipseEquation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -950,7 +950,7 @@ class EllipseEquation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -1003,7 +1003,7 @@ class EllipseEquation(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         )
@@ -1011,7 +1011,7 @@ class EllipseEquation(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )

@@ -112,7 +112,7 @@ class FunctionDomainRange(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -122,7 +122,7 @@ class FunctionDomainRange(Scene):
         # 钩子问题
         hook_text = Text(
             "这个函数能取所有x值吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD,
             weight=BOLD
@@ -148,7 +148,7 @@ class FunctionDomainRange(Scene):
         
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80,
             color=YELLOW
         ).move_to(DOWN * 1)
@@ -177,14 +177,14 @@ class FunctionDomainRange(Scene):
         # 标题
         title = Text(
             "定义域 Domain",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5.5)
         
         definition = Text(
             "函数有意义的x的取值范围",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -201,7 +201,7 @@ class FunctionDomainRange(Scene):
         
         explain_x = Text(
             "x轴表示输入值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -220,7 +220,7 @@ class FunctionDomainRange(Scene):
         # 限制条件
         constraint = Text(
             "被开方数 ≥ 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.8)
@@ -308,7 +308,7 @@ class FunctionDomainRange(Scene):
         
         # 避免 LaTeX 错误：使用 Text + MathTex 组合
         domain_text_safe = VGroup(
-            Text("定义域: ", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SECONDARY),
+            Text("定义域: ", font="PingFang SC", font_size=24, color=self.COLOR_SECONDARY),
             MathTex(r"[-1, +\infty)", font_size=24, color=self.COLOR_SECONDARY)
         ).arrange(RIGHT, buff=0.1)
         domain_text_safe.next_to(domain_brace, DOWN, buff=0.2)
@@ -319,7 +319,7 @@ class FunctionDomainRange(Scene):
         # 重点提示
         highlight_text = Text(
             "x只能从-1开始取值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -345,14 +345,14 @@ class FunctionDomainRange(Scene):
         # 标题切换
         title_range = Text(
             "值域 Range",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         definition_range = Text(
             "函数所有可能的y值的集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -369,7 +369,7 @@ class FunctionDomainRange(Scene):
         
         explain_y = Text(
             "y轴表示输出值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -413,7 +413,7 @@ class FunctionDomainRange(Scene):
         )
         
         range_text_safe = VGroup(
-            Text("值域: ", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_HIGHLIGHT),
+            Text("值域: ", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT),
             MathTex(r"[0, +\infty)", font_size=24, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.1)
         range_text_safe.next_to(range_brace, RIGHT, buff=0.2)
@@ -460,7 +460,7 @@ class FunctionDomainRange(Scene):
         # 总结标题
         summary_title = Text(
             "常见定义域限制",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD,
             weight=BOLD
@@ -484,15 +484,15 @@ class FunctionDomainRange(Scene):
             # 创建卡片
             if i < 4:  # 前4个使用 LaTeX
                 card_content = VGroup(
-                    Text(num_text, font="Noto Sans CJK SC", font_size=26, color=WHITE),
-                    Text(": ", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+                    Text(num_text, font="PingFang SC", font_size=26, color=WHITE),
+                    Text(": ", font="PingFang SC", font_size=26, color=WHITE),
                     # 分离中文和符号
                     self.create_constraint_formula(latex_text, i)
                 ).arrange(RIGHT, buff=0.15)
             else:  # 最后一个纯中文
                 card_content = Text(
                     f"{num_text}: {latex_text}",
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=26,
                     color=WHITE
                 )
@@ -523,26 +523,26 @@ class FunctionDomainRange(Scene):
         """创建约束条件公式（避免 LaTeX 中文错误）"""
         if index == 0:  # 分式
             return VGroup(
-                Text("分母", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+                Text("分母", font="PingFang SC", font_size=26, color=WHITE),
                 MathTex(r"\neq 0", font_size=26, color=WHITE)
             ).arrange(RIGHT, buff=0.1)
         elif index == 1:  # 偶次根
             return VGroup(
-                Text("被开方数", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+                Text("被开方数", font="PingFang SC", font_size=26, color=WHITE),
                 MathTex(r"\geq 0", font_size=26, color=WHITE)
             ).arrange(RIGHT, buff=0.1)
         elif index == 2:  # 对数
             return VGroup(
-                Text("真数", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("真数", font="PingFang SC", font_size=22, color=WHITE),
                 MathTex(r"> 0", font_size=22, color=WHITE),
-                Text(", 底数", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text(", 底数", font="PingFang SC", font_size=22, color=WHITE),
                 MathTex(r"> 0", font_size=22, color=WHITE),
-                Text("且", font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                Text("且", font="PingFang SC", font_size=22, color=WHITE),
                 MathTex(r"\neq 1", font_size=22, color=WHITE)
             ).arrange(RIGHT, buff=0.08)
         elif index == 3:  # 零次幂
             return VGroup(
-                Text("底数", font="Noto Sans CJK SC", font_size=26, color=WHITE),
+                Text("底数", font="PingFang SC", font_size=26, color=WHITE),
                 MathTex(r"\neq 0", font_size=26, color=WHITE)
             ).arrange(RIGHT, buff=0.1)
         else:
@@ -553,7 +553,7 @@ class FunctionDomainRange(Scene):
         # 方法标题
         methods_title = Text(
             "求值域常用方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD,
             weight=BOLD
@@ -563,12 +563,12 @@ class FunctionDomainRange(Scene):
         
         # 方法列表
         methods = VGroup(
-            Text("① 观察法（简单函数）", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("② 配方法（二次函数）", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_HIGHLIGHT),
-            Text("③ 换元法", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("④ 判别式法", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("⑤ 单调性法", font="Noto Sans CJK SC", font_size=26, color=self.COLOR_HIGHLIGHT),
-            Text("⑥ 数形结合法", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+            Text("① 观察法（简单函数）", font="PingFang SC", font_size=26, color=WHITE),
+            Text("② 配方法（二次函数）", font="PingFang SC", font_size=26, color=self.COLOR_HIGHLIGHT),
+            Text("③ 换元法", font="PingFang SC", font_size=26, color=WHITE),
+            Text("④ 判别式法", font="PingFang SC", font_size=26, color=WHITE),
+            Text("⑤ 单调性法", font="PingFang SC", font_size=26, color=self.COLOR_HIGHLIGHT),
+            Text("⑥ 数形结合法", font="PingFang SC", font_size=26, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.4).move_to(UP * 1.5)
         
         self.play(FadeIn(methods, lag_ratio=0.2), run_time=2.0)
@@ -583,7 +583,7 @@ class FunctionDomainRange(Scene):
         # 提示文字
         tip_text = Text(
             "掌握方法，灵活运用！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=YELLOW,
             weight=BOLD
@@ -606,7 +606,7 @@ class FunctionDomainRange(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -619,7 +619,7 @@ class FunctionDomainRange(Scene):
         # ID显示
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -629,7 +629,7 @@ class FunctionDomainRange(Scene):
         # 关注文字
         follow_text = Text(
             "关注我，学更多函数知识！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

@@ -94,7 +94,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 作者信息（全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -104,7 +104,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 钩子问题
         hook = Text(
             "这个曲线随处可见!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -138,9 +138,9 @@ class ParabolaDefinitionAndEquation(Scene):
         ).move_to(UP * 4 + RIGHT * 2.5)
         
         # 图标文字
-        icon_1_text = Text("喷泉", font="Noto Sans CJK SC", font_size=16, color=GRAY_A).next_to(icon_1, DOWN, buff=0.1)
-        icon_2_text = Text("投篮", font="Noto Sans CJK SC", font_size=16, color=GRAY_A).next_to(icon_2, DOWN, buff=0.1)
-        icon_3_text = Text("桥拱", font="Noto Sans CJK SC", font_size=16, color=GRAY_A).next_to(icon_3, DOWN, buff=0.1)
+        icon_1_text = Text("喷泉", font="PingFang SC", font_size=16, color=GRAY_A).next_to(icon_1, DOWN, buff=0.1)
+        icon_2_text = Text("投篮", font="PingFang SC", font_size=16, color=GRAY_A).next_to(icon_2, DOWN, buff=0.1)
+        icon_3_text = Text("桥拱", font="PingFang SC", font_size=16, color=GRAY_A).next_to(icon_3, DOWN, buff=0.1)
         
         icons = VGroup(icon_1, icon_2, icon_3)
         texts = VGroup(icon_1_text, icon_2_text, icon_3_text)
@@ -187,7 +187,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 标题
         title = Text(
             "抛物线的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PARABOLA
         ).move_to(UP * 5.5)
@@ -262,7 +262,7 @@ class ParabolaDefinitionAndEquation(Scene):
         dist_label_PF = always_redraw(
             lambda: Text(
                 f"{np.linalg.norm(P_dot.get_center() - self.F_dot.get_center()) / self.SCALE:.1f}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=self.COLOR_DISTANCE
             ).next_to(line_PF.get_center(), LEFT, buff=0.05)
@@ -271,7 +271,7 @@ class ParabolaDefinitionAndEquation(Scene):
         dist_label_d = always_redraw(
             lambda: Text(
                 f"{abs(P_dot.get_center()[0] - (self.directrix_x * self.SCALE + self.OFFSET[0])) / self.SCALE:.1f}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=self.COLOR_DISTANCE
             ).next_to(perpendicular.get_center(), RIGHT, buff=0.05)
@@ -353,7 +353,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 副标题
         subtitle = Text(
             "焦点与准线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FOCUS
         ).move_to(UP * 5.5)
@@ -383,7 +383,7 @@ class ParabolaDefinitionAndEquation(Scene):
         self.play(Indicate(self.directrix, color=self.COLOR_DIRECTRIX), run_time=0.6)
         
         # 准线方程
-        directrix_text = Text("x = ", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        directrix_text = Text("x = ", font="PingFang SC", font_size=22, color=WHITE)
         directrix_eq = MathTex(r"-\frac{p}{2}", font_size=22, color=WHITE)
         directrix_formula = VGroup(directrix_text, directrix_eq).arrange(RIGHT, buff=0.05).next_to(
             self.directrix, LEFT, buff=0.3
@@ -410,7 +410,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 说明文字
         explanation = Text(
             "F 不在 l 上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -435,7 +435,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 副标题
         subtitle = Text(
             "标准方程（开口向右）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_PARABOLA
         ).move_to(UP * 5.5)
@@ -509,11 +509,11 @@ class ParabolaDefinitionAndEquation(Scene):
         self.play(Write(p_condition), run_time=0.5)
         
         # 焦点和准线公式
-        focus_text = Text("焦点: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        focus_text = Text("焦点: ", font="PingFang SC", font_size=20, color=GRAY_A)
         focus_formula = MathTex(r"F(\frac{p}{2}, 0)", font_size=20)
         focus_line = VGroup(focus_text, focus_formula).arrange(RIGHT, buff=0.1).move_to(DOWN * 5)
         
-        directrix_text2 = Text("准线: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        directrix_text2 = Text("准线: ", font="PingFang SC", font_size=20, color=GRAY_A)
         directrix_formula2 = MathTex(r"x = -\frac{p}{2}", font_size=20)
         directrix_line = VGroup(directrix_text2, directrix_formula2).arrange(RIGHT, buff=0.1).move_to(DOWN * 5.8)
         
@@ -560,7 +560,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 副标题
         subtitle = Text(
             "四种开口方向",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -688,7 +688,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 副标题
         subtitle = Text(
             "参数 p 的意义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -703,7 +703,7 @@ class ParabolaDefinitionAndEquation(Scene):
             stroke_width=3
         ).scale(self.SCALE).move_to(self.OFFSET).set_opacity(0.6)
         
-        label_p1 = Text("p = 1", font="Noto Sans CJK SC", font_size=20, color=BLUE).move_to(
+        label_p1 = Text("p = 1", font="PingFang SC", font_size=20, color=BLUE).move_to(
             self.parabola_point(3.5) + RIGHT * 0.8
         )
         
@@ -720,7 +720,7 @@ class ParabolaDefinitionAndEquation(Scene):
             stroke_width=3
         ).scale(self.SCALE).move_to(self.OFFSET).set_opacity(0.6)
         
-        label_p2 = Text("p = 2", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PARABOLA).move_to(
+        label_p2 = Text("p = 2", font="PingFang SC", font_size=20, color=self.COLOR_PARABOLA).move_to(
             np.array([4, np.sqrt(2 * 2.0 * 4), 0]) * self.SCALE + self.OFFSET + RIGHT * 0.8
         )
         
@@ -737,7 +737,7 @@ class ParabolaDefinitionAndEquation(Scene):
             stroke_width=3
         ).scale(self.SCALE).move_to(self.OFFSET).set_opacity(0.6)
         
-        label_p4 = Text("p = 4", font="Noto Sans CJK SC", font_size=20, color=GREEN).move_to(
+        label_p4 = Text("p = 4", font="PingFang SC", font_size=20, color=GREEN).move_to(
             np.array([4, np.sqrt(2 * 4.0 * 4), 0]) * self.SCALE + self.OFFSET + RIGHT * 0.8
         )
         
@@ -750,14 +750,14 @@ class ParabolaDefinitionAndEquation(Scene):
         # 说明文字
         explanation = Text(
             "p 越大，开口越宽",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
         
         note = Text(
             "p 是焦准距",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -781,7 +781,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 总结标题
         summary_title = Text(
             "抛物线核心公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -789,19 +789,19 @@ class ParabolaDefinitionAndEquation(Scene):
         self.play(Write(summary_title), run_time=0.6)
         
         # 关键公式卡片
-        formula_1_text = Text("定义: ", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        formula_1_text = Text("定义: ", font="PingFang SC", font_size=22, color=GRAY_A)
         formula_1_eq = MathTex(r"|PF| = d", font_size=22)
         formula_1 = VGroup(formula_1_text, formula_1_eq).arrange(RIGHT, buff=0.1).move_to(UP * 3.5)
         
-        formula_2_text = Text("开口向右: ", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        formula_2_text = Text("开口向右: ", font="PingFang SC", font_size=22, color=GRAY_A)
         formula_2_eq = MathTex(r"y^2 = 2px", font_size=22)
         formula_2 = VGroup(formula_2_text, formula_2_eq).arrange(RIGHT, buff=0.1).move_to(UP * 2.5)
         
-        formula_3_text = Text("焦点: ", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        formula_3_text = Text("焦点: ", font="PingFang SC", font_size=22, color=GRAY_A)
         formula_3_eq = MathTex(r"F(\frac{p}{2}, 0)", font_size=22)
         formula_3 = VGroup(formula_3_text, formula_3_eq).arrange(RIGHT, buff=0.1).move_to(UP * 1.5)
         
-        formula_4_text = Text("准线: ", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+        formula_4_text = Text("准线: ", font="PingFang SC", font_size=22, color=GRAY_A)
         formula_4_eq = MathTex(r"x = -\frac{p}{2}", font_size=22)
         formula_4 = VGroup(formula_4_text, formula_4_eq).arrange(RIGHT, buff=0.1).move_to(UP * 0.5)
         
@@ -825,14 +825,14 @@ class ParabolaDefinitionAndEquation(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -846,7 +846,7 @@ class ParabolaDefinitionAndEquation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

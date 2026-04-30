@@ -77,7 +77,7 @@ class InequalityProofsAnimation(Scene):
         # 作者信息 (顶部)
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -88,7 +88,7 @@ class InequalityProofsAnimation(Scene):
         # 标题
         title = Text(
             "不等式的证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6)
@@ -97,7 +97,7 @@ class InequalityProofsAnimation(Scene):
         # 钩子问题
         hook_question = Text(
             "如何证明 a² + b² ≥ 2ab？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.2)
@@ -117,7 +117,7 @@ class InequalityProofsAnimation(Scene):
         # 标题
         title = Text(
             "比较法证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
@@ -197,7 +197,7 @@ class InequalityProofsAnimation(Scene):
         # 标题
         title = Text(
             "综合法证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
@@ -208,7 +208,7 @@ class InequalityProofsAnimation(Scene):
         # 综合法原理
         principle = Text(
             "已知条件 → ... → 目标结论",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -268,7 +268,7 @@ class InequalityProofsAnimation(Scene):
         # 标题
         title = Text(
             "分析法证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
@@ -279,7 +279,7 @@ class InequalityProofsAnimation(Scene):
         # 分析法原理
         principle = Text(
             "目标结论 ← ... ← 已知条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -295,7 +295,7 @@ class InequalityProofsAnimation(Scene):
         )
         target_note = Text(
             "（a, b同号）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -356,7 +356,7 @@ class InequalityProofsAnimation(Scene):
         # 标题
         title = Text(
             "反证法证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
@@ -367,7 +367,7 @@ class InequalityProofsAnimation(Scene):
         # 反证法原理
         principle = Text(
             "假设结论不成立 → 推出矛盾 → 原结论成立",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -376,7 +376,7 @@ class InequalityProofsAnimation(Scene):
         self.play(Write(principle), run_time=0.6)
         
         # 假设相反
-        assume_text = Text("假设：", font="Noto Sans CJK SC", font_size=26, color=RED)
+        assume_text = Text("假设：", font="PingFang SC", font_size=26, color=RED)
         assume_math = MathTex("a^2 + b^2 < 2ab", font_size=28, color=RED)
         assumption = VGroup(assume_text, assume_math).arrange(RIGHT, buff=0.15).move_to(UP * 3.5)
         contradiction_group.add(assumption)
@@ -406,7 +406,7 @@ class InequalityProofsAnimation(Scene):
         # 显示矛盾
         contradiction_text = Text(
             "但这与 (a-b)² ≥ 0 矛盾!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=RED
         ).move_to(UP * 0.5)
@@ -436,7 +436,7 @@ class InequalityProofsAnimation(Scene):
         # 标题
         title = Text(
             "放缩法证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PROOF_METHOD
         ).move_to(UP * 5.5)
@@ -447,7 +447,7 @@ class InequalityProofsAnimation(Scene):
         # 放缩法原理
         principle = Text(
             "适当放大或缩小来证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -479,7 +479,7 @@ class InequalityProofsAnimation(Scene):
         # 应用技巧
         technique = Text(
             "裂项相消技巧",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 1.5)
@@ -509,7 +509,7 @@ class InequalityProofsAnimation(Scene):
         # 总结文字
         method_summary = Text(
             "不等式证明的五种方法:\n\n1. 比较法: 作差a-b≥0或作商a/b≥1\n2. 综合法: 由因导果\n3. 分析法: 执果索因\n4. 反证法: 假设结论不成立推出矛盾\n5. 放缩法: 适当放大/缩小",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 1)
@@ -520,7 +520,7 @@ class InequalityProofsAnimation(Scene):
         # 作者信息
         author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -531,7 +531,7 @@ class InequalityProofsAnimation(Scene):
         # 关注提示
         follow_hint = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)

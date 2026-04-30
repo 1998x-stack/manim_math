@@ -26,7 +26,7 @@ C_FOOT         = "#2ecc71"    # green – foot Q
 C_PERP         = "#f39c12"    # orange – perpendicular segment
 C_FORMULA_HL   = YELLOW       # formula highlight
 C_AUX          = GRAY_B       # auxiliary / axes
-FONT_CN        = "Noto Sans CJK SC"
+FONT_CN        = "PingFang SC"
 
 
 class PointToLineDistance(Scene):

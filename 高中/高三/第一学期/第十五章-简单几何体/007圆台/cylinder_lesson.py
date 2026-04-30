@@ -19,7 +19,7 @@ config.frame_height = 16
 # ─────────────────────────────────────────
 #  颜色 & 字体
 # ─────────────────────────────────────────
-FONT     = "Noto Sans CJK SC"
+FONT     = "PingFang SC"
 BG_COLOR = "#1a1a2e"
 CYL_FILL = "#26a8d4"
 CYL_LINE = "#7ee8fa"

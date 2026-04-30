@@ -136,7 +136,7 @@ class ArithmeticSequenceLesson(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -146,7 +146,7 @@ class ArithmeticSequenceLesson(Scene):
         # 钩子问题
         hook_question = Text(
             "2, 5, 8, 11, 14, ...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"] + 4,
             color=WHITE,
             weight=BOLD
@@ -154,7 +154,7 @@ class ArithmeticSequenceLesson(Scene):
         
         question_mark = Text(
             "下一个是？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(hook_question, DOWN, buff=0.3)
@@ -210,7 +210,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title_cn = Text(
             "等差数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -230,14 +230,14 @@ class ArithmeticSequenceLesson(Scene):
         # 定义文字
         definition_text = Text(
             "从第二项起，每项与前一项的差",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 4)
         
         definition_text_2 = Text(
             "等于同一常数 d（公差）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).next_to(definition_text, DOWN, buff=0.2)
@@ -311,7 +311,7 @@ class ArithmeticSequenceLesson(Scene):
         # 统一标签
         unified_d = Text(
             "公差 d = 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -326,7 +326,7 @@ class ArithmeticSequenceLesson(Scene):
         # 说明
         explanation = Text(
             "公差可正、可负、可为零",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -358,7 +358,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title = Text(
             "通项公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -400,7 +400,7 @@ class ArithmeticSequenceLesson(Scene):
         
         pattern_note = Text(
             "系数规律: n-1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT
         ).next_to(pattern_rect, RIGHT, buff=0.3)
@@ -437,7 +437,7 @@ class ArithmeticSequenceLesson(Scene):
         verification = VGroup(
             Text(
                 "验证：",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=self.FONT_SIZES["body"],
                 color=WHITE
             ),
@@ -481,7 +481,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title = Text(
             "前n项和公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -508,7 +508,7 @@ class ArithmeticSequenceLesson(Scene):
         # 倒序相加法标题
         method_title = Text(
             "倒序相加法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3)
@@ -585,7 +585,7 @@ class ArithmeticSequenceLesson(Scene):
         # 替换an说明
         replacement_note = Text(
             "将 aₙ = a₁+(n-1)d 代入:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 2.5)
@@ -612,7 +612,7 @@ class ArithmeticSequenceLesson(Scene):
         # 验证示例
         example_text = Text(
             "验证：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(DOWN * 5.5 + LEFT * 3)
@@ -659,7 +659,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title = Text(
             "等差中项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -678,14 +678,14 @@ class ArithmeticSequenceLesson(Scene):
         # 定义
         definition = Text(
             "若 a, A, b 成等差数列，",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 4)
         
         definition_2 = Text(
             "则 A 为 a 和 b 的等差中项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).next_to(definition, DOWN, buff=0.2)
@@ -780,7 +780,7 @@ class ArithmeticSequenceLesson(Scene):
         # 几何意义
         geometry_note = Text(
             "A 是 a 和 b 的中点（算术平均）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 4.8)
@@ -823,7 +823,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title = Text(
             "图形特征",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -831,7 +831,7 @@ class ArithmeticSequenceLesson(Scene):
         
         subtitle = Text(
             "等差数列的点在一条直线上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).next_to(title, DOWN, buff=0.15)
@@ -905,7 +905,7 @@ class ArithmeticSequenceLesson(Scene):
         # 斜率说明
         slope_explanation = Text(
             "斜率 = 公差 d = 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 5.5)
@@ -960,7 +960,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title = Text(
             "重要性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -980,7 +980,7 @@ class ArithmeticSequenceLesson(Scene):
         # 示例
         example_indices = Text(
             "例：3 + 5 = 2 + 6 = 8",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 3.8)
@@ -990,7 +990,7 @@ class ArithmeticSequenceLesson(Scene):
         # 验证
         verification_text = Text(
             "验证：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 2.8 + LEFT * 3)
@@ -1025,7 +1025,7 @@ class ArithmeticSequenceLesson(Scene):
         # 应用题
         problem = Text(
             "应用题：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD
@@ -1033,7 +1033,7 @@ class ArithmeticSequenceLesson(Scene):
         
         problem_text = Text(
             "某等差数列，a₃ = 7，a₇ = 15，求 a₅",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"] - 2,
             color=WHITE
         ).next_to(problem, RIGHT, buff=0.2)
@@ -1047,7 +1047,7 @@ class ArithmeticSequenceLesson(Scene):
         # 解法提示
         hint = Text(
             "提示：利用等差中项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(DOWN * 1)
@@ -1098,7 +1098,7 @@ class ArithmeticSequenceLesson(Scene):
         # 标题
         title = Text(
             "等差数列要点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_FORMULA,
             weight=BOLD
@@ -1108,17 +1108,17 @@ class ArithmeticSequenceLesson(Scene):
         
         # 公式框
         formula_box_1 = VGroup(
-            Text("通项公式:", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("通项公式:", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"a_n = a_1 + (n-1)d", font_size=24, color=self.COLOR_FORMULA)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4)
         
         formula_box_2 = VGroup(
-            Text("求和公式:", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("求和公式:", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"S_n = \frac{n(a_1+a_n)}{2}", font_size=24, color=self.COLOR_FORMULA)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 2.5)
         
         formula_box_3 = VGroup(
-            Text("等差中项:", font="Noto Sans CJK SC", font_size=20, color=GRAY_A),
+            Text("等差中项:", font="PingFang SC", font_size=20, color=GRAY_A),
             MathTex(r"A = \frac{a+b}{2}", font_size=24, color=self.COLOR_FORMULA)
         ).arrange(RIGHT, buff=0.3).move_to(UP * 1)
         
@@ -1150,7 +1150,7 @@ class ArithmeticSequenceLesson(Scene):
         # 作者信息放大并移到中央
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -1158,7 +1158,7 @@ class ArithmeticSequenceLesson(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -1172,7 +1172,7 @@ class ArithmeticSequenceLesson(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_HIGHLIGHT,
             weight=BOLD

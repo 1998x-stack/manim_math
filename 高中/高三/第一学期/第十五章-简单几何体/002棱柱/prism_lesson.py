@@ -199,7 +199,7 @@ class PrismLesson(ThreeDScene):
         # 作者信息（固定在相机平面）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         )
@@ -211,7 +211,7 @@ class PrismLesson(ThreeDScene):
         # 钩子问题
         hook_text = Text(
             "什么是棱柱?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         )
@@ -250,7 +250,7 @@ class PrismLesson(ThreeDScene):
         # 标题
         title = Text(
             "棱柱的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         )
@@ -263,7 +263,7 @@ class PrismLesson(ThreeDScene):
         # 要素1: 两底面
         explain_1 = Text(
             "两底面: 平行且全等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_BASE
         )
@@ -286,7 +286,7 @@ class PrismLesson(ThreeDScene):
         # 要素2: 侧面
         explain_2 = Text(
             "侧面: 平行四边形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_LATERAL
         )
@@ -322,7 +322,7 @@ class PrismLesson(ThreeDScene):
         # 要素3: 侧棱
         explain_3 = Text(
             "侧棱: 平行且相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         )
@@ -360,7 +360,7 @@ class PrismLesson(ThreeDScene):
         # 标题
         title = Text(
             "按底面形状分类",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -406,17 +406,17 @@ class PrismLesson(ThreeDScene):
         self.play(Create(penta_prism), run_time=1.0)
         
         # 标签
-        label_tri = Text("三棱柱", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        label_tri = Text("三棱柱", font="PingFang SC", font_size=18, color=WHITE)
         label_tri.move_to(LEFT * 3 + DOWN * 2)
         label_tri.set_opacity(0)
         self.add_fixed_in_frame_mobjects(label_tri)
         
-        label_quad = Text("四棱柱", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        label_quad = Text("四棱柱", font="PingFang SC", font_size=18, color=WHITE)
         label_quad.move_to(DOWN * 2)
         label_quad.set_opacity(0)
         self.add_fixed_in_frame_mobjects(label_quad)
         
-        label_penta = Text("五棱柱", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        label_penta = Text("五棱柱", font="PingFang SC", font_size=18, color=WHITE)
         label_penta.move_to(RIGHT * 3 + DOWN * 2)
         label_penta.set_opacity(0)
         self.add_fixed_in_frame_mobjects(label_penta)
@@ -431,7 +431,7 @@ class PrismLesson(ThreeDScene):
         # 公式
         formula = Text(
             "n棱柱: 底面为n边形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -461,7 +461,7 @@ class PrismLesson(ThreeDScene):
         # 标题
         title = Text(
             "直棱柱 vs 斜棱柱",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -490,14 +490,14 @@ class PrismLesson(ThreeDScene):
         self.play(Create(oblique_prism), run_time=1.2)
         
         # 直棱柱标注
-        label_straight = Text("直棱柱", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        label_straight = Text("直棱柱", font="PingFang SC", font_size=20, color=WHITE)
         label_straight.move_to(LEFT * 2.5 + DOWN * 3)
         label_straight.set_opacity(0)
         self.add_fixed_in_frame_mobjects(label_straight)
         
         explain_straight = Text(
             "侧棱⊥底面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -506,14 +506,14 @@ class PrismLesson(ThreeDScene):
         self.add_fixed_in_frame_mobjects(explain_straight)
         
         # 斜棱柱标注
-        label_oblique = Text("斜棱柱", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        label_oblique = Text("斜棱柱", font="PingFang SC", font_size=20, color=WHITE)
         label_oblique.move_to(RIGHT * 2.5 + DOWN * 3)
         label_oblique.set_opacity(0)
         self.add_fixed_in_frame_mobjects(label_oblique)
         
         explain_oblique = Text(
             "侧棱与底面成角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -548,7 +548,7 @@ class PrismLesson(ThreeDScene):
         # 标题
         title = Text(
             "正棱柱",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         )
@@ -560,7 +560,7 @@ class PrismLesson(ThreeDScene):
         # 定义1
         definition_1 = Text(
             "底面是正多边形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_BASE
         )
@@ -581,7 +581,7 @@ class PrismLesson(ThreeDScene):
         # 定义2
         definition_2 = Text(
             "侧棱垂直于底面",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         )
@@ -604,7 +604,7 @@ class PrismLesson(ThreeDScene):
         # 完整定义
         full_definition = Text(
             "正n棱柱 = 直棱柱 + 正n边形底",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         )
@@ -630,17 +630,17 @@ class PrismLesson(ThreeDScene):
     def scene_6_volume_and_surface_area(self):
         """场景6: 体积和表面积公式"""
         # 体积公式
-        title = Text("体积与表面积", font="Noto Sans CJK SC",
+        title = Text("体积与表面积", font="PingFang SC",
                     font_size=38, color=GOLD).move_to(UP * 6.1)
         self.play(Write(title), run_time=0.5)
-        volume_title = Text("体积公式:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        volume_title = Text("体积公式:", font="PingFang SC", font_size=24, color=GRAY_A)
         volume_title.to_edge(DOWN, buff=5.5).shift(LEFT * 2)
         volume_title.set_opacity(0)
         self.add_fixed_in_frame_mobjects(volume_title)
 
         volume_formula = VGroup(
             MathTex(r"V = S", font_size=32, color=self.COLOR_HIGHLIGHT),
-            Text("底", font="Noto Sans CJK SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
+            Text("底", font="PingFang SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
             MathTex(r"\cdot\, h", font_size=32, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.04)
         volume_formula.next_to(volume_title, RIGHT, buff=0.5)
@@ -660,16 +660,16 @@ class PrismLesson(ThreeDScene):
         self.wait(1.5)
 
         # 表面积公式
-        surface_title = Text("表面积公式:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        surface_title = Text("表面积公式:", font="PingFang SC", font_size=24, color=GRAY_A)
         surface_title.to_edge(DOWN, buff=3.5).shift(LEFT * 1.8)
         surface_title.set_opacity(0)
         self.add_fixed_in_frame_mobjects(surface_title)
 
         surface_formula = VGroup(
             MathTex(r"S = 2S", font_size=32, color=self.COLOR_HIGHLIGHT),
-            Text("底", font="Noto Sans CJK SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
+            Text("底", font="PingFang SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
             MathTex(r"+ S", font_size=32, color=self.COLOR_HIGHLIGHT),
-            Text("侧", font="Noto Sans CJK SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
+            Text("侧", font="PingFang SC", font_size=17, color=self.COLOR_HIGHLIGHT).shift(DOWN * 0.14),
         ).arrange(RIGHT, buff=0.04)
         surface_formula.next_to(surface_title, RIGHT, buff=0.5)
         surface_formula.set_opacity(0)
@@ -680,9 +680,9 @@ class PrismLesson(ThreeDScene):
         # 侧面积公式
         lateral_formula = VGroup(
             MathTex(r"S", font_size=24, color=GRAY_A),
-            Text("侧", font="Noto Sans CJK SC", font_size=13, color=GRAY_A).shift(DOWN * 0.10),
+            Text("侧", font="PingFang SC", font_size=13, color=GRAY_A).shift(DOWN * 0.10),
             MathTex(r"=", font_size=24, color=GRAY_A),
-            Text("周长", font="Noto Sans CJK SC", font_size=24, color=GRAY_A),
+            Text("周长", font="PingFang SC", font_size=24, color=GRAY_A),
             MathTex(r"\cdot\, h", font_size=24, color=GRAY_A),
         ).arrange(RIGHT, buff=0.05)
         
@@ -738,20 +738,20 @@ class PrismLesson(ThreeDScene):
         card_texts_list = ["两底面平行全等", "侧棱平行相等"]
         # 前两项用Text，后两项用VGroup混排
         card_contents = [
-            Text("两底面平行全等", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("侧棱平行相等",   font="Noto Sans CJK SC", font_size=22, color=WHITE),
+            Text("两底面平行全等", font="PingFang SC", font_size=22, color=WHITE),
+            Text("侧棱平行相等",   font="PingFang SC", font_size=22, color=WHITE),
             # V = S底·h
             VGroup(
                 MathTex(r"V = S", font_size=22, color=WHITE),
-                Text("底", font="Noto Sans CJK SC", font_size=13, color=WHITE).shift(DOWN*0.10),
+                Text("底", font="PingFang SC", font_size=13, color=WHITE).shift(DOWN*0.10),
                 MathTex(r"\cdot h", font_size=22, color=WHITE),
             ).arrange(RIGHT, buff=0.04),
             # S = 2S底 + S侧
             VGroup(
                 MathTex(r"S = 2S", font_size=22, color=WHITE),
-                Text("底", font="Noto Sans CJK SC", font_size=13, color=WHITE).shift(DOWN*0.10),
+                Text("底", font="PingFang SC", font_size=13, color=WHITE).shift(DOWN*0.10),
                 MathTex(r"+ S", font_size=22, color=WHITE),
-                Text("侧", font="Noto Sans CJK SC", font_size=13, color=WHITE).shift(DOWN*0.10),
+                Text("侧", font="PingFang SC", font_size=13, color=WHITE).shift(DOWN*0.10),
             ).arrange(RIGHT, buff=0.04),
         ]
 
@@ -774,7 +774,7 @@ class PrismLesson(ThreeDScene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -784,7 +784,7 @@ class PrismLesson(ThreeDScene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_B
         )
@@ -802,7 +802,7 @@ class PrismLesson(ThreeDScene):
         # 关注提示
         follow_text = Text(
             "关注获取更多立体几何技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         )

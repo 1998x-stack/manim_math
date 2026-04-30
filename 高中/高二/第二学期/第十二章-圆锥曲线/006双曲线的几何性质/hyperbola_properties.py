@@ -109,7 +109,7 @@ class HyperbolaGeometricProperties(Scene):
         # 作者信息（全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -119,7 +119,7 @@ class HyperbolaGeometricProperties(Scene):
         # 钩子问题
         hook = Text(
             "双曲线还有哪些神奇性质?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -151,7 +151,7 @@ class HyperbolaGeometricProperties(Scene):
         # 主标题
         title = Text(
             "双曲线的几何性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HYPERBOLA
         ).move_to(UP * 4.8)
@@ -171,7 +171,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "性质1: 范围",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_RANGE
         ).move_to(UP * 4.2)
@@ -222,7 +222,7 @@ class HyperbolaGeometricProperties(Scene):
         )
         
         # x范围公式
-        x_range_text = Text("|x| ≥ a", font="Noto Sans CJK SC", font_size=24, color=WHITE).move_to(DOWN * 3.5)
+        x_range_text = Text("|x| ≥ a", font="PingFang SC", font_size=24, color=WHITE).move_to(DOWN * 3.5)
         
         self.play(Write(x_range_text), run_time=0.6)
         
@@ -252,7 +252,7 @@ class HyperbolaGeometricProperties(Scene):
         )
         
         # y范围公式
-        y_range_text = Text("y ∈ ℝ", font="Noto Sans CJK SC", font_size=24, color=WHITE).move_to(DOWN * 4.5)
+        y_range_text = Text("y ∈ ℝ", font="PingFang SC", font_size=24, color=WHITE).move_to(DOWN * 4.5)
         
         self.play(Write(y_range_text), run_time=0.6)
         
@@ -277,7 +277,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "性质2: 对称性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_SYMMETRY
         ).move_to(UP * 4.2)
@@ -383,7 +383,7 @@ class HyperbolaGeometricProperties(Scene):
         # 说明文字
         explanation = Text(
             "关于x轴、y轴、原点对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -410,7 +410,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "性质3: 顶点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HYPERBOLA
         ).move_to(UP * 4.2)
@@ -460,7 +460,7 @@ class HyperbolaGeometricProperties(Scene):
         # 说明文字
         explanation = Text(
             "距离原点最近的点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -491,7 +491,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "性质4: 离心率",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ECCENTRICITY
         ).move_to(UP * 4.2)
@@ -510,7 +510,7 @@ class HyperbolaGeometricProperties(Scene):
         # 当前e值
         e_note = Text(
             f"e > 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(e_formula, RIGHT, buff=0.5)
@@ -555,7 +555,7 @@ class HyperbolaGeometricProperties(Scene):
         ).set_opacity(0.3)
         
         # 显示对比
-        e_small_label = Text("e = 1.2", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ECCENTRICITY).move_to(UP * 0.5 + LEFT * 2.5)
+        e_small_label = Text("e = 1.2", font="PingFang SC", font_size=18, color=self.COLOR_ECCENTRICITY).move_to(UP * 0.5 + LEFT * 2.5)
         
         self.play(
             Create(hyperbola_small_e),
@@ -566,7 +566,7 @@ class HyperbolaGeometricProperties(Scene):
         
         self.wait(0.4)
         
-        e_large_label = Text("e = 2.0", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_ECCENTRICITY).move_to(UP * 0.5 + RIGHT * 2.5)
+        e_large_label = Text("e = 2.0", font="PingFang SC", font_size=18, color=self.COLOR_ECCENTRICITY).move_to(UP * 0.5 + RIGHT * 2.5)
         
         self.play(
             Create(hyperbola_large_e),
@@ -577,7 +577,7 @@ class HyperbolaGeometricProperties(Scene):
         # 说明
         explanation = Text(
             "e 越大，开口越大",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -605,7 +605,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "性质5: 渐近线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ASYMPTOTE
         ).move_to(UP * 4.2)
@@ -648,7 +648,7 @@ class HyperbolaGeometricProperties(Scene):
         )
         
         # 方程
-        asymptote_text = Text("y = ±", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+        asymptote_text = Text("y = ±", font="PingFang SC", font_size=24, color=WHITE)
         asymptote_eq = MathTex(r"\frac{b}{a}x", font_size=24, color=WHITE)
         asymptote_formula = VGroup(asymptote_text, asymptote_eq).arrange(RIGHT, buff=0.1).move_to(UP * 3)
         
@@ -662,7 +662,7 @@ class HyperbolaGeometricProperties(Scene):
         distance_label = always_redraw(
             lambda: Text(
                 f"d ≈ {self.distance_to_asymptote(P_dot.get_center()):.2f}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=self.COLOR_HIGHLIGHT
             ).next_to(P_dot, UR, buff=0.1)
@@ -691,7 +691,7 @@ class HyperbolaGeometricProperties(Scene):
         # 说明
         explanation = Text(
             "无限接近但永不相交",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -728,7 +728,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "性质6: 准线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_DIRECTRIX
         ).move_to(UP * 4.2)
@@ -772,7 +772,7 @@ class HyperbolaGeometricProperties(Scene):
         )
         
         # 方程
-        directrix_text = Text("x = ±", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+        directrix_text = Text("x = ±", font="PingFang SC", font_size=22, color=WHITE)
         directrix_eq = MathTex(r"\frac{a^2}{c}", font_size=22, color=WHITE)
         directrix_formula = VGroup(directrix_text, directrix_eq).arrange(RIGHT, buff=0.1).move_to(UP * 3)
         
@@ -808,7 +808,7 @@ class HyperbolaGeometricProperties(Scene):
         self.play(Create(perpendicular_line), run_time=0.5)
         
         # 比值公式
-        ratio_text = Text("|PF|/d = e", font="Noto Sans CJK SC", font_size=22, color=WHITE).move_to(DOWN * 5)
+        ratio_text = Text("|PF|/d = e", font="PingFang SC", font_size=22, color=WHITE).move_to(DOWN * 5)
         
         self.play(Write(ratio_text), run_time=0.6)
         
@@ -836,7 +836,7 @@ class HyperbolaGeometricProperties(Scene):
         # 副标题
         subtitle = Text(
             "特殊情况: 等轴双曲线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.2)
@@ -844,7 +844,7 @@ class HyperbolaGeometricProperties(Scene):
         self.play(FadeIn(subtitle), run_time=0.4)
         
         # 条件
-        condition = Text("当 a = b 时", font="Noto Sans CJK SC", font_size=26, color=WHITE).move_to(UP * 3.2)
+        condition = Text("当 a = b 时", font="PingFang SC", font_size=26, color=WHITE).move_to(UP * 3.2)
         
         self.play(Write(condition), run_time=0.5)
         
@@ -894,7 +894,7 @@ class HyperbolaGeometricProperties(Scene):
         )
         
         # 方程
-        asymptote_eq = Text("y = ±x", font="Noto Sans CJK SC", font_size=24, color=WHITE).move_to(UP * 2)
+        asymptote_eq = Text("y = ±x", font="PingFang SC", font_size=24, color=WHITE).move_to(UP * 2)
         
         self.play(Write(asymptote_eq), run_time=0.5)
         
@@ -915,7 +915,7 @@ class HyperbolaGeometricProperties(Scene):
         # 说明
         explanation = Text(
             "渐近线互相垂直",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -935,7 +935,7 @@ class HyperbolaGeometricProperties(Scene):
         # 总结标题
         summary_title = Text(
             "双曲线几何性质回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -943,25 +943,25 @@ class HyperbolaGeometricProperties(Scene):
         self.play(Write(summary_title), run_time=0.6)
         
         # 性质卡片
-        property_1_text = Text("① 范围: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
-        property_1_eq = Text("|x| ≥ a, y ∈ ℝ", font="Noto Sans CJK SC", font_size=20)
+        property_1_text = Text("① 范围: ", font="PingFang SC", font_size=20, color=GRAY_A)
+        property_1_eq = Text("|x| ≥ a, y ∈ ℝ", font="PingFang SC", font_size=20)
         property_1 = VGroup(property_1_text, property_1_eq).arrange(RIGHT, buff=0.1).move_to(UP * 3.5)
         
-        property_2 = Text("② 对称性: 关于x轴、y轴、原点对称", font="Noto Sans CJK SC", font_size=20).move_to(UP * 2.5)
+        property_2 = Text("② 对称性: 关于x轴、y轴、原点对称", font="PingFang SC", font_size=20).move_to(UP * 2.5)
         
-        property_3_text = Text("③ 离心率: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        property_3_text = Text("③ 离心率: ", font="PingFang SC", font_size=20, color=GRAY_A)
         property_3_eq = MathTex(r"e = \frac{c}{a} > 1", font_size=20)
         property_3 = VGroup(property_3_text, property_3_eq).arrange(RIGHT, buff=0.1).move_to(UP * 1.5)
         
-        property_4_text = Text("④ 渐近线: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        property_4_text = Text("④ 渐近线: ", font="PingFang SC", font_size=20, color=GRAY_A)
         property_4_eq = MathTex(r"y = \pm \frac{b}{a}x", font_size=20)
         property_4 = VGroup(property_4_text, property_4_eq).arrange(RIGHT, buff=0.1).move_to(UP * 0.5)
         
-        property_5_text = Text("⑤ 准线: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        property_5_text = Text("⑤ 准线: ", font="PingFang SC", font_size=20, color=GRAY_A)
         property_5_eq = MathTex(r"x = \pm \frac{a^2}{c}", font_size=20)
         property_5 = VGroup(property_5_text, property_5_eq).arrange(RIGHT, buff=0.1).move_to(DOWN * 0.5)
         
-        property_6_text = Text("⑥ 等轴: ", font="Noto Sans CJK SC", font_size=20, color=GRAY_A)
+        property_6_text = Text("⑥ 等轴: ", font="PingFang SC", font_size=20, color=GRAY_A)
         property_6_eq = MathTex(r"a=b, \; e=\sqrt{2}", font_size=20)
         property_6 = VGroup(property_6_text, property_6_eq).arrange(RIGHT, buff=0.1).move_to(DOWN * 1.5)
         
@@ -985,14 +985,14 @@ class HyperbolaGeometricProperties(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1006,7 +1006,7 @@ class HyperbolaGeometricProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

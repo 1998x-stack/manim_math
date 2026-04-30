@@ -132,7 +132,7 @@ class CosineTheoremAnimation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -142,14 +142,14 @@ class CosineTheoremAnimation(Scene):
         # 标题
         title = Text(
             "余弦定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=GOLD
         ).move_to(UP * 6)
 
         subtitle = Text(
             "三角形边角关系的重要定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -160,7 +160,7 @@ class CosineTheoremAnimation(Scene):
         # 钩子问题
         hook_question = Text(
             "如何在已知两边及夹角时求第三边？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 3.5)
@@ -182,9 +182,9 @@ class CosineTheoremAnimation(Scene):
         self.play(Create(self.triangle), run_time=1.2)
 
         # 标记顶点
-        self.label_A = Text("A", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.A, DOWN, buff=0.15)
-        self.label_B = Text("B", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.B, DOWN, buff=0.15)
-        self.label_C = Text("C", font="Noto Sans CJK SC", font_size=24, color=WHITE).next_to(self.C, UP, buff=0.15)
+        self.label_A = Text("A", font="PingFang SC", font_size=24, color=WHITE).next_to(self.A, DOWN, buff=0.15)
+        self.label_B = Text("B", font="PingFang SC", font_size=24, color=WHITE).next_to(self.B, DOWN, buff=0.15)
+        self.label_C = Text("C", font="PingFang SC", font_size=24, color=WHITE).next_to(self.C, UP, buff=0.15)
 
         self.play(
             Write(self.label_A),
@@ -198,9 +198,9 @@ class CosineTheoremAnimation(Scene):
         mid_BC = (self.B + self.C) / 2
         mid_CA = (self.C + self.A) / 2
 
-        self.label_c = Text("c", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SIDES).move_to(mid_AB).shift(UP * 0.3)
-        self.label_a = Text("a", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SIDES).move_to(mid_BC).shift(RIGHT * 0.3)
-        self.label_b = Text("b", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SIDES).move_to(mid_CA).shift(LEFT * 0.3)
+        self.label_c = Text("c", font="PingFang SC", font_size=22, color=self.COLOR_SIDES).move_to(mid_AB).shift(UP * 0.3)
+        self.label_a = Text("a", font="PingFang SC", font_size=22, color=self.COLOR_SIDES).move_to(mid_BC).shift(RIGHT * 0.3)
+        self.label_b = Text("b", font="PingFang SC", font_size=22, color=self.COLOR_SIDES).move_to(mid_CA).shift(LEFT * 0.3)
 
         sides_group = VGroup(self.label_a, self.label_b, self.label_c)
 
@@ -228,9 +228,9 @@ class CosineTheoremAnimation(Scene):
         angle_B_arc = Angle(Line(self.B, self.C), Line(self.B, self.A), radius=0.5, color=self.COLOR_ANGLE, other_angle=False)
         angle_C_arc = Angle(Line(self.C, self.A), Line(self.C, self.B), radius=0.5, color=self.COLOR_ANGLE, other_angle=False)
 
-        label_angle_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_A_arc, UR, buff=0.1)
-        label_angle_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_B_arc, LEFT, buff=0.1)
-        label_angle_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_C_arc, DOWN, buff=0.1)
+        label_angle_A = Text("A", font="PingFang SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_A_arc, UR, buff=0.1)
+        label_angle_B = Text("B", font="PingFang SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_B_arc, LEFT, buff=0.1)
+        label_angle_C = Text("C", font="PingFang SC", font_size=20, color=self.COLOR_ANGLE).next_to(angle_C_arc, DOWN, buff=0.1)
 
         angles_group = VGroup(angle_A_arc, angle_B_arc, angle_C_arc, label_angle_A, label_angle_B, label_angle_C)
 
@@ -267,7 +267,7 @@ class CosineTheoremAnimation(Scene):
         # 余弦定理的主要公式
         formula_title = Text(
             "余弦定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -314,7 +314,7 @@ class CosineTheoremAnimation(Scene):
         # 强调应用说明
         application_note = Text(
             "用途: 已知两边及夹角求第三边\n或 已知三边求各角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -343,7 +343,7 @@ class CosineTheoremAnimation(Scene):
         # 示例标题
         example_title = Text(
             "应用示例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -351,7 +351,7 @@ class CosineTheoremAnimation(Scene):
         # 示例说明
         example_text = Text(
             "在△ABC中，已知 b=5, c=7, ∠A=60°，求边a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).move_to(UP * 5)
@@ -399,7 +399,7 @@ class CosineTheoremAnimation(Scene):
         # 显示答案
         answer = Text(
             f"边 a ≈ {np.sqrt(39):.2f}",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -430,7 +430,7 @@ class CosineTheoremAnimation(Scene):
         # 标题
         special_title = Text(
             "特殊情况 - 勾股定理",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 6)
@@ -440,7 +440,7 @@ class CosineTheoremAnimation(Scene):
         # 当A=90°时的情况
         right_angle_case = Text(
             "当∠A = 90° 时，cos A = cos(90°) = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -466,7 +466,7 @@ class CosineTheoremAnimation(Scene):
 
         pythagorean_label = Text(
             "这就是勾股定理!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.2)
@@ -482,7 +482,7 @@ class CosineTheoremAnimation(Scene):
         # 强调余弦定理是勾股定理的推广
         generalization = Text(
             "余弦定理是勾股定理的推广!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GOLD
         ).move_to(DOWN * 1.5)
@@ -535,7 +535,7 @@ class CosineTheoremAnimation(Scene):
         # 总结标题
         summary_title = Text(
             "余弦定理总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -544,11 +544,11 @@ class CosineTheoremAnimation(Scene):
 
         # 要点列表
         points = VGroup(
-            Text("1. 一般形式: a² = b² + c² - 2bc cos A", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("2. 用途: 已知两边及夹角求第三边", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("   或已知三边求各角", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("3. 是勾股定理的推广", font="Noto Sans CJK SC", font_size=26, color=WHITE),
-            Text("4. 可用于判断三角形形状", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+            Text("1. 一般形式: a² = b² + c² - 2bc cos A", font="PingFang SC", font_size=26, color=WHITE),
+            Text("2. 用途: 已知两边及夹角求第三边", font="PingFang SC", font_size=26, color=WHITE),
+            Text("   或已知三边求各角", font="PingFang SC", font_size=26, color=WHITE),
+            Text("3. 是勾股定理的推广", font="PingFang SC", font_size=26, color=WHITE),
+            Text("4. 可用于判断三角形形状", font="PingFang SC", font_size=26, color=WHITE)
         ).arrange(DOWN, buff=0.5, aligned_edge=LEFT).move_to(UP * 2.5)
 
         for point in points:
@@ -567,7 +567,7 @@ class CosineTheoremAnimation(Scene):
         # 记忆提示
         memory_tip = Text(
             "记住: 边的平方 = 另两边平方和 - 2倍乘积×夹角余弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -610,9 +610,9 @@ class CosineTheoremAnimation(Scene):
         vertices = triangle_final.get_vertices()
 
         # 标签
-        label_A = Text("A", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(vertices[0], DOWN, buff=0.1)
-        label_B = Text("B", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(vertices[1], DOWN, buff=0.1)
-        label_C = Text("C", font="Noto Sans CJK SC", font_size=20, color=WHITE).next_to(vertices[2], UP, buff=0.1)
+        label_A = Text("A", font="PingFang SC", font_size=20, color=WHITE).next_to(vertices[0], DOWN, buff=0.1)
+        label_B = Text("B", font="PingFang SC", font_size=20, color=WHITE).next_to(vertices[1], DOWN, buff=0.1)
+        label_C = Text("C", font="PingFang SC", font_size=20, color=WHITE).next_to(vertices[2], UP, buff=0.1)
 
         labels = VGroup(label_A, label_B, label_C)
 
@@ -626,14 +626,14 @@ class CosineTheoremAnimation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(DOWN * 3.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(DOWN * 4.5)
@@ -641,7 +641,7 @@ class CosineTheoremAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GOLD
         ).move_to(DOWN * 5.5)

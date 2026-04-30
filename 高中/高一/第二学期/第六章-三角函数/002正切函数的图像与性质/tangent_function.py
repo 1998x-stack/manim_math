@@ -13,7 +13,7 @@ config.pixel_height = 1920
 config.frame_width  = 9
 config.frame_height = 16
 
-CJK = "Noto Sans CJK SC"
+CJK = "PingFang SC"
 
 # ── 颜色配置 ──────────────────────────────────────────
 BG_COLOR   = "#0d1117"

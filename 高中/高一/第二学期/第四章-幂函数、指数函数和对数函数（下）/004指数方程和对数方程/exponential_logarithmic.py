@@ -128,7 +128,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -144,7 +144,7 @@ class ExponentialLogarithmicEquations(Scene):
         
         question_text = Text(
             "x = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=64,
             color=WHITE
         ).next_to(hook_question, DOWN, buff=0.8)
@@ -174,7 +174,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 标题
         title = Text(
             "指数方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_EXPONENTIAL
         ).move_to(UP * 5.5)
@@ -182,7 +182,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 定义
         definition = Text(
             "未知数在指数位置的方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.6)
@@ -202,7 +202,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 指数高亮说明
         explanation = Text(
             "x 在指数位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=YELLOW
         ).next_to(equation, DOWN, buff=0.5)
@@ -235,7 +235,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 说明文字
         method_text = Text(
             "图像法求解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -360,7 +360,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 标题
         title = Text(
             "同底数法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -378,7 +378,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 提示：将 8 改写为 2 的幂
         hint = Text(
             "将 8 改写为 2 的幂",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 2.3)
@@ -420,7 +420,7 @@ class ExponentialLogarithmicEquations(Scene):
         
         same_base_text = Text(
             "底数相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -488,7 +488,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 标题
         title = Text(
             "对数方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_LOGARITHM
         ).move_to(UP * 5.5)
@@ -496,7 +496,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 定义
         definition = Text(
             "未知数在真数或底数位置的方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.6)
@@ -516,7 +516,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 真数高亮说明
         explanation = Text(
             "x 在真数位置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=YELLOW
         ).next_to(log_equation, DOWN, buff=0.5)
@@ -550,7 +550,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 说明文字
         method_text = Text(
             "图像法求解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -676,7 +676,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 警告标题
         warning_title = Text(
             "重要提醒",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_WARNING
         ).move_to(UP * 4)
@@ -689,9 +689,9 @@ class ExponentialLogarithmicEquations(Scene):
         
         # 验根条件
         conditions = VGroup(
-            Text("对数方程必须验根!", font="Noto Sans CJK SC", font_size=32, color=WHITE),
-            Text("① 真数 > 0", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
-            Text("② 底数 > 0 且 ≠ 1", font="Noto Sans CJK SC", font_size=26, color=GRAY_A),
+            Text("对数方程必须验根!", font="PingFang SC", font_size=32, color=WHITE),
+            Text("① 真数 > 0", font="PingFang SC", font_size=26, color=GRAY_A),
+            Text("② 底数 > 0 且 ≠ 1", font="PingFang SC", font_size=26, color=GRAY_A),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.5).move_to(UP * 1.5)
         
         for i, condition in enumerate(conditions):
@@ -723,14 +723,14 @@ class ExponentialLogarithmicEquations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -744,7 +744,7 @@ class ExponentialLogarithmicEquations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

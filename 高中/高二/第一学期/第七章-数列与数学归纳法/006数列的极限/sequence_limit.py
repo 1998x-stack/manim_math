@@ -77,7 +77,7 @@ class SequenceLimit(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=GRAY_B
         ).move_to(UP * 7)
@@ -87,7 +87,7 @@ class SequenceLimit(Scene):
         # 钩子标题
         hook_title = Text(
             "无限接近的奥秘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -109,7 +109,7 @@ class SequenceLimit(Scene):
         # 问号
         question = Text(
             "接近什么？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_LIMIT
         ).move_to(UP * 2)
@@ -156,7 +156,7 @@ class SequenceLimit(Scene):
         # 标题
         title = Text(
             "数列的极限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -167,7 +167,7 @@ class SequenceLimit(Scene):
         # 定义文字
         definition = Text(
             "当n无限增大时，aₙ无限接近常数A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=WHITE
         ).move_to(UP * 5)
@@ -257,7 +257,7 @@ class SequenceLimit(Scene):
         
         epsilon_note = Text(
             "ε邻域：最终所有点都在此范围内",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_EPSILON
         ).move_to(DOWN * 5.5)
@@ -294,7 +294,7 @@ class SequenceLimit(Scene):
         # 标题
         title = Text(
             "收敛 vs 发散",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -314,7 +314,7 @@ class SequenceLimit(Scene):
         
         label_left = Text(
             "收敛",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_CONVERGE,
             weight=BOLD
@@ -334,7 +334,7 @@ class SequenceLimit(Scene):
         
         label_right = Text(
             "发散",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=self.COLOR_DIVERGE,
             weight=BOLD
@@ -417,8 +417,8 @@ class SequenceLimit(Scene):
         
         # 对比说明
         comparison = VGroup(
-            Text("收敛：极限存在", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"] - 2, color=self.COLOR_CONVERGE),
-            Text("发散：极限不存在", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"] - 2, color=self.COLOR_DIVERGE)
+            Text("收敛：极限存在", font="PingFang SC", font_size=self.FONT_SIZES["body"] - 2, color=self.COLOR_CONVERGE),
+            Text("发散：极限不存在", font="PingFang SC", font_size=self.FONT_SIZES["body"] - 2, color=self.COLOR_DIVERGE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(DOWN * 2)
         
         self.play(FadeIn(comparison, shift=UP * 0.2), run_time=0.8)
@@ -449,7 +449,7 @@ class SequenceLimit(Scene):
         # 标题
         title = Text(
             "重要极限①",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_LIMIT,
             weight=BOLD
@@ -529,7 +529,7 @@ class SequenceLimit(Scene):
         ]
         
         table = MobjectTable(
-            [[Text(cell, font="Noto Sans CJK SC", font_size=14) for cell in row] for row in table_data],
+            [[Text(cell, font="PingFang SC", font_size=14) for cell in row] for row in table_data],
             include_outer_lines=True,
             line_config={"stroke_width": 1}
         ).scale(0.6).move_to(DOWN * 5)
@@ -594,7 +594,7 @@ class SequenceLimit(Scene):
         # 标题
         title = Text(
             "重要极限②",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=self.COLOR_E,
             weight=BOLD
@@ -689,7 +689,7 @@ class SequenceLimit(Scene):
         ]
         
         table = MobjectTable(
-            [[MathTex(cell, font_size=14) if "/" in cell or "^" in cell else Text(cell, font="Noto Sans CJK SC", font_size=14) for cell in row] for row in table_data],
+            [[MathTex(cell, font_size=14) if "/" in cell or "^" in cell else Text(cell, font="PingFang SC", font_size=14) for cell in row] for row in table_data],
             include_outer_lines=True,
             line_config={"stroke_width": 1}
         ).scale(0.55).move_to(DOWN * 5.5)
@@ -750,7 +750,7 @@ class SequenceLimit(Scene):
         # 标题
         title = Text(
             "极限运算法则",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -773,7 +773,7 @@ class SequenceLimit(Scene):
         # 条件标注
         condition = Text(
             "(lim bₙ ≠ 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["small"],
             color=self.COLOR_LIMIT
         ).next_to(rules[2], RIGHT, buff=0.3)
@@ -783,7 +783,7 @@ class SequenceLimit(Scene):
         # 示例
         example_title = Text(
             "示例：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["body"],
             color=GRAY_A
         ).move_to(UP * 0.8 + LEFT * 3.5)
@@ -837,7 +837,7 @@ class SequenceLimit(Scene):
         # 标题
         title = Text(
             "数列极限要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -847,9 +847,9 @@ class SequenceLimit(Scene):
         
         # 要点
         points = VGroup(
-            Text("• 极限：n→∞时aₙ接近常数A", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"] - 2, color=WHITE),
-            Text("• 收敛/发散：极限存在/不存在", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"] - 2, color=WHITE),
-            Text("• 重要极限：1/n→0, (1+1/n)ⁿ→e", font="Noto Sans CJK SC", font_size=self.FONT_SIZES["body"] - 2, color=WHITE),
+            Text("• 极限：n→∞时aₙ接近常数A", font="PingFang SC", font_size=self.FONT_SIZES["body"] - 2, color=WHITE),
+            Text("• 收敛/发散：极限存在/不存在", font="PingFang SC", font_size=self.FONT_SIZES["body"] - 2, color=WHITE),
+            Text("• 重要极限：1/n→0, (1+1/n)ⁿ→e", font="PingFang SC", font_size=self.FONT_SIZES["body"] - 2, color=WHITE),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.4).move_to(UP * 3.5)
         
         for point in points:
@@ -900,7 +900,7 @@ class SequenceLimit(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["title"],
             color=WHITE,
             weight=BOLD
@@ -908,7 +908,7 @@ class SequenceLimit(Scene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -922,7 +922,7 @@ class SequenceLimit(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握极限技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SIZES["subtitle"],
             color=self.COLOR_LIMIT,
             weight=BOLD

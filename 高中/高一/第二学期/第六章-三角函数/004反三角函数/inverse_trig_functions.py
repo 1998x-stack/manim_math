@@ -68,7 +68,7 @@ class InverseTrigFunctions(Scene):
         # 作者信息（顶部）- 修正位置在安全边界内
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=GRAY_B
         ).move_to(UP * 6.5)  # 从7改为6.5
@@ -78,7 +78,7 @@ class InverseTrigFunctions(Scene):
         # 钩子问题
         hook_text_1 = Text(
             "已知:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 3)
@@ -91,7 +91,7 @@ class InverseTrigFunctions(Scene):
         
         hook_text_2 = Text(
             "那么反过来呢?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).next_to(hook_formula, DOWN, buff=0.8)
@@ -128,7 +128,7 @@ class InverseTrigFunctions(Scene):
         # 标题
         title = Text(
             "反函数 Inverse Function",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -169,7 +169,7 @@ class InverseTrigFunctions(Scene):
         
         domain_note = Text(
             "限制在[-π/2, π/2]",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).next_to(sin_label, DOWN, buff=0.2, aligned_edge=LEFT)
@@ -195,7 +195,7 @@ class InverseTrigFunctions(Scene):
         
         explain = Text(
             "关于 y=x 对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -252,7 +252,7 @@ class InverseTrigFunctions(Scene):
         # 标题
         title = Text(
             "反正弦函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ARCSIN
         ).move_to(UP * 5.5)
@@ -267,12 +267,12 @@ class InverseTrigFunctions(Scene):
         
         # 定义
         definition = VGroup(
-            Text("定义域:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("定义域:", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"x \in [-1, 1]", font_size=26, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4.2)
         
         definition2 = VGroup(
-            Text("值域:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("值域:", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]", font_size=26, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.3).next_to(definition, DOWN, buff=0.3, aligned_edge=LEFT)
         
@@ -397,7 +397,7 @@ class InverseTrigFunctions(Scene):
         # 标题
         title = Text(
             "反余弦函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ARCCOS
         ).move_to(UP * 5.5)
@@ -412,12 +412,12 @@ class InverseTrigFunctions(Scene):
         
         # 定义
         definition = VGroup(
-            Text("定义域:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("定义域:", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"x \in [-1, 1]", font_size=26, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.3).move_to(UP * 4.2)
         
         definition2 = VGroup(
-            Text("值域:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("值域:", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"y \in [0, \pi]", font_size=26, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.3).next_to(definition, DOWN, buff=0.3, aligned_edge=LEFT)
         
@@ -525,7 +525,7 @@ class InverseTrigFunctions(Scene):
         # 标题
         title = Text(
             "反正切函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_ARCTAN
         ).move_to(UP * 5.5)
@@ -540,13 +540,13 @@ class InverseTrigFunctions(Scene):
         
         # 定义
         definition = VGroup(
-            Text("定义域:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("定义域:", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"x \in \mathbb{R}", font_size=26, color=self.COLOR_HIGHLIGHT),
-            Text("(全体实数)", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=GRAY_A)
+            Text("(全体实数)", font="PingFang SC", font_size=self.FONT_SMALL, color=GRAY_A)
         ).arrange(RIGHT, buff=0.2).move_to(UP * 4.2)
         
         definition2 = VGroup(
-            Text("值域:", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=WHITE),
+            Text("值域:", font="PingFang SC", font_size=self.FONT_BODY, color=WHITE),
             MathTex(r"y \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)", font_size=26, color=self.COLOR_HIGHLIGHT),
         ).arrange(RIGHT, buff=0.3).next_to(definition, DOWN, buff=0.3, aligned_edge=LEFT)
         
@@ -634,7 +634,7 @@ class InverseTrigFunctions(Scene):
         
         note = Text(
             "渐近线（无限接近但不到达）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -664,7 +664,7 @@ class InverseTrigFunctions(Scene):
         # 标题
         title = Text(
             "三大反三角函数对比",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -684,9 +684,9 @@ class InverseTrigFunctions(Scene):
         
         # 表头
         header = VGroup(
-            Text("函数", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("定义域", font="Noto Sans CJK SC", font_size=22, color=WHITE),
-            Text("值域", font="Noto Sans CJK SC", font_size=22, color=WHITE)
+            Text("函数", font="PingFang SC", font_size=22, color=WHITE),
+            Text("定义域", font="PingFang SC", font_size=22, color=WHITE),
+            Text("值域", font="PingFang SC", font_size=22, color=WHITE)
         ).arrange(RIGHT, buff=1.2)
         
         # 数据行
@@ -739,7 +739,7 @@ class InverseTrigFunctions(Scene):
         
         note = Text(
             "注意: arctan 定义域最广!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -760,13 +760,13 @@ class InverseTrigFunctions(Scene):
         """场景7: 片尾总结"""
         # 关键要点
         key_points = VGroup(
-            Text("✓ 反三角函数是三角函数的反函数", font="Noto Sans CJK SC", 
+            Text("✓ 反三角函数是三角函数的反函数", font="PingFang SC", 
                  font_size=self.FONT_BODY, color=WHITE),
-            Text("✓ 注意定义域和值域的限制", font="Noto Sans CJK SC", 
+            Text("✓ 注意定义域和值域的限制", font="PingFang SC", 
                  font_size=self.FONT_BODY, color=WHITE),
-            Text("✓ arcsin + arccos = π/2", font="Noto Sans CJK SC", 
+            Text("✓ arcsin + arccos = π/2", font="PingFang SC", 
                  font_size=self.FONT_BODY, color=WHITE),
-            Text("✓ arctan 值域是开区间", font="Noto Sans CJK SC", 
+            Text("✓ arctan 值域是开区间", font="PingFang SC", 
                  font_size=self.FONT_BODY, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.4).move_to(UP * 2)
         
@@ -786,14 +786,14 @@ class InverseTrigFunctions(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).next_to(author_name, DOWN, buff=0.3)
@@ -807,7 +807,7 @@ class InverseTrigFunctions(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

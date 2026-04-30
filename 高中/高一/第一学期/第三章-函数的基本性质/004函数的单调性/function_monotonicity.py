@@ -124,7 +124,7 @@ class FunctionMonotonicity(Scene):
         # ── 品牌标识（全程固定顶部）
         self.author_info = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.C_AUX,
         ).move_to(UP * 7.2)
@@ -133,7 +133,7 @@ class FunctionMonotonicity(Scene):
         # ── 标题
         title = Text(
             "函数的单调性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD,
         ).move_to(UP * 6.2)
@@ -142,7 +142,7 @@ class FunctionMonotonicity(Scene):
         # ── 钩子问题
         hook = Text(
             "为什么抛物线\n左降右升？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=WHITE,
             line_spacing=1.2,
@@ -194,10 +194,10 @@ class FunctionMonotonicity(Scene):
             buff=0,
             stroke_width=3,
         )
-        dec_label = Text("递减", font="Noto Sans CJK SC", font_size=24, color=self.C_DEC).next_to(
+        dec_label = Text("递减", font="PingFang SC", font_size=24, color=self.C_DEC).next_to(
             axes.c2p(-1.8, 3.5), RIGHT, buff=0.1
         )
-        inc_label = Text("递增", font="Noto Sans CJK SC", font_size=24, color=self.C_INC).next_to(
+        inc_label = Text("递增", font="PingFang SC", font_size=24, color=self.C_INC).next_to(
             axes.c2p(0.8, 3.5), LEFT, buff=0.1
         )
         self.play(
@@ -233,7 +233,7 @@ class FunctionMonotonicity(Scene):
         # ── 场景标题
         scene_title = Text(
             "① 单调递增（增函数）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_INC,
         ).move_to(UP * 6.2)
@@ -346,7 +346,7 @@ class FunctionMonotonicity(Scene):
         # ── 定义公式
         definition_text = Text(
             "定义：增函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(DOWN * 1.5)
@@ -384,7 +384,7 @@ class FunctionMonotonicity(Scene):
 
         scene_title = Text(
             "② 单调递减（减函数）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.C_DEC,
         ).move_to(UP * 6.2)
@@ -463,7 +463,7 @@ class FunctionMonotonicity(Scene):
 
         definition_text = Text(
             "定义：减函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE,
         ).move_to(DOWN * 1.5)
@@ -500,7 +500,7 @@ class FunctionMonotonicity(Scene):
 
         scene_title = Text(
             "图像法判断单调性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD,
         ).move_to(UP * 6.2)
@@ -508,7 +508,7 @@ class FunctionMonotonicity(Scene):
 
         hint = Text(
             "从左到右：上升 → 递增，下降 → 递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_AUX,
         ).move_to(UP * 5.3)
@@ -535,13 +535,13 @@ class FunctionMonotonicity(Scene):
         )
         dec_bracket = Text(
             "(-∞, 0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_DEC,
         ).next_to(axes.c2p(-1.5, -0.7), DOWN, buff=0.1)
         dec_text = Text(
             "单调递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_DEC,
         ).next_to(dec_bracket, DOWN, buff=0.05)
@@ -558,13 +558,13 @@ class FunctionMonotonicity(Scene):
         )
         inc_bracket = Text(
             "(0, +∞)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_INC,
         ).next_to(axes.c2p(1.5, -0.7), DOWN, buff=0.1)
         inc_text = Text(
             "单调递增",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_INC,
         ).next_to(inc_bracket, DOWN, buff=0.05)
@@ -576,7 +576,7 @@ class FunctionMonotonicity(Scene):
         vertex_dot = Dot(axes.c2p(0, 0), color=YELLOW, radius=0.1)
         vertex_label = Text(
             "转折点 (0,0)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=YELLOW,
         ).next_to(axes.c2p(0, 0), UR, buff=0.15)
@@ -605,7 +605,7 @@ class FunctionMonotonicity(Scene):
 
         scene_title = Text(
             "作差法（定义法）证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD,
         ).move_to(UP * 6.2)
@@ -613,7 +613,7 @@ class FunctionMonotonicity(Scene):
 
         example_title = Text(
             "例：证明 f(x) = x² 在 (-∞, 0) 单调递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE,
         ).move_to(UP * 5.2)
@@ -642,7 +642,7 @@ class FunctionMonotonicity(Scene):
             y_pos = y_start - i * step_spacing
             label_mob = Text(
                 label + "：",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=24,
                 color=self.C_AUX,
             ).move_to(LEFT * 2.8 + UP * y_pos)
@@ -664,7 +664,7 @@ class FunctionMonotonicity(Scene):
         # ── 结论高亮框
         conclusion = Text(
             "∴ f(x) = x²  在  (-∞, 0) 上单调递减  ✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.C_INC,
         ).move_to(DOWN * 2.8)
@@ -692,7 +692,7 @@ class FunctionMonotonicity(Scene):
 
         scene_title = Text(
             "导数法（进阶）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=PURPLE_B,
         ).move_to(UP * 6.2)
@@ -718,7 +718,7 @@ class FunctionMonotonicity(Scene):
         )
         inc_note = Text(
             "斜率为正 → 递增",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_INC,
         ).move_to(UP * 4.6 + LEFT * 1.5)
@@ -741,7 +741,7 @@ class FunctionMonotonicity(Scene):
         )
         dec_note = Text(
             "斜率为负 → 递减",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.C_DEC,
         ).move_to(UP * 4.6 + RIGHT * 1.5)
@@ -769,7 +769,7 @@ class FunctionMonotonicity(Scene):
         # ── 总结标题
         summary_title = Text(
             "三种判断方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD,
         ).move_to(UP * 5.8)
@@ -786,8 +786,8 @@ class FunctionMonotonicity(Scene):
         for i, (name, desc, color) in enumerate(methods):
             y_pos = UP * (4.5 - i * 1.5)
             icon = Circle(radius=0.3, fill_color=color, fill_opacity=0.9, stroke_width=0)
-            name_mob = Text(name, font="Noto Sans CJK SC", font_size=26, color=WHITE)
-            desc_mob = Text(desc, font="Noto Sans CJK SC", font_size=20, color=self.C_AUX)
+            name_mob = Text(name, font="PingFang SC", font_size=26, color=WHITE)
+            desc_mob = Text(desc, font="PingFang SC", font_size=20, color=self.C_AUX)
             row = VGroup(icon, name_mob, desc_mob).arrange(RIGHT, buff=0.3).move_to(y_pos)
             cards.add(row)
 
@@ -819,19 +819,19 @@ class FunctionMonotonicity(Scene):
         # ── 片尾作者信息放大
         outro_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE,
         ).move_to(UP * 1.5)
         outro_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.C_AUX,
         ).move_to(UP * 0.6)
         outro_call = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GOLD,
         ).move_to(DOWN * 0.3)

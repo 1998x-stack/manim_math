@@ -97,7 +97,7 @@ class MathematicalInduction(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -107,7 +107,7 @@ class MathematicalInduction(Scene):
         # 钩子问题
         hook_question = Text(
             "如何证明无限个命题?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -166,7 +166,7 @@ class MathematicalInduction(Scene):
         # 标题
         title = Text(
             "数学归纳法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -183,7 +183,7 @@ class MathematicalInduction(Scene):
         # 定义
         definition = Text(
             "证明与正整数n有关命题的方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -192,9 +192,9 @@ class MathematicalInduction(Scene):
         
         # 核心思想框
         core_idea = VGroup(
-            Text("核心思想:", font="Noto Sans CJK SC", font_size=32, color=self.COLOR_HIGHLIGHT),
-            Text("如同多米诺骨牌", font="Noto Sans CJK SC", font_size=28, color=WHITE),
-            Text("推倒第一块 + 传递效应", font="Noto Sans CJK SC", font_size=26, color=GRAY_A)
+            Text("核心思想:", font="PingFang SC", font_size=32, color=self.COLOR_HIGHLIGHT),
+            Text("如同多米诺骨牌", font="PingFang SC", font_size=28, color=WHITE),
+            Text("推倒第一块 + 传递效应", font="PingFang SC", font_size=26, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(UP * 1.5)
         
         self.play(
@@ -256,7 +256,7 @@ class MathematicalInduction(Scene):
         # 场景标题
         scene_title = Text(
             "两个必要步骤",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -275,7 +275,7 @@ class MathematicalInduction(Scene):
         
         step1_title = Text(
             "步骤1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUCCESS,
             weight=BOLD
@@ -283,7 +283,7 @@ class MathematicalInduction(Scene):
         
         step1_name = Text(
             "归纳奠基",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(step1_box.get_center() + UP * 0.2)
@@ -328,7 +328,7 @@ class MathematicalInduction(Scene):
         
         step2_title = Text(
             "步骤2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY,
             weight=BOLD
@@ -336,7 +336,7 @@ class MathematicalInduction(Scene):
         
         step2_name = Text(
             "归纳递推",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         ).move_to(step2_box.get_center() + UP * 0.2)
@@ -392,7 +392,7 @@ class MathematicalInduction(Scene):
         
         conclusion_text = Text(
             "对所有 n ≥ 1 成立",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(conclusion_box.get_center())
@@ -426,7 +426,7 @@ class MathematicalInduction(Scene):
         # 强调缺一不可
         emphasis = Text(
             "两步缺一不可!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=RED
         ).move_to(DOWN * 3.5)
@@ -453,7 +453,7 @@ class MathematicalInduction(Scene):
         # 场景标题
         scene_title = Text(
             "步骤1: 归纳奠基",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 6)
@@ -463,7 +463,7 @@ class MathematicalInduction(Scene):
         # 说明
         explanation = Text(
             "验证 n=1 (或 n=n₀) 时命题成立",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -508,8 +508,8 @@ class MathematicalInduction(Scene):
         
         # 类比文字
         analogy = VGroup(
-            Text("类比:", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SUCCESS),
-            Text("确保第一块骨牌能推倒", font="Noto Sans CJK SC", font_size=26, color=WHITE)
+            Text("类比:", font="PingFang SC", font_size=28, color=self.COLOR_SUCCESS),
+            Text("确保第一块骨牌能推倒", font="PingFang SC", font_size=26, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(UP * 0.5)
         
         self.play(
@@ -561,7 +561,7 @@ class MathematicalInduction(Scene):
         # 场景标题
         scene_title = Text(
             "步骤2: 归纳递推",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
@@ -571,7 +571,7 @@ class MathematicalInduction(Scene):
         # 说明
         explanation = Text(
             "假设 n=k 成立, 证明 n=k+1 也成立",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -590,7 +590,7 @@ class MathematicalInduction(Scene):
         
         assumption_label = Text(
             "假设:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=BLUE
         ).next_to(assumption_box.get_left(), RIGHT, buff=0.3).align_to(assumption_box, UP).shift(DOWN * 0.25)
@@ -618,7 +618,7 @@ class MathematicalInduction(Scene):
         
         arrow_label = Text(
             "证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).next_to(arrow_down, RIGHT, buff=0.2)
@@ -641,7 +641,7 @@ class MathematicalInduction(Scene):
         
         proof_label = Text(
             "证明:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).next_to(proof_box.get_left(), RIGHT, buff=0.3).align_to(proof_box, UP).shift(DOWN * 0.25)
@@ -710,8 +710,8 @@ class MathematicalInduction(Scene):
         
         # 类比文字
         analogy = VGroup(
-            Text("类比:", font="Noto Sans CJK SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("第k块倒下 → 第k+1块倒下", font="Noto Sans CJK SC", font_size=24, color=WHITE)
+            Text("类比:", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
+            Text("第k块倒下 → 第k+1块倒下", font="PingFang SC", font_size=24, color=WHITE)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(DOWN * 2.5)
         
         self.play(
@@ -725,7 +725,7 @@ class MathematicalInduction(Scene):
         # 关键点强调
         key_point = Text(
             "传递性保证了无限传递!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.2)
@@ -759,7 +759,7 @@ class MathematicalInduction(Scene):
         # 例题
         problem_title = Text(
             "完整示例",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6.5)
@@ -790,7 +790,7 @@ class MathematicalInduction(Scene):
         # 步骤1: 归纳奠基
         step1_label = Text(
             "步骤1: n=1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SUCCESS
         ).move_to(UP * 3.8)
@@ -828,7 +828,7 @@ class MathematicalInduction(Scene):
         # 步骤2: 归纳递推
         step2_label = Text(
             "步骤2: k → k+1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 1.2)
@@ -844,7 +844,7 @@ class MathematicalInduction(Scene):
         
         assumption_label = Text(
             "假设:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=BLUE
         ).next_to(assumption, LEFT, buff=0.3)
@@ -864,7 +864,7 @@ class MathematicalInduction(Scene):
         
         proof_label = Text(
             "证明:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_SECONDARY
         ).next_to(proof_start, LEFT, buff=0.3)
@@ -905,7 +905,7 @@ class MathematicalInduction(Scene):
         # 结论框
         conclusion = Text(
             "恰好是 n=k+1 时的形式!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.8)
@@ -963,7 +963,7 @@ class MathematicalInduction(Scene):
         # 标题
         app_title = Text(
             "数学归纳法的应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -994,7 +994,7 @@ class MathematicalInduction(Scene):
             # 标题
             card_title = Text(
                 title,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=color
             ).move_to(card_box.get_top() + DOWN * 0.4)
@@ -1040,7 +1040,7 @@ class MathematicalInduction(Scene):
         # 核心要点总结
         summary_title = Text(
             "数学归纳法核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -1062,7 +1062,7 @@ class MathematicalInduction(Scene):
         for i, point in enumerate(summary_points):
             card = Text(
                 point,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=WHITE
             ).move_to(np.array([0, y_start - i * y_gap, 0]))
@@ -1125,14 +1125,14 @@ class MathematicalInduction(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1146,7 +1146,7 @@ class MathematicalInduction(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8)

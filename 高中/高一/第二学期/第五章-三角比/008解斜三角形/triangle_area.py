@@ -97,15 +97,15 @@ class TriangleArea(Scene):
                        **kwargs)
 
     def _make_vertex_labels(self, tri_color=WHITE):
-        lA = Text("A", font="Noto Sans CJK SC", font_size=24, color=tri_color).next_to(self.A, DL, buff=0.12)
-        lB = Text("B", font="Noto Sans CJK SC", font_size=24, color=tri_color).next_to(self.B, DR, buff=0.12)
-        lC = Text("C", font="Noto Sans CJK SC", font_size=24, color=tri_color).next_to(self.C, UP, buff=0.12)
+        lA = Text("A", font="PingFang SC", font_size=24, color=tri_color).next_to(self.A, DL, buff=0.12)
+        lB = Text("B", font="PingFang SC", font_size=24, color=tri_color).next_to(self.B, DR, buff=0.12)
+        lC = Text("C", font="PingFang SC", font_size=24, color=tri_color).next_to(self.C, UP, buff=0.12)
         return VGroup(lA, lB, lC)
 
     def _author_tag(self):
         return Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=19, color=GRAY_B
+            font="PingFang SC", font_size=19, color=GRAY_B
         ).move_to(UP * 7.2)
 
     # ─────────────────────────────────────────────
@@ -115,9 +115,9 @@ class TriangleArea(Scene):
         author = self._author_tag()
         self.play(FadeIn(author, shift=DOWN * 0.2), run_time=0.4)
 
-        hook = Text("怎么求斜三角形面积？", font="Noto Sans CJK SC",
+        hook = Text("怎么求斜三角形面积？", font="PingFang SC",
                     font_size=40, color=self.C_HIGHLIGHT).move_to(UP * 5.5)
-        sub  = Text("高都找不到！", font="Noto Sans CJK SC",
+        sub  = Text("高都找不到！", font="PingFang SC",
                     font_size=28, color=GRAY_A).move_to(UP * 4.7)
 
         self.play(Write(hook), run_time=0.9)
@@ -138,7 +138,7 @@ class TriangleArea(Scene):
         self.play(Create(confused_line), FadeIn(question_mark), run_time=0.6)
         self.wait(0.6)
 
-        answer = Text("用正弦定理解决！", font="Noto Sans CJK SC",
+        answer = Text("用正弦定理解决！", font="PingFang SC",
                       font_size=30, color=self.C_FORMULA).move_to(DOWN * 4.5)
         self.play(Write(answer), run_time=0.6)
         self.wait(0.6)
@@ -156,7 +156,7 @@ class TriangleArea(Scene):
     #  SCENE 2: BASIC AREA S = ½ × base × height
     # ─────────────────────────────────────────────
     def scene_basic_area(self):
-        title = Text("基础公式回顾", font="Noto Sans CJK SC",
+        title = Text("基础公式回顾", font="PingFang SC",
                      font_size=34, color=GOLD).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.6)
 
@@ -183,7 +183,7 @@ class TriangleArea(Scene):
         self.wait(1.0)
 
         # But h is unknown for oblique triangle
-        note = Text("但h不好直接求...", font="Noto Sans CJK SC",
+        note = Text("但h不好直接求...", font="PingFang SC",
                     font_size=26, color=self.C_HIGHLIGHT).move_to(DOWN * 5.0)
         self.play(FadeIn(note, shift=UP * 0.2), run_time=0.5)
         self.wait(0.8)
@@ -201,7 +201,7 @@ class TriangleArea(Scene):
     #  SCENE 3: DERIVE S = ½ab sinC
     # ─────────────────────────────────────────────
     def scene_derive_formula(self):
-        title = Text("关键推导", font="Noto Sans CJK SC",
+        title = Text("关键推导", font="PingFang SC",
                      font_size=34, color=GOLD).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.5)
 
@@ -229,7 +229,7 @@ class TriangleArea(Scene):
         self.play(FadeIn(b_label), FadeIn(a_label), run_time=0.4)
 
         # Step 1: h = b sinC
-        step1_title = Text("在直角三角形中：", font="Noto Sans CJK SC",
+        step1_title = Text("在直角三角形中：", font="PingFang SC",
                            font_size=24, color=GRAY_A).move_to(DOWN * 3.6)
         step1 = MathTex(r"h = b \sin C",
                         font_size=34, color=self.C_HEIGHT).move_to(DOWN * 4.3)
@@ -237,7 +237,7 @@ class TriangleArea(Scene):
         self.wait(0.8)
 
         # Step 2: Substitute
-        step2_title = Text("代入面积公式：", font="Noto Sans CJK SC",
+        step2_title = Text("代入面积公式：", font="PingFang SC",
                            font_size=24, color=GRAY_A).move_to(DOWN * 5.1)
         step2 = MathTex(r"S = \frac{1}{2} \cdot a \cdot h = \frac{1}{2} \cdot a \cdot b \sin C",
                         font_size=28, color=self.C_FORMULA).move_to(DOWN * 5.8)
@@ -258,7 +258,7 @@ class TriangleArea(Scene):
     #  SCENE 4: THREE EQUIVALENT FORMS
     # ─────────────────────────────────────────────
     def scene_three_forms(self):
-        title = Text("三种等价形式", font="Noto Sans CJK SC",
+        title = Text("三种等价形式", font="PingFang SC",
                      font_size=34, color=GOLD).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.5)
 
@@ -279,7 +279,7 @@ class TriangleArea(Scene):
         self.play(FadeIn(f2, shift=LEFT * 0.3), run_time=0.5)
         self.play(FadeIn(f3, shift=LEFT * 0.3), run_time=0.5)
 
-        equal_note = Text("三个角都可以用！", font="Noto Sans CJK SC",
+        equal_note = Text("三个角都可以用！", font="PingFang SC",
                           font_size=26, color=self.C_HIGHLIGHT).move_to(DOWN * 6.3)
         self.play(FadeIn(equal_note, shift=UP * 0.2), run_time=0.5)
         self.wait(2.0)
@@ -294,16 +294,16 @@ class TriangleArea(Scene):
     #  SCENE 5: EXAMPLE
     # ─────────────────────────────────────────────
     def scene_example(self):
-        title = Text("例题", font="Noto Sans CJK SC",
+        title = Text("例题", font="PingFang SC",
                      font_size=36, color=GOLD).move_to(UP * 5.8)
         self.play(Write(title), run_time=0.4)
 
         # Problem statement
-        prob1 = Text("已知三角形中：", font="Noto Sans CJK SC",
+        prob1 = Text("已知三角形中：", font="PingFang SC",
                      font_size=26, color=GRAY_A).move_to(UP * 5.0)
         prob2 = MathTex(r"a = 6, \quad b = 4, \quad C = 30^\circ",
                         font_size=30, color=WHITE).move_to(UP * 4.3)
-        prob3 = Text("求三角形的面积", font="Noto Sans CJK SC",
+        prob3 = Text("求三角形的面积", font="PingFang SC",
                      font_size=26, color=self.C_HIGHLIGHT).move_to(UP * 3.6)
         self.play(FadeIn(prob1), Write(prob2), FadeIn(prob3), run_time=1.0)
 
@@ -368,12 +368,12 @@ class TriangleArea(Scene):
     #  SCENE 6: HERON'S FORMULA
     # ─────────────────────────────────────────────
     def scene_heron(self):
-        title = Text("海伦公式（三边已知）", font="Noto Sans CJK SC",
+        title = Text("海伦公式（三边已知）", font="PingFang SC",
                      font_size=30, color=GOLD).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.6)
 
         # When to use note
-        when = Text("已知三边 a, b, c 时使用：", font="Noto Sans CJK SC",
+        when = Text("已知三边 a, b, c 时使用：", font="PingFang SC",
                     font_size=26, color=GRAY_A).move_to(UP * 4.6)
         self.play(FadeIn(when), run_time=0.5)
 
@@ -393,9 +393,9 @@ class TriangleArea(Scene):
         self.play(Create(heron_box), run_time=0.4)
 
         # Brief explanation
-        note1 = Text("s 是三角形的半周长", font="Noto Sans CJK SC",
+        note1 = Text("s 是三角形的半周长", font="PingFang SC",
                      font_size=24, color=GRAY_A).move_to(DOWN * 0.8)
-        note2 = Text("无需求角度就能算面积！", font="Noto Sans CJK SC",
+        note2 = Text("无需求角度就能算面积！", font="PingFang SC",
                      font_size=26, color=self.C_HIGHLIGHT).move_to(DOWN * 1.8)
         self.play(FadeIn(note1), FadeIn(note2, shift=UP * 0.2), run_time=0.7)
         self.wait(2.0)
@@ -412,7 +412,7 @@ class TriangleArea(Scene):
     # ─────────────────────────────────────────────
     def scene_outro(self):
         # Summary card
-        summary_title = Text("三角形面积公式", font="Noto Sans CJK SC",
+        summary_title = Text("三角形面积公式", font="PingFang SC",
                              font_size=36, color=GOLD).move_to(UP * 5.0)
         self.play(Write(summary_title), run_time=0.6)
 
@@ -420,7 +420,7 @@ class TriangleArea(Scene):
                         color=self.C_FORMULA).move_to(UP * 3.8)
         line2 = MathTex(r"= \frac{1}{2}bc\sin A = \frac{1}{2}ac\sin B",
                         font_size=28, color="#81D4FA").move_to(UP * 2.9)
-        line3_title = Text("三边已知：", font="Noto Sans CJK SC",
+        line3_title = Text("三边已知：", font="PingFang SC",
                            font_size=26, color=GRAY_A).move_to(UP * 1.8)
         line3 = MathTex(r"S = \sqrt{s(s-a)(s-b)(s-c)}", font_size=28,
                         color=self.C_EXAMPLE).move_to(UP * 1.0)
@@ -431,13 +431,13 @@ class TriangleArea(Scene):
         self.wait(0.5)
 
         # Follow CTA
-        follow = Text("关注我，获得更多数学技巧！", font="Noto Sans CJK SC",
+        follow = Text("关注我，获得更多数学技巧！", font="PingFang SC",
                       font_size=30, color=self.C_HIGHLIGHT).move_to(DOWN * 2.0)
         self.play(FadeIn(follow, scale=1.05), run_time=0.6)
 
-        author_big = Text("上海初高中数学直通车", font="Noto Sans CJK SC",
+        author_big = Text("上海初高中数学直通车", font="PingFang SC",
                           font_size=32, color=WHITE).move_to(DOWN * 3.2)
-        author_id  = Text("@emptyandcalm", font="Noto Sans CJK SC",
+        author_id  = Text("@emptyandcalm", font="PingFang SC",
                           font_size=24, color=GRAY_B).move_to(DOWN * 4.0)
 
         self.play(

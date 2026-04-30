@@ -47,7 +47,7 @@ class TrigonometricTransform(Scene):
         self.COLOR_SHIFT = GOLD             # 金色 - 平移
         
         # 字体配置
-        self.AUTHOR_FONT = "Noto Sans CJK SC"
+        self.AUTHOR_FONT = "PingFang SC"
         
         # 执行动画序列
         self.show_opening()

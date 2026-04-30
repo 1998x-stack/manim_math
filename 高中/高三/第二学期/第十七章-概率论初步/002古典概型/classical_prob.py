@@ -43,7 +43,7 @@ C_AX      = "#7f8c8d"
 C_CARD    = "#16213e"
 C_GRID_HIT= "#e74c3c"    # 网格命中格
 C_GRID_BG = "#2c3e50"    # 网格背景
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 
 # ══════════════════════════════════════════════════════════

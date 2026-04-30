@@ -38,7 +38,7 @@ COL_GRAY    = "#7f8c8d"
 COL_GRAY_L  = "#95a5a6"
 COL_YELLOW = "#ffff00"
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # 经验证的精确坐标
 # 复平面中心 = (0, 1.5)，UNIT_R = 2.0

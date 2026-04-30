@@ -147,7 +147,7 @@ class FrustumLesson(ThreeDScene):
         )
 
     def ft(self, txt, size=26, color=WHITE):
-        return Text(txt, font="Noto Sans CJK SC", font_size=size, color=color)
+        return Text(txt, font="PingFang SC", font_size=size, color=color)
 
     def add_ft(self, *mobs):
         self.add_fixed_in_frame_mobjects(*mobs)
@@ -498,7 +498,7 @@ class FrustumLesson(ThreeDScene):
 
         # Brace labels via fixed-frame text
         V_big_tex = VGroup(
-            Text("V大", font="Noto Sans CJK SC", font_size=28, color=PHANTOM_COL),
+            Text("V大", font="PingFang SC", font_size=28, color=PHANTOM_COL),
             MathTex(
                 rf"= \frac{{1}}{{3}} \cdot {S2:.2f} \times {h_pyr:.1f} = {(S2*h_pyr/3):.2f}",
                 font_size=28, color=PHANTOM_COL
@@ -509,7 +509,7 @@ class FrustumLesson(ThreeDScene):
         self.wait(0.4)
 
         V_small_tex = VGroup(
-            Text("V小", font="Noto Sans CJK SC", font_size=28, color=YELLOW),
+            Text("V小", font="PingFang SC", font_size=28, color=YELLOW),
             MathTex(
                 rf"= \frac{{1}}{{3}} \cdot {S1:.2f} \times {h_pyr - h:.1f} = {(S1*(h_pyr-h)/3):.2f}",
                 font_size=28, color=YELLOW
@@ -529,9 +529,9 @@ class FrustumLesson(ThreeDScene):
 
         V_diff = VGroup(
             MathTex(r"V\;=\;", font_size=36, color=WHITE),
-            Text("V大", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+            Text("V大", font="PingFang SC", font_size=30, color=WHITE),
             MathTex(r"-", font_size=36, color=WHITE),
-            Text("V小", font="Noto Sans CJK SC", font_size=30, color=WHITE),
+            Text("V小", font="PingFang SC", font_size=30, color=WHITE),
         ).arrange(RIGHT, buff=0.15).move_to(UP * 3.3)
         self.add_ft(V_diff)
         self.play(FadeIn(V_diff, shift=UP*0.2), run_time=0.5)
@@ -541,7 +541,7 @@ class FrustumLesson(ThreeDScene):
         def _make_s_label(char, fs=32, color=WHITE):
             """辅助：带中文下标的S"""
             s   = MathTex(r"S", font_size=fs, color=color)
-            sub = Text(char, font="Noto Sans CJK SC", font_size=int(fs * 0.52), color=color)
+            sub = Text(char, font="PingFang SC", font_size=int(fs * 0.52), color=color)
             sub.next_to(s, DR, buff=-0.04).shift(UP * 0.06)
             return VGroup(s, sub)
 
@@ -554,16 +554,16 @@ class FrustumLesson(ThreeDScene):
         # 标注行：说明S₁=S上，S₂=S下
         s1_note = VGroup(
             MathTex(r"S_1", font_size=22, color=ACCENT),
-            Text("=", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
-            Text("S", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
-            Text("上", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+            Text("=", font="PingFang SC", font_size=20, color=ACCENT),
+            Text("S", font="PingFang SC", font_size=20, color=ACCENT),
+            Text("上", font="PingFang SC", font_size=20, color=ACCENT),
         ).arrange(RIGHT, buff=0.06)
 
         s2_note = VGroup(
             MathTex(r"S_2", font_size=22, color=ACCENT),
-            Text("=", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
-            Text("S", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
-            Text("下", font="Noto Sans CJK SC", font_size=20, color=ACCENT),
+            Text("=", font="PingFang SC", font_size=20, color=ACCENT),
+            Text("S", font="PingFang SC", font_size=20, color=ACCENT),
+            Text("下", font="PingFang SC", font_size=20, color=ACCENT),
         ).arrange(RIGHT, buff=0.06)
 
         note_line = VGroup(s1_note, MathTex(r"\quad", font_size=20), s2_note).arrange(RIGHT, buff=0.3)
@@ -620,7 +620,7 @@ class FrustumLesson(ThreeDScene):
 
         def _sub(char, base="S", fs=38, color=WHITE):
             b   = MathTex(base, font_size=fs, color=color)
-            sub = Text(char, font="Noto Sans CJK SC",
+            sub = Text(char, font="PingFang SC",
                     font_size=int(fs * 0.5), color=color)
             sub.next_to(b, DR, buff=-0.05).shift(UP * 0.07)
             return VGroup(b, sub)
@@ -646,7 +646,7 @@ class FrustumLesson(ThreeDScene):
 
         # ✅ FIX E1: S_侧 数值行 — 用 VGroup 替代 MathTex 含中文下标
         _s1 = MathTex("S", font_size=30, color=WHITE)
-        _sub1 = Text("侧", font="Noto Sans CJK SC", font_size=15, color=WHITE)
+        _sub1 = Text("侧", font="PingFang SC", font_size=15, color=WHITE)
         _sub1.next_to(_s1, DR, buff=-0.04).shift(UP * 0.06)
         _eq1 = MathTex(
             rf"= \frac{{1}}{{2}} \times ({C1:.1f} + {C2:.1f}) \times {slant_h:.3f}",
@@ -658,7 +658,7 @@ class FrustumLesson(ThreeDScene):
 
         # ✅ FIX E2: S_侧 结果行 — 用 VGroup 替代 MathTex 含中文下标
         _s2 = MathTex("S", font_size=50, color=ACCENT)
-        _sub2 = Text("侧", font="Noto Sans CJK SC", font_size=25, color=ACCENT)
+        _sub2 = Text("侧", font="PingFang SC", font_size=25, color=ACCENT)
         _sub2.next_to(_s2, DR, buff=-0.04).shift(UP * 0.06)
         _eq2 = MathTex(rf"\approx {S_lat:.2f}", font_size=50, color=ACCENT)
         result_s = VGroup(VGroup(_s2, _sub2), _eq2).arrange(RIGHT, buff=0.08).move_to(UP * 2.1)
@@ -691,7 +691,7 @@ class FrustumLesson(ThreeDScene):
         # ✅ 修复：S_{\text{侧}} 含中文 → VGroup 拆分
         def _sub_fixed(char, base="S", fs=34, color=WHITE):
             b   = MathTex(base, font_size=fs, color=color)
-            sub = Text(char, font="Noto Sans CJK SC",
+            sub = Text(char, font="PingFang SC",
                     font_size=int(fs * 0.5), color=color)
             sub.next_to(b, DR, buff=-0.05).shift(UP * 0.07)
             return VGroup(b, sub)

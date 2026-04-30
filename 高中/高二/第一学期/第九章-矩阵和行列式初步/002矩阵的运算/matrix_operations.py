@@ -68,7 +68,7 @@ class MatrixOperations(Scene):
         # 作者信息 (持续显示)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -85,7 +85,7 @@ class MatrixOperations(Scene):
         # 钩子问题
         hook = Text(
             "矩阵如何计算?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.TITLE_POS)
@@ -106,7 +106,7 @@ class MatrixOperations(Scene):
         # 过渡文字
         transition = Text(
             "三种基本运算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_RESULT
         ).move_to(self.EXPLAIN_POS)
@@ -127,7 +127,7 @@ class MatrixOperations(Scene):
         # 标题
         title = Text(
             "矩阵加法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -205,7 +205,7 @@ class MatrixOperations(Scene):
         # 说明
         explain = Text(
             "对应元素相加",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(self.EXPLAIN_POS)
@@ -232,7 +232,7 @@ class MatrixOperations(Scene):
         # 标题
         title = Text(
             "数乘",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(self.TITLE_POS)
@@ -285,7 +285,7 @@ class MatrixOperations(Scene):
         # 说明
         explain = Text(
             "每个元素乘以常数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(self.EXPLAIN_POS)
@@ -309,7 +309,7 @@ class MatrixOperations(Scene):
         # 标题 - 强调重点
         title = Text(
             "矩阵乘法 (重点)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MULTIPLY
         ).move_to(self.TITLE_POS)
@@ -328,7 +328,7 @@ class MatrixOperations(Scene):
         matrix_A.set_color(self.COLOR_PRIMARY)
         
         label_A = MathTex("A_{2 \\times 3} =", font_size=24).next_to(matrix_A, LEFT, buff=0.3)
-        dim_A = Text("2×3", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_PRIMARY).next_to(matrix_A, DOWN, buff=0.3)
+        dim_A = Text("2×3", font="PingFang SC", font_size=20, color=self.COLOR_PRIMARY).next_to(matrix_A, DOWN, buff=0.3)
         
         # 矩阵 B (3×2)
         matrix_B = Matrix(
@@ -342,7 +342,7 @@ class MatrixOperations(Scene):
         matrix_B.set_color(self.COLOR_SECONDARY)
         
         label_B = MathTex("B_{3 \\times 2} =", font_size=24).next_to(matrix_B, LEFT, buff=0.3)
-        dim_B = Text("3×2", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_SECONDARY).next_to(matrix_B, DOWN, buff=0.3)
+        dim_B = Text("3×2", font="PingFang SC", font_size=20, color=self.COLOR_SECONDARY).next_to(matrix_B, DOWN, buff=0.3)
         
         self.play(
             Write(label_A),
@@ -360,7 +360,7 @@ class MatrixOperations(Scene):
         # 维度匹配说明
         condition = Text(
             "A的列数 = B的行数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.5)
@@ -390,7 +390,7 @@ class MatrixOperations(Scene):
         # 结果维度
         result_dim = Text(
             "结果: 2×2 矩阵",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_RESULT
         ).move_to(DOWN * 1)
@@ -419,7 +419,7 @@ class MatrixOperations(Scene):
         # 标题
         title = Text(
             "如何计算 c₁₁?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_MULTIPLY
         ).move_to(self.TITLE_POS)
@@ -470,14 +470,14 @@ class MatrixOperations(Scene):
         # 说明
         explain1 = Text(
             "取A的第1行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_PRIMARY
         ).move_to(LEFT * 2.5 + UP * 1.8)
         
         explain2 = Text(
             "取B的第1列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_SECONDARY
         ).move_to(RIGHT * 2.5 + UP * 1.8)
@@ -488,7 +488,7 @@ class MatrixOperations(Scene):
         # 计算过程
         calc_title = Text(
             "对应元素相乘，再求和:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 1)
@@ -513,7 +513,7 @@ class MatrixOperations(Scene):
         # Brace 标注求和
         products_group = VGroup(product1, product2, product3)
         brace = Brace(products_group, LEFT, color=self.COLOR_RESULT)
-        brace_text = Text("求和", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_RESULT).next_to(brace, LEFT, buff=0.1)
+        brace_text = Text("求和", font="PingFang SC", font_size=24, color=self.COLOR_RESULT).next_to(brace, LEFT, buff=0.1)
         
         self.play(GrowFromCenter(brace), FadeIn(brace_text), run_time=0.6)
         self.wait(0.5)
@@ -552,7 +552,7 @@ class MatrixOperations(Scene):
         # 标题
         title = Text(
             "完整计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_MULTIPLY
         ).move_to(self.TITLE_POS)
@@ -587,7 +587,7 @@ class MatrixOperations(Scene):
         # 提示"同理计算其他元素"
         hint = Text(
             "同理计算其他元素...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 1.5)
@@ -617,7 +617,7 @@ class MatrixOperations(Scene):
         ]
         
         for i, (label_text, pos) in enumerate(zip(calc_labels, positions)):
-            label = Text(label_text, font="Noto Sans CJK SC", font_size=22, color=self.COLOR_RESULT).move_to(pos)
+            label = Text(label_text, font="PingFang SC", font_size=22, color=self.COLOR_RESULT).move_to(pos)
             self.play(FadeIn(label, scale=1.2), run_time=0.6)
             if i < 3:
                 self.wait(0.3)
@@ -662,7 +662,7 @@ class MatrixOperations(Scene):
         # 标题 - 警示
         title = Text(
             "注意: AB ≠ BA",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=RED
         ).move_to(self.TITLE_POS)
@@ -678,7 +678,7 @@ class MatrixOperations(Scene):
         
         # AB 的结果（从上一场景移动）
         if hasattr(self, 'ab_result'):
-            ab_label = Text("AB =", font="Noto Sans CJK SC", font_size=24).next_to(self.ab_result, LEFT, buff=0.3)
+            ab_label = Text("AB =", font="PingFang SC", font_size=24).next_to(self.ab_result, LEFT, buff=0.3)
             
             self.play(
                 self.ab_result.animate.scale(0.7).move_to(UP * 2.5),
@@ -694,7 +694,7 @@ class MatrixOperations(Scene):
                 element_to_mobject_config={"font_size": 20}
             ).scale(0.7).move_to(UP * 2.5)
             ab_result.set_color(self.COLOR_RESULT)
-            ab_label = Text("AB =", font="Noto Sans CJK SC", font_size=24).next_to(ab_result, LEFT, buff=0.3)
+            ab_label = Text("AB =", font="PingFang SC", font_size=24).next_to(ab_result, LEFT, buff=0.3)
             self.play(Create(ab_result), FadeIn(ab_label), run_time=0.8)
         
         # BA 的结果（注意：B是3×2，A是2×3，BA是3×3）
@@ -708,7 +708,7 @@ class MatrixOperations(Scene):
         ).scale(0.6).move_to(UP * 0.5)
         ba_result.set_color(self.COLOR_SECONDARY)
         
-        ba_label = Text("BA =", font="Noto Sans CJK SC", font_size=24).next_to(ba_result, LEFT, buff=0.3)
+        ba_label = Text("BA =", font="PingFang SC", font_size=24).next_to(ba_result, LEFT, buff=0.3)
         
         self.play(
             FadeIn(ba_label),
@@ -727,7 +727,7 @@ class MatrixOperations(Scene):
         # 原因说明
         reason = Text(
             "维度不同 & 计算顺序不同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 2)
@@ -754,7 +754,7 @@ class MatrixOperations(Scene):
         # 标题
         title = Text(
             "重要性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(self.TITLE_POS)
@@ -766,22 +766,22 @@ class MatrixOperations(Scene):
         
         # 结合律
         prop1 = MathTex("(AB)C = A(BC)", font_size=26, color=WHITE).move_to(UP * 3.5)
-        prop1_label = Text("结合律", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(prop1, LEFT, buff=0.5)
+        prop1_label = Text("结合律", font="PingFang SC", font_size=20, color=GRAY_A).next_to(prop1, LEFT, buff=0.5)
         properties.add(VGroup(prop1_label, prop1))
         
         # 分配律
         prop2 = MathTex("A(B + C) = AB + AC", font_size=26, color=WHITE).move_to(UP * 2.5)
-        prop2_label = Text("分配律", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(prop2, LEFT, buff=0.5)
+        prop2_label = Text("分配律", font="PingFang SC", font_size=20, color=GRAY_A).next_to(prop2, LEFT, buff=0.5)
         properties.add(VGroup(prop2_label, prop2))
         
         # 单位矩阵
         prop3 = MathTex("EA = AE = A", font_size=26, color=self.COLOR_RESULT).move_to(UP * 1.5)
-        prop3_label = Text("单位矩阵", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(prop3, LEFT, buff=0.5)
+        prop3_label = Text("单位矩阵", font="PingFang SC", font_size=20, color=GRAY_A).next_to(prop3, LEFT, buff=0.5)
         properties.add(VGroup(prop3_label, prop3))
         
         # 零矩阵
         prop4 = MathTex("A \\cdot O = O", font_size=26, color=GRAY).move_to(UP * 0.5)
-        prop4_label = Text("零矩阵", font="Noto Sans CJK SC", font_size=20, color=GRAY_A).next_to(prop4, LEFT, buff=0.5)
+        prop4_label = Text("零矩阵", font="PingFang SC", font_size=20, color=GRAY_A).next_to(prop4, LEFT, buff=0.5)
         properties.add(VGroup(prop4_label, prop4))
         
         # 依次显示
@@ -792,7 +792,7 @@ class MatrixOperations(Scene):
         # 三种运算回顾
         summary_title = Text(
             "三种运算回顾",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -801,13 +801,13 @@ class MatrixOperations(Scene):
         
         # 运算图标
         add_icon = MathTex("+", font_size=40, color=self.COLOR_PRIMARY).move_to(DOWN * 2 + LEFT * 2)
-        add_label = Text("加法", font="Noto Sans CJK SC", font_size=18).next_to(add_icon, DOWN, buff=0.2)
+        add_label = Text("加法", font="PingFang SC", font_size=18).next_to(add_icon, DOWN, buff=0.2)
         
         scalar_icon = MathTex("k\\cdot", font_size=40, color=self.COLOR_SECONDARY).move_to(DOWN * 2)
-        scalar_label = Text("数乘", font="Noto Sans CJK SC", font_size=18).next_to(scalar_icon, DOWN, buff=0.2)
+        scalar_label = Text("数乘", font="PingFang SC", font_size=18).next_to(scalar_icon, DOWN, buff=0.2)
         
         mult_icon = MathTex("\\times", font_size=40, color=self.COLOR_MULTIPLY).move_to(DOWN * 2 + RIGHT * 2)
-        mult_label = Text("乘法", font="Noto Sans CJK SC", font_size=18).next_to(mult_icon, DOWN, buff=0.2)
+        mult_label = Text("乘法", font="PingFang SC", font_size=18).next_to(mult_icon, DOWN, buff=0.2)
         
         icons = VGroup(
             VGroup(add_icon, add_label),
@@ -823,7 +823,7 @@ class MatrixOperations(Scene):
         # 片尾关注
         outro = Text(
             "关注我, 学更多矩阵技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_RESULT
         ).move_to(DOWN * 4)

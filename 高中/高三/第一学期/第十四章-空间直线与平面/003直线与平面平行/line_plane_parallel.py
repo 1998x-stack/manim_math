@@ -23,7 +23,7 @@ C_POINT   = "#FF8A65"    # 橙  点
 C_GOLD    = "#FFD700"
 C_GRAY    = GRAY_B
 C_COND    = "#CE93D8"    # 紫  条件
-FONT_CN   = "Noto Sans CJK SC"
+FONT_CN   = "PingFang SC"
 
 
 def iso(x, y, z, sx=0.85, sy=0.55, ox=0, oy=0):

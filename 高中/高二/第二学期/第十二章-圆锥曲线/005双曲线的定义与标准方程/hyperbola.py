@@ -114,7 +114,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 作者信息（顶部，全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -124,7 +124,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 钩子问题
         hook_text = Text(
             "什么曲线有两个分支?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -168,7 +168,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 标题
         title = Text(
             "双曲线的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HYPERBOLA
         ).move_to(UP * 5.5)
@@ -322,7 +322,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 标题
         title = Text(
             "关键参数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -471,7 +471,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 标题
         title = Text(
             "标准方程（焦点在x轴）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HYPERBOLA
         ).move_to(UP * 5.5)
@@ -602,7 +602,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 标题
         title = Text(
             "渐近线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_ASYMPTOTE
         ).move_to(UP * 5.5)
@@ -657,7 +657,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 说明文字
         explanation = Text(
             "双曲线无限接近但不相交",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 6)
@@ -707,7 +707,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 标题
         title = Text(
             "焦点在y轴",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HYPERBOLA
         ).move_to(UP * 5.5)
@@ -818,7 +818,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 总结标题
         summary_title = Text(
             "双曲线核心公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4.5)
@@ -827,22 +827,22 @@ class HyperbolaDefinitionAndEquation(Scene):
         
         # 关键公式卡片 - 使用中英文分离
         # 公式1: 定义
-        def_text = Text("定义:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        def_text = Text("定义:", font="PingFang SC", font_size=24, color=GRAY_A)
         def_formula = MathTex(r"||PF_1| - |PF_2|| = 2a", font_size=24)
         formula_1 = VGroup(def_text, def_formula).arrange(RIGHT, buff=0.3).move_to(UP * 3)
         
         # 公式2: 焦点在x轴
-        x_text = Text("焦点在x轴:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        x_text = Text("焦点在x轴:", font="PingFang SC", font_size=24, color=GRAY_A)
         x_formula = MathTex(r"\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1", font_size=24)
         formula_2 = VGroup(x_text, x_formula).arrange(RIGHT, buff=0.3).move_to(UP * 2)
         
         # 公式3: 焦点在y轴
-        y_text = Text("焦点在y轴:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        y_text = Text("焦点在y轴:", font="PingFang SC", font_size=24, color=GRAY_A)
         y_formula = MathTex(r"\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1", font_size=24)
         formula_3 = VGroup(y_text, y_formula).arrange(RIGHT, buff=0.3).move_to(UP * 1)
         
         # 公式4: 关系
-        rel_text = Text("关系:", font="Noto Sans CJK SC", font_size=24, color=GRAY_A)
+        rel_text = Text("关系:", font="PingFang SC", font_size=24, color=GRAY_A)
         rel_formula = MathTex(r"c^2 = a^2 + b^2", font_size=24)
         formula_4 = VGroup(rel_text, rel_formula).arrange(RIGHT, buff=0.3).move_to(ORIGIN)
         
@@ -866,14 +866,14 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -887,7 +887,7 @@ class HyperbolaDefinitionAndEquation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

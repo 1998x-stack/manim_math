@@ -30,7 +30,7 @@ C_BODY   = "#cfd8dc"
 C_ACCENT = "#ffca28"
 C_GRAY   = "#78909c"
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # ═══ 示例复数 z = 3 + 4i  (经典 3-4-5 勾股三角形) ═══
 _A = 3.0   # 实部

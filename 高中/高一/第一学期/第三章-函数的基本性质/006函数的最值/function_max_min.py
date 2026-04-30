@@ -96,7 +96,7 @@ class FunctionMaxMin(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -106,7 +106,7 @@ class FunctionMaxMin(Scene):
         # 钩子问题
         hook_text = Text(
             "函数有最高点吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -130,7 +130,7 @@ class FunctionMaxMin(Scene):
         # 问号闪烁
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.5)
@@ -153,7 +153,7 @@ class FunctionMaxMin(Scene):
         # 标题
         title = Text(
             "函数的最值",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -163,7 +163,7 @@ class FunctionMaxMin(Scene):
         # 定义1: 最大值
         def_1 = Text(
             "最大值: 函数在定义域内的最高点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 4.2)
@@ -180,7 +180,7 @@ class FunctionMaxMin(Scene):
         # 定义2: 最小值
         def_2 = Text(
             "最小值: 函数在定义域内的最低点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -197,7 +197,7 @@ class FunctionMaxMin(Scene):
         # 关键提示
         note = Text(
             "注意: 最值是整体概念!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 0.8)
@@ -354,7 +354,7 @@ class FunctionMaxMin(Scene):
         # 最大值说明
         max_text = Text(
             "最大值: f(1) = 3",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 3.5)
@@ -452,14 +452,14 @@ class FunctionMaxMin(Scene):
         # 说明文字
         explain_1 = Text(
             "端点值: f(-2) = -6",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.5 + LEFT * 2)
         
         explain_2 = Text(
             "端点值: f(2) = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.5 + RIGHT * 2)
@@ -469,7 +469,7 @@ class FunctionMaxMin(Scene):
         # 总结
         summary = Text(
             "最大值在顶点, 最小值在左端点!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5)
@@ -500,7 +500,7 @@ class FunctionMaxMin(Scene):
         # 标题
         methods_title = Text(
             "求最值的方法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -547,7 +547,7 @@ class FunctionMaxMin(Scene):
         # 关键提示
         key_note = Text(
             "记住: 最值≠极值!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -572,7 +572,7 @@ class FunctionMaxMin(Scene):
         # 文字
         text_obj = Text(
             text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         )
@@ -591,14 +591,14 @@ class FunctionMaxMin(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -612,7 +612,7 @@ class FunctionMaxMin(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

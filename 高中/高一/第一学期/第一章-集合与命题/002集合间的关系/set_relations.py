@@ -129,7 +129,7 @@ class SetRelationsAnimation(Scene):
         # 作者信息（顶部常驻）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * self.AUTHOR_Y)
@@ -139,7 +139,7 @@ class SetRelationsAnimation(Scene):
         # 钩子问题
         hook = Text(
             "集合A和B\n谁包含谁?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.3
@@ -175,7 +175,7 @@ class SetRelationsAnimation(Scene):
         self.play(Write(label_A), Write(label_B), run_time=0.5)
         
         # 问号
-        question = Text("?", font="Noto Sans CJK SC", font_size=80, color=YELLOW).move_to(
+        question = Text("?", font="PingFang SC", font_size=80, color=YELLOW).move_to(
             UP * self.MAIN_Y
         )
         self.play(FadeIn(question, scale=0.5), run_time=0.5)
@@ -197,7 +197,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             "子集 Subset",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_SUBSET
         ).move_to(UP * self.TITLE_Y)
@@ -268,7 +268,7 @@ class SetRelationsAnimation(Scene):
         )
         arrow_text = Text(
             "都在B中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(arrow, RIGHT, buff=0.1)
@@ -288,7 +288,7 @@ class SetRelationsAnimation(Scene):
         # 朗读
         reading = Text(
             "A是B的子集",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * (self.FORMULA_Y + 1.0))
@@ -298,7 +298,7 @@ class SetRelationsAnimation(Scene):
         # 定义
         definition = Text(
             "A的所有元素都是B的元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -322,7 +322,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             "真子集 Proper Subset",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -358,7 +358,7 @@ class SetRelationsAnimation(Scene):
         # 说明
         explanation = Text(
             "A⊆B 且 A≠B",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * (self.FORMULA_Y + 1.2))
@@ -404,7 +404,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             "集合相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -478,7 +478,7 @@ class SetRelationsAnimation(Scene):
         # 条件
         condition = Text(
             "双向包含则相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -519,7 +519,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             "空集 Empty Set",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_EMPTY
         ).move_to(UP * self.TITLE_Y)
@@ -558,7 +558,7 @@ class SetRelationsAnimation(Scene):
         # 说明
         text = Text(
             "空集是任何集合的子集",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * (self.FORMULA_Y + 1.0))
@@ -576,7 +576,7 @@ class SetRelationsAnimation(Scene):
         
         note = Text(
             "(若A非空)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(formula_2, RIGHT, buff=0.2)
@@ -614,7 +614,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             "子集个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -710,7 +710,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             "真子集个数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -761,7 +761,7 @@ class SetRelationsAnimation(Scene):
         # 说明
         text = Text(
             "排除自身",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 0.3)
@@ -799,7 +799,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         summary_title = Text(
             "集合关系要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -863,14 +863,14 @@ class SetRelationsAnimation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -884,7 +884,7 @@ class SetRelationsAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -940,7 +940,7 @@ class SetRelationsAnimation(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -948,7 +948,7 @@ class SetRelationsAnimation(Scene):
         # 内容
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )

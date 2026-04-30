@@ -80,7 +80,7 @@ class CurveAndEquation(Scene):
         # 作者信息（顶部）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -90,7 +90,7 @@ class CurveAndEquation(Scene):
         # 钩子问题
         hook_question = Text(
             "如何用方程表示一个图形？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -164,7 +164,7 @@ class CurveAndEquation(Scene):
         # 说明文字
         explanation = Text(
             "在坐标系中画一个圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -208,7 +208,7 @@ class CurveAndEquation(Scene):
         # 标题
         title = Text(
             "曲线的方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 3.5)
@@ -228,14 +228,14 @@ class CurveAndEquation(Scene):
         # 标题
         condition_title = Text(
             "充要条件（一）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5)
         
         subtitle = Text(
             "点在曲线上 → 坐标满足方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.3)
@@ -264,7 +264,7 @@ class CurveAndEquation(Scene):
         # "代入方程"提示
         substitute_text = Text(
             "代入方程验证：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -291,7 +291,7 @@ class CurveAndEquation(Scene):
         # 结论："满足！"
         check_mark = Text(
             "✓ 满足方程！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 6.5)
@@ -318,14 +318,14 @@ class CurveAndEquation(Scene):
         # 标题
         condition_title = Text(
             "充要条件（二）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5)
         
         subtitle = Text(
             "坐标满足方程 → 点在曲线上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.3)
@@ -360,7 +360,7 @@ class CurveAndEquation(Scene):
         
         question_text = Text(
             "这个点在曲线上吗？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -389,7 +389,7 @@ class CurveAndEquation(Scene):
         # 结论
         conclusion = Text(
             "✓ 点在曲线上！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 6.5)
@@ -416,7 +416,7 @@ class CurveAndEquation(Scene):
         # 标题
         counterexample_title = Text(
             "反例：不在曲线上的点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5)
@@ -455,7 +455,7 @@ class CurveAndEquation(Scene):
         # 红叉
         cross_mark = Text(
             "✗ 不满足方程！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=RED
         ).move_to(DOWN * 6.2)
@@ -489,7 +489,7 @@ class CurveAndEquation(Scene):
         # 定义标题
         def_title = Text(
             "曲线的方程",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.8)
@@ -497,14 +497,14 @@ class CurveAndEquation(Scene):
         # 定义内容（分行）
         def_line1 = Text(
             "曲线C上的点的坐标",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 0.8)
         
         def_line2 = Text(
             "都是方程 F(x,y)=0 的解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(UP * 0.2)
@@ -518,14 +518,14 @@ class CurveAndEquation(Scene):
         
         def_line3 = Text(
             "以方程 F(x,y)=0 的解",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 1.2)
         
         def_line4 = Text(
             "为坐标的点都在曲线C上",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).move_to(DOWN * 1.8)
@@ -533,7 +533,7 @@ class CurveAndEquation(Scene):
         # 关键词
         key_word = Text(
             "充要条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_FORMULA
         ).move_to(DOWN * 2.8)
@@ -578,14 +578,14 @@ class CurveAndEquation(Scene):
         # 作者名放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -599,7 +599,7 @@ class CurveAndEquation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多解析几何！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

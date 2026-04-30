@@ -26,7 +26,7 @@ COLOR_AXIOM   = "#CE93D8"    # 紫色 - 公理
 COLOR_COND    = "#F06292"    # 粉红 - 条件
 COLOR_GOLD    = "#FFD700"
 
-FONT_CN       = "Noto Sans CJK SC"
+FONT_CN       = "PingFang SC"
 
 
 def make_plane_polygon(center, width=5.5, height=1.8, skew=0.8, **kwargs):

@@ -26,7 +26,7 @@ C_HL      = "#f6c90e"   # 高亮 / 答案
 C_FMT     = "#4ecdc4"   # 公式
 C_ORANGE  = "#f4a261"
 C_GRAY    = "#a0a0b0"
-FONT_CN   = "Noto Sans CJK SC"
+FONT_CN   = "PingFang SC"
 
 # 5人颜色表
 PERSON_COLORS = [C_A, C_B, C_C, C_D, C_E]

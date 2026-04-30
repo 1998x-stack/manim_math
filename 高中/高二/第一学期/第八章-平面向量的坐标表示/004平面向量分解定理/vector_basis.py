@@ -17,7 +17,7 @@ config.frame_width  = 9
 config.frame_height = 16
 
 # ── 颜色方案 ─────────────────────────────────
-AFONT  = "Noto Sans CJK SC"
+AFONT  = "PingFang SC"
 BG     = "#1a1a2e"
 C_E1   = "#e74c3c"   # 红 - 基底 e1
 C_E2   = "#3498db"   # 蓝 - 基底 e2

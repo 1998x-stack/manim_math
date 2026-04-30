@@ -113,7 +113,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 作者信息 (2D固定层) =====
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         )
@@ -126,7 +126,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 钩子问题 (2D) =====
         hook_text = Text(
             "世界上只有5种正多面体？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         )
@@ -160,7 +160,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 标题 (2D) =====
         title = Text(
             "多面体的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -214,13 +214,13 @@ class PolyhedronConcepts(ThreeDScene):
             stroke_width=4
         )
         
-        face_label = Text("面", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_FACE)
+        face_label = Text("面", font="PingFang SC", font_size=24, color=self.COLOR_FACE)
         self.add_fixed_in_frame_mobjects(face_label)
         face_label.move_to(DOWN * 1.5 + LEFT * 2.5)
         
         face_def = Text(
             "平面多边形", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=18, 
             color=GRAY_A
         )
@@ -253,13 +253,13 @@ class PolyhedronConcepts(ThreeDScene):
             )
             edges_to_highlight.add(edge_line)
         
-        edge_label = Text("棱", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_EDGE)
+        edge_label = Text("棱", font="PingFang SC", font_size=24, color=self.COLOR_EDGE)
         self.add_fixed_in_frame_mobjects(edge_label)
         edge_label.move_to(DOWN * 1.5)
         
         edge_def = Text(
             "相邻面的公共边", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=18, 
             color=GRAY_A
         )
@@ -283,13 +283,13 @@ class PolyhedronConcepts(ThreeDScene):
             for v in vertices_scaled
         ])
         
-        vertex_label = Text("顶点", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_VERTEX)
+        vertex_label = Text("顶点", font="PingFang SC", font_size=24, color=self.COLOR_VERTEX)
         self.add_fixed_in_frame_mobjects(vertex_label)
         vertex_label.move_to(DOWN * 1.5 + RIGHT * 2.5)
         
         vertex_def = Text(
             "棱的公共点", 
-            font="Noto Sans CJK SC", 
+            font="PingFang SC", 
             font_size=18, 
             color=GRAY_A
         )
@@ -307,7 +307,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 完整定义 (2D) =====
         definition = Text(
             "多面体：由若干平面多边形围成",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -333,7 +333,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 标题 =====
         title = Text(
             "凸多面体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -349,7 +349,7 @@ class PolyhedronConcepts(ThreeDScene):
         self.add_fixed_in_frame_mobjects(convex_check)
         convex_check.move_to(DOWN * 1.8 + LEFT * 2)
         
-        convex_label = Text("凸", font="Noto Sans CJK SC", font_size=24, color=GREEN)
+        convex_label = Text("凸", font="PingFang SC", font_size=24, color=GREEN)
         self.add_fixed_in_frame_mobjects(convex_label)
         convex_label.next_to(convex_check, DOWN, buff=0.1)
         
@@ -377,7 +377,7 @@ class PolyhedronConcepts(ThreeDScene):
         self.add_fixed_in_frame_mobjects(non_convex_cross)
         non_convex_cross.move_to(DOWN * 1.8 + RIGHT * 2)
         
-        non_convex_label = Text("非凸", font="Noto Sans CJK SC", font_size=24, color=RED)
+        non_convex_label = Text("非凸", font="PingFang SC", font_size=24, color=RED)
         self.add_fixed_in_frame_mobjects(non_convex_label)
         non_convex_label.next_to(non_convex_cross, DOWN, buff=0.1)
         
@@ -387,7 +387,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 判别标准说明 =====
         criterion = Text(
             "延展任一面，其余各面在同侧 → 凸",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -415,7 +415,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 标题 =====
         title = Text(
             "正多面体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         )
@@ -427,7 +427,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 定义条件 =====
         cond1 = Text(
             "① 各面都是全等的正多边形",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -436,7 +436,7 @@ class PolyhedronConcepts(ThreeDScene):
         
         cond2 = Text(
             "② 各顶点的面数相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -472,7 +472,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 强调"仅有5种" =====
         emphasis = Text(
             "仅有5种！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         )
@@ -521,7 +521,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 名称 =====
         name_text = Text(
             poly_name,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=WHITE
         )
@@ -541,9 +541,9 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 数据标注区域（右侧，2D固定） =====
         data_box = VGroup()
         
-        v_text = Text(f"V = {V}", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_VERTEX)
-        e_text = Text(f"E = {E}", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_EDGE)
-        f_text = Text(f"F = {F}", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_FACE)
+        v_text = Text(f"V = {V}", font="PingFang SC", font_size=24, color=self.COLOR_VERTEX)
+        e_text = Text(f"E = {E}", font="PingFang SC", font_size=24, color=self.COLOR_EDGE)
+        f_text = Text(f"F = {F}", font="PingFang SC", font_size=24, color=self.COLOR_FACE)
         
         data_box.add(v_text, e_text, f_text)
         data_box.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
@@ -682,7 +682,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 大标题 =====
         title = Text(
             "欧拉公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         )
@@ -731,7 +731,7 @@ class PolyhedronConcepts(ThreeDScene):
             V, E, F = data["V"], data["E"], data["F"]
             calc_text = Text(
                 f"{V}-{E}+{F}=2",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=18,
                 color=GRAY_A
             )
@@ -747,7 +747,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 统一结论 =====
         conclusion = Text(
             "对所有凸多面体成立！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         )
@@ -784,7 +784,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 标题 =====
         title = Text(
             "五种正多面体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         )
@@ -821,7 +821,7 @@ class PolyhedronConcepts(ThreeDScene):
             poly_objects.add(poly)
             
             # 名称标签 (2D)
-            label = Text(name, font="Noto Sans CJK SC", font_size=16, color=WHITE)
+            label = Text(name, font="PingFang SC", font_size=16, color=WHITE)
             self.add_fixed_in_frame_mobjects(label)
             label_y = 0.1 if i < 3 else -1.9
             label.move_to(all_positions[i] + UP * label_y)
@@ -831,7 +831,7 @@ class PolyhedronConcepts(ThreeDScene):
             V, E, F = data["V"], data["E"], data["F"]
             data_text = Text(
                 f"V={V} E={E} F={F}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=12,
                 color=GRAY_A
             )
@@ -877,7 +877,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 作者信息放大 =====
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         )
@@ -886,7 +886,7 @@ class PolyhedronConcepts(ThreeDScene):
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         )
@@ -902,7 +902,7 @@ class PolyhedronConcepts(ThreeDScene):
         # ===== 关注提示 =====
         follow_text = Text(
             "关注我，学更多立体几何！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         )

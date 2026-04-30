@@ -22,7 +22,7 @@ class TestAsinAnimation(Scene):
         # 简化版测试动画
         title = Text(
             "函数y=Asin(ωx+φ)的图像与性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).to_edge(UP)

@@ -106,7 +106,7 @@ class 任意角与弧度制Animation(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7.5)
@@ -116,14 +116,14 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "任意角与弧度制",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=GOLD
         ).move_to(UP * 6.5)
 
         subtitle = Text(
             "三角比的基础概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_A
         ).move_to(UP * 5.7)
@@ -145,7 +145,7 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "任意角的概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MAIN
         ).move_to(UP * 6.5)
@@ -193,7 +193,7 @@ class 任意角与弧度制Animation(Scene):
         # 定义说明
         definition = Text(
             "任意角：角的概念从锐角推广到\n任意大小的正角、负角和零角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -203,7 +203,7 @@ class 任意角与弧度制Animation(Scene):
         # 方向说明
         direction_text = Text(
             "正角为逆时针旋转，负角为顺时针旋转",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 6.5)
@@ -229,7 +229,7 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "弧度制的概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MAIN
         ).move_to(UP * 6.5)
@@ -267,7 +267,7 @@ class 任意角与弧度制Animation(Scene):
         # 弧长标注
         arc_label = Text(
             "弧长 = 半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=YELLOW
         ).move_to(UP * 2 + RIGHT * 2)
@@ -289,7 +289,7 @@ class 任意角与弧度制Animation(Scene):
         # 1弧度定义
         rad_def = Text(
             "1弧度：弧长等于半径的弧所对的圆心角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 5.5)
@@ -315,7 +315,7 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "弧度与角度转换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MAIN
         ).move_to(UP * 6.5)
@@ -345,7 +345,7 @@ class 任意角与弧度制Animation(Scene):
         # 示例转换
         example_title = Text(
             "示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1.2)
@@ -370,7 +370,7 @@ class 任意角与弧度制Animation(Scene):
         # 提示
         tip = Text(
             "记住常用角度的弧度表示，有助于快速计算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -398,7 +398,7 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "弧长公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MAIN
         ).move_to(UP * 6.5)
@@ -467,7 +467,7 @@ class 任意角与弧度制Animation(Scene):
         # 公式说明
         explanation = Text(
             "其中 l 是弧长，α 是圆心角(弧度)，r 是半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -507,7 +507,7 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "扇形面积公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MAIN
         ).move_to(UP * 6.5)
@@ -587,7 +587,7 @@ class 任意角与弧度制Animation(Scene):
         # 公式说明
         explanation = Text(
             "这两个公式在弧度制下形式简洁，体现了弧度制的优势",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -618,7 +618,7 @@ class 任意角与弧度制Animation(Scene):
         # 标题
         title = Text(
             "终边相同的角",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_MAIN
         ).move_to(UP * 6.5)
@@ -684,7 +684,7 @@ class 任意角与弧度制Animation(Scene):
         # 说明
         explanation = Text(
             "所有与角α终边相同的角都可以表示为α + 2kπ (k为整数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -694,7 +694,7 @@ class 任意角与弧度制Animation(Scene):
         # 弧度制优势
         advantage = Text(
             "弧度制使三角函数的导数公式更加简洁",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 5.5)
@@ -725,7 +725,7 @@ class 任意角与弧度制Animation(Scene):
         # 总结
         summary_title = Text(
             "知识点总结",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6)
@@ -742,7 +742,7 @@ class 任意角与弧度制Animation(Scene):
 
         item_group = VGroup()
         for i, item in enumerate(items):
-            text = Text(item, font="Noto Sans CJK SC", font_size=18, color=WHITE)
+            text = Text(item, font="PingFang SC", font_size=18, color=WHITE)
             text.move_to(UP * (4 - i * 0.7))
             item_group.add(text)
 
@@ -755,14 +755,14 @@ class 任意角与弧度制Animation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -776,7 +776,7 @@ class 任意角与弧度制Animation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=YELLOW
         ).move_to(DOWN * 0.5)

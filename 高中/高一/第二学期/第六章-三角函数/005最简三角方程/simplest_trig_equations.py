@@ -29,7 +29,7 @@ config.frame_height = 16
 # ===== 品牌信息 =====
 AUTHOR_NAME = "上海初高中数学直通车"
 AUTHOR_ID = "@emptyandcalm"
-AUTHOR_FONT = "Noto Sans CJK SC"
+AUTHOR_FONT = "PingFang SC"
 
 # ===== 配色方案 =====
 COLOR_PRIMARY = "#3498db"      # 蓝色 - 主函数曲线

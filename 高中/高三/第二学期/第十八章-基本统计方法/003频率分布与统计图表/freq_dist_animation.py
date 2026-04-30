@@ -35,7 +35,7 @@ C_FORMULA  = "#f39c12"   # 橙  — 公式强调
 C_GOLD     = GOLD
 C_GRAY     = GRAY_B
 C_WHITE    = WHITE
-FONT       = "Noto Sans CJK SC"
+FONT       = "PingFang SC"
 
 # ══════════════════════════════════════════════════
 #  数据 (与 verify_geometry.py 对齐)

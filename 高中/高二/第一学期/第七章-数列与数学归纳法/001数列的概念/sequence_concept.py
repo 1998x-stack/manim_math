@@ -113,7 +113,7 @@ class SequenceConcept(Scene):
         # 作者信息 (顶部，全程保留)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_AUTHOR,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 7)
@@ -123,7 +123,7 @@ class SequenceConcept(Scene):
         # 钩子问题
         hook_text = Text(
             "1, 2, 3, 5, 8, 13, 21...\n发现规律了吗?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -134,7 +134,7 @@ class SequenceConcept(Scene):
         # 生活场景示例 - 楼层号
         floor_label = Text(
             "生活中的数列: 楼层号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 3)
@@ -165,7 +165,7 @@ class SequenceConcept(Scene):
         # 引出数列概念
         concept_text = Text(
             "这就是数学中的——数列!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(DOWN * 1)
@@ -189,7 +189,7 @@ class SequenceConcept(Scene):
         # 标题
         title = Text(
             "数列的概念",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -199,7 +199,7 @@ class SequenceConcept(Scene):
         # 定义文字
         definition = Text(
             "按照一定顺序排列的一列数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 4.8)
@@ -210,7 +210,7 @@ class SequenceConcept(Scene):
         # 数列记号
         notation_label = Text(
             "记作:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 3.2)
@@ -229,15 +229,15 @@ class SequenceConcept(Scene):
         explanations = VGroup(
             VGroup(
                 MathTex(r"a_1", font_size=28, color=self.COLOR_HIGHLIGHT),
-                Text(": 第1项", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=WHITE)
+                Text(": 第1项", font="PingFang SC", font_size=self.FONT_SMALL, color=WHITE)
             ).arrange(RIGHT, buff=0.2),
             VGroup(
                 MathTex(r"a_2", font_size=28, color=self.COLOR_HIGHLIGHT),
-                Text(": 第2项", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=WHITE)
+                Text(": 第2项", font="PingFang SC", font_size=self.FONT_SMALL, color=WHITE)
             ).arrange(RIGHT, buff=0.2),
             VGroup(
                 MathTex(r"a_n", font_size=28, color=self.COLOR_HIGHLIGHT),
-                Text(": 第n项 (通项)", font="Noto Sans CJK SC", font_size=self.FONT_SMALL, color=WHITE)
+                Text(": 第n项 (通项)", font="PingFang SC", font_size=self.FONT_SMALL, color=WHITE)
             ).arrange(RIGHT, buff=0.2)
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(UP * 0.3)
         
@@ -251,7 +251,7 @@ class SequenceConcept(Scene):
         # 通项公式
         general_term_label = Text(
             "通项公式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 2.0)
@@ -293,7 +293,7 @@ class SequenceConcept(Scene):
         # 标题
         title = Text(
             "数列的函数本质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 5.5)
@@ -328,7 +328,7 @@ class SequenceConcept(Scene):
         # 说明文字
         explanation = Text(
             "定义在正整数集上的函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4.5)
@@ -424,7 +424,7 @@ class SequenceConcept(Scene):
         """4.1 通项公式法"""
         title = Text(
             "① 通项公式法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -453,7 +453,7 @@ class SequenceConcept(Scene):
         # 优点
         advantage = Text(
             "✓ 可直接计算任意项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 6.5)
@@ -474,7 +474,7 @@ class SequenceConcept(Scene):
         """4.2 递推公式法"""
         title = Text(
             "② 递推公式法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -527,7 +527,7 @@ class SequenceConcept(Scene):
         # 特点
         feature = Text(
             "✓ 根据前项求后项",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 6.5)
@@ -550,7 +550,7 @@ class SequenceConcept(Scene):
         """4.3 列表法"""
         title = Text(
             "③ 列表法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -602,7 +602,7 @@ class SequenceConcept(Scene):
         # 特点
         feature = Text(
             "✓ 直观明了",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 5.5)
@@ -623,7 +623,7 @@ class SequenceConcept(Scene):
         """4.4 图像法"""
         title = Text(
             "④ 图像法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -658,7 +658,7 @@ class SequenceConcept(Scene):
         # 特点
         feature = Text(
             "✓ 看出变化趋势",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 5.5)
@@ -682,7 +682,7 @@ class SequenceConcept(Scene):
         # 标题
         title = Text(
             "数列的分类",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -713,7 +713,7 @@ class SequenceConcept(Scene):
         """递增数列"""
         label = Text(
             "递增数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).next_to(title, DOWN, buff=0.4)
@@ -737,7 +737,7 @@ class SequenceConcept(Scene):
         """递减数列"""
         label = Text(
             "递减数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).next_to(title, DOWN, buff=0.4)
@@ -761,7 +761,7 @@ class SequenceConcept(Scene):
         """常数列"""
         label = Text(
             "常数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).next_to(title, DOWN, buff=0.4)
@@ -785,7 +785,7 @@ class SequenceConcept(Scene):
         """周期数列"""
         label = Text(
             "周期数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_SECONDARY
         ).next_to(title, DOWN, buff=0.4)
@@ -813,7 +813,7 @@ class SequenceConcept(Scene):
         # 标题
         title = Text(
             "前n项和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -833,7 +833,7 @@ class SequenceConcept(Scene):
         # 示例：计算前5项和
         example_label = Text(
             "示例: 计算前5项和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 3.5)
@@ -870,7 +870,7 @@ class SequenceConcept(Scene):
         # 递推关系
         recursive_label = Text(
             "aₙ 与 Sₙ 的关系:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 1.0)
@@ -914,7 +914,7 @@ class SequenceConcept(Scene):
         # 总结标题
         summary_title = Text(
             "数列核心要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=GOLD
         ).move_to(UP * 6)
@@ -957,14 +957,14 @@ class SequenceConcept(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_AUXILIARY
         ).move_to(UP * 0.8)
@@ -978,7 +978,7 @@ class SequenceConcept(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -1024,7 +1024,7 @@ class SequenceConcept(Scene):
         # 关键词
         key_text = Text(
             key,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE,
             weight=BOLD
@@ -1033,7 +1033,7 @@ class SequenceConcept(Scene):
         # 内容
         value_text = Text(
             value,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_AUXILIARY
         )

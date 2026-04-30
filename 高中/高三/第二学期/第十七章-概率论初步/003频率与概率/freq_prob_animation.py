@@ -14,7 +14,7 @@ config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
-AUTHOR_FONT = "Noto Sans CJK SC"
+AUTHOR_FONT = "PingFang SC"
 
 # 颜色方案
 BG_COLOR = "#1a1a2e"

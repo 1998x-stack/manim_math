@@ -37,7 +37,7 @@ COLOR_CRIT     = "#e67e22"   # 橙红 - 临界值
 COLOR_REJECT   = "#e74c3c"   # 红  - 拒绝域
 COLOR_ACCEPT   = "#2ecc71"   # 绿  - 接受域
 COLOR_HEADER   = "#bdc3c7"   # 浅灰 - 表头
-FONT_CN        = "Noto Sans CJK SC"
+FONT_CN        = "PingFang SC"
 
 # 数据 (已验证)
 A_VAL, B_VAL, C_VAL, D_VAL = 43, 162, 5, 192

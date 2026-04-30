@@ -49,7 +49,7 @@ class FunctionOperations(Scene):
         self.COLOR_AUXILIARY = GRAY_B
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         
         # 定义函数
         self.f = lambda x: x**2

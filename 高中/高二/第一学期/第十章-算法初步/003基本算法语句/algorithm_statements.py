@@ -101,7 +101,7 @@ class AlgorithmStatements(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -111,7 +111,7 @@ class AlgorithmStatements(Scene):
         # 钩子问题
         hook_question = Text(
             "如何让计算机执行算法?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -131,7 +131,7 @@ class AlgorithmStatements(Scene):
         # 引导文字
         hint_text = Text(
             "答案: 基本算法语句",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -152,7 +152,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "基本算法语句",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -162,7 +162,7 @@ class AlgorithmStatements(Scene):
         # 定义框
         definition_text = Text(
             "用特定语法描述算法步骤的代码语句\n是编写程序的基础",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE,
             line_spacing=1.2
@@ -203,7 +203,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "五种基本算法语句",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -212,11 +212,11 @@ class AlgorithmStatements(Scene):
         
         # 五个标签
         labels = VGroup(
-            Text("① 赋值", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_ASSIGNMENT),
-            Text("② 输入", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_INPUT),
-            Text("③ 输出", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_OUTPUT),
-            Text("④ 条件", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_CONDITION),
-            Text("⑤ 循环", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_LOOP)
+            Text("① 赋值", font="PingFang SC", font_size=22, color=self.COLOR_ASSIGNMENT),
+            Text("② 输入", font="PingFang SC", font_size=22, color=self.COLOR_INPUT),
+            Text("③ 输出", font="PingFang SC", font_size=22, color=self.COLOR_OUTPUT),
+            Text("④ 条件", font="PingFang SC", font_size=22, color=self.COLOR_CONDITION),
+            Text("⑤ 循环", font="PingFang SC", font_size=22, color=self.COLOR_LOOP)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.5).move_to(UP * 1)
         
         self.play(FadeIn(labels, lag_ratio=0.2), run_time=1.0)
@@ -224,7 +224,7 @@ class AlgorithmStatements(Scene):
         # 提示
         hint = Text(
             "让我们逐个学习",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -245,7 +245,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "① 赋值语句",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_ASSIGNMENT
         ).move_to(UP * 6)
@@ -295,7 +295,7 @@ class AlgorithmStatements(Scene):
         # 说明
         explanation = Text(
             "将值赋给变量，存储在内存中",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 4)
@@ -314,7 +314,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "② 输入语句 INPUT",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_INPUT
         ).move_to(UP * 6)
@@ -336,7 +336,7 @@ class AlgorithmStatements(Scene):
         # 输入框
         input_box = Rectangle(width=2.0, height=0.8, color=self.COLOR_INPUT, stroke_width=2)
         input_box.move_to(UP * 1)
-        input_label = Text("输入", font="Noto Sans CJK SC", font_size=16, color=GRAY_A)
+        input_label = Text("输入", font="PingFang SC", font_size=16, color=GRAY_A)
         input_label.next_to(input_box, UP, buff=0.1)
         
         self.play(Create(input_box), FadeIn(input_label), run_time=0.4)
@@ -363,7 +363,7 @@ class AlgorithmStatements(Scene):
         # 说明
         explanation = Text(
             "从外部读取数据到变量",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 4)
@@ -385,7 +385,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "③ 输出语句 PRINT",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_OUTPUT
         ).move_to(UP * 6)
@@ -408,7 +408,7 @@ class AlgorithmStatements(Scene):
         # 输出框
         output_box = Rectangle(width=2.5, height=0.8, color=self.COLOR_OUTPUT, stroke_width=2)
         output_box.move_to(DOWN * 1.5)
-        output_label = Text("输出", font="Noto Sans CJK SC", font_size=16, color=GRAY_A)
+        output_label = Text("输出", font="PingFang SC", font_size=16, color=GRAY_A)
         output_label.next_to(output_box, UP, buff=0.1)
         
         output_value = Text("100", font="Courier New", font_size=18, color=self.COLOR_OUTPUT)
@@ -441,7 +441,7 @@ class AlgorithmStatements(Scene):
         # 说明
         explanation = Text(
             "将变量值输出到屏幕",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 5.5)
@@ -463,7 +463,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "④ 条件语句 IF-THEN-ELSE",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_CONDITION
         ).move_to(UP * 6.5)
@@ -504,7 +504,7 @@ class AlgorithmStatements(Scene):
         )
         
         # 判断结果：是
-        result = Text("是", font="Noto Sans CJK SC", font_size=18, color=self.COLOR_SUCCESS)
+        result = Text("是", font="PingFang SC", font_size=18, color=self.COLOR_SUCCESS)
         result.next_to(condition, RIGHT, buff=0.3)
         
         self.play(
@@ -532,7 +532,7 @@ class AlgorithmStatements(Scene):
         # 说明
         explanation = Text(
             "根据条件执行不同代码",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -554,7 +554,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "⑤ 循环语句 FOR",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_LOOP
         ).move_to(UP * 6.5)
@@ -645,7 +645,7 @@ class AlgorithmStatements(Scene):
         # 说明
         explanation = Text(
             "重复执行指定次数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -666,7 +666,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "综合示例: 求和程序",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 7)
@@ -686,7 +686,7 @@ class AlgorithmStatements(Scene):
         self.play(FadeIn(code_lines), run_time=0.8)
         
         # 变量区（右侧）
-        var_label = Text("变量:", font="Noto Sans CJK SC", font_size=16, color=GRAY_A)
+        var_label = Text("变量:", font="PingFang SC", font_size=16, color=GRAY_A)
         var_label.move_to(UP * 4 + RIGHT * 2)
         self.play(FadeIn(var_label), run_time=0.3)
         
@@ -763,7 +763,7 @@ class AlgorithmStatements(Scene):
         # 标题
         title = Text(
             "五种基本算法语句",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -772,11 +772,11 @@ class AlgorithmStatements(Scene):
         
         # 五种语句
         statements = VGroup(
-            Text("① 赋值语句  x = 表达式", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_ASSIGNMENT),
-            Text("② 输入语句  INPUT 变量", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_INPUT),
-            Text("③ 输出语句  PRINT 变量", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_OUTPUT),
-            Text("④ 条件语句  IF...THEN...ELSE", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_CONDITION),
-            Text("⑤ 循环语句  FOR / WHILE", font="Noto Sans CJK SC", font_size=20, color=self.COLOR_LOOP)
+            Text("① 赋值语句  x = 表达式", font="PingFang SC", font_size=20, color=self.COLOR_ASSIGNMENT),
+            Text("② 输入语句  INPUT 变量", font="PingFang SC", font_size=20, color=self.COLOR_INPUT),
+            Text("③ 输出语句  PRINT 变量", font="PingFang SC", font_size=20, color=self.COLOR_OUTPUT),
+            Text("④ 条件语句  IF...THEN...ELSE", font="PingFang SC", font_size=20, color=self.COLOR_CONDITION),
+            Text("⑤ 循环语句  FOR / WHILE", font="PingFang SC", font_size=20, color=self.COLOR_LOOP)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.5).move_to(UP * 1)
         
         self.play(FadeIn(statements, lag_ratio=0.3), run_time=2.0)
@@ -797,7 +797,7 @@ class AlgorithmStatements(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车\n@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             line_spacing=1.2
@@ -811,7 +811,7 @@ class AlgorithmStatements(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多编程技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

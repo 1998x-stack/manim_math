@@ -28,7 +28,7 @@ C_K      = "#96ceb4"   # 绿 - 指数/k
 C_COEF   = "#c084fc"   # 紫 - 系数 C(n,k)
 C_ORANGE = "#f4a261"
 C_GRAY   = "#a0a0b0"
-FONT_CN  = "Noto Sans CJK SC"
+FONT_CN  = "PingFang SC"
 
 # 杨辉三角布局常量
 PASCAL_ROW_H  = 0.70

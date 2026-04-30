@@ -26,7 +26,7 @@ COLOR_FORMULA = "#a8e6cf"  # 公式 - 浅绿色
 COLOR_HIGHLIGHT = YELLOW
 COLOR_DEV = "#ff9f43"    # 偏差 - 橙色
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 # 字体大小
 FS_TITLE = 40

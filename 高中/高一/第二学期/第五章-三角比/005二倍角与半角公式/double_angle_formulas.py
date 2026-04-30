@@ -123,7 +123,7 @@ class DoubleAngleFormulas(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -133,14 +133,14 @@ class DoubleAngleFormulas(Scene):
         # 钩子问题
         hook_line1 = Text(
             "你知道 sin²α + cos²α = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 2)
         
         hook_line2 = Text(
             "那 sin 2α 等于多少?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(ORIGIN)
@@ -168,7 +168,7 @@ class DoubleAngleFormulas(Scene):
         # 标题
         title = Text(
             "单位圆与三角函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -273,7 +273,7 @@ class DoubleAngleFormulas(Scene):
         # 标题
         title = Text(
             "二倍角公式: sin 2α",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
@@ -329,7 +329,7 @@ class DoubleAngleFormulas(Scene):
         # 提示: 利用两角和公式
         hint = Text(
             "利用两角和公式: sin(α+β)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * (formula_y - 0.8))
@@ -397,7 +397,7 @@ class DoubleAngleFormulas(Scene):
         # 标题
         title = Text(
             "二倍角公式: cos 2α",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
@@ -420,7 +420,7 @@ class DoubleAngleFormulas(Scene):
         # 提示
         hint = Text(
             "利用 sin²α + cos²α = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * (formula_y - 1.0))
@@ -476,7 +476,7 @@ class DoubleAngleFormulas(Scene):
         # 标题
         title = Text(
             "二倍角公式: tan 2α",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(UP * 6)
@@ -507,7 +507,7 @@ class DoubleAngleFormulas(Scene):
         # 分子分母同除以cos²α
         step2 = Text(
             "分子分母同除以 cos²α",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(UP * (formula_y - 2.0))
@@ -543,7 +543,7 @@ class DoubleAngleFormulas(Scene):
         # 标题
         title = Text(
             "半角公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HALF_ANGLE
         ).move_to(UP * 6)
@@ -590,7 +590,7 @@ class DoubleAngleFormulas(Scene):
         # 推导思路
         hint = Text(
             "令 2α → α, α → α/2 代入二倍角公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * formula_y)
@@ -673,7 +673,7 @@ class DoubleAngleFormulas(Scene):
         # 标题
         title = Text(
             "降幂公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=GOLD
         ).move_to(UP * 6)
@@ -713,7 +713,7 @@ class DoubleAngleFormulas(Scene):
         # 公式汇总
         summary_title = Text(
             "公式汇总",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=GOLD
         ).move_to(UP * 6)
@@ -780,14 +780,14 @@ class DoubleAngleFormulas(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -801,7 +801,7 @@ class DoubleAngleFormulas(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，掌握更多三角公式!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

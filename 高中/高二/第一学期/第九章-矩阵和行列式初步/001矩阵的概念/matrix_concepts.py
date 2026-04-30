@@ -63,7 +63,7 @@ class MatrixConcepts(Scene):
         # 作者信息 (持续显示)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -80,7 +80,7 @@ class MatrixConcepts(Scene):
         # 钩子问题
         hook = Text(
             "如何存储表格数据?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.TITLE_POS)
@@ -102,14 +102,14 @@ class MatrixConcepts(Scene):
         
         # 标签
         row_labels = VGroup(
-            Text("小明", font="Noto Sans CJK SC", font_size=20).next_to(table.get_rows()[0], LEFT, buff=0.3),
-            Text("小红", font="Noto Sans CJK SC", font_size=20).next_to(table.get_rows()[1], LEFT, buff=0.3)
+            Text("小明", font="PingFang SC", font_size=20).next_to(table.get_rows()[0], LEFT, buff=0.3),
+            Text("小红", font="PingFang SC", font_size=20).next_to(table.get_rows()[1], LEFT, buff=0.3)
         )
         
         col_labels = VGroup(
-            Text("数学", font="Noto Sans CJK SC", font_size=20).next_to(table.get_columns()[0], UP, buff=0.3),
-            Text("英语", font="Noto Sans CJK SC", font_size=20).next_to(table.get_columns()[1], UP, buff=0.3),
-            Text("物理", font="Noto Sans CJK SC", font_size=20).next_to(table.get_columns()[2], UP, buff=0.3)
+            Text("数学", font="PingFang SC", font_size=20).next_to(table.get_columns()[0], UP, buff=0.3),
+            Text("英语", font="PingFang SC", font_size=20).next_to(table.get_columns()[1], UP, buff=0.3),
+            Text("物理", font="PingFang SC", font_size=20).next_to(table.get_columns()[2], UP, buff=0.3)
         )
         
         self.play(Create(table), run_time=1.2)
@@ -128,7 +128,7 @@ class MatrixConcepts(Scene):
         # 过渡文字
         transition = Text(
             "矩阵来帮忙!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_SPECIAL
         ).move_to(self.EXPLAIN_POS)
@@ -151,7 +151,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "矩阵的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -195,7 +195,7 @@ class MatrixConcepts(Scene):
         
         element_explain = Text(
             "第i行第j列的元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(element_label, DOWN, buff=0.2)
@@ -209,10 +209,10 @@ class MatrixConcepts(Scene):
         
         # 行列标注
         row_brace = Brace(matrix, LEFT, color=self.COLOR_SECONDARY)
-        row_label = Text("m行", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SECONDARY).next_to(row_brace, LEFT, buff=0.2)
+        row_label = Text("m行", font="PingFang SC", font_size=22, color=self.COLOR_SECONDARY).next_to(row_brace, LEFT, buff=0.2)
         
         col_brace = Brace(matrix, UP, color=self.COLOR_SECONDARY)
-        col_label = Text("n列", font="Noto Sans CJK SC", font_size=22, color=self.COLOR_SECONDARY).next_to(col_brace, UP, buff=0.2)
+        col_label = Text("n列", font="PingFang SC", font_size=22, color=self.COLOR_SECONDARY).next_to(col_brace, UP, buff=0.2)
         
         self.play(
             GrowFromCenter(row_brace),
@@ -237,7 +237,7 @@ class MatrixConcepts(Scene):
         # 说明
         explain = Text(
             "m×n 表示 m 行 n 列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).next_to(notation, DOWN, buff=0.3)
@@ -265,7 +265,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "行矩阵 (1×n)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SPECIAL
         ).move_to(self.TITLE_POS)
@@ -288,7 +288,7 @@ class MatrixConcepts(Scene):
         # 维度标注
         dimension = Text(
             "1行4列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).next_to(row_matrix, DOWN, buff=0.8)
@@ -298,7 +298,7 @@ class MatrixConcepts(Scene):
         # 特点高亮
         highlight = Text(
             "只有 1 行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.EXPLAIN_POS)
@@ -309,7 +309,7 @@ class MatrixConcepts(Scene):
         # 应用说明
         application = Text(
             "常用于表示: 向量、坐标、数据序列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(highlight, DOWN, buff=0.3)
@@ -332,7 +332,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "列矩阵 (m×1)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SPECIAL
         ).move_to(self.TITLE_POS)
@@ -355,7 +355,7 @@ class MatrixConcepts(Scene):
         # 维度标注
         dimension = Text(
             "4行1列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_SECONDARY
         ).next_to(col_matrix, RIGHT, buff=0.8)
@@ -365,7 +365,7 @@ class MatrixConcepts(Scene):
         # 特点高亮
         highlight = Text(
             "只有 1 列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.EXPLAIN_POS)
@@ -376,7 +376,7 @@ class MatrixConcepts(Scene):
         # 对比说明
         compare = Text(
             "行矩阵的转置",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(highlight, DOWN, buff=0.3)
@@ -399,7 +399,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "方阵 (n×n)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -427,7 +427,7 @@ class MatrixConcepts(Scene):
         # 维度标注
         dimension = Text(
             "3行3列 (行数 = 列数)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).next_to(square_matrix, DOWN, buff=0.8)
@@ -451,14 +451,14 @@ class MatrixConcepts(Scene):
         # 对角线说明
         diagonal_label = Text(
             "主对角线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.EXPLAIN_POS)
         
         diagonal_explain = Text(
             "从左上到右下的元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).next_to(diagonal_label, DOWN, buff=0.2)
@@ -485,7 +485,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "零矩阵",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SECONDARY
         ).move_to(self.TITLE_POS)
@@ -529,7 +529,7 @@ class MatrixConcepts(Scene):
         # 特点强调
         feature = Text(
             "所有元素都是 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(self.EXPLAIN_POS)
@@ -545,7 +545,7 @@ class MatrixConcepts(Scene):
         
         notation_text = Text(
             " 或 ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).next_to(notation, RIGHT, buff=0.1)
@@ -575,7 +575,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "单位矩阵 E",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_SPECIAL
         ).move_to(self.TITLE_POS)
@@ -623,14 +623,14 @@ class MatrixConcepts(Scene):
         # 特点说明
         feature1 = Text(
             "主对角线为 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SPECIAL
         ).move_to(self.EXPLAIN_POS + UP * 0.5)
         
         feature2 = Text(
             "其余元素为 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).next_to(feature1, DOWN, buff=0.3)
@@ -644,7 +644,7 @@ class MatrixConcepts(Scene):
         # 重要性提示
         important = Text(
             "矩阵运算中的 \"1\"",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).next_to(feature2, DOWN, buff=0.5)
@@ -667,7 +667,7 @@ class MatrixConcepts(Scene):
         # 标题
         title = Text(
             "矩阵相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(self.TITLE_POS)
@@ -716,7 +716,7 @@ class MatrixConcepts(Scene):
         # 条件1: 同型
         condition1 = Text(
             "条件1: 同型矩阵 (行列数相同)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).move_to(UP * 1)
@@ -727,7 +727,7 @@ class MatrixConcepts(Scene):
         # 条件2: 对应元素相等
         condition2 = Text(
             "条件2: 对应位置元素相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=WHITE
         ).next_to(condition1, DOWN, buff=0.4)
@@ -755,7 +755,7 @@ class MatrixConcepts(Scene):
         # 五种矩阵快速回顾
         summary_title = Text(
             "矩阵的五种基本形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GOLD
         ).move_to(UP * 3.5)
@@ -771,7 +771,7 @@ class MatrixConcepts(Scene):
             element_to_mobject_config={"font_size": 16},
             h_buff=0.3
         ).scale(0.5)
-        label1 = Text("行矩阵", font="Noto Sans CJK SC", font_size=16).next_to(icon1, DOWN, buff=0.1)
+        label1 = Text("行矩阵", font="PingFang SC", font_size=16).next_to(icon1, DOWN, buff=0.1)
         group1 = VGroup(icon1, label1)
         
         # 列矩阵图标
@@ -780,7 +780,7 @@ class MatrixConcepts(Scene):
             element_to_mobject_config={"font_size": 16},
             v_buff=0.3
         ).scale(0.5)
-        label2 = Text("列矩阵", font="Noto Sans CJK SC", font_size=16).next_to(icon2, DOWN, buff=0.1)
+        label2 = Text("列矩阵", font="PingFang SC", font_size=16).next_to(icon2, DOWN, buff=0.1)
         group2 = VGroup(icon2, label2)
         
         # 方阵图标
@@ -790,7 +790,7 @@ class MatrixConcepts(Scene):
             h_buff=0.3,
             v_buff=0.3
         ).scale(0.5)
-        label3 = Text("方阵", font="Noto Sans CJK SC", font_size=16).next_to(icon3, DOWN, buff=0.1)
+        label3 = Text("方阵", font="PingFang SC", font_size=16).next_to(icon3, DOWN, buff=0.1)
         group3 = VGroup(icon3, label3)
         
         # 零矩阵图标
@@ -800,7 +800,7 @@ class MatrixConcepts(Scene):
             h_buff=0.3,
             v_buff=0.3
         ).scale(0.5)
-        label4 = Text("零矩阵", font="Noto Sans CJK SC", font_size=16).next_to(icon4, DOWN, buff=0.1)
+        label4 = Text("零矩阵", font="PingFang SC", font_size=16).next_to(icon4, DOWN, buff=0.1)
         group4 = VGroup(icon4, label4)
         
         # 单位矩阵图标
@@ -810,7 +810,7 @@ class MatrixConcepts(Scene):
             h_buff=0.3,
             v_buff=0.3
         ).scale(0.5)
-        label5 = Text("单位矩阵", font="Noto Sans CJK SC", font_size=16).next_to(icon5, DOWN, buff=0.1)
+        label5 = Text("单位矩阵", font="PingFang SC", font_size=16).next_to(icon5, DOWN, buff=0.1)
         group5 = VGroup(icon5, label5)
         
         icons = VGroup(group1, group2, group3, group4, group5).arrange(RIGHT, buff=0.6).move_to(UP * 1.5)
@@ -824,7 +824,7 @@ class MatrixConcepts(Scene):
         # 关键提示
         key_point = Text(
             "掌握这五种, 解题更轻松!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)
@@ -835,7 +835,7 @@ class MatrixConcepts(Scene):
         # 片尾关注
         outro_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_SPECIAL
         ).move_to(DOWN * 3)

@@ -47,7 +47,7 @@ class ThirdOrderDeterminant(Scene):
         self.COLOR_MATRIX = WHITE            # 白色
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         
         # 执行动画序列
         self.show_opening()

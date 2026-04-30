@@ -98,17 +98,17 @@ class PowerFunctions(Scene):
     def scene_1_opening(self):
         self.author = Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC", font_size=20, color=self.C["aux"]
+            font="PingFang SC", font_size=20, color=self.C["aux"]
         ).move_to(UP * 7.2)
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
 
-        title = Text("幂函数", font="Noto Sans CJK SC", font_size=52, color=GOLD
+        title = Text("幂函数", font="PingFang SC", font_size=52, color=GOLD
                      ).move_to(UP * 6.2)
         self.play(Write(title), run_time=0.7)
 
         hook = Text(
             "这 5 条曲线有什么共同点？",
-            font="Noto Sans CJK SC", font_size=30, color=WHITE
+            font="PingFang SC", font_size=30, color=WHITE
         ).move_to(UP * 5.2)
         self.play(FadeIn(hook, shift=UP * 0.3), run_time=0.5)
 
@@ -140,7 +140,7 @@ class PowerFunctions(Scene):
     # Scene 2: 定义
     # ═══════════════════════════════════════════
     def scene_2_definition(self):
-        sc_title = Text("幂函数的定义", font="Noto Sans CJK SC",
+        sc_title = Text("幂函数的定义", font="PingFang SC",
                          font_size=34, color=GOLD).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.6)
 
@@ -148,12 +148,12 @@ class PowerFunctions(Scene):
                                ).move_to(UP * 5.0)
         self.play(Write(def_formula), run_time=0.8)
 
-        cond = Text("（α 为常数）", font="Noto Sans CJK SC",
+        cond = Text("（α 为常数）", font="PingFang SC",
                      font_size=26, color=self.C["aux"]).next_to(def_formula, DOWN, buff=0.3)
         self.play(FadeIn(cond), run_time=0.4)
 
         # α 的常见取值
-        alpha_title = Text("常见的 α 值：", font="Noto Sans CJK SC",
+        alpha_title = Text("常见的 α 值：", font="PingFang SC",
                             font_size=24, color=self.C["aux"]).move_to(UP * 3.8)
         self.play(FadeIn(alpha_title), run_time=0.3)
 
@@ -188,7 +188,7 @@ class PowerFunctions(Scene):
     # ═══════════════════════════════════════════
     def scene_3_five_graphs(self):
         axes = self.axes
-        sc_title = Text("函数图像一览", font="Noto Sans CJK SC",
+        sc_title = Text("函数图像一览", font="PingFang SC",
                          font_size=32, color=GOLD).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -240,7 +240,7 @@ class PowerFunctions(Scene):
     def scene_4_common_point(self):
         axes = self.axes
 
-        sc_title = Text("神奇！都过同一个点", font="Noto Sans CJK SC",
+        sc_title = Text("神奇！都过同一个点", font="PingFang SC",
                          font_size=30, color=GOLD).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -265,7 +265,7 @@ class PowerFunctions(Scene):
 
         # 说明
         explain = Text("无论 α 取什么值，\n代入 x=1 结果都是 1！",
-                        font="Noto Sans CJK SC", font_size=24, color=WHITE,
+                        font="PingFang SC", font_size=24, color=WHITE,
                         line_spacing=1.2).move_to(DOWN * 2.4)
         self.play(FadeIn(explain), run_time=0.5)
         self.wait(2.0)
@@ -284,7 +284,7 @@ class PowerFunctions(Scene):
         axes = self.axes
 
         sc_title = Text("α 的正负决定图像形态",
-                         font="Noto Sans CJK SC", font_size=30, color=GOLD
+                         font="PingFang SC", font_size=30, color=GOLD
                          ).move_to(UP * 6.2)
         self.play(Write(sc_title), run_time=0.5)
 
@@ -299,7 +299,7 @@ class PowerFunctions(Scene):
         pos_alpha_label = MathTex(r"\alpha > 0", font_size=32, color=self.C["x2"]
                                    ).move_to(UP * 5.3 + LEFT * 1.5)
         pos_note = Text("过原点，第一象限单调递增",
-                         font="Noto Sans CJK SC", font_size=20, color=self.C["x2"]
+                         font="PingFang SC", font_size=20, color=self.C["x2"]
                          ).move_to(UP * 4.7 + LEFT * 1.0)
 
         graphs[0].set_stroke(opacity=1.0)  # y=x
@@ -322,7 +322,7 @@ class PowerFunctions(Scene):
         neg_alpha_label = MathTex(r"\alpha < 0", font_size=32, color=self.C["inv"]
                                    ).move_to(UP * 5.3 + RIGHT * 1.5)
         neg_note = Text("不过原点，\n第一象限单调递减",
-                         font="Noto Sans CJK SC", font_size=20, color=self.C["inv"],
+                         font="PingFang SC", font_size=20, color=self.C["inv"],
                          line_spacing=1.2).move_to(UP * 4.5 + RIGHT * 1.3)
 
         graphs[4].set_stroke(opacity=1.0)   # y=1/x
@@ -342,11 +342,11 @@ class PowerFunctions(Scene):
         # 底部总结框
         summary_lines = VGroup(
             Text("① 所有幂函数过 (1, 1)",
-                  font="Noto Sans CJK SC", font_size=22, color=WHITE),
+                  font="PingFang SC", font_size=22, color=WHITE),
             Text("② α>0 图像过原点",
-                  font="Noto Sans CJK SC", font_size=22, color=self.C["x2"]),
+                  font="PingFang SC", font_size=22, color=self.C["x2"]),
             Text("③ α<0 第一象限递减，趋近两轴",
-                  font="Noto Sans CJK SC", font_size=22, color=self.C["inv"]),
+                  font="PingFang SC", font_size=22, color=self.C["inv"]),
         ).arrange(DOWN, buff=0.3, aligned_edge=LEFT).move_to(DOWN * 3.5)
         box = SurroundingRectangle(summary_lines, color=GOLD, buff=0.25, corner_radius=0.12)
 
@@ -369,13 +369,13 @@ class PowerFunctions(Scene):
     # ═══════════════════════════════════════════
     def scene_6_outro(self):
         name_big = Text("上海初高中数学直通车",
-                         font="Noto Sans CJK SC", font_size=40, color=WHITE
+                         font="PingFang SC", font_size=40, color=WHITE
                          ).move_to(UP * 1.5)
         id_text  = Text("@emptyandcalm",
-                         font="Noto Sans CJK SC", font_size=28, color=self.C["aux"]
+                         font="PingFang SC", font_size=28, color=self.C["aux"]
                          ).move_to(UP * 0.6)
         call     = Text("关注我，获得更多数学技巧！",
-                         font="Noto Sans CJK SC", font_size=28, color=GOLD
+                         font="PingFang SC", font_size=28, color=GOLD
                          ).move_to(DOWN * 0.3)
 
         self.play(Transform(self.author, name_big), run_time=0.7)

@@ -38,7 +38,7 @@ class BasicInequalityAnimation(Scene):
         # 创建永久元素：作者信息（全程保留）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -97,7 +97,7 @@ class BasicInequalityAnimation(Scene):
         # 标题
         title = Text(
             "基本不等式（均值不等式）",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6)
@@ -105,7 +105,7 @@ class BasicInequalityAnimation(Scene):
         # 钩子问题
         hook_question = Text(
             "为什么算术平均数总是大于等于几何平均数？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.2)
@@ -130,7 +130,7 @@ class BasicInequalityAnimation(Scene):
         # 标题
         title = Text(
             "算术平均数 vs 几何平均数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_ARITHMETIC_MEAN
         ).move_to(UP * 5.5)
@@ -195,7 +195,7 @@ class BasicInequalityAnimation(Scene):
         # 标题
         title = Text(
             "几何解释",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -208,7 +208,7 @@ class BasicInequalityAnimation(Scene):
         ).move_to(UP * 1.5)
         rect_label = Text(
             f"矩形: 长={self.a}, 宽={self.b}, 面积={self.a*self.b}",
-            font="Noto Sans CJK SC", font_size=22, color=WHITE
+            font="PingFang SC", font_size=22, color=WHITE
         ).next_to(rectangle, UP, buff=0.2)
         self.play(Create(rectangle), Write(rect_label), run_time=1.0)
 
@@ -218,9 +218,9 @@ class BasicInequalityAnimation(Scene):
             side_length=square_side,
             color=GREEN, fill_color=GREEN, fill_opacity=0.3
         ).next_to(rectangle, DOWN, buff=1.5)
-        sq_text = Text("正方形: 边长=", font="Noto Sans CJK SC", font_size=20, color=GREEN)
+        sq_text = Text("正方形: 边长=", font="PingFang SC", font_size=20, color=GREEN)
         sq_math = MathTex(f"\\sqrt{{ab}}={square_side:.3f}", font_size=20, color=GREEN)
-        sq_area = Text(f", 面积={self.a*self.b}", font="Noto Sans CJK SC", font_size=20, color=GREEN)
+        sq_area = Text(f", 面积={self.a*self.b}", font="PingFang SC", font_size=20, color=GREEN)
         square_label = VGroup(sq_text, sq_math, sq_area).arrange(RIGHT, buff=0.1).next_to(square, DOWN, buff=0.2)
         self.play(Create(square), Write(square_label), run_time=1.0)
 
@@ -230,7 +230,7 @@ class BasicInequalityAnimation(Scene):
             side_length=perimeter_square_side,
             color=RED, fill_color=RED, fill_opacity=0.3
         ).next_to(rectangle, LEFT, buff=2.5)
-        ps_text = Text("周长相同正方形: 边长=", font="Noto Sans CJK SC", font_size=18, color=RED)
+        ps_text = Text("周长相同正方形: 边长=", font="PingFang SC", font_size=18, color=RED)
         ps_math = MathTex(f"\\frac{{a+b}}{{2}}={perimeter_square_side}", font_size=18, color=RED)
         perimeter_square_label = VGroup(ps_text, ps_math).arrange(RIGHT, buff=0.1).next_to(perimeter_square, LEFT, buff=0.2)
         self.play(Create(perimeter_square), Write(perimeter_square_label), run_time=1.0)
@@ -238,7 +238,7 @@ class BasicInequalityAnimation(Scene):
         # 比较说明
         comparison_text = Text(
             "相同周长下，正方形面积 > 矩形面积\n相同面积下，正方形周长 < 矩形周长",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_AUXILIARY
         ).move_to(DOWN * 4)
@@ -255,7 +255,7 @@ class BasicInequalityAnimation(Scene):
         # 标题
         title = Text(
             "代数证明",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -284,7 +284,7 @@ class BasicInequalityAnimation(Scene):
         self.wait(2)
 
         # 等号成立条件
-        cond_text = Text("等号成立当且仅当 ", font="Noto Sans CJK SC",
+        cond_text = Text("等号成立当且仅当 ", font="PingFang SC",
                          font_size=26, color=self.COLOR_HIGHLIGHT)
         cond_math = MathTex("a = b", font_size=28, color=self.COLOR_HIGHLIGHT)
         condition = VGroup(cond_text, cond_math).arrange(RIGHT, buff=0.15).move_to(DOWN * 6)
@@ -301,7 +301,7 @@ class BasicInequalityAnimation(Scene):
         # 标题
         title = Text(
             "应用条件「一正二定三相等」",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -309,11 +309,11 @@ class BasicInequalityAnimation(Scene):
 
         # 三个条件
         condition1 = Text("一正：各项为正 (a, b > 0)",
-                          font="Noto Sans CJK SC", font_size=24, color=BLUE).move_to(UP * 3)
+                          font="PingFang SC", font_size=24, color=BLUE).move_to(UP * 3)
         condition2 = Text("二定：和或积为定值",
-                          font="Noto Sans CJK SC", font_size=24, color=GREEN).move_to(UP * 1.5)
+                          font="PingFang SC", font_size=24, color=GREEN).move_to(UP * 1.5)
         condition3 = Text("三相等：能取到等号 (a = b)",
-                          font="Noto Sans CJK SC", font_size=24, color=PURPLE).move_to(ORIGIN)
+                          font="PingFang SC", font_size=24, color=PURPLE).move_to(ORIGIN)
 
         self.play(Write(condition1), run_time=0.8)
         self.play(Write(condition2), run_time=0.8)
@@ -322,11 +322,11 @@ class BasicInequalityAnimation(Scene):
 
         # 举例
         example = Text("例：若 x > 0，求 x + 1/x 的最小值",
-                       font="Noto Sans CJK SC", font_size=22, color=WHITE).move_to(DOWN * 1.5)
+                       font="PingFang SC", font_size=22, color=WHITE).move_to(DOWN * 1.5)
         solution = MathTex("x + \\frac{1}{x} \\geq 2\\sqrt{x \\cdot \\frac{1}{x}} = 2",
                            font_size=28, color=YELLOW).move_to(DOWN * 3)
         min_value = Text("当 x = 1/x 即 x = 1 时，取得最小值 2",
-                         font="Noto Sans CJK SC", font_size=20, color=GRAY_A).move_to(DOWN * 4.5)
+                         font="PingFang SC", font_size=20, color=GRAY_A).move_to(DOWN * 4.5)
 
         self.play(Write(example), run_time=0.8)
         self.play(Write(solution), run_time=0.8)
@@ -343,7 +343,7 @@ class BasicInequalityAnimation(Scene):
         # 标题
         title = Text(
             "平均数链式不等式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6.5)
@@ -363,7 +363,7 @@ class BasicInequalityAnimation(Scene):
         # 各平均数名称
         def mean_label(letter, name, color, pos):
             math = MathTex(f"{letter} =", color=color, font_size=28)
-            txt = Text(name, font="Noto Sans CJK SC", font_size=24, color=color)
+            txt = Text(name, font="PingFang SC", font_size=24, color=color)
             return VGroup(math, txt).arrange(RIGHT, buff=0.15).move_to(pos)
 
         means_explanation = VGroup(
@@ -379,7 +379,7 @@ class BasicInequalityAnimation(Scene):
         # 具体数值验证
         verification_text = Text(
             f"验证 (a={self.a}, b={self.b}):",
-            font="Noto Sans CJK SC", font_size=24, color=WHITE
+            font="PingFang SC", font_size=24, color=WHITE
         ).move_to(DOWN * 2)
         values_text = MathTex(
             f"H={self.harmonic_mean:.3f} \\leq "
@@ -396,7 +396,7 @@ class BasicInequalityAnimation(Scene):
         # 最后保留作者信息，再添加关注提示
         follow_hint = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 6)

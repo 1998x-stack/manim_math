@@ -100,7 +100,7 @@ class FunctionConcepts(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -110,7 +110,7 @@ class FunctionConcepts(Scene):
         # 钩子问题
         hook_question = Text(
             "什么是函数？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5)
@@ -140,7 +140,7 @@ class FunctionConcepts(Scene):
         # 标题
         title = Text(
             "函数 = 对应关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -232,7 +232,7 @@ class FunctionConcepts(Scene):
         # 定义文字
         definition = Text(
             "A中每个元素x都有唯一的B中元素y与之对应",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -287,7 +287,7 @@ class FunctionConcepts(Scene):
         # 标题
         title = Text(
             "定义域 & 值域",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 5.5)
@@ -306,7 +306,7 @@ class FunctionConcepts(Scene):
         # "定义域"标签
         domain_label = Text(
             "定义域",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_DOMAIN
         ).next_to(self.ellipse_A, DOWN, buff=0.3)
@@ -316,7 +316,7 @@ class FunctionConcepts(Scene):
         # 定义域说明
         domain_explain = Text(
             "使f(x)有意义的x的集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -337,7 +337,7 @@ class FunctionConcepts(Scene):
         # "值域"标签
         range_label = Text(
             "值域",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_RANGE
         ).next_to(self.ellipse_B, DOWN, buff=0.3)
@@ -347,7 +347,7 @@ class FunctionConcepts(Scene):
         # 值域说明
         range_explain = Text(
             "所有函数值y组成的集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -359,11 +359,11 @@ class FunctionConcepts(Scene):
         )
         
         # 公式 - 使用Text和MathTex分开处理中文和数学
-        domain_text = Text("定义域: ", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        domain_text = Text("定义域: ", font="PingFang SC", font_size=20, color=WHITE)
         domain_math = MathTex(r"\{x \mid x \in A\}", font_size=24)
         domain_group = VGroup(domain_text, domain_math).arrange(RIGHT, buff=0.1).move_to(DOWN * 6)
         
-        range_text = Text("值域: ", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        range_text = Text("值域: ", font="PingFang SC", font_size=20, color=WHITE)
         range_math = MathTex(r"\{y \mid y = f(x), x \in A\}", font_size=24)
         range_group = VGroup(range_text, range_math).arrange(RIGHT, buff=0.1).move_to(DOWN * 6.8)
         
@@ -403,7 +403,7 @@ class FunctionConcepts(Scene):
         # 标题
         title = Text(
             "函数相等的条件",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -413,7 +413,7 @@ class FunctionConcepts(Scene):
         # 条件1
         condition_1 = Text(
             "① 定义域相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 3.5)
@@ -423,7 +423,7 @@ class FunctionConcepts(Scene):
         # 条件2
         condition_2 = Text(
             "② 对应法则相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         ).move_to(UP * 2)
@@ -440,7 +440,7 @@ class FunctionConcepts(Scene):
         
         note_title = Text(
             "注意:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2 + LEFT * 2.5)
@@ -452,7 +452,7 @@ class FunctionConcepts(Scene):
         
         note_content_2_text = Text(
             "不要求",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -489,7 +489,7 @@ class FunctionConcepts(Scene):
         # 标题
         title = Text(
             "函数的图像",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -551,7 +551,7 @@ class FunctionConcepts(Scene):
         
         domain_text_cn = Text(
             "定义域: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_DOMAIN
         )
@@ -577,7 +577,7 @@ class FunctionConcepts(Scene):
         
         range_text_cn = Text(
             "值域: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_RANGE
         )
@@ -637,7 +637,7 @@ class FunctionConcepts(Scene):
         # 标题
         title = Text(
             "如何求定义域？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -647,14 +647,14 @@ class FunctionConcepts(Scene):
         # 规则1
         rule_1_title = Text(
             "① 分母 ≠ 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 4)
         
         example_1_text = Text(
             "例: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -666,7 +666,7 @@ class FunctionConcepts(Scene):
         
         domain_1_text = Text(
             "定义域: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -684,14 +684,14 @@ class FunctionConcepts(Scene):
         # 规则2
         rule_2_title = Text(
             "② 偶次根号下 ≥ 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 1)
         
         example_2_text = Text(
             "例: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -703,7 +703,7 @@ class FunctionConcepts(Scene):
         
         domain_2_text = Text(
             "定义域: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -721,14 +721,14 @@ class FunctionConcepts(Scene):
         # 规则3
         rule_3_title = Text(
             "③ 对数真数 > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
         
         example_3_text = Text(
             "例: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         )
@@ -740,7 +740,7 @@ class FunctionConcepts(Scene):
         
         domain_3_text = Text(
             "定义域: ",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -776,7 +776,7 @@ class FunctionConcepts(Scene):
         # 标题
         summary_title = Text(
             "函数三要素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 5.5)
@@ -841,7 +841,7 @@ class FunctionConcepts(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -849,7 +849,7 @@ class FunctionConcepts(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )
@@ -868,14 +868,14 @@ class FunctionConcepts(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -889,7 +889,7 @@ class FunctionConcepts(Scene):
         # 关注提示
         cta_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

@@ -123,13 +123,13 @@ class SphericalDistance(ThreeDScene):
     def s0_opening(self):
         self.set_camera_orientation(phi=70*DEGREES, theta=-60*DEGREES)
         auth=Text("上海初高中数学直通车  @emptyandcalm",
-                  font="Noto Sans CJK SC",font_size=18,color="#666666").to_edge(UP,buff=0.3)
+                  font="PingFang SC",font_size=18,color="#666666").to_edge(UP,buff=0.3)
         self.add_fixed_in_frame_mobjects(auth)
         self.play(FadeIn(auth))
         hook=Text("飞机走曲线，为何更短？",
-                  font="Noto Sans CJK SC",font_size=38,color=self.GOLD).move_to(UP*6.5)
+                  font="PingFang SC",font_size=38,color=self.GOLD).move_to(UP*6.5)
         sub=Text("— 球面距离的秘密 —",
-                 font="Noto Sans CJK SC",font_size=24,color=self.GR).move_to(UP*5.8)
+                 font="PingFang SC",font_size=24,color=self.GR).move_to(UP*5.8)
         self.add_fixed_in_frame_mobjects(hook,sub)
         self.play(Write(hook,run_time=1.0))
         self.play(FadeIn(sub))
@@ -143,7 +143,7 @@ class SphericalDistance(ThreeDScene):
 
     # ── S1 大圆弧 vs 纬线弧 ──────────────────
     def s1_great_circle(self):
-        ttl=Text("球面距离 = 大圆劣弧长",font="Noto Sans CJK SC",
+        ttl=Text("球面距离 = 大圆劣弧长",font="PingFang SC",
                  font_size=30,color=self.GOLD).move_to(UP*6.5)
         self.add_fixed_in_frame_mobjects(ttl); self.play(Write(ttl))
         dA=Dot3D(self.P_A,radius=0.12,color=self.COL_A)
@@ -153,7 +153,7 @@ class SphericalDistance(ThreeDScene):
         self.add_fixed_in_frame_mobjects(lA,lB)
         self.play(FadeIn(dA),FadeIn(dB))
         arc=pts_mob(self.arc_pts,self.GOLD,4)
-        lbl=Text("大圆弧（最短路径✓）",font="Noto Sans CJK SC",
+        lbl=Text("大圆弧（最短路径✓）",font="PingFang SC",
                  font_size=22,color=self.GOLD).move_to(DOWN*4.4)
         self.add_fixed_in_frame_mobjects(lbl)
         self.play(Create(arc,run_time=1.2),FadeIn(lbl)); self.wait(0.8)
@@ -163,7 +163,7 @@ class SphericalDistance(ThreeDScene):
                                self.R*np.cos(φ)*np.sin(l1+t*(l2-l1)),
                                self.R*np.sin(φ)]) for t in np.linspace(0,1,60)]
         la=pts_mob(lat_arc_pts,"#ff6b6b",3)
-        ll=Text("纬线弧（非最短✗）",font="Noto Sans CJK SC",
+        ll=Text("纬线弧（非最短✗）",font="PingFang SC",
                 font_size=22,color="#ff6b6b").move_to(DOWN*5.1)
         self.add_fixed_in_frame_mobjects(ll)
         self.play(Create(la),FadeIn(ll)); self.wait(1.8)
@@ -172,7 +172,7 @@ class SphericalDistance(ThreeDScene):
 
     # ── S2 经纬度 ─────────────────────────────
     def s2_lat_lon(self):
-        ttl=Text("经度 λ  与  纬度 φ",font="Noto Sans CJK SC",
+        ttl=Text("经度 λ  与  纬度 φ",font="PingFang SC",
                  font_size=30,color=self.GOLD).move_to(UP*6.5)
         self.add_fixed_in_frame_mobjects(ttl); self.play(Write(ttl))
         pm=pts_mob(self.prime,"#ff9f43",2)
@@ -181,12 +181,12 @@ class SphericalDistance(ThreeDScene):
         laB=pts_mob(self.lat_B,self.COL_B,1.5); laB.set_opacity(.7)
         self.play(Create(pm)); self.play(Create(laA),Create(mA)); self.play(Create(laB))
         iA=Text(f"A : φ={int(self.PHI_A)}°N,  λ={int(self.LAM_A)}°E",
-                font="Noto Sans CJK SC",font_size=22,color=self.COL_A).move_to(DOWN*4.0)
+                font="PingFang SC",font_size=22,color=self.COL_A).move_to(DOWN*4.0)
         iB=Text(f"B : φ={int(self.PHI_B)}°N,  λ={int(self.LAM_B)}°E",
-                font="Noto Sans CJK SC",font_size=22,color=self.COL_B).move_to(DOWN*4.8)
-        hphi=Text("φ : 与赤道面的夹角",font="Noto Sans CJK SC",
+                font="PingFang SC",font_size=22,color=self.COL_B).move_to(DOWN*4.8)
+        hphi=Text("φ : 与赤道面的夹角",font="PingFang SC",
                   font_size=20,color=self.GR).move_to(DOWN*5.5)
-        hlam=Text("λ : 与本初子午线的夹角",font="Noto Sans CJK SC",
+        hlam=Text("λ : 与本初子午线的夹角",font="PingFang SC",
                   font_size=20,color=self.GR).move_to(DOWN*6.1)
         self.add_fixed_in_frame_mobjects(iA,iB,hphi,hlam)
         self.play(FadeIn(iA),FadeIn(iB),FadeIn(hphi),FadeIn(hlam))
@@ -197,7 +197,7 @@ class SphericalDistance(ThreeDScene):
 
     # ── S3 球心角 ─────────────────────────────
     def s3_central_angle(self):
-        ttl=Text("球心角 θ",font="Noto Sans CJK SC",
+        ttl=Text("球心角 θ",font="PingFang SC",
                  font_size=34,color=self.GOLD).move_to(UP*6.5)
         self.add_fixed_in_frame_mobjects(ttl); self.play(Write(ttl))
         lOA=Line3D(self.O,self.P_A,color=self.COL_A,stroke_width=3)
@@ -211,9 +211,9 @@ class SphericalDistance(ThreeDScene):
         mid=(pA+pB)/np.linalg.norm(pA+pB)
         th=MathTex(r"\theta",color=self.ANG_C,font_size=40).move_to(mid*r*1.35+[.2,0,0])
         vt=Text(f"θ ≈ {np.degrees(self.theta_AB):.1f}°",
-                font="Noto Sans CJK SC",font_size=24,color=self.ANG_C).move_to(DOWN*4.2)
+                font="PingFang SC",font_size=24,color=self.ANG_C).move_to(DOWN*4.2)
         ex=Text("θ = OA 与 OB 的夹角（弧度）",
-                font="Noto Sans CJK SC",font_size=20,color=self.GR).move_to(DOWN*5.0)
+                font="PingFang SC",font_size=20,color=self.GR).move_to(DOWN*5.0)
         self.add_fixed_in_frame_mobjects(th,vt,ex)
         self.play(FadeIn(th),FadeIn(vt),FadeIn(ex)); self.wait(2.0)
         self.play(FadeOut(ttl),FadeOut(th),FadeOut(vt),FadeOut(ex),FadeOut(ang))
@@ -221,18 +221,18 @@ class SphericalDistance(ThreeDScene):
 
     # ── S4 核心公式 ───────────────────────────
     def s4_formula(self):
-        ttl=Text("核心公式",font="Noto Sans CJK SC",
+        ttl=Text("核心公式",font="PingFang SC",
                  font_size=34,color=self.GOLD).move_to(UP*6.5)
         self.add_fixed_in_frame_mobjects(ttl); self.play(Write(ttl))
         f1=MathTex(r"d = R\theta",font_size=56).move_to(DOWN*3.5)
-        l1=Text("球面距离公式",font="Noto Sans CJK SC",
+        l1=Text("球面距离公式",font="PingFang SC",
                 font_size=22,color=self.GR).move_to(DOWN*4.4)
         self.add_fixed_in_frame_mobjects(f1,l1)
         self.play(Write(f1),FadeIn(l1)); self.wait(0.8)
         f2=MathTex(r"\cos\theta=\cos\varphi_1\cos\varphi_2\cos(\lambda_1-\lambda_2)"
                    r"+\sin\varphi_1\sin\varphi_2",
                    font_size=24,color="#bbbbbb").move_to(DOWN*5.2)
-        l2=Text("球心角余弦公式",font="Noto Sans CJK SC",
+        l2=Text("球心角余弦公式",font="PingFang SC",
                 font_size=20,color=self.GR).move_to(DOWN*6.0)
         self.add_fixed_in_frame_mobjects(f2,l2)
         self.play(Write(f2),FadeIn(l2))
@@ -246,7 +246,7 @@ class SphericalDistance(ThreeDScene):
 
     # ── S5 特殊情形 ───────────────────────────
     def s5_special_cases(self):
-        ttl=Text("两个特殊情形",font="Noto Sans CJK SC",
+        ttl=Text("两个特殊情形",font="PingFang SC",
                  font_size=32,color=self.GOLD).move_to(UP*6.5)
         self.add_fixed_in_frame_mobjects(ttl); self.play(Write(ttl))
         R=self.R
@@ -255,9 +255,9 @@ class SphericalDistance(ThreeDScene):
         P2=SphereGeo.spherical_to_cartesian(10,self.LAM_A,R)
         a1=pts_mob([p*R for p in SphereGeo.great_circle_arc(P1/R,P2/R)],self.COL_A,4)
         d1=Dot3D(P1,.1,color=self.COL_A); d2=Dot3D(P2,.1,color=self.COL_A)
-        ct1=Text("① 同一经线上",font="Noto Sans CJK SC",font_size=26,color=self.COL_A).move_to(DOWN*3.5)
+        ct1=Text("① 同一经线上",font="PingFang SC",font_size=26,color=self.COL_A).move_to(DOWN*3.5)
         fc1=MathTex(r"d=R|\varphi_1-\varphi_2|",font_size=38).move_to(DOWN*4.4)
-        ec1=Text("经差为 0，仅纬差决定弧长",font="Noto Sans CJK SC",
+        ec1=Text("经差为 0，仅纬差决定弧长",font="PingFang SC",
                  font_size=20,color=self.GR).move_to(DOWN*5.1)
         self.add_fixed_in_frame_mobjects(ct1,fc1,ec1)
         self.play(FadeIn(d1),FadeIn(d2),Create(a1,run_time=.8))
@@ -269,14 +269,14 @@ class SphericalDistance(ThreeDScene):
         Q2=SphereGeo.spherical_to_cartesian(0,80,R)
         a2=pts_mob([p*R for p in SphereGeo.great_circle_arc(Q1/R,Q2/R)],self.COL_B,4)
         dq1=Dot3D(Q1,.1,color=self.COL_B); dq2=Dot3D(Q2,.1,color=self.COL_B)
-        ct2=Text("② 赤道上",font="Noto Sans CJK SC",font_size=26,color=self.COL_B).move_to(DOWN*3.5)
+        ct2=Text("② 赤道上",font="PingFang SC",font_size=26,color=self.COL_B).move_to(DOWN*3.5)
         fc2=MathTex(r"d=R|\lambda_1-\lambda_2|",font_size=38).move_to(DOWN*4.4)
-        ec2=Text("φ = 0，纬线即大圆（赤道）",font="Noto Sans CJK SC",
+        ec2=Text("φ = 0，纬线即大圆（赤道）",font="PingFang SC",
                  font_size=20,color=self.GR).move_to(DOWN*5.1)
         self.add_fixed_in_frame_mobjects(ct2,fc2,ec2)
         self.play(FadeIn(dq1),FadeIn(dq2),Create(a2,run_time=.8))
         self.play(Write(ct2),Write(fc2),FadeIn(ec2)); self.wait(1.5)
-        sm=Text("球面距离 = R × 球心角（弧度）",font="Noto Sans CJK SC",
+        sm=Text("球面距离 = R × 球心角（弧度）",font="PingFang SC",
                 font_size=24,color=self.GOLD).move_to(DOWN*6.1)
         self.add_fixed_in_frame_mobjects(sm)
         self.play(FadeIn(sm,shift=UP*.3)); self.wait(2.0)
@@ -292,27 +292,27 @@ class SphericalDistance(ThreeDScene):
                               fill_color="#0f1f3d",fill_opacity=0.96,
                               stroke_color=self.GOLD,stroke_width=2.5).move_to(UP*1.2)
         self.add_fixed_in_frame_mobjects(card); self.play(FadeIn(card))
-        ct=Text("球面距离  知识卡",font="Noto Sans CJK SC",
+        ct=Text("球面距离  知识卡",font="PingFang SC",
                 font_size=30,color=self.GOLD).move_to(UP*3.3)
         ff1=MathTex(r"d=R\theta",font_size=48).move_to(UP*2.4)
         ff2=MathTex(r"\cos\theta=\cos\varphi_1\cos\varphi_2\cos(\lambda_1\!-\!\lambda_2)"
                     r"+\sin\varphi_1\sin\varphi_2",
                     font_size=23,color="#cccccc").move_to(UP*1.55)
         ff3 = VGroup(
-            Text("同经线：", font="Noto Sans CJK SC", font_size=26, color="#aaaaff"),
+            Text("同经线：", font="PingFang SC", font_size=26, color="#aaaaff"),
             MathTex(r"d = R|\varphi_1 - \varphi_2|", font_size=26, color="#aaaaff"),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 0.7)
         ff4 = VGroup(
-            Text("赤道：", font="Noto Sans CJK SC", font_size=26, color="#aaffaa"),
+            Text("赤道：", font="PingFang SC", font_size=26, color="#aaffaa"),
             MathTex(r"d = R|\lambda_1 - \lambda_2|", font_size=26, color="#aaffaa"),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 0.05)
         self.add_fixed_in_frame_mobjects(ct,ff1,ff2,ff3,ff4)
         self.play(Write(ct))
         for f in [ff1,ff2,ff3,ff4]: self.play(Write(f,run_time=0.55))
         self.wait(1.2)
-        cta=Text("关注我，获得更多数学技巧！",font="Noto Sans CJK SC",
+        cta=Text("关注我，获得更多数学技巧！",font="PingFang SC",
                  font_size=32,color=self.GOLD).move_to(DOWN*4.4)
-        au=Text("上海初高中数学直通车  @emptyandcalm",font="Noto Sans CJK SC",
+        au=Text("上海初高中数学直通车  @emptyandcalm",font="PingFang SC",
                 font_size=22,color="#888888").move_to(DOWN*5.2)
         self.add_fixed_in_frame_mobjects(cta,au)
         self.play(FadeIn(cta,shift=UP*.3)); self.play(FadeIn(au))

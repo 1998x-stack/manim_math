@@ -45,7 +45,7 @@ class CountingPrinciples(Scene):
         self.COLOR_SUCCESS = "#2ecc71"
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         
         # 执行动画序列
         self.show_opening()

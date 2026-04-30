@@ -136,7 +136,7 @@ class FlowchartBasics(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -146,7 +146,7 @@ class FlowchartBasics(Scene):
         # 钩子问题
         hook_question = Text(
             "如何用图形表示算法?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -155,7 +155,7 @@ class FlowchartBasics(Scene):
         
         # 简单流程图预览（开始→处理→结束）
         preview_start = self.create_start_end_shape(UP * 3 + LEFT * 2, width=1.5, height=0.6)
-        preview_start_text = Text("开始", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        preview_start_text = Text("开始", font="PingFang SC", font_size=14, color=WHITE)
         preview_start_text.move_to(preview_start.get_center())
         
         arrow1 = Arrow(
@@ -167,7 +167,7 @@ class FlowchartBasics(Scene):
         )
         
         preview_process = self.create_process_shape(UP * 2 + LEFT * 2, width=1.5, height=0.6)
-        preview_process_text = Text("处理", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        preview_process_text = Text("处理", font="PingFang SC", font_size=14, color=WHITE)
         preview_process_text.move_to(preview_process.get_center())
         
         arrow2 = Arrow(
@@ -179,7 +179,7 @@ class FlowchartBasics(Scene):
         )
         
         preview_end = self.create_start_end_shape(UP * 1 + LEFT * 2, width=1.5, height=0.6)
-        preview_end_text = Text("结束", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        preview_end_text = Text("结束", font="PingFang SC", font_size=14, color=WHITE)
         preview_end_text.move_to(preview_end.get_center())
         
         simple_flowchart = VGroup(
@@ -195,7 +195,7 @@ class FlowchartBasics(Scene):
         # 引导文字
         hint_text = Text(
             "答案: 程序框图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -216,7 +216,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "程序框图 Flowchart",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 6)
@@ -226,7 +226,7 @@ class FlowchartBasics(Scene):
         # 定义框
         definition_text = Text(
             "用特定图形符号表示算法步骤的图形\n也称为流程图",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE,
             line_spacing=1.2
@@ -244,8 +244,8 @@ class FlowchartBasics(Scene):
         
         # 关键词
         keywords = VGroup(
-            Text("图形符号", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
-            Text("算法步骤", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT)
+            Text("图形符号", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT),
+            Text("算法步骤", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=1.0).move_to(DOWN * 2)
         
         for i, word in enumerate(keywords):
@@ -268,7 +268,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "程序框图的五种基本符号",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -289,7 +289,7 @@ class FlowchartBasics(Scene):
         # 提示文字
         hint = Text(
             "让我们逐个认识",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -310,7 +310,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "① 起止框",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_START_END
         ).move_to(UP * 6)
@@ -322,10 +322,10 @@ class FlowchartBasics(Scene):
         self.play(Create(shape), run_time=0.6)
         
         # 示例文字
-        example1 = Text("开始", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        example1 = Text("开始", font="PingFang SC", font_size=20, color=WHITE)
         example1.move_to(UP * 2.5 + LEFT * 0.8)
         
-        example2 = Text("结束", font="Noto Sans CJK SC", font_size=20, color=WHITE)
+        example2 = Text("结束", font="PingFang SC", font_size=20, color=WHITE)
         example2.move_to(UP * 2.5 + RIGHT * 0.8)
         
         self.play(FadeIn(example1), FadeIn(example2), run_time=0.4)
@@ -333,7 +333,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "表示算法的开始或结束",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -352,7 +352,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "② 输入输出框",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_IO
         ).move_to(UP * 6)
@@ -364,10 +364,10 @@ class FlowchartBasics(Scene):
         self.play(Create(shape), run_time=0.6)
         
         # 示例文字
-        example1 = Text("输入 x", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        example1 = Text("输入 x", font="PingFang SC", font_size=18, color=WHITE)
         example1.move_to(UP * 2.5 + LEFT * 0.7)
         
-        example2 = Text("输出 y", font="Noto Sans CJK SC", font_size=18, color=WHITE)
+        example2 = Text("输出 y", font="PingFang SC", font_size=18, color=WHITE)
         example2.move_to(UP * 2.5 + RIGHT * 0.7)
         
         self.play(FadeIn(example1), FadeIn(example2), run_time=0.4)
@@ -375,7 +375,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "表示数据的输入或输出",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -394,7 +394,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "③ 处理框",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_PROCESS
         ).move_to(UP * 6)
@@ -414,7 +414,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "表示赋值、计算等处理操作",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -433,7 +433,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "④ 判断框",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_DECISION
         ).move_to(UP * 6)
@@ -449,10 +449,10 @@ class FlowchartBasics(Scene):
         example.move_to(UP * 2.5)
         
         # 出口标签
-        yes_label = Text("是", font="Noto Sans CJK SC", font_size=16, color=self.COLOR_SUCCESS)
+        yes_label = Text("是", font="PingFang SC", font_size=16, color=self.COLOR_SUCCESS)
         yes_label.move_to(UP * 2.5 + DOWN * 1.2)
         
-        no_label = Text("否", font="Noto Sans CJK SC", font_size=16, color=self.COLOR_SECONDARY)
+        no_label = Text("否", font="PingFang SC", font_size=16, color=self.COLOR_SECONDARY)
         no_label.move_to(UP * 2.5 + RIGHT * 1.7)
         
         # 箭头
@@ -484,7 +484,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "表示条件判断，有两个出口",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -508,7 +508,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "⑤ 流程线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_ARROW
         ).move_to(UP * 6)
@@ -529,7 +529,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "表示程序的执行顺序",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 3)
@@ -548,7 +548,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "程序框图的三种基本结构",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -556,9 +556,9 @@ class FlowchartBasics(Scene):
         self.play(FadeIn(title), run_time=0.5)
         
         # 三个图标
-        icon1 = Text("顺序", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_SEQUENCE)
-        icon2 = Text("条件", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_CONDITION)
-        icon3 = Text("循环", font="Noto Sans CJK SC", font_size=24, color=self.COLOR_LOOP)
+        icon1 = Text("顺序", font="PingFang SC", font_size=24, color=self.COLOR_SEQUENCE)
+        icon2 = Text("条件", font="PingFang SC", font_size=24, color=self.COLOR_CONDITION)
+        icon3 = Text("循环", font="PingFang SC", font_size=24, color=self.COLOR_LOOP)
         
         icons = VGroup(icon1, icon2, icon3).arrange(RIGHT, buff=1.2).move_to(UP * 2)
         
@@ -567,7 +567,7 @@ class FlowchartBasics(Scene):
         # 提示
         hint = Text(
             "理解这三种结构是关键",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3)
@@ -588,7 +588,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "顺序结构",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_SEQUENCE
         ).move_to(UP * 7)
@@ -601,7 +601,7 @@ class FlowchartBasics(Scene):
         # 开始
         start_pos = np.array([center_x, 5.5, 0])
         start_shape = self.create_start_end_shape(start_pos, width=1.8, height=0.7)
-        start_text = Text("开始", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+        start_text = Text("开始", font="PingFang SC", font_size=16, color=WHITE)
         start_text.move_to(start_pos)
         start_node = VGroup(start_shape, start_text)
         
@@ -620,7 +620,7 @@ class FlowchartBasics(Scene):
         # 输入
         input_pos = np.array([center_x, 4.0, 0])
         input_shape = self.create_io_shape(input_pos, width=1.8, height=0.7)
-        input_text = Text("输入 a", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+        input_text = Text("输入 a", font="PingFang SC", font_size=16, color=WHITE)
         input_text.move_to(input_pos)
         input_node = VGroup(input_shape, input_text)
         
@@ -658,7 +658,7 @@ class FlowchartBasics(Scene):
         # 输出
         output_pos = np.array([center_x, 1.0, 0])
         output_shape = self.create_io_shape(output_pos, width=1.8, height=0.7)
-        output_text = Text("输出 a", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+        output_text = Text("输出 a", font="PingFang SC", font_size=16, color=WHITE)
         output_text.move_to(output_pos)
         output_node = VGroup(output_shape, output_text)
         
@@ -677,7 +677,7 @@ class FlowchartBasics(Scene):
         # 结束
         end_pos = np.array([center_x, -0.5, 0])
         end_shape = self.create_start_end_shape(end_pos, width=1.8, height=0.7)
-        end_text = Text("结束", font="Noto Sans CJK SC", font_size=16, color=WHITE)
+        end_text = Text("结束", font="PingFang SC", font_size=16, color=WHITE)
         end_text.move_to(end_pos)
         end_node = VGroup(end_shape, end_text)
         
@@ -686,7 +686,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "按顺序依次执行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 5)
@@ -706,7 +706,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "条件结构 IF-THEN-ELSE",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_CONDITION
         ).move_to(UP * 7)
@@ -721,12 +721,12 @@ class FlowchartBasics(Scene):
         # 开始和输入（快速显示）
         start_pos = np.array([center_x, 6.0, 0])
         start_shape = self.create_start_end_shape(start_pos, width=1.5, height=0.6)
-        start_text = Text("开始", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        start_text = Text("开始", font="PingFang SC", font_size=14, color=WHITE)
         start_text.move_to(start_pos)
         
         input_pos = np.array([center_x, 4.8, 0])
         input_shape = self.create_io_shape(input_pos, width=1.5, height=0.6)
-        input_text = Text("输入 x", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        input_text = Text("输入 x", font="PingFang SC", font_size=14, color=WHITE)
         input_text.move_to(input_pos)
         
         arrow_start = Arrow(start_pos + DOWN * 0.3, input_pos + UP * 0.3, buff=0, stroke_width=2, color=WHITE)
@@ -746,7 +746,7 @@ class FlowchartBasics(Scene):
         self.play(FadeIn(VGroup(decision_shape, decision_text)), run_time=0.6)
         
         # 左分支（是）
-        yes_label = Text("是", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_SUCCESS)
+        yes_label = Text("是", font="PingFang SC", font_size=14, color=self.COLOR_SUCCESS)
         yes_label.move_to(decision_pos + LEFT * 0.8 + DOWN * 0.3)
         
         process_left_pos = np.array([left_x, 1.5, 0])
@@ -771,7 +771,7 @@ class FlowchartBasics(Scene):
         self.play(FadeIn(VGroup(process_left_shape, process_left_text)), run_time=0.4)
         
         # 右分支（否）
-        no_label = Text("否", font="Noto Sans CJK SC", font_size=14, color=self.COLOR_SECONDARY)
+        no_label = Text("否", font="PingFang SC", font_size=14, color=self.COLOR_SECONDARY)
         no_label.move_to(decision_pos + RIGHT * 0.8 + DOWN * 0.3)
         
         process_right_pos = np.array([right_x, 1.5, 0])
@@ -821,12 +821,12 @@ class FlowchartBasics(Scene):
         # 输出和结束
         output_pos = np.array([center_x, -1.2, 0])
         output_shape = self.create_io_shape(output_pos, width=1.5, height=0.6)
-        output_text = Text("输出 y", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        output_text = Text("输出 y", font="PingFang SC", font_size=14, color=WHITE)
         output_text.move_to(output_pos)
         
         end_pos = np.array([center_x, -2.5, 0])
         end_shape = self.create_start_end_shape(end_pos, width=1.5, height=0.6)
-        end_text = Text("结束", font="Noto Sans CJK SC", font_size=14, color=WHITE)
+        end_text = Text("结束", font="PingFang SC", font_size=14, color=WHITE)
         end_text.move_to(end_pos)
         
         arrow_to_output = Arrow(merge_pos, output_pos + UP * 0.3, buff=0, stroke_width=2, color=WHITE)
@@ -846,7 +846,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "根据条件选择不同分支执行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 5.5)
@@ -872,7 +872,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "循环结构 WHILE",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SUBTITLE,
             color=self.COLOR_LOOP
         ).move_to(UP * 7)
@@ -886,7 +886,7 @@ class FlowchartBasics(Scene):
         # 开始
         start_pos = np.array([center_x, 6.0, 0])
         start_shape = self.create_start_end_shape(start_pos, width=1.3, height=0.5)
-        start_text = Text("开始", font="Noto Sans CJK SC", font_size=12, color=WHITE)
+        start_text = Text("开始", font="PingFang SC", font_size=12, color=WHITE)
         start_text.move_to(start_pos)
         
         # 初始化
@@ -918,7 +918,7 @@ class FlowchartBasics(Scene):
         self.play(FadeIn(VGroup(decision_shape, decision_text)), run_time=0.6)
         
         # 循环体（左侧）
-        yes_label = Text("是", font="Noto Sans CJK SC", font_size=12, color=self.COLOR_SUCCESS)
+        yes_label = Text("是", font="PingFang SC", font_size=12, color=self.COLOR_SUCCESS)
         yes_label.move_to(decision_pos + LEFT * 0.7 + DOWN * 0.2)
         
         process1_pos = np.array([loop_x, 2.0, 0])
@@ -970,7 +970,7 @@ class FlowchartBasics(Scene):
             color=self.COLOR_LOOP
         )
         
-        loop_label = Text("循环", font="Noto Sans CJK SC", font_size=10, color=self.COLOR_LOOP)
+        loop_label = Text("循环", font="PingFang SC", font_size=10, color=self.COLOR_LOOP)
         loop_label.move_to(np.array([loop_x - 1.2, 2.5, 0]))
         
         self.play(
@@ -980,17 +980,17 @@ class FlowchartBasics(Scene):
         )
         
         # 退出分支（右侧）
-        no_label = Text("否", font="Noto Sans CJK SC", font_size=12, color=self.COLOR_SECONDARY)
+        no_label = Text("否", font="PingFang SC", font_size=12, color=self.COLOR_SECONDARY)
         no_label.move_to(decision_pos + RIGHT * 0.8 + DOWN * 0.2)
         
         output_pos = np.array([center_x, -0.5, 0])
         output_shape = self.create_io_shape(output_pos, width=1.5, height=0.5)
-        output_text = Text("输出 sum", font="Noto Sans CJK SC", font_size=11, color=WHITE)
+        output_text = Text("输出 sum", font="PingFang SC", font_size=11, color=WHITE)
         output_text.move_to(output_pos)
         
         end_pos = np.array([center_x, -1.7, 0])
         end_shape = self.create_start_end_shape(end_pos, width=1.3, height=0.5)
-        end_text = Text("结束", font="Noto Sans CJK SC", font_size=12, color=WHITE)
+        end_text = Text("结束", font="PingFang SC", font_size=12, color=WHITE)
         end_text.move_to(end_pos)
         
         arrow_exit = Arrow(decision_pos + DOWN * 0.7, output_pos + UP * 0.25, buff=0, stroke_width=2, color=WHITE)
@@ -1011,7 +1011,7 @@ class FlowchartBasics(Scene):
         # 说明
         explanation = Text(
             "重复执行直到条件不满足",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(DOWN * 4.5)
@@ -1053,7 +1053,7 @@ class FlowchartBasics(Scene):
         # 标题
         title = Text(
             "程序框图的三种基本结构",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=WHITE
         ).move_to(UP * 6)
@@ -1062,9 +1062,9 @@ class FlowchartBasics(Scene):
         
         # 三种结构
         structures = VGroup(
-            Text("① 顺序结构 - 依次执行", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_SEQUENCE),
-            Text("② 条件结构 - 选择分支", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_CONDITION),
-            Text("③ 循环结构 - 重复执行", font="Noto Sans CJK SC", font_size=self.FONT_BODY, color=self.COLOR_LOOP)
+            Text("① 顺序结构 - 依次执行", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_SEQUENCE),
+            Text("② 条件结构 - 选择分支", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_CONDITION),
+            Text("③ 循环结构 - 重复执行", font="PingFang SC", font_size=self.FONT_BODY, color=self.COLOR_LOOP)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.6).move_to(UP * 2)
         
         self.play(FadeIn(structures, lag_ratio=0.3), run_time=1.5)
@@ -1072,7 +1072,7 @@ class FlowchartBasics(Scene):
         # 底部提示
         bottom_note = Text(
             "掌握这三种结构是算法的基础",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4)
@@ -1096,7 +1096,7 @@ class FlowchartBasics(Scene):
         # 作者信息放大
         author_large = Text(
             "上海初高中数学直通车\n@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE,
             line_spacing=1.2
@@ -1110,7 +1110,7 @@ class FlowchartBasics(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多算法技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 1)

@@ -30,7 +30,7 @@ ACCENT_RED    = "#ef5350"
 ACCENT_GREEN  = "#66bb6a"
 ACCENT_ORANGE = "#ffa726"
 TEXT_DIM      = "#9e9e9e"
-FONT          = "Noto Sans CJK SC"
+FONT          = "PingFang SC"
 
 # ─────────────────────────────────────────────
 # Helper: Chinese label

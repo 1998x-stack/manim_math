@@ -28,7 +28,7 @@ COLOR_AUX     = "#9b59b6"   # 紫 - 辅助/残差
 COLOR_R       = "#e67e22"   # 相关系数
 COLOR_AXIS    = "#d0d0d0"
 
-FONT_CN = "Noto Sans CJK SC"
+FONT_CN = "PingFang SC"
 
 # 数据集 (已验证: b=0.8, a=1.8, r≈0.8528)
 X_DATA = np.array([1.0, 2.0, 3.0, 4.0, 5.0])

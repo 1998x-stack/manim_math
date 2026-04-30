@@ -22,7 +22,7 @@ C_LINE_B  = "#CE93D8"   # 紫  直线b
 C_LINE_L  = "#FF8A65"   # 橙  直线l
 C_GOLD    = "#FFD700"
 C_GRAY    = GRAY_B
-FONT_CN   = "Noto Sans CJK SC"
+FONT_CN   = "PingFang SC"
 
 
 def iso(x, y, z, sx=0.80, sy=0.52):

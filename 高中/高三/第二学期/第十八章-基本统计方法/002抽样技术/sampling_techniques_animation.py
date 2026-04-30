@@ -21,7 +21,7 @@ C_SAMPLE  = "#f39c12"
 C_GOLD    = GOLD
 C_GRAY    = GRAY_B
 C_WHITE   = WHITE
-FONT      = "Noto Sans CJK SC"
+FONT      = "PingFang SC"
 
 DOT_SPACING = 0.65
 GRID_COLS   = 8

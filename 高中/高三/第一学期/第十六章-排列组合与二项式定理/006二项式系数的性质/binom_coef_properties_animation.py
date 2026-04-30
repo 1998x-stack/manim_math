@@ -28,7 +28,7 @@ C_ODD    = "#ff6b6b"   # 红 - 奇偶和
 C_MAX    = "#f4a261"   # 橙 - 最大系数
 C_GRAY   = "#a0a0b0"
 C_FMT    = "#4ecdc4"   # 青 - 公式框
-FONT_CN  = "Noto Sans CJK SC"
+FONT_CN  = "PingFang SC"
 
 # ======================== 杨辉三角布局 ========================
 PASCAL_ROW_H = 0.70

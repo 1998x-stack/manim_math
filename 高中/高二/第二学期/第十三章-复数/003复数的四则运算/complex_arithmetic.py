@@ -48,16 +48,16 @@ class ComplexArithmetic(Scene):
     # =========================================================
 
     def make_title(self, text_cn, color=WHITE, y=6.2):
-        return Text(text_cn, font="Noto Sans CJK SC", font_size=36, color=color).move_to(UP * y)
+        return Text(text_cn, font="PingFang SC", font_size=36, color=color).move_to(UP * y)
 
     def make_sub(self, text_cn, color=GRAY_A, y=5.4):
-        return Text(text_cn, font="Noto Sans CJK SC", font_size=24, color=color).move_to(UP * y)
+        return Text(text_cn, font="PingFang SC", font_size=24, color=color).move_to(UP * y)
 
     def make_body(self, text_cn, color=GRAY_A):
-        return Text(text_cn, font="Noto Sans CJK SC", font_size=22, color=color)
+        return Text(text_cn, font="PingFang SC", font_size=22, color=color)
 
     def make_explain(self, text_cn, y=-5.0, color=GRAY_A):
-        return Text(text_cn, font="Noto Sans CJK SC", font_size=20, color=color).move_to(UP * y)
+        return Text(text_cn, font="PingFang SC", font_size=20, color=color).move_to(UP * y)
 
     def section_divider(self, elements_to_fade):
         """场景清理"""
@@ -75,16 +75,16 @@ class ComplexArithmetic(Scene):
         # 作者信息 (永久显示)
         self.author_bar = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).move_to(UP * 7.3)
         self.play(FadeIn(self.author_bar, shift=DOWN * 0.2), run_time=0.3)
 
         # 钩子问题
-        hook_line1 = Text("复数也能", font="Noto Sans CJK SC",
+        hook_line1 = Text("复数也能", font="PingFang SC",
                           font_size=52, color=WHITE).move_to(UP * 3.5)
-        hook_line2 = Text("加减乘除？", font="Noto Sans CJK SC",
+        hook_line2 = Text("加减乘除？", font="PingFang SC",
                           font_size=52, color=YELLOW).move_to(UP * 2.5)
 
         self.play(Write(hook_line1), run_time=0.7)
@@ -137,7 +137,7 @@ class ComplexArithmetic(Scene):
 
         rule_text = Text(
             "实部相加，虚部相加",
-            font="Noto Sans CJK SC", font_size=22, color=YELLOW
+            font="PingFang SC", font_size=22, color=YELLOW
         ).move_to(UP * 4.9)
         self.play(FadeIn(rule_text), run_time=0.4)
         self.wait(0.5)
@@ -152,8 +152,8 @@ class ComplexArithmetic(Scene):
             tips=False,
         ).move_to(UP * 1.8)
 
-        x_label = Text("实轴", font="Noto Sans CJK SC", font_size=18).next_to(axes.x_axis.get_end(), RIGHT, buff=0.1)
-        y_label = Text("虚轴", font="Noto Sans CJK SC", font_size=18).next_to(axes.y_axis.get_end(), UP, buff=0.1)
+        x_label = Text("实轴", font="PingFang SC", font_size=18).next_to(axes.x_axis.get_end(), RIGHT, buff=0.1)
+        y_label = Text("虚轴", font="PingFang SC", font_size=18).next_to(axes.y_axis.get_end(), UP, buff=0.1)
 
         self.play(Create(axes), FadeIn(x_label), FadeIn(y_label), run_time=0.8)
 
@@ -237,7 +237,7 @@ class ComplexArithmetic(Scene):
 
         rule_text = Text(
             "实部相减，虚部相减",
-            font="Noto Sans CJK SC", font_size=22, color=YELLOW
+            font="PingFang SC", font_size=22, color=YELLOW
         ).move_to(UP * 4.9)
         self.play(FadeIn(rule_text), run_time=0.4)
         self.wait(0.4)
@@ -261,8 +261,8 @@ class ComplexArithmetic(Scene):
 
         # 彩色解析
         color_explain = VGroup(
-            Text("实部: 1-2 = -1", font="Noto Sans CJK SC", font_size=22, color=self.C_Z1),
-            Text("虚部: 1-(-1) = 2", font="Noto Sans CJK SC", font_size=22, color=self.C_Z2),
+            Text("实部: 1-2 = -1", font="PingFang SC", font_size=22, color=self.C_Z1),
+            Text("虚部: 1-(-1) = 2", font="PingFang SC", font_size=22, color=self.C_Z2),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to(DOWN * 2.5)
 
         self.play(FadeIn(color_explain), run_time=0.5)
@@ -292,7 +292,7 @@ class ComplexArithmetic(Scene):
         self.play(Write(step0), run_time=0.6)
 
         # FOIL展开
-        foil_label = Text("展开（FOIL法）:", font="Noto Sans CJK SC",
+        foil_label = Text("展开（FOIL法）:", font="PingFang SC",
                           font_size=22, color=GRAY_A).move_to(UP * 3.4)
         self.play(FadeIn(foil_label), run_time=0.3)
 
@@ -309,7 +309,7 @@ class ComplexArithmetic(Scene):
         self.play(Write(step2), run_time=0.6)
 
         # 高亮 i² 部分
-        i2_highlight = Text("注意: i² = -1 !", font="Noto Sans CJK SC",
+        i2_highlight = Text("注意: i² = -1 !", font="PingFang SC",
                             font_size=24, color=self.C_I2).move_to(UP * 0.9)
         arrow_to_i2 = Arrow(
             i2_highlight.get_top(),
@@ -369,13 +369,13 @@ class ComplexArithmetic(Scene):
         self.play(Write(problem), run_time=0.6)
 
         # 引入共轭
-        q_text = Text("如何去掉分母的虚数？", font="Noto Sans CJK SC",
+        q_text = Text("如何去掉分母的虚数？", font="PingFang SC",
                       font_size=26, color=YELLOW).move_to(UP * 4.4)
         self.play(FadeIn(q_text), run_time=0.4)
         self.wait(0.4)
 
         # 共轭复数
-        conj_intro = Text("关键: 使用共轭复数", font="Noto Sans CJK SC",
+        conj_intro = Text("关键: 使用共轭复数", font="PingFang SC",
                           font_size=26, color=self.C_CONJ).move_to(UP * 3.5)
         self.play(FadeIn(conj_intro), run_time=0.4)
 
@@ -391,10 +391,10 @@ class ComplexArithmetic(Scene):
             r"(2-i)(2+i) = 4 + 1 = 5",
             font_size=30, color=self.C_CONJ
         ).move_to(UP * 1.8)
-        conj_explain = Text("→ 分母变成实数！", font="Noto Sans CJK SC",
+        conj_explain = Text("→ 分母变成实数！", font="PingFang SC",
                             font_size=22, color=YELLOW).next_to(conj_product, RIGHT, buff=0.2)
         # 实际上横向排布可能超界，放到下面
-        conj_explain2 = Text("分母变成实数！", font="Noto Sans CJK SC",
+        conj_explain2 = Text("分母变成实数！", font="PingFang SC",
                              font_size=24, color=YELLOW).move_to(UP * 1.1)
 
         self.play(Write(conj_product), run_time=0.6)
@@ -451,7 +451,7 @@ class ComplexArithmetic(Scene):
         title = self.make_title("i 的幂次规律", color=YELLOW, y=6.8)
         self.play(FadeIn(title), run_time=0.4)
 
-        sub = Text("每4个为一个周期！", font="Noto Sans CJK SC",
+        sub = Text("每4个为一个周期！", font="PingFang SC",
                    font_size=26, color=self.C_I2).move_to(UP * 5.8)
         self.play(FadeIn(sub), run_time=0.4)
 
@@ -482,13 +482,13 @@ class ComplexArithmetic(Scene):
         # 循环箭头（文字说明代替复杂箭头）
         cycle_text = Text(
             "i → -1 → -i → 1 → i → ...",
-            font="Noto Sans CJK SC", font_size=22, color=GRAY_A
+            font="PingFang SC", font_size=22, color=GRAY_A
         ).move_to(DOWN * 1.8)
         self.play(FadeIn(cycle_text), run_time=0.5)
 
         tip = Text(
             "求 iⁿ: 看 n 除以4的余数",
-            font="Noto Sans CJK SC", font_size=24, color=YELLOW
+            font="PingFang SC", font_size=24, color=YELLOW
         ).move_to(DOWN * 3.0)
         tip_box = SurroundingRectangle(tip, color=YELLOW, buff=0.2, corner_radius=0.1)
         self.play(FadeIn(tip), Create(tip_box), run_time=0.6)
@@ -520,7 +520,7 @@ class ComplexArithmetic(Scene):
 
         summary_cards = VGroup()
         for label_cn, formula_str, color in cards_data:
-            label = Text(label_cn, font="Noto Sans CJK SC",
+            label = Text(label_cn, font="PingFang SC",
                          font_size=26, color=color)
             formula = MathTex(formula_str, font_size=24, color=WHITE)
             line = Line(LEFT * 3, RIGHT * 3, stroke_width=1, color=color)
@@ -533,9 +533,9 @@ class ComplexArithmetic(Scene):
             self.play(FadeIn(card, shift=UP * 0.2), run_time=0.3)
 
         # 核心技巧
-        trick1 = Text("关键: i² = -1", font="Noto Sans CJK SC",
+        trick1 = Text("关键: i² = -1", font="PingFang SC",
                       font_size=28, color=self.C_I2).move_to(DOWN * 0.8)
-        trick2 = Text("除法: 分子分母乘共轭", font="Noto Sans CJK SC",
+        trick2 = Text("除法: 分子分母乘共轭", font="PingFang SC",
                       font_size=26, color=self.C_CONJ).move_to(DOWN * 1.6)
         tricks_box = SurroundingRectangle(
             VGroup(trick1, trick2), color=YELLOW, buff=0.3, corner_radius=0.15
@@ -554,15 +554,15 @@ class ComplexArithmetic(Scene):
         # 作者信息放大
         final_author = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC", font_size=40, color=WHITE
+            font="PingFang SC", font_size=40, color=WHITE
         ).move_to(UP * 2.0)
         final_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC", font_size=32, color=GRAY_B
+            font="PingFang SC", font_size=32, color=GRAY_B
         ).move_to(UP * 0.9)
         follow = Text(
             "关注我，获得更多数学技巧!",
-            font="Noto Sans CJK SC", font_size=30, color=YELLOW
+            font="PingFang SC", font_size=30, color=YELLOW
         ).move_to(DOWN * 0.3)
 
         self.play(

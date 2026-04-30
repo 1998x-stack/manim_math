@@ -84,7 +84,7 @@ class GeometricSequence(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -94,14 +94,14 @@ class GeometricSequence(Scene):
         # 钩子问题
         hook_question = Text(
             "1, 2, 4, 8, 16...",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
         
         hook_text = Text(
             "规律是什么?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=WHITE
         ).move_to(UP * 4.5)
@@ -112,7 +112,7 @@ class GeometricSequence(Scene):
         # 动态数字序列展示
         numbers = [1, 2, 4, 8, 16]
         number_mobs = VGroup(*[
-            Text(str(n), font="Noto Sans CJK SC", font_size=56, color=self.COLOR_PRIMARY)
+            Text(str(n), font="PingFang SC", font_size=56, color=self.COLOR_PRIMARY)
             for n in numbers
         ])
         
@@ -180,7 +180,7 @@ class GeometricSequence(Scene):
         # 标题
         title = Text(
             "等比数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6.5)
@@ -197,7 +197,7 @@ class GeometricSequence(Scene):
         # 定义文字
         definition = Text(
             "从第2项起，每项与前一项的比为常数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5)
@@ -222,7 +222,7 @@ class GeometricSequence(Scene):
             if i < 4:
                 value = Text(
                     str(self.example_terms[i]),
-                    font="Noto Sans CJK SC",
+                    font="PingFang SC",
                     font_size=40,
                     color=self.COLOR_PRIMARY
                 )
@@ -306,7 +306,7 @@ class GeometricSequence(Scene):
         # 公比说明
         ratio_note = Text(
             "q 称为公比 (common ratio)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 2.8)
@@ -343,7 +343,7 @@ class GeometricSequence(Scene):
         # 场景标题
         scene_title = Text(
             "通项公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -485,7 +485,7 @@ class GeometricSequence(Scene):
         # 场景标题
         scene_title = Text(
             "几何倍增",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_GEOMETRIC
         ).move_to(UP * 6)
@@ -495,7 +495,7 @@ class GeometricSequence(Scene):
         # 说明文字
         explanation = Text(
             "以面积为例: q = 2",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -530,7 +530,7 @@ class GeometricSequence(Scene):
             area = self.example_a1 * (self.example_q ** i)
             label = Text(
                 f"S={area}",
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=20,
                 color=WHITE
             )
@@ -586,7 +586,7 @@ class GeometricSequence(Scene):
         # 强调几何倍增
         highlight_text = Text(
             "面积呈几何倍数增长!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3)
@@ -612,7 +612,7 @@ class GeometricSequence(Scene):
         # 场景标题
         scene_title = Text(
             "前n项和",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -678,7 +678,7 @@ class GeometricSequence(Scene):
         # 标注错位相减
         method_label = Text(
             "错位相减法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_SECONDARY
         ).next_to(q_sum_expansion, RIGHT, buff=0.5)
@@ -748,7 +748,7 @@ class GeometricSequence(Scene):
         # 场景标题
         scene_title = Text(
             "特殊情况",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_FORMULA
         ).move_to(UP * 6)
@@ -768,7 +768,7 @@ class GeometricSequence(Scene):
         # 说明
         explanation = Text(
             "数列变为常数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2.5)
@@ -851,7 +851,7 @@ class GeometricSequence(Scene):
         # 强调简化
         emphasis = Text(
             "简化为等差数列求和!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_SECONDARY
         ).move_to(DOWN * 4.5)
@@ -879,7 +879,7 @@ class GeometricSequence(Scene):
         # 场景标题
         scene_title = Text(
             "无穷等比数列",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_GEOMETRIC
         ).move_to(UP * 6)
@@ -899,7 +899,7 @@ class GeometricSequence(Scene):
         # 说明
         explanation = Text(
             "数列项趋于0, 级数收敛",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 3.8)
@@ -944,7 +944,7 @@ class GeometricSequence(Scene):
         
         limit_label = Text(
             "y = 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=self.COLOR_HIGHLIGHT
         ).next_to(limit_line, RIGHT, buff=0.2)
@@ -1021,7 +1021,7 @@ class GeometricSequence(Scene):
         # 核心公式汇总
         summary_title = Text(
             "等比数列核心公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_FORMULA
         ).move_to(UP * 5)
@@ -1045,7 +1045,7 @@ class GeometricSequence(Scene):
             # 标题
             title_text = Text(
                 title,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=28,
                 color=color
             )
@@ -1093,14 +1093,14 @@ class GeometricSequence(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -1114,7 +1114,7 @@ class GeometricSequence(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8)
@@ -1123,7 +1123,7 @@ class GeometricSequence(Scene):
         
         # 装饰: 数字序列闪烁
         decoration_numbers = VGroup(*[
-            Text(str(2**i), font="Noto Sans CJK SC", font_size=24, color=self.COLOR_PRIMARY)
+            Text(str(2**i), font="PingFang SC", font_size=24, color=self.COLOR_PRIMARY)
             for i in range(6)
         ])
         decoration_numbers.arrange(RIGHT, buff=0.5).move_to(DOWN * 2.5)

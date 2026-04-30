@@ -28,7 +28,7 @@ C_BODY     = "#cfd8dc"
 C_ACCENT   = "#ffca28"
 C_GRAY     = "#78909c"
 
-FONT = "Noto Sans CJK SC"
+FONT = "PingFang SC"
 
 
 class ComplexNumbers(Scene):

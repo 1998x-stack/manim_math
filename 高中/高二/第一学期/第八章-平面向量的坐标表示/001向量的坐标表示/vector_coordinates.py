@@ -49,7 +49,7 @@ class VectorCoordinates(Scene):
         self.COLOR_AXES = WHITE              # 白色 - 坐标轴
         
         # 字体配置
-        self.FONT = "Noto Sans CJK SC"
+        self.FONT = "PingFang SC"
         
         # 执行动画序列
         self.show_opening()

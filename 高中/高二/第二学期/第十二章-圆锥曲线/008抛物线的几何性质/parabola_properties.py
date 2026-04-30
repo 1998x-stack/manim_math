@@ -125,7 +125,7 @@ class ParabolaProperties(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_SMALL,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -135,7 +135,7 @@ class ParabolaProperties(Scene):
         # 钩子问题
         hook_text = Text(
             "为什么卫星天线是抛物面?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -158,7 +158,7 @@ class ParabolaProperties(Scene):
         # 提示文字
         hint = Text(
             "答案就在抛物线的性质中!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=WHITE
         ).move_to(UP * 1)
@@ -184,7 +184,7 @@ class ParabolaProperties(Scene):
         # 标题
         title = Text(
             "抛物线的定义",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_PARABOLA
         ).move_to(UP * 6)
@@ -205,10 +205,10 @@ class ParabolaProperties(Scene):
         
         # 焦点F
         focus_dot = Dot(self.F, color=self.COLOR_FOCUS, radius=0.12)
-        focus_label = Text("F", font="Noto Sans CJK SC", 
+        focus_label = Text("F", font="PingFang SC", 
                           font_size=self.FONT_LABEL, 
                           color=self.COLOR_FOCUS).next_to(focus_dot, DOWN, buff=0.1)
-        focus_label_detail = Text("焦点", font="Noto Sans CJK SC",
+        focus_label_detail = Text("焦点", font="PingFang SC",
                                   font_size=self.FONT_SMALL,
                                   color=self.COLOR_FOCUS).next_to(focus_label, DOWN, buff=0.05)
         
@@ -223,7 +223,7 @@ class ParabolaProperties(Scene):
                               color=self.COLOR_DIRECTRIX,
                               dash_length=0.1,
                               stroke_width=3)
-        directrix_label = Text("准线", font="Noto Sans CJK SC",
+        directrix_label = Text("准线", font="PingFang SC",
                               font_size=self.FONT_SMALL,
                               color=self.COLOR_DIRECTRIX).next_to(directrix, LEFT, buff=0.2).shift(UP*2)
         
@@ -232,7 +232,7 @@ class ParabolaProperties(Scene):
         # 定义文字
         definition = Text(
             "到焦点F的距离 = 到准线的距离",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -295,7 +295,7 @@ class ParabolaProperties(Scene):
         # 标题
         title = Text(
             "范围与对称性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -327,7 +327,7 @@ class ParabolaProperties(Scene):
         # 对称性标题
         symmetry_title = Text(
             "关于x轴对称",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 4.5)
@@ -376,7 +376,7 @@ class ParabolaProperties(Scene):
         # 标题
         title = Text(
             "离心率",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -448,7 +448,7 @@ class ParabolaProperties(Scene):
         # 标题
         title = Text(
             "通径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CHORD
         ).move_to(UP * 5.5)
@@ -458,7 +458,7 @@ class ParabolaProperties(Scene):
         # 定义
         definition = Text(
             "过焦点且垂直于对称轴的弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -505,7 +505,7 @@ class ParabolaProperties(Scene):
         
         # 公式框 - 修复：使用 Text 来显示中文
         formula_box = VGroup(
-            Text("通径", font="Noto Sans CJK SC", font_size=28, color=WHITE),
+            Text("通径", font="PingFang SC", font_size=28, color=WHITE),
             MathTex(r"= 2p", font_size=32, color=self.COLOR_HIGHLIGHT)
         ).arrange(RIGHT, buff=0.3).move_to(DOWN * 5)
         
@@ -532,7 +532,7 @@ class ParabolaProperties(Scene):
         # 标题
         title = Text(
             "焦半径公式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -559,7 +559,7 @@ class ParabolaProperties(Scene):
         # 回顾 e=1
         recall = Text(
             "因为 e = 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -632,7 +632,7 @@ class ParabolaProperties(Scene):
         # 标题
         title = Text(
             "光学反射性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_TITLE,
             color=self.COLOR_LIGHT
         ).move_to(UP * 5.5)
@@ -642,7 +642,7 @@ class ParabolaProperties(Scene):
         # 说明文字
         explanation = Text(
             "平行于轴的光线, 反射后都通过焦点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY - 2,
             color=GRAY_A
         ).move_to(DOWN * 3.5)
@@ -705,7 +705,7 @@ class ParabolaProperties(Scene):
         # 结论
         conclusion = Text(
             "所有反射光线都汇聚于焦点F!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=self.FONT_BODY,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -716,14 +716,14 @@ class ParabolaProperties(Scene):
         applications = VGroup(
             # 卫星天线
             VGroup(
-                Text("卫星天线", font="Noto Sans CJK SC", font_size=16, color=WHITE),
+                Text("卫星天线", font="PingFang SC", font_size=16, color=WHITE),
                 Arc(radius=0.4, start_angle=-PI/3, angle=2*PI/3, color=self.COLOR_PARABOLA, stroke_width=3),
                 Dot(ORIGIN, radius=0.05, color=self.COLOR_FOCUS)
             ).arrange(DOWN, buff=0.1),
             
             # 汽车前灯
             VGroup(
-                Text("汽车前灯", font="Noto Sans CJK SC", font_size=16, color=WHITE),
+                Text("汽车前灯", font="PingFang SC", font_size=16, color=WHITE),
                 Arc(radius=0.4, start_angle=-PI/3, angle=2*PI/3, color=self.COLOR_PARABOLA, stroke_width=3).rotate(PI),
                 Dot(ORIGIN, radius=0.05, color=self.COLOR_LIGHT)
             ).arrange(DOWN, buff=0.1)
@@ -773,7 +773,7 @@ class ParabolaProperties(Scene):
         
         for i, (title_cn, formula_tex, color) in enumerate(cards_data):
             # 使用Text处理中文，MathTex处理公式
-            title_text = Text(title_cn, font="Noto Sans CJK SC", 
+            title_text = Text(title_cn, font="PingFang SC", 
                             font_size=22, color=color, weight=BOLD)
             
             # 处理公式中的中文
@@ -782,10 +782,10 @@ class ParabolaProperties(Scene):
                 if "定值" in formula_tex:
                     formula = VGroup(
                         MathTex(r"e = 1", font_size=20, color=WHITE),
-                        Text("(定值)", font="Noto Sans CJK SC", font_size=16, color=GRAY_A)
+                        Text("(定值)", font="PingFang SC", font_size=16, color=GRAY_A)
                     ).arrange(RIGHT, buff=0.1)
                 else:  # 反射汇聚于焦点
-                    formula = Text("反射汇聚于焦点", font="Noto Sans CJK SC", 
+                    formula = Text("反射汇聚于焦点", font="PingFang SC", 
                                  font_size=18, color=GRAY_A)
             else:
                 formula = MathTex(formula_tex, font_size=20, color=GRAY_A)
@@ -810,7 +810,7 @@ class ParabolaProperties(Scene):
         # 重点提示
         highlight_text = Text(
             "掌握抛物线, 轻松解题!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 3.5)
@@ -831,14 +831,14 @@ class ParabolaProperties(Scene):
         # 作者名放大
         author_large = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=GRAY_B
         ).next_to(author_large, DOWN, buff=0.3)
@@ -852,7 +852,7 @@ class ParabolaProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.8)

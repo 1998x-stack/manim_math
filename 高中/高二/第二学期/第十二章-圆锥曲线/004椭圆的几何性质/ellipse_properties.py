@@ -138,7 +138,7 @@ class EllipseProperties(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -148,7 +148,7 @@ class EllipseProperties(Scene):
         # 钩子问题
         hook = Text(
             "椭圆有哪些神奇的性质？",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -177,7 +177,7 @@ class EllipseProperties(Scene):
         # 标题
         title = Text(
             "范围与对称性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -246,7 +246,7 @@ class EllipseProperties(Scene):
         # 标题
         title = Text(
             "离心率",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -343,7 +343,7 @@ class EllipseProperties(Scene):
         # 标题
         title = Text(
             "离心率的影响",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -356,7 +356,7 @@ class EllipseProperties(Scene):
         # e → 1 (椭圆变扁)
         text_flat = Text(
             "e 接近 1，椭圆越扁",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -378,7 +378,7 @@ class EllipseProperties(Scene):
         # e → 0 (椭圆变圆)
         text_round = Text(
             "e 接近 0，椭圆越圆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 4.5)
@@ -408,7 +408,7 @@ class EllipseProperties(Scene):
         # 极限说明
         limit_text = Text(
             "e=0时为圆，e=1时退化为线段",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 5)
@@ -422,7 +422,7 @@ class EllipseProperties(Scene):
         # 标题
         title = Text(
             "准线",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_DIRECTRIX
         ).move_to(UP * 5.5)
@@ -526,7 +526,7 @@ class EllipseProperties(Scene):
         # 标题
         title = Text(
             "焦半径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_PRIMARY
         ).move_to(UP * 5.5)
@@ -538,7 +538,7 @@ class EllipseProperties(Scene):
         x_p = self.a * np.cos(t)
         y_p = self.b * np.sin(t)
         point_P = Dot(self.axes.c2p(x_p, y_p), color=YELLOW, radius=0.08)
-        p_label = Text("P", font="Noto Sans CJK SC", font_size=22, color=WHITE).next_to(
+        p_label = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(
             point_P, UP + RIGHT, buff=0.1
         )
         
@@ -592,7 +592,7 @@ class EllipseProperties(Scene):
         
         verification = Text(
             f"|PF₁|+|PF₂| = {r1:.2f}+{r2:.2f} = {r1+r2:.2f} = 2a",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=YELLOW
         ).move_to(DOWN * 4.5)
@@ -621,7 +621,7 @@ class EllipseProperties(Scene):
         # 标题
         title = Text(
             "通径",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_LATUS
         ).move_to(UP * 5.5)
@@ -631,7 +631,7 @@ class EllipseProperties(Scene):
         # 定义文字
         definition = Text(
             "过焦点垂直于长轴的弦",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 4.8)
@@ -724,7 +724,7 @@ class EllipseProperties(Scene):
         # 总结标题
         summary_title = Text(
             "椭圆的几何性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=38,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 2.5)
@@ -797,7 +797,7 @@ class EllipseProperties(Scene):
         # 标题
         title_text = Text(
             title,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         )
@@ -805,7 +805,7 @@ class EllipseProperties(Scene):
         # 内容
         content_text = Text(
             content,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         )
@@ -824,14 +824,14 @@ class EllipseProperties(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -845,7 +845,7 @@ class EllipseProperties(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握更多数学知识!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

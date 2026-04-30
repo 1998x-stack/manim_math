@@ -109,7 +109,7 @@ class SetsConceptAnimation(Scene):
         # 作者信息（顶部常驻）
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * self.AUTHOR_Y)
@@ -119,7 +119,7 @@ class SetsConceptAnimation(Scene):
         # 钩子问题
         hook_question = Text(
             "1, 2, 3, 🍎, 🐱...\n如何整理这些对象?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT,
             line_spacing=1.2
@@ -134,7 +134,7 @@ class SetsConceptAnimation(Scene):
         for num in [1, 2, 3, 4, 5]:
             obj = Text(
                 str(num),
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=36,
                 color=self.COLOR_PRIMARY
             )
@@ -144,7 +144,7 @@ class SetsConceptAnimation(Scene):
         for symbol in ["★", "♠", "♥"]:
             obj = Text(
                 symbol,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=36,
                 color=self.COLOR_SECONDARY
             )
@@ -190,7 +190,7 @@ class SetsConceptAnimation(Scene):
         # 标题
         title = Text(
             "什么是集合?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -218,7 +218,7 @@ class SetsConceptAnimation(Scene):
         # 定义文字
         definition = Text(
             "由确定对象组成的整体",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -285,7 +285,7 @@ class SetsConceptAnimation(Scene):
         """确定性"""
         title = Text(
             "特性1: 确定性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -295,7 +295,7 @@ class SetsConceptAnimation(Scene):
         # 不确定的对象 "?"
         question_mark = Text(
             "?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=60,
             color=self.COLOR_ERROR
         ).move_to(LEFT * 3.5)
@@ -318,7 +318,7 @@ class SetsConceptAnimation(Scene):
         # 确定的对象 "√"
         check_mark = Text(
             "√",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=50,
             color=self.COLOR_SUCCESS
         ).move_to(RIGHT * 3.5)
@@ -348,7 +348,7 @@ class SetsConceptAnimation(Scene):
         # 说明文字
         explanation = Text(
             "要么属于，要么不属于",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -368,7 +368,7 @@ class SetsConceptAnimation(Scene):
         """互异性"""
         title = Text(
             "特性2: 互异性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -389,7 +389,7 @@ class SetsConceptAnimation(Scene):
         # 红色警告
         warning_x = Text(
             "✗",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=80,
             color=RED
         ).move_to(target_pos)
@@ -410,7 +410,7 @@ class SetsConceptAnimation(Scene):
         # 说明文字
         explanation = Text(
             "元素互不相同",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -425,7 +425,7 @@ class SetsConceptAnimation(Scene):
         """无序性"""
         title = Text(
             "特性3: 无序性",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -477,7 +477,7 @@ class SetsConceptAnimation(Scene):
         # 说明文字
         explanation = Text(
             "顺序不影响集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -502,7 +502,7 @@ class SetsConceptAnimation(Scene):
         # 标题
         title = Text(
             "元素与集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -529,7 +529,7 @@ class SetsConceptAnimation(Scene):
         # 朗读
         reading_1 = Text(
             "3 属于 A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * (self.FORMULA_Y + 1.0))
@@ -571,7 +571,7 @@ class SetsConceptAnimation(Scene):
         # 朗读
         reading_2 = Text(
             "6 不属于 A",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * (self.FORMULA_Y + 1.0))
@@ -594,7 +594,7 @@ class SetsConceptAnimation(Scene):
         # 标题
         title = Text(
             "表示方法 1: 列举法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -678,7 +678,7 @@ class SetsConceptAnimation(Scene):
         # 说明文字
         explanation = Text(
             "一一列举元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -699,7 +699,7 @@ class SetsConceptAnimation(Scene):
         # 标题
         title = Text(
             "表示方法 2: 描述法",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * self.TITLE_Y)
@@ -759,7 +759,7 @@ class SetsConceptAnimation(Scene):
         # 说明文字
         explanation = Text(
             "用共同特征描述",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * self.EXPLANATION_Y)
@@ -807,7 +807,7 @@ class SetsConceptAnimation(Scene):
         # 标题
         summary_title = Text(
             "集合要点",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 5.5)
@@ -862,14 +862,14 @@ class SetsConceptAnimation(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 2)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 1)
@@ -883,7 +883,7 @@ class SetsConceptAnimation(Scene):
         # 关注提示
         follow_text = Text(
             "关注我，学更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -937,7 +937,7 @@ class SetsConceptAnimation(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=WHITE
         )
@@ -945,7 +945,7 @@ class SetsConceptAnimation(Scene):
         # 内容
         content = Text(
             content_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         )

@@ -35,7 +35,7 @@ C_OUTL   = "#e67e22"   # 橙  — 极端值
 C_GOLD   = GOLD
 C_GRAY   = GRAY_B
 C_WHITE  = WHITE
-FONT     = "Noto Sans CJK SC"
+FONT     = "PingFang SC"
 
 # ══════════════════════════════════════════════════
 #  数据 (与 verify_geometry.py 对齐)

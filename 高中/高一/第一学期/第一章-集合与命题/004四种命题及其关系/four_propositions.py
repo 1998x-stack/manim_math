@@ -82,7 +82,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             title_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=box_color
         ).next_to(box, UP, buff=0.2)
@@ -97,14 +97,14 @@ class FourPropositions(Scene):
         # 条件和结论说明
         condition = Text(
             condition_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).move_to(box.get_center() + DOWN * 0.3)
         
         conclusion = Text(
             conclusion_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_A
         ).next_to(condition, DOWN, buff=0.1)
@@ -119,7 +119,7 @@ class FourPropositions(Scene):
         # 作者信息
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -129,14 +129,14 @@ class FourPropositions(Scene):
         # 钩子标题
         hook = Text(
             "一个命题的四种形式",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD
         ).move_to(UP * 6)
         
         subtitle = Text(
             "它们之间有什么关系?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -164,7 +164,7 @@ class FourPropositions(Scene):
             )
             small_title = Text(
                 title,
-                font="Noto Sans CJK SC",
+                font="PingFang SC",
                 font_size=16,
                 color=WHITE
             ).move_to(small_box)
@@ -183,7 +183,7 @@ class FourPropositions(Scene):
         # 提示文字
         hint = Text(
             "看似复杂, 其实简单!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
@@ -205,7 +205,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "什么是命题?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_HIGHLIGHT
         ).move_to(UP * 6)
@@ -215,7 +215,7 @@ class FourPropositions(Scene):
         # 定义
         definition = Text(
             "命题是可以判断真假的陈述句",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 4.5)
@@ -225,7 +225,7 @@ class FourPropositions(Scene):
         # 基本形式
         form_title = Text(
             "基本形式:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 3 + LEFT * 3)
@@ -244,21 +244,21 @@ class FourPropositions(Scene):
         # 示例
         example_title = Text(
             "例如:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 1 + LEFT * 3.5)
         
         example = Text(
             "若 x > 0, 则 x² > 0",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(example_title, DOWN, buff=0.3, aligned_edge=LEFT)
         
         explanation = VGroup(
-            Text("p: x > 0 (条件)", font="Noto Sans CJK SC", font_size=20, color=GRAY_B),
-            Text("q: x² > 0 (结论)", font="Noto Sans CJK SC", font_size=20, color=GRAY_B)
+            Text("p: x > 0 (条件)", font="PingFang SC", font_size=20, color=GRAY_B),
+            Text("q: x² > 0 (结论)", font="PingFang SC", font_size=20, color=GRAY_B)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         explanation.next_to(example, DOWN, buff=0.3, aligned_edge=LEFT)
         
@@ -285,7 +285,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "原命题",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_ORIGINAL
         ).move_to(UP * 6.5)
@@ -314,14 +314,14 @@ class FourPropositions(Scene):
         # 例子
         example_title = Text(
             "例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(DOWN * 1 + LEFT * 3.5)
         
         example = Text(
             "若两直线平行, 则同位角相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=WHITE
         ).next_to(example_title, DOWN, buff=0.3, aligned_edge=LEFT)
@@ -350,7 +350,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "逆命题 - 交换条件和结论",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CONVERSE
         ).move_to(UP * 6.5)
@@ -382,7 +382,7 @@ class FourPropositions(Scene):
         )
         arrow_label = Text(
             "交换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ARROW
         ).next_to(arrow, UP, buff=0.1)
@@ -412,7 +412,7 @@ class FourPropositions(Scene):
         # 例子
         example = Text(
             "例: 若同位角相等, 则两直线平行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 0.5)
@@ -438,7 +438,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "否命题 - 否定条件和结论",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_INVERSE
         ).move_to(UP * 6.5)
@@ -471,7 +471,7 @@ class FourPropositions(Scene):
         )
         arrow_label = Text(
             "否定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_ARROW
         ).next_to(arrow, LEFT, buff=0.1)
@@ -500,7 +500,7 @@ class FourPropositions(Scene):
         # 例子
         example = Text(
             "例: 若两直线不平行, 则同位角不相等",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -526,7 +526,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "逆否命题 - 交换并否定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_CONTRAPOSITIVE
         ).move_to(UP * 6.5)
@@ -552,7 +552,7 @@ class FourPropositions(Scene):
         )
         arrow_label = Text(
             "交换+否定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ARROW
         ).move_to(ORIGIN + UP * 0.5)
@@ -582,7 +582,7 @@ class FourPropositions(Scene):
         # 例子
         example = Text(
             "例: 若同位角不相等, 则两直线不平行",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_A
         ).move_to(DOWN * 4)
@@ -608,7 +608,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "四种命题的关系",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=GOLD
         ).move_to(UP * 7)
@@ -642,7 +642,7 @@ class FourPropositions(Scene):
         )
         label_top = Text(
             "互逆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ARROW
         ).next_to(arrow_top, UP, buff=0.1)
@@ -657,7 +657,7 @@ class FourPropositions(Scene):
         )
         label_bottom = Text(
             "互逆",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ARROW
         ).next_to(arrow_bottom, DOWN, buff=0.1)
@@ -672,7 +672,7 @@ class FourPropositions(Scene):
         )
         label_left = Text(
             "互否",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ARROW
         ).next_to(arrow_left, LEFT, buff=0.1)
@@ -687,7 +687,7 @@ class FourPropositions(Scene):
         )
         label_right = Text(
             "互否",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=self.COLOR_ARROW
         ).next_to(arrow_right, RIGHT, buff=0.1)
@@ -718,7 +718,7 @@ class FourPropositions(Scene):
         )
         equiv_label_1 = Text(
             "等价",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_EQUIV,
             weight=BOLD
@@ -734,7 +734,7 @@ class FourPropositions(Scene):
         )
         equiv_label_2 = Text(
             "等价",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_EQUIV,
             weight=BOLD
@@ -783,7 +783,7 @@ class FourPropositions(Scene):
         # 标题
         title = Text(
             "等价关系的应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=self.COLOR_EQUIV
         ).move_to(UP * 6.5)
@@ -809,14 +809,14 @@ class FourPropositions(Scene):
         # 说明文字
         explanation_title = Text(
             "重要性质:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 2)
         
         explanation = Text(
             "原命题与逆否命题同真同假",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=WHITE
         ).next_to(explanation_title, DOWN, buff=0.3)
@@ -829,8 +829,8 @@ class FourPropositions(Scene):
         
         # 应用说明
         application = VGroup(
-            Text("应用: 当原命题难以直接证明时,", font="Noto Sans CJK SC", font_size=22, color=GRAY_A),
-            Text("可以转而证明其逆否命题", font="Noto Sans CJK SC", font_size=22, color=GRAY_A)
+            Text("应用: 当原命题难以直接证明时,", font="PingFang SC", font_size=22, color=GRAY_A),
+            Text("可以转而证明其逆否命题", font="PingFang SC", font_size=22, color=GRAY_A)
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
         application.move_to(ORIGIN)
         
@@ -846,28 +846,28 @@ class FourPropositions(Scene):
         
         example_title = Text(
             "例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=self.COLOR_HIGHLIGHT
         ).move_to(example_box.get_top() + DOWN * 0.3 + LEFT * 3)
         
         example_original = Text(
             "原命题: 若 x² < 1, 则 -1 < x < 1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=WHITE
         ).next_to(example_title, DOWN, buff=0.3, aligned_edge=LEFT)
         
         example_contra = Text(
             "逆否: 若 x≥1 或 x≤-1, 则 x²≥1",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=self.COLOR_CONTRAPOSITIVE
         ).next_to(example_original, DOWN, buff=0.2, aligned_edge=LEFT)
         
         example_note = Text(
             "(逆否命题更容易证明)",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(example_contra, DOWN, buff=0.2, aligned_edge=LEFT)
@@ -907,14 +907,14 @@ class FourPropositions(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -928,7 +928,7 @@ class FourPropositions(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握更多数学技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

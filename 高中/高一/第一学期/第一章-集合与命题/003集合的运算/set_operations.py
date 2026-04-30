@@ -91,9 +91,9 @@ class SetOperations(Scene):
         ).move_to(self.center_B)
         
         if with_labels:
-            label_A = Text("A", font="Noto Sans CJK SC", font_size=32, color=WHITE)\
+            label_A = Text("A", font="PingFang SC", font_size=32, color=WHITE)\
                 .move_to(self.center_A + LEFT * 0.8 + UP * 0.3)
-            label_B = Text("B", font="Noto Sans CJK SC", font_size=32, color=WHITE)\
+            label_B = Text("B", font="PingFang SC", font_size=32, color=WHITE)\
                 .move_to(self.center_B + RIGHT * 0.8 + UP * 0.3)
             return circle_A, circle_B, label_A, label_B
         else:
@@ -108,7 +108,7 @@ class SetOperations(Scene):
             stroke_width=3
         ).move_to(self.universal_center)
         
-        label = Text("U", font="Noto Sans CJK SC", font_size=28, color=WHITE)\
+        label = Text("U", font="PingFang SC", font_size=28, color=WHITE)\
             .move_to(rect.get_corner(UL) + DOWN * 0.3 + RIGHT * 0.3)
         
         return rect, label
@@ -118,7 +118,7 @@ class SetOperations(Scene):
         # 作者信息 (顶部)
         self.author_info = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).move_to(UP * 7)
@@ -128,14 +128,14 @@ class SetOperations(Scene):
         # 钩子标题
         hook = Text(
             "集合的三大运算",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=44,
             color=GOLD
         ).move_to(UP * 6)
         
         subtitle = Text(
             "交集·并集·补集",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.2)
@@ -161,7 +161,7 @@ class SetOperations(Scene):
         # 提示文字
         hint = Text(
             "三种运算, 一次掌握!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -188,7 +188,7 @@ class SetOperations(Scene):
         # 标题
         title = Text(
             "交集 Intersection",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_INTERSECTION
         ).move_to(UP * 5.5)
@@ -209,7 +209,7 @@ class SetOperations(Scene):
         # 中文说明
         explanation = Text(
             "既属于A又属于B的元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5)
@@ -260,7 +260,7 @@ class SetOperations(Scene):
         # 示例元素
         example_title = Text(
             "示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 1.5 + LEFT * 3)
@@ -329,7 +329,7 @@ class SetOperations(Scene):
         # 标题
         title = Text(
             "并集 Union",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_UNION
         ).move_to(UP * 5.5)
@@ -350,7 +350,7 @@ class SetOperations(Scene):
         # 中文说明
         explanation = Text(
             "属于A或属于B的所有元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5)
@@ -373,7 +373,7 @@ class SetOperations(Scene):
         # 示例元素
         example_title = Text(
             "示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 1.5 + LEFT * 3)
@@ -432,7 +432,7 @@ class SetOperations(Scene):
         # 标题
         title = Text(
             "补集 Complement",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_COMPLEMENT
         ).move_to(UP * 5.5)
@@ -453,7 +453,7 @@ class SetOperations(Scene):
         # 中文说明
         explanation = Text(
             "全集中不属于A的所有元素",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=24,
             color=GRAY_A
         ).move_to(UP * 3.5)
@@ -477,7 +477,7 @@ class SetOperations(Scene):
         # 示例元素
         example_title = Text(
             "示例:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22,
             color=GRAY_A
         ).move_to(DOWN * 2.5 + LEFT * 3)
@@ -529,14 +529,14 @@ class SetOperations(Scene):
         # 标题
         title = Text(
             "运算性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
         
         subtitle = Text(
             "基本性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=GRAY_A
         ).move_to(UP * 5.8)
@@ -567,14 +567,14 @@ class SetOperations(Scene):
         # 中文说明
         explain_1 = Text(
             "与空集的交集为空集",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(property_1, RIGHT, buff=0.5)
         
         explain_2 = Text(
             "与空集的并集为自身",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=20,
             color=GRAY_B
         ).next_to(property_2, RIGHT, buff=0.5)
@@ -607,7 +607,7 @@ class SetOperations(Scene):
         # 标题
         title = Text(
             "补集性质",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=self.COLOR_COMPLEMENT
         ).move_to(UP * 6)
@@ -633,21 +633,21 @@ class SetOperations(Scene):
         # 中文说明
         explain_1 = Text(
             "补集与原集合的并集为全集",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(property_1, DOWN, buff=0.2)
         
         explain_2 = Text(
             "补集与原集合的交集为空集",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(property_2, DOWN, buff=0.2)
         
         explain_3 = Text(
             "补集的补集是原集合",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=18,
             color=GRAY_B
         ).next_to(property_3, DOWN, buff=0.2)
@@ -661,7 +661,7 @@ class SetOperations(Scene):
         # 重点强调
         highlight = Text(
             "这些性质是解题的关键!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=28,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)
@@ -688,7 +688,7 @@ class SetOperations(Scene):
         # 标题
         title = Text(
             "综合应用",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=36,
             color=GOLD
         ).move_to(UP * 6.5)
@@ -698,7 +698,7 @@ class SetOperations(Scene):
         # 题目
         question = Text(
             "已知:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 5.5 + LEFT * 3.5)
@@ -729,7 +729,7 @@ class SetOperations(Scene):
         # 求解
         solve = Text(
             "求:",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=GRAY_A
         ).move_to(UP * 2.5 + LEFT * 3.5)
@@ -764,14 +764,14 @@ class SetOperations(Scene):
         # 完成标记
         checkmark = Text(
             "✓",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=48,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 2)
         
         complete_text = Text(
             "完成!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=self.COLOR_HIGHLIGHT
         ).next_to(checkmark, RIGHT, buff=0.3)
@@ -809,14 +809,14 @@ class SetOperations(Scene):
         # 作者信息放大
         author_name = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=40,
             color=WHITE
         ).move_to(UP * 1.5)
         
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=32,
             color=GRAY_B
         ).move_to(UP * 0.5)
@@ -830,7 +830,7 @@ class SetOperations(Scene):
         # 关注提示
         follow_text = Text(
             "关注我, 掌握更多集合技巧!",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30,
             color=self.COLOR_HIGHLIGHT
         ).move_to(DOWN * 0.5)

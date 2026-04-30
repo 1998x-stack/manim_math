@@ -98,7 +98,7 @@ class TrigInduction(Scene):
     def make_author(self):
         return Text(
             "上海初高中数学直通车  @emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=19,
             color=GRAY_B,
         ).move_to(UP * 7.1)
@@ -106,7 +106,7 @@ class TrigInduction(Scene):
     def make_title_bar(self, zh_text, color=C_HIGHLIGHT):
         return Text(
             zh_text,
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34,
             color=color,
             weight=BOLD,
@@ -159,14 +159,14 @@ class TrigInduction(Scene):
 
         hook = Text(
             "sin²α + cos²α = ?",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=52,
             color=C_HIGHLIGHT,
         ).move_to(UP * 3.8)
 
         sub = Text(
             "三角比的秘密，一分钟搞懂！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=27,
             color=C_TEXT,
         ).move_to(UP * 2.8)
@@ -242,9 +242,9 @@ class TrigInduction(Scene):
 
         # Definition text
         def_text = VGroup(
-            Text("P 点的纵坐标 = sin α", font="Noto Sans CJK SC",
+            Text("P 点的纵坐标 = sin α", font="PingFang SC",
                  font_size=22, color=C_SIN),
-            Text("P 点的横坐标 = cos α", font="Noto Sans CJK SC",
+            Text("P 点的横坐标 = cos α", font="PingFang SC",
                  font_size=22, color=C_COS),
         ).arrange(DOWN, buff=0.28).move_to(DOWN * 4.2)
         self.play(FadeIn(def_text, shift=UP*0.2), run_time=0.65)
@@ -304,7 +304,7 @@ class TrigInduction(Scene):
 
         step_title = Text(
             "用勾股定理推导：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=22, color=C_TEXT
         ).move_to(step_bg.get_top() + DOWN * 0.38)
 
@@ -400,7 +400,7 @@ class TrigInduction(Scene):
 
         intro = Text(
             "把任意角的三角函数\n化为锐角的三角函数",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=26,
             color=C_TEXT,
         ).move_to(UP * 4.3)
@@ -418,19 +418,19 @@ class TrigInduction(Scene):
 
         mnem_title = Text(
             "口诀：",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=25, color=C_MNEMONIC, weight=BOLD,
         ).move_to(mnem_bg.get_top() + DOWN * 0.42)
 
         mnem_line1 = Text(
             "奇变偶不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34, color=C_HIGHLIGHT, weight=BOLD,
         ).move_to(mnem_bg.get_center() + UP * 0.3)
 
         mnem_line2 = Text(
             "符号看象限",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=34, color=C_HIGHLIGHT, weight=BOLD,
         ).move_to(mnem_bg.get_center() + DOWN * 0.42)
 
@@ -443,17 +443,17 @@ class TrigInduction(Scene):
         # Explain mnemonic
         exp1 = Text(
             "π/2 的奇数倍 → sin ↔ cos 互换",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21, color=C_TEXT,
         ).move_to(UP * 0.55)
         exp2 = Text(
             "π/2 的偶数倍 → 函数名不变",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21, color=C_TEXT,
         ).move_to(UP * 0.0)
         exp3 = Text(
             "符号由原角所在象限决定",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=21, color=C_TEXT,
         ).move_to(DOWN * 0.55)
 
@@ -511,7 +511,7 @@ class TrigInduction(Scene):
         )
         mirror_txt = Text(
             "y轴对称",
-            font="Noto Sans CJK SC", font_size=18, color=GRAY
+            font="PingFang SC", font_size=18, color=GRAY
         ).next_to(self.CENTER + UP * (self.RADIUS * 0.9), RIGHT, buff=0.08)
         self.play(Create(mirror_line), Write(mirror_txt), run_time=0.5)
 
@@ -527,7 +527,7 @@ class TrigInduction(Scene):
         self.wait(1.8)
 
         # π + α  (briefly)
-        sub_title = Text("同理 π+α：", font="Noto Sans CJK SC",
+        sub_title = Text("同理 π+α：", font="PingFang SC",
                          font_size=23, color=C_TEXT).move_to(DOWN * 3.4)
         pi_plus_formulas = VGroup(
             MathTex(r"\sin(\pi+\alpha)=-\sin\alpha", font_size=24, color=C_SIN),
@@ -584,7 +584,7 @@ class TrigInduction(Scene):
             self.CENTER + (RIGHT + UP) * self.RADIUS * 0.85,
             color=GRAY, stroke_width=1.2, dash_length=0.1
         )
-        diag_lbl = Text("y=x 对称线", font="Noto Sans CJK SC",
+        diag_lbl = Text("y=x 对称线", font="PingFang SC",
                         font_size=17, color=GRAY).move_to(
             self.CENTER + RIGHT*1.4 + DOWN*1.2
         )
@@ -593,7 +593,7 @@ class TrigInduction(Scene):
         # Observation text
         obs = Text(
             "奇数倍 π/2：sin ↔ cos 互换",
-            font="Noto Sans CJK SC", font_size=22, color=C_HIGHLIGHT
+            font="PingFang SC", font_size=22, color=C_HIGHLIGHT
         ).move_to(DOWN * 3.3)
         self.play(FadeIn(obs, shift=UP*0.2), run_time=0.5)
 
@@ -651,7 +651,7 @@ class TrigInduction(Scene):
             self.CENTER + RIGHT * (self.RADIUS + 0.2),
             color=GRAY, stroke_width=1.2, dash_length=0.1
         )
-        mirror_txt = Text("x轴对称", font="Noto Sans CJK SC",
+        mirror_txt = Text("x轴对称", font="PingFang SC",
                           font_size=18, color=GRAY).next_to(mirror_x, RIGHT, buff=0.1)
         self.play(Create(mirror_x), Write(mirror_txt), run_time=0.5)
 
@@ -661,7 +661,7 @@ class TrigInduction(Scene):
         ).arrange(DOWN, buff=0.22).move_to(DOWN * 4.7)
 
         note = Text("sin 是奇函数，cos 是偶函数",
-                    font="Noto Sans CJK SC", font_size=21, color=C_HIGHLIGHT
+                    font="PingFang SC", font_size=21, color=C_HIGHLIGHT
                     ).move_to(DOWN * 3.55)
 
         self.play(FadeIn(note, shift=UP*0.15), run_time=0.5)
@@ -691,7 +691,7 @@ class TrigInduction(Scene):
 
         # ── Identity group ─────────────────────────────────────────────────
         id_title = Text("同角三角比关系：",
-                        font="Noto Sans CJK SC", font_size=23, color=C_TEXT
+                        font="PingFang SC", font_size=23, color=C_TEXT
                         ).move_to(UP * 4.6).align_to(LEFT * 3.5, LEFT)
 
         id_formulas = VGroup(
@@ -710,7 +710,7 @@ class TrigInduction(Scene):
 
         # ── Induction formulas ─────────────────────────────────────────────
         ind_title = Text("诱导公式（偶数倍，函数名不变）：",
-                         font="Noto Sans CJK SC", font_size=20, color=C_TEXT
+                         font="PingFang SC", font_size=20, color=C_TEXT
                          ).move_to(UP * 2.2).align_to(LEFT * 3.5, LEFT)
 
         ind_items = VGroup(
@@ -723,7 +723,7 @@ class TrigInduction(Scene):
         ).arrange(DOWN, buff=0.22).move_to(UP * 0.2)
 
         ind_title2 = Text("诱导公式（奇数倍 π/2，函数名互换）：",
-                          font="Noto Sans CJK SC", font_size=20, color=C_TEXT
+                          font="PingFang SC", font_size=20, color=C_TEXT
                           ).move_to(DOWN * 2.15).align_to(LEFT * 3.5, LEFT)
 
         ind_items2 = VGroup(
@@ -742,7 +742,7 @@ class TrigInduction(Scene):
 
         # Mnemonic reminder
         mnem_reminder = Text("口诀：奇变偶不变，符号看象限",
-                             font="Noto Sans CJK SC",
+                             font="PingFang SC",
                              font_size=26, color=C_HIGHLIGHT, weight=BOLD
                              ).move_to(DOWN * 4.5)
         mnem_box = SurroundingRectangle(mnem_reminder, color=C_MNEMONIC,
@@ -761,19 +761,19 @@ class TrigInduction(Scene):
     def scene_10_outro(self):
         author_big = Text(
             "上海初高中数学直通车",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=42, color=WHITE, weight=BOLD,
         ).move_to(UP * 1.8)
 
         author_id = Text(
             "@emptyandcalm",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30, color=GRAY_B,
         ).move_to(UP * 0.85)
 
         follow_txt = Text(
             "关注我，获得更多数学技巧！",
-            font="Noto Sans CJK SC",
+            font="PingFang SC",
             font_size=30, color=C_HIGHLIGHT,
         ).move_to(DOWN * 0.35)
 
