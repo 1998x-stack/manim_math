@@ -23,8 +23,9 @@ class JuniorRoundTwoContract(unittest.TestCase):
         self.assertNotIn('r"360°"', source)
         self.assertGreaterEqual(source.count(r'n^{\circ}'), 3)
         self.assertGreaterEqual(source.count(r'360^{\circ}'), 2)
-        self.assertTrue(any(isinstance(n, ast.ClassDef) and n.name.endswith('Scene')
-                            for n in ast.walk(tree)))
+        self.assertTrue(any(isinstance(n, ast.ClassDef) and n.name == 'ArcLengthFormula'
+                            and any(isinstance(base, ast.Name) and base.id == 'Scene'
+                                    for base in n.bases) for n in tree.body))
 
     def test_quadratic_no_empty_animation_and_nonzero_initial_range(self):
         source, tree = read(G9Q)
