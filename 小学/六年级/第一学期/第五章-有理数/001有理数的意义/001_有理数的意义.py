@@ -1,33 +1,26 @@
+"""有理数的意义：能写成两个整数之比且分母非零的数。"""
+
 from manim import *
 
+
 class 有理数的意义Animation(Scene):
-    """有理数的意义的Manim动画演示"""
-    
+    """用整数和分数的例子说明有理数的统一表示。"""
+
     def construct(self):
-        # 标题
-        title = Text("有理数的意义", font_size=48)
-        title.to_edge(UP)
+        title = Text("有理数的意义", font_size=43).to_edge(UP, buff=0.55)
         self.play(Write(title))
-        self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("有理数 = 整数 + 分数")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
+        definition = Text("有理数能写成两个整数的比", font_size=31)
+        definition.move_to(UP * 1.9)
+        form = MathTex(r"\frac{p}{q},\quad p,q\in\mathbb{Z},\quad q\ne0", font_size=42)
+        form.next_to(definition, DOWN, buff=0.45)
+        self.play(FadeIn(definition), Write(form))
+
+        examples = VGroup(
+            Text("整数也可以表示成分母为 1 的分数", font_size=28),
+            MathTex(r"-2=\frac{-2}{1},\qquad 0=\frac01", font_size=40),
+            Text("分数可以表示正数，也可以表示负数", font_size=28),
+            MathTex(r"\frac34,\qquad-\frac52", font_size=42),
+        ).arrange(DOWN, buff=0.3)
+        examples.next_to(form, DOWN, buff=0.6)
+        self.play(LaggedStart(*(FadeIn(item) for item in examples), lag_ratio=0.4))
         self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: Circle, Ellipse, Text, VGroup, NumberLine, Transform, FadeIn
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_有理数的意义.py 有理数的意义Animation
-    pass

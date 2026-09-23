@@ -1,0 +1,47 @@
+name: Validate grade 2 animation sources
+
+on:
+  pull_request:
+    paths:
+      - '小学/二年级/**'
+      - 'tools/audit_grade2.py'
+      - 'tests/test_audit_grade2.py'
+      - '.github/workflows/validate-grade2.yml'
+  push:
+    branches: [main]
+    paths:
+      - '小学/二年级/**'
+      - 'tools/audit_grade2.py'
+      - 'tests/test_audit_grade2.py'
+      - '.github/workflows/validate-grade2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            小学/二年级
+            tools/audit_grade2.py
+            tests/test_audit_grade2.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit tool unit tests
+        run: python tests/test_audit_grade2.py
+      - name: Compile/scan every grade 2 Python lesson
+        run: python tools/audit_grade2.py --json > "$RUNNER_TEMP/grade2-audit.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: grade2-static-audit
+          path: ${{ runner.temp }}/grade2-audit.json
+          if-no-files-found: ignore
