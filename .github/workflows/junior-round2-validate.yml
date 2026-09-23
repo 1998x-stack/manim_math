@@ -1,0 +1,57 @@
+name: Junior round-two source validation
+
+on:
+  pull_request:
+    paths:
+      - '初中/**/*.py'
+      - 'tools/audit_junior_gotchas.py'
+      - 'tools/tests/test_junior_round2_contract.py'
+      - '.github/workflows/junior-round2-validate.yml'
+  push:
+    branches:
+      - fix/junior-gotchas-round2-20260923
+    paths:
+      - '.github/workflows/junior-round2-validate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/audit_junior_gotchas.py
+            /tools/tests/test_junior_round2_contract.py
+            /初中/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile junior Python and check repaired scenes
+        run: |
+          python -m compileall -q '初中'
+          python -m unittest discover -s tools/tests -p 'test_junior_round2_contract.py' -v
+      - name: Audit all junior source files
+        run: |
+          python tools/audit_junior_gotchas.py --json > junior-round2-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('junior-round2-audit.json').read_text(encoding='utf-8'))
+          print('grade coverage:', report['grades'])
+          print('errors:', report['errors'], 'warnings:', report['warnings'])
+          assert all(report['grades'].values()), report['grades']
+          assert report['errors'] == 0, report['findings']
+          assert report['warnings'] == 0, report['findings']
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: junior-round2-static-report
+          path: junior-round2-audit.json
+          if-no-files-found: warn
