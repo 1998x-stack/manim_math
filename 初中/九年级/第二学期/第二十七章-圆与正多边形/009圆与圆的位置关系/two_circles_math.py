@@ -1,5 +1,5 @@
 """两圆位置关系与交点的纯数学模型，不依赖 Manim/NumPy。"""
-from math import hypot, isfinite, sqrt
+from math import hypot, isclose, isfinite, sqrt
 
 
 def circle_relation(R: float, r: float, distance: float) -> str:
@@ -8,14 +8,16 @@ def circle_relation(R: float, r: float, distance: float) -> str:
     total, difference = R + r, abs(R - r)
     if distance == 0 and R == r:
         return "coincident"
+    # 视觉缩放后的 0.6-0.4 与 0.2 可能相差数个 ULP；只吸收机器舍入误差。
+    # 这里的容差远小于教学中有意义的几何距离；不可用动画像素容差代替。
+    if isclose(distance, total, rel_tol=1e-14, abs_tol=1e-14):
+        return "external_tangency"
     if distance > total:
         return "external_separation"
-    if distance == total:
-        return "external_tangency"
+    if difference > 0 and isclose(distance, difference, rel_tol=1e-14, abs_tol=1e-14):
+        return "internal_tangency"
     if distance > difference:
         return "intersection"
-    if distance == difference:
-        return "internal_tangency"
     return "containment"
 
 
@@ -40,7 +42,6 @@ def circle_intersections(c1: tuple[float, float], R: float,
         return ((x1 + sign * R * ux, y1 + sign * R * uy),)
     a = (R * R - r * r + d * d) / (2 * d)
     h_squared = (R - a) * (R + a)
-    # 对严格处于相交范围的输入，舍入误差可使理论非负的 h² 略小于零。
     if h_squared < -1e-10 * max(1, R * R):
         raise ValueError("两圆交点的几何约束不一致")
     h = sqrt(max(0.0, h_squared))
