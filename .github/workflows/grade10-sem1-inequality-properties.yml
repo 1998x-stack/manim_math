@@ -1,0 +1,39 @@
+name: Grade10 sem1 inequality properties math and AST
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第一学期/第二章-不等式/001不等式的基本性质/**'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+      - '.github/workflows/grade10-sem1-inequality-properties.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-ast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第一学期/第二章-不等式/001不等式的基本性质/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile scene and independent math test
+        run: |
+          python -m py_compile \
+            '高中/高一/第一学期/第二章-不等式/001不等式的基本性质/inequality_properties_full.py' \
+            '高中/高一/第一学期/第二章-不等式/001不等式的基本性质/verify_inequality_properties.py'
+      - name: Run lesson-specific numeric and boundary regressions
+        run: python '高中/高一/第一学期/第二章-不等式/001不等式的基本性质/verify_inequality_properties.py'
+      - name: Scan scene with skill AST checker (no Manim render)
+        run: |
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py \
+            '高中/高一/第一学期/第二章-不等式/001不等式的基本性质/inequality_properties_full.py' --json
