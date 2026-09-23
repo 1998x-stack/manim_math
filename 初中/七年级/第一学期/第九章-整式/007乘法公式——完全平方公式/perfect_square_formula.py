@@ -1,8 +1,4 @@
-"""完全平方公式：用四块精确拼满的面积图验证和的平方。
-
-减法平方由代数展开证明，不把仅适用正边长的图当作一般实数证明。
-入口沿用 PerfectSquareFormula；不覆盖既有 MP4。
-"""
+"""完全平方公式：正边长几何图配合对任意实数成立的代数证明。"""
 
 from manim import *
 
@@ -19,9 +15,8 @@ SAFE_WIDTH = 7.4
 
 
 def square_regions(a, b):
-    """返回与 Scene 坐标一致的四块区域；几何模型要求 a、b 均为正。"""
+    """与场景相同的四区域数学数据；正方形画法要求 a,b 均为有限正数。"""
     import math
-
     try:
         valid = math.isfinite(a) and math.isfinite(b) and a > 0 and b > 0
     except (TypeError, ValueError):
@@ -47,7 +42,7 @@ def square_regions(a, b):
 
 
 class PerfectSquareFormula(Scene):
-    """和的平方四分块，配合两个恒等式的代数证明。"""
+    """七镜头：两条完全平方恒等式与和的平方四分块。"""
 
     def fit(self, mob, width=SAFE_WIDTH):
         if mob.width > width:
@@ -111,16 +106,14 @@ class PerfectSquareFormula(Scene):
         title = self.heading("边长 a+b 的大正方形")
         self.big_square = Square(side_length=self.spec["side"],
                                  color=WHITE, stroke_width=3).move_to(self.square_center)
-        side_label = MathTex(r"a+b", font_size=36, color=YELLOW).next_to(
+        self.big_side_label = MathTex(r"a+b", font_size=36, color=YELLOW).next_to(
             self.big_square, UP, buff=0.18
         )
-        self.big_side_label = side_label
         area = self.formula(r"S=(a+b)^2", -4.65, YELLOW, 39)
         self.play(Write(title), Create(self.big_square), run_time=0.9)
-        self.play(Write(side_label), Write(area), run_time=0.75)
+        self.play(Write(self.big_side_label), Write(area), run_time=0.75)
         self.wait(1)
         self.play(FadeOut(title), FadeOut(area), run_time=0.35)
-        # 大正方形和边长标签实际保留到后续分割镜头。
 
     def show_geometric_division(self):
         title = self.heading("把两条边分别分成 a 和 b")
@@ -135,13 +128,14 @@ class PerfectSquareFormula(Scene):
             self.square_center - RIGHT * spec["left"] + UP * spec["y_split"],
             color=GRAY_A,
         )
+        # a+b 总边长在上方；a、b 两段标注放在底边下方，避免叠字。
         a_width = MathTex("a", font_size=31, color=RED_AREA).move_to(
             self.square_center + RIGHT * (spec["left"]+spec["a"]/2)
-            + UP * (-spec["bottom"]+0.45)
+            + UP * (spec["bottom"]-0.45)
         )
         b_width = MathTex("b", font_size=31, color=BLUE_AREA).move_to(
             self.square_center + RIGHT * (spec["x_split"]+spec["b"]/2)
-            + UP * (-spec["bottom"]+0.45)
+            + UP * (spec["bottom"]-0.45)
         )
         self.play(Write(title), Create(self.vertical_split),
                   Create(self.horizontal_split), run_time=1)
