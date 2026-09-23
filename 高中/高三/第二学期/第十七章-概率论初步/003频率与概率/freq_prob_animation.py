@@ -57,9 +57,9 @@ class FreqProbAnimation(Scene):
 
     def setup_data(self):
         """预计算所有模拟数据（seed 固定，保证可复现）"""
-        np.random.seed(42)
+        rng = np.random.default_rng(42)
         self.N = 200
-        flips = np.random.randint(0, 2, self.N)   # 0=反面, 1=正面
+        flips = rng.integers(0, 2, self.N)   # 0=反面, 1=正面
         cum = np.cumsum(flips)
         self.trial_nums = np.arange(1, self.N + 1)
         self.freqs = cum / self.trial_nums           # 运行频率
@@ -380,7 +380,7 @@ class FreqProbAnimation(Scene):
         title.move_to(UP * 6.2)
         self.play(Write(title), run_time=0.5)
 
-        subtitle = Text("n 越大，频率越接近概率", font=AUTHOR_FONT,
+        subtitle = Text("试验次数增大时，频率通常更接近概率", font=AUTHOR_FONT,
                         font_size=30, color=GRAY_A)
         subtitle.move_to(UP * 5.4)
         self.play(FadeIn(subtitle), run_time=0.4)
@@ -530,7 +530,7 @@ class FreqProbAnimation(Scene):
         card_prob = self._make_card(
             "概率  P(A)",
             ["确定的、稳定的", "事件本身的性质",
-            "不随试验次数变化", "频率的极限（稳定值）"],
+            "不随试验次数变化", "独立重复试验中的长期趋势"],
             COLOR_PROB, RIGHT * 2.0 + UP * 2.5
         )
         self.play(FadeIn(card_freq, shift=RIGHT * 0.3), run_time=0.5)

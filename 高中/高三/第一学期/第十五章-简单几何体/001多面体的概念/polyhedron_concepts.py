@@ -104,7 +104,7 @@ class PolyhedronConcepts(ThreeDScene):
             V, E, F = data["V"], data["E"], data["F"]
             result = V - E + F
             if result != 2:
-                print(f"WARNING: {name} 不满足欧拉公式! V-E+F = {result}")
+                raise ValueError(f"{name} 不满足欧拉公式: V-E+F = {result}")
             else:
                 print(f"✓ {name}: V={V}, E={E}, F={F}, V-E+F={result}")
     
