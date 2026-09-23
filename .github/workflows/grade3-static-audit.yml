@@ -13,7 +13,15 @@ jobs:
   grade3-static:
     runs-on: ubuntu-latest
     steps:
+      # The repository contains large tracked videos; fetch only Python sources.
       - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools/audit_grade3.py
+            tests/test_audit_grade3.py
+            小学/三年级/**/*.py
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
