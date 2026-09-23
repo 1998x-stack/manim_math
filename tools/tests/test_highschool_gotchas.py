@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 from audit_highschool_gotchas import audit, extra_findings, _ctex_calls
+from audit_junior_gotchas import audit_source
 from repair_highschool_gotchas import _span, ANGLE, RATIO, SINE
 
 
@@ -21,18 +22,19 @@ class HighSchoolGotchaContracts(unittest.TestCase):
         self.assertEqual(source[a:b], 'Tex("中文公式", color=WHITE)')
 
     def test_degree_labels_are_valid_latex(self):
-        one, two = (path.read_text(encoding='utf-8') for path in (ANGLE, RATIO))
-        self.assertNotIn('°"', one)
-        self.assertNotIn('°"', two)
-        self.assertIn('^{{\\circ}}', one)
-        self.assertIn('^{{\\circ}}', two)
-        self.assertIn('int(round(np.degrees(angle)))', two)
+        for path in (ANGLE, RATIO):
+            source = path.read_text(encoding='utf-8')
+            findings = audit_source(source, str(path))
+            self.assertFalse(any(item['code'] == 'UNICODE_IN_TEX' for item in findings),
+                             findings)
+            self.assertIn('^{{\\circ}}', source)
+        self.assertIn('int(round(np.degrees(angle)))', RATIO.read_text(encoding='utf-8'))
 
     def test_sine_scene_is_not_nested_play_or_chinese_tex(self):
         source = SINE.read_text(encoding='utf-8')
         self.assertEqual([], extra_findings(source, str(SINE)))
         self.assertFalse(any(item['code'] == 'CHINESE_IN_TEX'
-                             for item in __import__('audit_junior_gotchas').audit_source(source, str(SINE))))
+                             for item in audit_source(source, str(SINE))))
         self.assertIn('self.play(*[FadeOut(m) for m in list(self.mobjects)]', source)
         self.assertNotIn('self.play(self.play(', source)
         self.assertIn('self.x_range = [-2*np.pi, 2*np.pi, np.pi/2]', source)
