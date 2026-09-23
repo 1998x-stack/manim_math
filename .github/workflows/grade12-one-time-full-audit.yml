@@ -35,8 +35,8 @@ jobs:
           print('FINDINGS', dict(Counter(x['severity'] for x in findings)))
           print('CODES', dict(Counter(x['code'] for x in findings)))
           for x in findings:
-              if x['severity'] == 'error':
-                  print('ERROR', x)
+              if x['code'] != 'IMPORT_CONFIG':
+                  print('REVIEW', x)
           if counts.get('python', 0) < 20:
               raise SystemExit('Sparse checkout did not cover high-school grade 12 sources')
           if any(x['severity'] == 'error' for x in findings):
