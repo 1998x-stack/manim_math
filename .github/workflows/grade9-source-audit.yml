@@ -6,6 +6,13 @@ on:
       - "初中/九年级/**"
       - "tools/audit_grade9.py"
       - "tools/tests/test_audit_grade9.py"
+      - "tools/tests/test_grade9_similarity_concept.py"
+      - "tools/tests/test_grade9_similarity_criteria.py"
+      - "tools/tests/test_grade9_similarity_properties.py"
+      - "tools/tests/test_grade9_similarity_applications.py"
+      - "tools/tests/test_grade9_vector_scalar.py"
+      - "tools/tests/test_grade9_vector_linear.py"
+      - "tools/tests/test_grade9_special_angles.py"
       - ".github/workflows/grade9-source-audit.yml"
   workflow_dispatch:
 
@@ -24,6 +31,13 @@ jobs:
             /初中/九年级/**/description.json
             /tools/audit_grade9.py
             /tools/tests/test_audit_grade9.py
+            /tools/tests/test_grade9_similarity_concept.py
+            /tools/tests/test_grade9_similarity_criteria.py
+            /tools/tests/test_grade9_similarity_properties.py
+            /tools/tests/test_grade9_similarity_applications.py
+            /tools/tests/test_grade9_vector_scalar.py
+            /tools/tests/test_grade9_vector_linear.py
+            /tools/tests/test_grade9_special_angles.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -33,3 +47,17 @@ jobs:
         run: python tools/audit_grade9.py
       - name: Run dependency-free regression tests
         run: python -m unittest discover -s tools/tests -p 'test_audit_grade9.py' -v
+      - name: Verify similarity concept mathematical geometry
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_concept.py' -v
+      - name: Verify AA SAS SSS criteria and duplicate scene consistency
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_criteria.py' -v
+      - name: Verify corresponding segments, altitudes, bisectors and areas
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_properties.py' -v
+      - name: Verify shadow and river similarity application geometry
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_applications.py' -v
+      - name: Verify scalar multiplication including zero and reverse directions
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_vector_scalar.py' -v
+      - name: Verify head-to-tail addition, oblique basis and parallel direction
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_vector_linear.py' -v
+      - name: Verify 30 45 and 60 degree triangle geometry and trig tables
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_special_angles.py' -v
