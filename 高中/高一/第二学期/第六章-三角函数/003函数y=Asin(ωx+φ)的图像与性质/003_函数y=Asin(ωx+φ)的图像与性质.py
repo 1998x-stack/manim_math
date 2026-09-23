@@ -64,7 +64,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
     def setup_geometry(self):
         """初始化坐标系和其他几何参数"""
         # 用于后续函数绘制的参数
-        self.x_range = [-4, 4, 1]  # x范围
+        self.x_range = [-2*np.pi, 2*np.pi, np.pi/2]  # 覆盖整段 2π 周期
         self.y_range = [-4, 4, 1]  # y范围
 
         # 初始参数值
@@ -164,7 +164,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
         # 标记关键特征：振幅、周期
         # 振幅标记
         amp_brace = Brace(Line(axes.c2p(0, 0), axes.c2p(0, 1)), direction=RIGHT, color=YELLOW)
-        amp_text = Tex("振幅: 1", font_size=20).next_to(amp_brace, RIGHT)
+        amp_text = Text('振幅: 1', font="PingFang SC", font_size=20, color=WHITE).next_to(amp_brace, RIGHT)
         amplitude_group = VGroup(amp_brace, amp_text)
 
         self.play(GrowFromCenter(amp_brace), Write(amp_text), run_time=0.8)
@@ -177,7 +177,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
             stroke_width=3
         )
         period_brace = Brace(period_line, direction=DOWN, color=YELLOW)
-        period_text = Tex("周期: 2\\pi", font_size=20).next_to(period_brace, DOWN)
+        period_text = Text('周期: 2π', font="PingFang SC", font_size=20, color=WHITE).next_to(period_brace, DOWN)
         period_group = VGroup(period_line, period_brace, period_text)
 
         self.play(Create(period_line), GrowFromCenter(period_brace), Write(period_text), run_time=1.0)
@@ -221,12 +221,12 @@ class 函数yAsinωxφ的图像与性质(Scene):
             self.axes.c2p(0, 0),
             self.axes.c2p(0, 2)
         ), direction=RIGHT, color=self.COLOR_HIGHLIGHT)
-        amp_text_new = Tex("振幅: 2", font_size=20).next_to(amp_brace_new, RIGHT)
+        amp_text_new = Text('振幅: 2', font="PingFang SC", font_size=20, color=WHITE).next_to(amp_brace_new, RIGHT)
 
         self.play(GrowFromCenter(amp_brace_new), Write(amp_text_new), run_time=0.8)
 
         # 显示A对振幅的影响
-        a_impact = Tex("A越大，图像拉伸越厉害", font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.5)
+        a_impact = Text('|A| 越大，振幅越大（A<0 时图像翻折）', font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.5)
         self.play(FadeIn(a_impact, shift=UP * 0.3), run_time=0.5)
 
         self.wait(1.5)
@@ -270,12 +270,12 @@ class 函数yAsinωxφ的图像与性质(Scene):
             stroke_width=3
         )
         period_brace_new = Brace(period_line_new, direction=DOWN, color=YELLOW)
-        period_text_new = Tex("周期: \\pi", font_size=20).next_to(period_brace_new, DOWN)
+        period_text_new = Text('周期: π', font="PingFang SC", font_size=20, color=WHITE).next_to(period_brace_new, DOWN)
 
         self.play(Create(period_line_new), GrowFromCenter(period_brace_new), Write(period_text_new), run_time=1.0)
 
         # 显示ω对周期的影响公式
-        period_formula = Tex("周期 T = \\frac{2\\pi}{\\omega}", font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.5)
+        period_formula = VGroup(Text('周期：', font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT), MathTex(r"T=\frac{2\pi}{|\omega|}", font_size=24, color=self.COLOR_HIGHLIGHT)).arrange(RIGHT, buff=0.12).move_to(DOWN * 5.5)
         self.play(FadeIn(period_formula, shift=UP * 0.3), run_time=0.5)
 
         self.wait(1.5)
@@ -320,12 +320,12 @@ class 函数yAsinωxφ的图像与性质(Scene):
             buff=0.1,
             max_tip_length_to_length_ratio=0.15
         )
-        shift_label = Tex("左移 $\\frac{\\pi}{8}$", font_size=20, color=self.COLOR_HIGHLIGHT).next_to(shift_arrow, UP)
+        shift_label = VGroup(Text('左移', font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT), MathTex(r"\frac{\pi}{8}", font_size=20, color=self.COLOR_HIGHLIGHT)).arrange(RIGHT, buff=0.12).next_to(shift_arrow, UP)
 
         self.play(GrowArrow(shift_arrow), Write(shift_label), run_time=0.8)
 
         # 显示相位公式
-        phase_explanation = Tex("相位: $\\omega x + \\varphi$, 初相: $\\varphi$", font_size=24, color=self.COLOR_HIGHLIGHT).move_to(DOWN * 5.5)
+        phase_explanation = VGroup(Text('相位：', font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT), MathTex(r"\omega x+\varphi", font_size=24, color=self.COLOR_HIGHLIGHT), Text('初相：', font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT), MathTex(r"\varphi", font_size=24, color=self.COLOR_HIGHLIGHT)).arrange(RIGHT, buff=0.12).move_to(DOWN * 5.5)
         self.play(FadeIn(phase_explanation, shift=UP * 0.3), run_time=0.5)
 
         self.wait(1.5)
@@ -369,7 +369,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
             buff=0.1,
             max_tip_length_to_length_ratio=0.15
         )
-        v_shift_label = Tex("上移 1", font_size=20, color=self.COLOR_HIGHLIGHT).next_to(v_shift_arrow, RIGHT)
+        v_shift_label = Text('上移 1', font="PingFang SC", font_size=20, color=self.COLOR_HIGHLIGHT).next_to(v_shift_arrow, RIGHT)
 
         self.play(GrowArrow(v_shift_arrow), Write(v_shift_label), run_time=0.8)
 
@@ -408,20 +408,20 @@ class 函数yAsinωxφ的图像与性质(Scene):
         param_grid = VGroup()
 
         # A参数说明
-        a_title = Tex("A (振幅)", font_size=28, color=self.COLOR_FUNCTION).to_edge(UP).shift(LEFT * 3)
-        a_desc = Tex("控制图像高度", font_size=20).next_to(a_title, DOWN)
+        a_title = Text('A (振幅)', font="PingFang SC", font_size=28, color=self.COLOR_FUNCTION).to_edge(UP).shift(LEFT * 3)
+        a_desc = Text('控制图像高度', font="PingFang SC", font_size=20, color=WHITE).next_to(a_title, DOWN)
         a_example = MathTex("A=1 \\to A=3", font_size=24).next_to(a_desc, DOWN)
         a_group = VGroup(a_title, a_desc, a_example).arrange(DOWN, buff=0.2).shift(LEFT * 3)
 
         # ω参数说明
-        w_title = Tex("\\omega (频率)", font_size=28, color=self.COLOR_FUNCTION).to_edge(UP)
-        w_desc = Tex("控制图像密度", font_size=20).next_to(w_title, DOWN)
+        w_title = Text('ω (频率)', font="PingFang SC", font_size=28, color=self.COLOR_FUNCTION).to_edge(UP)
+        w_desc = Text('控制图像密度', font="PingFang SC", font_size=20, color=WHITE).next_to(w_title, DOWN)
         w_example = MathTex("\\omega=1 \\to \\omega=2", font_size=24).next_to(w_desc, DOWN)
         w_group = VGroup(w_title, w_desc, w_example).arrange(DOWN, buff=0.2)
 
         # φ参数说明
-        p_title = Tex("\\varphi (相位)", font_size=28, color=self.COLOR_FUNCTION).to_edge(UP).shift(RIGHT * 3)
-        p_desc = Tex("控制图像平移", font_size=20).next_to(p_title, DOWN)
+        p_title = Text('φ (相位)', font="PingFang SC", font_size=28, color=self.COLOR_FUNCTION).to_edge(UP).shift(RIGHT * 3)
+        p_desc = Text('控制图像平移', font="PingFang SC", font_size=20, color=WHITE).next_to(p_title, DOWN)
         p_example = MathTex("\\varphi=0 \\to \\varphi=\\frac{\\pi}{4}", font_size=24).next_to(p_desc, DOWN)
         p_group = VGroup(p_title, p_desc, p_example).arrange(DOWN, buff=0.2).shift(RIGHT * 3)
 
@@ -465,12 +465,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
     def show_summary(self):
         """场景8: 总结回顾"""
         # 清理之前的元素
-        self.play(
-            FadeOut(self.formula_keep),
-            FadeOut(self.full_formula),
-            self.play(*[FadeOut(m) for m in self.mobjects]),  # 清理所有其他元素
-            run_time=0.8
-        )
+        self.play(*[FadeOut(m) for m in list(self.mobjects)], run_time=0.8)
 
         # 重新创建重要的视觉元素以便总结
         # 坐标系
@@ -509,10 +504,10 @@ class 函数yAsinωxφ的图像与性质(Scene):
         ).move_to(UP * 6.5)
 
         # 参数说明列表
-        a_summary = Tex("• $A$: 振幅，控制图像纵向拉伸", font_size=28).move_to(UP * 4)
-        omega_summary = Tex("• $\\omega$: 频率，控制周期 $T = \\frac{2\\pi}{\\omega}$", font_size=28).move_to(UP * 3)
-        phi_summary = Tex("• $\\varphi$: 初相，控制水平平移", font_size=28).move_to(UP * 2)
-        b_summary = Tex("• $B$: 垂直平移量", font_size=28).move_to(UP * 1)
+        a_summary = Text('• A: 振幅，控制图像纵向拉伸', font="PingFang SC", font_size=28, color=WHITE).move_to(UP * 4)
+        omega_summary = VGroup(Text('• ω：频率，周期', font="PingFang SC", font_size=28, color=WHITE), MathTex(r"T=\frac{2\pi}{|\omega|}", font_size=28, color=WHITE)).arrange(RIGHT, buff=0.12).move_to(UP * 3)
+        phi_summary = Text('• φ: 初相，控制水平平移', font="PingFang SC", font_size=28, color=WHITE).move_to(UP * 2)
+        b_summary = Text('• B: 垂直平移量', font="PingFang SC", font_size=28, color=WHITE).move_to(UP * 1)
 
         summary_list = VGroup(a_summary, omega_summary, phi_summary, b_summary)
         summary_list.arrange(DOWN, buff=0.5, aligned_edge=LEFT).shift(LEFT * 1.5)
@@ -528,7 +523,7 @@ class 函数yAsinωxφ的图像与性质(Scene):
     def show_outro(self):
         """场景9: 片尾关注"""
         # 清理之前的元素
-        self.play(self.play(*[FadeOut(m) for m in self.mobjects]), run_time=1.0)
+        self.play(*[FadeOut(m) for m in list(self.mobjects)], run_time=1.0)
 
         # 作者信息
         author_name = Text(

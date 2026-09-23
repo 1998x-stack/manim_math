@@ -944,7 +944,7 @@ class AnyAngleTrigonometry(Scene):
             dot = Dot(point, color=colors[i % len(colors)], radius=0.1)
             
             # 添加角度标签
-            angle_label = MathTex(f"{int(angle*180/PI)}°", font_size=20, color=colors[i % len(colors)]).next_to(point, UR, buff=0.1)
+            angle_label = MathTex(rf"{int(round(np.degrees(angle)))}^{{\circ}}", font_size=20, color=colors[i % len(colors)]).next_to(point, UR, buff=0.1)
             
             # 添加三角比值标签
             sin_val = np.sin(angle)

@@ -184,7 +184,7 @@ class 任意角与弧度制Animation(Scene):
         self.play(Create(angle_arc), run_time=0.8)
 
         # 角度标注
-        angle_label = MathTex(f"{self.ANGLE_DEG}°", color=self.COLOR_HIGHLIGHT).next_to(
+        angle_label = MathTex(rf"{self.ANGLE_DEG}^{{\circ}}", color=self.COLOR_HIGHLIGHT).next_to(
             angle_arc.get_center() + np.array([0.4, 0.4, 0]), UR, buff=0.1
         )
 
