@@ -1,0 +1,15 @@
+{
+  "topic_id": "exploration-koch-snowflake",
+  "title": "无限周长，有限面积？",
+  "kind": "exploration",
+  "level": "senior",
+  "audience": "高中极限拓展",
+  "domains": ["geometry.euclidean", "mathematical-thinking"],
+  "visualizations": ["construction", "proof", "transformation"],
+  "curriculum": null,
+  "scene_file": "scene.py",
+  "scene_class": "KochSnowflakeScene",
+  "storyboard": "storyboard.md",
+  "status": "draft",
+  "media": ["source"]
+}

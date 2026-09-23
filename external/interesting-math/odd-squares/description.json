@@ -1,0 +1,15 @@
+{
+  "topic_id": "exploration-odd-squares",
+  "title": "奇数为什么能拼出正方形？",
+  "kind": "exploration",
+  "level": "cross-level",
+  "audience": "小学高年级／初一",
+  "domains": ["arithmetic", "geometry.euclidean", "mathematical-thinking"],
+  "visualizations": ["construction", "proof"],
+  "curriculum": null,
+  "scene_file": "scene.py",
+  "scene_class": "OddSquaresScene",
+  "storyboard": "storyboard.md",
+  "status": "draft",
+  "media": ["source"]
+}
