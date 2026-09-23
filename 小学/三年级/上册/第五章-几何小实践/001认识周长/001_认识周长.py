@@ -1,33 +1,19 @@
+"""认识周长的简短示例；完整课程见同目录 001认识周长_animation.py。"""
+
 from manim import *
 
-class 认识周长Animation(Scene):
-    """认识周长的Manim动画演示"""
-    
+
+class PerimeterIntroductionPreview(Scene):
+    """用沿封闭图形的边界描画解释周长，不将中文传入 MathTex。"""
+
     def construct(self):
-        # 标题
-        title = Text("认识周长", font_size=48)
-        title.to_edge(UP)
+        title = Text("认识周长", font_size=42).to_edge(UP)
         self.play(Write(title))
+
+        outline = Rectangle(width=3.6, height=2.2, color=BLUE).move_to(UP * 0.4)
+        self.play(Create(outline), run_time=2)
+        explanation = Text("封闭图形一周边线的长度叫周长", font_size=30).next_to(
+            outline, DOWN, buff=0.65
+        )
+        self.play(Indicate(outline, color=YELLOW), Write(explanation))
         self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("周长 = 一周的长度")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
-        self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: Rectangle, Polygon, Line, Arc, Text, Arrow, Indicate
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_认识周长.py 认识周长Animation
-    pass
