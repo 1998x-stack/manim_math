@@ -18,6 +18,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .codex/skills/manim-video-production
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
