@@ -47,12 +47,6 @@ class CongruenceSimilarityVisual(Scene):
         rigid.arrange(DOWN, buff=0.35).move_to(DOWN * 4.8)
         self.play(FadeIn(rigid))
         self.wait(1)
-        tests = VGroup(
-            MathTex(r"SSS:\  \text{三边分别相等}", font_size=32),
-            MathTex(r"SAS:\  \text{两边及夹角分别相等}", font_size=32),
-            MathTex(r"ASA:\  \text{两角及夹边分别相等}", font_size=32),
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.23).move_to(DOWN * 6.1)
-        # Use Chinese Text, not an unconfigured Chinese MathTex template.
         self.play(FadeOut(statement), FadeOut(rigid))
         valid_tests = VGroup(
             Text("SSS：三边分别相等", font_size=29),
@@ -67,7 +61,7 @@ class CongruenceSimilarityVisual(Scene):
         self.play(right.animate.scale(1.35, about_point=RIGHT * 1.65),
                   run_time=2)
         similarity = VGroup(
-            Text("同角、对应边成比例：相似不一定全等", font_size=30),
+            Text("对应角相等、对应边成比例：相似不一定全等", font_size=29),
             MathTex(r"\frac{A'B'}{AB}=\frac{B'C'}{BC}=\frac{C'A'}{CA}=k",
                     font_size=38),
             MathTex(r"k=1.35\ne1", font_size=38, color=YELLOW),
