@@ -11,6 +11,7 @@ on:
       - "tools/tests/test_grade9_similarity_properties.py"
       - "tools/tests/test_grade9_similarity_applications.py"
       - "tools/tests/test_grade9_vector_scalar.py"
+      - "tools/tests/test_grade9_vector_linear.py"
       - ".github/workflows/grade9-source-audit.yml"
   workflow_dispatch:
 
@@ -34,6 +35,7 @@ jobs:
             /tools/tests/test_grade9_similarity_properties.py
             /tools/tests/test_grade9_similarity_applications.py
             /tools/tests/test_grade9_vector_scalar.py
+            /tools/tests/test_grade9_vector_linear.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -53,3 +55,5 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_applications.py' -v
       - name: Verify scalar multiplication including zero and reverse directions
         run: python -m unittest discover -s tools/tests -p 'test_grade9_vector_scalar.py' -v
+      - name: Verify head-to-tail addition, oblique basis and parallel direction
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_vector_linear.py' -v
