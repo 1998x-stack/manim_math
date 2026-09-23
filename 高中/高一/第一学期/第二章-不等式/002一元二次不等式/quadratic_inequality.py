@@ -1,61 +1,65 @@
-"""
-一元二次不等式教学动画
-Quadratic Inequality Teaching Animation
+"""一元二次不等式：根、图像正负区与解集由同一函数数据驱动。
 
-使用 Manim 创建的高中数学教学视频
-内容: 一元二次不等式的解法与二次函数图像的关系
-目标观众: 高一学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-
-知识点:
-- 一元二次不等式形如 ax² + bx + c > 0
-- 解法: 结合二次函数图像
-- 判别式Δ决定根的情况
+预览：manim -ql quadratic_inequality.py QuadraticInequality
+原视频和音轨不随源代码更新；需独立执行真实视频渲染验收。
 """
+from math import sqrt
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+# 整片主例：f(x)=(x-1)(x-2)，严格不等式不包含两个根。
+EXAMPLE_COEFFICIENTS = (1, -3, 2)
+GRAPH_X_RANGE = (-0.4, 3.4)
+GRAPH_Y_RANGE = (-0.75, 3.8)
+# 判别式总结的三个例子均为开口向上的不同函数。
+DISCRIMINANT_CASES = ((1, 0, -1), (1, 0, 0), (1, 0, 1))
+
+
+def quadratic(a, b, c, x):
+    return a * x * x + b * x + c
+
+
+def analyze_quadratic(a, b, c):
+    """返回 (判别式, 从小到大的实根)，拒绝退化为一次函数的输入。"""
+    if a == 0:
+        raise ValueError("一元二次不等式的二次项系数 a 不能为 0")
+    delta = b * b - 4 * a * c
+    if delta < 0:
+        roots = ()
+    elif delta == 0:
+        roots = (-b / (2 * a),)
+    else:
+        step = sqrt(delta)
+        roots = tuple(sorted(((-b - step) / (2 * a),
+                              (-b + step) / (2 * a))))
+    return delta, roots
+
+
+def positive_solution(a, b, c, x):
+    """用于数学回归的真值定义；等号根处严格大于零为假。"""
+    return quadratic(a, b, c, x) > 0
+
 
 class QuadraticInequality(Scene):
-    """
-    一元二次不等式教学动画场景
-    
-    场景顺序:
-    1. 开场钩子 - 引出问题
-    2. 问题转化 - 不等式→函数
-    3. 建立坐标系
-    4. 绘制抛物线
-    5. 求解方程找根
-    6. 分析正负区域
-    7. 三种情况总结
-    8. 片尾关注
-    """
-    
+    FONT = "Noto Sans CJK SC"
+    COLOR_PARABOLA = "#3498db"
+    COLOR_ROOT = "#e74c3c"
+    COLOR_POSITIVE = "#2ecc71"
+    COLOR_NEGATIVE = "#e67e22"
+    COLOR_HIGHLIGHT = YELLOW
+    COLOR_AUXILIARY = GRAY_B
+
     def construct(self):
-        # 设置背景色
         self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PARABOLA = "#3498db"       # 蓝色 - 抛物线
-        self.COLOR_ROOT = "#e74c3c"           # 红色 - 根
-        self.COLOR_POSITIVE = "#2ecc71"       # 绿色 - 正值区域
-        self.COLOR_NEGATIVE = "#e67e22"       # 橙色 - 负值区域
-        self.COLOR_HIGHLIGHT = YELLOW         # 黄色 - 高亮
-        self.COLOR_AUXILIARY = GRAY_B         # 灰色 - 辅助
-        
-        # 初始化数学数据
         self.setup_mathematics()
-        
-        # 执行动画序列
+        self.author_info = self._text("上海初高中数学直通车 @emptyandcalm", 19, GRAY_B)
+        self.author_info.move_to(UP * 6.82)
+        self.add(self.author_info)
         self.show_opening()
         self.show_transformation()
         self.show_coordinate_system()
@@ -64,784 +68,201 @@ class QuadraticInequality(Scene):
         self.show_regions()
         self.show_three_cases()
         self.show_outro()
-    
+
     def setup_mathematics(self):
-        """初始化所有数学计算"""
-        # 示例方程: x² - 3x + 2 > 0
-        self.a = 1
-        self.b = -3
-        self.c = 2
-        
-        # 计算判别式
-        self.delta = self.b**2 - 4*self.a*self.c
-        
-        # 计算根
-        if self.delta >= 0:
-            sqrt_delta = np.sqrt(self.delta)
-            self.x1 = (-self.b - sqrt_delta) / (2 * self.a)
-            self.x2 = (-self.b + sqrt_delta) / (2 * self.a)
-        else:
-            self.x1 = None
-            self.x2 = None
-        
-        # 计算顶点
+        self.a, self.b, self.c = EXAMPLE_COEFFICIENTS
+        self.delta, self.roots = analyze_quadratic(self.a, self.b, self.c)
+        if len(self.roots) != 2:
+            raise ValueError("主例必须有两个不等实根")
+        self.x1, self.x2 = self.roots
         self.vertex_x = -self.b / (2 * self.a)
         self.vertex_y = self.parabola_func(self.vertex_x)
-        
-        # 坐标系配置
-        self.x_range = [-1, 4, 1]
-        self.y_range = [-1, 4, 1]
-        self.axes_scale = 0.85
-        self.axes_center = UP * 1
-        
-        # 验证计算
         self.verify_mathematics()
-    
+
     def parabola_func(self, x):
-        """抛物线函数 y = ax² + bx + c"""
-        return self.a * x**2 + self.b * x + self.c
-    
+        return quadratic(self.a, self.b, self.c, x)
+
     def verify_mathematics(self):
-        """验证数学计算的正确性"""
-        epsilon = 1e-6
-        
-        # 验证判别式
-        delta_calc = self.b**2 - 4*self.a*self.c
-        assert abs(delta_calc - self.delta) < epsilon, f"判别式计算错误: {delta_calc} ≠ {self.delta}"
-        
-        # 验证根（如果存在）
-        if self.x1 is not None:
-            y1 = self.parabola_func(self.x1)
-            assert abs(y1) < epsilon, f"x1={self.x1} 不是根, f(x1)={y1}"
-            
-            y2 = self.parabola_func(self.x2)
-            assert abs(y2) < epsilon, f"x2={self.x2} 不是根, f(x2)={y2}"
-        
-        # 验证顶点
-        vertex_x_calc = -self.b / (2 * self.a)
-        assert abs(vertex_x_calc - self.vertex_x) < epsilon, "顶点x坐标错误"
-        
-        print("✓ 数学验证通过")
-        print(f"  方程: {self.a}x² + ({self.b})x + {self.c} = 0")
-        print(f"  判别式Δ = {self.delta}")
-        if self.x1 is not None:
-            print(f"  根: x₁ = {self.x1}, x₂ = {self.x2}")
-        print(f"  顶点: ({self.vertex_x}, {self.vertex_y:.3f})")
-    
+        if not (self.a > 0 and self.delta > 0 and
+                abs(self.parabola_func(self.x1)) < 1e-8 and
+                abs(self.parabola_func(self.x2)) < 1e-8 and
+                self.x1 < self.vertex_x < self.x2 and self.vertex_y < 0):
+            raise ValueError("例题根或抛物线数学数据错误")
+        left, right = GRAPH_X_RANGE
+        ymin, ymax = GRAPH_Y_RANGE
+        if not (left < self.x1 < self.x2 < right and ymin < self.vertex_y):
+            raise ValueError("根/顶点超出图域")
+        for i in range(101):
+            x = left + (right - left) * i / 100
+            if not ymin < self.parabola_func(x) < ymax:
+                raise ValueError("抛物线采样超出绘制坐标轴 y 范围")
+
+    def _text(self, content, size=27, color=WHITE):
+        return Text(content, font=self.FONT, font_size=size, color=color)
+
+    def _formula(self, tex, size=34, color=WHITE):
+        obj = MathTex(tex, font_size=size, color=color)
+        if obj.width > 7.35:
+            obj.scale_to_fit_width(7.35)
+        return obj
+
+    def _header(self, value, color=YELLOW):
+        obj = self._text(value, 35, color).move_to(UP * 5.62)
+        self.play(FadeIn(obj), run_time=0.50)
+        return obj
+
     def show_opening(self):
-        """场景1: 开场钩子"""
-        # 作者信息 (顶部)
-        self.author_info = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7)
-        
-        self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
-        
-        # 钩子问题
-        hook_text = Text(
-            "一元二次不等式怎么解?",
-            font="PingFang SC",
-            font_size=42,
-            color=self.COLOR_HIGHLIGHT,
-            weight=BOLD
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(hook_text), run_time=0.8)
-        
-        # 示例不等式
-        inequality = MathTex(
-            r"x^2 - 3x + 2 > 0",
-            font_size=48,
-            color=WHITE
-        ).move_to(UP * 4)
-        
-        self.play(Write(inequality), run_time=1.0)
-        
-        # 高亮 ">" 符号
-        # Highlite ">" or "<" sign - using safer approach
-        try:
-            # Try to get the > sign directly
-            greater_sign = None
-            # Method 1: Try using get_parts
-            try:
-                parts = inequality.as_group()
-                # Or iterate through the parts to find the comparison operator
-                for i, part in enumerate(inequality.submobjects):
-                    # We'll just use a general approach to highlight the middle part
-                    # Assuming the inequality has 3 parts: left, operator, right
-                    if i == 1:  # The operator is usually the middle part
-                        greater_sign = part
-                        break
-            except:
-                pass
-            
-            if greater_sign is not None:
-                self.play(
-                    Flash(greater_sign, color=self.COLOR_HIGHLIGHT, flash_radius=0.5),
-                    greater_sign.animate.set_color(self.COLOR_HIGHLIGHT).scale(1.3),
-                    run_time=0.8
-                )
-            else:
-                # If we can't find the specific sign, just wait
-                self.wait(0.8)
-        except:
-            # If anything goes wrong with accessing parts, just continue
-            self.wait(0.8)
-        
+        header = self._header("一元二次不等式怎么解？")
+        question = MathTex(r"x^2-3x+2", ">", "0", font_size=48)
+        question.move_to(UP * 2.3)
+        self.play(Write(question), run_time=0.80)
+        self.play(Indicate(question[1], color=self.COLOR_HIGHLIGHT), run_time=0.55)
+        note = self._text("先找零点，再观察函数值的正负", 26, GRAY_A).move_to(ORIGIN)
+        self.play(FadeIn(note), run_time=0.5)
         self.wait(0.5)
-        
-        # 清理
-        self.play(
-            FadeOut(hook_text),
-            inequality.animate.scale(0.7).move_to(UP * 6),
-            run_time=0.5
-        )
-        
-        self.opening_inequality = inequality
-    
+        self.play(FadeOut(header), FadeOut(question), FadeOut(note), run_time=0.55)
+
     def show_transformation(self):
-        """场景2: 问题转化"""
-        # 标题
-        title = Text(
-            "核心思路",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 5.5)
-        
-        self.play(FadeIn(title, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 构建函数
-        function_eq = MathTex(
-            r"y = x^2 - 3x + 2",
-            font_size=42,
-            color=self.COLOR_PARABOLA
-        ).move_to(UP * 4)
-        
-        self.play(Write(function_eq), run_time=1.0)
-        
-        # 转化箭头
-        arrow = Arrow(
-            self.opening_inequality.get_bottom(),
-            function_eq.get_top(),
-            color=self.COLOR_AUXILIARY,
-            buff=0.2,
-            stroke_width=3
-        )
-        
-        self.play(Create(arrow), run_time=0.6)
-        
-        # 说明文字
-        explain = Text(
-            "求 y > 0 对应的 x 范围",
-            font="PingFang SC",
-            font_size=28,
-            color=GRAY_A
-        ).move_to(UP * 2.5)
-        
-        self.play(FadeIn(explain, shift=UP * 0.2), run_time=0.5)
-        
-        # 高亮 "y > 0"
-        highlight_box = SurroundingRectangle(
-            explain[0][1:6],  # "y > 0"
-            color=self.COLOR_HIGHLIGHT,
-            buff=0.05
-        )
-        
-        self.play(Create(highlight_box), run_time=0.5)
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(self.opening_inequality),
-            FadeOut(arrow),
-            FadeOut(explain),
-            FadeOut(highlight_box),
-            function_eq.animate.scale(0.6).move_to(UP * 6.5),
-            run_time=0.6
-        )
-        
-        self.function_label = function_eq
-    
+        header = self._header("把不等式转化为函数图像")
+        f = self._formula(r"y=x^2-3x+2=(x-1)(x-2)", 38, self.COLOR_PARABOLA)
+        f.move_to(UP * 2.6)
+        condition = self._formula(r"f(x)>0", 43, self.COLOR_POSITIVE).move_to(UP * 0.45)
+        note = self._text("对应抛物线位于 x 轴上方的横坐标", 24, GRAY_A)
+        note.move_to(DOWN * 1.35)
+        self.play(Write(f), run_time=0.8)
+        self.play(Write(condition), FadeIn(note), run_time=0.75)
+        self.wait(0.5)
+        self.play(FadeOut(header), FadeOut(condition), FadeOut(note), run_time=0.45)
+        self.function_label = f
+        self.play(self.function_label.animate.scale(0.72).move_to(UP * 4.85),
+                  run_time=0.5)
+
     def show_coordinate_system(self):
-        """场景3: 建立坐标系"""
-        # 创建坐标系
+        # 严格使用已验证的绘制域：左右端点和整条曲线均在坐标轴内。
         self.axes = Axes(
-            x_range=self.x_range,
-            y_range=self.y_range,
-            x_length=7 * self.axes_scale,
-            y_length=7 * self.axes_scale,
-            axis_config={
-                "color": WHITE,
-                "stroke_width": 2,
-                "include_numbers": False,
-                "include_tip": True,
-                "tip_width": 0.15,
-                "tip_height": 0.15
-            }
-        ).move_to(self.axes_center)
-        
-        # 添加数字标签
-        x_labels = VGroup()
-        for x in range(int(self.x_range[0]), int(self.x_range[1]) + 1):
-            if x == 0:
-                continue
-            label = Text(
-                str(x),
-                font="PingFang SC",
-                font_size=18,
-                color=GRAY_A
-            ).move_to(self.axes.c2p(x, 0) + DOWN * 0.3)
-            x_labels.add(label)
-        
-        y_labels = VGroup()
-        for y in range(int(self.y_range[0]), int(self.y_range[1]) + 1):
-            if y == 0:
-                continue
-            label = Text(
-                str(y),
-                font="PingFang SC",
-                font_size=18,
-                color=GRAY_A
-            ).move_to(self.axes.c2p(0, y) + LEFT * 0.3)
-            y_labels.add(label)
-        
-        # 原点标注
-        origin_label = Text(
-            "O",
-            font="PingFang SC",
-            font_size=20,
-            color=WHITE
-        ).move_to(self.axes.c2p(0, 0) + DL * 0.35)
-        
-        # 坐标轴标签
-        x_axis_label = MathTex(r"x", font_size=24, color=WHITE).next_to(
-            self.axes.x_axis.get_end(), RIGHT, buff=0.2
-        )
-        y_axis_label = MathTex(r"y", font_size=24, color=WHITE).next_to(
-            self.axes.y_axis.get_end(), UP, buff=0.2
-        )
-        
-        # 将所有坐标轴相关对象放入一个组
-        self.coordinate_group = VGroup(
-            self.axes,
-            x_labels,
-            y_labels,
-            origin_label,
-            x_axis_label,
-            y_axis_label
-        )
+            x_range=[GRAPH_X_RANGE[0], GRAPH_X_RANGE[1], 1],
+            y_range=[GRAPH_Y_RANGE[0], GRAPH_Y_RANGE[1], 1],
+            x_length=7.1, y_length=4.65,
+            axis_config={"color": GRAY_B, "stroke_width": 2, "include_tip": False},
+        ).move_to(UP * 0.83)
+        labels = VGroup(*[
+            self._formula(str(n), 22, GRAY_A).next_to(self.axes.c2p(n, 0), DOWN, buff=0.18)
+            for n in (0, 1, 2, 3)
+        ])
+        self.axis_labels = labels
+        self.play(Create(self.axes), FadeIn(labels), run_time=0.95)
 
-        # 动画
-        self.play(Create(self.axes), run_time=1.5)
-        self.play(
-            FadeIn(x_labels),
-            FadeIn(y_labels),
-            FadeIn(origin_label),
-            FadeIn(x_axis_label),
-            FadeIn(y_axis_label),
-            run_time=1.0
-        )
-        self.wait(0.5)
-    
     def show_parabola(self):
-        """场景4: 绘制抛物线"""
-        # 绘制抛物线
-        a, b, c = self.a, self.b, self.c
-        self.parabola = self.axes.plot(lambda x: a*x**2 + b*x + c, x_range=[-0.5, 3.5], color=self.COLOR_PARABOLA, stroke_width=4)
-        
-        self.play(Create(self.parabola), run_time=2.5)
-        
-        # 说明文字
-        explain = Text(
-            "a > 0, 开口向上",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5.5)
-        
-        self.play(FadeIn(explain, shift=UP * 0.2), run_time=0.5)
-        self.wait(1.0)
-        
-        self.play(FadeOut(explain), run_time=0.3)
-    
-    def show_roots(self):
-        """场景5: 求解方程找根"""
-        # 标题
-        title = Text(
-            "第一步: 解方程找交点",
-            font="PingFang SC",
-            font_size=28,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 4.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 方程
-        equation = MathTex(
-            r"x^2 - 3x + 2 = 0",
-            font_size=36,
-            color=WHITE
-        ).move_to(DOWN * 5.3)
-        
-        self.play(Write(equation), run_time=1.0)
-        
-        # 因式分解
-        factored = MathTex(
-            r"(x - 1)(x - 2) = 0",
-            font_size=36,
-            color=WHITE
-        ).move_to(DOWN * 5.3)
-        
-        self.play(TransformMatchingTex(equation, factored), run_time=1.0)
+        self.parabola = self.axes.plot(
+            self.parabola_func,
+            x_range=[GRAPH_X_RANGE[0], GRAPH_X_RANGE[1]],
+            color=self.COLOR_PARABOLA, stroke_width=4,
+        )
+        self.play(Create(self.parabola), run_time=1.2)
+        note = self._text("a>0，图像开口向上", 24, GRAY_A).move_to(DOWN * 3.45)
+        self.play(FadeIn(note), run_time=0.5)
         self.wait(0.5)
-        
-        # 显示根
-        roots_text = MathTex(
-            r"x_1 = 1, \quad x_2 = 2",
-            font_size=36,
-            color=self.COLOR_ROOT
-        ).move_to(DOWN * 6.2)
-        
-        self.play(Write(roots_text), run_time=0.8)
-        
-        # 标记根在坐标系上
-        root1_point = self.axes.c2p(self.x1, 0)
-        root2_point = self.axes.c2p(self.x2, 0)
-        
-        dot1 = Dot(root1_point, color=self.COLOR_ROOT, radius=0.1)
-        dot2 = Dot(root2_point, color=self.COLOR_ROOT, radius=0.1)
-        
-        label1 = MathTex(r"x_1", font_size=22, color=self.COLOR_ROOT).next_to(
-            dot1, DOWN, buff=0.15
-        )
-        label2 = MathTex(r"x_2", font_size=22, color=self.COLOR_ROOT).next_to(
-            dot2, DOWN, buff=0.15
-        )
-        
-        self.play(
-            FadeIn(dot1, scale=0.5),
-            Flash(dot1, color=self.COLOR_ROOT, flash_radius=0.3),
-            run_time=0.5
-        )
-        self.play(FadeIn(label1), run_time=0.3)
-        
-        self.play(
-            FadeIn(dot2, scale=0.5),
-            Flash(dot2, color=self.COLOR_ROOT, flash_radius=0.3),
-            run_time=0.5
-        )
-        self.play(FadeIn(label2), run_time=0.3)
-        
-        # 虚线连接到抛物线
-        dashed1 = DashedLine(
-            root1_point,
-            root1_point + UP * 0.001,  # 极短，因为根就在x轴上
-            color=self.COLOR_AUXILIARY,
-            dash_length=0.08
-        )
-        dashed2 = DashedLine(
-            root2_point,
-            root2_point + UP * 0.001,
-            color=self.COLOR_AUXILIARY,
-            dash_length=0.08
-        )
-        
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(factored),
-            FadeOut(roots_text),
-            run_time=0.5
-        )
-        
-        self.root_dots = VGroup(dot1, dot2, label1, label2)
-    
+        self.play(FadeOut(note), run_time=0.3)
+
+    def show_roots(self):
+        title = self._text("第一步：解方程，找零点", 26, self.COLOR_HIGHLIGHT)
+        title.move_to(DOWN * 3.32)
+        equation = self._formula(r"x^2-3x+2=0", 31).move_to(DOWN * 4.22)
+        factored = self._formula(r"(x-1)(x-2)=0", 31).move_to(DOWN * 4.22)
+        roots_formula = self._formula(r"x_1=1,\quad x_2=2", 32, self.COLOR_ROOT)
+        roots_formula.move_to(DOWN * 5.20)
+        self.play(FadeIn(title), Write(equation), run_time=0.75)
+        self.play(ReplacementTransform(equation, factored), run_time=0.8)
+        self.play(Write(roots_formula), run_time=0.6)
+        self.root_group = VGroup()
+        for root in self.roots:
+            mark = Dot(self.axes.c2p(root, 0), radius=0.105, color=self.COLOR_ROOT)
+            label = self._formula(str(int(root)), 24, self.COLOR_ROOT).next_to(
+                mark, UP, buff=0.22)
+            self.root_group.add(mark, label)
+        self.play(FadeIn(self.root_group), run_time=0.60)
+        self.wait(0.6)
+        self.play(FadeOut(title), FadeOut(factored), FadeOut(roots_formula), run_time=0.5)
+
     def show_regions(self):
-        """场景6: 分析正负区域"""
-        # 标题
-        title = Text(
-            "第二步: 观察函数值正负",
-            font="PingFang SC",
-            font_size=28,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 4.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 说明 y > 0
-        explain1 = Text(
-            "y > 0: 抛物线在 x 轴上方",
-            font="PingFang SC",
-            font_size=24,
-            color=self.COLOR_POSITIVE
-        ).move_to(DOWN * 5.3)
-        
-        self.play(FadeIn(explain1, shift=UP * 0.2), run_time=0.5)
-        
-        # 高亮左侧区域 (x < 1)
-        left_area = self.axes.get_area(
-            self.parabola,
-            x_range=[self.x_range[0], self.x1],
-            color=self.COLOR_POSITIVE,
-            opacity=0.3
+        # 严格不等式不能把根自身包含进解集；颜色只说明曲线在 x 轴哪侧。
+        self.positive_areas = VGroup(
+            self.axes.get_area(self.parabola, x_range=[GRAPH_X_RANGE[0], self.x1],
+                               color=self.COLOR_POSITIVE, opacity=0.24),
+            self.axes.get_area(self.parabola, x_range=[self.x2, GRAPH_X_RANGE[1]],
+                               color=self.COLOR_POSITIVE, opacity=0.24),
         )
-        
-        self.play(FadeIn(left_area), run_time=1.0)
-        
-        # 高亮右侧区域 (x > 2)
-        right_area = self.axes.get_area(
-            self.parabola,
-            x_range=[self.x2, self.x_range[1] - 0.5],
-            color=self.COLOR_POSITIVE,
-            opacity=0.3
+        self.negative_area = self.axes.get_area(
+            self.parabola, x_range=[self.x1, self.x2],
+            color=self.COLOR_NEGATIVE, opacity=0.24,
         )
-        
-        self.play(FadeIn(right_area), run_time=1.0)
-        self.wait(0.8)
-        
-        # 说明 y < 0
-        explain2 = Text(
-            "y < 0: 抛物线在 x 轴下方",
-            font="PingFang SC",
-            font_size=24,
-            color=self.COLOR_NEGATIVE
-        ).move_to(DOWN * 5.3)
-        
-        self.play(FadeOut(explain1), FadeIn(explain2), run_time=0.5)
-        
-        # 中间区域 (1 < x < 2) - 需要特殊处理因为是负值
-        # 创建填充多边形
-        mid_x_values = np.linspace(self.x1, self.x2, 50)
-        mid_points = [self.axes.c2p(x, self.parabola_func(x)) for x in mid_x_values]
-        
-        # 添加x轴上的点闭合区域
-        mid_points.append(self.axes.c2p(self.x2, 0))
-        mid_points.append(self.axes.c2p(self.x1, 0))
-        
-        mid_area = Polygon(
-            *mid_points,
-            color=self.COLOR_NEGATIVE,
-            fill_opacity=0.3,
-            stroke_width=0
-        )
-        
-        self.play(FadeIn(mid_area), run_time=1.0)
-        self.wait(0.8)
-        
-        # 显示解集
-        solution = VGroup(
-            MathTex(r"x < 1", font_size=40, color=self.COLOR_HIGHLIGHT),
-            Text("或", font="PingFang SC", font_size=40, color=self.COLOR_HIGHLIGHT),
-            MathTex(r"x > 2", font_size=40, color=self.COLOR_HIGHLIGHT),
-        ).arrange(RIGHT, buff=0.2).move_to(DOWN * 6.2)
-        
-        self.play(Write(solution), run_time=1.0)
-        
-        # 高亮解集
-        solution_box = SurroundingRectangle(
-            solution,
-            color=self.COLOR_HIGHLIGHT,
-            buff=0.15,
-            corner_radius=0.1
-        )
-        
-        self.play(Create(solution_box), run_time=0.6)
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(explain2),
-            FadeOut(left_area),
-            FadeOut(right_area),
-            FadeOut(mid_area),
-            FadeOut(solution),
-            FadeOut(solution_box),
-            run_time=0.6
-        )
-    
+        title = self._text("第二步：观察零点两侧的正负", 25, self.COLOR_HIGHLIGHT)
+        title.move_to(DOWN * 3.33)
+        self.play(FadeIn(title), FadeIn(self.positive_areas), run_time=0.83)
+        self.play(FadeIn(self.negative_area), run_time=0.55)
+        self.bring_to_front(self.axes, self.axis_labels, self.parabola, self.root_group)
+        note = self._text("绿色：f(x)>0；橙色：f(x)<0", 22, GRAY_A)
+        note.move_to(DOWN * 4.19)
+        answer = self._formula(r"x\in(-\infty,1)\cup(2,+\infty)", 32,
+                               self.COLOR_POSITIVE).move_to(DOWN * 5.20)
+        endpoint = self._text("严格大于零，不包括 x=1 和 x=2", 22, GRAY_A)
+        endpoint.move_to(DOWN * 6.0)
+        self.play(FadeIn(note), Write(answer), run_time=0.85)
+        self.play(FadeIn(endpoint), run_time=0.48)
+        self.wait(0.75)
+        self.play(*[FadeOut(m) for m in (title, note, answer, endpoint,
+                                         self.positive_areas, self.negative_area)],
+                  run_time=0.55)
+
+    def _small_case(self, a, b, c, y, result, title):
+        delta, roots = analyze_quadratic(a, b, c)
+        axes = Axes(x_range=[-1.7, 1.7, 1], y_range=[-1.2, 3.3, 1],
+                    x_length=3.05, y_length=1.47,
+                    axis_config={"stroke_width": 1.5, "include_tip": False},
+                    ).move_to((-1.82, y, 0))
+        # x²+1 对应 Δ<0；绘制端点 |x|≤1.2，图像最高仅 2.44。
+        domain = [-1.2, 1.2] if delta < 0 else [-1.45, 1.45]
+        graph = axes.plot(lambda x: quadratic(a, b, c, x),
+                          x_range=domain, color=self.COLOR_PARABOLA, stroke_width=2.5)
+        points = VGroup(*[Dot(axes.c2p(root, 0), color=self.COLOR_ROOT, radius=0.055)
+                          for root in roots])
+        name = self._text(title, 23, self.COLOR_HIGHLIGHT).move_to((1.45, y + 0.33, 0))
+        solution = self._formula(result, 24, self.COLOR_POSITIVE)
+        if solution.width > 3.55:
+            solution.scale_to_fit_width(3.55)
+        solution.move_to((1.45, y - 0.31, 0))
+        return VGroup(axes, graph, points, name, solution)
+
     def show_three_cases(self):
-        """场景7: 三种情况总结"""
-        # 清屏
-        self.play(
-            FadeOut(self.coordinate_group),
-            FadeOut(self.parabola),
-            FadeOut(self.root_dots),
-            FadeOut(self.function_label),
-            run_time=0.8
+        self.play(FadeOut(self.axes), FadeOut(self.axis_labels),
+                  FadeOut(self.parabola), FadeOut(self.root_group),
+                  FadeOut(self.function_label), run_time=0.75)
+        header = self._header("判别式决定实根情况")
+        condition = self._formula(r"a>0,\quad ax^2+bx+c>0", 29, GRAY_A)
+        condition.move_to(UP * 4.65)
+        self.play(Write(condition), run_time=0.6)
+        cases = VGroup(
+            self._small_case(*DISCRIMINANT_CASES[0], 3.15,
+                             r"x<-1\ \mathrm{or}\ x>1", "Δ>0：两个根"),
+            self._small_case(*DISCRIMINANT_CASES[1], 0.0,
+                             r"x\ne0", "Δ=0：一个重根"),
+            self._small_case(*DISCRIMINANT_CASES[2], -3.0,
+                             r"x\in\mathbb{R}", "Δ<0：无实根"),
         )
-        
-        # 标题
-        title = Text(
-            "判别式 Δ 决定根的情况",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 6.5)
-        
-        self.play(Write(title), run_time=0.8)
-        
-        # 判别式公式
-        delta_formula = MathTex(
-            r"\Delta = b^2 - 4ac",
-            font_size=32,
-            color=GRAY_A
-        ).move_to(UP * 5.5)
-        
-        self.play(FadeIn(delta_formula, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 创建三个小坐标系
-        scale = 0.35
-        spacing = 3.0
-        
-        # Case 1: Δ > 0 (两个不等实根)
-        case1_axes = Axes(
-            x_range=[-1, 4, 1],
-            y_range=[-1, 3, 1],
-            x_length=5 * scale,
-            y_length=5 * scale,
-            axis_config={"include_tip": False, "stroke_width": 1.5}
-        ).move_to(LEFT * spacing + UP * 1.5)
-        
-        case1_parabola = case1_axes.plot(
-            lambda x: (x - 1) * (x - 2),
-            x_range=[0, 3], color=self.COLOR_PARABOLA, stroke_width=3
-        )
-        
-        case1_dots = VGroup(
-            Dot(case1_axes.c2p(1, 0), color=self.COLOR_ROOT, radius=0.06),
-            Dot(case1_axes.c2p(2, 0), color=self.COLOR_ROOT, radius=0.06)
-        )
-        
-        case1_title = Text(
-            "Δ > 0",
-            font="PingFang SC",
-            font_size=24,
-            color=WHITE
-        ).next_to(case1_axes, UP, buff=0.3)
-        
-        case1_solution = Text(
-            "x < x₁ 或 x > x₂",
-            font="PingFang SC",
-            font_size=18,
-            color=self.COLOR_POSITIVE
-        ).next_to(case1_axes, DOWN, buff=0.3)
-        
-        case1_group = VGroup(case1_axes, case1_parabola, case1_dots, case1_title, case1_solution)
-        
-        # Case 2: Δ = 0 (一个重根)
-        case2_axes = Axes(
-            x_range=[-1, 4, 1],
-            y_range=[-1, 3, 1],
-            x_length=5 * scale,
-            y_length=5 * scale,
-            axis_config={"include_tip": False, "stroke_width": 1.5}
-        ).move_to(UP * 1.5)
-        
-        # Using class method to avoid pickle error
-        case2_parabola = case2_axes.plot(
-            lambda x: (x - 1.5)**2,
-            x_range=[0, 3], color=self.COLOR_PARABOLA, stroke_width=3
-        )
-        
-        case2_dot = Dot(case2_axes.c2p(1.5, 0), color=self.COLOR_ROOT, radius=0.06)
-        
-        case2_title = Text(
-            "Δ = 0",
-            font="PingFang SC",
-            font_size=24,
-            color=WHITE
-        ).next_to(case2_axes, UP, buff=0.3)
-        
-        case2_solution = MathTex(
-            r"x \neq -\frac{b}{2a}",
-            font_size=20,
-            color=self.COLOR_POSITIVE
-        ).next_to(case2_axes, DOWN, buff=0.3)
-        
-        case2_group = VGroup(case2_axes, case2_parabola, case2_dot, case2_title, case2_solution)
-        
-        # Case 3: Δ < 0 (无实根)
-        case3_axes = Axes(
-            x_range=[-1, 4, 1],
-            y_range=[-1, 3, 1],
-            x_length=5 * scale,
-            y_length=5 * scale,
-            axis_config={"include_tip": False, "stroke_width": 1.5}
-        ).move_to(RIGHT * spacing + UP * 1.5)
-        
-        # Using class method to avoid pickle error
-        case3_parabola = case3_axes.plot(
-            lambda x: x**2 - 3*x + 4,
-            x_range=[0, 3], color=self.COLOR_PARABOLA, stroke_width=3
-        )
-        
-        case3_title = Text(
-            "Δ < 0",
-            font="PingFang SC",
-            font_size=24,
-            color=WHITE
-        ).next_to(case3_axes, UP, buff=0.3)
-        
-        case3_solution = MathTex(
-            r"x \in \mathbb{R}",
-            font_size=20,
-            color=self.COLOR_POSITIVE
-        ).next_to(case3_axes, DOWN, buff=0.3)
-        
-        case3_group = VGroup(case3_axes, case3_parabola, case3_title, case3_solution)
-        
-        # 依次显示三种情况
-        self.play(
-            Create(case1_axes),
-            Create(case1_parabola),
-            FadeIn(case1_dots),
-            run_time=1.2
-        )
-        self.play(FadeIn(case1_title), FadeIn(case1_solution), run_time=0.5)
-        
-        self.play(
-            Create(case2_axes),
-            Create(case2_parabola),
-            FadeIn(case2_dot),
-            run_time=1.2
-        )
-        self.play(FadeIn(case2_title), FadeIn(case2_solution), run_time=0.5)
-        
-        self.play(
-            Create(case3_axes),
-            Create(case3_parabola),
-            run_time=1.2
-        )
-        self.play(FadeIn(case3_title), FadeIn(case3_solution), run_time=0.5)
-        
-        # 强调判别式公式
-        self.play(
-            Indicate(delta_formula, scale_factor=1.2, color=self.COLOR_HIGHLIGHT),
-            run_time=1.0
-        )
-        
-        # 总结说明
-        summary = Text(
-            "(a > 0 时，不等式 > 0 的解)",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_A
-        ).move_to(DOWN * 1.5)
-        
-        self.play(FadeIn(summary), run_time=0.5)
-        
-        self.wait(2.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(delta_formula),
-            FadeOut(case1_group),
-            FadeOut(case2_group),
-            FadeOut(case3_group),
-            FadeOut(summary),
-            run_time=0.8
-        )
-    
+        for item in cases:
+            self.play(FadeIn(item), run_time=0.6)
+        note = self._text("若 a<0，须重新判断正负；不能照搬上述解集", 21, self.COLOR_NEGATIVE)
+        note.move_to(DOWN * 5.08)
+        if note.width > 7.35:
+            note.scale_to_fit_width(7.35)
+        self.play(FadeIn(note), run_time=0.5)
+        self.wait(0.85)
+        self.play(FadeOut(header), FadeOut(condition), FadeOut(cases), FadeOut(note),
+                  run_time=0.65)
+
     def show_outro(self):
-        """场景8: 片尾关注"""
-        # 作者名放大
-        author_name = Text(
-            "上海初高中数学直通车",
-            font="PingFang SC",
-            font_size=40,
-            color=WHITE
-        ).move_to(UP * 1.5)
-        
-        self.play(
-            Transform(self.author_info, author_name),
-            run_time=0.8
-        )
-        
-        # ID显示
-        author_id = Text(
-            "@emptyandcalm",
-            font="PingFang SC",
-            font_size=32,
-            color=GRAY_B
-        ).move_to(UP * 0.5)
-        
-        self.play(FadeIn(author_id, shift=UP * 0.3), run_time=0.5)
-        
-        # 关注提示
-        follow_text = Text(
-            "关注我, 学更多解题技巧!",
-            font="PingFang SC",
-            font_size=30,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 0.5)
-        
-        self.play(FadeIn(follow_text, shift=UP * 0.3, scale=1.1), run_time=0.6)
-        
-        # 小抛物线装饰
-        deco_scale = 0.25
-        parabolas = VGroup()
-        
-        for i in range(5):
-            x_pos = -2 + i * 1
-            mini_axes = Axes(
-                x_range=[-1, 1],
-                y_range=[-0.5, 1],
-                x_length=1.2 * deco_scale,
-                y_length=1.2 * deco_scale,
-                axis_config={"stroke_width": 0}
-            )
-            # Using class method to avoid pickle error
-            mini_parabola = mini_axes.plot(lambda x: x**2, color=self.COLOR_PARABOLA, stroke_width=2)
-        
-            mini_group = VGroup(mini_axes, mini_parabola).move_to(
-                DOWN * 2 + RIGHT * x_pos
-            )
-            parabolas.add(mini_group)
-        
-        self.play(
-            *[FadeIn(p, scale=0.5) for p in parabolas],
-            run_time=0.8
-        )
-        
-        # 微微旋转
-        self.play(
-            Rotate(parabolas, angle=PI / 12, run_time=0.8),
-            Rotate(parabolas, angle=-PI / 6, run_time=0.8)
-        )
-        
+        summary = self._text("求根 → 看开口 → 判正负 → 写解集", 30, YELLOW)
+        summary.move_to(UP * 1.0)
+        self.play(FadeIn(summary), run_time=0.5)
         self.wait(1.0)
-        
-        # 全部淡出
-        self.play(
-            FadeOut(self.author_info),
-            FadeOut(author_id),
-            FadeOut(follow_text),
-            FadeOut(parabolas),
-            run_time=1.0
-        )
-
-    def case1_func(self, x):  # Helper function to avoid pickle error
-        return (x - 1) * (x - 2)
-
-    def case2_func(self, x):  # Helper function to avoid pickle error
-        return (x - 1.5)**2
-
-    def case3_func(self, x):  # Helper function to avoid pickle error
-        return x**2 - 3*x + 4
-
-    def mini_func(self, x):  # Helper function to avoid pickle error
-        return x**2
-
-# 运行命令:
-# manim -pql quadratic_inequality.py QuadraticInequality  # 快速预览 480p
-# manim -qm quadratic_inequality.py QuadraticInequality   # 中等质量 720p
-# manim -qh quadratic_inequality.py QuadraticInequality   # 高质量 1080p
+        self.play(FadeOut(summary), FadeOut(self.author_info), run_time=0.6)
