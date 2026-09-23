@@ -1,65 +1,65 @@
-# Commit → Gotchas → TODO → 视频构建：可复现治理流程
+# Commit → Gotchas → TODO → 视频：历史归因与验收手册
 
-本页是跨学段的工程入口；不替代 [`historical-gotchas.md`](historical-gotchas.md)、[`highschool-historical-gotchas-20260923.md`](highschool-historical-gotchas-20260923.md) 或已有年级专项审计。历史提交标题只是**问题线索**，只有核对 diff、当前代码和运行证据后才能判定当前仍有缺陷。历史 MP4 不代表修复后的 Scene 通过验收。
+本页连接已有 [`historical-gotchas.md`](historical-gotchas.md)、[`highschool-historical-gotchas-20260923.md`](highschool-historical-gotchas-20260923.md)、`references/Error.md` 与逐年级审计器，不取代它们。**Git 提交标题表明修改意图，不等于已核实根因；AST 命中不等于经视频验证的错误；测试通过不等于课程画面已验收。**
 
-## 1. 历史提交：改过哪些文件、修了什么问题
+## 1. 历史 commits → 真实修改文件 → gotchas
 
-经核对下列提交的文件列表与 patch，提炼出首批跨学段回归模式：
-
-| 证据提交 | 改动文件 / 修复事实 | 提炼的 gotcha / 对应检查 |
-| --- | --- | --- |
-| [`c2e74aa`](https://github.com/1998x-stack/manim_math/commit/c2e74aa45674fc20c5f81a4911eb86bd018c169d) | `小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法(竖式计算)/001_笔算乘法(竖式计算).py`：竖屏配置从 `construct` 移至 Scene 初始化前。 | 相机建立之后设置全局画幅太晚；检查 `config.frame_*`/`pixel_*` 的初始化顺序和最终帧比例（目前需要人工/渲染审查）。 |
-| [`bc81f46`](https://github.com/1998x-stack/manim_math/commit/bc81f46c1ffbcb27ea54287716750fe379c28edf) | 高一的 `001_任意角与弧度制.py`、`any_angle_trigonometry.py` 和正弦课程源码：修正角度标签、含中文 Tex、以及 `self.play(self.play(...))` 的嵌套动画。 | `UNICODE_IN_TEX`、`CHINESE_IN_TEX`、`NESTED_PLAY`；三角函数周期还需检验 `|ω|` 与 `ω=0` 边界。 |
-| [`634340a`](https://github.com/1998x-stack/manim_math/commit/634340ac0d19d10dbdc49b28e272c6254248539e) | `tools/repair_highschool_gotchas.py`：纠正自动修复器把 AST UTF-8 字节列偏移当作 Unicode 字符偏移的错误。 | 需要改写源码时，不允许直接以 `col_offset` 切割 Unicode 字符串；本次扫描器只报告行号，不自动批量改源码。 |
-
-此外，原始七条 Manim API/LaTeX 故障见 [`references/Error.md`](references/Error.md)：H01/H06 中文 Tex、H02 角度符号、H03 Sector 参数、H04 TeX 分组、H05 Arrow scale 参数、H07 Rectangle 圆角参数；新增 AST 扫描器覆盖可静态判断的模式，TeX 自定义模板和动画画面仍须人工审查。其它教育内容改动不应仅凭 `fix` 提交名称就被当成已证实的同类故障。
-
-### 获取整个可见历史及文件修改频次
+在完整检出的 Git 历史中运行：
 
 ```bash
-# 在完整本地仓库中运行；只读 Git 历史，不修改课程文件。
 python tools/commit_gotchas.py history --output docs/engineering/commit-gotchas.generated.json
-# 可先限制历史做快速试跑：
+# 只扫描前 20 个 commit 做快速试跑：
 python tools/commit_gotchas.py history --max-commits 20 --output /tmp/commit-sample.json
 ```
 
-输出包含扫描的非合并提交数、是否为完整历史、疑似修复提交的 SHA / message / GitHub 链接 / 实际改动文件列表，以及按修改次数排序的文件清单。**完整历史要求非浅克隆且所有相关 refs 在本地可见**；`--all` 不等于 GitHub 中所有已删除分支或不可达提交。生成文件是机器索引，不应当把 message 自动转成经过验证的根因。
+机器索引包含每条疑似修复 commit 的 SHA、message、链接、Git diff 实际涉及的文件路径，以及所有可达非合并提交的文件触达频次。2026-09-23 的 [完整历史 CI](https://github.com/1998x-stack/manim_math/actions/runs/35828312845) 处理 316 个可达非合并 commit，筛出 113 个修复关键词提交及 4994 个不同的历史变动路径。统计口径是 CI 当时可达的提交与历史文件路径，**不包含已删除分支上不可达的对象**，也不表示 4994 个当前源文件有故障。历史 JSON 位于该 CI 的 `historical-gotchas-and-full-todo` 工件。
 
-## 2. 单个 Scene：依赖 → 渲染 → 原子覆盖 → 清理 → 音乐
+经查看实际 diff，可复用的证据包括：
 
-首次安装前自行在相应 OS 安装 FFmpeg、Cairo/Pango、TeX 和课程所需中文字体。脚本不执行 `sudo`、`apt-get`、`brew` 或 `--break-system-packages`；Manim Python 依赖仅安装在仓库内 `.venv`。首次使用 `--install`，后续如已安装可省略：
+| 实际提交 | 修改内容 | 应归纳的 gotcha / 检查 |
+| --- | --- | --- |
+| [`c2e74aa`](https://github.com/1998x-stack/manim_math/commit/c2e74aa45674fc20c5f81a4911eb86bd018c169d) | 小学四年级三位数乘两位数竖屏课件：将全局画幅配置从 `construct` 内移至 Scene 初始化前。 | 画幅应在相机初始化之前配置；最终比例需实际渲染核验。 |
+| [`bc81f46`](https://github.com/1998x-stack/manim_math/commit/bc81f46c1ffbcb27ea54287716750fe379c28edf) | 高一任意角、三角函数相关源码修正了角度标签、Tex 中文和 `self.play(self.play(...))`。 | `UNICODE_IN_TEX`、`CHINESE_IN_TEX`、`NESTED_PLAY`；另应检查三角函数周期定义域与 `ω=0`。 |
+| [`634340a`](https://github.com/1998x-stack/manim_math/commit/634340ac0d19d10dbdc49b28e272c6254248539e) | `tools/repair_highschool_gotchas.py` 修正 AST UTF-8 **字节列偏移**被误作 Unicode 字符列偏移的历史问题。 | 改写含中文源码时不可直接用 AST `col_offset` 切割 Unicode `str`；新扫描器只报告源文件和行号，不批量改写源码。 |
+
+源自 `references/Error.md` 的其它稳定规则：H01/H06 默认 TeX 中文、H02 Unicode 角度符号、H03 `Sector` 的不支持参数、H04 TeX 组、H05 Arrow `scale` 兼容、H07 Rectangle `corner_radius`。**显式设置 `TexTemplateLibrary.ctex` 的课件不能直接认定为默认 TeX 中文故障**；应结合当前模板、字体和实际渲染检查。教材数学内容不能仅靠 AST 判定正误。
+
+## 2. 单 Scene 构建：Python 依赖 → Manim → FFmpeg → 原子成片
+
+`tools/build_video.py` 仅在仓库 `.venv` 创建 Python 环境并安装 Manim，**系统依赖 FFmpeg、Cairo/Pango、LaTeX、中文字体需按操作系统单独安装**，不会执行未经确认的 `sudo`/`brew`/`apt-get` 或覆盖系统 Python。新增加的 [.github/workflows/video-build-smoke.yml](../../.github/workflows/video-build-smoke.yml) 提供 Ubuntu 临时 runner 的系统安装与**真实短场景**渲染/合成集成检查，不对课程数学、中文 LaTeX 或正式成片质量背书。
 
 ```bash
+# 首次：创建仓库本地 venv，渲染一个明确的 Scene：
 python tools/build_video.py external/euler_line.py EulerLineScene --install --quality l
-# 仅显式指定的素材会参与合成；确认拥有音乐使用权：
+# 后续：指定具有使用权的音乐；仅本次临时过程文件会被清理：
 python tools/build_video.py external/euler_line.py EulerLineScene \
   --music files/Away.mp3 --quality h --force
-# 自定义输出路径：
+# 可显式选择输出文件：
 python tools/build_video.py external/euler_line.py EulerLineScene \
   --output external/euler_line_finish.mp4 --music files/Away.mp3 --force
 ```
 
-脚本先对源码执行 AST 解析并确认 Scene 类名，接着使用临时 `--media_dir` 执行 Manim，确认唯一且非空的 `built.mp4`；选用背景音乐时执行 `ffmpeg`，循环音轨并将背景音乐作为输出音轨（**不保留原视频音轨**）。全部成功后才通过同一目录内的 `os.replace` 提交目标 MP4。`--force` 是覆盖已存在成片的显式授权；失败时旧文件保持原样，临时渲染文件自动清理。未指定音乐时仅输出视频；此流水线不遍历整个仓库、不自动修改画廊索引、不删除历史媒体。
+脚本先 AST 校验源码与 Scene 类，再在独立临时 `--media_dir` 渲染；确认只得到一个非空 `built.mp4` 后，可将显式选定的背景音乐循环、用 FFmpeg 合成音轨。**当前合成策略是用背景音乐替换原视频音轨，不是将两条音轨混音**。全部完成才以同一卷内 `os.replace` 提交目标 MP4。已有目标文件必须明确指定 `--force`，构建失败会保留原视频；不会扫描或删除仓库里其它 MP4。`--quality h` 选择高画质预设，最终分辨率、竖屏比例仍取决于 Scene 配置。发布前需人工核对音轨权利、画幅、音画时长、LaTeX、中文字体、布局与数学准确性。
 
-生产发布前还应验证分辨率、时长、是否出现音画截断、中文字形、布局与数学正确性。`--quality h` 是高清质量预设，具体画幅由 Scene 自身配置决定；脚本不会假定每个课程均为同一比例。`--install` 需要可用网络与构建依赖；课程有额外第三方库时应在 `.venv` 中单独安装。当前 CI 不安装 Manim、FFmpeg 或音乐素材，也**不**声称已渲染任何视频。
-
-## 3. 分批扫描，生成且更新 TODO.json
+## 3. TODO.json：按批次扫描，按证据修复并保持覆盖
 
 ```bash
-# 扫描小学、初中、高中和独立专题的全部 Python 源码：
+# 重新扫描当前 4 个课程目录的全部 Python 源码：
 python tools/commit_gotchas.py scan --output TODO.json
-# 大仓库推荐按 100 个文件逐批处理；batch 从 0 开始：
+# 或保留已有批次结果，按 100 文件逐批增量处理：
 python tools/commit_gotchas.py scan --batch 0 --batch-size 100 --output TODO.json
 python tools/commit_gotchas.py scan --batch 1 --batch-size 100 --output TODO.json
-# ...直到 batch=total_batches-1；每次运行追加/重扫指定批次。
+# ...一直执行到 total_batches - 1。
 ```
 
-`TODO.json` 的 `total_python_files`、`scanned_file_count`、`total_batches` 和 `scanned_files` 提供覆盖证据；未扫文件不能标记已通过。每个命中包含路径、行号、规则、P0/P1/P2、源码 SHA-256、参考的 Hxx、状态，以及静态/数学/渲染/视觉四种验收阶段。命中默认 `needs_review`，不能把 AST 提示直接写成已确定 Bug。人工确认后可将 `status` 维护为 `verified`（已审查处理）或 `false_positive`，并在 `checks` 中标记已实际运行的阶段；仅当源文件 SHA-256 未变化时，重扫才沿用旧状态，防止修改代码后沿用过时验收。对当前批次中不再出现的旧命中，扫描器会移除该候选；需要永久记录的历史事实应保留在本文或对应年级审计文档。
+`total_python_files`/`scanned_file_count` 和 `scanned_files` 每个源文件的 SHA-256 是覆盖凭据。每条 AST 候选都有稳定 ID、具体位置、规则、优先级、历史线索、源文件哈希、处理状态与静态/数学/渲染/视觉四种**独立**检查状态。初次命中为 `needs_review`，核实后才可标为 `verified` 或记录有明确根据的 `false_positive`；源码 SHA 变化时，旧状态不能自动复用。已消失的命中会在重扫中移除，已经修复的历史事实须独立记录在 [2026-09-23 全量修复文档](full-audit-findings-20260923.md)。
 
-P0 语法错误属于确定故障；P1 的 API 或动画用法需要核对实际 Manim 版本；P2 的 TeX 中文和角度问题还要考虑自定义 CJK 模板及字体，不能自动全局替换。教育数学内容还需逐课人工检查相应定义域、几何坐标、概率条件和教材准确性；静态规则无法宣称覆盖全部数学错误。
+首轮扫描覆盖 613/613 个文件共 7 批，命中 8 个候选；5 个对应课件源码已修复，3 个为显式 ctex 模板的静态规则例外。仓库当前跟踪的 [`TODO.json`](../../TODO.json) 已包含**修复后**的 613 个文件 SHA-256、余下三条例外和 `render: pending`/`visual: pending`，不应把 `outstanding: 0` 误读为全部课程视频已验收。
 
-每批流程为：**生成候选 → 查看对应历史 diff 与当前行 → 修源码并添加数学/AST 回归用例 → 重扫 → 低清渲染和视觉检查 → 标注各项验证证据 → 按年级提交小型 PR**。不同年级既有审计器可继续运行；新增扫描器是横向风险索引，不替代原有检查。
+按批修复步骤是：对照对应历史 diff 与源码定位 → 依据课程公式和画面确认缺陷 → 修源码与添加回归 → 重扫并比对哈希 → 实际低清渲染与关键帧审查 → 逐项记录数学、渲染和视觉结果 → 审核后发布。
 
-## 4. CI 验收与当前完成范围
+## 4. CI 门槛与已知局限
 
-`.github/workflows/commit-gotchas-video.yml` 在 PR 中运行 AST/流水线单测，对 sparse-checkout 的课程源码执行第 0 批扫描，校验 JSON 结构并上传 `gotchas-first-batch-todo` 工件。由于仓库已有大量历史待复核风险，该工作流**不会因 P2 候选数量非零而失败**；已确认的修复必须通过对应年级专项 CI 和实际渲染才能关闭。仓库根目录最初的 `TODO.json` 只是未扫描的计划基线；真实的第一批命中以 CI 工件或本地扫描后的结果为准，不能将初始空清单解读为全仓库零缺陷。
+[`commit-gotchas-video.yml`](../../.github/workflows/commit-gotchas-video.yml) 使用完整可达 Git 历史、以批次扫描全部课程 Python 文件，执行构建器/扫描器/修复课件的依赖轻量回归；若出现 P0 语法错误，会将本 CI 标为失败。非 P0 的规则命中仍需逐项人工核查，避免无证据地批量修源码。它不安装完整 TeX 字体环境，不执行 613 个 Scene 的视频渲染。
+
+[`video-build-smoke.yml`](../../.github/workflows/video-build-smoke.yml) 单独在 Linux 临时 runner 安装 Manim/FFmpeg 依赖，渲染**短测试 Scene**，合成测试生成的音频，并用 ffprobe 验证视频与音频流；是否通过以对应 GitHub Actions 运行结果为准。即便此项通过，也不意味着五个修复课件已经实际渲染或高分辨率成片检查完成。临时具备 `contents:write` 的一次性自动修复工作流已在生成 `TODO.json` 后删除；普通 PR 测试仅需 `contents:read`。
