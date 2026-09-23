@@ -1,26 +1,31 @@
 # 002 因数与倍数：分镜核对与分层验收
 
-## 数学规格
+## 数学范围
 
-在正整数课件段落中，只讨论 `n>0` 的**正因数**和**正倍数**。若 `a=bq` 且 `a,b,q` 都是正整数，则 `b`、`q` 是 `a` 的正因数，`a` 是 `b`、`q` 的正倍数。正整数 `n` 的正因数有限，包含 `1`、`n`；正倍数 `n,2n,3n,...` 无限，最小值为 `n`。**扩展到整数域**时，若 `b` 是非零整数，则 `0=b×0`，因此 0 是 b 的整数倍数，但不是正倍数。不可把这两个讨论域的结论直接混放在同一张无限/最小值表格中。
+本课讨论正整数 `n>0` 的正因数和正倍数。`a=bq` 且 `a,b,q>0` 时，`b,q` 是 `a` 的正因数，`a` 是 `b,q` 的正倍数。正整数 n 的正因数有限（最小为 1，最大为 n），正倍数 `n,2n,3n,...` 无限（最小为 n）。扩展到整数域，对任意非零整数 b，`0=b×0`，所以 0 是 b 的**整数倍数**，但不是正倍数。不得将“0 是倍数”与“最小正倍数是 n”误写成互相矛盾的同域命题。
 
-## 逐镜检查清单
+## 可追溯的逐镜数学、数据和画面
 
-| Scene | learning_fact | 可见画面和数据 | 必须核对的关键帧 |
-|---|---|---|---|
-| `show_opening` | 12 颗糖可以平均分给不同正整数人数 | 实际 12 个圆点；提出 2、3、4、6 人的示例 | 圆点数量 12，文字不以省略号暗示人数无限 |
-| `show_definition` | `a=bq`，a、b、q 都为正整数 | `12=3×4`，3、4 与 12 的对应关系 | 公式清楚且未误指整体公式边缘 |
-| `show_find_factors` | 12 的正因数共有 6 个 | 1×12、2×6、3×4 三幅由实际 Square 组成的数组 | 三幅实际方块数各为 12；完整列出 1,2,3,4,6,12 |
-| `show_find_multiples` | 3 的正倍数可继续延伸 | 数轴的 3、6、9、12、15、18 各有一个 Dot | Dot 坐标与标签一致；箭头仍在安全区 |
-| `show_special_rules` | 区分正整数因数结论和整数域的零倍数 | `n=1×n` 与 `0=b×0, b≠0` 分开显示 | 不把零混入上一镜的正倍数列表 |
-| `show_summary` | n 的正因数和正倍数数量、最小/最大值 | 正整数条件与对应结论同屏；0 的补充独立显示 | 末帧对象确实在 Scene 中，没有消失的滑入文字 |
+| 方法 | learning_fact / 实际数据与屏幕对象 | 仍待渲染检查 |
+|---|---|---|
+| `show_opening` | 12 个圆点；平均分给 2、3、4、6 人的示例 | 圆点为 12 个；不因省略号误导为无限人数 |
+| `show_definition` | `a=b×q` 的正整数前提；`12=3×4` | 条件、因数和倍数文字同屏且可读 |
+| `show_find_factors` | `1×12`、`2×6`、`3×4` 三幅各 12 块数组；列出六个正因数 | 方块按真实行列排列；标注不压在方块上 |
+| `show_find_multiples` | 从数据生成 3、6、9、12、15、18 的数轴 Dot | Dot 对应真实刻度，延伸箭头在安全区 |
+| `show_special_rules` | `n=1×n`；`0=b×0` 且 `b≠0`；分隔两个讨论范围 | 正因数、整数倍数文字不交叠 |
+| `show_summary` | 正整数的正因数、正倍数的数量与最值；0 的整数域补充 | 最后全部文字真实出现且字幕不出界 |
 
-## 验证分层
+## 分层验证
 
-- `math`: 逐镜数学事实人工复核；`verify_factors_multiples.py` 从当前 Scene AST 提取纯数学函数测试，待 GitHub Actions 或目标环境实际运行。
-- `syntax`: 必须执行 `python -m py_compile factors_multiples.py verify_factors_multiples.py`，记录真实 CI 结果。
-- `ast`: 必须执行仓库 Skill 的 `audit_scene.py` 并审阅 warnings。
-- `unit_tests`: 必须执行 `python verify_factors_multiples.py`，不能以仅提交测试文件替代运行。
-- `manim_render`: 当前容器未安装 Manim，也无法联网安装，未进行完整 Scene 渲染。
-- `frame_review`: 需检查开场、每个方块数组、数轴终态、零倍数解释、总结末帧，验证完整 Mobject 包围盒。
-- `ffprobe`、`audio_review`: 未生成新视频；保留原始 MP4 和音轨，不以旧视频作为新源码渲染的证明。
+| 层级 | 状态 | 证据与限制 |
+|---|---|---|
+| math | `pass` | 数学定义/例题人工核对，真实 Scene 纯函数提取的数学回归也通过 |
+| syntax | `pass` | [本课 CI：两个 Python 文件的 py_compile 成功](https://github.com/1998x-stack/manim_math/actions/runs/35835949695/job/107099328146)，提交 `1369da9ca5280a5392c95ecf1122a5cfd4f4bb93` |
+| ast | `pass`（仓库初中通用审计） | [Junior historical gotchas audit](https://github.com/1998x-stack/manim_math/actions/runs/35835949706) 成功；单独执行 Skill `audit_scene.py --json` 仍未记录 |
+| unit_tests | `pass` | [本课 CI：Verify actual scene math helpers and scope 成功](https://github.com/1998x-stack/manim_math/actions/runs/35835949695/job/107099328146)；不代表 Scene 已运行 |
+| manim_render | `blocked` | 当前容器没有 Manim，无法联网安装；本次 CI 不包含渲染 |
+| frame_review | `not_run` | 待真实渲染后检查全部数组、数轴标注、讨论域切换和片尾包围盒 |
+| ffprobe | `not_run` | 没有生成新 MP4；旧文件不能证明当前源码已渲染通过 |
+| audio_review | `not_run` | 原视频与音轨均未修改 |
+
+> 源码和数学回归通过不等于最终成片质量已验收。
