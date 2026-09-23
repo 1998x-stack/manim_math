@@ -1,0 +1,28 @@
+name: Grade 11 S2 slope lesson
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十一章-坐标平面上的直线/001直线的倾斜角与斜率/**'
+      - '.github/workflows/grade11-s2-slope.yml'
+  workflow_dispatch:
+
+jobs:
+  slope-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十一章-坐标平面上的直线/001直线的倾斜角与斜率
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and independent geometry regression (no Manim required)
+        env:
+          LESSON: 高中/高二/第二学期/第十一章-坐标平面上的直线/001直线的倾斜角与斜率
+        run: |
+          python -m py_compile "$LESSON/slope_inclination.py" "$LESSON/verify_slope.py"
+          python "$LESSON/verify_slope.py" -v
