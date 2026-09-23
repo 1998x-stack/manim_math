@@ -6,7 +6,9 @@ on:
       - '初中/**/*.py'
       - 'tools/audit_junior_gotchas.py'
       - 'tools/tests/test_audit_junior_gotchas.py'
+      - 'tools/tests/test_grade6_gotchas_contract.py'
       - 'docs/engineering/historical-gotchas.md'
+      - 'docs/engineering/junior-gotchas-findings-20260923.md'
       - '.github/workflows/junior-gotchas-audit.yml'
   workflow_dispatch:
 
@@ -19,18 +21,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Omit historical videos and 80 KB prompt.md files from the checkout.
+          # Avoid checking out large historical videos and prompts.
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /tools/audit_junior_gotchas.py
             /tools/tests/test_audit_junior_gotchas.py
+            /tools/tests/test_grade6_gotchas_contract.py
             /初中/**/*.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Regression tests (stdlib only)
-        run: python -m unittest discover -s tools/tests -p 'test_audit_junior_gotchas.py' -v
+      - name: Scanner regression and repaired-scene contract (stdlib only)
+        run: python -m unittest discover -s tools/tests -p 'test_*gotchas*.py' -v
       - name: Collect complete source audit without masking historical findings
         shell: bash
         run: |
