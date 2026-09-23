@@ -52,8 +52,8 @@ class PrimeFactorization(Scene):
             raise ArithmeticError("短除法必须在商为 1 时结束")
         return tuple(rows)
 
-    def text(self, text, size=30, color=WHITE):
-        label = Text(text, font_size=size, color=color)
+    def text(self, content, size=30, color=WHITE):
+        label = Text(content, font_size=size, color=color)
         if label.width > 7.8:
             label.scale_to_fit_width(7.8)
         return label
@@ -120,8 +120,9 @@ class PrimeFactorization(Scene):
         definition.move_to(UP * 3.75)
         formula = self.math(r"30=2\times3\times5", 50, self.HIGHLIGHT)
         formula.move_to(UP * 1.7)
+        # 不向默认 MathTex 传入中文；数字及中文解释一律使用 Text。
         individual = VGroup(*(
-            self.math(fr"{p}\text{{ 是素数}}", 31, self.PRIME)
+            self.text(f"{p} 是素数", 29, self.PRIME)
             for p in self.prime_factors(30)
         )).arrange(DOWN, buff=0.42).move_to(DOWN * 0.7)
         uniqueness = self.text("不计因数的顺序，素因数分解唯一", 28, YELLOW)
@@ -142,7 +143,7 @@ class PrimeFactorization(Scene):
         prompt.move_to(UP * 4.25)
         self.play(Write(title), FadeIn(prompt), run_time=0.8)
         current_numbers = VGroup(self.math(str(number), 41).move_to((0.6, 3.1, 0)))
-        divisors, strokes, row_notes = VGroup(), VGroup(), VGroup()
+        divisors, strokes = VGroup(), VGroup()
         self.play(FadeIn(current_numbers[0]), run_time=0.4)
         for index, (dividend, divisor, quotient) in enumerate(rows):
             y = 3.1 - index * 0.8
@@ -154,7 +155,6 @@ class PrimeFactorization(Scene):
             next_number = self.math(str(quotient), 40,
                                     self.HIGHLIGHT if quotient == 1 else WHITE)
             next_number.move_to((0.6, y - 0.8, 0))
-            # 被除数由上一行出现的同一 MathTex 对象呈现。
             divisors.add(left)
             strokes.add(hline, vline)
             current_numbers.add(next_number)
@@ -175,7 +175,7 @@ class PrimeFactorization(Scene):
         self.play(FadeIn(verification), run_time=0.6)
         self.wait(1)
         self.clear_stage(title, prompt, current_numbers, divisors, strokes,
-                         row_notes, end_note, product, verification)
+                         end_note, product, verification)
 
     def show_division_30(self):
         self.draw_short_division(30, "短除法：30")
