@@ -36,6 +36,10 @@ def run_checks():
     assert not valid(-2, 3, -4, 6)
     assert not valid(math.inf, 2, 4, 6)
     assert not valid(math.nan, 2, 4, 6)
+    # 比较交叉乘积时使用固定绝对误差，会把微小但不等的比例误判为相等。
+    assert not valid(1e-9, 1e-9, 2e-9, 1e-9)
+    assert valid(1e308, 1e308, 1e-308, 1e-308)
+    assert not valid(1e-308, 1e308, 2e-308, 1e308)
     assert math.isclose(mean(2, 8), 4)
     assert math.isclose(mean(3, 12), 6)
     assert valid(2, mean(2, 8), mean(2, 8), 8)
@@ -63,7 +67,7 @@ def run_checks():
             for arg in node.args:
                 assert not (isinstance(arg, ast.Call) and isinstance(arg.func, ast.Attribute)
                             and arg.func.attr == "play"), "嵌套 play"
-    print("PASS: syntax, math and boundary conditions, Scene entry, TeX text, play nesting")
+    print("PASS: syntax, ordinary/tiny/extreme ratios, boundary conditions, Scene entry and AST checks")
 
 
 if __name__ == "__main__":
