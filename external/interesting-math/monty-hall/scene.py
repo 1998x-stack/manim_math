@@ -31,6 +31,9 @@ def switch_wins(prize, chosen=0):
 class MontyHallScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
+        watermark = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
+                         font_size=17, color=GREY_B).move_to(UP * 7.0)
+        self.add(watermark)
         title = Text("三扇门，换不换？", font=FONT, font_size=37).move_to(UP * 6.4)
         rule = Text("先选 1 号门；主持人必开另一扇空门", font=FONT, font_size=24).move_to(UP * 5.35)
         self.play(Write(title), FadeIn(rule))
