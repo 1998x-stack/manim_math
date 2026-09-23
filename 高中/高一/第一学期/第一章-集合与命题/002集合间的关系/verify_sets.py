@@ -1,216 +1,99 @@
-import numpy as np
+"""集合关系动画的纯 Python 数学与几何回归检查。
+
+运行：python verify_sets.py
+本脚本不导入 Manim，也不声称验证了 LaTeX 编译、字体或最终画面。
+"""
+
+from itertools import combinations
+from math import hypot, pi
+
+
+def require(condition, message):
+    """避免使用会被 ``python -O`` 移除的 assert 语句。"""
+    if not condition:
+        raise AssertionError(message)
+
+
+def powerset(items):
+    """返回有限集合的所有子集，迭代顺序固定，便于复现。"""
+    ordered = tuple(sorted(items))
+    return [frozenset(group) for size in range(len(ordered) + 1)
+            for group in combinations(ordered, size)]
+
 
 def verify_set_theory():
-    """
-    Verify the set theory concepts in the set relations animation.
-    """
-    print("=== 验证集合论概念 ===")
+    """覆盖空集、自反性、真包含、相等与有限集合子集计数。"""
+    universe = frozenset(range(4))
+    subsets = powerset(universe)
+    require(len(subsets) == 2 ** len(universe), "全集子集总数不正确")
+    require(len(set(subsets)) == len(subsets), "子集枚举出现重复")
 
-    # 验证子集的定义
-    print("\n1. 子集验证 (A ⊆ B)")
-    print("   如果A是B的子集，则A的所有元素都是B的元素")
-    print("   空集是任何集合的子集: ∅ ⊆ A")
-    print("   任何集合是自身的子集: A ⊆ A")
+    for a in subsets:
+        require(frozenset().issubset(a), "空集应为任意集合的子集")
+        require(a.issubset(a), "子集关系应满足自反性")
+        require(len(powerset(a)) == 2 ** len(a), "子集计数应为 2^n")
+        require(sum(candidate < a for candidate in powerset(a)) == 2 ** len(a) - 1,
+                "真子集计数应为 2^n-1")
+        for b in subsets:
+            require((a < b) == (a <= b and a != b), "真子集定义不成立")
+            require((a == b) == (a <= b and b <= a), "集合相等的双向包含条件不成立")
+            if a <= b:
+                require(all(item in b for item in a), "子集定义不成立")
+    require(not (frozenset() < frozenset()), "空集不是自身的真子集")
+    print("PASS: 集合关系与 2^n / (2^n-1) 子集计数")
 
-    # 验证真子集的定义
-    print("\n2. 真子集验证 (A ⊊ B)")
-    print("   如果A是B的真子集，则A ⊆ B 且 A ≠ B")
-    print("   空集是任何非空集合的真子集: ∅ ⊊ A (A ≠ ∅)")
 
-    # 验证集合相等
-    print("\n3. 集合相等验证 (A = B)")
-    print("   A = B 当且仅当 A ⊆ B 且 B ⊆ A")
-
-    # 示例验证
-    print("\n4. 示例验证")
-    A = {1, 2, 3}
-    B = {1, 2, 3, 4, 5}
-    C = {1, 2, 3}
-    empty_set = set()
-
-    print(f"   A = {A}")
-    print(f"   B = {B}")
-    print(f"   C = {C}")
-    print(f"   ∅ = {empty_set}")
-
-    # 验证A是B的子集
-    is_subset = A.issubset(B)
-    print(f"   A ⊆ B: {is_subset}")
-
-    # 验证A是B的真子集
-    is_proper_subset = A.issubset(B) and A != B
-    print(f"   A ⊊ B: {is_proper_subset}")
-
-    # 验证A等于C
-    is_equal = A == C
-    print(f"   A = C: {is_equal}")
-
-    # 验证空集性质
-    is_empty_subset = empty_set.issubset(A)
-    is_empty_proper = empty_set.issubset(A) and empty_set != A and len(A) > 0
-    print(f"   ∅ ⊆ A: {is_empty_subset}")
-    print(f"   ∅ ⊊ A (A非空): {is_empty_proper}")
-
-    # 子集个数验证
-    n = len(A)
-    total_subsets = 2**n
-    proper_subsets = 2**n - 1
-    print(f"\n   集合A有 {n} 个元素")
-    print(f"   A的子集总数: 2^{n} = {total_subsets}")
-    print(f"   A的真子集数: 2^{n} - 1 = {proper_subsets}")
-
-    # 枚举A的所有子集
-    print(f"\n   A的所有子集:")
-    from itertools import combinations
-    all_subsets = []
-    for i in range(len(A) + 1):
-        for combo in combinations(A, i):
-            all_subsets.append(set(combo))
-            print(f"     {set(combo)}")
-
-    print(f"   总计: {len(all_subsets)} 个子集 (验证: {len(all_subsets) == total_subsets})")
-
-    print("\n✓ 集合论概念验证通过!")
+def circle_inside_circle(inner_center, inner_radius, outer_center, outer_radius):
+    """按圆心距判断小圆是否完整落在大圆内；仅用于当前圆形布局。"""
+    if inner_radius < 0 or outer_radius < 0:
+        return False
+    return (hypot(inner_center[0] - outer_center[0],
+                  inner_center[1] - outer_center[1]) + inner_radius
+            <= outer_radius + 1e-12)
 
 
 def verify_geometry():
-    """
-    Verify geometric properties if any are used in the animation.
-    """
-    print("\n=== 几何验证 ===")
-    print("此动画主要涉及集合关系，不涉及复杂几何计算")
-    print("集合的表示使用圆形，仅需验证圆形的基本属性")
-
-    # 圆的基本属性验证
-    radius = 1.2
-    area = np.pi * radius**2
-    circumference = 2 * np.pi * radius
-
-    print(f"圆的半径: {radius}")
-    print(f"圆的面积: {area:.4f}")
-    print(f"圆的周长: {circumference:.4f}")
-
-    print("\n✓ 几何验证通过!")
+    """检查当前子集 Venn 圆的包含关系，而非仅打印圆面积。"""
+    a_center, a_radius = (-0.5, 2.0), 1.2
+    b_center, b_radius = (0.0, 2.0), 2.0
+    require(circle_inside_circle(a_center, a_radius, b_center, b_radius),
+            "子集示意图中 A 未完整位于 B 内")
+    require(not circle_inside_circle(b_center, b_radius, a_center, a_radius),
+            "不应将 B 画成 A 的子集")
+    require(pi * a_radius ** 2 < pi * b_radius ** 2, "子集圆面积应小于母集圆")
+    print("PASS: Venn 圆包含关系")
 
 
 def verify_angles():
-    """
-    Verify angles if any appear in the animation.
-    """
-    print("\n=== 角度验证 ===")
-    print("此动画主要涉及集合关系，不涉及特定角度")
-    print("如有角度符号（如直角），需要特别注意角度方向")
-
-    # 如果有角度计算
-    print("假设需要绘制直角或角度符号:")
-    # 直角为90度或π/2弧度
-    right_angle_deg = 90
-    right_angle_rad = np.pi / 2
-    print(f"直角: {right_angle_deg}° = {right_angle_rad:.4f} 弧度")
-
-    print("\n✓ 角度验证通过!")
+    """当前集合关系动画无需角度证明，不以无关的直角计算冒充测试。"""
+    print("SKIP: 本课无须检验的角度性质")
 
 
 def verify_boundaries():
-    """
-    Verify that elements stay within the safe boundaries of the frame.
-    """
-    print("\n=== 边界验证 ===")
-
-    # 帧的尺寸设定
-    frame_width = 9
-    frame_height = 16
-    half_width = frame_width / 2  # 4.5
-    half_height = frame_height / 2  # 8
-
-    print(f"帧尺寸: 宽 {frame_width}, 高 {frame_height}")
-    print(f"安全范围: x ∈ [{-half_width}, {half_width}], y ∈ [{-half_height}, {half_height}]")
-
-    # 检查动画中使用的坐标
-    print("\n动画中使用的典型坐标范围:")
-    print("- 标题: y ≈ +5.5 (顶部安全区)")
-    print("- 主要内容: y ≈ +2.0 (主要内容区)")
-    print("- 公式: y ≈ -2.5 (公式区)")
-    print("- 说明文字: y ≈ -4.5 (底部文字区)")
-    print("- 作者信息: y ≈ +7.0 (顶部安全区)")
-
-    # 集合圆的坐标
-    circle_a_center = np.array([-0.5, 2.0, 0])  # A在B内时
-    circle_b_center = np.array([0.0, 2.0, 0])
-    radius_a = 1.2
-    radius_b = 2.0
-
-    print(f"\n集合A中心: {circle_a_center}")
-    print(f"集合B中心: {circle_b_center}")
-    print(f"集合A半径: {radius_a}")
-    print(f"集合B半径: {radius_b}")
-
-    # 检查集合边界
-    a_left = circle_a_center[0] - radius_a
-    a_right = circle_a_center[0] + radius_a
-    a_top = circle_a_center[1] + radius_a
-    a_bottom = circle_a_center[1] - radius_a
-
-    b_left = circle_b_center[0] - radius_b
-    b_right = circle_b_center[0] + radius_b
-    b_top = circle_b_center[1] + radius_b
-    b_bottom = circle_b_center[1] - radius_b
-
-    print(f"A的边界: x ∈ [{a_left}, {a_right}], y ∈ [{a_bottom}, {a_top}]")
-    print(f"B的边界: x ∈ [{b_left}, {b_right}], y ∈ [{b_bottom}, {b_top}]")
-
-    # 验证边界
-    all_x = [a_left, a_right, b_left, b_right]
-    all_y = [a_top, a_bottom, b_top, b_bottom]
-
-    x_within_bounds = all(-half_width <= x <= half_width for x in all_x)
-    y_within_bounds = all(-half_height <= y <= half_height for y in all_y)
-
-    if x_within_bounds and y_within_bounds:
-        print("\n✓ 所有元素都在边界内!")
-    else:
-        print(f"\n⚠️  元素可能超出边界!")
-        if not x_within_bounds:
-            print(f"  X方向超界: {[x for x in all_x if not (-half_width <= x <= half_width)]}")
-        if not y_within_bounds:
-            print(f"  Y方向超界: {[y for y in all_y if not (-half_height <= y <= half_height)]}")
+    """仅检查当前圆的理论坐标，不代表渲染后文字也位于安全区。"""
+    safe_x, safe_y = 4.0, 7.0
+    configs = (((-1.5, 2.0), 1.3), ((1.5, 2.0), 1.3),
+               ((-0.5, 2.0), 1.2), ((0.0, 2.0), 2.0))
+    for (x, y), radius in configs:
+        require(radius > 0, "圆半径必须为正")
+        require(abs(x) + radius < safe_x and abs(y) + radius < safe_y,
+                "集合圆超出预设安全范围")
+    print("PASS: 集合圆静态坐标边界；文字和动画仍需目视审核")
 
 
 def grep_MathTex():
-    """
-    Check for potential LaTeX compilation errors in MathTex expressions.
-    """
-    print("\n=== LaTeX 表达式验证 ===")
-
-    # 收集动画中使用的MathTex表达式
-    math_expressions = [
-        r"A \subseteq B",
-        r"A \subsetneq B",
-        r"A = B",
-        r"\emptyset \subseteq A",
-        r"\emptyset \subsetneq A",
-        r"\{1, 2, 3\}",
-        r"\emptyset",
-        r"2^n",
-        r"2^n - 1"
-    ]
-
-    print("验证以下LaTeX表达式:")
-    for expr in math_expressions:
-        print(f"  - {expr}")
-        # 检查是否包含可能导致编译错误的字符
-        if '\\text{乘}' in expr or '乘' in expr:
-            print(f"    ⚠️  包含中文字符可能导致LaTeX编译错误!")
-        else:
-            print(f"    ✓ 表达式格式正确")
-
-    print("\n✓ LaTeX 表达式验证完成!")
+    """保留历史入口，但不能通过检查静态字符串证明 LaTeX 可编译。"""
+    print("SKIP: LaTeX 表达式须在安装 Manim/TeX 的环境中实际渲染")
 
 
-if __name__ == "__main__":
+def main():
     verify_set_theory()
     verify_geometry()
     verify_angles()
     verify_boundaries()
     grep_MathTex()
-    print("\n=== 所有验证完成 ===")
+    print("PASS: 已运行的纯 Python 检查全部通过")
+
+
+if __name__ == "__main__":
+    main()
