@@ -1,0 +1,47 @@
+name: Grade 10 semester 2 inverse-functions checks
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/002反函数/**'
+      - '.github/workflows/grade10-sem2-inverse.yml'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/002反函数/
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile and test inverse-function mathematics
+        run: |
+          LESSON='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/002反函数'
+          python -m py_compile "$LESSON/inverse_functions.py" "$LESSON/verify_inverse.py"
+          python "$LESSON/verify_inverse.py" -v
+      - name: Audit real Manim source (static only)
+        run: |
+          LESSON='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/002反函数'
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "$LESSON/inverse_functions.py" --json > /tmp/inverse-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          audit = json.loads(Path('/tmp/inverse-audit.json').read_text(encoding='utf-8'))
+          print('AST:', audit['errors'], 'errors,', audit['warnings'], 'warnings')
+          for finding in audit['findings']:
+              print(finding)
+          assert audit['errors'] == 0
+          # f-string 数字来自受控常量点对，尚需真正 TeX 渲染验证。
+          assert {x['code'] for x in audit['findings']} <= {'DYNAMIC_TEX'}
+          PY
