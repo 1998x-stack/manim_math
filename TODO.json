@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "generated_at": null,
+  "scope": ["小学", "初中", "高中", "external"],
+  "total_python_files": null,
+  "batch_size": 100,
+  "total_batches": null,
+  "last_scanned_batch": null,
+  "scanned_files": {},
+  "scanned_file_count": 0,
+  "outstanding": 0,
+  "notice": "Unscanned planning baseline: zero listed findings does NOT mean zero defects. Run python tools/commit_gotchas.py scan --batch 0 --batch-size 100 --output TODO.json; commit the result after reviewing it. The CI first-batch artifact contains actual scanned candidates.",
+  "items": []
+}
