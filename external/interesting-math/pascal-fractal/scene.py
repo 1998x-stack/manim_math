@@ -27,6 +27,9 @@ def parity_row(n):
 class PascalFractalScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
+        watermark = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
+                         font_size=17, color=GREY_B).move_to(UP * 7.0)
+        self.add(watermark)
         title = Text("杨辉三角形里有分形？", font=FONT, font_size=35).move_to(UP * 6.35)
         lead = Text("只看奇偶：奇数亮，偶数暗", font=FONT, font_size=27).move_to(UP * 5.2)
         recurrence = MathTex(r"\binom nk=\binom{n-1}{k-1}+\binom{n-1}{k}",
