@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""静态审查高中/高二下的每个 Python 文件，不导入 Manim。
+"""静态审查高中/高二的 Python 文件，不导入 Manim。
 
 使用：python tools/audit_grade11.py [--json] [--strict]
-静态检查只能定位风险，不能替代数学证明、Manim 渲染及关键帧验收。
+静态检查只识别可判定的风险，不能替代数学证明、渲染和关键帧验收。
 """
 from __future__ import annotations
 
@@ -16,9 +16,9 @@ ROOT = Path(__file__).resolve().parent.parent
 GRADE = Path("高中/高二")
 SCENE_BASES = {"Scene", "MovingCameraScene", "ThreeDScene", "ZoomedScene"}
 UNSAFE_TEX = re.compile(r"[\u3400-\u9fff∈²±×÷＝]")
-# 仅匹配已知错误的单值根号与 ± 的等式；不把方程全部根误报为错误。
 AMBIGUOUS_SQRT = re.compile(r"\\sqrt\s*\{(?:-4|4|-a)\}\s*=\s*\\pm")
 GENERIC_PLACEHOLDER = re.compile(r"正在学习.{1,80}的概念[.。…]{2,}")
+SCENE_ACTIONS = {"play", "add", "wait", "add_sound"}
 
 
 def _name(expr: ast.expr) -> str | None:
@@ -33,9 +33,39 @@ def _chunks(expr: ast.expr) -> list[str]:
     if isinstance(expr, ast.Constant) and isinstance(expr.value, str):
         return [expr.value]
     if isinstance(expr, ast.JoinedStr):
-        return [piece.value for piece in expr.values
-                if isinstance(piece, ast.Constant) and isinstance(piece.value, str)]
+        return [part.value for part in expr.values
+                if isinstance(part, ast.Constant) and isinstance(part.value, str)]
     return []
+
+
+def _scene_has_actions(cls: ast.ClassDef) -> bool:
+    """从 construct 追踪 self.helper() 调用；不能仅查 construct 内的 self.play。
+
+    同名方法及循环委托使用 visited 防止无限递归。本检测仅涵盖当前类的显式方法，
+    动态分派、基类中实现的 construct 需单独复核。
+    """
+    methods = {method.name: method for method in cls.body
+               if isinstance(method, (ast.FunctionDef, ast.AsyncFunctionDef))}
+    if "construct" not in methods:
+        return False
+    visited: set[str] = set()
+
+    def walk_method(name: str) -> bool:
+        if name in visited or name not in methods:
+            return False
+        visited.add(name)
+        for node in ast.walk(methods[name]):
+            if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Attribute):
+                continue
+            if not isinstance(node.func.value, ast.Name) or node.func.value.id != "self":
+                continue
+            if node.func.attr in SCENE_ACTIONS:
+                return True
+            if node.func.attr in methods and walk_method(node.func.attr):
+                return True
+        return False
+
+    return walk_method("construct")
 
 
 def audit_file(path: Path, root: Path) -> tuple[bool, list[dict[str, object]]]:
@@ -47,8 +77,7 @@ def audit_file(path: Path, root: Path) -> tuple[bool, list[dict[str, object]]]:
                        "severity": severity, "detail": detail})
 
     try:
-        source = path.read_text(encoding="utf-8")
-        module = ast.parse(source, filename=relative)
+        module = ast.parse(path.read_text(encoding="utf-8"), filename=relative)
     except (SyntaxError, UnicodeError, OSError) as exc:
         emit("PYTHON_SYNTAX", "error", getattr(exc, "lineno", 1) or 1, str(exc))
         return False, issues
@@ -56,34 +85,35 @@ def audit_file(path: Path, root: Path) -> tuple[bool, list[dict[str, object]]]:
     scene_classes = [cls for cls in module.body if isinstance(cls, ast.ClassDef)
                      and any(_name(base) in SCENE_BASES for base in cls.bases)]
     if not scene_classes:
-        emit("NO_SCENE", "info", 1, "无直接 Scene 子类；可能是辅助模块或未完成课件")
+        emit("NO_SCENE", "info", 1, "无直接 Scene 子类；可能是辅助模块")
     seen: set[str] = set()
     for cls in scene_classes:
         if cls.name in seen:
             emit("DUPLICATE_SCENE", "error", cls.lineno, "同文件重复的 Scene 类名")
         seen.add(cls.name)
-        construct = next((item for item in cls.body
-                          if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef))
-                          and item.name == "construct"), None)
-        if construct is None or not any(isinstance(node, ast.Call)
-                                       and _name(node.func) in {"play", "add", "wait"}
-                                       for node in ast.walk(construct)):
-            emit("EMPTY_SCENE", "warning", cls.lineno, "construct 没有直接场景操作，需人工确认")
+        if not _scene_has_actions(cls):
+            emit("EMPTY_SCENE", "warning", cls.lineno,
+                 "construct 及可追踪的 self.helper 没有场景操作；需人工确认")
 
     for node in ast.walk(module):
         if isinstance(node, ast.Call) and _name(node.func) in {"MathTex", "Tex"}:
             for argument in node.args:
                 for chunk in _chunks(argument):
                     if UNSAFE_TEX.search(chunk):
-                        emit("UNICODE_MATHTEX", "warning", node.lineno,
-                             "公式含中文或 Unicode 数学符号；应使用 LaTeX 命令，中文用 Text")
+                        has_ctex = any(kw.arg == "tex_template"
+                                       and _name(kw.value) == "ctex"
+                                       for kw in node.keywords)
+                        emit("UNICODE_MATHTEX", "info" if has_ctex else "warning",
+                             node.lineno,
+                             "数学公式含中文或 Unicode；ctex 可编译中文时仍建议中文独立使用 Text"
+                             if has_ctex else "数学公式含中文或 Unicode；应使用 LaTeX 命令、中文使用 Text")
                     if AMBIGUOUS_SQRT.search(chunk):
                         emit("AMBIGUOUS_SQRT", "error", node.lineno,
-                             "不能将单值根号写成 ± 两个值；改写为对应方程的解")
+                             "单值根号不可写成 ± 两个值；应列出方程的全部解")
         if isinstance(node, ast.Constant) and isinstance(node.value, str):
             if GENERIC_PLACEHOLDER.search(node.value):
                 emit("GENERIC_LESSON_PLACEHOLDER", "warning", node.lineno,
-                     "疑似通用教学占位稿，尚未实现知识点")
+                     "疑似通用教学占位稿，需确认是否完成数学内容")
     return bool(scene_classes), issues
 
 
