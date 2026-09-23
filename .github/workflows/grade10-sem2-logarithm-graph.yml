@@ -1,0 +1,46 @@
+name: Grade 10 semester 2 logarithm graph checks
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/003对数函数/**'
+      - '.github/workflows/grade10-sem2-logarithm-graph.yml'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/003对数函数/
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile and test logarithm graph mathematics
+        run: |
+          LESSON='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/003对数函数'
+          python -m py_compile "$LESSON/logarithm_function.py" "$LESSON/verify_logarithm_graph.py"
+          python "$LESSON/verify_logarithm_graph.py" -v
+      - name: Audit Manim scene AST
+        run: |
+          LESSON='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/003对数函数'
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "$LESSON/logarithm_function.py" --json > /tmp/logarithm-graph-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          audit = json.loads(Path('/tmp/logarithm-graph-audit.json').read_text(encoding='utf-8'))
+          print('AST:', audit['errors'], 'errors,', audit['warnings'], 'warnings')
+          for finding in audit['findings']:
+              print(finding)
+          assert audit['errors'] == 0
+          assert {finding['code'] for finding in audit['findings']} <= {'DYNAMIC_TEX'}
+          PY
