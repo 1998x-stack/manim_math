@@ -49,6 +49,9 @@ def area_ratio(n):
 class KochSnowflakeScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
+        watermark = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
+                         font_size=17, color=GREY_B).move_to(UP * 7.0)
+        self.add(watermark)
         title = Text("无限周长，有限面积？", font=FONT, font_size=35).move_to(UP * 6.4)
         lead = Text("每条边：三等分，中段向外凸起", font=FONT,
                     font_size=25).move_to(UP * 5.3)
@@ -69,7 +72,7 @@ class KochSnowflakeScene(Scene):
             next_step = Text(f"第 {n} 次：{len(points)} 条边", font=FONT,
                              font_size=27).move_to(DOWN * 3.5)
             next_info = MathTex(
-                rf"P_{n}/P_0=({{4}}/{{3}})^{{{n}}},\quad A_{n}/A_0\approx {area_ratio(n):.3f}",
+                rf"P_{{{n}}}/P_0=\left(\frac43\right)^{{{n}}},\quad A_{{{n}}}/A_0\approx {area_ratio(n):.3f}",
                 font_size=31).move_to(DOWN * 4.55)
             self.play(Transform(snowflake, outline(points)), Transform(step, next_step),
                       Transform(current, next_info), run_time=1.8)
