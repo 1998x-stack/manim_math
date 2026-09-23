@@ -1,33 +1,27 @@
+"""一元一次方程：同乘非零最小公倍数，并代回检验。"""
+
 from manim import *
 
+
 class 一元一次方程的解法Animation(Scene):
-    """一元一次方程的解法的Manim动画演示"""
-    
+    """求解 x/2 + 1/3 = 5/6，演示去分母时必须同乘方程两边。"""
+
     def construct(self):
-        # 标题
-        title = Text("一元一次方程的解法", font_size=48)
-        title.to_edge(UP)
+        title = Text("一元一次方程的解法", font_size=40).to_edge(UP, buff=0.55)
         self.play(Write(title))
-        self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("去分母:两边同乘各分母的最小公倍数")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
+
+        equation = MathTex(r"\frac{x}{2}+\frac13=\frac56", font_size=45)
+        equation.move_to(UP * 2.0)
+        self.play(Write(equation))
+
+        steps = VGroup(
+            Text("分母 2、3、6 的最小公倍数为 6；两边同乘 6", font_size=25),
+            MathTex(r"3x+2=5", font_size=42),
+            MathTex(r"3x=3", font_size=42),
+            MathTex(r"x=1", font_size=46, color=YELLOW),
+            Text("代回原方程检验", font_size=27),
+            MathTex(r"\frac12+\frac13=\frac56", font_size=40, color=GREEN),
+        ).arrange(DOWN, buff=0.25)
+        steps.next_to(equation, DOWN, buff=0.5)
+        self.play(LaggedStart(*(FadeIn(step) for step in steps), lag_ratio=0.3))
         self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: MathTex, Arrow, Brace, Text, VGroup, Transform, Indicate
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_一元一次方程的解法.py 一元一次方程的解法Animation
-    pass
