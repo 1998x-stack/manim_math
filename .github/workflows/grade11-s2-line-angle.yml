@@ -1,0 +1,30 @@
+name: Grade 11 S2 perpendicular and angle
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十一章-坐标平面上的直线/004两直线垂直与夹角/**'
+      - '.github/workflows/grade11-s2-line-angle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  perpendicular-angle-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十一章-坐标平面上的直线/004两直线垂直与夹角
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and mathematical regression without Manim
+        env:
+          LESSON: 高中/高二/第二学期/第十一章-坐标平面上的直线/004两直线垂直与夹角
+        run: |
+          python -m py_compile "$LESSON/two_lines_angle.py" "$LESSON/verify_two_lines_angle.py"
+          python "$LESSON/verify_two_lines_angle.py" -v
