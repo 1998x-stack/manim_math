@@ -44,7 +44,7 @@ jobs:
             README.md
             AGENTS.md
             # Unit tests inspect these actual lesson sources, without importing Manim.
-            # Only the named .py files are fetched; course MP4 media remain excluded.
+            # Only named files are fetched; course MP4 media remain excluded.
             小学/一年级/上册/第一章-10以内数的认识/001数一数/counting_animation.py
             小学/一年级/下册/第二章-100以内数的认识/003百数表/003_百数表.py
             小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合/005_连加、连减、加减混合.py
@@ -53,6 +53,8 @@ jobs:
             小学/五年级/第一学期/第三章-统计/001平均数的意义/001平均数的意义_animation.py
             小学/五年级/第一学期/第四章-简易方程(一)/003等式的性质/003等式的性质_animation.py
             小学/五年级/第二学期/第三章-分数的意义和性质/001单位'1'/001单位_1__animation.py
+            高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/complex_roots.py
+            高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/description.json
             初中/七年级/第一学期/第九章-整式/003整式的加减法/003_整式的加减法.py
       - uses: actions/setup-python@v5
         with:
