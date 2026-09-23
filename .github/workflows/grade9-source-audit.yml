@@ -8,6 +8,7 @@ on:
       - "tools/tests/test_audit_grade9.py"
       - "tools/tests/test_grade9_similarity_concept.py"
       - "tools/tests/test_grade9_similarity_criteria.py"
+      - "tools/tests/test_grade9_similarity_properties.py"
       - ".github/workflows/grade9-source-audit.yml"
   workflow_dispatch:
 
@@ -28,6 +29,7 @@ jobs:
             /tools/tests/test_audit_grade9.py
             /tools/tests/test_grade9_similarity_concept.py
             /tools/tests/test_grade9_similarity_criteria.py
+            /tools/tests/test_grade9_similarity_properties.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -41,3 +43,5 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_concept.py' -v
       - name: Verify AA SAS SSS criteria and duplicate scene consistency
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_criteria.py' -v
+      - name: Verify corresponding segments, altitudes, bisectors and areas
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_properties.py' -v
