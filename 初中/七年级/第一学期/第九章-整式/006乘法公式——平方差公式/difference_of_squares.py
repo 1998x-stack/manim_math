@@ -1,6 +1,6 @@
-"""平方差公式：先以 a>b>0 的真实几何拆拼证明，再说明一般恒等式。
+"""平方差公式：几何示意只使用 a>b>0，代数恒等式不限制符号。
 
-Scene 入口保持 DifferenceOfSquares，未覆盖现有 MP4。
+保留原有 DifferenceOfSquares Scene；旧视频和音轨不在本次修复范围。
 """
 
 from manim import *
@@ -19,10 +19,7 @@ SAFE_WIDTH = 7.4
 
 
 def area_geometry(a, b):
-    """仅计算数学尺寸；场景图形必须使用同一份结果。
-
-    a>b>0 才能作为两块正面积矩形的剪拼示意；一般代数恒等式不受此限制。
-    """
+    """纯 Python 面积模型；场景中的矩形均从同一份尺寸生成。"""
     import math
 
     try:
@@ -34,23 +31,27 @@ def area_geometry(a, b):
     h = a - b
     pieces = ((a, h), (h, b))
     target = (a + b, h)
-    if a * a - b * b != pieces[0][0] * pieces[0][1] + pieces[1][0] * pieces[1][1]:
-        raise AssertionError("分块面积错误")
+    area_before = a * a - b * b
+    area_pieces = a * h + h * b
+    area_after = target[0] * target[1]
+    if not (math.isclose(area_before, area_pieces, rel_tol=1e-12, abs_tol=1e-12)
+            and math.isclose(area_pieces, area_after, rel_tol=1e-12, abs_tol=1e-12)):
+        raise AssertionError("分块与重组面积不一致")
     return {"a": a, "b": b, "h": h, "cut_area": b * b,
             "original_area": a * a, "pieces": pieces, "target": target,
-            "remaining_area": a * a - b * b}
+            "remaining_area": area_before}
 
 
 class DifferenceOfSquares(Scene):
-    """七镜头：代数展开、减去小正方形、实际两块拼接和逆用。"""
+    """七镜头：分配律、真实两块面积拆拼、例题和逆用。"""
 
     def fit(self, mob, max_width=SAFE_WIDTH):
         if mob.width > max_width:
             mob.scale_to_fit_width(max_width)
         return mob
 
-    def heading(self, caption):
-        return self.fit(Text(caption, font_size=38, color=YELLOW)).move_to(UP * 5.5)
+    def heading(self, message):
+        return self.fit(Text(message, font_size=38, color=YELLOW)).move_to(UP * 5.5)
 
     def mathline(self, latex, y, color=WHITE, size=42):
         return self.fit(MathTex(latex, color=color, font_size=size)).move_to(UP * y)
@@ -114,12 +115,11 @@ class DifferenceOfSquares(Scene):
         top = MathTex("a", font_size=32).next_to(self.square_a, UP, buff=0.18)
         side = MathTex("a", font_size=32).next_to(self.square_a, LEFT, buff=0.18)
         self.big_labels = VGroup(top, side)
-        area = self.mathline(r"S_{\text{大正方形}}=a^2", -4.5, PURPLE_AREA, 35)
+        area = self.mathline(r"S=a^2", -4.5, PURPLE_AREA, 39)
         self.play(Write(title), Create(self.square_a), run_time=0.9)
         self.play(Write(self.big_labels), Write(area), run_time=0.7)
         self.wait(1)
         self.play(FadeOut(title), FadeOut(area), run_time=0.35)
-        # square_a 与 big_labels 是下一镜头实际在屏对象，不创建复制品。
 
     def scene_4_subtract_square_b(self):
         title = self.heading("减去右上角边长 b 的正方形")
@@ -130,7 +130,7 @@ class DifferenceOfSquares(Scene):
                               + UP * (self.h / 2)
                           )
         cut_label = MathTex(r"b^2", font_size=33, color=WHITE).move_to(self.cut)
-        # 底块宽 a、高 a-b；左上块宽 a-b、高 b，恰好覆盖 L 形的两块非交叠区域。
+        # 底块宽 a、高 a-b；左上块宽 a-b、高 b，恰好不重叠地覆盖剩余区域。
         self.bottom_rect = Rectangle(width=self.a, height=self.h,
                                      color=BLUE_AREA, stroke_width=2,
                                      fill_color=BLUE_AREA, fill_opacity=0.55)
@@ -140,22 +140,20 @@ class DifferenceOfSquares(Scene):
                                     fill_color=GREEN_AREA, fill_opacity=0.55)
         self.upper_rect.move_to(self.square_center + LEFT * (self.b / 2)
                                 + UP * (self.h / 2))
-        note = self.mathline(r"S_{\text{剩余}}=a^2-b^2", -4.6, YELLOW, 38)
+        note = self.mathline(r"S=a^2-b^2", -4.6, YELLOW, 40)
         self.play(Write(title), FadeIn(self.cut), FadeIn(cut_label), run_time=0.8)
         self.play(FadeIn(self.bottom_rect), FadeIn(self.upper_rect), run_time=0.7)
         self.play(Write(note), run_time=0.65)
-        self.wait(1.0)
+        self.wait(1)
         self.play(FadeOut(self.square_a), FadeOut(self.cut), FadeOut(cut_label),
                   FadeOut(self.big_labels), FadeOut(title), FadeOut(note),
                   run_time=0.55)
-        # 只保留 bottom_rect、upper_rect 两块，下一镜头移动它们本身。
 
     def scene_5_rearrange_rectangles(self):
         title = self.heading("剪拼不改变面积")
         guide = self.label("把左上块转过来，拼在底块的右边", 3.4, YELLOW)
         self.play(Write(title), FadeIn(guide), run_time=0.75)
-        # 目标：底块 x∈[-(a+b)/2, (a-b)/2]；旋转块 x∈[(a-b)/2,(a+b)/2]。
-        # 二者 y∈[-0.8-(a-b)/2, -0.8+(a-b)/2]，共边不重叠也没有缝隙。
+        # 两块最终共边 x=(a-b)/2，且宽、高分别拼成 a+b、a-b。
         self.play(
             self.bottom_rect.animate.move_to([-self.b / 2, -0.8, 0]),
             self.upper_rect.animate.rotate(-PI / 2).move_to([self.a / 2, -0.8, 0]),
@@ -178,12 +176,12 @@ class DifferenceOfSquares(Scene):
 
     def scene_6_concrete_example(self):
         title = self.heading("回到开头的例题")
-        line1 = self.mathline(r"(x+2)(x-2)", 3.7, BLUE_AREA, 50)
-        line2 = self.mathline(r"=x^2-2^2", 1.5, WHITE, 47)
+        first = self.mathline(r"(x+2)(x-2)", 3.7, BLUE_AREA, 50)
+        second = self.mathline(r"=x^2-2^2", 1.5, WHITE, 47)
         result = self.mathline(r"=x^2-4", -0.7, GREEN_AREA, 52)
-        note = self.label("几何图用 a>b>0；代数恒等式对任意实数 a、b 成立", -3.2, YELLOW)
-        self.play(Write(title), Write(line1), run_time=0.95)
-        self.play(Write(line2), run_time=0.65)
+        note = self.label("面积图取 a>b>0；代数恒等式对任意实数 a、b 成立", -3.2, YELLOW)
+        self.play(Write(title), Write(first), run_time=0.95)
+        self.play(Write(second), run_time=0.65)
         self.play(Write(result), run_time=0.65)
         self.play(FadeIn(note), run_time=0.6)
         self.wait(1.3)
