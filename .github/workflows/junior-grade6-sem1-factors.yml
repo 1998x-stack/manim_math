@@ -15,6 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/六年级/第一学期/第一章-数的整除/002因数与倍数/factors_multiples.py
+            /初中/六年级/第一学期/第一章-数的整除/002因数与倍数/verify_factors_multiples.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
