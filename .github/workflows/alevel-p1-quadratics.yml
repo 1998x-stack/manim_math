@@ -1,0 +1,40 @@
+name: A-Level P1 quadratics consolidated source and math tests
+
+on:
+  pull_request:
+    paths:
+      - '高中/A-Level/P1/01-Quadratics/**'
+      - '高中/A-Level/README.md'
+      - '.github/workflows/alevel-p1-quadratics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quadratic-lessons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/A-Level/P1/01-Quadratics/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile A-Level P1 lesson sources
+        run: python -m compileall -q '高中/A-Level/P1/01-Quadratics'
+      - name: Run separate math suites of both new lessons
+        shell: bash
+        run: |
+          set -euo pipefail
+          for lesson in \
+            '高中/A-Level/P1/01-Quadratics/03-quadratic-formula' \
+            '高中/A-Level/P1/01-Quadratics/04-linear-quadratic-simultaneous'; do
+            test -f "$lesson/test_math.py"
+            (cd "$lesson" && python -m unittest -v test_math.py)
+          done
