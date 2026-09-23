@@ -7,6 +7,7 @@
 | 仓库结构 | [文件与交付物地图](engineering/repository-map.md) | 分辨课程、源码、Prompt、视频和生成器的职责 |
 | 现状与架构 | [审计](architecture/audit.md)、[系统架构](architecture/architecture.md) | 新增基础设施或定位历史兼容边界 |
 | 第二阶段设计 | [稳定身份 ADR](architecture/adr-0001-stable-identities.md)、[阶段二蓝图](architecture/phase-2-blueprint.md)、[数据契约](architecture/phase-2-data-contract.md) | 设计 Topic/Scene/Artifact 身份、旧索引兼容及逐步迁移；这些是设计文档而非已完成迁移的声明 |
+| 第三阶段实施 | [课程审计与修复计划](engineering/phase-3-plan.md)、[质量门禁](engineering/quality-gates.md) | 使用只读审计工具定位 Prompt、Scene 和媒体歧义，并依阶段验收核心修复 |
 | 分类与迁移 | [分类规范](architecture/categories.md)、[迁移计划](architecture/migration.md) | 新增 topic、调整路径、修改画廊索引 |
 | 课程参考 | [章节资料](curriculum/章节.md) | 核对学段、教材、知识点和先修条件；资料不代替教材核验 |
 | Prompt | [历史提示词索引](prompts/README.md)、[分层编写规范](prompts/authoring.md) | 解析知识点 `prompt.md`，形成可执行创作契约 |
@@ -17,4 +18,4 @@
 
 **事实优先级**：具体作品中的数学问题与已核实教材要求 → 项目已有的明确兼容约束 → 当前工程规范和相关 Skill → 历史 Prompt/研究资料。若存在冲突，先记录冲突并核验，不静默更改教学目标或编造来源。纯数学证明、近似实验和视觉演示是不同层级的证据。
 
-建议阅读顺序：[根目录 README](../README.md) → [文件地图](engineering/repository-map.md) → [Prompt 编写规范](prompts/authoring.md) → [工作流](engineering/scene-workflow.md) → [相关 Skill](../skills/README.md) → [质量门禁](engineering/quality-gates.md)。
+建议阅读顺序：[根目录 README](../README.md) → [文件地图](engineering/repository-map.md) → [Prompt 编写规范](prompts/authoring.md) → [第三阶段计划](engineering/phase-3-plan.md) → [工作流](engineering/scene-workflow.md) → [相关 Skill](../skills/README.md) → [质量门禁](engineering/quality-gates.md)。
