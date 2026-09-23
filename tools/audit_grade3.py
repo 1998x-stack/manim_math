@@ -15,6 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 GRADE3 = Path("小学/三年级")
 UNSAFE_MATH_TEX = re.compile(r"[\u3400-\u9fff×÷＝]")
+# Historical generic animations use this sentence in place of actual lesson content.
+GENERIC_PLACEHOLDER = re.compile(r"正在学习.{1,80}的概念[.。…]{2,}")
 SCENE_BASES = {"Scene", "MovingCameraScene", "ThreeDScene", "ZoomedScene"}
 
 
@@ -27,7 +29,7 @@ def _callee_name(node: ast.expr) -> str | None:
 
 
 def _literal_chunks(node: ast.expr) -> list[str]:
-    """Inspect the known literal parts of a string or f-string (not variables)."""
+    """Inspect known literal parts of strings or f-strings, not dynamic variables."""
     if isinstance(node, ast.Constant) and isinstance(node.value, str):
         return [node.value]
     if isinstance(node, ast.JoinedStr):
@@ -60,6 +62,10 @@ def audit_file(path: Path, root: Path) -> list[dict[str, object]]:
                "No direct Scene subclass; may be a helper module or unfinished lesson")
 
     for node in ast.walk(module):
+        if isinstance(node, (ast.Constant, ast.JoinedStr)):
+            if any(GENERIC_PLACEHOLDER.search(part) for part in _literal_chunks(node)):
+                report("GENERIC_LESSON_PLACEHOLDER", "warning", node.lineno,
+                       "Generic lesson-introduction placeholder; implement the actual math content")
         if not isinstance(node, ast.Call) or _callee_name(node.func) not in {"MathTex", "Tex"}:
             continue
         arguments = list(node.args) + [kw.value for kw in node.keywords
@@ -76,7 +82,7 @@ def audit_file(path: Path, root: Path) -> list[dict[str, object]]:
 def audit_tree(root: Path = ROOT) -> dict[str, object]:
     course = root / GRADE3
     if not course.is_dir():
-        return {"files": 0, "scenes": 0,
+        return {"files": 0, "scene_files": 0,
                 "issues": [{"file": GRADE3.as_posix(), "line": 1,
                             "severity": "error", "code": "MISSING_DIRECTORY",
                             "detail": "Grade-three directory not found"}]}
@@ -87,7 +93,6 @@ def audit_tree(root: Path = ROOT) -> dict[str, object]:
     for path in files:
         per_file = audit_file(path, root)
         issues.extend(per_file)
-        # Count files containing a syntactically valid direct Scene subclass.
         if not any(issue["code"] in {"PYTHON_SYNTAX", "NO_SCENE"}
                    for issue in per_file):
             scene_count += 1
@@ -98,7 +103,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="Print machine-readable results")
     parser.add_argument("--strict", action="store_true",
-                        help="Exit nonzero on errors and MathTex warnings")
+                        help="Exit nonzero on errors and warnings")
     args = parser.parse_args()
     result = audit_tree()
     if args.json:
