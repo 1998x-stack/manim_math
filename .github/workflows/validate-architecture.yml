@@ -56,7 +56,7 @@ jobs:
             小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/lesson.py
             小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/area_model.py
             小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/test_area_model.py
-            小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/geometry_spec.json
+            小学/五年级/第一学期/第五章-几何小实践/005等面积法-梯形蝴蝶模型/area_model.py
             小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/lesson.py
             小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/area_model.py
             小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/test_area_model.py
@@ -69,6 +69,8 @@ jobs:
             高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/complex_roots.py
             高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/description.json
             高中/高一/第一学期/第一章-集合与命题/002集合间的关系/verify_sets.py
+            # Keep all first-chapter lesson Python sources with their CI regression tests.
+            高中/高一/第一学期/第一章-集合与命题/*/*.py
             高中/高一/第二学期/第六章-三角函数/003函数y=Asin(ωx+φ)的图像与性质/verify_geometry.py
       - uses: actions/setup-python@v5
         with:
