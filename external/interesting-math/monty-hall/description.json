@@ -1,0 +1,15 @@
+{
+  "topic_id": "exploration-monty-hall",
+  "title": "三扇门，换不换？",
+  "kind": "exploration",
+  "level": "cross-level",
+  "audience": "初中／高中概率拓展",
+  "domains": ["probability", "mathematical-thinking"],
+  "visualizations": ["simulation", "worked-example"],
+  "curriculum": null,
+  "scene_file": "scene.py",
+  "scene_class": "MontyHallScene",
+  "storyboard": "storyboard.md",
+  "status": "draft",
+  "media": ["source"]
+}

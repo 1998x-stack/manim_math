@@ -1,0 +1,45 @@
+name: Interesting math static quality
+
+on:
+  pull_request:
+    paths:
+      - 'external/interesting-math/**'
+      - '.github/workflows/interesting-math-quality.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'external/interesting-math/**'
+      - '.github/workflows/interesting-math-quality.yml'
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            external/interesting-math
+            .claude/skills/manim-video-production/scripts/audit_scene.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile each Manim Scene without importing Manim
+        shell: bash
+        run: |
+          set -euo pipefail
+          for scene in external/interesting-math/*/scene.py; do
+            python -m py_compile "$scene"
+          done
+      - name: Check scenes against production Skill AST gotchas
+        shell: bash
+        run: |
+          set -euo pipefail
+          for scene in external/interesting-math/*/scene.py; do
+            python .claude/skills/manim-video-production/scripts/audit_scene.py "$scene"
+          done
+      - name: Verify independent mathematical invariants
+        run: python -m unittest discover -s external/interesting-math -p 'test_*.py' -v

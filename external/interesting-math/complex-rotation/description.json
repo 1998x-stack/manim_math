@@ -1,0 +1,15 @@
+{
+  "topic_id": "exploration-complex-rotation",
+  "title": "复数乘法 = 平面旋转？",
+  "kind": "exploration",
+  "level": "senior",
+  "audience": "高中复数拓展",
+  "domains": ["algebra", "geometry.analytic"],
+  "visualizations": ["graph", "transformation"],
+  "curriculum": null,
+  "scene_file": "scene.py",
+  "scene_class": "ComplexRotationScene",
+  "storyboard": "storyboard.md",
+  "status": "draft",
+  "media": ["source"]
+}
