@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "topic_id": "geometry.euler-line",
+  "title": "欧拉线",
+  "level": ["cross-level"],
+  "domains": ["geometry.euclidean.triangle.centers"],
+  "visualizations": ["construction", "proof"],
+  "kind": "exploration",
+  "status": "legacy-imported",
+  "curriculum": {"edition": null, "system": null, "grade": null, "semester": null, "chapter": null, "knowledgePoint": null},
+  "scenes": [{"scene_id": "euler-line.main", "source": "external/euler_line.py", "class": "EulerLineScene"}],
+  "artifacts": [],
+  "legacy_paths": ["external/euler_line.py"],
+  "notes": "Schema example only. Not consumed by assets/build_catalog.py, and not evidence that this scene was rendered or mathematically reverified."
+}

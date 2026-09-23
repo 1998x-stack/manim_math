@@ -18,11 +18,15 @@ __pycache__/
 # Logs
 *.log
 
-# Videos (rendered output)
+# Videos (rendered output; does not untrack existing media)
 *.mp4
 
-# Editor / tools
-.claude/
-.opencode/
+# Editor / tools: private local state is ignored, shared project skills are tracked
+.claude/*
+!.claude/skills/
+.opencode/*
+!.opencode/skills/
+.codex/*
+!.codex/skills/
 doc.md
 .ruff_cache/
