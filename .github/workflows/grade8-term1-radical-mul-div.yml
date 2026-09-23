@@ -1,0 +1,32 @@
+name: Grade 8 term 1 radical multiplication division
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/**"
+      - ".github/workflows/grade8-term1-radical-mul-div.yml"
+      - ".opencode/skills/manim-video-production/scripts/audit_scene.py"
+  workflow_dispatch:
+
+jobs:
+  radical-mul-div-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check source syntax without importing Manim
+        run: python -m py_compile "初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/radical_mul_div.py"
+      - name: Run domain, numeric examples, geometry and scene tests
+        run: python -m unittest discover -s "初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法" -p 'test_radical_mul_div_math.py' -v
+      - name: Audit actual lesson source using the production Skill
+        run: python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/radical_mul_div.py" --json
