@@ -1,0 +1,30 @@
+name: Grade 11 S2 line equations
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十一章-坐标平面上的直线/002直线的方程/**'
+      - '.github/workflows/grade11-s2-line-equations.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  line-equations-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十一章-坐标平面上的直线/002直线的方程
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile scene and test independent mathematics (Manim not required)
+        env:
+          LESSON: 高中/高二/第二学期/第十一章-坐标平面上的直线/002直线的方程
+        run: |
+          python -m py_compile "$LESSON/line_equations.py" "$LESSON/verify_line_equations.py"
+          python "$LESSON/verify_line_equations.py" -v
