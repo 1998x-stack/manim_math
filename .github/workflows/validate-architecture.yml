@@ -43,21 +43,23 @@ jobs:
             tests
             README.md
             AGENTS.md
-            # Unit tests inspect these actual lesson sources, without importing Manim.
-            # Only named files are fetched; course MP4 media remain excluded.
+            # Unit tests inspect actual lesson sources and JSON geometry; course MP4 remain excluded.
             小学/一年级/上册/第一章-10以内数的认识/001数一数/counting_animation.py
             小学/一年级/下册/第二章-100以内数的认识/003百数表/003_百数表.py
             小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合/005_连加、连减、加减混合.py
             小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法(竖式计算)/001_笔算乘法(竖式计算).py
+            小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法_竖式计算__animation.py
             小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法(竖式计算)/001笔算乘法_竖式计算__animation.py
             小学/五年级/第一学期/第三章-统计/001平均数的意义/001平均数的意义_animation.py
             小学/五年级/第一学期/第四章-简易方程(一)/003等式的性质/003等式的性质_animation.py
             小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/lesson.py
             小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/area_model.py
             小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/test_area_model.py
+            小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/geometry_spec.json
             小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/lesson.py
             小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/area_model.py
             小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/test_area_model.py
+            小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/geometry_spec.json
             小学/五年级/第二学期/第三章-分数的意义和性质/001单位'1'/001单位_1__animation.py
             初中/七年级/第一学期/第九章-整式/003整式的加减法/003_整式的加减法.py
             初中/八年级/第一学期/第十七章-一元二次方程/001一元二次方程的概念/001_一元二次方程的概念.py
