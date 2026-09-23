@@ -1,0 +1,54 @@
+# Temporary, branch-scoped maintainer automation. Remove after its one-shot repair.
+name: Apply first-batch reviewed source fixes
+
+on:
+  push:
+    branches:
+      - feat/commit-gotchas-video-pipeline-20260923
+    paths:
+      - '.github/workflows/apply-first-batch-repair.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  one-shot-repair:
+    if: github.repository == '1998x-stack/manim_math' && github.ref == 'refs/heads/feat/commit-gotchas-video-pipeline-20260923'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/repair_first_batch.py
+            /tools/commit_gotchas.py
+            /external/monge_circle.py
+            /初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply exact-source repairs and compile both scenes
+        run: |
+          python tools/repair_first_batch.py --apply
+          python tools/repair_first_batch.py
+          python - <<'PY'
+          from pathlib import Path
+          from tools import commit_gotchas
+          for relative, *_ in __import__('tools.repair_first_batch', fromlist=['TARGETS']).TARGETS:
+              path = Path(relative)
+              compile(path.read_bytes(), str(path), 'exec')
+              risks = {entry['rule'] for entry in commit_gotchas.inspect_source(path.resolve())}
+              assert 'NESTED_PLAY' not in risks and 'CHINESE_IN_TEX' not in risks, (path, risks)
+              print('Repaired and statically verified:', path)
+          PY
+          git diff --check
+      - name: Push two source-only fixes to this feature branch
+        run: |
+          git add -- external/monge_circle.py '初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py'
+          if git diff --cached --quiet; then
+            echo 'No changes: already repaired'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'fix(gotchas): remove two confirmed first-batch Manim render defects'
+          git push origin "HEAD:refs/heads/feat/commit-gotchas-video-pipeline-20260923"
