@@ -1,0 +1,28 @@
+name: Grade 8 term 1 radical concept
+
+on:
+  pull_request:
+    paths:
+      - '初中/八年级/第一学期/第十六章-二次根式/001二次根式的概念/**'
+      - '.github/workflows/grade8-term1-radical-concept.yml'
+  workflow_dispatch:
+
+jobs:
+  radical-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十六章-二次根式/001二次根式的概念/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check Python syntax without importing Manim
+        run: python -m compileall -q '初中/八年级/第一学期/第十六章-二次根式/001二次根式的概念'
+      - name: Test the exact radical lesson domain and boundaries
+        run: python -m unittest discover -s '初中/八年级/第一学期/第十六章-二次根式/001二次根式的概念' -p 'test_radical_math.py' -v
