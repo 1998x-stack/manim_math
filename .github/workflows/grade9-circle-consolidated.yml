@@ -1,0 +1,39 @@
+name: Grade 9 consolidated circle lesson checks
+
+on:
+  pull_request:
+    paths:
+      - '初中/九年级/第二学期/第二十七章-圆与正多边形/**'
+      - '.github/workflows/grade9-circle-consolidated.yml'
+  workflow_dispatch:
+
+jobs:
+  circle-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/九年级/第二学期/第二十七章-圆与正多边形/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile circle lesson scripts
+        run: python -m compileall -q '初中/九年级/第二学期/第二十七章-圆与正多边形'
+      - name: Run all individual circle mathematics tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          while IFS= read -r -d '' test_file; do
+            python "$test_file"
+            count=$((count + 1))
+          done < <(find '初中/九年级/第二学期/第二十七章-圆与正多边形' -type f -name 'test_*.py' -print0 | sort -z)
+          if [ "$count" -lt 5 ]; then
+            echo "Expected at least five per-lesson regression suites, found $count" >&2
+            exit 1
+          fi
