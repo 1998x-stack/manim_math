@@ -1,0 +1,32 @@
+name: Grade 8 term 1 direct square root method
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第一学期/第十七章-一元二次方程/002解法——直接开平方法/**"
+      - ".github/workflows/grade8-term1-direct-square-root.yml"
+      - ".opencode/skills/manim-video-production/scripts/audit_scene.py"
+  workflow_dispatch:
+
+jobs:
+  direct-square-root-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十七章-一元二次方程/002解法——直接开平方法/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check Manim scene source syntax
+        run: python -m py_compile "初中/八年级/第一学期/第十七章-一元二次方程/002解法——直接开平方法/direct_square_root.py"
+      - name: Validate three real-root count cases and real equation substitutions
+        run: python -m unittest discover -s "初中/八年级/第一学期/第十七章-一元二次方程/002解法——直接开平方法" -p 'test_direct_square_root_math.py' -v
+      - name: Production Skill AST audit
+        run: python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第一学期/第十七章-一元二次方程/002解法——直接开平方法/direct_square_root.py" --json
