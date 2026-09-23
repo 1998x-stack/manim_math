@@ -30,7 +30,7 @@ def called_name(node: ast.AST) -> str | None:
 
 
 def literal_strings(node: ast.AST):
-    """Collect statically visible string pieces, including strings in nested lists."""
+    """Collect statically visible string pieces, including nested lists and f-strings."""
     if isinstance(node, ast.Constant) and isinstance(node.value, str):
         yield node.value
     elif isinstance(node, ast.JoinedStr):
@@ -66,19 +66,20 @@ def audit_source(source: str) -> list[dict]:
             continue
         name = called_name(node.func)
         if name == "MathTex":
-            # Literal arguments only; dynamic values are deliberately not treated as safe.
-            for arg in [*node.args, *(kw.value for kw in node.keywords if kw.arg not in {"font_size", "color", "tex_template"})]:
+            # Check literals, but never treat nonliteral expressions as statically verified.
+            text_args = [*node.args, *(kw.value for kw in node.keywords if kw.arg in {"tex_strings"})]
+            for arg in text_args:
                 for text in literal_strings(arg):
                     if CJK.search(text):
                         report("ERROR", node.lineno, "CJK_IN_MATHTEX", "将中文拆为 Text；MathTex 仅放数学 LaTeX。")
                     if "°" in text:
                         report("ERROR", node.lineno, "DEGREE_IN_MATHTEX", "将度数写为 ^\\circ。")
-            if not any(literal_strings(arg) for arg in node.args):
-                report("WARN", node.lineno, "DYNAMIC_MATHTEX", "动态公式字符串需要检查编译与中文字符。")
+            if not text_args or any(not isinstance(arg, (ast.Constant, ast.List, ast.Tuple))
+                                    or not list(literal_strings(arg)) for arg in text_args):
+                report("WARN", node.lineno, "DYNAMIC_MATHTEX", "动态或未知公式字符串需要检查编译与中文字符。")
         if name in PROBLEMATIC:
-            invalid = PROBLEMATIC[name]
             for kw in node.keywords:
-                if kw.arg in invalid:
+                if kw.arg in PROBLEMATIC[name]:
                     report("ERROR", node.lineno, "UNSUPPORTED_KEYWORD", f"{name} 不应传入 {kw.arg}；检查实际 Manim 版本。")
 
     if not has_scene:
