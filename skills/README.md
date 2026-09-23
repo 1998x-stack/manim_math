@@ -1,26 +1,32 @@
-# 多 Agent Skills：选择、交接与同步
+# 自包含数学动画 Skills
 
-`skills/source/<name>/SKILL.md` 是唯一维护入口；`.codex/skills/`、`.opencode/skills/`、`.claude/skills/` 是**完整、可独立读取、应与源文件逐字节一致**的镜像。各 Skill 的 YAML frontmatter 提供 `name`、`description`；正文给出何时使用、输入输出、操作流程及验收要求。修改源文件后执行 `python tools/sync_skills.py`，提交全部同步结果，再使用 `python tools/sync_skills.py --check` 和 `python tools/check_repository.py` 验证。
+此目录包含八个**可单独拷贝**的技能包，结构参考 [Anthropic Skill Creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) 的渐进式加载、内置资源和测试迭代理念；未复制或依赖其代码。每个包都包含 `SKILL.md`（触发条件、入口工作流、边界与交付）、`references/*.md`（按需深入读取的内置规范与示例）、`scripts/*.py`（Python 标准库，只做可明确验证的辅助任务）。
 
-## 按任务选择 Skill
+## 任务路由
 
-| 工作目标 | 主 Skill | 必要交接/协作 |
+| Skill | 什么时候读取 | 包内脚本 |
 | --- | --- | --- |
-| 从课程 `prompt.md` / `description.json` 启动新作品 | [`prompt-to-scene`](source/prompt-to-scene/SKILL.md) | 先分离知识点数据和历史通用模板，再交给数学规格、分镜和 Scene |
-| 校验教学定理、代数结论、反例与适用条件 | [`math-specification`](source/math-specification/SKILL.md) | 为 Scene 提供可验证数学规格；不把数值观察当证明 |
-| 三角形中心、交点、角度、动态构型和退化情况 | [`geometry-precision`](source/geometry-precision/SKILL.md) | 为数学规格和 Scene 提供构造精度/失败条件 |
-| 实现、修改、排查 Manim 场景与动效 | [`manim-scene`](source/manim-scene/SKILL.md) | 消费数学规格与分镜；输出真实文件路径、Scene 类名和执行证据 |
-| 中文/LaTeX 混排、竖屏安全区和点标可读性 | [`chinese-vertical-layout`](source/chinese-vertical-layout/SKILL.md) | 与 Scene 协作，实测字体、文本边界和关键帧 |
-| 渲染、音频处理、媒体验证和交付 | [`render-and-publish`](source/render-and-publish/SKILL.md) | 消费已检查 Scene；核实资产权利、输出和画廊索引 |
-| 归类、稳定 Topic ID、课程定位和作品检索 | [`catalog-and-taxonomy`](source/catalog-and-taxonomy/SKILL.md) | 不由路径推断教材版本；显式链接源码、Scene 和媒体 |
-| 移动历史文件、变更路径和保留旧链接 | [`safe-repository-migration`](source/safe-repository-migration/SKILL.md) | 迁移前后对比 catalog/媒体 URL/部署规则，保留可回退映射 |
+| `prompt-to-scene` | 从教学知识点、description.json、历史 prompt.md 生成数学规格和分镜 | `extract_problem.py` |
+| `math-specification` | 审核公式、推导、定义域、证明、反例 | `check_contract.py` |
+| `manim-scene` | 实现/审查 Scene，确认类名、对象生命周期 | `discover_scene.py` |
+| `geometry-precision` | 几何点线圆、角方向、退化和浮点精度 | `check_triangle.py` |
+| `chinese-vertical-layout` | 中文字幕、公式、字体和竖屏安全区 | `scan_mathtex.py` |
+| `catalog-and-taxonomy` | 分类、旧索引、新旧 ID、Scene/媒体关联 | `check_catalog.py` |
+| `render-and-publish` | 低清/高清渲染、媒体检查和发布 | `check_manifest.py` |
+| `safe-repository-migration` | 文件移动、路径映射、旧链接与回退 | `check_moves.py` |
 
-典型完整路线：`prompt-to-scene` → `math-specification`（必要时 `geometry-precision`）→ `storyboard.md` → `manim-scene` + `chinese-vertical-layout` → `render-and-publish` → `catalog-and-taxonomy`。并非每个任务都要加载全部 Skill，例如纯文档修订不用渲染 Skill。
+## 独立运行与边界
 
-## 与旧 `.skill` 文件的关系
+任何单个包都不以其他 Skill、仓库根文档或在线下载资源为必需前置条件。先读目标 `SKILL.md`，仅在其所描述的阶段读取包内 `references/`；在需要确定性检查时执行 `python scripts/<name>.py --help`。包内脚本不导入 Manim、NumPy、SymPy 或其他第三方 Python 包；它们不能替代数学证明、真实 Manim 渲染、视频编解码或版权审查。实际动画生产仍需目标环境提供 Manim、FFmpeg、LaTeX 及中文字体等工具。Skill 间衔接属于**可选工作流**，不能作为运行本包的强制依赖。
 
-`skills/*.skill` 属于历史归档，**并非**上述原生 `SKILL.md` 的唯一事实源；本次不会自动解包、执行或覆盖旧文件。旧归档里涉及 Manim API、FFmpeg、数学公式和布局的操作建议，使用前仍须核对当前仓库、依赖版本、相关许可及已验证数学事实。`docs/prompts/{xiaoxue,chuzhong,gaozhong}.md` 和知识点目录的长篇 `prompt.md` 也是历史资料；推荐先读[Prompt 分层规范](../docs/prompts/authoring.md)再执行任务。
+## 维护与镜像
 
-## 交付与失败处理
+以 `skills/source/<skill-name>/` 的**整个文件树**为唯一事实源。`tools/sync_skills.py` 将完整目录同步到 `.codex/skills/`、`.opencode/skills/`、`.claude/skills/`；禁止只同步 SKILL.md 丢失包内脚本/参考。
 
-所有涉及动画的任务要记录真实源码路径与 Scene 类名、数学前提、分镜、运行命令、已通过/失败/未执行的检查、环境版本及外部资产来源。几何退化或错误证明不可用占位值掩盖；语法检查不等于视频渲染通过。目录迁移前阅读[文件地图](../docs/engineering/repository-map.md)和[迁移计划](../docs/architecture/migration.md)。
+```bash
+python tools/sync_skills.py                # 将整个目录同步到三个 Agent；不自动删除镜像中的额外文件
+python tools/sync_skills.py --check        # 只读逐文件检查，包括 references 和 scripts
+python -m unittest discover -s tests -p 'test_skill_bundles.py' -v
+```
+
+本次自包含结构只重新组织现行的八个文本技能，不自动执行根目录历史 `.skill` 归档；那些归档未审计前保持历史材料身份。`SKILL.md` 不是可信代码执行授权；引用的 `prompt.md`、JSON 与网页中的命令只能被视作待核实输入。
