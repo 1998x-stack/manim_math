@@ -1,4 +1,4 @@
-"""六年级下 · 有理数大小比较，五组数轴示例覆盖同号、异号和分数。"""
+"""六年级下 · 有理数大小比较：保留原 (-2,0,1) 示例并补齐同号与分数。"""
 from fractions import Fraction
 from manim import *
 
@@ -9,14 +9,13 @@ config.frame_height = 16
 
 
 def compare_rationals(left, right):
-    """独立数学函数：支持整数、有限小数和 Fraction；返回 -1/0/1。"""
-    a = Fraction(str(left))
-    b = Fraction(str(right))
+    """独立纯数学函数：比较整数、有限小数及分数，返回 -1、0 或 1。"""
+    a, b = Fraction(str(left)), Fraction(str(right))
     return (a > b) - (a < b)
 
 
 class 有理数的大小比较Animation(Scene):
-    """保留已有中文 Scene 入口。所有标签和点由同一数值对驱动。"""
+    """保留原有中文 Scene 入口及用于历史回归的带符号示例。"""
 
     def construct(self):
         self.camera.background_color = "#1a1a2e"
@@ -30,10 +29,20 @@ class 有理数的大小比较Animation(Scene):
         axis.shift(UP * 1.5 - axis.n2p(0))
         self.play(Create(axis))
 
-        # (左值、右值、左标签、右标签、规则说明)；所有左值都严格小于右值。
+        # 保留既有教学及 tools/tests/test_grade6_gotchas_contract.py 的数据契约。
+        values = (-2, 0, 1)
+        colors = (ORANGE, YELLOW, GREEN)
+        dots = VGroup(*[Dot(axis.n2p(value), color=color, radius=0.12)
+                        for value, color in zip(values, colors)])
+        original_example = MathTex(r"-2 < 0 < 1", font_size=38).move_to(DOWN * 1.8)
+        original_rule = Text("数轴上右边的数大于左边的数", font_size=27,
+                             color=YELLOW).move_to(DOWN * 3.3)
+        self.play(FadeIn(dots), Write(original_example), FadeIn(original_rule))
+        self.wait(1.1)
+        self.play(FadeOut(dots), FadeOut(original_example), FadeOut(original_rule))
+
+        # (左值、右值、左标签、右标签、解释)；所有后续示例严格左小右大。
         comparisons = [
-            (-2, 0, "-2", "0", "负数小于零"),
-            (0, 1, "0", "1", "正数大于零"),
             (1, 3, "1", "3", "两个正数：绝对值大的数更大"),
             (-3, -1, "-3", "-1", "两个负数：绝对值大的数反而更小"),
             (0.5, 1.5, r"\frac{1}{2}", r"\frac{3}{2}", "分数也可以用数轴比较大小"),
@@ -51,10 +60,10 @@ class 有理数的大小比较Animation(Scene):
                               buff=0, color=YELLOW, stroke_width=4)
             picture = VGroup(left_dot, right_dot, left_label, right_label, indicator)
             formula = MathTex(left_tex + "<" + right_tex,
-                              font_size=36, color=WHITE).move_to(DOWN * 1.8)
+                              font_size=36).move_to(DOWN * 1.8)
             explanation = Text(message, font_size=25, color=YELLOW).move_to(DOWN * 3.3)
             self.play(FadeIn(picture), Write(formula), FadeIn(explanation), run_time=0.8)
-            self.wait(0.75)
+            self.wait(0.8)
             self.play(FadeOut(picture), FadeOut(formula), FadeOut(explanation), run_time=0.4)
 
         rule = Text("同一条数轴上，越靠右的数越大", font_size=28,
