@@ -1,12 +1,9 @@
-"""
-不等式的基本性质 - 完整版 Manim教学动画
-Inequality Properties - Full Version Teaching Animation
+"""不等式的基本性质：每一步数轴数值、公式与数学条件均保持一致。
 
-包含所有六大性质的详细展示
+预览：manim -ql inequality_properties_full.py InequalityPropertiesFull
+正式渲染、字体、TeX 及 Mobject 边界需在有依赖的环境单独验收。
 """
-
 from manim import *
-import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
@@ -14,438 +11,202 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+# 上下两根数轴各展示同一对数字在操作前后的实际值。
+# 每条记录：操作前两数、操作后两数、原不等号、最终不等号。
+NUMBER_LINE_CASES = {
+    "symmetry": ((3, 1), (1, 3), ">", "<"),
+    "transitivity": ((4, 2), (4, -1), ">", ">"),
+    "addition": ((3, 1), (1, -1), ">", ">"),
+    "positive": ((2, 1), (4, 2), ">", ">"),
+    "negative": ((2, 1), (-4, -2), ">", "<"),
+}
+SQUARE_SIDES = (3, 2)
+SQUARE_UNIT = 0.61
+
+
 class InequalityPropertiesFull(Scene):
-    """完整版：包含全部6个性质"""
-    
+    """保留开场、六项性质、总结、片尾共九个教学环节。"""
+
+    FONT = "Noto Sans CJK SC"
+    C_PRIMARY = "#3498db"
+    C_SECONDARY = "#e74c3c"
+    C_POSITIVE = "#2ecc71"
+    C_NEGATIVE = "#e67e22"
+    C_WARNING = "#f39c12"
+
     def construct(self):
         self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.C_PRIMARY = "#3498db"
-        self.C_SECONDARY = "#e74c3c"
-        self.C_POSITIVE = "#2ecc71"
-        self.C_NEGATIVE = "#e67e22"
-        self.C_WARNING = "#f39c12"
-        
-        # 数轴配置
-        self.nl_config = {
-            "x_range": [-6, 6, 1],
-            "length": 8,
-            "include_numbers": True,
-            "numbers_to_include": range(-6, 7),
-            "font_size": 20
-        }
-        
-        # 执行所有场景
+        self.author_info = self._text("上海初高中数学直通车 @emptyandcalm", 18, GRAY_B)
+        self.author_info.move_to(UP * 6.78)
+        self.add(self.author_info)
         self.show_opening()
-        self.show_property_1()  # 对称性
-        self.show_property_2()  # 传递性
-        self.show_property_3()  # 加法
-        self.show_property_4()  # 乘正数
-        self.show_property_5()  # 乘负数 ⚠️
-        self.show_property_6()  # 平方
+        self.show_property_1()
+        self.show_property_2()
+        self.show_property_3()
+        self.show_property_4()
+        self.show_property_5()
+        self.show_property_6()
         self.show_summary()
         self.show_outro()
-    
-    def show_opening(self):
-        """开场"""
-        author = Text("上海初高中数学直通车 @emptyandcalm", font="PingFang SC", font_size=20, color=GRAY_B).move_to(UP * 7)
-        self.author_info = author
-        self.play(FadeIn(author), run_time=0.3)
-        
-        hook1 = Text("3 > 1", font="PingFang SC", font_size=52, color=YELLOW, weight=BOLD).move_to(UP * 3)
-        hook2 = Text("两边同时乘以 -2", font="PingFang SC", font_size=36, color=WHITE).move_to(UP * 1.5)
-        hook3 = Text("会发生什么？", font="PingFang SC", font_size=40, color=self.C_SECONDARY, weight=BOLD).move_to(ORIGIN)
-        qmark = Text("?", font_size=80, color=self.C_WARNING).move_to(DOWN * 2)
-        
-        self.play(Write(hook1), run_time=0.8)
-        self.play(FadeIn(hook2), run_time=0.6)
-        self.wait(0.5)
-        self.play(Write(hook3), FadeIn(qmark, scale=1.5), run_time=0.8)
-        self.play(Wiggle(qmark), Flash(qmark), run_time=0.6)
-        self.wait(1.2)
-        self.play(FadeOut(VGroup(hook1, hook2, hook3, qmark)), run_time=0.5)
-    
-    def show_property_1(self):
-        """性质1: 对称性"""
-        title = Text("性质1：对称性", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
-        self.play(FadeIn(title), run_time=0.5)
-        
-        nl = NumberLine(**self.nl_config).move_to(UP * 2.5)
-        self.play(Create(nl), run_time=0.8)
-        
-        pos_a = nl.n2p(3)
-        pos_b = nl.n2p(1)
-        
-        dot_a = Dot(pos_a, color=self.C_PRIMARY, radius=0.12)
-        dot_b = Dot(pos_b, color=self.C_SECONDARY, radius=0.12)
-        label_a = MathTex("a", color=self.C_PRIMARY, font_size=28).next_to(dot_a, UP, buff=0.2)
-        label_b = MathTex("b", color=self.C_SECONDARY, font_size=28).next_to(dot_b, UP, buff=0.2)
-        
-        self.play(FadeIn(dot_a, scale=0.5), Write(label_a), FadeIn(dot_b, scale=0.5), Write(label_b), run_time=0.6)
-        
-        f1 = MathTex("a", ">", "b", font_size=40).move_to(ORIGIN)
-        f1[0].set_color(self.C_PRIMARY)
-        f1[2].set_color(self.C_SECONDARY)
-        self.play(Write(f1), run_time=0.6)
-        
-        arrow1 = Arrow(pos_a + DOWN * 0.5, pos_b + DOWN * 0.5, color=YELLOW, buff=0.1, stroke_width=4)
-        self.play(GrowArrow(arrow1), run_time=0.5)
-        self.wait(0.5)
-        
-        f2 = MathTex("a", ">", "b", "\\Leftrightarrow", "b", "<", "a", font_size=40).move_to(ORIGIN)
-        f2[0].set_color(self.C_PRIMARY)
-        f2[2].set_color(self.C_SECONDARY)
-        f2[4].set_color(self.C_SECONDARY)
-        f2[6].set_color(self.C_PRIMARY)
-        
-        self.play(TransformMatchingTex(f1, f2), run_time=1.0)
-        
-        arrow2 = Arrow(pos_b + DOWN * 0.5, pos_a + DOWN * 0.5, color=self.C_SECONDARY, buff=0.1, stroke_width=4)
-        self.play(Transform(arrow1, arrow2), run_time=0.8)
-        
-        exp = Text("不等号两边交换，方向改变", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 3)
-        self.play(FadeIn(exp), run_time=0.5)
-        self.wait(1.2)
-        
-        self.play(FadeOut(VGroup(title, nl, dot_a, dot_b, label_a, label_b, f2, arrow1, exp)), run_time=0.5)
-    
-    def show_property_2(self):
-        """性质2: 传递性"""
-        title = Text("性质2：传递性", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
-        self.play(FadeIn(title), run_time=0.5)
-        
-        nl = NumberLine(**self.nl_config).move_to(UP * 3)
-        self.play(Create(nl), run_time=0.8)
-        
-        pos_a = nl.n2p(4)
-        pos_b = nl.n2p(2)
-        pos_c = nl.n2p(-1)
-        
-        dot_a = Dot(pos_a, color=self.C_PRIMARY, radius=0.12)
-        dot_b = Dot(pos_b, color=YELLOW, radius=0.12)
-        dot_c = Dot(pos_c, color=self.C_SECONDARY, radius=0.12)
-        
-        label_a = MathTex("a", color=self.C_PRIMARY, font_size=28).next_to(dot_a, UP, buff=0.2)
-        label_b = MathTex("b", color=YELLOW, font_size=28).next_to(dot_b, UP, buff=0.2)
-        label_c = MathTex("c", color=self.C_SECONDARY, font_size=28).next_to(dot_c, UP, buff=0.2)
-        
-        self.play(
-            FadeIn(dot_a, scale=0.5), Write(label_a),
-            FadeIn(dot_b, scale=0.5), Write(label_b),
-            FadeIn(dot_c, scale=0.5), Write(label_c),
-            run_time=1.0
+
+    def _text(self, content, size=26, color=WHITE):
+        return Text(content, font=self.FONT, font_size=size, color=color)
+
+    def _formula(self, content, size=36, color=WHITE, max_width=7.35):
+        formula = MathTex(content, font_size=size, color=color)
+        if formula.width > max_width:
+            formula.scale_to_fit_width(max_width)
+        return formula
+
+    def _header(self, content, color=YELLOW):
+        heading = self._text(content, 35, color).move_to(UP * 5.65)
+        self.play(FadeIn(heading), run_time=0.5)
+        return heading
+
+    def _number_line(self, numbers, y):
+        line = NumberLine(x_range=[-6, 6, 1], length=7.1, include_numbers=True,
+                          font_size=18).move_to(UP * y)
+        first, second = numbers
+        dots = VGroup(Dot(line.n2p(first), radius=0.11, color=self.C_PRIMARY),
+                      Dot(line.n2p(second), radius=0.11, color=self.C_SECONDARY))
+        labels = VGroup(
+            self._formula(str(first), 28, self.C_PRIMARY).next_to(dots[0], UP, buff=0.20),
+            self._formula(str(second), 28, self.C_SECONDARY).next_to(dots[1], UP, buff=0.20),
         )
-        
-        f1 = MathTex("a", ">", "b", font_size=36).move_to(UP * 0.5)
-        f1[0].set_color(self.C_PRIMARY)
-        f1[2].set_color(YELLOW)
-        
-        f2 = MathTex("b", ">", "c", font_size=36).move_to(DOWN * 0.5)
-        f2[0].set_color(YELLOW)
-        f2[2].set_color(self.C_SECONDARY)
-        
-        self.play(Write(f1), run_time=0.6)
-        self.play(Write(f2), run_time=0.6)
-        
-        arrow1 = Arrow(pos_a + DOWN * 0.8, pos_b + DOWN * 0.8, color=self.C_PRIMARY, buff=0.1)
-        arrow2 = Arrow(pos_b + DOWN * 0.8, pos_c + DOWN * 0.8, color=YELLOW, buff=0.1)
-        
-        self.play(GrowArrow(arrow1), GrowArrow(arrow2), run_time=0.8)
-        
-        conclusion = MathTex("\\therefore", "a", ">", "c", font_size=40).move_to(DOWN * 2)
-        conclusion[1].set_color(self.C_PRIMARY)
-        conclusion[3].set_color(self.C_SECONDARY)
-        
-        self.play(Write(conclusion), run_time=0.8)
-        
-        arrow_direct = Arrow(pos_a + DOWN * 1.5, pos_c + DOWN * 1.5, color=self.C_WARNING, buff=0.1, stroke_width=6)
-        self.play(GrowArrow(arrow_direct), run_time=0.6)
-        self.play(Indicate(arrow_direct, scale_factor=1.2), run_time=0.5)
-        
-        exp = Text("大于关系可以传递", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 4)
-        self.play(FadeIn(exp), run_time=0.5)
-        self.wait(1.2)
-        
-        self.play(FadeOut(VGroup(title, nl, dot_a, dot_b, dot_c, label_a, label_b, label_c, f1, f2, conclusion, arrow1, arrow2, arrow_direct, exp)), run_time=0.5)
-    
+        return VGroup(line, dots, labels)
+
+    def _show_case(self, key, heading, general_rule, top_example,
+                   bottom_example, operation, conclusion, accent=None):
+        before, after, before_sign, after_sign = NUMBER_LINE_CASES[key]
+        if not (-6 <= min(*before, *after) and max(*before, *after) <= 6):
+            raise ValueError("数轴样例超出设定的显示范围")
+        compare = lambda values, sign: values[0] > values[1] if sign == ">" else values[0] < values[1]
+        if not (compare(before, before_sign) and compare(after, after_sign)):
+            raise ValueError("数字与屏幕不等号不一致")
+        color = accent or self.C_PRIMARY
+        title = self._header(heading, color)
+        law = self._formula(general_rule, 30).move_to(UP * 4.6)
+        self.play(Write(law), run_time=0.75)
+        initial = self._number_line(before, 2.65)
+        initial_formula = self._formula(top_example, 35).move_to(UP * 1.26)
+        self.play(FadeIn(initial), Write(initial_formula), run_time=0.8)
+        note = self._text(operation, 25, color).move_to(ORIGIN)
+        self.play(FadeIn(note), run_time=0.42)
+        final = self._number_line(after, -1.65)
+        final_formula = self._formula(bottom_example, 35, color).move_to(DOWN * 3.08)
+        self.play(FadeIn(final), Write(final_formula), run_time=0.82)
+        explanation = self._text(conclusion, 23, GRAY_A).move_to(DOWN * 4.45)
+        if explanation.width > 7.35:
+            explanation.scale_to_fit_width(7.35)
+        self.play(FadeIn(explanation), run_time=0.48)
+        self.wait(0.7)
+        self.play(*[FadeOut(m) for m in (title, law, initial, initial_formula,
+                                         note, final, final_formula, explanation)],
+                  run_time=0.55)
+
+    def show_opening(self):
+        title = self._header("不等式的六项基本性质")
+        question = self._formula(r"3>1", 54, YELLOW).move_to(UP * 2.5)
+        operation = self._text("两边同时乘以 -2，会发生什么？", 27, GRAY_A).move_to(ORIGIN)
+        result = self._formula(r"-6<-2", 52, self.C_WARNING).move_to(DOWN * 2.5)
+        self.play(Write(question), FadeIn(operation), run_time=0.8)
+        self.play(Write(result), run_time=0.65)
+        self.wait(0.6)
+        self.play(FadeOut(title), FadeOut(question), FadeOut(operation),
+                  FadeOut(result), run_time=0.55)
+
+    def show_property_1(self):
+        self._show_case(
+            "symmetry", "性质一：对称性", r"a>b\iff b<a",
+            r"3>1", r"1<3", "交换不等号两边的位置", "交换左右两端，不等号方向随之改变",
+        )
+
+    def show_property_2(self):
+        self._show_case(
+            "transitivity", "性质二：传递性", r"a>b,\ b>c\Longrightarrow a>c",
+            r"4>2>-1", r"4>-1", "已知 4>2 且 2>-1", "两个相邻比较连接得出 4>-1",
+        )
+
     def show_property_3(self):
-        """性质3: 加法"""
-        title = Text("性质3：加法法则", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
-        self.play(FadeIn(title), run_time=0.5)
-        
-        nl1 = NumberLine(**self.nl_config).move_to(UP * 3)
-        self.play(Create(nl1), run_time=0.8)
-        
-        pos_a = nl1.n2p(3)
-        pos_b = nl1.n2p(1)
-        
-        dot_a1 = Dot(pos_a, color=self.C_PRIMARY, radius=0.12)
-        dot_b1 = Dot(pos_b, color=self.C_SECONDARY, radius=0.12)
-        label_a1 = MathTex("a", color=self.C_PRIMARY, font_size=28).next_to(dot_a1, UP, buff=0.2)
-        label_b1 = MathTex("b", color=self.C_SECONDARY, font_size=28).next_to(dot_b1, UP, buff=0.2)
-        
-        self.play(FadeIn(dot_a1, scale=0.5), Write(label_a1), FadeIn(dot_b1, scale=0.5), Write(label_b1), run_time=0.6)
-        
-        f1 = MathTex("a", ">", "b", font_size=36).move_to(UP * 1)
-        f1[0].set_color(self.C_PRIMARY)
-        f1[2].set_color(self.C_SECONDARY)
-        self.play(Write(f1), run_time=0.6)
-        
-        add_text = Text("两边同时 +2", font="PingFang SC", font_size=28, color=self.C_POSITIVE).move_to(ORIGIN)
-        self.play(FadeIn(add_text), run_time=0.5)
-        self.wait(0.5)
-        
-        nl2 = NumberLine(**self.nl_config).move_to(DOWN * 2)
-        self.play(FadeIn(nl2), run_time=0.6)
-        
-        pos_a2 = nl2.n2p(5)
-        pos_b2 = nl2.n2p(3)
-        
-        dot_a2 = Dot(pos_a2, color=self.C_PRIMARY, radius=0.12)
-        dot_b2 = Dot(pos_b2, color=self.C_SECONDARY, radius=0.12)
-        label_a2 = MathTex("a+2", color=self.C_PRIMARY, font_size=28).next_to(dot_a2, UP, buff=0.2)
-        label_b2 = MathTex("b+2", color=self.C_SECONDARY, font_size=28).next_to(dot_b2, UP, buff=0.2)
-        
-        self.play(TransformFromCopy(dot_a1, dot_a2), TransformFromCopy(dot_b1, dot_b2), TransformFromCopy(label_a1, label_a2), TransformFromCopy(label_b1, label_b2), run_time=1.0)
-        
-        f2 = MathTex("a+2", ">", "b+2", font_size=36).move_to(DOWN * 4.5)
-        f2[0].set_color(self.C_PRIMARY)
-        f2[2].set_color(self.C_SECONDARY)
-        self.play(Write(f2), run_time=0.6)
-        
-        exp = Text("两边同加，不等号不变", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 6)
-        self.play(FadeIn(exp), run_time=0.5)
-        self.wait(1.2)
-        
-        self.play(FadeOut(VGroup(title, nl1, nl2, dot_a1, dot_b1, dot_a2, dot_b2, label_a1, label_b1, label_a2, label_b2, f1, f2, add_text, exp)), run_time=0.5)
-    
+        self._show_case(
+            "addition", "性质三：两边同加", r"a>b\Longrightarrow a+c>b+c",
+            r"3>1", r"1>-1", "两边同加 -2", "同加任意实数，方向保持不变",
+        )
+
     def show_property_4(self):
-        """性质4: 乘正数"""
-        title = Text("性质4：乘以正数", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
-        self.play(FadeIn(title), run_time=0.5)
-        
-        nl1 = NumberLine(**self.nl_config).move_to(UP * 3)
-        self.play(Create(nl1), run_time=0.8)
-        
-        pos_a = nl1.n2p(2)
-        pos_b = nl1.n2p(1)
-        
-        dot_a1 = Dot(pos_a, color=self.C_PRIMARY, radius=0.12)
-        dot_b1 = Dot(pos_b, color=self.C_SECONDARY, radius=0.12)
-        label_a1 = MathTex("a", color=self.C_PRIMARY, font_size=28).next_to(dot_a1, UP, buff=0.2)
-        label_b1 = MathTex("b", color=self.C_SECONDARY, font_size=28).next_to(dot_b1, UP, buff=0.2)
-        
-        self.play(FadeIn(dot_a1, scale=0.5), Write(label_a1), FadeIn(dot_b1, scale=0.5), Write(label_b1), run_time=0.6)
-        
-        f1 = MathTex("a", ">", "b", font_size=36).move_to(UP * 1)
-        f1[0].set_color(self.C_PRIMARY)
-        f1[2].set_color(self.C_SECONDARY)
-        self.play(Write(f1), run_time=0.6)
-        
-        mul_text = Text("两边同时 ×2", font="PingFang SC", font_size=28, color=self.C_POSITIVE, weight=BOLD).move_to(ORIGIN)
-        pos_note = Text("(正数)", font="PingFang SC", font_size=24, color=self.C_POSITIVE).next_to(mul_text, RIGHT, buff=0.2)
-        
-        self.play(FadeIn(VGroup(mul_text, pos_note)), run_time=0.5)
-        self.wait(0.5)
-        
-        nl2 = NumberLine(**self.nl_config).move_to(DOWN * 2)
-        self.play(FadeIn(nl2), run_time=0.6)
-        
-        pos_a2 = nl2.n2p(4)
-        pos_b2 = nl2.n2p(2)
-        
-        dot_a2 = Dot(pos_a2, color=self.C_PRIMARY, radius=0.12)
-        dot_b2 = Dot(pos_b2, color=self.C_SECONDARY, radius=0.12)
-        label_a2 = MathTex("2a", color=self.C_PRIMARY, font_size=28).next_to(dot_a2, UP, buff=0.2)
-        label_b2 = MathTex("2b", color=self.C_SECONDARY, font_size=28).next_to(dot_b2, UP, buff=0.2)
-        
-        self.play(TransformFromCopy(dot_a1, dot_a2), TransformFromCopy(dot_b1, dot_b2), TransformFromCopy(label_a1, label_a2), TransformFromCopy(label_b1, label_b2), run_time=1.0)
-        
-        f2 = MathTex("2a", ">", "2b", font_size=36).move_to(DOWN * 4.5)
-        f2[0].set_color(self.C_PRIMARY)
-        f2[2].set_color(self.C_SECONDARY)
-        self.play(Write(f2), run_time=0.6)
-        
-        exp = Text("乘以正数，不等号不变", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 6)
-        self.play(FadeIn(exp), run_time=0.5)
-        self.wait(1.2)
-        
-        self.play(FadeOut(VGroup(title, nl1, nl2, dot_a1, dot_b1, dot_a2, dot_b2, label_a1, label_b1, label_a2, label_b2, f1, f2, mul_text, pos_note, exp)), run_time=0.5)
-    
+        self._show_case(
+            "positive", "性质四：乘以正数", r"a>b,\ c>0\Longrightarrow ac>bc",
+            r"2>1", r"4>2", "两边同乘正数 2", "正数乘法保持大小关系",
+            accent=self.C_POSITIVE,
+        )
+
     def show_property_5(self):
-        """性质5: 乘负数 ⚠️ 重点"""
-        title = Text("性质5：乘以负数", font="PingFang SC", font_size=36, color=self.C_NEGATIVE, weight=BOLD).move_to(UP * 6)
-        warning_icon = Text("⚠️", font_size=40, color=self.C_WARNING).next_to(title, LEFT, buff=0.3)
-        warning_text = Text("易错点！", font="PingFang SC", font_size=24, color=self.C_WARNING, weight=BOLD).next_to(title, RIGHT, buff=0.3)
-        
-        self.play(FadeIn(title), FadeIn(warning_icon, scale=1.5), FadeIn(warning_text), run_time=0.6)
-        self.play(Flash(warning_icon, color=self.C_WARNING), Wiggle(warning_text), run_time=0.5)
-        
-        nl1 = NumberLine(**self.nl_config).move_to(UP * 3)
-        self.play(Create(nl1), run_time=0.8)
-        
-        pos_a = nl1.n2p(3)
-        pos_b = nl1.n2p(1)
-        
-        dot_a1 = Dot(pos_a, color=self.C_PRIMARY, radius=0.12)
-        dot_b1 = Dot(pos_b, color=self.C_SECONDARY, radius=0.12)
-        label_a1 = MathTex("a", color=self.C_PRIMARY, font_size=28).next_to(dot_a1, UP, buff=0.2)
-        label_b1 = MathTex("b", color=self.C_SECONDARY, font_size=28).next_to(dot_b1, UP, buff=0.2)
-        
-        self.play(FadeIn(dot_a1, scale=0.5), Write(label_a1), FadeIn(dot_b1, scale=0.5), Write(label_b1), run_time=0.6)
-        
-        f1 = MathTex("a", ">", "b", font_size=36).move_to(UP * 0.8)
-        f1[0].set_color(self.C_PRIMARY)
-        f1[2].set_color(self.C_SECONDARY)
-        
-        self.play(Write(f1), run_time=0.6)
-        box1 = SurroundingRectangle(f1, color=self.C_PRIMARY, buff=0.15)
-        self.play(Create(box1), run_time=0.4)
-        
-        mul_text = Text("两边同时 ×(-2)", font="PingFang SC", font_size=28, color=self.C_NEGATIVE, weight=BOLD).move_to(ORIGIN)
-        neg_note = Text("(负数！)", font="PingFang SC", font_size=24, color=self.C_WARNING, weight=BOLD).next_to(mul_text, RIGHT, buff=0.2)
-        
-        self.play(FadeIn(VGroup(mul_text, neg_note)), Flash(neg_note, color=self.C_WARNING), run_time=0.6)
-        self.wait(0.8)
-        
-        nl2 = NumberLine(**self.nl_config).move_to(DOWN * 2)
-        self.play(FadeIn(nl2, shift=UP * 0.3), run_time=0.6)
-        
-        pos_a2 = nl2.n2p(-6)
-        pos_b2 = nl2.n2p(-2)
-        
-        dot_a2 = Dot(pos_a2, color=self.C_PRIMARY, radius=0.12)
-        dot_b2 = Dot(pos_b2, color=self.C_SECONDARY, radius=0.12)
-        label_a2 = MathTex("-6", color=self.C_PRIMARY, font_size=28).next_to(dot_a2, DOWN, buff=0.2)
-        label_b2 = MathTex("-2", color=self.C_SECONDARY, font_size=28).next_to(dot_b2, DOWN, buff=0.2)
-        
-        self.play(TransformFromCopy(dot_a1, dot_a2), TransformFromCopy(dot_b1, dot_b2), TransformFromCopy(label_a1, label_a2), TransformFromCopy(label_b1, label_b2), run_time=1.2)
-        
-        f2 = MathTex("-6", "<", "-2", font_size=40).move_to(DOWN * 4.5)
-        f2[0].set_color(self.C_PRIMARY)
-        f2[1].set_color(self.C_SECONDARY)
-        f2[2].set_color(self.C_SECONDARY)
-        
-        box2 = SurroundingRectangle(f2, color=self.C_SECONDARY, buff=0.15)
-        
-        self.play(Write(f2), Create(box2), run_time=0.8)
-        self.play(Indicate(f2[1], scale_factor=1.5, color=self.C_WARNING), Flash(f2[1], color=self.C_WARNING), run_time=0.6)
-        
-        key_exp = Text("乘以负数，不等号要变向！", font="PingFang SC", font_size=28, color=self.C_WARNING, weight=BOLD).move_to(UP * 4.8)
-        
-        self.play(FadeIn(key_exp, scale=1.2), run_time=0.6)
-        self.play(Flash(key_exp, color=self.C_WARNING), Wiggle(key_exp), run_time=0.6)
-        self.wait(2.0)
-        
-        self.play(FadeOut(VGroup(title, warning_icon, warning_text, nl1, nl2, dot_a1, dot_b1, dot_a2, dot_b2, label_a1, label_b1, label_a2, label_b2, f1, f2, box1, box2, mul_text, neg_note, key_exp)), run_time=0.6)
-    
+        self._show_case(
+            "negative", "性质五：乘以负数", r"a>b,\ c<0\Longrightarrow ac<bc",
+            r"2>1", r"-4<-2", "两边同乘负数 -2", "注意：乘负数必须反转不等号！",
+            accent=self.C_NEGATIVE,
+        )
+
     def show_property_6(self):
-        """性质6: 平方"""
-        title = Text("性质6：平方性质", font="PingFang SC", font_size=36, color=self.C_PRIMARY, weight=BOLD).move_to(UP * 6)
-        self.play(FadeIn(title), run_time=0.5)
-        
-        condition = MathTex("a", ">", "b", ">", "0", font_size=32).move_to(UP * 4.8)
-        condition[0].set_color(self.C_PRIMARY)
-        condition[2].set_color(self.C_SECONDARY)
-        self.play(Write(condition), run_time=0.6)
-        
-        sq_a = Square(side_length=2.5, color=self.C_PRIMARY, fill_opacity=0.3).move_to(LEFT * 2 + UP * 1)
-        label_sq_a = MathTex("a", font_size=28, color=self.C_PRIMARY).next_to(sq_a, UP, buff=0.2)
-        area_a = MathTex("a^2", font_size=32, color=self.C_PRIMARY).move_to(sq_a.get_center())
-        
-        self.play(Create(sq_a), Write(label_sq_a), run_time=0.8)
-        self.play(FadeIn(area_a, scale=0.8), run_time=0.4)
-        
-        sq_b = Square(side_length=1.5, color=self.C_SECONDARY, fill_opacity=0.3).move_to(RIGHT * 2 + UP * 1)
-        label_sq_b = MathTex("b", font_size=28, color=self.C_SECONDARY).next_to(sq_b, UP, buff=0.2)
-        area_b = MathTex("b^2", font_size=32, color=self.C_SECONDARY).move_to(sq_b.get_center())
-        
-        self.play(Create(sq_b), Write(label_sq_b), run_time=0.8)
-        self.play(FadeIn(area_b, scale=0.8), run_time=0.4)
-        
-        self.play(Indicate(sq_a, scale_factor=1.1, color=self.C_PRIMARY), Indicate(sq_b, scale_factor=1.1, color=self.C_SECONDARY), run_time=0.8)
-        
-        conclusion = MathTex("\\therefore", "a^2", ">", "b^2", font_size=40).move_to(DOWN * 1.5)
-        conclusion[1].set_color(self.C_PRIMARY)
-        conclusion[3].set_color(self.C_SECONDARY)
-        self.play(Write(conclusion), run_time=0.8)
-        
-        exp = Text("正数平方，大小关系保持", font="PingFang SC", font_size=24, color=GRAY_A).move_to(DOWN * 3.5)
-        note = Text("(注意：必须都是正数)", font="PingFang SC", font_size=20, color=GRAY_B).move_to(DOWN * 4.5)
-        
-        self.play(FadeIn(exp), FadeIn(note), run_time=0.5)
-        self.wait(1.2)
-        
-        self.play(FadeOut(VGroup(title, condition, sq_a, sq_b, label_sq_a, label_sq_b, area_a, area_b, conclusion, exp, note)), run_time=0.5)
-    
+        title = self._header("性质六：正数的平方", self.C_PRIMARY)
+        condition = self._formula(r"a>b>0\Longrightarrow a^2>b^2", 34)
+        condition.move_to(UP * 4.4)
+        self.play(Write(condition), run_time=0.75)
+        # 同一单位正方形拼成的 3x3 和 2x2 网格，显示面积恰好为 9、4。
+        diagrams = VGroup()
+        for n, center, color in ((SQUARE_SIDES[0], LEFT * 1.95 + UP * 1.20, self.C_PRIMARY),
+                                 (SQUARE_SIDES[1], RIGHT * 1.95 + UP * 1.20, self.C_SECONDARY)):
+            grid = VGroup(*[Square(side_length=SQUARE_UNIT, stroke_width=1.5,
+                                   stroke_color=color, fill_color=color, fill_opacity=0.20)
+                            for _ in range(n * n)])
+            grid.arrange_in_grid(rows=n, cols=n, buff=0).move_to(center)
+            label = self._formula(str(n), 31, color).next_to(grid, UP, buff=0.22)
+            area = self._formula(f"{n}^2={n * n}", 37, color).next_to(grid, DOWN, buff=0.28)
+            diagrams.add(VGroup(grid, label, area))
+        self.play(FadeIn(diagrams), run_time=1.0)
+        conclusion = self._formula(r"3^2=9>4=2^2", 39, self.C_POSITIVE)
+        conclusion.move_to(DOWN * 2.20)
+        self.play(Write(conclusion), run_time=0.7)
+        warning = self._text("不能省略正数前提：-3<-2，但 9>4", 24, self.C_WARNING)
+        warning.move_to(DOWN * 3.85)
+        if warning.width > 7.35:
+            warning.scale_to_fit_width(7.35)
+        self.play(FadeIn(warning), run_time=0.55)
+        self.wait(0.8)
+        self.play(FadeOut(title), FadeOut(condition), FadeOut(diagrams),
+                  FadeOut(conclusion), FadeOut(warning), run_time=0.60)
+
     def show_summary(self):
-        """总结"""
-        title = Text("不等式六大性质", font="PingFang SC", font_size=42, color=GOLD, weight=BOLD).move_to(UP * 6.5)
-        self.play(Write(title), run_time=0.8)
-        
-        props = [
-            ("1. 对称性", "a>b <=> b<a", WHITE),
-            ("2. 传递性", "a>b, b>c => a>c", WHITE),
-            ("3. 加法", "a>b => a+c>b+c", WHITE),
-            ("4. 乘正数", "a>b, c>0 => ac>bc", self.C_POSITIVE),
-            ("5. 乘负数", "a>b, c<0 => ac<bc", self.C_NEGATIVE),
-            ("6. 平方", "a>b>0 => a^2>b^2", WHITE),
-        ]
-        
+        title = self._header("六项性质：条件与方向")
+        rows = (
+            ("对称", r"a>b\iff b<a"),
+            ("传递", r"a>b,\ b>c\Rightarrow a>c"),
+            ("同加", r"a>b\Rightarrow a+c>b+c"),
+            ("乘正数", r"a>b,\ c>0\Rightarrow ac>bc"),
+            ("乘负数", r"a>b,\ c<0\Rightarrow ac<bc"),
+            ("正数平方", r"a>b>0\Rightarrow a^2>b^2"),
+        )
         cards = VGroup()
-        for i, (name, formula, color) in enumerate(props):
-            bg = RoundedRectangle(width=7.5, height=1.0, corner_radius=0.15, fill_opacity=0.1, fill_color=color, stroke_color=color, stroke_width=2).move_to(UP * (4.5 - i * 1.4))
-            n = Text(name, font="PingFang SC", font_size=24, color=color, weight=BOLD).move_to(bg.get_left() + RIGHT * 1.2)
-            f = MathTex(formula, font_size=28, color=color).move_to(bg.get_right() + LEFT * 2.5)
-            
-            card = VGroup(bg, n, f)
-            if i == 4:
-                w = Text("⚠️", font_size=30, color=self.C_WARNING).next_to(bg, LEFT, buff=0.2)
-                card.add(w)
+        for i, (label, tex) in enumerate(rows):
+            color = self.C_NEGATIVE if i == 4 else WHITE
+            border = RoundedRectangle(width=7.55, height=1.04, corner_radius=0.13,
+                                      color=color, stroke_width=2)
+            name = self._text(label, 22, color).move_to(LEFT * 2.64)
+            formula = self._formula(tex, 26, color, max_width=4.8).move_to(RIGHT * 0.86)
+            card = VGroup(border, name, formula).move_to(UP * (3.88 - 1.30 * i))
             cards.add(card)
-        
-        for i, card in enumerate(cards):
-            if i == 4:
-                self.play(FadeIn(card, shift=UP * 0.2), Flash(card, color=self.C_WARNING), run_time=0.6)
-            else:
-                self.play(FadeIn(card, shift=UP * 0.2), run_time=0.4)
-        
-        self.wait(1.0)
-        
-        wbox = RoundedRectangle(width=7.5, height=1.2, corner_radius=0.2, fill_opacity=0.2, fill_color=self.C_WARNING, stroke_color=self.C_WARNING, stroke_width=3).move_to(DOWN * 5)
-        wtext = Text("记住：乘以负数，不等号要变向！", font="PingFang SC", font_size=26, color=self.C_WARNING, weight=BOLD).move_to(wbox)
-        
-        self.play(Create(wbox), FadeIn(wtext, scale=1.1), run_time=0.6)
-        self.play(Flash(wbox, color=self.C_WARNING), Wiggle(wtext), run_time=0.6)
-        self.wait(2.0)
-        
-        self.play(FadeOut(VGroup(title, cards, wbox, wtext)), run_time=0.6)
-    
+            self.play(FadeIn(card), run_time=0.32)
+        note = self._text("特别注意：c=0 时两边相等，不能保留严格不等号", 22, self.C_WARNING)
+        note.move_to(DOWN * 4.7)
+        if note.width > 7.35:
+            note.scale_to_fit_width(7.35)
+        self.play(FadeIn(note), run_time=0.45)
+        self.wait(1.1)
+        self.play(FadeOut(title), FadeOut(cards), FadeOut(note), run_time=0.62)
+
     def show_outro(self):
-        """片尾"""
-        author_name = Text("上海初高中数学直通车", font="PingFang SC", font_size=40, color=WHITE, weight=BOLD).move_to(UP * 1.5)
-        author_id = Text("@emptyandcalm", font="PingFang SC", font_size=32, color=GRAY_B).move_to(UP * 0.5)
-        
-        self.play(Transform(self.author_info, author_name), run_time=0.8)
-        self.play(FadeIn(author_id), run_time=0.5)
-        
-        follow = Text("关注我，学更多数学技巧！", font="PingFang SC", font_size=32, color=YELLOW, weight=BOLD).move_to(DOWN * 0.8)
-        self.play(FadeIn(follow, scale=1.1), run_time=0.6)
-        
-        decs = VGroup(
-            MathTex(">", font_size=50, color=self.C_PRIMARY),
-            MathTex("<", font_size=50, color=self.C_SECONDARY),
-            MathTex(">", font_size=50, color=self.C_POSITIVE),
-            MathTex("<", font_size=50, color=self.C_NEGATIVE),
-        ).arrange_in_grid(rows=2, cols=2, buff=1.5).move_to(DOWN * 3)
-        
-        self.play(*[FadeIn(d, scale=0.5) for d in decs], run_time=0.6)
-        self.play(Rotate(decs, angle=PI/4, run_time=1.5), rate_func=there_and_back)
-        self.wait(1.5)
-        
-        self.play(FadeOut(VGroup(self.author_info, author_id, follow, decs)), run_time=1.0)
-
-
-# 运行命令:
-# manim -pql inequality_properties_full.py InequalityPropertiesFull
+        title = self._text("先检查条件，再判断不等号方向", 32, YELLOW)
+        title.move_to(UP * 1.0)
+        self.play(FadeIn(title), run_time=0.55)
+        self.wait(1.0)
+        self.play(FadeOut(title), FadeOut(self.author_info), run_time=0.60)
