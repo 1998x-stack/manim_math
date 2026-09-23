@@ -1,0 +1,30 @@
+name: Grade 11 S2 ellipse definition
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十二章-圆锥曲线/003椭圆的定义与标准方程/**'
+      - '.github/workflows/grade11-s2-ellipse-definition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ellipse-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十二章-圆锥曲线/003椭圆的定义与标准方程
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile lesson and test both ellipse orientations without Manim
+        env:
+          LESSON: 高中/高二/第二学期/第十二章-圆锥曲线/003椭圆的定义与标准方程
+        run: |
+          python -m py_compile "$LESSON/ellipse_equation.py" "$LESSON/verify_ellipse_equation.py"
+          python "$LESSON/verify_ellipse_equation.py" -v
