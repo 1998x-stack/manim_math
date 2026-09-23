@@ -1,0 +1,32 @@
+name: Grade 8 term 1 radical addition subtraction
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/**"
+      - ".github/workflows/grade8-term1-radical-add-sub.yml"
+      - ".opencode/skills/manim-video-production/scripts/audit_scene.py"
+  workflow_dispatch:
+
+jobs:
+  radical-add-sub-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile actual Manim scene
+        run: python -m py_compile "初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/radical_add_sub.py"
+      - name: Independently verify normalization, examples, boundaries and Scene methods
+        run: python -m unittest discover -s "初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法" -p 'test_radical_add_sub_math.py' -v
+      - name: Production Skill AST gotchas audit
+        run: python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/radical_add_sub.py" --json
