@@ -10,7 +10,8 @@ SOURCE = pathlib.Path(__file__).with_name("divisibility_meaning.py")
 
 def divides(divisor: int, dividend: int) -> bool:
     """b|a 的定义：b 不为零，且 a=bq 对某个整数 q 成立。"""
-    if not isinstance(divisor, int) or not isinstance(dividend, int):
+    if (not isinstance(divisor, int) or isinstance(divisor, bool)
+            or not isinstance(dividend, int) or isinstance(dividend, bool)):
         raise TypeError("整除关系只在整数之间定义")
     if divisor == 0:
         raise ValueError("除数不能为零")
@@ -19,7 +20,8 @@ def divides(divisor: int, dividend: int) -> bool:
 
 def equal_groups(total: int, groups: int) -> tuple[int, int]:
     """正整数组数下的均分结果：(每组数量, 剩余数量)。"""
-    if not isinstance(total, int) or not isinstance(groups, int):
+    if (not isinstance(total, int) or isinstance(total, bool)
+            or not isinstance(groups, int) or isinstance(groups, bool)):
         raise TypeError("数量和组数必须是整数")
     if total < 0 or groups <= 0:
         raise ValueError("总量不能为负数，组数必须为正数")
@@ -38,8 +40,9 @@ class DivisibilityTests(unittest.TestCase):
     def test_invalid_divisor_and_input_type(self):
         with self.assertRaises(ValueError):
             divides(0, 12)
-        with self.assertRaises(TypeError):
-            divides(3.0, 12)
+        for b, a in ((3.0, 12), (True, 12), (3, False)):
+            with self.subTest(divisor=b, dividend=a), self.assertRaises(TypeError):
+                divides(b, a)
 
     def test_twelve_squares_preserved_across_groupings(self):
         self.assertEqual(equal_groups(12, 3), (4, 0))
@@ -47,7 +50,8 @@ class DivisibilityTests(unittest.TestCase):
         self.assertEqual(3 * 4 + 0, 12)
         self.assertEqual(5 * 2 + 2, 12)
         self.assertEqual(sum((4, 4, 4)), 12)
-        self.assertEqual(sum((2, 2, 2, 2, 2, 2)), 12)
+        # 五组各两个、另有两个未入组；不是“六组各两个”。
+        self.assertEqual(sum((2, 2, 2, 2, 2)) + 2, 12)
 
     def test_zero_and_invalid_group_counts(self):
         self.assertEqual(equal_groups(0, 3), (0, 0))
@@ -56,6 +60,8 @@ class DivisibilityTests(unittest.TestCase):
             equal_groups(12, 0)
         with self.assertRaises(ValueError):
             equal_groups(-1, 3)
+        with self.assertRaises(TypeError):
+            equal_groups(12, True)
 
     def test_scene_entries_and_formula_content(self):
         """轻量静态回归；并不声称渲染或视觉验收。"""
