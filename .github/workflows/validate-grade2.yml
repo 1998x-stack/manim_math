@@ -39,6 +39,10 @@ jobs:
         run: python tests/test_audit_grade2.py
       - name: Compile/scan every grade 2 Python lesson
         run: python tools/audit_grade2.py --json > "$RUNNER_TEMP/grade2-audit.json"
+      - name: Check multiplication and remainder-division invariants
+        run: |
+          python '小学/二年级/上册/第三章-乘法、除法（二）/0017、8、9的乘法口诀/verify_geometry.py'
+          python '小学/二年级/上册/第三章-乘法、除法（二）/002有余数的除法/verify_geometry.py'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
