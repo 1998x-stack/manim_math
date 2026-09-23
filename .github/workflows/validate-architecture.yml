@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'catalog/**'
       - 'skills/**'
       - '.codex/skills/**'
       - '.opencode/skills/**'
@@ -23,8 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python tools/sync_skills.py --check
       - run: python tools/check_repository.py
+      - run: python tools/audit_catalog.py

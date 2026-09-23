@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "description": "Orthogonal classification registry; values are stable keys, labels may change.",
+  "dimensions": {
+    "level": {
+      "cardinality": "many",
+      "values": {"primary": "小学", "junior": "初中", "senior": "高中", "cross-level": "跨学段"}
+    },
+    "domains": {
+      "cardinality": "many",
+      "values": {"arithmetic": "算术", "algebra": "代数", "geometry.euclidean": "欧氏几何", "geometry.euclidean.triangle.centers": "三角形中心", "geometry.analytic": "解析几何", "functions": "函数", "statistics": "统计", "probability": "概率", "number-theory": "数论", "calculus": "微积分", "mathematical-thinking": "数学思想与方法"}
+    },
+    "visualizations": {
+      "cardinality": "many",
+      "values": {"construction": "几何构造", "proof": "证明演示", "graph": "图像与函数", "transformation": "变换", "simulation": "模拟实验", "worked-example": "例题讲解"}
+    },
+    "kind": {
+      "cardinality": "one",
+      "values": {"lesson": "课时教学", "exploration": "专题探索", "reference": "数学参考", "template": "动画模板", "tool": "工程工具", "media": "媒体资源"}
+    },
+    "status": {
+      "cardinality": "one",
+      "values": {"planned": "计划中", "draft": "草稿", "verified": "数学内容已验证", "rendered": "已渲染", "published": "已发布", "legacy-imported": "历史导入待补验"}
+    },
+    "media": {
+      "cardinality": "many",
+      "values": {"source": "场景源码", "raw-video": "原始视频", "final-video": "后期视频", "audio": "音频", "image": "图像", "publication": "公开发布资产"}
+    }
+  },
+  "curriculum": {
+    "fields": ["edition", "system", "grade", "semester", "chapter", "knowledgePoint"],
+    "unknownValue": null,
+    "notes": "Unknown curriculum edition or grade must remain null; do not infer from animation title."
+  }
+}

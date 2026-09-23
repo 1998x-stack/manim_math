@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "method": "original blob copied to target path; original path now contains a Markdown link to target",
+  "moves": [
+    {"from": "docs/Error.md", "to": "docs/engineering/references/Error.md"},
+    {"from": "docs/chuZhongPrompt.md", "to": "docs/prompts/chuzhong.md"},
+    {"from": "docs/gaoZhongPrompt.md", "to": "docs/prompts/gaozhong.md"},
+    {"from": "docs/manim-v0.md", "to": "docs/engineering/references/manim-v0.md"},
+    {"from": "docs/manim_geometry_precision_guide.md", "to": "docs/math/geometry/manim_geometry_precision_guide.md"},
+    {"from": "docs/manim_geometry_precision_research.md", "to": "docs/math/geometry/manim_geometry_precision_research.md"},
+    {"from": "docs/triangle_famous_lines_zh.md", "to": "docs/math/geometry/triangle_famous_lines_zh.md"},
+    {"from": "docs/triangle_famous_points_zh.md", "to": "docs/math/geometry/triangle_famous_points_zh.md"},
+    {"from": "docs/well-known-triangle-lines.md", "to": "docs/math/geometry/well-known-triangle-lines.md"},
+    {"from": "docs/well-known-triangle-points.md", "to": "docs/math/geometry/well-known-triangle-points.md"},
+    {"from": "docs/xiaoXuePrompt.md", "to": "docs/prompts/xiaoxue.md"},
+    {"from": "docs/三角形中心术语表与坐标系统.md", "to": "docs/math/geometry/三角形中心术语表与坐标系统.md"},
+    {"from": "docs/特殊三角形与共轭理论.md", "to": "docs/math/geometry/特殊三角形与共轭理论.md"},
+    {"from": "docs/章节.md", "to": "docs/curriculum/章节.md"}
+  ]
+}
