@@ -1,0 +1,54 @@
+name: Triangle core visualizations (static and math)
+
+on:
+  pull_request:
+    paths:
+      - '初中/七年级/第二学期/第十四章-三角形/**/triangle_*visual.py'
+      - '初中/七年级/第二学期/第十四章-三角形/**/congruence_similarity_visual.py'
+      - '高中/高一/第二学期/第五章-三角比/008解斜三角形/triangle_laws_visual.py'
+      - 'external/triangle-core/**'
+      - '.github/workflows/triangle-core-visualizations.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-and-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.claude/skills/manim-video-production/scripts/audit_scene.py
+            /初中/七年级/第二学期/第十四章-三角形/002三角形的三边关系/triangle_inequality_visual.py
+            /初中/七年级/第二学期/第十四章-三角形/003三角形的内角和定理/triangle_angle_visual.py
+            /初中/七年级/第二学期/第十四章-三角形/005全等三角形的概念与性质/congruence_similarity_visual.py
+            /external/triangle-core/**
+            /高中/高一/第二学期/第五章-三角比/008解斜三角形/triangle_laws_visual.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pure-math test dependency
+        run: python -m pip install numpy
+      - name: Check all five scene entry points and repository gotchas
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            '初中/七年级/第二学期/第十四章-三角形/002三角形的三边关系/triangle_inequality_visual.py'
+            '初中/七年级/第二学期/第十四章-三角形/003三角形的内角和定理/triangle_angle_visual.py'
+            '初中/七年级/第二学期/第十四章-三角形/005全等三角形的概念与性质/congruence_similarity_visual.py'
+            'external/triangle-core/four-centers/four_centers_visual.py'
+            '高中/高一/第二学期/第五章-三角比/008解斜三角形/triangle_laws_visual.py'
+          )
+          for file in "${files[@]}"; do
+            python -m py_compile "$file"
+            python .claude/skills/manim-video-production/scripts/audit_scene.py "$file" --json
+          done
+      - name: Independent mathematics and source regression
+        run: python -m unittest discover -s external/triangle-core -p test_triangle_core_math.py -v
+
+# This workflow deliberately does not claim Manim/TeX/Chinese-font rendering or MP4 acceptance.

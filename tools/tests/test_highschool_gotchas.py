@@ -55,7 +55,10 @@ class HighSchoolGotchaContracts(unittest.TestCase):
 
     def test_all_grades_have_no_untriaged_gotchas(self):
         data = audit(ROOT)
-        self.assertEqual({'高一': 49, '高二': 42, '高三': 40}, data['grades'])
+        # New high-school lessons increase the source count; keep historical
+        # coverage floors, while requiring every newly discovered file to be clean.
+        for grade, baseline in {'高一': 49, '高二': 42, '高三': 40}.items():
+            self.assertGreaterEqual(data['grades'][grade], baseline, data['grades'])
         self.assertEqual(0, data['errors'], data['findings'])
         self.assertEqual(0, data['warnings'], data['findings'])
         self.assertEqual(3, data['information'], data['findings'])
