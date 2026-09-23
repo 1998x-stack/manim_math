@@ -26,8 +26,8 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg pkg-config libcairo2-dev libpango1.0-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev texlive-latex-extra texlive-fonts-recommended texlive-science dvisvgm fonts-noto-cjk
-          python -m pip install 'manim==0.19.0' 'numpy==1.26.4'
-          manim --version
+          python -m pip install 'manim==0.19.0'
+          python -c 'import manim, numpy; print("Manim", manim.__version__, "NumPy", numpy.__version__)'
           ffprobe -version | head -1
       - name: Render existing lesson as a 270x480 portrait preview
         env:
