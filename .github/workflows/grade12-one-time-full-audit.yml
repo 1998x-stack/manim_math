@@ -1,0 +1,44 @@
+name: Grade 12 one-time full source audit
+
+on:
+  push:
+    branches:
+      - fix/grade12-math-audit-20260923
+    paths:
+      - .github/workflows/grade12-one-time-full-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  full-source-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高三/**/*.py
+            /高中/高三/**/description.json
+      - name: Test offline audit and repair tools
+        run: python -m unittest discover -s '高中/高三/tests' -v
+      - name: Scan all Grade 12 Python sources and JSON metadata
+        run: |
+          python '高中/高三/tools/audit_grade12.py' --json > /tmp/grade12-audit.json || true
+          python - <<'PY'
+          import json
+          from collections import Counter
+          data = json.load(open('/tmp/grade12-audit.json', encoding='utf-8'))
+          counts, findings = data['counts'], data['findings']
+          print('INVENTORY', counts)
+          print('FINDINGS', dict(Counter(x['severity'] for x in findings)))
+          print('CODES', dict(Counter(x['code'] for x in findings)))
+          for x in findings:
+              if x['severity'] == 'error':
+                  print('ERROR', x)
+          if counts.get('python', 0) < 20:
+              raise SystemExit('Sparse checkout did not cover high-school grade 12 sources')
+          if any(x['severity'] == 'error' for x in findings):
+              raise SystemExit('Static audit detected confirmed source defects')
+          PY
