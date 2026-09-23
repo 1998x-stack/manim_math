@@ -38,8 +38,6 @@ class TrialQuotientAdjustmentLesson(Scene):
         remainder = MathTex(r"1476-1456=20<28", font_size=38).next_to(adjusted, DOWN, buff=0.55)
         self.play(FadeOut(estimate), FadeOut(trial_remainder), FadeOut(note))
         self.play(Write(adjusted), Write(remainder))
-        answer = MathTex(r"1476\div28=52\;\text{余}\;20", font_size=43)
-        # Chinese prose uses Text; MathTex is only used for mathematical notation.
         answer = VGroup(MathTex(r"1476\div28=52", font_size=43),
                         Text("余", font_size=30), MathTex("20", font_size=43))
         answer.arrange(RIGHT, buff=0.2).next_to(remainder, DOWN, buff=0.8)
