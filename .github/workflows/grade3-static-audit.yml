@@ -1,0 +1,23 @@
+name: Grade 3 static audit
+
+on:
+  pull_request:
+    paths:
+      - '小学/三年级/**'
+      - 'tools/audit_grade3.py'
+      - 'tests/test_audit_grade3.py'
+      - '.github/workflows/grade3-static-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  grade3-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audit scanner tests (no Manim required)
+        run: python -m unittest discover -s tests -p 'test_audit_grade3.py' -v
+      - name: Audit every grade-three Python source
+        run: python tools/audit_grade3.py --strict
