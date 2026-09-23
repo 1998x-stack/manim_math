@@ -9,6 +9,8 @@ on:
       - '高中/**/*.py'
       - 'tools/audit_highschool_gotchas.py'
       - 'tools/audit_junior_gotchas.py'
+      - 'tools/tests/test_highschool_gotchas.py'
+      - 'tools/repair_highschool_gotchas.py'
       - '.github/workflows/highschool-gotchas-audit.yml'
   workflow_dispatch:
 
@@ -27,24 +29,32 @@ jobs:
             /高中/**/*.py
             /tools/audit_highschool_gotchas.py
             /tools/audit_junior_gotchas.py
+            /tools/repair_highschool_gotchas.py
+            /tools/tests/test_highschool_gotchas.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Compile all three grades and test repaired scenes
+        run: |
+          python -m compileall -q '高中'
+          python -m unittest discover -s tools/tests -p 'test_highschool_gotchas.py' -v
       - name: Scan all high-school lessons without importing Manim
         shell: bash
         run: |
-          python tools/audit_highschool_gotchas.py --json > highschool-gotchas.json || status=$?
+          python tools/audit_highschool_gotchas.py --strict --json > highschool-gotchas.json || status=$?
           python - <<'PY'
           import json
           from collections import Counter
           from pathlib import Path
           data = json.loads(Path('highschool-gotchas.json').read_text(encoding='utf-8'))
           print('Grade counts:', data['grades'], 'files:', data['files'])
-          print('Errors:', data['errors'], 'Warnings:', data['warnings'])
+          print('Errors:', data['errors'], 'Warnings:', data['warnings'],
+                'Ctex reviews:', data['information'])
           print('Rule counts:', dict(Counter(row['code'] for row in data['findings'])))
           for issue in data['findings'][:160]:
               print(f"{issue['path']}:{issue['line']} [{issue['severity']}] {issue['code']}")
           assert all(data['grades'].values()), 'Grade missing or checkout incomplete'
+          assert data['files'] >= 131, 'Coverage unexpectedly decreased'
           PY
           exit "${status:-0}"
       - uses: actions/upload-artifact@v4
