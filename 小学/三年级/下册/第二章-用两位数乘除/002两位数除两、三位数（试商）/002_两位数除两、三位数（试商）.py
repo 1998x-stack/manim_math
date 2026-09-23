@@ -1,33 +1,29 @@
+"""两位数除法试商的简短示例；完整课程见同目录 TwoDigitDivisionLesson。"""
+
 from manim import *
 
-class 两位数除两、三位数（试商）Animation(Scene):
-    """两位数除两、三位数（试商）的Manim动画演示"""
-    
+
+class TrialQuotientPreview(Scene):
+    """比较相邻候选商的乘积，确定 96 ÷ 32 的商是 3。"""
+
     def construct(self):
-        # 标题
-        title = Text("两位数除两、三位数（试商）", font_size=48)
-        title.to_edge(UP)
-        self.play(Write(title))
+        title = Text("两位数除法：试商", font_size=38).to_edge(UP)
+        problem = MathTex(r"96 \div 32 = \, ?", font_size=54).next_to(
+            title, DOWN, buff=0.55
+        )
+        self.play(Write(title), Write(problem))
+
+        steps = VGroup(
+            MathTex(r"32 \times 2 = 64 < 96", font_size=43),
+            MathTex(r"32 \times 3 = 96", font_size=43),
+            MathTex(r"32 \times 4 = 128 > 96", font_size=43),
+        ).arrange(DOWN, buff=0.45).next_to(problem, DOWN, buff=0.65)
+        for step in steps:
+            self.play(Write(step))
+            self.wait(0.2)
+
+        answer = MathTex(r"96 \div 32 = 3", font_size=54).next_to(
+            steps, DOWN, buff=0.6
+        )
+        self.play(Write(answer))
         self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("96 ÷ 32 = 3")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
-        self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: MathTex, VGroup, Arrow, Brace, Text, Indicate, Cross, Transform
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 002_两位数除两、三位数（试商）.py 两位数除两、三位数（试商）Animation
-    pass

@@ -1,33 +1,31 @@
+"""两位数乘两位数的简短示例；完整课程见同目录 TwoDigitMultiplyLesson。"""
+
 from manim import *
 
-class 两位数乘两位数（竖式计算）Animation(Scene):
-    """两位数乘两位数（竖式计算）的Manim动画演示"""
-    
+
+class TwoDigitByTwoDigitPreview(Scene):
+    """用部分积展示 23 × 14 的位值含义。"""
+
     def construct(self):
-        # 标题
-        title = Text("两位数乘两位数（竖式计算）", font_size=48)
-        title.to_edge(UP)
-        self.play(Write(title))
+        title = Text("两位数乘两位数", font_size=38).to_edge(UP)
+        problem = MathTex(r"23 \times 14", font_size=58).next_to(
+            title, DOWN, buff=0.5
+        )
+        self.play(Write(title), Write(problem))
+
+        steps = VGroup(
+            Text("先乘个位：23 × 4 = 92", font_size=29),
+            Text("再乘十位：23 × 10 = 230", font_size=29),
+            Text("部分积相加：92 + 230 = 322", font_size=28),
+        ).arrange(DOWN, buff=0.4, aligned_edge=LEFT).next_to(
+            problem, DOWN, buff=0.65
+        )
+        for step in steps:
+            self.play(Write(step))
+            self.wait(0.2)
+
+        answer = MathTex(r"23 \times 14 = 322", font_size=52).next_to(
+            steps, DOWN, buff=0.65
+        )
+        self.play(Write(answer))
         self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("23 × 14 = 322")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
-        self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: MathTex, VGroup, Arrow, Brace, Text, Indicate, Transform, Rectangle
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_两位数乘两位数（竖式计算）.py 两位数乘两位数（竖式计算）Animation
-    pass

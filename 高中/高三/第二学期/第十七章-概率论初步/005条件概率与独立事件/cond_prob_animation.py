@@ -601,7 +601,7 @@ class CondProbAnimation(Scene):
         self.play(FadeIn(total_formula), run_time=0.6)
 
         eg_total = MathTex(
-            r"= 0.3 \times 0.8 + 0.4 \times 0.5 + 0.3 \times 0.3 = 0.52",
+            r"= 0.3 \times 0.8 + 0.4 \times 0.5 + 0.3 \times 0.3 = 0.53",
             font_size=30, color=GRAY_A
         ).move_to(DOWN * 2.7)
         self.play(Write(eg_total), run_time=0.6)

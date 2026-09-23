@@ -1,33 +1,32 @@
+"""正比例：y=kx (k 为非零常数)，比值 y/x 只在 x≠0 时定义。"""
+
 from manim import *
 
+
 class 正比例Animation(Scene):
-    """正比例的Manim动画演示"""
-    
+    """例：y=2x，观察 (1,2)、(2,4)、(3,6) 共线且过原点。"""
+
     def construct(self):
-        # 标题
-        title = Text("正比例", font_size=48)
-        title.to_edge(UP)
+        title = Text("正比例", font_size=43).to_edge(UP, buff=0.5)
         self.play(Write(title))
-        self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("y/x = k (k为常数,k≠0)")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
+        rule = MathTex(r"y=kx,\quad k\ne0", font_size=44)
+        example = MathTex(r"y=2x", font_size=43, color=YELLOW)
+        VGroup(rule, example).arrange(DOWN, buff=0.3).move_to(UP * 2.25)
+        self.play(Write(rule), Write(example))
+
+        axes = Axes(x_range=[0, 4, 1], y_range=[0, 8, 2],
+                    x_length=4.3, y_length=3.1, tips=False)
+        axes.move_to(DOWN * 0.45)
+        graph = axes.plot(lambda x: 2 * x, x_range=[0, 3.5], color=YELLOW)
+        points = VGroup(*[
+            Dot(axes.c2p(x, 2 * x), color=GREEN, radius=0.08)
+            for x in (1, 2, 3)
+        ])
+        self.play(Create(axes), Create(graph), FadeIn(points))
+
+        statement = Text("x 不为 0 时，比值 y/x 恒为 2", font_size=26)
+        statement.move_to(DOWN * 2.85)
+        exception = Text("x=0 时，y=0；但 0/0 没有定义", font_size=25, color=YELLOW)
+        exception.next_to(statement, DOWN, buff=0.3)
+        self.play(FadeIn(statement), FadeIn(exception))
         self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: Axes, Line, Dot, Text, MathTex, VGroup, Create
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_正比例.py 正比例Animation
-    pass
