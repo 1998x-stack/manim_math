@@ -1,0 +1,39 @@
+name: Manim video production skill
+
+on:
+  pull_request:
+    paths:
+      - '.codex/skills/manim-video-production/**'
+      - '.github/workflows/manim-video-production-skill.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.codex/skills/manim-video-production/**'
+      - '.github/workflows/manim-video-production-skill.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-skill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .codex/skills/manim-video-production
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install optional numeric verifier dependency
+        run: python -m pip install numpy
+      - name: Compile skill scripts
+        run: python -m compileall -q .codex/skills/manim-video-production/scripts
+      - name: Run regression tests
+        run: python -m unittest discover -v -s .codex/skills/manim-video-production/scripts -p 'test_*.py'
+      - name: Run example numeric geometry checks
+        run: |
+          python .codex/skills/manim-video-production/scripts/verify_geometry.py \
+            .codex/skills/manim-video-production/references/geometry_spec.example.json
