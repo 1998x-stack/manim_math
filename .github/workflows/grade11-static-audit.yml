@@ -30,6 +30,19 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_audit_grade11.py' -v
       - name: Audit all grade-eleven Python files (report-only for legacy debt)
         run: python tools/audit_grade11.py --json > grade11-static-audit.json
+      - name: Print audit inventory and every finding
+        run: |
+          python - <<'PY'
+          import collections
+          import json
+          with open('grade11-static-audit.json', encoding='utf-8') as report_file:
+              report = json.load(report_file)
+          print('Grade 11 Python files:', report['files'])
+          print('Files declaring a direct Scene subclass:', report['scene_files'])
+          print('Findings by code:', dict(collections.Counter(item['code'] for item in report['issues'])))
+          for item in report['issues']:
+              print('{severity} {file}:{line} [{code}] {detail}'.format(**item))
+          PY
       - name: Compile corrected scenes without importing Manim
         run: |
           python -m py_compile \
