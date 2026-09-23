@@ -210,8 +210,6 @@ class ArithmeticSequenceLesson(Scene):
         example.move_to(UP * 1.1)
         self.play(Write(condition), FadeIn(note), run_time=1.0)
         self.play(Write(example), run_time=0.75)
-        question = self._math(r"\text{另一数列：}\ a_3=7,\ a_7=15,\ a_5=?",
-                              29).move_to(DOWN * 1.2)
         # 中文单独使用 Text；MathTex 仅书写纯 LaTeX 数学内容。
         question = VGroup(
             self._text("另一等差数列：", 24, self.muted),
