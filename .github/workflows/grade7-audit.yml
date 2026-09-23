@@ -29,6 +29,8 @@ jobs:
             /初中/七年级/**/*.json
       - name: Run auditor and algebra lesson regression tests
         run: python -m unittest discover -s tests -p 'test_audit_grade7.py' -v
+      - name: Verify factorization formulas and counterexamples
+        run: python '初中/七年级/第一学期/第九章-整式/009因式分解——公式法/verify_lesson.py'
       - name: Audit every seventh-grade Python and JSON file
         run: python tools/audit_grade7.py
       - name: Check parallel-line geometry invariants
