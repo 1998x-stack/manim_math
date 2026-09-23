@@ -1,0 +1,37 @@
+name: Grade 7 static audit
+
+on:
+  pull_request:
+    paths:
+      - '初中/七年级/**'
+      - 'tools/audit_grade7.py'
+      - 'tests/test_audit_grade7.py'
+      - '.github/workflows/grade7-audit.yml'
+  push:
+    paths:
+      - '初中/七年级/**'
+      - 'tools/audit_grade7.py'
+      - 'tests/test_audit_grade7.py'
+      - '.github/workflows/grade7-audit.yml'
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/audit_grade7.py
+            /tests/test_audit_grade7.py
+            /初中/七年级/**/*.py
+            /初中/七年级/**/*.json
+      - name: Run auditor and algebra lesson regression tests
+        run: python -m unittest discover -s tests -p 'test_audit_grade7.py' -v
+      - name: Audit every seventh-grade Python and JSON file
+        run: python tools/audit_grade7.py
+      - name: Check parallel-line geometry invariants
+        run: python '初中/七年级/第二学期/第十三章-相交线 平行线/005平行线的性质/verify_geometry.py'
+      - name: Check cube-root examples and projected geometry
+        run: python '初中/七年级/第二学期/第十二章-实数/003立方根/verify_geometry.py'
