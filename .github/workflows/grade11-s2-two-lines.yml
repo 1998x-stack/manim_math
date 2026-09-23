@@ -1,0 +1,30 @@
+name: Grade 11 S2 two lines relation
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十一章-坐标平面上的直线/003两直线的位置关系/**'
+      - '.github/workflows/grade11-s2-two-lines.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  two-lines-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十一章-坐标平面上的直线/003两直线的位置关系
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile scene and test pure mathematical model
+        env:
+          LESSON: 高中/高二/第二学期/第十一章-坐标平面上的直线/003两直线的位置关系
+        run: |
+          python -m py_compile "$LESSON/two_lines_relation.py" "$LESSON/verify_two_lines_relation.py"
+          python "$LESSON/verify_two_lines_relation.py" -v
