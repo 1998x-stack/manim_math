@@ -16,17 +16,17 @@
 | `show_classification` | 1—20 由 `classify` 同源生成：8 素数、11 合数、1 特殊 | 数字白色不随背景颜色变化；20 个号码各出现一次 |
 | `show_outro` | 概括两个定义与 1、2 的特例 | 中文可读，9:16 画面所有对象在安全区 |
 
-## 分层状态
+## 分层验证（按证据独立判定）
 
 | 验证项 | 状态 | 证据与限制 |
 |---|---|---|
-| math | `pass`（人工核对定义与 1—20 分类） | `verify_primes_composites.py` 是真实源代码算法的数学回归，需结合 CI 最终结果更新 |
-| syntax | `not_run` | 需运行 `python -m py_compile primes_composites.py verify_primes_composites.py` |
-| ast | `not_run` | 需运行 Skill `audit_scene.py primes_composites.py --json`，分类告警逐条复核 |
-| unit_tests | `not_run` | 需执行 `python verify_primes_composites.py`；AST 检查并非 Manim 运行 |
-| manim_render | `blocked` | 目前未配置可用的 Manim、LaTeX、CJK 字体渲染环境；未生成新视频 |
-| frame_review | `not_run` | 需真实渲染后检查每镜关键帧及实际 Mobject 包围盒 |
-| ffprobe | `not_run` | 旧 MP4 未覆盖，不能拿旧片冒充当前分支的成片验证 |
-| audio_review | `not_run` | 旧视频、讲解和配乐未变更 |
+| math | `pass` | 人工复核定义及 1—20 分类，实际源码数学方法回归通过 |
+| syntax | `pass` | [本课 CI：Python 编译步骤成功](https://github.com/1998x-stack/manim_math/actions/runs/35836483415/job/107101068383)，对应源码提交 `549c87c9ff4d3d93f0148e2942caca4622e2002e` |
+| ast | `not_run`（独立 Skill 审计） | 仍需执行 `audit_scene.py primes_composites.py --json` 并逐条确认告警；数学测试中的 AST 方法提取不等于专用审计 |
+| unit_tests | `pass` | [本课 CI：实际 Scene 数学与分类检查成功](https://github.com/1998x-stack/manim_math/actions/runs/35836483415/job/107101068383)，不代表 Manim Scene 已渲染 |
+| manim_render | `blocked` | 当前执行环境缺少可用 Manim、LaTeX 与 CJK 字体渲染链路，未生成新视频 |
+| frame_review | `not_run` | 需要真实渲染后检查每镜关键帧及实际 Mobject 包围盒 |
+| ffprobe | `not_run` | 旧 MP4 未覆盖，不使用旧片冒充当前代码成片验证 |
+| audio_review | `not_run` | 旧视频、讲解和配乐未修改 |
 
-不以静态或数学测试成功宣称视频画面验收成功。
+不以静态或数学测试通过宣称新视频质量已验收。
