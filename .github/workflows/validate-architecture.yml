@@ -26,9 +26,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github
+            .codex/skills
+            .opencode/skills
+            .claude/skills
+            assets
+            catalog
+            docs
+            skills
+            tools
+            README.md
+            AGENTS.md
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python tools/sync_skills.py --check
       - run: python tools/check_repository.py
-      - run: python tools/audit_catalog.py
+      - run: python tools/audit_catalog.py --skip-file-check
