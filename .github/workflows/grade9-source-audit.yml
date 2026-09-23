@@ -6,6 +6,7 @@ on:
       - "初中/九年级/**"
       - "tools/audit_grade9.py"
       - "tools/tests/test_audit_grade9.py"
+      - "tools/tests/test_grade9_similarity_concept.py"
       - ".github/workflows/grade9-source-audit.yml"
   workflow_dispatch:
 
@@ -24,6 +25,7 @@ jobs:
             /初中/九年级/**/description.json
             /tools/audit_grade9.py
             /tools/tests/test_audit_grade9.py
+            /tools/tests/test_grade9_similarity_concept.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -33,3 +35,5 @@ jobs:
         run: python tools/audit_grade9.py
       - name: Run dependency-free regression tests
         run: python -m unittest discover -s tools/tests -p 'test_audit_grade9.py' -v
+      - name: Verify similarity concept mathematical geometry
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_concept.py' -v
