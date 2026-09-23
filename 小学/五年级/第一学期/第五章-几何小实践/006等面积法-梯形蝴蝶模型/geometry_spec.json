@@ -1,0 +1,23 @@
+{
+  "lesson": "梯形蝴蝶｜交点 O、平行底与两段垂直高",
+  "safe_bounds": [-4, -7, 4, 7],
+  "points": {
+    "A": [-3, -2], "B": [3, -2], "C": [1.5, 2], "D": [-1.5, 2],
+    "O": [0, 0.6666666666666666],
+    "Foot_bottom": [0, -2], "Foot_top": [0, 2],
+    "H_outer_bottom": [3.32, -2], "H_outer_top": [3.32, 2]
+  },
+  "checks": [
+    {"type": "parallel", "label": "上下底平行", "a": "A", "b": "B", "c": "D", "d": "C"},
+    {"type": "perpendicular", "label": "完整梯形高与下底垂直", "a": "A", "b": "B", "c": "H_outer_bottom", "d": "H_outer_top"},
+    {"type": "perpendicular", "label": "O 到下底的高", "a": "A", "b": "B", "c": "O", "d": "Foot_bottom"},
+    {"type": "perpendicular", "label": "O 到上底的高", "a": "D", "b": "C", "c": "O", "d": "Foot_top"},
+    {"type": "parallel", "label": "O 在对角线 AC 上", "a": "A", "b": "C", "c": "A", "d": "O"},
+    {"type": "parallel", "label": "O 在对角线 BD 上", "a": "B", "b": "D", "c": "B", "d": "O"},
+    {"type": "angle", "label": "下底垂足直角", "kind": "minor", "vertex": "Foot_bottom", "a": "O", "c": "B", "expected_degrees": 90},
+    {"type": "angle", "label": "上底垂足直角", "kind": "minor", "vertex": "Foot_top", "a": "O", "c": "C", "expected_degrees": 90}
+  ],
+  "bounding_boxes": [
+    {"label": "梯形边框与外部高线端点，不含文字", "bbox": [-3, -2, 3.32, 2]}
+  ]
+}
