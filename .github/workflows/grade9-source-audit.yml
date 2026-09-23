@@ -9,6 +9,7 @@ on:
       - "tools/tests/test_grade9_similarity_concept.py"
       - "tools/tests/test_grade9_similarity_criteria.py"
       - "tools/tests/test_grade9_similarity_properties.py"
+      - "tools/tests/test_grade9_similarity_applications.py"
       - ".github/workflows/grade9-source-audit.yml"
   workflow_dispatch:
 
@@ -30,6 +31,7 @@ jobs:
             /tools/tests/test_grade9_similarity_concept.py
             /tools/tests/test_grade9_similarity_criteria.py
             /tools/tests/test_grade9_similarity_properties.py
+            /tools/tests/test_grade9_similarity_applications.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -45,3 +47,5 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_criteria.py' -v
       - name: Verify corresponding segments, altitudes, bisectors and areas
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_properties.py' -v
+      - name: Verify shadow and river similarity application geometry
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_applications.py' -v
