@@ -1,23 +1,21 @@
 ---
 name: render-and-publish
-description: 执行并核验 Manim 渲染、FFmpeg 后期、媒体来源与作品画廊发布；用于从 Scene 到成片的交付任务。
+description: 验收 Manim 低清预览、高清渲染、FFmpeg 音视频、媒体来源、字幕与画廊发布；需要导出、合成、检查或发布数学动画时使用。
 ---
 
-# Render and publish / 渲染发布
+# Render and publish｜安全交付
 
-## 触发
+本 Skill 独立提供操作与验收规则；不同环境的命令与失败处理见 `references/media-checklist.md`。`scripts/check_manifest.py` 使用 Python 标准库检查媒体清单的基本类型与本地路径，只读、不依赖 ffprobe 或 Manim；不能代替真正媒体验收。
 
-要求渲染、添加背景音乐、导出竖屏、整理 MP4、检查画廊收录或发布成片时加载。先确认场景 Python 文件、实际 Scene 子类、所需字体、Manim 版本、目标分辨率和声音素材使用许可。
+## 分阶段流程
 
-## 分阶段执行
+1. 先核对数学命题、实际 Scene 类名、源码路径、字体/LaTeX、目标画幅、受权素材来源；缺任何必要信息时列入待审核，不宣称完成。
+2. 低清预览：在用户提供的 Manim 环境中执行 `manim -pql path/to/scene.py VerifiedScene`；检查关键画面、中文/公式、字幕遮挡、动画时序和变换终态。
+3. 生产渲染：确认输出路径不会覆盖既有资产，再在具备工具的环境中执行经任务指定的质量/分辨率命令，记录 Manim 版本、命令、帧率、目标路径与结果。
+4. 后期：仅对明确指定且具有相应许可的视频/音频执行 FFmpeg；禁止运行全仓库递归拼接/清理脚本，不臆测音轨可用或许可允许分发。
+5. 使用环境中实际可用的媒体探测工具检查分辨率、编码、时长和音轨，并抽查片头、关键步骤、片尾；运行 `python scripts/check_manifest.py path/to/artifact.json` 做辅助结构检查。
+6. 发布前核查 Scene/Topic/视频的显式关联、旧 URL 和版权记录；没有网络/工具时报告 `not_run`，绝不以文件名或退出码推断页面播放成功。
 
-1. 运行无副作用的数学/语法检查；先低清 `manim -pql path/to/scene.py SceneClass`，逐帧/关键帧检查对象位置、字体、字幕、定理陈述、画面节奏。
-2. 生产渲染 `manim -qh --resolution 1080,1920 path/to/scene.py SceneClass`；显式记录 Manim 命令、版本、帧率、时长、输出路径及失败原因。例子为本仓库当前竖屏目标，不代表所有视频都必须同一分辨率。
-3. 若需要音频：先确认音乐来源、可用许可与音量；`concat_mp4.sh` 会递归处理全仓库所有非 `_finish.mp4`，因此只有用户明确要求并确认范围后才运行。优先针对明确的一支源视频写非覆盖式 FFmpeg 命令；审查音频过长/过短、静音、视频无音轨及 `-shortest` 对时长的影响。
-4. 用 `ffprobe` 核对视频 codec、宽高、时长、音轨；抽查开头、关键步骤与结尾，不把“FFmpeg 退出码 0”当成发布质量已验收。
-5. 将视频与 `scene_id` / `topic_id`、原始来源、许可、生成命令关联；运行 `python assets/build_catalog.py`，核对 `videoFile` 指向可访问的产物并确认页面能播放。当前索引是基于路径和文件名的启发式，不能凭同名即断言配对正确。
-6. 若变更路径或托管策略，先完成 `catalog-and-taxonomy` 与 `safe-repository-migration` 的兼容性流程；无权限或无环境时只列出尚未执行的检查，不声称成片已发布。
+## 输出
 
-## 禁止操作
-
-未经明确许可不要删除/覆盖已跟踪媒体，不批量复制/上传音乐和 PDF，不在仅修改文档的任务中执行 `clean_pycache.sh` 或整库 FFmpeg 命令；不将平台上的音频可用性推断为可再分发许可。
+提供输入输出文件清单、不会覆盖既有文件的策略、每阶段实际证据及未验证项。`references/media-checklist.md` 收录常见失败情况，本包可独立理解与执行。
