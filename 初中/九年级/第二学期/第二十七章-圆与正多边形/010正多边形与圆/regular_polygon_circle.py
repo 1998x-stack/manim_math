@@ -86,7 +86,7 @@ class RegularPolygonAndCircle(Scene):
             self.play(FadeIn(formula))
             self.wait(0.5)
             self.play(FadeOut(formula))
-        self.hexagon = current  # 持有仍在场景中的同一对象，而非已被 Transform 替换的目标。
+        self.hexagon = current
         self.play(FadeOut(header))
 
     def scene_4_hexagon_special(self):
@@ -100,8 +100,8 @@ class RegularPolygonAndCircle(Scene):
         edge = Line(v0, v1, color=YELLOW, stroke_width=5)
         equation = MathTex(r"OA=OB=R,\quad \angle AOB=60^\circ",
                            font_size=30).move_to(DOWN * 4.0)
-        conclusion = MathTex(r"\triangle OAB\text{ 为等边三角形}\ \Rightarrow\ AB=R",
-                             font_size=29, color=YELLOW).move_to(DOWN * 5.1)
+        conclusion = MathTex(r"\angle AOB=60^\circ,\ OA=OB=R\ \Rightarrow\ AB=R",
+                             font_size=28, color=YELLOW).move_to(DOWN * 5.1)
         self.play(Write(header), Create(triangle))
         self.play(Create(radius1), Create(radius2), Create(edge))
         self.play(Write(equation), Write(conclusion))
@@ -143,7 +143,6 @@ class RegularPolygonAndCircle(Scene):
             self.play(FadeIn(card, shift=UP * 0.13))
         self.wait(1.0)
         self.play(FadeOut(cards), FadeOut(title))
-        # 变换后必须从实际屏上圆读取新圆心，不能使用初始 self.O。
         self.play(Rotate(self.hexagon, angle=PI / 6, about_point=self.circle.get_center()))
         self.wait(0.6)
         self.play(FadeOut(figures), FadeOut(self.author))
