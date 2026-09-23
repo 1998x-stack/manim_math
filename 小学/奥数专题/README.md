@@ -1,6 +1,6 @@
-# 小学奥数专题｜知识地图与第一批 8 集
+# 小学奥数专题｜知识地图与首批 8 集几何可视化
 
-面向小学三至六年级的拓展学习。按**数学主题**归档，与已有按教材/年级/学期组织的课程并行，不覆盖旧 Prompt、Scene、媒体或画廊索引。本目录的知识点清单是课程规划，不表示已完成对应视频。依据 `.claude/skills/manim-video-production/SKILL.md` 设计数学、分镜、源码、验收的分层产物。
+面向小学三至六年级拓展学习；按数学主题归档，与现有按年级/学期组织的课程并行，不覆盖旧课件、Prompt、视频或画廊索引。依据 `.claude/skills/manim-video-production/SKILL.md` 提供数学模型、图形演示、分镜、代码与分层验收。以下知识点是课程规划，**并不意味着已有全部对应视频**。
 
 ## 核心知识地图（16 模块、112 项）
 
@@ -23,19 +23,43 @@
 | 15 组合几何与图论启蒙（5） | 图形计数；握手问题；点线面计数；一笔画问题；最短路径与网络连通 |
 | 16 趣味数学与综合专题（5） | 最值问题；称重与找假币；钟表问题；日历与星期；综合数学建模 |
 
-这些模块可能交叉：分数乘法的面积模型也属于数形结合；容斥既可放在集合模块也可放在计数模块。本清单的“112 项”指上表计数，不保证所有教材都使用相同分类。
+课程知识点可能跨模块，例如分数乘法同时属于数形结合；表中 112 项为本课程设计的清单，并非统一竞赛标准。
 
-## 第一批脚本
+## 第一批八集：代码、几何证据、Scene
 
-| 号 | 源码相对路径 | Scene 类 |
-|---|---|---|
-| 001 | `01-计算与巧算/001-高斯求和/lesson.py` | `GaussPairingScene` |
-| 002 | `02-典型应用题/002-鸡兔同笼/lesson.py` | `ChickenRabbitScene` |
-| 003 | `03-分数与数形结合/003-分数乘法面积模型/lesson.py` | `FractionAreaScene` |
-| 004 | `04-平面几何/004-等底等高/lesson.py` | `EqualBaseHeightScene` |
-| 005 | `04-平面几何/005-蝴蝶模型/lesson.py` | `ButterflyAreaScene` |
-| 006 | `05-行程问题/006-相遇问题/lesson.py` | `EncounterScene` |
-| 007 | `06-集合与计数/007-容斥原理/lesson.py` | `InclusionExclusionScene` |
-| 008 | `06-集合与计数/008-方格最短路径/lesson.py` | `GridPathScene` |
+| 号 | 源码相对路径 | 几何或数形演示（不是装饰性图形） | Scene 类 |
+|---|---|---|---|
+| 001 | `01-计算与巧算/001-高斯求和/lesson.py` | 55+55 点补成长方形；50 根双色配对条 | `GaussPairingScene` |
+| 002 | `02-典型应用题/002-鸡兔同笼/lesson.py` | 八个头的图阵逐只加两条腿；可见的三对差额点 | `ChickenRabbitScene` |
+| 003 | `03-分数与数形结合/003-分数乘法面积模型/lesson.py` | 4×3 等面积网格，三列、两行的交集恰有六格 | `FractionAreaScene` |
+| 004 | `04-平面几何/004-等底等高/lesson.py` | 对角线平分长方形，顶点沿平行线平移及同步垂高 | `EqualBaseHeightScene` |
+| 005 | `04-平面几何/005-蝴蝶模型/lesson.py` | 由对角线计算交点及梯形四块真实面积 2/4/4/8 | `ButterflyAreaScene` |
+| 006 | `05-行程问题/006-相遇问题/lesson.py` | 200 千米带刻度线段与两条动态已走路程、剩余距离 | `EncounterScene` |
+| 007 | `06-集合与计数/007-容斥原理/lesson.py` | 韦恩图三区分别为 8/4/6 个实际成员点 | `InclusionExclusionScene` |
+| 008 | `06-集合与计数/008-方格最短路径/lesson.py` | 主网格递推、三条实例及十幅独立最短路线小图 | `GridPathScene` |
 
-每集有 `storyboard.md`，每个 `lesson.py` 有可由标准库单独提取的纯数学函数。运行 `python 小学/奥数专题/test_math_models.py` 做数学回归（无需 Manim），随后按技能规范对每个 Scene 做语法、AST、低清竖屏渲染、关键帧与媒体验收。渲染示例：在专题目录执行 `manim -r 480,270 -ql lesson.py GaussPairingScene`；分辨率与画幅以实际 Manim 配置/ffprobe 结果复核。场景字体使用 `Noto Sans CJK SC`，必须确认渲染环境安装了支持中文的字体和可用的 LaTeX。**这里仅交付脚本，不宣称视频已生成或通过视觉验收。**
+每集 `storyboard.md` 已跟随动画状态和图形数据更新；不要在修改 Scene 之后让分镜仍描述旧版画面。
+
+## 独立数学/几何验收（无需安装 Manim）
+
+在仓库根目录执行：
+
+```bash
+python 小学/奥数专题/test_math_models.py
+python 小学/奥数专题/test_visual_contracts.py
+python -m unittest discover -s tests -p 'test_olympiad_models.py' -v
+```
+
+`test_visual_contracts.py` 检查 8 个真实 Scene 入口、互补点阵、逐步腿数、两个分数选区的交集、移动顶点面积、梯形对角线交点与四区面积、相遇位置、韦恩图归属及十条唯一最短路线。新增 `.github/workflows/olympiad-visual-quality.yml` 在 PR 检出八集源码，逐一执行 `py_compile`、Skill AST 审计与纯数学/几何回归。AST WARN 必须结合源码与预览人工审查；静态结果不等于实际 Manim 运行。
+
+## 渲染与发布门槛
+
+每个 Scene 先核对 Manim 版本、`Noto Sans CJK SC` 中文字体、LaTeX 和 ffmpeg，再低清渲染，逐帧检查初始图、状态变化、边界位置、图形中文字及终局；特别关注 110 点、50 配对条、动物腿数、移动垂线、交点标签、零长路段与十幅小图。9:16 逻辑视野是 [-4.5,4.5]×[-8,8]，建议实际内容包围盒落在 [-4,4]×[-7,7]，需在完整渲染后核对。
+
+```bash
+# 进入每集目录后替换成上表对应真实类名；示例：
+manim -r 480,270 lesson.py GaussPairingScene
+# 真实渲染通过后再用 ffprobe 验证媒体宽高、时长、音视频流。
+```
+
+本批只修改源码、分镜、课程说明与专项 CI；不覆盖既有视频、音轨或画廊。未执行完整 Manim 渲染、关键帧审查及 ffprobe 前，不能标记 `render_verified`。
