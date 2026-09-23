@@ -1,0 +1,59 @@
+name: Junior historical gotchas audit
+
+on:
+  pull_request:
+    paths:
+      - '初中/**/*.py'
+      - 'tools/audit_junior_gotchas.py'
+      - 'tools/tests/test_audit_junior_gotchas.py'
+      - 'docs/engineering/historical-gotchas.md'
+      - '.github/workflows/junior-gotchas-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collect-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Omit historical videos and 80 KB prompt.md files from the checkout.
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/audit_junior_gotchas.py
+            /tools/tests/test_audit_junior_gotchas.py
+            /初中/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regression tests (stdlib only)
+        run: python -m unittest discover -s tools/tests -p 'test_audit_junior_gotchas.py' -v
+      - name: Collect complete source audit without masking historical findings
+        shell: bash
+        run: |
+          set +e
+          python tools/audit_junior_gotchas.py --json > junior-gotchas.json
+          scan_status=$?
+          set -e
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path('junior-gotchas.json').read_text(encoding='utf-8'))
+          print('Python file coverage:', result['grades'])
+          print('Confirmed-shape errors:', result['errors'], 'review warnings:', result['warnings'])
+          for grade, count in result['grades'].items():
+              if count == 0:
+                  raise SystemExit(f'Incomplete sparse checkout: no Python files for {grade}')
+          PY
+          if [ "$scan_status" -ne 0 ]; then
+            echo '::warning::Historical errors found. Review the JSON artifact and fix affected lessons before enabling a strict merge gate.'
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: junior-historical-gotchas
+          path: junior-gotchas.json
+          if-no-files-found: warn
