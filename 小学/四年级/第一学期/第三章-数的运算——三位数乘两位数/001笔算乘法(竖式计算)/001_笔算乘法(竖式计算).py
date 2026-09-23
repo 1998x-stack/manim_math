@@ -6,6 +6,11 @@
 
 from manim import *
 
+# 必须在 Scene 初始化摄像机之前配置画幅，不能放在 construct() 中。
+config.pixel_width = 1080
+config.pixel_height = 1920
+config.frame_width = 9
+config.frame_height = 16
 
 MULTIPLICAND = 123
 MULTIPLIER = 45
@@ -29,10 +34,6 @@ class ColumnMultiplicationLesson(Scene):
     """先对位，再求两个部分积，最后相加；第二行表示十位上的数。"""
 
     def construct(self):
-        config.pixel_width = 1080
-        config.pixel_height = 1920
-        config.frame_width = 9
-        config.frame_height = 16
         self.camera.background_color = "#1a1a2e"
         units, tens, answer = multiplication_steps(MULTIPLICAND, MULTIPLIER)
         unit_digit = MULTIPLIER % 10
