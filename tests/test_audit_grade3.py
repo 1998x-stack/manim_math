@@ -37,10 +37,29 @@ class GradeThreeAuditTests(unittest.TestCase):
             self.assertTrue(all(issue["file"].startswith("小学/三年级/")
                                 for issue in result["issues"]))
 
+    def test_flags_generic_lesson_placeholder(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            grade = root / "小学/三年级/下册/统计"
+            grade.mkdir(parents=True)
+            (grade / "template.py").write_text(
+                'class Statistics(Scene):\n'
+                '    def construct(self):\n'
+                '        Text("正在学习复式条形统计图的概念...")\n',
+                encoding="utf-8",
+            )
+            result = audit_tree(root)
+            self.assertEqual(result["files"], 1)
+            self.assertEqual(result["scene_files"], 1)
+            self.assertEqual(len(result["issues"]), 1)
+            self.assertEqual(result["issues"][0]["code"], "GENERIC_LESSON_PLACEHOLDER")
+            self.assertEqual(result["issues"][0]["severity"], "warning")
+
     def test_missing_grade_directory_is_an_error(self):
         with tempfile.TemporaryDirectory() as directory:
             result = audit_tree(Path(directory))
         self.assertEqual(result["files"], 0)
+        self.assertEqual(result["scene_files"], 0)
         self.assertEqual(result["issues"][0]["code"], "MISSING_DIRECTORY")
 
 
