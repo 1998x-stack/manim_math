@@ -31,3 +31,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_audit_grade7.py' -v
       - name: Audit every seventh-grade Python and JSON file
         run: python tools/audit_grade7.py
+      - name: Check parallel-line geometry invariants
+        run: python '初中/七年级/第二学期/第十三章-相交线 平行线/005平行线的性质/verify_geometry.py'
+      - name: Check cube-root examples and projected geometry
+        run: python '初中/七年级/第二学期/第十二章-实数/003立方根/verify_geometry.py'
