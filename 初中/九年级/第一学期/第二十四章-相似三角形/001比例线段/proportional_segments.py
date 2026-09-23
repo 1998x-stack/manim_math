@@ -18,7 +18,11 @@ def valid_proportion(a, b, c, d, *, tol=1e-10):
     values = (a, b, c, d)
     if not all(math.isfinite(value) and value > 0 for value in values):
         return False
-    return math.isclose(a * d, b * c, rel_tol=tol, abs_tol=tol)
+    # 对数比避免乘积上溢、下溢以及固定绝对误差吞没微小长度。
+    return math.isclose(
+        math.log(a) - math.log(b), math.log(c) - math.log(d),
+        rel_tol=0.0, abs_tol=tol,
+    )
 
 
 def proportional_mean(a, c):
