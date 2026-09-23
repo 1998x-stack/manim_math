@@ -25,9 +25,9 @@ class RationalNumbers(Scene):
         self.brand = Text(
             "上海初高中数学直通车 @emptyandcalm",
             font_size=21, color=self.muted,
-        ).move_to(UP * 7.45)
+        ).move_to(UP * 6.7)
         self.heading = Text("有理数的概念", font_size=40, color=self.teal)
-        self.heading.move_to(UP * 6.2)
+        self.heading.move_to(UP * 5.65)
         self.add(self.brand)
         self.play(Write(self.heading), run_time=0.6)
         self.show_opening()
@@ -43,7 +43,7 @@ class RationalNumbers(Scene):
         if self.current is not None:
             self.play(FadeOut(self.current), run_time=0.4)
         new_heading = Text(heading, font_size=40, color=self.teal)
-        new_heading.move_to(UP * 6.2)
+        new_heading.move_to(UP * 5.65)
         self.play(Transform(self.heading, new_heading), run_time=0.4)
         self.current = VGroup(*objects)
 
