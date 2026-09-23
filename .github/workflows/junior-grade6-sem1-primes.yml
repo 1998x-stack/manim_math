@@ -1,0 +1,31 @@
+name: Junior grade 6 semester 1 primes regression
+
+on:
+  pull_request:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/003素数与合数/**'
+      - '.github/workflows/junior-grade6-sem1-primes.yml'
+  push:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/003素数与合数/**'
+      - '.github/workflows/junior-grade6-sem1-primes.yml'
+
+jobs:
+  math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/六年级/第一学期/第一章-数的整除/003素数与合数/primes_composites.py
+            /初中/六年级/第一学期/第一章-数的整除/003素数与合数/verify_primes_composites.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile lesson and regression tests
+        run: |
+          python -m py_compile '初中/六年级/第一学期/第一章-数的整除/003素数与合数/primes_composites.py' '初中/六年级/第一学期/第一章-数的整除/003素数与合数/verify_primes_composites.py'
+      - name: Verify actual scene math and classification
+        run: python '初中/六年级/第一学期/第一章-数的整除/003素数与合数/verify_primes_composites.py'
