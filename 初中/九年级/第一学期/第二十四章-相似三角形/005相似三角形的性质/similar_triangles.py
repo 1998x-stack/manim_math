@@ -260,8 +260,8 @@ class SimilarTrianglesProperties(Scene):
     def show_summary(self):
         self.heading("相似三角形性质总结")
         formulas = VGroup(
-            MathTex(r"\text{对应边、高、中线、角平分线比}=k",
-                    font_size=30),
+            Text("对应边、高、中线、角平分线的长度之比 = k",
+                 font=self.FONT, font_size=27),
             MathTex(r"\frac{P'}{P}=k", font_size=35, color=YELLOW),
             MathTex(r"\frac{S'}{S}=k^2", font_size=35, color=self.GREEN),
         ).arrange(DOWN, buff=0.9).move_to(UP * 0.45)
