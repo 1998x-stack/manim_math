@@ -1,0 +1,25 @@
+{
+  "lesson": "同底等高｜动点高线与长方形对角线",
+  "safe_bounds": [-4, -7, 4, 7],
+  "points": {
+    "A": [-3, -1.7], "B": [3, -1.7],
+    "C": [-2.3, 1.3], "H_C": [-2.3, -1.7],
+    "P_mid": [0, 1.3], "H_mid": [0, -1.7],
+    "D": [2.3, 1.3], "H_D": [2.3, -1.7],
+    "Rect_BL": [-3, -1.5], "Rect_BR": [3, -1.5],
+    "Rect_TR": [3, 1.5], "Rect_TL": [-3, 1.5]
+  },
+  "checks": [
+    {"type": "parallel", "label": "上方动点轨迹平行 AB", "a": "A", "b": "B", "c": "C", "d": "D"},
+    {"type": "perpendicular", "label": "初始 CH 垂直 AB", "a": "A", "b": "B", "c": "C", "d": "H_C"},
+    {"type": "perpendicular", "label": "中间高线垂直 AB", "a": "A", "b": "B", "c": "P_mid", "d": "H_mid"},
+    {"type": "perpendicular", "label": "终点高线垂直 AB", "a": "A", "b": "B", "c": "D", "d": "H_D"},
+    {"type": "equal_lengths", "label": "动点高线始终等长", "pairs": [["C", "H_C"], ["P_mid", "H_mid"], ["D", "H_D"]]},
+    {"type": "perpendicular", "label": "长方形邻边垂直", "a": "Rect_BL", "b": "Rect_BR", "c": "Rect_BR", "d": "Rect_TR"},
+    {"type": "equal_lengths", "label": "长方形对边等长", "pairs": [["Rect_BL", "Rect_BR"], ["Rect_TL", "Rect_TR"]]}
+  ],
+  "bounding_boxes": [
+    {"label": "动点轨迹及底边的几何坐标，不含文字", "bbox": [-3.5, -1.7, 3.5, 1.3]},
+    {"label": "第二幕长方形几何坐标，不含标注", "bbox": [-3, -1.5, 3, 1.5]}
+  ]
+}
