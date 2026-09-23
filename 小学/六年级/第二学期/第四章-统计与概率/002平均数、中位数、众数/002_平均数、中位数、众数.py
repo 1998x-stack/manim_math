@@ -1,33 +1,29 @@
+"""平均数、中位数与众数：同一组数据的三个不同统计量。"""
+
 from manim import *
 
-class 平均数、中位数、众数Animation(Scene):
-    """平均数、中位数、众数的Manim动画演示"""
-    
+
+class 平均数中位数众数Animation(Scene):
+    """数据 1,2,2,3,7 的平均数为 3，中位数和众数均为 2。"""
+
     def construct(self):
-        # 标题
-        title = Text("平均数、中位数、众数", font_size=48)
-        title.to_edge(UP)
+        title = Text("平均数、中位数、众数", font_size=39).to_edge(UP, buff=0.55)
         self.play(Write(title))
-        self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("平均数 = 总和 ÷ 个数")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
+
+        dataset = Text("从小到大排列：1，2，2，3，7", font_size=31)
+        dataset.move_to(UP * 2.0)
+        self.play(Write(dataset))
+
+        mean_note = Text("平均数：总和除以数据个数", font_size=27, color=BLUE)
+        mean_formula = MathTex(r"\bar{x}=\frac{1+2+2+3+7}{5}=3", font_size=40)
+        median_note = Text("中位数：中间第 3 个数是 2", font_size=28, color=YELLOW)
+        mode_note = Text("众数：2 出现了 2 次，出现次数最多", font_size=27, color=GREEN)
+        summary = VGroup(mean_note, mean_formula, median_note, mode_note)
+        summary.arrange(DOWN, buff=0.42).move_to(DOWN * 0.4)
+        self.play(FadeIn(mean_note), Write(mean_formula))
+        self.play(FadeIn(median_note), FadeIn(mode_note))
+
+        conclusion = Text("平均数、中位数、众数不一定相等", font_size=29)
+        conclusion.next_to(summary, DOWN, buff=0.55)
+        self.play(FadeIn(conclusion))
         self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: BarChart, NumberLine, Dot, Text, MathTex, VGroup, Indicate
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 002_平均数、中位数、众数.py 平均数、中位数、众数Animation
-    pass

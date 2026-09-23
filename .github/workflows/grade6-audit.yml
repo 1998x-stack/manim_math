@@ -1,0 +1,33 @@
+name: Grade 6 static audit
+
+on:
+  pull_request:
+    paths:
+      - '小学/六年级/**'
+      - 'tools/audit_grade6.py'
+      - 'tools/tests/test_audit_grade6.py'
+      - '.github/workflows/grade6-audit.yml'
+  push:
+    paths:
+      - '小学/六年级/**'
+      - 'tools/audit_grade6.py'
+      - 'tools/tests/test_audit_grade6.py'
+      - '.github/workflows/grade6-audit.yml'
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/audit_grade6.py
+            /tools/tests/test_audit_grade6.py
+            /小学/六年级/**/*.py
+            /小学/六年级/**/*.json
+      - name: Run auditor regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_grade6.py' -v
+      - name: Audit every sixth-grade Python and JSON file
+        run: python tools/audit_grade6.py
