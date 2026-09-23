@@ -1,0 +1,30 @@
+name: Grade 11 S2 circle equation
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/**'
+      - '.github/workflows/grade11-s2-circle-equation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  circle-equation-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile scene and independently validate mathematical model
+        env:
+          LESSON: 高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
+        run: |
+          python -m py_compile "$LESSON/circle_equation.py" "$LESSON/verify_circle_equation.py"
+          python "$LESSON/verify_circle_equation.py" -v
