@@ -1,30 +1,47 @@
-"""
-频率与概率的关系 — 教学动画
-目标受众: 八年级学生
-格式: TikTok 竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
+"""频率与概率的关系：八年级第二学期，第二十三章。
+
+使用同一条独立、公平硬币模拟路径驱动所有数值和图像；不将
+“样本量增加”误说成每一步的频率必然更接近概率。
+运行：manim -ql probability_frequency.py ProbabilityFrequency
 """
 
 from manim import *
 import numpy as np
 
-config.pixel_width  = 1080
+config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+config.frame_width = 9
 config.frame_height = 16
+
+FONT = "PingFang SC"
+GOLD = "#f9ca24"
+CYAN = "#22a6b3"
+GREEN = "#6ab04c"
+ORANGE = "#f0932b"
+BG = "#1a1a2e"
+
+
+def simulate_frequencies(n, *, probability=0.5, seed=42):
+    """n 次独立伯努利试验的 0/1 结果及每一次后的累计频率。
+
+    不修改全局 NumPy RNG；概率参数必须是区间 [0,1] 内的有限实数。
+    """
+    if type(n) is not int or n <= 0:
+        raise ValueError("试验次数 n 必须为正整数")
+    if not np.isfinite(probability) or not 0 <= probability <= 1:
+        raise ValueError("概率必须是 [0,1] 内的有限数")
+    flips = np.random.default_rng(seed).binomial(1, probability, size=n)
+    frequency = np.cumsum(flips) / np.arange(1, n + 1)
+    return flips, frequency
 
 
 class ProbabilityFrequency(Scene):
     def construct(self):
-        self.camera.background_color = "#1a1a2e"
-        self.C_TITLE  = "#f9ca24"
-        self.C_MAIN   = "#22a6b3"
-        self.C_RED    = "#eb4d4b"
-        self.C_GREEN  = "#6ab04c"
-        self.C_PURPLE = "#a29bfe"
-        self.C_ORANGE = "#f0932b"
-        self.C_RESULT = "#badc58"
-
+        self.camera.background_color = BG
+        self.flips, self.frequency = simulate_frequencies(1000, seed=42)
+        self.author = Text("上海初高中数学直通车 @emptyandcalm",
+                           font=FONT, font_size=18, color=GRAY_B).move_to(UP * 7.0)
+        self.play(FadeIn(self.author), run_time=0.3)
         self.scene_opening()
         self.scene_freq_def()
         self.scene_freq_chart()
@@ -35,432 +52,134 @@ class ProbabilityFrequency(Scene):
         self.scene_summary()
         self.scene_outro()
 
-    def card(self, w, h, col, pos, fill="#16213e", alpha=0.85):
-        return RoundedRectangle(
-            corner_radius=0.28, width=w, height=h,
-            color=col, stroke_width=2,
-            fill_color=fill, fill_opacity=alpha,
-        ).move_to(pos)
+    def _text(self, value, y, size=27, color=WHITE):
+        return Text(value, font=FONT, font_size=size, color=color).move_to(UP * y)
+
+    def _math(self, value, y, size=37, color=WHITE):
+        return MathTex(value, font_size=size, color=color).move_to(UP * y)
 
     def fade_rest(self):
-        self.play(*[FadeOut(m) for m in self.mobjects
-                    if m is not self.author], run_time=0.45)
+        items = [mob for mob in self.mobjects if mob is not self.author]
+        if items:
+            self.play(*[FadeOut(mob) for mob in items], run_time=0.4)
 
-    # ─────────── Scene 1 ───────────
+    def _sample(self, n):
+        count = int(np.sum(self.flips[:n]))
+        frequency = float(self.frequency[n - 1])
+        return count, frequency
+
     def scene_opening(self):
-        self.author = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC", font_size=18, color=GRAY_B,
-        ).move_to(UP * 7.2)
-        self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.3)
+        title = self._text("硬币抛得越多，正面频率会怎样？", 5.6, 32, GOLD)
+        note = self._text("以下为固定随机种子的模拟示例", 4.5, 23, GRAY_A)
+        self.play(Write(title), FadeIn(note), run_time=0.8)
+        for n, y in ((10, 2.7), (1000, 1.3)):
+            count, frequency = self._sample(n)
+            equation = self._math(rf"f_{{{n}}}=\frac{{{count}}}{{{n}}}={frequency:.3f}",
+                                  y, 37, GREEN if n == 1000 else ORANGE)
+            self.play(Write(equation), run_time=0.65)
+        self.play(FadeIn(self._text("频率会波动，长期总体趋近于理论概率", -0.8, 26, GOLD)),
+                  run_time=0.5)
+        self.wait(1.2)
+        self.fade_rest()
 
-        chapter = Text("八年级 · 第二十三章 · 概率初步",
-                       font="PingFang SC", font_size=20, color=GRAY_B,
-                       ).move_to(UP * 6.55)
-        self.play(FadeIn(chapter), run_time=0.3)
-
-        hook = Text("抛 10 次硬币：7次正面",
-                    font="PingFang SC", font_size=34, color=self.C_TITLE,
-                    ).move_to(UP * 5.7)
-        hook2 = Text("抛 1000 次呢？",
-                     font="PingFang SC", font_size=34, color=self.C_ORANGE,
-                     ).move_to(UP * 5.0)
-        self.play(Write(hook), run_time=0.6)
-        self.play(Write(hook2), run_time=0.5)
-        self.wait(0.5)
-
-        freq10 = MathTex(r"f_{10} = \dfrac{7}{10} = 0.7",
-                         font_size=42, color=self.C_RED).move_to(UP * 3.8)
-        freq1000 = MathTex(r"f_{1000} \approx \dfrac{502}{1000} \approx 0.5",
-                           font_size=42, color=self.C_GREEN).move_to(UP * 2.8)
-        self.play(Write(freq10), run_time=0.5)
-        self.wait(0.3)
-        self.play(Write(freq1000), run_time=0.5)
-
-        insight = Text("次数越多，频率越稳定！",
-                       font="PingFang SC", font_size=30, color=self.C_TITLE,
-                       ).move_to(UP * 1.5)
-        self.play(FadeIn(insight, shift=UP * 0.2), run_time=0.5)
-        self.wait(1.0)
-
-        self.play(FadeOut(chapter), FadeOut(hook), FadeOut(hook2),
-                  FadeOut(freq10), FadeOut(freq1000), FadeOut(insight),
-                  run_time=0.4)
-
-    # ─────────── Scene 2 ───────────
     def scene_freq_def(self):
-        title = Text("频率的定义",
-                     font="PingFang SC", font_size=46, color=self.C_TITLE,
-                     ).move_to(UP * 6.4)
-        self.play(Write(title), run_time=0.5)
-
-        formula_bg = self.card(7.6, 2.2, self.C_MAIN, UP * 5.1,
-                               fill="#0f2a3a", alpha=0.95)
-        formula = MathTex(r"f(A) = \dfrac{k}{n}",
-                          font_size=60, color=WHITE).move_to(UP * 5.1)
-        self.play(Create(formula_bg), Write(formula), run_time=0.7)
-
-        # 标注 k 和 n
-        k_bg = self.card(3.3, 1.4, self.C_ORANGE, UP * 3.6 + LEFT * 1.85)
-        k_t  = Text("k = 事件发生次数",
-                    font="PingFang SC", font_size=20, color=self.C_ORANGE,
-                    ).move_to(UP * 3.6 + LEFT * 1.85)
-        n_bg = self.card(3.3, 1.4, self.C_PURPLE, UP * 3.6 + RIGHT * 1.85)
-        n_t  = Text("n = 试验总次数",
-                    font="PingFang SC", font_size=20, color=self.C_PURPLE,
-                    ).move_to(UP * 3.6 + RIGHT * 1.85)
-        self.play(Create(k_bg), Write(k_t), Create(n_bg), Write(n_t),
-                  run_time=0.6)
-
-        # 特性
-        props_bg = self.card(7.4, 2.8, self.C_PURPLE, UP * 1.9)
-        p1 = Text("① 0 ≤ f(A) ≤ 1",
-                  font="PingFang SC", font_size=24, color=WHITE)
-        p2 = Text("② n 增大，f(A) 趋于稳定",
-                  font="PingFang SC", font_size=24, color=self.C_RESULT)
-        p3 = Text("③ 稳定值即为概率 P(A)",
-                  font="PingFang SC", font_size=24, color=self.C_TITLE)
-        VGroup(p1, p2, p3).arrange(DOWN, buff=0.25).move_to(UP * 1.9)
-        self.play(Create(props_bg), *[Write(t) for t in [p1, p2, p3]],
-                  run_time=0.8)
-
-        diff_bg = self.card(7.4, 1.5, self.C_RED, UP * 0.3, fill="#2d0a0a")
-        diff_t1 = Text("频率 ≠ 概率",
-                       font="PingFang SC", font_size=26, color=self.C_RED)
-        diff_t2 = Text("（频率是统计值，概率是理论值）",
-                       font="PingFang SC", font_size=20, color=GRAY_A)
-        VGroup(diff_t1, diff_t2).arrange(RIGHT, buff=0.2).move_to(UP * 0.3)
-        self.play(Create(diff_bg), Write(diff_t1), FadeIn(diff_t2), run_time=0.6)
-        self.wait(2.0)
+        title = self._text("什么是频率？", 5.6, 39, GOLD)
+        formula = self._math(r"f_n(A)=\frac{k}{n},\quad n>0", 3.4, 46, CYAN)
+        k_label = self._text("k：事件 A 在 n 次试验中发生的次数", 1.7, 25)
+        n_label = self._text("n：独立重复试验的总次数", 0.7, 25)
+        bound = self._math(r"0\le f_n(A)\le 1", -1.1, 40, GREEN)
+        self.play(Write(title), Write(formula), run_time=0.9)
+        self.play(FadeIn(k_label), FadeIn(n_label), Write(bound), run_time=0.9)
+        self.wait(1.2)
         self.fade_rest()
 
-    # ─────────── Scene 3: frequency chart ───────────
     def scene_freq_chart(self):
-        title = Text("频率随试验次数的变化",
-                     font="PingFang SC", font_size=32, color=self.C_TITLE,
-                     ).move_to(UP * 6.5)
-        self.play(Write(title), run_time=0.5)
-
-        # 轴参数
-        ax_origin = np.array([-3.2, 2.8, 0])
-        ax_w, ax_h = 6.0, 3.0
-        n_max, f_max = 60.0, 1.0
-
-        def to_screen(n_val, f_val):
-            sx = ax_origin[0] + (n_val / n_max) * ax_w
-            sy = ax_origin[1] + (f_val / f_max) * ax_h
-            return np.array([sx, sy, 0])
-
-        # 轴
-        x_axis = Arrow(ax_origin, ax_origin + RIGHT * (ax_w + 0.3),
-                       buff=0, color=GRAY_A, stroke_width=2,
-                       max_tip_length_to_length_ratio=0.05)
-        y_axis = Arrow(ax_origin, ax_origin + UP * (ax_h + 0.3),
-                       buff=0, color=GRAY_A, stroke_width=2,
-                       max_tip_length_to_length_ratio=0.05)
-        x_lbl = Text("n（试验次数）",
-                     font="PingFang SC", font_size=16, color=GRAY_A,
-                     ).move_to(ax_origin + RIGHT * (ax_w + 0.7) + DOWN * 0.2)
-        y_lbl = Text("f（频率）",
-                     font="PingFang SC", font_size=16, color=GRAY_A,
-                     ).move_to(ax_origin + UP * (ax_h + 0.55) + RIGHT * 0.5)
-        y_tick = MathTex(r"0.5", font_size=18, color=GRAY_A).move_to(
-            ax_origin + UP * ax_h * 0.5 + LEFT * 0.4)
-        y_tick1 = MathTex(r"1", font_size=18, color=GRAY_A).move_to(
-            ax_origin + UP * ax_h + LEFT * 0.3)
-        self.play(Create(x_axis), Create(y_axis), Write(x_lbl),
-                  Write(y_lbl), Write(y_tick), Write(y_tick1), run_time=0.6)
-
-        # 虚线 y=0.5
-        dash = DashedLine(
-            to_screen(0, 0.5), to_screen(n_max, 0.5),
-            color=self.C_TITLE, dash_length=0.15, stroke_width=1.5,
-        )
-        dash_lbl = MathTex(r"P=0.5", font_size=18, color=self.C_TITLE,
-                           ).move_to(to_screen(n_max, 0.5) + RIGHT * 0.45)
-        self.play(Create(dash), Write(dash_lbl), run_time=0.4)
-
-        # 模拟频率数据
-        np.random.seed(42)
-        flips = np.random.randint(0, 2, 60)
-        cumf  = np.cumsum(flips) / np.arange(1, 61)
-
-        # 关键点：1,3,5,8,12,20,30,45,60
-        key_ns = [1, 3, 5, 8, 12, 20, 30, 45, 60]
-        prev_pt = None
-        for n_i in key_ns:
-            f_i = cumf[n_i - 1]
-            pt  = to_screen(n_i, f_i)
-            col = self.C_RED if abs(f_i - 0.5) > 0.15 else self.C_GREEN
-            d   = Dot(pt, radius=0.1, color=col)
-            self.play(GrowFromCenter(d), run_time=0.22)
-            if prev_pt is not None:
-                seg = Line(prev_pt, pt, color=self.C_MAIN, stroke_width=2)
-                self.play(Create(seg), run_time=0.15)
-            prev_pt = pt
-
-        insight = Text("n越大，频率越靠近 0.5！",
-                       font="PingFang SC", font_size=24, color=self.C_TITLE,
-                       ).move_to(UP * 1.3)
-        self.play(FadeIn(insight, shift=UP * 0.15), run_time=0.4)
-        self.wait(2.0)
+        title = self._text("同一条模拟路径的频率变化", 5.6, 32, GOLD)
+        ax = Axes(x_range=[0, 1000, 200], y_range=[0, 1, 0.25],
+                  x_length=6.6, y_length=3.4, tips=False,
+                  axis_config={"include_numbers": False}).move_to(UP * 1.8)
+        baseline = DashedLine(ax.c2p(0, 0.5), ax.c2p(1000, 0.5),
+                              color=GOLD, dash_length=0.1)
+        label = self._math(r"P(\text{正面})=\frac12", -0.7, 32, GOLD)
+        ns = (10, 25, 50, 100, 200, 400, 600, 800, 1000)
+        points = [ax.c2p(n, float(self.frequency[n - 1])) for n in ns]
+        curve = VGroup(*[Line(start, end, color=CYAN, stroke_width=3)
+                         for start, end in zip(points, points[1:])])
+        dots = VGroup(*[Dot(point, radius=0.06, color=GREEN) for point in points])
+        explanation = self._text("上下波动是正常的，不保证每一次都更靠近 0.5", -2.4, 24)
+        self.play(Write(title), Create(ax), Create(baseline), run_time=0.9)
+        self.play(Create(curve), FadeIn(dots), FadeIn(label), run_time=1.0)
+        self.play(FadeIn(explanation), run_time=0.5)
+        self.wait(1.3)
         self.fade_rest()
 
-    # ─────────── Scene 4: limit ───────────
     def scene_limit(self):
-        title = Text("频率的极限 = 概率",
-                     font="PingFang SC", font_size=38, color=self.C_TITLE,
-                     ).move_to(UP * 6.5)
-        self.play(Write(title), run_time=0.5)
-
-        # 大字极限公式
-        lim_bg = self.card(7.6, 2.2, self.C_MAIN, UP * 5.2,
-                           fill="#0f2a3a", alpha=0.95)
-        lim_f  = MathTex(r"n \to \infty,\quad f(A) \to P(A)",
-                         font_size=44, color=WHITE).move_to(UP * 5.2)
-        self.play(Create(lim_bg), Write(lim_f), run_time=0.8)
-
-        # 箭头说明
-        arrow_bg = self.card(7.4, 2.8, self.C_PURPLE, UP * 3.3)
-        a1_l = Text("频率", font="PingFang SC",
-                    font_size=28, color=self.C_ORANGE)
-        a1_arr = MathTex(r"\xrightarrow{n\to\infty}", font_size=36, color=WHITE)
-        a1_r = Text("概率", font="PingFang SC",
-                    font_size=28, color=self.C_GREEN)
-        a1_row = VGroup(a1_l, a1_arr, a1_r).arrange(RIGHT, buff=0.3)
-
-        a2_l = Text("统计值", font="PingFang SC",
-                    font_size=22, color=self.C_ORANGE)
-        a2_arr = MathTex(r"\xrightarrow{\text{converge}}", font_size=30,
-                         color=GRAY_A)
-        a2_r = Text("理论值", font="PingFang SC",
-                    font_size=22, color=self.C_GREEN)
-        a2_row = VGroup(a2_l, a2_arr, a2_r).arrange(RIGHT, buff=0.3)
-        VGroup(a1_row, a2_row).arrange(DOWN, buff=0.4).move_to(UP * 3.3)
-        self.play(Create(arrow_bg), Write(a1_row), Write(a2_row), run_time=0.8)
-
-        # 实际应用
-        app_bg = self.card(7.4, 1.8, self.C_GREEN, UP * 1.6)
-        app_t1 = Text("实际应用：大量重复试验",
-                      font="PingFang SC", font_size=24, color=self.C_GREEN)
-        app_t2 = Text("用频率估计概率",
-                      font="PingFang SC", font_size=24, color=WHITE)
-        VGroup(app_t1, app_t2).arrange(DOWN, buff=0.15).move_to(UP * 1.6)
-        self.play(Create(app_bg), Write(app_t1), Write(app_t2), run_time=0.6)
-
-        rule_bg = self.card(7.4, 1.4, self.C_TITLE, UP * 0.3, fill="#1a1000")
-        rule_t  = Text("大数定律：试验次数越大，频率越稳定",
-                       font="PingFang SC", font_size=22,
-                       color=self.C_TITLE).move_to(UP * 0.3)
-        self.play(Create(rule_bg), Write(rule_t), run_time=0.6)
-        self.wait(2.0)
+        title = self._text("为什么可以用频率估计概率？", 5.6, 33, GOLD)
+        assumptions = self._text("条件：同一种试验，独立重复，概率保持不变", 3.6, 24)
+        rule = self._math(r"f_n(A)\ \longrightarrow\ P(A)", 1.9, 45, GREEN)
+        clarification = self._text("这是长期统计规律，不是每次实验都精确相等", 0.0, 24)
+        caution = self._text("样本量增加不保证误差单调减小", -1.8, 27, ORANGE)
+        self.play(Write(title), FadeIn(assumptions), run_time=0.8)
+        self.play(Write(rule), FadeIn(clarification), FadeIn(caution), run_time=0.9)
+        self.wait(1.3)
         self.fade_rest()
 
-    # ─────────── Scene 5: history ───────────
     def scene_history(self):
-        title = Text("历史实验数据",
-                     font="PingFang SC", font_size=42, color=self.C_TITLE,
-                     ).move_to(UP * 6.5)
-        self.play(Write(title), run_time=0.4)
-
-        sub = Text("科学家抛硬币实验记录",
-                   font="PingFang SC", font_size=24, color=GRAY_A,
-                   ).move_to(UP * 5.7)
-        self.play(FadeIn(sub), run_time=0.3)
-
-        # 手工表格：三行数据
-        headers = ["实验者", "抛掷次数", "正面次数", "频率"]
-        data    = [
-            ("蒲丰",   "4040",   "2048",  "0.5069"),
-            ("皮尔逊", "12000",  "6019",  "0.5016"),
-            ("皮尔逊", "24000",  "12012", "0.5005"),
-        ]
-        col_xs  = [-3.1, -0.9, 0.9, 2.9]
-        header_y = 4.8
-        row_ys   = [3.9, 2.95, 2.0]
-
-        # 表头背景
-        hdr_bg = RoundedRectangle(corner_radius=0.15, width=7.6, height=0.75,
-                                  color=self.C_MAIN, fill_color="#0f2a3a",
-                                  fill_opacity=0.9, stroke_width=1.5,
-                                  ).move_to(np.array([0, header_y, 0]))
-        self.play(Create(hdr_bg), run_time=0.3)
-        for x, h in zip(col_xs, headers):
-            t = Text(h, font="PingFang SC",
-                     font_size=19, color=self.C_MAIN,
-                     ).move_to(np.array([x, header_y, 0]))
-            self.play(Write(t), run_time=0.15)
-
-        # 数据行
-        for row_y, (name, n, k, f) in zip(row_ys, data):
-            row_bg = RoundedRectangle(
-                corner_radius=0.1, width=7.6, height=0.75,
-                color=GRAY_B, fill_color="#16213e",
-                fill_opacity=0.85, stroke_width=1,
-            ).move_to(np.array([0, row_y, 0]))
-            self.play(Create(row_bg), run_time=0.18)
-            for x, val in zip(col_xs, [name, n, k, f]):
-                col = self.C_RESULT if val == f else WHITE
-                t   = Text(val, font="PingFang SC",
-                           font_size=19, color=col,
-                           ).move_to(np.array([x, row_y, 0]))
-                self.play(Write(t), run_time=0.15)
-
-        # 频率列高亮说明
-        note_bg = self.card(7.4, 1.6, self.C_GREEN, UP * 0.9)
-        note_t1 = Text("所有频率都接近 0.5",
-                       font="PingFang SC", font_size=24, color=self.C_GREEN)
-        note_t2 = Text("次数越多越精确！",
-                       font="PingFang SC", font_size=22, color=WHITE)
-        VGroup(note_t1, note_t2).arrange(DOWN, buff=0.15).move_to(UP * 0.9)
-        self.play(Create(note_bg), Write(note_t1), Write(note_t2), run_time=0.6)
-        self.wait(2.0)
+        """展示可复现模拟数据，不冒充未经核对的历史实验记录。"""
+        title = self._text("固定模拟数据：正面次数与频率", 5.6, 33, GOLD)
+        self.play(Write(title), run_time=0.6)
+        headers = self._text("试验次数     正面次数       频率", 3.9, 26, CYAN)
+        self.play(FadeIn(headers), run_time=0.4)
+        for idx, n in enumerate((10, 100, 1000)):
+            count, frequency = self._sample(n)
+            row = self._text(f"{n:<6}             {count:<6}       {frequency:.3f}",
+                             2.7 - 1.25 * idx, 25, GREEN)
+            self.play(FadeIn(row), run_time=0.45)
+        self.play(FadeIn(self._text("这里只展示一次模拟，不代表每次实验的结果", -2.1, 24, GOLD)),
+                  run_time=0.4)
+        self.wait(1.2)
         self.fade_rest()
 
-    # ─────────── Scene 6: comparison ───────────
     def scene_comparison(self):
-        title = Text("频率 vs 概率",
-                     font="PingFang SC", font_size=44, color=self.C_TITLE,
-                     ).move_to(UP * 6.5)
-        self.play(Write(title), run_time=0.4)
-
-        # 左：频率
-        l_bg = self.card(3.5, 5.0, self.C_ORANGE, UP * 3.8 + LEFT * 1.9)
-        lt   = Text("频率", font="PingFang SC",
-                    font_size=32, color=self.C_ORANGE).move_to(
-            UP * 5.5 + LEFT * 1.9)
-        props_l = [
-            "f = k/n",
-            "统计/实验得到",
-            "随机，每次不同",
-            "n大时趋稳",
-            "概率的估计值",
-        ]
-        l_items = VGroup(*[
-            Text(s, font="PingFang SC", font_size=19, color=WHITE)
-            for s in props_l
-        ]).arrange(DOWN, buff=0.28).move_to(UP * 3.8 + LEFT * 1.9)
-
-        # 右：概率
-        r_bg = self.card(3.5, 5.0, self.C_MAIN, UP * 3.8 + RIGHT * 1.9)
-        rt   = Text("概率", font="PingFang SC",
-                    font_size=32, color=self.C_MAIN).move_to(
-            UP * 5.5 + RIGHT * 1.9)
-        props_r = [
-            "P = m/n",
-            "理论计算得到",
-            "固定不变",
-            "与试验次数无关",
-            "频率的极限值",
-        ]
-        r_items = VGroup(*[
-            Text(s, font="PingFang SC", font_size=19, color=WHITE)
-            for s in props_r
-        ]).arrange(DOWN, buff=0.28).move_to(UP * 3.8 + RIGHT * 1.9)
-
-        self.play(Create(l_bg), Create(r_bg),
-                  Write(lt), Write(rt), run_time=0.5)
-        self.play(*[Write(t) for t in l_items],
-                  *[Write(t) for t in r_items], run_time=0.9)
-
-        link_bg = self.card(7.4, 1.4, self.C_TITLE, UP * 1.1, fill="#1a1000")
-        link_t  = Text("频率是概率的近似；概率是频率的稳定值",
-                       font="PingFang SC", font_size=21,
-                       color=self.C_TITLE).move_to(UP * 1.1)
-        self.play(Create(link_bg), Write(link_t), run_time=0.5)
-        self.wait(2.0)
+        title = self._text("频率与概率：概念不同", 5.6, 36, GOLD)
+        frequency_label = self._text("频率：某次实验中实际发生的比例", 3.6, 27, ORANGE)
+        probability_label = self._text("概率：固定实验条件下的理论规律", 2.3, 27, GREEN)
+        example = self._math(r"P(\text{公平硬币正面})=\frac12", 0.7, 33, CYAN)
+        equal_cases = self._text("某一次的频率也可能恰好等于概率", -1.1, 26)
+        condition = self._text("P=m/N 的计数公式只适用于等可能样本空间", -2.4, 24, GOLD)
+        self.play(Write(title), FadeIn(frequency_label), FadeIn(probability_label),
+                  run_time=0.9)
+        self.play(Write(example), FadeIn(equal_cases), FadeIn(condition), run_time=0.9)
+        self.wait(1.2)
         self.fade_rest()
 
-    # ─────────── Scene 7: practice ───────────
     def scene_quick_practice(self):
-        title = Text("综合练习",
-                     font="PingFang SC", font_size=44, color=self.C_TITLE,
-                     ).move_to(UP * 6.6)
-        self.play(Write(title), run_time=0.4)
-
-        items = [
-            ("某射手射击100次中靶72次",
-             r"f = \dfrac{72}{100} = 0.72",
-             self.C_MAIN, "k=72, n=100"),
-            ("估计该射手命中率约为",
-             r"P \approx 0.72",
-             self.C_GREEN, "用频率估计概率"),
-            ("试验次数越多，估计越",
-             r"\text{accurate}",
-             self.C_PURPLE, "大数定律"),
-        ]
-        card_h = 1.72
-        start_y, gap = 5.1, 1.82
-        for i, (q, res, col, hint) in enumerate(items):
-            pos = UP * (start_y - i * gap)
-            bg  = self.card(7.6, card_h, col, pos)
-            qt  = Text(q, font="PingFang SC", font_size=22, color=WHITE)
-            rf  = MathTex(res, font_size=30, color=self.C_RESULT)
-            ht  = Text(hint, font="PingFang SC",
-                       font_size=18, color=GRAY_A)
-            VGroup(qt, rf, ht).arrange(DOWN, buff=0.15).move_to(pos)
-            self.play(Create(bg), Write(qt), run_time=0.30)
-            self.play(Write(rf), FadeIn(ht), run_time=0.30)
-            self.wait(0.22)
-
-        self.wait(1.5)
+        title = self._text("练习：用模拟频率估计正面概率", 5.6, 33, GOLD)
+        count, frequency = self._sample(100)
+        question = self._text(f"抛 100 次硬币，观察到 {count} 次正面", 3.7, 28)
+        f = self._math(rf"f_{{100}}=\frac{{{count}}}{{100}}={frequency:.2f}",
+                       1.9, 39, CYAN)
+        p = self._math(rf"P(\text{{正面}})\approx {frequency:.2f}", 0.2, 37, GREEN)
+        note = self._text("估计值可能与真实概率 0.5 有偏差", -1.5, 26, ORANGE)
+        self.play(Write(title), FadeIn(question), run_time=0.7)
+        self.play(Write(f), Write(p), FadeIn(note), run_time=0.9)
+        self.wait(1.2)
         self.fade_rest()
 
-    # ─────────── Scene 8: summary ───────────
     def scene_summary(self):
-        title = Text("知识点总结",
-                     font="PingFang SC", font_size=46, color=self.C_TITLE,
-                     ).move_to(UP * 6.6)
-        self.play(Write(title), run_time=0.4)
-
-        blocks = [
-            (self.C_MAIN,   UP * 5.5, "频率公式",
-             r"f(A) = \dfrac{k}{n}"),
-            (self.C_PURPLE, UP * 4.0, "极限关系",
-             r"n\to\infty \Rightarrow f(A)\to P(A)"),
-            (self.C_ORANGE, UP * 2.5, "频率",
-             r"\text{statistical, varies each time}"),
-            (self.C_GREEN,  UP * 1.0, "概率",
-             r"\text{theoretical, fixed value}"),
-            (self.C_RESULT, DOWN * 0.5, "用途",
-             r"f \approx P \text{ (large }n\text{)}"),
-        ]
-        for col, pos, lbl, fml in blocks:
-            bg = self.card(7.6, 1.3, col, pos)
-            lt = Text(lbl, font="PingFang SC", font_size=22, color=col)
-            ft = MathTex(fml, font_size=26, color=WHITE)
-            VGroup(lt, ft).arrange(RIGHT, buff=0.4).move_to(pos)
-            self.play(Create(bg), Write(lt), Write(ft), run_time=0.42)
-
-        self.wait(2.0)
+        title = self._text("总结：统计值与理论值", 5.6, 38, GOLD)
+        formula = self._math(r"f_n(A)=\frac{k}{n}", 3.6, 48, CYAN)
+        relation = self._text("在独立重复、概率不变的条件下", 1.7, 25)
+        result = self._math(r"f_n(A)\ \longrightarrow\ P(A)", 0.4, 42, GREEN)
+        warning = self._text("长期趋近 ≠ 每次都更接近", -1.5, 27, ORANGE)
+        self.play(Write(title), Write(formula), run_time=0.8)
+        self.play(FadeIn(relation), Write(result), FadeIn(warning), run_time=0.9)
+        self.wait(1.3)
         self.fade_rest()
 
-    # ─────────── Scene 9 ───────────
     def scene_outro(self):
-        big = Text("上海初高中数学直通车",
-                   font="PingFang SC", font_size=38, color=WHITE,
-                   ).move_to(UP * 2.5)
-        uid = Text("@emptyandcalm",
-                   font="PingFang SC", font_size=28, color=GRAY_B,
-                   ).move_to(UP * 1.7)
-        self.play(Transform(self.author, big), run_time=0.8)
-        self.play(FadeIn(uid, shift=UP * 0.2), run_time=0.4)
-
-        follow = Text("关注我，学更多数学知识！",
-                      font="PingFang SC", font_size=30,
-                      color=self.C_TITLE).move_to(UP * 0.3)
-        self.play(FadeIn(follow, scale=1.1), run_time=0.6)
-
-        deco = VGroup(
-            MathTex(r"f(A)=\dfrac{k}{n}", font_size=30, color=self.C_MAIN),
-            MathTex(r"n\to\infty \Rightarrow f\to P", font_size=30,
-                    color=self.C_GREEN),
-        ).arrange(DOWN, buff=0.45).move_to(DOWN * 1.8)
-        self.play(*[Write(f) for f in deco], run_time=0.9)
-        self.play(*[Indicate(f, color=self.C_TITLE) for f in deco], run_time=0.8)
-        self.wait(1.5)
-        self.play(*[FadeOut(m) for m in self.mobjects], run_time=1.0)
-
-
-# manim -pql probability_frequency.py ProbabilityFrequency
-# manim -qh  probability_frequency.py ProbabilityFrequency
+        title = self._text("用数据认识随机规律", 3.0, 38, GOLD)
+        ending = self._text("下次可以试试改变随机种子再比较！", 1.6, 27)
+        self.play(FadeIn(title), FadeIn(ending), run_time=0.8)
+        self.wait(1.2)
+        self.play(*[FadeOut(mob) for mob in self.mobjects], run_time=0.7)
