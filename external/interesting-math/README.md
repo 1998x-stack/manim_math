@@ -1,41 +1,44 @@
-# 有趣数学 × Manim：五个独立探索专题
+# 有趣数学 × Manim：五个以几何构造为主的探索专题
 
-这五个专题是跨学段的独立探索，放在现有的 `external/` 中，不猜测教材章节、不重命名旧媒体。按 `.claude/skills/manim-video-production/SKILL.md` 的顺序，为每个主题提供 `description.json`（课程元数据）、`storyboard.md`（数学规格／逐镜分镜／边界条件）、`scene.py`（可定位的 Manim Scene）；共享的 `test_math.py` 对五个 Scene 中的纯数学函数做无 Manim 依赖回归。
+这五集是跨学段独立探索，暂置于既有 `external/interesting-math/`，不猜测教材章节、不迁移旧媒体。每个专题都有 `description.json`、`storyboard.md`、`scene.py`，全部使用 9×16 竖屏约束。各个关键几何对象由同一份数学数据驱动；几何证明的前提、逐镜对象和画面核对项目见 [GEOMETRY.md](GEOMETRY.md)。制作及验证依据 `.claude/skills/manim-video-production/SKILL.md`。
 
-| 专题 | 目录 | Scene 类名 | 数学看点 |
-| --- | --- | --- | --- |
-| 奇数拼平方 | `odd-squares/` | `OddSquaresScene` | 第 n 层增加 2n−1 格，构成 n×n |
-| 蒙提霍尔换门 | `monty-hall/` | `MontyHallScene` | 固定初选下三种等可能奖品位置，两种换门获胜 |
-| 杨辉三角奇偶分形 | `pascal-fractal/` | `PascalFractalScene` | 按二项式系数模 2 着色，出现有限层级自相似图案 |
-| 复数旋转 | `complex-rotation/` | `ComplexRotationScene` | 乘以 cosθ+i sinθ 时保持模并改变辐角 |
-| 科赫雪花 | `koch-snowflake/` | `KochSnowflakeScene` | 周长因子 4/3，新增面积因子 4/9，周长发散而面积有界 |
+| 专题 | 目录 / Scene | 几何讲解主线 |
+| --- | --- | --- |
+| 奇数拼平方 | `odd-squares/` · `OddSquaresScene` | 新增 L 形格子，正方形外边框和两条边长同步增长，比较相邻面积 |
+| 蒙提霍尔换门 | `monty-hall/` · `MontyHallScene` | 三组实体门牌和改选箭头 → 奖品位置三枝概率树 → 两胜一负的图块 |
+| 杨辉三角奇偶分形 | `pascal-fractal/` · `PascalFractalScene` | 数字圆牌和双亲连线 → 三角形奇偶格阵 → 三个等比例缩小的图案轮廓 |
+| 复数旋转 | `complex-rotation/` · `ComplexRotationScene` | 固定向量/旋转向量/真实半径的轨迹圆/累积角弧/有向坐标投影 |
+| 科赫雪花 | `koch-snowflake/` · `KochSnowflakeScene` | 单边三等分及等边凸起 → 每代新增面积染色 → 周长与面积的极限 |
 
-## 校验步骤
+## 数学、语法与 AST 检查
 
 ```bash
-# 仓库根目录；完全不需要安装 Manim 的数学和静态检查：
+# 仓库根目录；不依赖 Manim 的验证，包含图形构造数学不变量：
 python -m unittest discover -s external/interesting-math -p 'test_*.py' -v
 for scene in external/interesting-math/*/scene.py; do
   python -m py_compile "$scene"
   python .claude/skills/manim-video-production/scripts/audit_scene.py "$scene"
 done
+```
 
-# 安装目标版本 Manim Community、LaTeX、中文字体后，每个 Scene 分别低清预览。
-# 注意 scene.py 中指定了生产像素；若 CLI 低清选项被源码配置覆盖，
-# 请在用于预览的独立副本中暂改 config.pixel_width/height，并探测实际输出尺寸。
+新增 `test_geometry.py` 验证 L 形格阵不重叠、杨辉图案左右两个递归复制块、复数端点投影与旋转模长、科赫新增三角形等边与真实增加面积。原 `test_math.py` 仍检查各专题的基本公式。这些检查不能代替 Scene 实际渲染和视觉检查。
+
+## 独立预览及正式渲染
+
+```bash
 manim -pql external/interesting-math/odd-squares/scene.py OddSquaresScene
 manim -pql external/interesting-math/monty-hall/scene.py MontyHallScene
 manim -pql external/interesting-math/pascal-fractal/scene.py PascalFractalScene
 manim -pql external/interesting-math/complex-rotation/scene.py ComplexRotationScene
 manim -pql external/interesting-math/koch-snowflake/scene.py KochSnowflakeScene
 
-# 逐镜抽查实际完整对象边界、中文字体、公式、动画生命周期后，再做正式渲染：
+# 每集预览成功、完整对象边界和关键帧审查后，再在目标环境正式渲染：
 manim -qh external/interesting-math/odd-squares/scene.py OddSquaresScene
-# 对其他四个 Scene 使用同样的命令模式；ffprobe 应确认最终 1080×1920、时长及轨道。
+# 其余场景按各自 Scene 类名执行相同模式；使用 ffprobe 核对实际视频。
 ```
 
-## 证据与未完成的门禁
+`scene.py` 中设置了生产像素宽高，`-pql` 不保证输出一定是低清：应先查看本机 Manim 版本的配置优先级并用 `ffprobe` 确认，必要时使用独立预览配置，避免改动已提交的生产规格。运行前确认中文字体 `Noto Sans CJK SC`、Manim Community 和 LaTeX 可用。
 
-- 本分支提供源代码、数学规格、分镜、元数据及独立数学测试；专用 CI `.github/workflows/interesting-math-quality.yml` 在 PR 上运行语法、Skill AST 审计和数学单测。CI 通过之前不得写 `verified`。
-- 未附 MP4、音乐或可证明已渲染的关键帧。没有安装 Manim／TeX／中文字体的执行环境不能进行真实渲染，不能将数学单测或 CI 静态通过写作 `rendered`。
-- 视频正式发布还需对每个实际 Scene 做低清预览、关键帧和 9×16 安全区检查、媒体探测，以及任何授权音轨的独立审核；这里只生成静默的源码，不覆盖旧视频或删除文件。
+## 交付状态
+
+场景源码、逐镜文档、独立数学测试与路径限定的 GitHub Actions 静态工作流已加入 PR。只有实际得到成功工作流结果，才能称相应静态测试通过；即使静态测试通过，`manim_render`、`frame_review`、`ffprobe` 仍分别需要实际执行记录。当前未附 MP4、授权音乐或完整渲染帧，不覆盖已有视频/音轨，也不删除历史中间文件。
