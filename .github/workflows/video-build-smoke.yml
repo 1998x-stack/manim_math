@@ -1,12 +1,12 @@
 name: Video build real-render smoke
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - feat/commit-gotchas-video-pipeline-20260923
+  pull_request:
     paths:
+      - 'tools/build_video.py'
+      - 'tools/tests/fixtures/video_smoke.py'
       - '.github/workflows/video-build-smoke.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -54,3 +54,10 @@ jobs:
           print('Actual Manim render and FFmpeg audio merge validated:', kinds,
                 'duration:', probe['format']['duration'])
           PY
+      - name: Upload real-render test MP4
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: manim-short-video-with-test-audio
+          path: tools/tests/fixtures/video-smoke-finish.mp4
+          if-no-files-found: error
