@@ -1,0 +1,46 @@
+name: Grade 10 semester 2 exponential and logarithmic equations
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程/**'
+      - '.github/workflows/grade10-sem2-equations.yml'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程/
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile and verify equations
+        run: |
+          LESSON='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程'
+          python -m py_compile "$LESSON/exponential_logarithmic.py" "$LESSON/verify_equations.py"
+          python "$LESSON/verify_equations.py" -v
+      - name: Manim skill AST source audit
+        run: |
+          LESSON='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程'
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "$LESSON/exponential_logarithmic.py" --json > /tmp/equations-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/equations-audit.json').read_text(encoding='utf-8'))
+          print('AST:', report['errors'], 'errors,', report['warnings'], 'warnings')
+          for finding in report['findings']:
+              print(finding)
+          assert report['errors'] == 0
+          assert {row['code'] for row in report['findings']} <= {'DYNAMIC_TEX'}
+          PY
