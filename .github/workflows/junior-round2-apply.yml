@@ -1,0 +1,72 @@
+name: Junior round-two guarded source repair
+
+on:
+  push:
+    branches:
+      - fix/junior-gotchas-round2-20260923
+    paths:
+      - tools/repair_junior_gotchas_round2.py
+      - tools/tests/test_junior_round2_contract.py
+      - .github/workflows/junior-round2-apply.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    if: github.repository == '1998x-stack/manim_math' && github.ref == 'refs/heads/fix/junior-gotchas-round2-20260923'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/junior-gotchas-round2-20260923
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/repair_junior_gotchas_round2.py
+            /tools/audit_junior_gotchas.py
+            /tools/tests/test_junior_round2_contract.py
+            /初中/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply guarded changes
+        run: python tools/repair_junior_gotchas_round2.py --apply
+      - name: Check syntax, source contracts and diff whitespace
+        shell: bash
+        run: |
+          python -m compileall -q '初中'
+          python -m unittest discover -s tools/tests -p 'test_junior_round2_contract.py' -v
+          python tools/audit_junior_gotchas.py --json > junior-round2-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          scan = json.loads(Path('junior-round2-audit.json').read_text(encoding='utf-8'))
+          assert all(scan['grades'].values()), scan['grades']
+          assert scan['errors'] == 0, scan['findings']
+          touched = ('arc_length_formula.py', 'quadratic_function.py',
+                     'quadratic_function_vertex.py', 'quadratic_vertex_form.py',
+                     'sample_estimation.py')
+          affected = [entry for entry in scan['findings']
+                      if entry['path'].endswith(touched)]
+          assert not affected, affected
+          print('Files:', scan['files'], 'remaining warnings:', scan['warnings'])
+          PY
+          git diff --check
+      - name: Commit only validated lesson sources to review branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -u -- '初中'
+          git diff --cached --name-only
+          test "$(git diff --cached --name-only | wc -l)" -eq 5
+          git commit -m 'fix(junior): repair five verified Manim lesson sources'
+          git push origin HEAD:refs/heads/fix/junior-gotchas-round2-20260923
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: junior-round2-audit
+          path: junior-round2-audit.json
+          if-no-files-found: warn
