@@ -1,4 +1,4 @@
-name: Validate docs and skills
+name: Validate docs, skills and catalog contract
 on:
   pull_request:
   push:
@@ -11,6 +11,8 @@ on:
       - '.opencode/skills/**'
       - '.claude/skills/**'
       - 'tools/**'
+      - 'tests/**'
+      - 'assets/catalog.json'
       - 'README.md'
       - 'AGENTS.md'
       - '.github/workflows/validate-architecture.yml'
@@ -33,11 +35,12 @@ jobs:
             .codex/skills
             .opencode/skills
             .claude/skills
-            assets
+            assets/catalog.json
             catalog
             docs
             skills
             tools
+            tests
             README.md
             AGENTS.md
       - uses: actions/setup-python@v5
@@ -46,3 +49,5 @@ jobs:
       - run: python tools/sync_skills.py --check
       - run: python tools/check_repository.py
       - run: python tools/audit_catalog.py --skip-file-check
+      - run: python tools/legacy_contract.py --expect-count 534
+      - run: python -m unittest discover -s tests -p 'test_legacy_contract.py' -v
