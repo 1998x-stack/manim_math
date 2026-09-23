@@ -1,49 +1,112 @@
-"""
-parallel_lines.py
-平行线的判定 — 七年级数学 TikTok竖屏动画
-作者: 上海初高中数学直通车 @emptyandcalm
-
-知识点:
-  (1) 同位角相等 ⟹ 两直线平行
-  (2) 内错角相等 ⟹ 两直线平行
-  (3) 同旁内角互补 ⟹ 两直线平行
-
-渲染命令:
-  manim -pql parallel_lines.py ParallelLineDetermination  # 预览
-  manim -qh  parallel_lines.py ParallelLineDetermination  # 高质量
-"""
-
-from manim import *
+"""平行线的三条判定：先展示不平行反例，再在正确的两交点角对上判定。"""
+from math import atan2, cos, degrees, pi, radians, sin
 import numpy as np
+from manim import *
 
-# ── TikTok 竖屏配置 ──────────────────────────────────────
-config.pixel_width  = 1080
+config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+config.frame_width = 9
 config.frame_height = 16
 
-# ── 全局常量 ─────────────────────────────────────────────
-FONT = "PingFang SC"  # 中文字体
-
-C_LINE1   = "#3498db"   # 蓝  — 直线 l
-C_LINE2   = "#2ecc71"   # 绿  — 直线 m
-C_TRANS   = "#e74c3c"   # 红  — 截线 t
-C_YELLOW  = "#f1c40f"   # 黄  — 角1颜色
-C_CYAN    = "#1abc9c"   # 青  — 角2颜色
-C_ORANGE  = "#e67e22"   # 橙
-C_GOLD    = "#f39c12"   # 金
-C_GRAY    = "#bdc3c7"   # 灰
-BG_COLOR  = "#1a1a2e"   # 深蓝背景
+BG = '#1a1a2e'
+PARALLEL_TILT = 0.0
+COUNTEREXAMPLE_TILT = radians(15)
 
 
-# ══════════════════════════════════════════════════════════
+def sector_spec(index, transversal_angle, lower_tilt):
+    """返回第 1..8 角所对应的真实逆时针弧：起点、张角、中线。
+
+    顶点上/下依次编号 1..4/5..8，射线从被截线右向依次逆时针
+    经过截线向上、被截线左向、截线向下方向。本课限制下线倾角
+    0<=lower_tilt<transversal_angle<π/2，以免改变编号拓扑。
+    """
+    assert 1 <= index <= 8
+    assert 0 <= lower_tilt < transversal_angle < pi / 2
+    direction = 0.0 if index <= 4 else lower_tilt
+    rays = (direction, transversal_angle, direction + pi,
+            transversal_angle + pi, direction + 2 * pi)
+    local = (index - 1) % 4
+    start, end = rays[local], rays[local + 1]
+    return start, end - start, (start + end) / 2
+
+
 class ParallelLineDetermination(Scene):
-    """平行线的判定方法 — 七年级数学动画"""
+    def fit(self, obj, max_width=7.5):
+        if obj.width > max_width:
+            obj.scale_to_fit_width(max_width)
+        return obj
 
-    # ──────────────────────────────────────────────────────
+    def heading(self, text):
+        obj = self.fit(Text(text, font_size=39, color=GOLD)).move_to(UP * 5.8)
+        self.play(Write(obj), run_time=0.55)
+        return obj
+
+    def note(self, text, y, color=WHITE, size=26):
+        obj = self.fit(Text(text, font_size=size, color=color)).move_to(UP * y)
+        self.play(FadeIn(obj), run_time=0.4)
+        return obj
+
+    def formula(self, tex, y, color=YELLOW, size=34):
+        obj = self.fit(MathTex(tex, font_size=size, color=color)).move_to(UP * y)
+        self.play(Write(obj), run_time=0.6)
+        return obj
+
+    def setup_geometry(self):
+        self.P = np.array([0.6, 1.2, 0.0])
+        self.Q = np.array([-0.75, -1.5, 0.0])
+        td = self.P - self.Q
+        self.tdir = td / np.linalg.norm(td)
+        self.theta = atan2(self.tdir[1], self.tdir[0])
+        assert 0 < COUNTEREXAMPLE_TILT < self.theta < pi / 2
+        assert abs((self.P[0] - self.Q[0]) / (self.P[1] - self.Q[1]) - 0.5) < 1e-9
+        self.check_model()
+
+    def angle(self, index, lower_tilt):
+        return degrees(sector_spec(index, self.theta, lower_tilt)[1])
+
+    def check_model(self):
+        for index in range(1, 9):
+            start, sweep, midpoint = sector_spec(index, self.theta, PARALLEL_TILT)
+            assert 0 < sweep < pi and start < midpoint < start + sweep
+        # 非平行反例：在 P、Q 处相应的同位角不相等。
+        assert self.angle(1, COUNTEREXAMPLE_TILT) > self.angle(5, COUNTEREXAMPLE_TILT)
+        # 同一交点相邻两角始终互补，不能据此判定平行。
+        for tilt in (PARALLEL_TILT, COUNTEREXAMPLE_TILT):
+            assert abs(self.angle(5, tilt) + self.angle(6, tilt) - 180) < 1e-9
+        # 本例线 m 变为水平线后，三条判定条件都满足。
+        assert abs(self.angle(1, 0) - self.angle(5, 0)) < 1e-9
+        assert abs(self.angle(3, 0) - self.angle(5, 0)) < 1e-9
+        assert abs(self.angle(4, 0) + self.angle(5, 0) - 180) < 1e-9
+
+    def draw_model(self, lower_tilt, selected=(), color=YELLOW):
+        upper = Line([-3.1, self.P[1], 0], [3.5, self.P[1], 0],
+                     color=BLUE_C, stroke_width=4)
+        direction = np.array([cos(lower_tilt), sin(lower_tilt), 0])
+        lower = Line(self.Q - direction * 3.1, self.Q + direction * 3.1,
+                     color=GREEN_C, stroke_width=4)
+        crossing = Line(self.Q - self.tdir * 1.2, self.P + self.tdir * 1.1,
+                        color=RED_C, stroke_width=4)
+        self.play(Create(upper), Create(lower), Create(crossing), run_time=0.65)
+        for index in selected:
+            anchor = self.P if index <= 4 else self.Q
+            start, sweep, middle = sector_spec(index, self.theta, lower_tilt)
+            arc = Arc(radius=0.45, start_angle=start, angle=sweep,
+                      color=color, stroke_width=5).move_arc_center_to(anchor)
+            label = MathTex(r'\angle '+str(index), font_size=26, color=color)
+            label.move_to(anchor + .90 * np.array([cos(middle), sin(middle), 0]))
+            self.play(Create(arc), FadeIn(label), run_time=0.35)
+
+    def clear_stage(self):
+        visible = [obj for obj in self.mobjects if obj is not self.author]
+        if visible:
+            self.play(FadeOut(VGroup(*visible)), run_time=0.4)
+
     def construct(self):
-        self.camera.background_color = BG_COLOR
+        self.camera.background_color = BG
         self.setup_geometry()
+        self.author = self.fit(Text('上海初高中数学直通车 @emptyandcalm',
+                                    font_size=18, color=GRAY_B)).move_to(UP * 6.75)
+        self.add(self.author)
         self.scene_1_opening()
         self.scene_2_diagram()
         self.scene_3_corresponding()
@@ -52,453 +115,67 @@ class ParallelLineDetermination(Scene):
         self.scene_6_summary()
         self.scene_7_outro()
 
-    # ══════════════════════════════════════════════════════
-    # 几何初始化
-    # ══════════════════════════════════════════════════════
-    def setup_geometry(self):
-        """
-        统一计算所有坐标，后续场景只读不写。
-        截线方向: arctan(2) ≈ 63.43°（过原点）
-        l1: y = 1.2  (上直线)
-        l2: y = -1.5 (下直线)
-        """
-        # 截线角度与方向
-        self.ta    = np.arctan(2)              # ≈ 1.1071 rad
-        self.sin_a = np.sin(self.ta)           # 2/√5
-        self.cos_a = np.cos(self.ta)           # 1/√5
-        self.td    = np.array([self.cos_a, self.sin_a, 0])  # 截线单位方向
-
-        # 两横线纵坐标
-        self.Y1 =  1.2
-        self.Y2 = -1.5
-
-        # 精确计算交点（截线过原点）
-        t_P = self.Y1 / self.sin_a
-        t_Q = self.Y2 / self.sin_a
-        self.P = np.array([t_P * self.cos_a, self.Y1, 0])   # (0.600, 1.200)
-        self.Q = np.array([t_Q * self.cos_a, self.Y2, 0])   # (-0.750, -1.500)
-
-        # 直线端点（延伸 ±3.0 单位）
-        self.LINE_EXT = 3.0
-        self.L1_L = np.array([self.P[0] - self.LINE_EXT, self.Y1, 0])
-        self.L1_R = np.array([self.P[0] + self.LINE_EXT, self.Y1, 0])
-        self.L2_L = np.array([self.Q[0] - self.LINE_EXT, self.Y2, 0])
-        self.L2_R = np.array([self.Q[0] + self.LINE_EXT, self.Y2, 0])
-
-        # 截线端点（交点外各延伸 1.5）
-        self.T_START = self.Q - 1.5 * self.td
-        self.T_END   = self.P + 1.5 * self.td
-
-        # 角弧半径
-        self.R = 0.42
-
-        # 角标签位置辅助（角中线方向 + 偏移）
-        def _label_pos(center, start, sweep, dist=0.72):
-            mid = start + sweep / 2
-            return center + dist * np.array([np.cos(mid), np.sin(mid), 0])
-
-        self._lpos = _label_pos
-
-        # 验证
-        self._verify()
-
-    def _verify(self):
-        eps = 1e-9
-        assert abs(self.P[1] - self.Y1) < eps
-        assert abs(self.Q[1] - self.Y2) < eps
-        # 同旁内角互补
-        s4 = np.pi - self.ta  # ∠4 sweep
-        s5 = self.ta           # ∠5 sweep
-        assert abs(s4 + s5 - np.pi) < eps
-        print("✓ 几何验证通过: P,Q,角度关系均正确")
-
-    # ══════════════════════════════════════════════════════
-    # 辅助: 扇形 & 弧线 & 平行线标记
-    # ══════════════════════════════════════════════════════
-    def make_sector(self, center, start, sweep, color, r=None, opacity=0.55):
-        """在 center 点创建角扇形（使用 shift 而非 move_to）"""
-        r = r or self.R
-        return (
-            Sector(radius=r, start_angle=start, angle=sweep,
-                   color=color, fill_opacity=opacity, stroke_width=0)
-            .shift(center)
-        )
-
-    def make_arc(self, center, start, sweep, color, r=None, sw=2.5):
-        """在 center 点创建角弧线"""
-        r = r or self.R
-        return (
-            Arc(radius=r, start_angle=start, angle=sweep,
-                color=color, stroke_width=sw)
-            .shift(center)
-        )
-
-    def make_tick(self, center, start, sweep, color="#ffffff"):
-        """角弧上的等号小标记（两条细线表示角相等）"""
-        mid = start + sweep / 2
-        mid_pt = center + (self.R + 0.05) * np.array([np.cos(mid), np.sin(mid), 0])
-        perp   = np.array([-np.sin(mid), np.cos(mid), 0]) * 0.12
-        t1 = Line(mid_pt - perp * 0.4, mid_pt + perp * 0.4, color=color, stroke_width=2)
-        t2 = t1.copy().shift(np.array([np.cos(mid), np.sin(mid), 0]) * 0.12)
-        return VGroup(t1, t2)
-
-    def make_parallel_marks(self, line_y, color=WHITE, n=1):
-        """在横线上画平行标记箭头（小三角形）"""
-        arrow = Arrow(
-            start=np.array([0, line_y, 0]) + LEFT * 0.18,
-            end  =np.array([0, line_y, 0]) + RIGHT * 0.18,
-            buff=0, color=color, stroke_width=2.5,
-            tip_length=0.18, max_tip_length_to_length_ratio=0.9
-        )
-        return arrow
-
-    # ══════════════════════════════════════════════════════
-    # Scene 1: 开场钩子
-    # ══════════════════════════════════════════════════════
     def scene_1_opening(self):
-        # 作者信息（常驻顶部）
-        self.author = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font=FONT, font_size=20, color=C_GRAY
-        ).move_to(UP * 7.3)
-        self.play(FadeIn(self.author, shift=DOWN * 0.15), run_time=0.4)
+        self.heading('如何从角的关系判定两直线平行？')
+        self.draw_model(COUNTEREXAMPLE_TILT)
+        self.note('此时下方直线略微倾斜，尚不能判断为平行', -3.0)
+        self.wait(0.7)
+        self.clear_stage()
 
-        # 钩子
-        hook = Text("如何判断两直线平行?", font=FONT, font_size=44, color=C_GOLD)\
-               .move_to(UP * 5.5)
-        sub  = Text("3种方法，一次讲清！", font=FONT, font_size=30, color=WHITE)\
-               .move_to(UP * 4.6)
-
-        self.play(Write(hook), run_time=0.9)
-        self.play(FadeIn(sub, shift=UP * 0.2), run_time=0.5)
-        self.wait(0.9)
-        self.play(FadeOut(hook), FadeOut(sub), run_time=0.4)
-
-    # ══════════════════════════════════════════════════════
-    # Scene 2: 建立三线八角图示
-    # ══════════════════════════════════════════════════════
     def scene_2_diagram(self):
-        title = Text("三线八角", font=FONT, font_size=38, color=C_GOLD).move_to(UP * 5.6)
-        self.play(Write(title), run_time=0.6)
+        self.heading('反例：只看一个交点的平角不够')
+        self.draw_model(COUNTEREXAMPLE_TILT, (5, 6), ORANGE)
+        self.formula(r'\angle5+\angle6=180^{\circ}', -2.9, ORANGE)
+        self.note('这是邻补角，直线并未平行', -4.1, ORANGE)
+        self.wait(0.9)
+        self.clear_stage()
 
-        # 建立图形
-        l1 = Line(self.L1_L, self.L1_R, color=C_LINE1, stroke_width=3)
-        l2 = Line(self.L2_L, self.L2_R, color=C_LINE2, stroke_width=3)
-        t  = Line(self.T_START, self.T_END, color=C_TRANS, stroke_width=3)
-
-        lbl_l = Text("l", font=FONT, font_size=26, color=C_LINE1)\
-                .next_to(self.L1_R, RIGHT, buff=0.12)
-        lbl_m = Text("m", font=FONT, font_size=26, color=C_LINE2)\
-                .next_to(self.L2_R, RIGHT, buff=0.12)
-        lbl_t = Text("t", font=FONT, font_size=24, color=C_TRANS)\
-                .next_to(self.T_END, UR, buff=0.08)
-
-        p_dot = Dot(self.P, color=WHITE, radius=0.07)
-        q_dot = Dot(self.Q, color=WHITE, radius=0.07)
-
-        self.play(Create(l1), Write(lbl_l), run_time=0.7)
-        self.play(Create(l2), Write(lbl_m), run_time=0.7)
-        self.play(Create(t),  Write(lbl_t), run_time=0.7)
-        self.play(FadeIn(p_dot), FadeIn(q_dot), run_time=0.4)
-
-        explain = Text("直线 t 截直线 l、m，形成8个角",
-                       font=FONT, font_size=22, color=C_GRAY).move_to(DOWN * 4.5)
-        self.play(FadeIn(explain), run_time=0.5)
-        self.wait(0.8)
-
-        # 存储，后续场景复用
-        self.diagram = VGroup(l1, l2, t, lbl_l, lbl_m, lbl_t, p_dot, q_dot)
-        self.play(FadeOut(title), FadeOut(explain), run_time=0.4)
-
-    # ══════════════════════════════════════════════════════
-    # Scene 3: 同位角相等 → 两直线平行
-    # ══════════════════════════════════════════════════════
     def scene_3_corresponding(self):
-        ta = self.ta
-        P, Q = self.P, self.Q
+        self.heading('方法一：同位角相等')
+        self.draw_model(COUNTEREXAMPLE_TILT, (1, 5), ORANGE)
+        before = (rf'\angle1\approx{self.angle(1,COUNTEREXAMPLE_TILT):.1f}^{{\circ}},\quad'
+                  rf'\angle5\approx{self.angle(5,COUNTEREXAMPLE_TILT):.1f}^{{\circ}}')
+        self.formula(before, -2.7, ORANGE, 33)
+        self.note('两角不相等，下方直线尚未平行', -4.0)
+        self.wait(0.4)
+        self.clear_stage()
+        self.heading('让同位角相等，再判定平行')
+        self.draw_model(PARALLEL_TILT, (1, 5), GREEN_C)
+        self.formula(r'\angle1=\angle5\ \Longrightarrow\ l\parallel m', -2.8, GREEN_C, 32)
+        self.note('角来自两个交点，分别处于相同位置', -4.1)
+        self.wait(0.9)
+        self.clear_stage()
 
-        title = Text("方法一  同位角相等", font=FONT, font_size=34, color=C_YELLOW)\
-                .move_to(UP * 5.5)
-        self.play(Write(title), run_time=0.6)
-
-        # ∠1 at P (上右, start=0, sweep=ta)
-        sec1 = self.make_sector(P, 0, ta, C_YELLOW)
-        arc1 = self.make_arc(P, 0, ta, C_YELLOW)
-        pos1 = self._lpos(P, 0, ta)
-        lbl1 = Text("∠1", font=FONT, font_size=22, color=C_YELLOW).move_to(pos1)
-
-        # ∠5 at Q (上右, start=0, sweep=ta) — 完全相同位置
-        sec5 = self.make_sector(Q, 0, ta, C_CYAN)
-        arc5 = self.make_arc(Q, 0, ta, C_CYAN)
-        pos5 = self._lpos(Q, 0, ta)
-        lbl5 = Text("∠5", font=FONT, font_size=22, color=C_CYAN).move_to(pos5)
-
-        self.play(FadeIn(sec1), Create(arc1), FadeIn(lbl1), run_time=0.6)
-        self.play(FadeIn(sec5), Create(arc5), FadeIn(lbl5), run_time=0.6)
-
-        # 解释：位置相同
-        exp1 = Text("两角相对截线位置完全相同", font=FONT, font_size=22, color=C_GRAY)\
-               .move_to(DOWN * 4.2)
-        exp2 = Text("→ 叫做同位角", font=FONT, font_size=24, color=C_YELLOW)\
-               .move_to(DOWN * 4.9)
-        self.play(FadeIn(exp1), run_time=0.5)
-        self.play(FadeIn(exp2), run_time=0.4)
-        self.wait(1.0)
-        self.play(FadeOut(exp1), FadeOut(exp2), run_time=0.3)
-
-        # 强调相等 → 平行
-        self.play(
-            sec1.animate.set_color(YELLOW).set_opacity(0.8),
-            sec5.animate.set_color(YELLOW).set_opacity(0.8),
-            run_time=0.5
-        )
-
-        conc = MathTex(r"\angle 1 = \angle 5 \;\Rightarrow\; l \parallel m",
-                       font_size=36, color=YELLOW)
-        conc.move_to(DOWN * 4.3)
-        box = SurroundingRectangle(conc, color=YELLOW, buff=0.18, corner_radius=0.12)
-
-        self.play(Write(conc), Create(box), run_time=0.9)
-        self.wait(1.6)
-
-        self.play(
-            FadeOut(title), FadeOut(sec1), FadeOut(sec5),
-            FadeOut(arc1), FadeOut(arc5), FadeOut(lbl1), FadeOut(lbl5),
-            FadeOut(conc), FadeOut(box), run_time=0.5
-        )
-
-    # ══════════════════════════════════════════════════════
-    # Scene 4: 内错角相等 → 两直线平行
-    # ══════════════════════════════════════════════════════
     def scene_4_alternate(self):
-        ta = self.ta
-        P, Q = self.P, self.Q
+        self.heading('方法二：内错角相等')
+        self.draw_model(PARALLEL_TILT, (3, 5), PURPLE_C)
+        self.formula(r'\angle3=\angle5\ \Longrightarrow\ l\parallel m', -2.9, PURPLE_C, 32)
+        self.note('两线之间，截线两侧；是不同交点的角', -4.2)
+        self.wait(0.9)
+        self.clear_stage()
 
-        title = Text("方法二  内错角相等", font=FONT, font_size=34, color=C_CYAN)\
-                .move_to(UP * 5.5)
-        self.play(Write(title), run_time=0.6)
-
-        # ∠3 at P (下左, start=π, sweep=ta) — 在两线间，截线左侧
-        sec3 = self.make_sector(P, np.pi, ta, C_YELLOW)
-        arc3 = self.make_arc(P, np.pi, ta, C_YELLOW)
-        pos3 = self._lpos(P, np.pi, ta, dist=0.75)
-        lbl3 = Text("∠3", font=FONT, font_size=22, color=C_YELLOW).move_to(pos3)
-
-        # ∠5 at Q (上右, start=0, sweep=ta) — 在两线间，截线右侧
-        sec5 = self.make_sector(Q, 0, ta, C_CYAN)
-        arc5 = self.make_arc(Q, 0, ta, C_CYAN)
-        pos5 = self._lpos(Q, 0, ta)
-        lbl5 = Text("∠5", font=FONT, font_size=22, color=C_CYAN).move_to(pos5)
-
-        self.play(FadeIn(sec3), Create(arc3), FadeIn(lbl3), run_time=0.6)
-        self.play(FadeIn(sec5), Create(arc5), FadeIn(lbl5), run_time=0.6)
-
-        # 画一条虚线连接，指示"两线内侧，截线两侧"
-        region_line = DashedLine(
-            self.P + DOWN * 0.1, self.Q + UP * 0.1,
-            color=WHITE, dash_length=0.08, stroke_width=1
-        )
-        self.play(Create(region_line), run_time=0.4)
-
-        exp1 = Text("两角均在 l、m 之间", font=FONT, font_size=22, color=C_GRAY)\
-               .move_to(DOWN * 4.0)
-        exp2 = Text("且位于截线两侧 → 内错角", font=FONT, font_size=24, color=C_CYAN)\
-               .move_to(DOWN * 4.8)
-        self.play(FadeIn(exp1), run_time=0.4)
-        self.play(FadeIn(exp2), run_time=0.4)
-        self.wait(1.0)
-        self.play(FadeOut(exp1), FadeOut(exp2), FadeOut(region_line), run_time=0.3)
-
-        # 强调相等
-        self.play(
-            sec3.animate.set_color(GREEN).set_opacity(0.8),
-            sec5.animate.set_color(GREEN).set_opacity(0.8),
-            run_time=0.5
-        )
-
-        conc = MathTex(r"\angle 3 = \angle 5 \;\Rightarrow\; l \parallel m",
-                       font_size=36, color=GREEN)
-        conc.move_to(DOWN * 4.3)
-        box = SurroundingRectangle(conc, color=GREEN, buff=0.18, corner_radius=0.12)
-
-        self.play(Write(conc), Create(box), run_time=0.9)
-        self.wait(1.6)
-
-        self.play(
-            FadeOut(title), FadeOut(sec3), FadeOut(sec5),
-            FadeOut(arc3), FadeOut(arc5), FadeOut(lbl3), FadeOut(lbl5),
-            FadeOut(conc), FadeOut(box), run_time=0.5
-        )
-
-    # ══════════════════════════════════════════════════════
-    # Scene 5: 同旁内角互补 → 两直线平行
-    # ══════════════════════════════════════════════════════
     def scene_5_cointerior(self):
-        ta = self.ta
-        P, Q = self.P, self.Q
+        self.heading('方法三：同旁内角互补')
+        self.draw_model(PARALLEL_TILT, (4, 5), YELLOW)
+        self.formula(r'\angle4+\angle5=180^{\circ}', -2.7)
+        self.formula(r'\Longrightarrow\ l\parallel m', -4.0)
+        self.note('两线之间、截线同侧，且来自不同交点', -5.0, YELLOW, 23)
+        self.wait(0.9)
+        self.clear_stage()
 
-        title = Text("方法三  同旁内角互补", font=FONT, font_size=34, color=C_ORANGE)\
-                .move_to(UP * 5.5)
-        self.play(Write(title), run_time=0.6)
-
-        # ∠4 at P (下右大角, start=π+ta, sweep=π-ta) — 同侧右，在两线间
-        sweep4 = np.pi - ta
-        start4 = np.pi + ta
-        sec4 = self.make_sector(P, start4, sweep4, C_ORANGE)
-        arc4 = self.make_arc(P, start4, sweep4, C_ORANGE)
-        pos4 = self._lpos(P, start4, sweep4, dist=0.75)
-        lbl4 = Text("∠4", font=FONT, font_size=22, color=C_ORANGE).move_to(pos4)
-
-        # ∠5 at Q (上右小角, start=0, sweep=ta) — 同侧右，在两线间
-        sec5 = self.make_sector(Q, 0, ta, C_YELLOW)
-        arc5 = self.make_arc(Q, 0, ta, C_YELLOW)
-        pos5 = self._lpos(Q, 0, ta)
-        lbl5 = Text("∠5", font=FONT, font_size=22, color=C_YELLOW).move_to(pos5)
-
-        self.play(FadeIn(sec4), Create(arc4), FadeIn(lbl4), run_time=0.6)
-        self.play(FadeIn(sec5), Create(arc5), FadeIn(lbl5), run_time=0.6)
-
-        exp1 = Text("两角在截线同侧，均在两线之间", font=FONT, font_size=22, color=C_GRAY)\
-               .move_to(DOWN * 4.0)
-        exp2 = Text("→ 同旁内角", font=FONT, font_size=24, color=C_ORANGE)\
-               .move_to(DOWN * 4.7)
-        self.play(FadeIn(exp1), run_time=0.4)
-        self.play(FadeIn(exp2), run_time=0.4)
-        self.wait(0.8)
-        self.play(FadeOut(exp1), FadeOut(exp2), run_time=0.3)
-
-        # 和为 180° 演示：两个扇形拼合变成半圆
-        sum_txt = MathTex(r"\angle 4 + \angle 5 = 180^{\circ}",
-                          font_size=30, color=WHITE).move_to(DOWN * 4.0)
-        self.play(Write(sum_txt), run_time=0.5)
-        self.wait(0.5)
-        self.play(FadeOut(sum_txt), run_time=0.3)
-
-        conc = MathTex(r"\angle 4 + \angle 5 = 180^{\circ} \;\Rightarrow\; l \parallel m",
-                       font_size=30, color=C_ORANGE)
-        conc.move_to(DOWN * 4.3)
-        box = SurroundingRectangle(conc, color=C_ORANGE, buff=0.18, corner_radius=0.12)
-
-        self.play(Write(conc), Create(box), run_time=0.9)
-        self.wait(1.6)
-
-        self.play(
-            FadeOut(title), FadeOut(sec4), FadeOut(sec5),
-            FadeOut(arc4), FadeOut(arc5), FadeOut(lbl4), FadeOut(lbl5),
-            FadeOut(conc), FadeOut(box), run_time=0.5
-        )
-
-    # ══════════════════════════════════════════════════════
-    # Scene 6: 总结
-    # ══════════════════════════════════════════════════════
     def scene_6_summary(self):
-        # 图示淡出
-        self.play(FadeOut(self.diagram), run_time=0.4)
+        self.heading('判定平行：必须选对角对')
+        self.formula(r'\angle1=\angle5\ \Longrightarrow\ l\parallel m', 3.9, ORANGE, 31)
+        self.note('同位角相等', 3.0, ORANGE, 23)
+        self.formula(r'\angle3=\angle5\ \Longrightarrow\ l\parallel m', 1.35, PURPLE_C, 31)
+        self.note('内错角相等', 0.4, PURPLE_C, 23)
+        self.formula(r'\angle4+\angle5=180^{\circ}\ \Longrightarrow\ l\parallel m', -1.5, YELLOW, 29)
+        self.note('同旁内角互补；不可用同一交点的邻补角', -3.0, YELLOW, 23)
+        self.wait(1.2)
+        self.clear_stage()
 
-        title = Text("三种判定方法", font=FONT, font_size=40, color=C_GOLD)\
-                .move_to(UP * 6.2)
-        self.play(Write(title), run_time=0.6)
-
-        # 三条方法卡片
-        methods = [
-            (r"\angle 1 = \angle 2", "同位角相等",   "两直线平行", C_YELLOW, 3.8),
-            (r"\angle 3 = \angle 4", "内错角相等",   "两直线平行", C_CYAN,   1.8),
-            (r"\angle 5 + \angle 6 = 180^{\circ}", "同旁内角互补", "两直线平行", C_ORANGE, -0.2),
-        ]
-
-        cards = []
-        for formula, cond_txt, conc_txt, color, y in methods:
-            # 序号圆
-            idx = methods.index((formula, cond_txt, conc_txt, color, y)) + 1
-            circle_bg = Circle(radius=0.28, fill_color=color, fill_opacity=1,
-                               stroke_width=0).move_to(LEFT * 3.8 + UP * y)
-            num = Text(str(idx), font=FONT, font_size=22, color=WHITE)\
-                  .move_to(circle_bg.get_center())
-
-            # 条件文字
-            cond = Text(cond_txt, font=FONT, font_size=26, color=color)\
-                   .next_to(circle_bg, RIGHT, buff=0.25)
-
-            # 箭头
-            arr = MathTex(r"\Rightarrow", font_size=28, color=WHITE)\
-                  .next_to(cond, RIGHT, buff=0.25)
-
-            # 结论
-            conc = Text(conc_txt, font=FONT, font_size=26, color=WHITE)\
-                   .next_to(arr, RIGHT, buff=0.25)
-
-            # 背景条
-            row = VGroup(circle_bg, num, cond, arr, conc)
-            bg = RoundedRectangle(
-                width=8.0, height=0.85, corner_radius=0.15,
-                color=color, fill_opacity=0.1, stroke_width=1.5
-            ).move_to(UP * y)
-
-            card = VGroup(bg, circle_bg, num, cond, arr, conc)
-            card.shift(LEFT * 20)   # 初始在屏幕外
-            cards.append(card)
-
-        for card in cards:
-            self.play(card.animate.shift(RIGHT * 20), run_time=0.5)
-            self.wait(0.2)
-
-        self.wait(0.5)
-
-        # 记忆口诀
-        slogan = Text("记忆口诀：等等补，线平行！",
-                      font=FONT, font_size=30, color=C_GOLD)\
-                 .move_to(DOWN * 2.0)
-        slogan_box = SurroundingRectangle(slogan, color=C_GOLD, buff=0.2, corner_radius=0.12)
-
-        self.play(Write(slogan), Create(slogan_box), run_time=0.8)
-        self.wait(1.5)
-
-        # 补充: 平行符号动画
-        para_note = Text("记住: // 表示平行", font=FONT, font_size=22, color=C_GRAY)\
-                    .move_to(DOWN * 3.2)
-        self.play(FadeIn(para_note), run_time=0.4)
-        self.wait(1.0)
-
-        self.play(
-            FadeOut(title),
-            *[FadeOut(c) for c in cards],
-            FadeOut(slogan), FadeOut(slogan_box),
-            FadeOut(para_note),
-            run_time=0.7
-        )
-
-    # ══════════════════════════════════════════════════════
-    # Scene 7: 片尾
-    # ══════════════════════════════════════════════════════
     def scene_7_outro(self):
-        name = Text("上海初高中数学直通车", font=FONT, font_size=42, color=WHITE)\
-               .move_to(UP * 1.8)
-        uid  = Text("@emptyandcalm",       font=FONT, font_size=30, color=C_GRAY)\
-               .move_to(UP * 0.8)
-        cta  = Text("关注我，获得更多数学技巧！", font=FONT, font_size=30, color=C_GOLD)\
-               .move_to(DOWN * 0.4)
-
-        # 作者信息动画过渡
-        self.play(Transform(self.author, name), run_time=0.7)
-        self.play(FadeIn(uid, shift=UP * 0.2), run_time=0.4)
-        self.play(FadeIn(cta, shift=UP * 0.2, scale=1.05), run_time=0.5)
-
-        # 装饰：三色小圆点
-        dots = VGroup(*[
-            Dot(point=np.array([1.8 * np.cos(i * 2*np.pi/6),
-                                1.8 * np.sin(i * 2*np.pi/6), 0]),
-                radius=0.14,
-                color=[C_YELLOW, C_CYAN, C_ORANGE, C_LINE1, C_LINE2, C_TRANS][i],
-                fill_opacity=0.9)
-            for i in range(6)
-        ]).move_to(DOWN * 2.5)
-
-        self.play(*[GrowFromCenter(d) for d in dots], run_time=0.6)
-        self.play(Rotate(dots, angle=PI, run_time=1.2))
-        self.wait(0.5)
-
-        self.play(
-            FadeOut(self.author), FadeOut(uid),
-            FadeOut(cta), FadeOut(dots),
-            run_time=0.9
-        )
+        self.heading('先辨位置，再核对度数')
+        self.note('同位、内错、同旁内角都要核对两个交点', 1.7)
+        self.note('把邻补角误作平行判据，是常见陷阱', 0.2, YELLOW)
+        self.wait(1.8)
