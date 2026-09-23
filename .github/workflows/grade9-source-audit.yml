@@ -1,0 +1,28 @@
+name: Grade 9 source audit
+
+on:
+  pull_request:
+    paths:
+      - "初中/九年级/**"
+      - "tools/audit_grade9.py"
+      - "tools/tests/test_audit_grade9.py"
+      - ".github/workflows/grade9-source-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  static-grade9:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check all Grade 9 scene syntax
+        run: python -m compileall -q "初中/九年级"
+      - name: Audit Grade 9 lessons
+        run: python tools/audit_grade9.py
+      - name: Run dependency-free regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_grade9.py' -v
