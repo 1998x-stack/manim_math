@@ -1,0 +1,44 @@
+name: Grade 11 static audit
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/**'
+      - 'tools/audit_grade11.py'
+      - 'tests/test_audit_grade11.py'
+      - '.github/workflows/grade11-static-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  grade11-static:
+    runs-on: ubuntu-latest
+    steps:
+      # 大型视频不参与静态检查；仅检出高二源码及目标课程元数据。
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools/audit_grade11.py
+            tests/test_audit_grade11.py
+            高中/高二/**/*.py
+            高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/description.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests without Manim
+        run: python -m unittest discover -s tests -p 'test_audit_grade11.py' -v
+      - name: Audit all grade-eleven Python files (report-only for legacy debt)
+        run: python tools/audit_grade11.py --json > grade11-static-audit.json
+      - name: Compile corrected scenes without importing Manim
+        run: |
+          python -m py_compile \
+            '高中/高二/第二学期/第十三章-复数/001复数的概念/001_复数的概念.py' \
+            '高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/complex_roots.py'
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grade11-static-audit
+          path: grade11-static-audit.json
+          if-no-files-found: ignore
