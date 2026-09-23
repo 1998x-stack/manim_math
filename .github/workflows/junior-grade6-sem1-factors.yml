@@ -1,0 +1,25 @@
+name: Junior grade 6 semester 1 factors regression
+
+on:
+  pull_request:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/002因数与倍数/**'
+      - '.github/workflows/junior-grade6-sem1-factors.yml'
+  push:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/002因数与倍数/**'
+      - '.github/workflows/junior-grade6-sem1-factors.yml'
+
+jobs:
+  math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile lesson source and regression script
+        run: |
+          python -m py_compile '初中/六年级/第一学期/第一章-数的整除/002因数与倍数/factors_multiples.py' '初中/六年级/第一学期/第一章-数的整除/002因数与倍数/verify_factors_multiples.py'
+      - name: Verify actual scene math helpers and scope
+        run: python '初中/六年级/第一学期/第一章-数的整除/002因数与倍数/verify_factors_multiples.py'
