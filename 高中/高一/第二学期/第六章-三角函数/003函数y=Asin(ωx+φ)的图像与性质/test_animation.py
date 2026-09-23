@@ -1,13 +1,13 @@
-"""
-Test script to run a quick preview of the y=Asin(ωx+φ) animation.
-This creates a shortened version for quick testing purposes.
+"""y=A sin(ωx+φ)+B 的快速预览场景。
+
+仅用于检查布局和图像变换，不替代完整场景的数学与渲染验收。
+运行：manim -pql test_animation.py TestAsinAnimation
 """
 
 from manim import *
 import numpy as np
 
 
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
@@ -16,70 +16,49 @@ config.frame_height = 16
 
 class TestAsinAnimation(Scene):
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
+        self.camera.background_color = '#1a1a2e'
 
-        # 简化版测试动画
         title = Text(
-            "函数y=Asin(ωx+φ)的图像与性质",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).to_edge(UP)
-
+            '函数 y=A sin(ωx+φ)+B 的图像与性质',
+            font='PingFang SC', font_size=36, color=GOLD,
+        ).scale_to_fit_width(8).to_edge(UP, buff=0.6)
         formula = MathTex(
-            "y = A \\sin(\\omega x + \\varphi) + B",
-            font_size=40
-        ).next_to(title, DOWN)
+            r'y=A\sin(\omega x+\varphi)+B', font_size=40,
+        ).next_to(title, DOWN, buff=0.4)
+        self.play(Write(title), run_time=0.7)
+        self.play(Write(formula), run_time=0.7)
 
-        self.play(Write(title))
-        self.play(Write(formula))
-
-        # 创建坐标系
         axes = Axes(
-            x_range=[-3, 3, 1],
-            y_range=[-2, 2, 1],
-            axis_config={"color": BLUE},
-            x_axis_config={
-                "numbers_to_include": np.arange(-3, 4, 1),
-            },
-            y_axis_config={
-                "numbers_to_include": np.arange(-2, 3, 1),
-            },
-        ).scale(0.8)
-
-        # 基础正弦函数
-        base_graph = axes.plot(lambda x: np.sin(x), color=BLUE, x_range=[-3, 3])
-
-        # 变换后的函数 (A=1.5, ω=2, φ=π/4, B=0.5)
+            x_range=[-PI, PI, PI / 2],
+            y_range=[-2.5, 2.5, 1],
+            x_length=6.4,
+            y_length=4.0,
+            axis_config={'color': BLUE},
+            tips=False,
+        ).move_to(DOWN * 0.4)
+        # 先安放坐标系再绘图，确保所有曲线共享同一个坐标映射。
+        base_graph = axes.plot(np.sin, x_range=[-PI, PI], color=BLUE)
         transformed_graph = axes.plot(
-            lambda x: 1.5 * np.sin(2*x + np.pi/4) + 0.5,
-            color=RED,
-            x_range=[-3, 3]
+            lambda x: 1.5 * np.sin(2 * x + PI / 4) + 0.5,
+            x_range=[-PI, PI], color=RED,
         )
+        self.play(Create(axes), Create(base_graph), run_time=1.2)
+        self.wait(0.5)
+        self.play(Transform(base_graph, transformed_graph), run_time=1.2)
 
-        axes_and_base = VGroup(axes, base_graph)
-        axes_and_base.move_to(ORIGIN)
-
-        self.play(Create(axes_and_base))
+        # 普通中文必须使用 Text；Tex/MathTex 只包含数学公式。
+        # ω 为角频率而不是通常以 Hz 表示的频率。
+        descriptions = VGroup(
+            Text('A：振幅的绝对值 |A|', font='PingFang SC', font_size=22),
+            Text('ω：角频率；周期 T=2π/|ω|', font='PingFang SC', font_size=22),
+            Text('φ：初相；水平位移 -φ/ω', font='PingFang SC', font_size=22),
+            Text('B：竖直平移', font='PingFang SC', font_size=22),
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.18)
+        descriptions.scale_to_fit_width(min(descriptions.width, 7.8))
+        descriptions.to_edge(DOWN, buff=0.55)
+        self.play(FadeIn(descriptions), run_time=0.7)
         self.wait(1)
 
-        # 演示变换
-        self.play(Transform(base_graph, transformed_graph))
-        self.wait(2)
 
-        # 参数说明
-        param_text = VGroup(
-            Tex("A: 振幅 (Amplitude)", color=YELLOW),
-            Tex("$\\omega$: 频率 (Frequency)", color=YELLOW),
-            Tex("$\\varphi$: 相位 (Phase)", color=YELLOW),
-            Tex("B: 垂直平移 (Vertical Shift)", color=YELLOW)
-        ).arrange(DOWN, aligned_edge=LEFT).to_edge(DOWN).shift(UP * 0.5)
-
-        self.play(Write(param_text))
-        self.wait(3)
-
-
-if __name__ == "__main__":
-    # For testing purposes
-    print("Test script ready. Run with: manim -pql test_animation.py TestAsinAnimation")
+if __name__ == '__main__':
+    print('Run: manim -pql test_animation.py TestAsinAnimation')
