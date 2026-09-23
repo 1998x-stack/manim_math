@@ -6,6 +6,7 @@ on:
       - 'tools/build_video.py'
       - 'tools/commit_gotchas.py'
       - 'tools/tests/test_commit_gotchas_pipeline.py'
+      - 'tools/tests/test_video_music_pipeline.py'
       - 'TODO.json'
       - 'docs/engineering/commit-gotchas-pipeline.md'
       - '.github/workflows/commit-gotchas-video.yml'
@@ -15,17 +16,19 @@ permissions:
   contents: read
 
 jobs:
-  regression-and-first-batch:
+  regression-and-full-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           filter: blob:none
+          fetch-depth: 0
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /tools/build_video.py
             /tools/commit_gotchas.py
             /tools/tests/test_commit_gotchas_pipeline.py
+            /tools/tests/test_video_music_pipeline.py
             /TODO.json
             /小学/**/*.py
             /初中/**/*.py
@@ -36,30 +39,52 @@ jobs:
           python-version: '3.11'
       - name: Syntax and pipeline regression (no Manim installation required)
         run: |
-          python -m py_compile tools/build_video.py tools/commit_gotchas.py tools/tests/test_commit_gotchas_pipeline.py
-          python -m unittest tools.tests.test_commit_gotchas_pipeline -v
-      - name: Scan batch zero and validate TODO schema
+          python -m py_compile tools/build_video.py tools/commit_gotchas.py tools/tests/test_commit_gotchas_pipeline.py tools/tests/test_video_music_pipeline.py
+          python -m unittest tools.tests.test_commit_gotchas_pipeline tools.tests.test_video_music_pipeline -v
+      - name: Inventory complete reachable non-merge commit history
         run: |
-          python tools/commit_gotchas.py scan --batch 0 --batch-size 100 --output "$RUNNER_TEMP/TODO.json"
-          python - "$RUNNER_TEMP/TODO.json" <<'PY'
-          import json
-          import sys
+          python tools/commit_gotchas.py history --output "$RUNNER_TEMP/commit-gotchas.generated.json"
+          python - "$RUNNER_TEMP/commit-gotchas.generated.json" <<'PY'
+          import json, sys
           from pathlib import Path
           data = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+          assert data['scanned_commits'] > 0
+          assert data['history_complete'], 'Commit history was shallow or truncated'
+          print('Historical commits:', data['scanned_commits'],
+                'fix-related commits:', len(data['fix_related_commits']),
+                'changed-file paths:', len(data['touched_files']))
+          PY
+      - name: Scan all course sources in reproducible batches
+        run: |
+          python - "$RUNNER_TEMP/TODO.json" <<'PY'
+          import json, subprocess, sys
+          from pathlib import Path
+          from tools.commit_gotchas import files_to_scan
+          report = Path(sys.argv[1])
+          source_count = len(files_to_scan())
+          assert source_count > 0, 'No course sources: sparse checkout incomplete'
+          batch_size = 100
+          for index in range((source_count + batch_size - 1) // batch_size):
+              subprocess.run([sys.executable, 'tools/commit_gotchas.py', 'scan',
+                              '--batch', str(index), '--batch-size', str(batch_size),
+                              '--output', str(report)], check=True)
+              print('Completed batch', index, flush=True)
+          data = json.loads(report.read_text(encoding='utf-8'))
           assert data['schema_version'] == 1
-          assert data['total_python_files'] > 0, 'No course sources: sparse checkout incomplete'
-          assert data['scanned_file_count'] > 0
-          assert data['last_scanned_batch'] == 0
+          assert data['scanned_file_count'] == data['total_python_files'] == source_count
+          assert len(data['scanned_files']) == source_count
           for item in data['items']:
               assert item['status'] in ('needs_review', 'verified', 'false_positive')
               assert item['source_sha256'] and item['path']
-          print('First-batch scan:', data['scanned_file_count'], 'of', data['total_python_files'],
-                'sources;', len(data['items']), 'findings; not a render validation')
+          print('All course sources:', source_count, 'candidate findings:', len(data['items']),
+                'no Manim render claimed')
           PY
-      - name: Upload first-batch scan report
+      - name: Upload full history and course audit reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: gotchas-first-batch-todo
-          path: ${{ runner.temp }}/TODO.json
+          name: historical-gotchas-and-full-todo
+          path: |
+            ${{ runner.temp }}/commit-gotchas.generated.json
+            ${{ runner.temp }}/TODO.json
           if-no-files-found: warn
