@@ -1,0 +1,27 @@
+name: Grade 8 term 1 simplest radical
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第一学期/第十六章-二次根式/003最简二次根式/**"
+      - ".github/workflows/grade8-term1-simplest-radical.yml"
+      - ".opencode/skills/manim-video-production/scripts/audit_scene.py"
+  workflow_dispatch:
+
+jobs:
+  simplest-radical-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Syntax-check real Scene
+        run: python -m py_compile "初中/八年级/第一学期/第十六章-二次根式/003最简二次根式/simplest_radical.py"
+      - name: Run independent lesson math and Scene contract regression
+        run: python -m unittest discover -s "初中/八年级/第一学期/第十六章-二次根式/003最简二次根式" -p 'test_simplest_radical_math.py' -v
+      - name: Run the production Skill's AST audit
+        run: python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第一学期/第十六章-二次根式/003最简二次根式/simplest_radical.py" --json
