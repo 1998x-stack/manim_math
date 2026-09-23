@@ -4,9 +4,11 @@
 # Python
 __pycache__/
 *.pyc
+.venv/
 
 # Manim
 **/media/
+**/.manim-build-*/
 
 # LaTeX artifacts
 *.aux

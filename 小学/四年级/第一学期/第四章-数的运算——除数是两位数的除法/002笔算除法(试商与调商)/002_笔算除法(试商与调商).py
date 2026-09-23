@@ -1,33 +1,50 @@
+"""笔算除法：用 1476 ÷ 28 示范试商、调商和余数检验。"""
 from manim import *
 
-class 笔算除法(试商与调商)Animation(Scene):
-    """笔算除法(试商与调商)的Manim动画演示"""
-    
+config.pixel_width = 1080
+config.pixel_height = 1920
+config.frame_width = 9
+config.frame_height = 16
+
+DIVIDEND = 1476
+DIVISOR = 28
+QUOTIENT, REMAINDER = divmod(DIVIDEND, DIVISOR)
+assert (QUOTIENT, REMAINDER) == (52, 20)
+assert DIVIDEND == DIVISOR * QUOTIENT + REMAINDER
+assert 0 <= REMAINDER < DIVISOR
+
+
+class TrialQuotientAdjustmentLesson(Scene):
+    """估商 50 后调为 52；正确的余数小于除数。"""
+
     def construct(self):
-        # 标题
-        title = Text("笔算除法(试商与调商)", font_size=48)
-        title.to_edge(UP)
+        self.camera.background_color = "#1a1a2e"
+        title = Text("笔算除法：试商与调商", font_size=36).to_edge(UP, buff=0.75)
         self.play(Write(title))
+        equation = MathTex(r"1476 \div 28 =\ ?", font_size=48).shift(UP * 3.5)
+        self.play(Write(equation))
+
+        estimate = VGroup(
+            Text("先试商 50：", font_size=30),
+            MathTex(r"28\times50=1400", font_size=36),
+        ).arrange(DOWN, buff=0.3).move_to(UP * 1.5)
+        self.play(FadeIn(estimate))
+        trial_remainder = MathTex(r"1476-1400=76", font_size=38).next_to(estimate, DOWN, buff=0.6)
+        note = Text("余数 76 不小于除数 28，需要调商", font_size=24).next_to(trial_remainder, DOWN, buff=0.4)
+        self.play(Write(trial_remainder), FadeIn(note))
         self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("试商:看除数最高位")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
+
+        adjusted = MathTex(r"28\times52=1456", font_size=42).move_to(UP * 1.0)
+        remainder = MathTex(r"1476-1456=20<28", font_size=38).next_to(adjusted, DOWN, buff=0.55)
+        self.play(FadeOut(estimate), FadeOut(trial_remainder), FadeOut(note))
+        self.play(Write(adjusted), Write(remainder))
+        answer = VGroup(MathTex(r"1476\div28=52", font_size=43),
+                        Text("余", font_size=30), MathTex("20", font_size=43))
+        answer.arrange(RIGHT, buff=0.2).next_to(remainder, DOWN, buff=0.8)
+        self.play(Write(answer))
         self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: MathTex, VGroup, Rectangle, Line, Arrow, Text, Write, Transform
-        
-        self.wait(1)
-        
+
+
 if __name__ == "__main__":
-    # 运行命令: manim -pql 002_笔算除法(试商与调商).py 笔算除法(试商与调商)Animation
+    # manim -ql '002_笔算除法(试商与调商).py' TrialQuotientAdjustmentLesson
     pass
