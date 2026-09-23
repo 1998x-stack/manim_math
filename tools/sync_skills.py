@@ -30,9 +30,14 @@ def inventory(package: Path) -> dict[str, Path]:
 
 def sync_packages(source: Path, targets: tuple[Path, ...], check: bool = False) -> list[str]:
     """Return drift errors. In write mode, copy missing/changed files only."""
-    errors = []
     if not source.is_dir() or source.is_symlink():
         return [f"missing or invalid canonical skills directory: {source}"]
+    # Reject unsafe mirror roots *before* any writes, including a symlink to
+    # a directory elsewhere that would otherwise redirect writes silently.
+    unsafe_roots = [base for base in targets if base.is_symlink() or (base.exists() and not base.is_dir())]
+    if unsafe_roots:
+        return [f"invalid or symlink skills directory: {base}" for base in unsafe_roots]
+    errors = []
     packages = sorted(path for path in source.iterdir() if path.is_dir() or path.is_symlink())
     if not packages:
         return ["No canonical skills found"]
@@ -74,9 +79,6 @@ def sync_packages(source: Path, targets: tuple[Path, ...], check: bool = False) 
                 errors.append(f"orphan skill file (manual review required): {target / rel}")
     for base in targets:
         if not base.exists():
-            continue
-        if base.is_symlink():
-            errors.append(f"symlink skills directory: {base}")
             continue
         for target in sorted(base.iterdir()):
             if target.is_symlink() or (target.is_dir() and target.name not in expected_names):
