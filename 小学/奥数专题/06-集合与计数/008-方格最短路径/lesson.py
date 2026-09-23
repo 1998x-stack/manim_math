@@ -1,9 +1,10 @@
-"""方格最短路径：主图演示递推，十个微型网格逐一展示十条不同的最短路线。"""
+"""方格最短路径：主图递推与十个真实独立的五步路线，保持竖屏安全区。"""
 from itertools import combinations
 from math import comb
 from manim import *
 
-config.frame_width, config.frame_height = 9, 16
+config.frame_width = 9
+config.frame_height = 16
 BG, FONT = "#101827", "Noto Sans CJK SC"
 
 
@@ -19,7 +20,6 @@ def path_table(right: int, up: int) -> list[list[int]]:
 
 
 def shortest_routes(right: int, up: int):
-    """枚举所有长 right+up 且恰好包含 up 个向上步的最短路线。"""
     if any(type(v) is not int or v < 0 for v in (right, up)):
         raise ValueError("nonnegative integer steps required")
     routes = []
@@ -64,8 +64,8 @@ class GridPathScene(Scene):
                 x = diagonal-y
                 if 0 <= x <= 3:
                     disk = Circle(radius=.30, color=BLUE_B, fill_color=BG, fill_opacity=1).move_to(point(x, y))
-                    number = MathTex(str(table[y][x]), font_size=28,
-                                     color=YELLOW if (x, y) == (3, 2) else WHITE).move_to(point(x, y))
+                    number = Text(str(table[y][x]), font=FONT, font_size=28,
+                                  color=YELLOW if (x, y) == (3, 2) else WHITE).move_to(point(x, y))
                     mob = VGroup(disk, number)
                     disk_numbers[x, y] = mob
                     group.add(mob)
@@ -84,7 +84,6 @@ class GridPathScene(Scene):
                 segs.add(Line(p + unit*pad, q-unit*pad, color=YELLOW, stroke_width=width))
             return segs
 
-        # 主图逐条演示三个不同的方向次序。
         for route in routes[:3]:
             lines = highlighted_route(route, point)
             self.play(Create(lines), run_time=.6)
@@ -92,7 +91,8 @@ class GridPathScene(Scene):
         thumbnails = VGroup()
         for index, route in enumerate(routes):
             col, row = index % 5, index // 5
-            origin = np.array([-3.10 + 1.55*col, -2.02 - 1.68*row, 0])
+            # 微型网格宽 1.17，5 列中心间距 1.39；最右 x=3.60，小于安全区上限 4。
+            origin = np.array([-3.13 + 1.39*col, -2.02 - 1.68*row, 0])
             tiny = lambda x, y, o=origin: o + np.array([.39*x, .39*y, 0])
             outline = VGroup()
             for yy in range(3):
@@ -102,7 +102,7 @@ class GridPathScene(Scene):
                     if yy < 2:
                         outline.add(Line(tiny(xx, yy), tiny(xx, yy+1), color=GREY_D, stroke_width=1.5))
             path = highlighted_route(route, tiny, width=3)
-            index_label = MathTex(str(index+1), font_size=23).move_to(origin + [.59, -.35, 0])
+            index_label = Text(str(index+1), font=FONT, font_size=23).move_to(origin + [.59, -.35, 0])
             thumbnails.add(VGroup(outline, path, index_label))
         self.play(LaggedStart(*(FadeIn(m) for m in thumbnails), lag_ratio=.14), run_time=3)
         explain = Text("每一幅小图都是 5 步；向上位置的选择各不相同", font=FONT, font_size=24).move_to(DOWN * 5.06)
