@@ -9,20 +9,25 @@ tree = ast.parse(path.read_text(encoding="utf-8"))
 scenes = [node.name for node in tree.body if isinstance(node, ast.ClassDef)]
 assert scenes == ["Topic001无理数的概念Animation"]
 
-# 仅审计本课确实会送入 MathTex 的字面量与证明公式序列。
+# 四条屏幕实际展示的示例公式与四条反证公式都应为可移植的纯 LaTeX。
 strings = []
 for node in ast.walk(tree):
     if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "MathTex":
         for arg in node.args:
             if isinstance(arg, ast.Constant) and isinstance(arg.value, str):
                 strings.append(arg.value)
+    if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr == "show_example":
+        if len(node.args) > 1 and isinstance(node.args[1], ast.Constant):
+            strings.append(node.args[1].value)
     if isinstance(node, ast.Assign) and any(
         isinstance(target, ast.Name) and target.id == "formulas" for target in node.targets
     ):
         strings += [value.value for value in node.value.elts if isinstance(value, ast.Constant)]
-assert len(strings) == 4
+assert len(strings) == 8
 assert all(all(ord(character) < 128 for character in expression) for expression in strings)
 assert all("\\text{" not in expression for expression in strings)
+assert r"0.25=\frac{1}{4}" in strings
+assert r"0.\overline{3}=\frac{1}{3}" in strings
 
 assert Fraction(1, 4) == Fraction("0.25")
 assert Fraction(1, 3) * 3 == 1
