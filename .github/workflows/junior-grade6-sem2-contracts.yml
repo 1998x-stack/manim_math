@@ -1,0 +1,58 @@
+name: Junior grade 6 semester 2 lesson contracts
+
+on:
+  pull_request:
+    paths:
+      - '初中/六年级/第二学期/**'
+      - '.github/workflows/junior-grade6-sem2-contracts.yml'
+  push:
+    paths:
+      - '初中/六年级/第二学期/**'
+      - '.github/workflows/junior-grade6-sem2-contracts.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lesson-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+            /初中/六年级/第二学期/**/*.py
+            /初中/六年级/第二学期/**/*.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile lesson scripts without Manim
+        run: python -m compileall -q '初中/六年级/第二学期'
+      - name: Execute existing lesson-specific pure-math tests
+        shell: bash
+        run: |
+          count=0
+          for test_file in \
+            '初中/六年级/第二学期/第五章-有理数/003数轴/test_number_line_lesson.py' \
+            '初中/六年级/第二学期/第五章-有理数/004绝对值/test_absolute_value.py' \
+            '初中/六年级/第二学期/第五章-有理数/005有理数的大小比较/test_rational_comparison.py'; do
+            if test -f "$test_file"; then
+              python "$test_file"
+              count=$((count + 1))
+            fi
+          done
+          test "$count" -gt 0
+          echo "Executed $count lesson test suites"
+      - name: Skill AST audit for repaired scenes
+        shell: bash
+        run: |
+          for scene in \
+            '初中/六年级/第二学期/第五章-有理数/003数轴/number_line_lesson.py' \
+            '初中/六年级/第二学期/第五章-有理数/004绝对值/absolute_value.py' \
+            '初中/六年级/第二学期/第五章-有理数/005有理数的大小比较/005_有理数的大小比较.py'; do
+            if test -f "$scene"; then
+              python .opencode/skills/manim-video-production/scripts/audit_scene.py "$scene" --json
+            fi
+          done
