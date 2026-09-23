@@ -1,7 +1,7 @@
-"""古典概型：有限、等可能的样本空间与四种计算模型。
+"""古典概型：有限性、等可能性与骰子、摸球、硬币模型。
 
 预览：manim -pql classical_prob.py ClassicalProbability
-目标：9:16；先运行 test_classical_probability_math.py 验证数值。
+数学回归：python -m unittest -v test_classical_probability_math.py
 """
 from manim import *
 
@@ -25,7 +25,7 @@ GREEN = "#58d68d"
 
 
 def die_face(value, size=0.72):
-    """使用可数点阵，点数与所代表的基本事件严格一致。"""
+    """点阵的数量与基本事件标号相同。"""
     spots = {
         1: ((0, 0),),
         2: ((-1, 1), (1, -1)),
@@ -35,7 +35,7 @@ def die_face(value, size=0.72):
         6: ((-1, -1), (-1, 0), (-1, 1), (1, -1), (1, 0), (1, 1)),
     }
     if value not in spots:
-        raise ValueError("骰子点数应在 1 至 6 之间")
+        raise ValueError("骰子点数必须在 1 到 6 之间")
     face = RoundedRectangle(
         width=size, height=size, corner_radius=0.09,
         fill_color=WHITE, fill_opacity=1, stroke_color=BLUE, stroke_width=2,
@@ -71,10 +71,11 @@ class ClassicalProbability(Scene):
         return Text(content, font=FONT, font_size=size, color=color).move_to(UP * y)
 
     def math(self, formula, y, size=34, color=WHITE):
+        """仅用于不含中文的 LaTeX 公式。"""
         return MathTex(formula, font_size=size, color=color).move_to(UP * y)
 
     def show(self, mob, duration=0.55):
-        """防止单个对象超出 9:16 的逻辑安全区；实际帧仍须渲染审查。"""
+        """缩放并约束单个教学元素；逐帧重叠仍需真实渲染验收。"""
         if mob.width > 7.8:
             mob.scale_to_fit_width(7.8)
         if mob.height > 13.4:
@@ -93,7 +94,7 @@ class ClassicalProbability(Scene):
     def page(self, title, color=GOLD):
         if self.mobjects:
             self.play(*[FadeOut(m) for m in tuple(self.mobjects)], run_time=0.3)
-        self.show(self.text("上海初高中数学直通车  @emptyandcalm", 6.65, 19, GRAY_B), 0.15)
+        self.show(self.text("上海初高中数学直通车  @emptyandcalm", 6.45, 19, GRAY_B), 0.15)
         self.show(self.text(title, 5.35, 39, color), 0.4)
 
     def formula_card(self, formula, y, color=GREEN, size=34):
@@ -112,7 +113,7 @@ class ClassicalProbability(Scene):
         self.show(die_face(6, 1.45).move_to(UP * 2.1))
         self.show(self.text("一枚公平骰子，掷出 6 的概率是多少？", 0.15, 28))
         self.show(self.formula_card(r"P(6)=\frac{1}{6}", -1.2))
-        self.show(self.text("先数结果，再检查是否等可能", -3, 25, BLUE))
+        self.show(self.text("先数结果，再检查是否等可能", -3.0, 25, BLUE))
         self.wait(0.8)
 
     def scene_definition(self):
@@ -140,7 +141,7 @@ class ClassicalProbability(Scene):
                   run_time=0.5)
         self.show(self.text("掷出偶数：命中 2、4、6 三个基本事件", -2.35, 25))
         assert self.values["die_even"].numerator == len(even)
-        self.show(self.formula_card(r"P(\text{偶数})=\frac{3}{6}=\frac12", -3.7, GREEN, 30))
+        self.show(self.formula_card(r"P(A)=\frac{3}{6}=\frac12", -3.7, GREEN, 30))
         self.wait(0.8)
 
     def scene_die_double(self):
@@ -160,7 +161,7 @@ class ClassicalProbability(Scene):
         self.show(self.text("列：第一次的点数；行：第二次的点数", -1.4, 22, BLUE))
         self.show(self.text("红格：点数和为 7，共 6 格", -2.55, 26, RED))
         assert len(cells) == len(omega) == 36 and len(hits) == 6
-        self.show(self.formula_card(r"P(\text{和}=7)=\frac{6}{36}=\frac16", -3.9, GREEN, 29))
+        self.show(self.formula_card(r"P(A)=\frac{6}{36}=\frac16", -3.9, GREEN, 29))
         self.wait(0.8)
 
     def scene_balls(self):
@@ -177,8 +178,8 @@ class ClassicalProbability(Scene):
         self.show(icons)
         self.show(self.text("八个可区分的基本事件，红色命中 3 个", -0.5, 26))
         assert len(icons) == len(balls) == 8
-        self.show(self.formula_card(r"P(\text{摸到红球})=\frac38", -1.95, RED, 30))
-        self.show(self.text("只有明确了等可能性，才可按球数计算", -3.3, 24, GOLD))
+        self.show(self.formula_card(r"P(A)=\frac38", -1.95, RED, 30))
+        self.show(self.text("A = 摸到红球；仅在等可能时按球数计算", -3.3, 23, GOLD))
         self.wait(0.8)
 
     def scene_coins(self):
@@ -193,9 +194,9 @@ class ClassicalProbability(Scene):
         groups.arrange_in_grid(rows=2, cols=2, buff=0.65).move_to(UP * 1.85)
         self.show(groups, 0.9)
         self.show(self.text("HH、HT、TH、TT 是四种不同的等可能结果", -0.2, 23))
-        self.show(self.text("至少一次正面：HH、HT、TH", -1.65, 26, GREEN))
+        self.show(self.text("A = 至少一次正面：HH、HT、TH", -1.65, 26, GREEN))
         assert len(groups) == len(outcomes) == 4
-        self.show(self.formula_card(r"P(\text{至少一次正面})=\frac34", -3.15, GREEN, 30))
+        self.show(self.formula_card(r"P(A)=\frac34", -3.15, GREEN, 30))
         self.wait(0.8)
 
     def scene_summary(self):
