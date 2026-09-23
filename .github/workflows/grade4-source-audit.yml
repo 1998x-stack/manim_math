@@ -1,0 +1,51 @@
+name: Grade 4 source and arithmetic audit
+
+on:
+  pull_request:
+    paths:
+      - '小学/四年级/**'
+      - 'tools/audit_grade4.py'
+      - 'tests/test_grade4_column_multiplication.py'
+      - '.github/workflows/grade4-source-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  grade4-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/
+            /tests/
+            /小学/四年级/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify multiplication arithmetic and audit checks
+        run: python -m unittest discover -s tests -p 'test_grade4_*.py' -v
+      - name: Collect current grade-wide static findings (legacy warnings not gated)
+        run: python tools/audit_grade4.py --json > grade4_audit.json
+      - name: Publish audit summary
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          report = json.loads(Path('grade4_audit.json').read_text(encoding='utf-8'))
+          line = (f"Grade 4 static audit: {report['files']} Python files, "
+                  f"{report['error_files']} files with source errors, "
+                  f"{report['warning_files']} files with warnings. "
+                  "This check is not a Manim render or a mathematics correctness proof.\n")
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write(line)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: grade4-static-audit
+          path: grade4_audit.json
