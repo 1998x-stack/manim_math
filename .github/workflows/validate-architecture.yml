@@ -54,6 +54,9 @@ jobs:
             小学/五年级/第一学期/第四章-简易方程(一)/003等式的性质/003等式的性质_animation.py
             小学/五年级/第二学期/第三章-分数的意义和性质/001单位'1'/001单位_1__animation.py
             初中/七年级/第一学期/第九章-整式/003整式的加减法/003_整式的加减法.py
+            初中/八年级/第一学期/第十七章-一元二次方程/001一元二次方程的概念/001_一元二次方程的概念.py
+            初中/八年级/第一学期/第十九章-几何证明/008勾股定理的逆定理/pythagorean_inverse.py
+            初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/probability_frequency.py
             高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/complex_roots.py
             高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/description.json
             高中/高一/第一学期/第一章-集合与命题/002集合间的关系/verify_sets.py
@@ -61,6 +64,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      # Probability math regression tests use NumPy, but do not import Manim.
+      - run: python -m pip install numpy==1.26.4
       - run: python tools/sync_skills.py --check
       - run: python tools/check_repository.py
       - run: python tools/audit_catalog.py --skip-file-check
