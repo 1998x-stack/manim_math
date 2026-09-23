@@ -1,0 +1,65 @@
+name: Commit gotchas and video pipeline
+
+on:
+  pull_request:
+    paths:
+      - 'tools/build_video.py'
+      - 'tools/commit_gotchas.py'
+      - 'tools/tests/test_commit_gotchas_pipeline.py'
+      - 'TODO.json'
+      - 'docs/engineering/commit-gotchas-pipeline.md'
+      - '.github/workflows/commit-gotchas-video.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression-and-first-batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/build_video.py
+            /tools/commit_gotchas.py
+            /tools/tests/test_commit_gotchas_pipeline.py
+            /TODO.json
+            /小学/**/*.py
+            /初中/**/*.py
+            /高中/**/*.py
+            /external/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and pipeline regression (no Manim installation required)
+        run: |
+          python -m py_compile tools/build_video.py tools/commit_gotchas.py tools/tests/test_commit_gotchas_pipeline.py
+          python -m unittest tools.tests.test_commit_gotchas_pipeline -v
+      - name: Scan batch zero and validate TODO schema
+        run: |
+          python tools/commit_gotchas.py scan --batch 0 --batch-size 100 --output "$RUNNER_TEMP/TODO.json"
+          python - "$RUNNER_TEMP/TODO.json" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          data = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+          assert data['schema_version'] == 1
+          assert data['total_python_files'] > 0, 'No course sources: sparse checkout incomplete'
+          assert data['scanned_file_count'] > 0
+          assert data['last_scanned_batch'] == 0
+          for item in data['items']:
+              assert item['status'] in ('needs_review', 'verified', 'false_positive')
+              assert item['source_sha256'] and item['path']
+          print('First-batch scan:', data['scanned_file_count'], 'of', data['total_python_files'],
+                'sources;', len(data['items']), 'findings; not a render validation')
+          PY
+      - name: Upload first-batch scan report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gotchas-first-batch-todo
+          path: ${{ runner.temp }}/TODO.json
+          if-no-files-found: warn
