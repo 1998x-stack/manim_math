@@ -1,0 +1,32 @@
+name: Grade 8 term 1 completing the square
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第一学期/第十七章-一元二次方程/003解法——配方法/**"
+      - ".github/workflows/grade8-term1-completing-square.yml"
+      - ".opencode/skills/manim-video-production/scripts/audit_scene.py"
+  workflow_dispatch:
+
+jobs:
+  completing-square-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十七章-一元二次方程/003解法——配方法/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check actual Scene syntax
+        run: python -m py_compile "初中/八年级/第一学期/第十七章-一元二次方程/003解法——配方法/completing_the_square.py"
+      - name: Check algebraic roots, proportional geometry, and Scene contracts
+        run: python -m unittest discover -s "初中/八年级/第一学期/第十七章-一元二次方程/003解法——配方法" -p 'test_completing_square_math.py' -v
+      - name: Run the production Skill AST audit
+        run: python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第一学期/第十七章-一元二次方程/003解法——配方法/completing_the_square.py" --json
