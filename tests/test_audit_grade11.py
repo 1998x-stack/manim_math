@@ -32,7 +32,7 @@ class Grade11AuditTests(unittest.TestCase):
                 '        MathTex(r"\\sqrt{4} = \\pm 2")\n'
                 '        MathTex("a ∈ R, i²=-1")\n'
                 '        Text("正在学习数列的概念......")\n'
-                '        self.play(Write(Text("完成")))\n', encoding="utf-8"
+                '        self.play(Write(Text("完成")))\n', encoding="utf-8",
             )
             report = audit_tree(root)
         self.assertEqual(report["files"], 2)
@@ -42,6 +42,36 @@ class Grade11AuditTests(unittest.TestCase):
             {"PYTHON_SYNTAX", "AMBIGUOUS_SQRT", "UNICODE_MATHTEX",
              "GENERIC_LESSON_PLACEHOLDER"},
         )
+
+    def test_helper_chain_is_not_an_empty_scene(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            lesson = root / "高中/高二/第一学期/归纳法"
+            lesson.mkdir(parents=True)
+            (lesson / "helpers.py").write_text(
+                'class Helper(Scene):\n'
+                '    def construct(self):\n        self.intro()\n'
+                '    def intro(self):\n        self.animation()\n'
+                '    def animation(self):\n        self.play(Write(Text("hello")))\n',
+                encoding="utf-8",
+            )
+            report = audit_tree(root)
+        self.assertEqual(report["issues"], [])
+        self.assertEqual(report["scene_files"], 1)
+
+    def test_ctex_chinese_note_is_not_syntax_error(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            lesson = root / "高中/高二/第二学期/圆"
+            lesson.mkdir(parents=True)
+            (lesson / "ctex.py").write_text(
+                'class Ctex(Scene):\n    def construct(self):\n'
+                '        self.play(Write(MathTex(r"\\text{圆心}", tex_template=TexTemplateLibrary.ctex)))\n',
+                encoding="utf-8",
+            )
+            report = audit_tree(root)
+        self.assertEqual([(item["code"], item["severity"]) for item in report["issues"]],
+                         [("UNICODE_MATHTEX", "info")])
 
     def test_missing_directory_is_an_error(self):
         with tempfile.TemporaryDirectory() as folder:
