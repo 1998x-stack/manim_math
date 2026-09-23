@@ -1,0 +1,30 @@
+name: Grade 11 S2 point line distance
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十一章-坐标平面上的直线/005点到直线的距离/**'
+      - '.github/workflows/grade11-s2-point-distance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  point-line-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十一章-坐标平面上的直线/005点到直线的距离
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source and run independent geometry tests (no Manim)
+        env:
+          LESSON: 高中/高二/第二学期/第十一章-坐标平面上的直线/005点到直线的距离
+        run: |
+          python -m py_compile "$LESSON/point_to_line_distance.py" "$LESSON/verify_point_to_line_distance.py"
+          python "$LESSON/verify_point_to_line_distance.py" -v
