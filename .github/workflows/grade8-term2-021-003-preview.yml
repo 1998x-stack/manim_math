@@ -1,0 +1,50 @@
+name: Grade 8 term 2 chapter 21 irrational preview
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第二学期/第二十一章-代数方程/003无理方程/**"
+      - ".github/workflows/grade8-term2-021-003-preview.yml"
+  workflow_dispatch:
+
+jobs:
+  render-irrational:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第二学期/第二十一章-代数方程/003无理方程/irrational_equation_animation.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Manim and TeX dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq pkg-config libcairo2-dev libpango1.0-dev ffmpeg texlive-latex-extra texlive-fonts-recommended dvisvgm fonts-noto-cjk
+          python -m pip install 'manim==0.19.0'
+          manim --version
+      - name: Render complete lesson and probe preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          original = Path('初中/八年级/第二学期/第二十一章-代数方程/003无理方程/irrational_equation_animation.py')
+          text = original.read_text(encoding='utf-8')
+          text = text.replace('config.pixel_width = 1080\n', '').replace('config.pixel_height = 1920\n', '')
+          Path('/tmp/irrational_equation_preview.py').write_text(text, encoding='utf-8')
+          PY
+          manim -ql -r 270,480 --disable_caching --media_dir /tmp/manim-irrational-preview /tmp/irrational_equation_preview.py IrrationalEquation
+          VIDEO=$(find /tmp/manim-irrational-preview -type f -name 'IrrationalEquation.mp4' | head -n 1)
+          test -n "$VIDEO"
+          ffprobe -v error -show_entries stream=codec_type,width,height -show_entries format=duration -of json "$VIDEO"
+      - name: Upload preview for keyframe review
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grade8-term2-irrational-preview
+          path: /tmp/manim-irrational-preview/**/IrrationalEquation.mp4
+          retention-days: 7
