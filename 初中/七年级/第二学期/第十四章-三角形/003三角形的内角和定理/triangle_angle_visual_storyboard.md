@@ -14,11 +14,11 @@
 | 镜头 | learning_fact 与屏幕证据 | 动作/对象引用 | 验收 |
 |---|---|---|---|
 | 01 | 识别三个内角与内角和等式；颜色弧线来自同一组顶点 | `drawing=always_redraw(diagram)` 建立；`t` 连续变化；等式 `fact` 常驻 | 每帧角弧对应 A/B/C；顶点不共线；画面不越界 |
-| 02 | 内错角证明，不把拖动当证明 | `FadeOut(drawing)` 后用冻结的 `C` 创建 `fixed`、平行线 `parallel`；`ReplacementTransform(fact,proof[1])` | 平行线与 AB 水平；文字的 α、β、γ 对应两端内错角和顶角 |
-| 03 | 外角等于两个不相邻内角之和 | 清理镜头 02 对象；沿 AB 方向创建 BD，实际 D 在 B 右方 | `∠CBD=180°−∠B=∠A+∠C` |
+| 02 | 内错角证明，不把拖动当证明 | `FadeOut(drawing)` 后用冻结的 C 创建 `fixed`、`fixed_tags` 和平行线 `parallel`；`ReplacementTransform(fact,proof[1])` | 平行线与 AB 水平；公式直接用屏幕已标出的 ∠A、∠C、∠B；平行线端点留在竖屏安全区 |
+| 03 | 外角等于两个不相邻内角之和 | 清理镜头 02 对象；沿 AB 方向创建 BD，实际 D 在 B 右方、标签不出界 | `∠CBD=180°−∠B=∠A+∠C` |
 
 ## 质量门槛
 - 数学回归：`python -m unittest discover -s external/triangle-core -p test_triangle_core_math.py -v`，涵盖正常位置与外角关系。
 - 语法与 AST：`python -m py_compile triangle_angle_visual.py`；Skill `scripts/audit_scene.py` 应使用仓库真实路径执行。
-- 渲染：`manim -pql triangle_angle_visual.py TriangleAngleSumVisual`；逐帧查 9:16 边距、平行线、角弧、结尾外角；正式成片另查 `ffprobe`。
+- 渲染：`manim triangle_angle_visual.py TriangleAngleSumVisual`；逐帧查 9:16 边距、平行线、角弧、结尾外角；正式成片另查 `ffprobe`。
 - 当前状态：新 MP4/音轨未生成；渲染、关键帧、媒体探测均 `not_run`。不得拿本目录旧 MP4 代替本次验收。
