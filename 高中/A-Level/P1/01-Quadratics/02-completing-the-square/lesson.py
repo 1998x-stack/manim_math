@@ -53,7 +53,10 @@ def checkpoint(scene, **objects):
             yield from family(child)
     visible = {id(item) for root in scene.mobjects for item in family(root)}
     for name, mob in objects.items():
-        if id(mob) not in visible:
+        # Layout wrappers may contain individually animated visible Mobjects.
+        shown = id(mob) in visible or (bool(mob.submobjects) and
+                    all(id(child) in visible for child in mob.submobjects))
+        if not shown:
             raise AssertionError(f'{name}: not part of the displayed scene')
         if (mob.get_left()[0] < -4.02 or mob.get_right()[0] > 4.02 or
                 mob.get_bottom()[1] < -7.02 or mob.get_top()[1] > 7.02):
