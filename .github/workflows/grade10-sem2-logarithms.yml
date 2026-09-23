@@ -1,0 +1,53 @@
+name: Grade 10 semester 2 logarithms checks
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算/**'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+      - '.github/workflows/grade10-sem2-logarithms.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+            /高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile source and run lesson-specific math tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          lesson='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算'
+          python -m py_compile "$lesson/logarithm_concepts.py" "$lesson/verify_logarithms.py"
+          (cd "$lesson" && python -m unittest verify_logarithms.py -v)
+      - name: Inspect actual scene source with skill auditor
+        shell: bash
+        run: |
+          set -euo pipefail
+          lesson='高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算'
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "$lesson/logarithm_concepts.py" --json > /tmp/logarithms-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/logarithms-audit.json').read_text(encoding='utf-8'))
+          for issue in report['findings']:
+              print(f"{issue['level']} {issue['code']} line {issue['line']}: {issue['message']}")
+          assert report['errors'] == 0, 'Scene AST contains confirmed errors'
+          # _formula(latex) is intentionally dynamic; all of its _page inputs
+          # are separately required to be literal non-CJK strings by unit tests.
+          assert all(row['code'] == 'DYNAMIC_TEX' for row in report['findings']), (
+              'New AST findings require triage rather than automatic suppression'
+          )
+          PY
