@@ -40,7 +40,7 @@ class ChickenRabbitScene(Scene):
         hint = Text("先假设 8 只全是鸡", font=FONT, font_size=29).move_to(DOWN * 1.55)
         base = MathTex(r"8\times2=16", font_size=37).move_to(DOWN * 2.55)
         self.play(FadeIn(hint), Write(base))
-        extra = MathTex(r"22-16=6\quad(\text{多出的腿})", font_size=32).move_to(DOWN * 3.65)
+        extra = MathTex(r"22-16=6", font_size=36).move_to(DOWN * 3.65)
         self.play(Write(extra))
         # 每换一只兔子，恰好多出两条腿；共替换三只。
         replacements = [animal("兔", centers[k], YELLOW) for k in range(rabbits)]
