@@ -1,4 +1,4 @@
-"""在仓库现有 unittest CI 中检查两节等面积法课程，无需安装 Manim。"""
+"""两节等面积法课程的数学、坐标几何、语法回归（无需安装 Manim）。"""
 
 import subprocess
 import sys
@@ -8,6 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CHAPTER = ROOT / "小学" / "五年级" / "第一学期" / "第五章-几何小实践"
 LESSONS = ("005等面积法-同底等高", "006等面积法-梯形蝴蝶模型")
+VERIFY_GEOMETRY = (ROOT / ".claude" / "skills" / "manim-video-production"
+                   / "scripts" / "verify_geometry.py")
 
 
 class PrimaryEqualAreaLessonTests(unittest.TestCase):
@@ -33,6 +35,17 @@ class PrimaryEqualAreaLessonTests(unittest.TestCase):
                     cwd=ROOT, capture_output=True, text=True, check=False,
                 )
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_geometry_spec_perpendicular_and_parallel_snapshots(self):
+        for lesson in LESSONS:
+            with self.subTest(lesson=lesson):
+                result = subprocess.run(
+                    [sys.executable, str(VERIFY_GEOMETRY), str(CHAPTER / lesson / "geometry_spec.json")],
+                    cwd=ROOT, capture_output=True, text=True, check=False,
+                )
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("0 error(s)", result.stdout)
+                self.assertIn("NOT CHECKED: live Manim object bounds", result.stdout)
 
 
 if __name__ == "__main__":
