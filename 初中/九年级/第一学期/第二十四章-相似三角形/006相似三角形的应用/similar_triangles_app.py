@@ -1,4 +1,4 @@
-"""九年级上学期：相似三角形的应用——影子测高与等距河宽构造。
+"""九年级上学期：相似三角形应用——影子测高与等距河宽构造。
 
 数学模型、图示和数值统一。影子法需同一时刻太阳光线平行且物体直立、
 测量地点地面近似水平；河宽法需对岸目标 A 与本岸 B 垂直于河岸。
@@ -223,9 +223,6 @@ class SimilarTrianglesApp(Scene):
             for name in "ABCDE"
         ])
         self.play(FadeIn(dots), Write(labels), run_time=0.65)
-        premises = MathTex(r"BC=CD,\quad AB\parallel DE,\quad A,C,E\ \text{共线}",
-                           font_size=25, color=YELLOW).move_to(DOWN*4.25)
-        # 中文前提用 Text，MathTex 只排纯数学，防止 LaTeX 缺字体。
         premises = VGroup(
             MathTex(r"BC=CD,\quad AB\parallel DE", font_size=27,
                     color=YELLOW),
