@@ -1,0 +1,15 @@
+{
+  "topic_id": "exploration-pascal-fractal",
+  "title": "杨辉三角形里有分形？",
+  "kind": "exploration",
+  "level": "cross-level",
+  "audience": "初中／高中拓展",
+  "domains": ["number-theory", "mathematical-thinking"],
+  "visualizations": ["construction", "transformation"],
+  "curriculum": null,
+  "scene_file": "scene.py",
+  "scene_class": "PascalFractalScene",
+  "storyboard": "storyboard.md",
+  "status": "draft",
+  "media": ["source"]
+}
