@@ -23,15 +23,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install minimal Manim and LaTeX runtime
+      - name: Install Manim, LaTeX and required DVI-to-SVG converter
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends \
             ffmpeg libcairo2-dev libpango1.0-dev pkg-config \
             texlive-latex-base texlive-latex-extra texlive-fonts-recommended \
-            texlive-science fonts-noto-cjk
+            texlive-science fonts-noto-cjk dvisvgm
           python -m pip install 'manim==0.19.2'
           manim --version
+          command -v dvisvgm
+          fc-match 'PingFang SC'
       - name: Render actual Scene and probe new output (never overwrite old MP4)
         env:
           LESSON: 高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
