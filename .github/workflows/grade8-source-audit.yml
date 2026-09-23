@@ -44,3 +44,18 @@ jobs:
           name: grade8-audit
           path: grade8-audit.json
           retention-days: 14
+      - name: Package Grade 8 Python sources for reproducible review
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          with ZipFile('grade8-sources.zip', 'w', ZIP_DEFLATED) as bundle:
+              for source in sorted(Path('初中/八年级').rglob('*.py')):
+                  bundle.write(source)
+          PY
+      - name: Upload source-only snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: grade8-sources
+          path: grade8-sources.zip
+          retention-days: 7
