@@ -1,0 +1,69 @@
+name: Grade-one scene source and math checks
+
+on:
+  pull_request:
+    paths:
+      - '小学/一年级/**'
+      - 'tests/test_grade_one_*.py'
+      - 'tools/audit_grade_one.py'
+      - '.github/workflows/grade-one-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-and-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            小学/一年级/**/*.py
+            小学/一年级/**/description.json
+            小学/一年级/**/prompt.md
+            小学/一年级/**/storyboard.md
+            tests/test_grade_one_*.py
+            tools/audit_grade_one.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inventory and print every grade-one source diagnostic
+        run: |
+          python tools/audit_grade_one.py --json > /tmp/grade-one-audit.json || true
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/grade-one-audit.json').read_text(encoding='utf-8'))
+          print('Python files:', report['python_count'])
+          print('Directly declared scenes:', report['scene_count'])
+          print('By semester:', report['by_semester'])
+          print('Diagnostics by severity:', {kind: sum(x['severity'] == kind for x in report['diagnostics']) for kind in ('error', 'warning', 'info')})
+          for item in report['diagnostics']:
+              if item['severity'] in {'error', 'warning'}:
+                  print(f"{item['severity']}: {item['path']}:{item['line']} [{item['rule']}] {item['message']}")
+          if not report['python_count']:
+              raise SystemExit('No grade-one Python files were checked: inspect sparse checkout patterns')
+          PY
+      - name: Pure-math scene regressions and scanner fixtures
+        run: python -m unittest discover -s tests -p 'test_grade_one_*.py' -v
+      - name: Enforce source syntax gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/grade-one-audit.json').read_text(encoding='utf-8'))
+          errors = [d for d in report['diagnostics'] if d['severity'] == 'error']
+          if errors:
+              raise SystemExit(f'{len(errors)} grade-one Python files have syntax errors; see inventory above')
+          PY
+      - name: Publish static inventory for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grade-one-source-inventory
+          path: /tmp/grade-one-audit.json
+          retention-days: 14
