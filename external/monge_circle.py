@@ -734,7 +734,7 @@ class MongeCircle(Scene):
         key_points = VGroup(
             Text("✓ 两条垂直切线交点轨迹", font="PingFang SC", font_size=24, color=GRAY_A),
             Text("✓ 圆心在椭圆中心", font="PingFang SC", font_size=24, color=GRAY_A),
-            MathTex(r"\text{✓ 半径 } R = \sqrt{a^2 + b^2}", font_size=24, color=GRAY_A)
+            VGroup(Text("✓ 半径", font="PingFang SC", font_size=24, color=GRAY_A), MathTex(r"R = \sqrt{a^2 + b^2}", font_size=24, color=GRAY_A)).arrange(RIGHT, buff=0.12)
         ).arrange(DOWN, buff=0.4, aligned_edge=LEFT).move_to(UP * 1.5)
         
         for point in key_points:

@@ -1027,10 +1027,7 @@ class TangentProperties(Scene):
         self.wait(0.8)
         
         # 全部淡出
-        self.play(
-            self.play(*[FadeOut(m) for m in self.mobjects]),
-            run_time=1.0
-        )
+        self.play(*[FadeOut(m) for m in list(self.mobjects)], run_time=1.0)
 
 
 # 运行命令:
