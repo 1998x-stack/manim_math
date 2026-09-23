@@ -44,6 +44,7 @@ jobs:
             README.md
             AGENTS.md
             # Unit tests inspect actual lesson sources and JSON geometry; course MP4 remain excluded.
+            小学/奥数专题
             小学/一年级/上册/第一章-10以内数的认识/001数一数/counting_animation.py
             小学/一年级/下册/第二章-100以内数的认识/003百数表/003_百数表.py
             小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合/005_连加、连减、加减混合.py

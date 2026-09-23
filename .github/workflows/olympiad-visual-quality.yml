@@ -1,0 +1,65 @@
+name: Olympiad visual geometry contracts
+
+on:
+  pull_request:
+    paths:
+      - '小学/奥数专题/**'
+      - 'tests/test_olympiad_models.py'
+      - '.github/workflows/olympiad-visual-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-and-geometry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            小学/奥数专题
+            tests/test_olympiad_models.py
+            .claude/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and audit all eight scenes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import importlib.util
+          import py_compile
+          root = Path('小学/奥数专题')
+          lessons = sorted(root.rglob('lesson.py'))
+          assert len(lessons) == 8, f'expected eight lessons, found {len(lessons)}'
+          auditor = Path('.claude/skills/manim-video-production/scripts/audit_scene.py')
+          spec = importlib.util.spec_from_file_location('olympiad_scene_audit', auditor)
+          assert spec and spec.loader
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          for source in lessons:
+              py_compile.compile(str(source), doraise=True)
+              findings = module.audit_source(source.read_text(encoding='utf-8'))
+              errors = [f for f in findings if f['level'] == 'ERROR']
+              warnings = [f for f in findings if f['level'] == 'WARN']
+              print(f'{source}: syntax=pass, ast_errors={len(errors)}, ast_warnings={len(warnings)}')
+              for finding in findings:
+                  print(f"  {finding['level']} {finding['code']}:{finding['line']} {finding['message']}")
+              if errors:
+                  raise AssertionError(f'{source}: unaddressed AST errors')
+          for test in (root/'test_math_models.py', root/'test_visual_contracts.py'):
+              py_compile.compile(str(test), doraise=True)
+          print('Eight scene source files compiled and AST errors absent; warnings still require review.')
+          PY
+      - name: Independent arithmetic and geometric visual-data regressions
+        run: |
+          python 小学/奥数专题/test_math_models.py
+          python 小学/奥数专题/test_visual_contracts.py
+          python -m unittest discover -s tests -p 'test_olympiad_models.py' -v
+      # This workflow does not install Manim, Chinese fonts, LaTeX or ffprobe.
+      # A passing status is NOT evidence of video render, layout or final-media quality.
