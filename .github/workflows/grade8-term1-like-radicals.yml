@@ -1,0 +1,32 @@
+name: Grade 8 term 1 like radicals
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/**"
+      - ".github/workflows/grade8-term1-like-radicals.yml"
+      - ".opencode/skills/manim-video-production/scripts/audit_scene.py"
+  workflow_dispatch:
+
+jobs:
+  like-radicals-math-and-syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile exact Scene source
+        run: python -m py_compile "初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/like_radicals.py"
+      - name: Independent math and Scene contract regressions
+        run: python -m unittest discover -s "初中/八年级/第一学期/第十六章-二次根式/004同类二次根式" -p 'test_like_radicals_math.py' -v
+      - name: Skill AST audit of actual lesson source
+        run: python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/like_radicals.py" --json
