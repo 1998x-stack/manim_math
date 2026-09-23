@@ -1,4 +1,4 @@
-"""独立几何不变量测试；只提取 scene.py 的数学函数，不导入 Manim。
+"""几何构造数学不变量；无需导入 Manim。
 
 python -m unittest discover -s external/interesting-math -p 'test_*.py' -v
 """
@@ -32,7 +32,8 @@ class GeometryConstructionTests(unittest.TestCase):
             self.assertEqual(seen, {(x, y) for x in range(n) for y in range(n)})
 
     def test_pascal_three_self_similar_triangles_exactly_match(self):
-        (parity,) = functions("pascal-fractal", "parity_row")
+        # parity_row calls pascal_row; extract both functions together.
+        _, parity = functions("pascal-fractal", "pascal_row", "parity_row")
         for power in range(1, 6):
             side = 2**power
             for offset in range(side):
