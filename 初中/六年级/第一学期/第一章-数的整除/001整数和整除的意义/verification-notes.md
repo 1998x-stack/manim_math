@@ -1,35 +1,32 @@
 # 001 整数和整除的意义：修复与分层验收
 
-## 本课数学前提
+## 数学条件
 
-- 整数 `a,b` 且 `b ≠ 0`：`b | a` 当且仅当存在整数 `q` 使 `a = bq`。
-- 本课方块分组使用 `a ≥ 0`、`b > 0`：`a = bq+r`、`0 ≤ r < b`。
-- “因数 ≤ 对应倍数”仅在正整数因数与倍数语境下成立；对零或负整数不能直接推广。
-- 不将 `12 ÷ 5 = 2 ... 2` 之类口语化余数记法当作普通等式；本课改用 `12=5×2+2`。
+整数 `a,b` 且 `b≠0` 时，`b|a` 当且仅当存在整数 `q` 使 `a=bq`。均分 12 个方块时，组数 `b>0`、总数 `a≥0`，按 `a=bq+r` 且 `0≤r<b` 解释余数。本课“因数 ≤ 对应倍数”仅指正整数范围。`12÷5` 的整除判断由 `12=5×2+2` 及余数非零给出，不使用带省略号的伪等式。
 
-## 逐镜追溯和待验帧
+## 逐镜验收
 
-| Scene 方法 | learning_fact / 给定条件 | 可见画面（同一引用） | check / 待检查关键帧 |
-|---|---|---|---|
-| `show_opening` | 12 个苹果平均分给 3 人 | 开场提问和顶部署名 | 文字无遮挡，`12//3 == 4` |
-| `show_concept` | `a,b∈ℤ` 且 `b≠0` | `a=bq`、`b\mid a` 和中文定义 | 定义无遗漏，TeX 正常编译 |
-| `show_example_divisible` | 12 个方块平均分 3 组 | 同一批 12 个 Square 移动为 3 组，每组标 4 | `3*4==12`；动画结束时确有 3 组，每组 4 块 |
-| `show_example_not_divisible` | 12 个方块平均分 5 组 | 5 组各 2 块 + 同一批方块中剩余 2 块 | `5*2+2==12`、`0≤2<5`，字幕/方块/公式匹配 |
-| `show_factor_multiple` | `12=3×4`，只讨论正整数 | 3、4 的因数关系与 12 的倍数关系 | 条件与因数比较在同一镜头显示 |
-| `show_notation` | `3|12`、`5∤12` | 两条符号分别与解释对应 | `12%3==0`、`12%5!=0`，符号方向正确 |
-| `show_outro` | 回顾整数条件、零余数、正整数范围 | 数学结论、署名 | 总结不被旧对象遮挡，所有文本在安全区 |
-
-## 验证状态（更新时需填真实证据）
-
-| 层级 | 状态 | 证据与限制 |
+| 方法 | 数学命题 → 数据 → 屏上状态 | 实际渲染的待验关键帧 |
 |---|---|---|
-| math | `pass`（人工核对核心例题） | `12=3×4`、`12=5×2+2`、整除定义和范围已核对；数学专项脚本另需运行 |
-| syntax | `not_run` | 需执行 `python -m py_compile divisibility_meaning.py` |
-| ast | `not_run` | 需执行 `python .opencode/skills/manim-video-production/scripts/audit_scene.py <本课脚本路径> --json` |
-| unit_tests | `not_run` | 执行本目录 `python verify_divisibility.py`，独立测试不能替代渲染 |
-| manim_render | `blocked` | 当前执行环境未安装 Manim，且不具备可联网安装依赖的容器 |
-| frame_review | `not_run` | 需实际渲染后检查开场、分组终态、两种结论、符号、片尾以及完整 Mobject 包围盒 |
-| ffprobe | `not_run` | 本次未产出新 MP4，现有旧视频不构成修复后的渲染证据 |
-| audio_review | `not_run` | 未修改既有视频与音轨 |
+| `show_opening` | 12 个苹果分给 3 人，`12//3==4`，呈现问题 | 中文、署名不被裁剪 |
+| `show_concept` | `a,b∈ℤ, b≠0`、`a=bq,q∈ℤ`、`b\mid a` | LaTeX 编译正常，定义和条件同屏 |
+| `show_example_divisible` | `3×4=12`；12 个 Square 重排成 3 组，每组 4 个 | 初态/末态数物一一对应，余数 0 正确 |
+| `show_example_not_divisible` | `5×2+2=12`；5 组各 2 个 + 剩余 2 个 | 12 个 Square 未丢失或重叠，余数及结论匹配 |
+| `show_factor_multiple` | `12=3×4`，限定正整数 | 数值与关系对应，结论条件可见 |
+| `show_notation` | `3|12`，`5∤12`，由余数核实 | 整除符号方向、颜色与解释一致 |
+| `show_outro` | 定义、余数、正整数因数/倍数范围 | 所有文本在竖屏安全区 |
 
-> 本文件只记录当前课件的修复与验收，不用静态代码检查冒充视频质量认证。
+## 分层验证结果
+
+| 层级 | 状态 | 证据及尚未覆盖的项目 |
+|---|---|---|
+| math | `pass`（示例与前提） | `12=3×4`、`12=5×2+2`、零除数排除；独立回归亦通过 |
+| syntax | `pass` | [GitHub Actions：source/test py_compile 成功](https://github.com/1998x-stack/manim_math/actions/runs/35835924595/job/107099247078)；提交 `fdc6bd67a83b6d9c83e3570070e2dcf5a068d8a1` |
+| ast | `pass`（仓库初中源码审计规则） | [Junior historical gotchas audit](https://github.com/1998x-stack/manim_math/actions/runs/35835924543) 成功；专门的 Skill `audit_scene.py --json` 尚未独立运行，不冒充该检查 |
+| unit_tests | `pass` | 上述 GitHub Actions 的 `Verify arithmetic and scene source invariants` 步骤成功；这不验证实际画面 |
+| manim_render | `blocked` | 当前本地容器无 Manim，且无法联网安装；CI 本项不做渲染 |
+| frame_review | `not_run` | 需渲染后检查第一帧、全部分组终态、两种结论、符号与片尾的完整 Mobject 包围盒 |
+| ffprobe | `not_run` | 未生成新 MP4；旧视频不可充当修复后视频验收 |
+| audio_review | `not_run` | 保留原有视频与音轨，未对其做变更 |
+
+> 静态及数学回归成功不等于真实 Manim 动画或视频已验收。
