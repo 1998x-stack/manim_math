@@ -24,7 +24,7 @@ class RadicalMulDivTests(unittest.TestCase):
                 with self.subTest(a=a, b=b):
                     self.assertTrue(math.isclose(calc(a, b), math.sqrt(a * b),
                                                  rel_tol=1e-12, abs_tol=1e-12))
-        self.assertEqual(calc(2, 8), 4)
+        self.assertTrue(math.isclose(calc(2, 8), 4, rel_tol=1e-12, abs_tol=1e-12))
         self.assertTrue(math.isclose(calc(3, 5), math.sqrt(15)))
 
     def test_multiplication_invalid_domain(self):
