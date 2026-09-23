@@ -1,58 +1,51 @@
-"""
-直接开平方法 - Manim 教学动画
-Direct Square Root Method for Solving Quadratic Equations
+"""一元二次方程：直接开平方法，八年级上第十七章。
 
-目标受众: 八年级学生
-视频格式: TikTok 竖屏 (1080×1920)
-时长: 60-75秒
-
-作者: 上海初高中数学直通车 @emptyandcalm
+manim -pql direct_square_root.py DirectSquareRootMethod
+保持原有七段教学顺序、Scene 入口、9:16 竖屏与作者署名。
 """
 
+import math
 from manim import *
-import numpy as np
 
-# ==================== 全局配置 ====================
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
 
+def solve_shifted_square(m, n):
+    """求 (x+m)²=n 在实数范围内的互异根，按从小到大排序。"""
+    if not math.isfinite(m) or not math.isfinite(n):
+        raise ValueError("参数必须为有限实数")
+    if n < 0:
+        return ()
+    if n == 0:
+        return (-m,)
+    root = math.sqrt(n)
+    return (-m - root, -m + root)
+
+
+def equation_residual(x, m, n):
+    """将候选根代回原方程的误差，用于验证动画显示的结果。"""
+    return (x + m) ** 2 - n
+
+
 class DirectSquareRootMethod(Scene):
-    """
-    直接开平方法教学动画场景
-    
-    场景顺序:
-    1. 开场钩子
-    2. 引入方法名称
-    3. 基本公式推导 (x² = 9)
-    4. 通用公式展示
-    5. 实例演示1 - (x+2)² = 16
-    6. 实例演示2 - x² + 6x + 9 = 25
-    7. 总结与关注
-    """
-    
+    BG = "#1a1a2e"
+    TITLE = "#f9ca24"
+    CYAN = "#56d0dc"
+    VIOLET = "#b3a4f9"
+    GREEN = "#85dfa3"
+    CORAL = "#f58c8c"
+    MUTED = "#c5cbdb"
+    PANEL = "#16213e"
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"        # 蓝色 - 主公式
-        self.COLOR_SECONDARY = "#e74c3c"      # 红色 - 关键步骤
-        self.COLOR_HIGHLIGHT = YELLOW         # 黄色 - 强调
-        self.COLOR_AUXILIARY = GRAY_B         # 灰色 - 辅助
-        self.COLOR_SUCCESS = "#2ecc71"        # 绿色 - 正确答案
-        
-        # 字体配置
-        self.FONT_CHINESE = "PingFang SC"
-        self.FONT_SIZE_TITLE = 40
-        self.FONT_SIZE_SUBTITLE = 28
-        self.FONT_SIZE_BODY = 24
-        self.FONT_SIZE_SMALL = 20
-        self.FONT_SIZE_FORMULA = 32
-        
-        # 执行动画序列
+        self.camera.background_color = self.BG
+        self.author_info = Text("上海初高中数学直通车 @emptyandcalm",
+                                font="PingFang SC", font_size=18,
+                                color=self.MUTED).move_to(UP * 6.6)
+        self.add(self.author_info)
         self.show_opening()
         self.show_method_introduction()
         self.show_basic_derivation()
@@ -60,673 +53,172 @@ class DirectSquareRootMethod(Scene):
         self.show_example_1()
         self.show_example_2()
         self.show_summary()
-    
+
+    def _title(self, text):
+        title = Text(text, font="PingFang SC", font_size=40,
+                     color=self.TITLE).move_to(UP * 5.8)
+        if title.width > 7.8:
+            title.scale_to_fit_width(7.8)
+        return title
+
+    def _note(self, text, y, color=None):
+        note = Text(text, font="PingFang SC", font_size=27,
+                    color=color or self.MUTED).move_to(UP * y)
+        if note.width > 7.6:
+            note.scale_to_fit_width(7.6)
+        return note
+
+    def _card(self, y, height, content, color=None):
+        border = color or self.CYAN
+        frame = RoundedRectangle(corner_radius=0.25, width=7.7, height=height,
+                                 stroke_color=border, stroke_width=2,
+                                 fill_color=self.PANEL, fill_opacity=0.92).move_to(UP * y)
+        body = content if isinstance(content, VGroup) else VGroup(content)
+        body.move_to(frame.get_center())
+        if body.width > 7.05:
+            body.scale_to_fit_width(7.05)
+        if body.height > height - 0.24:
+            body.scale_to_fit_height(height - 0.24)
+        return VGroup(frame, body)
+
+    def _clear(self):
+        active = [mob for mob in list(self.mobjects) if mob is not self.author_info]
+        if active:
+            self.play(*[FadeOut(mob) for mob in active], run_time=0.4)
+
     def show_opening(self):
-        """场景1: 开场钩子 (0-5秒)"""
-        # 作者信息 (顶部固定)
-        self.author_info = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_SMALL,
-            color=GRAY_B
-        ).move_to(UP * 7)
-        
-        self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
-        
-        # 钩子问题
-        hook_question = MathTex(
-            r"x^2 = 9",
-            font_size=56,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 4)
-        
-        hook_text = Text(
-            "x 等于多少？",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_SUBTITLE,
-            color=WHITE
-        ).next_to(hook_question, DOWN, buff=0.5)
-        
-        self.play(Write(hook_question), run_time=0.8)
-        self.play(FadeIn(hook_text, shift=UP * 0.2), run_time=0.5)
-        
-        # 思考气泡
-        thinking_bubble = VGroup(
-            Circle(radius=0.3, color=WHITE, fill_opacity=0.1).shift(RIGHT * 2 + UP * 2),
-            Circle(radius=0.2, color=WHITE, fill_opacity=0.1).shift(RIGHT * 2.5 + UP * 1.5),
-            Circle(radius=0.15, color=WHITE, fill_opacity=0.1).shift(RIGHT * 2.8 + UP * 1.2),
-        )
-        
-        question_mark = Text(
-            "?",
-            font=self.FONT_CHINESE,
-            font_size=48,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(RIGHT * 2 + UP * 2)
-        
-        self.play(
-            FadeIn(thinking_bubble, scale=0.5),
-            FadeIn(question_mark, scale=0.5),
-            run_time=0.5
-        )
-        
-        self.play(Flash(question_mark, color=self.COLOR_HIGHLIGHT, flash_radius=0.4), run_time=0.4)
-        self.wait(0.5)
-        
-        # 清理
-        self.play(
-            FadeOut(hook_question),
-            FadeOut(hook_text),
-            FadeOut(thinking_bubble),
-            FadeOut(question_mark),
-            run_time=0.5
-        )
-    
+        title = self._title("x² = 9，有几个实数解？")
+        question = self._card(3.7, 1.9,
+                              MathTex(r"x^2=9", font_size=70,
+                                      color=self.CYAN), self.CYAN)
+        options = self._note("别漏掉负数：(-3)² 和 3² 都等于 9", 1.2)
+        answer = self._card(-1.35, 1.9,
+                            MathTex(r"x=-3\quad\text{或}\quad x=3",
+                                    font_size=47, color=self.GREEN), self.GREEN)
+        self.play(Write(title), FadeIn(question), run_time=0.8)
+        self.play(FadeIn(options), run_time=0.5)
+        self.play(FadeIn(answer), run_time=0.6)
+        self.wait(1.0)
+        self._clear()
+
     def show_method_introduction(self):
-        """场景2: 引入方法名称 (5-10秒)"""
-        # 标题
-        title = Text(
-            "直接开平方法",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_TITLE,
-            color=self.COLOR_PRIMARY,
-            weight=BOLD
-        ).move_to(UP * 5)
-        
-        # 副标题
-        subtitle = Text(
-            "Direct Square Root Method",
-            font_size=self.FONT_SIZE_BODY,
-            color=GRAY_A,
-            slant=ITALIC
-        ).next_to(title, DOWN, buff=0.3)
-        
-        # 说明文字
-        description = Text(
-            "快速解决特殊形式的一元二次方程",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_BODY,
-            color=GRAY_B
-        ).move_to(UP * 3)
-        
-        self.play(Write(title), run_time=1.0)
-        self.play(FadeIn(subtitle), run_time=0.5)
-        self.play(FadeIn(description, shift=UP * 0.3), run_time=0.6)
-        
+        title = self._title("直接开平方法")
+        name = self._card(3.6, 1.85,
+                          MathTex(r"(x+m)^2=n", font_size=62,
+                                  color=self.CYAN), self.CYAN)
+        hint = self._note("平方形式已出现，可直接对两边开平方", 1.2)
+        guard = self._card(-1.45, 1.9,
+                           MathTex(r"n\geq0:\quad x=-m\pm\sqrt n",
+                                   font_size=47, color=self.TITLE), self.TITLE)
+        self.play(Write(title), FadeIn(name), run_time=0.8)
+        self.play(FadeIn(hint), FadeIn(guard), run_time=0.8)
         self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(subtitle),
-            FadeOut(description),
-            run_time=0.5
-        )
-    
+        self._clear()
+
     def show_basic_derivation(self):
-        """场景3: 基本公式推导 (10-25秒)"""
-        # 起始公式
-        eq1 = MathTex(
-            r"x^2 = 9",
-            font_size=self.FONT_SIZE_FORMULA + 8,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(eq1), run_time=1.0)
-        self.wait(0.5)
-        
-        # 箭头和提示
-        arrow1 = Arrow(
-            start=UP * 3,
-            end=UP * 2,
-            color=self.COLOR_SECONDARY,
-            stroke_width=4
-        )
-        
-        hint1 = Text(
-            "两边开平方",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_BODY,
-            color=self.COLOR_SECONDARY
-        ).next_to(arrow1, RIGHT, buff=0.3)
-        
-        self.play(GrowArrow(arrow1), run_time=0.5)
-        self.play(FadeIn(hint1, shift=LEFT * 0.3), run_time=0.5)
-        self.wait(0.5)
-        
-        # 开平方后
-        eq2 = MathTex(
-            r"x = {{ \pm }} \sqrt{9}",
-            font_size=self.FONT_SIZE_FORMULA + 8,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 1)
-        
-        self.play(
-            TransformMatchingTex(eq1.copy(), eq2),
-            run_time=1.0
-        )
-        self.wait(0.3)
-        
-        # 强调 ± 符号
-        plus_minus = eq2.get_part_by_tex(r"\pm")
-        self.play(
-            Indicate(plus_minus, scale_factor=1.3, color=self.COLOR_HIGHLIGHT),
-            run_time=0.6
-        )
-        
-        # 解释框
-        explanation_box = VGroup(
-            RoundedRectangle(
-                width=3.5,
-                height=1.0,
-                corner_radius=0.1,
-                color=self.COLOR_HIGHLIGHT,
-                fill_opacity=0.1
-            ),
-            Text(
-                "正负两个解",
-                font=self.FONT_CHINESE,
-                font_size=self.FONT_SIZE_BODY,
-                color=self.COLOR_HIGHLIGHT
-            )
-        ).arrange(DOWN, buff=0.1).next_to(eq2, RIGHT, buff=0.8)
-        
-        self.play(FadeIn(explanation_box, shift=LEFT * 0.3), run_time=0.6)
-        self.wait(0.8)
-        
-        # 计算结果
-        eq3 = MathTex(
-            r"x = {{ \pm }} 3",
-            font_size=self.FONT_SIZE_FORMULA + 8,
-            color=self.COLOR_PRIMARY
-        ).move_to(DOWN * 1)
-        
-        self.play(
-            TransformMatchingTex(eq2.copy(), eq3),
-            run_time=1.0
-        )
-        
-        # 答案框高亮
-        answer_rect = SurroundingRectangle(
-            eq3,
-            color=self.COLOR_SUCCESS,
-            buff=0.2,
-            corner_radius=0.1
-        )
-        
-        self.play(Create(answer_rect), run_time=0.6)
-        self.wait(1.2)
-        
-        # 清理
-        self.play(
-            FadeOut(eq1),
-            FadeOut(arrow1),
-            FadeOut(hint1),
-            FadeOut(eq2),
-            FadeOut(explanation_box),
-            FadeOut(eq3),
-            FadeOut(answer_rect),
-            run_time=0.6
-        )
-    
+        title = self._title("x² = 9：为什么有正、负两个解？")
+        start = self._card(3.8, 1.55,
+                           MathTex(r"x^2=9", font_size=59,
+                                   color=self.CYAN), self.CYAN)
+        equation = self._card(1.45, 1.5,
+                              MathTex(r"x=\pm\sqrt9=\pm3", font_size=53,
+                                      color=self.TITLE), self.TITLE)
+        number_line = NumberLine(x_range=[-4, 4, 1], length=7,
+                                 include_numbers=True, font_size=24).move_to(DOWN * 1.1)
+        left = Dot(number_line.n2p(-3), color=self.CORAL, radius=0.12)
+        right = Dot(number_line.n2p(3), color=self.GREEN, radius=0.12)
+        left_label = MathTex(r"-3", font_size=33,
+                             color=self.CORAL).next_to(left, UP, buff=0.25)
+        right_label = MathTex(r"3", font_size=33,
+                              color=self.GREEN).next_to(right, UP, buff=0.25)
+        check = self._note("验算：(-3)² = 9，3² = 9", -3.1)
+        assert solve_shifted_square(0, 9) == (-3, 3)
+        self.play(Write(title), FadeIn(start), FadeIn(equation), run_time=0.9)
+        self.play(Create(number_line), FadeIn(left), FadeIn(right),
+                  FadeIn(left_label), FadeIn(right_label), run_time=0.8)
+        self.play(FadeIn(check), run_time=0.4)
+        self.wait(1.0)
+        self._clear()
+
     def show_general_formula(self):
-        """场景4: 通用公式展示 (25-35秒)"""
-        # 公式框
-        formula_box = RoundedRectangle(
-            width=7.5,
-            height=2.5,
-            corner_radius=0.15,
-            color=self.COLOR_PRIMARY,
-            stroke_width=3
-        ).move_to(UP * 3.5)
-        
-        self.play(Create(formula_box), run_time=0.8)
-        
-        # 通用公式
-        general_formula = MathTex(
-            r"(x+m)^2 = n",
-            font_size=self.FONT_SIZE_FORMULA + 4,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 4.2)
-        
-        self.play(Write(general_formula), run_time=1.0)
-        
-        # 双箭头
-        double_arrow = DoubleArrow(
-            start=UP * 3.5 + LEFT * 2,
-            end=UP * 3.5 + RIGHT * 2,
-            color=self.COLOR_SECONDARY,
-            stroke_width=4,
-            buff=0
-        ).move_to(UP * 3.3)
-        
-        self.play(GrowArrow(double_arrow), run_time=0.8)
-        
-        # 解的形式
-        solution_form = MathTex(
-            r"x = -m \pm \sqrt{n}",
-            font_size=self.FONT_SIZE_FORMULA + 4,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 2.6)
-        
-        self.play(Write(solution_form), run_time=1.2)
-        self.wait(0.5)
-        
-        # 条件框
-        condition_box = RoundedRectangle(
-            width=3.0,
-            height=0.8,
-            corner_radius=0.1,
-            color=self.COLOR_HIGHLIGHT,
-            fill_opacity=0.1
-        ).move_to(UP * 1.5)
-        
-        condition_text = MathTex(
-            r"n \geq 0",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(condition_box.get_center())
-        
-        condition_label = Text(
-            "重要条件:",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_SMALL,
-            color=GRAY_A
-        ).next_to(condition_box, UP, buff=0.2)
-        
-        self.play(
-            FadeIn(condition_box),
-            FadeIn(condition_label),
-            run_time=0.5
-        )
-        self.play(Write(condition_text), run_time=0.8)
-        self.wait(0.8)
-        
-        # 整体闪烁强调
-        emphasis_group = VGroup(formula_box, general_formula, double_arrow, solution_form)
-        self.play(
-            Flash(emphasis_group, color=self.COLOR_PRIMARY, flash_radius=0.5),
-            run_time=0.6
-        )
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(formula_box),
-            FadeOut(general_formula),
-            FadeOut(double_arrow),
-            FadeOut(solution_form),
-            FadeOut(condition_box),
-            FadeOut(condition_text),
-            FadeOut(condition_label),
-            run_time=0.6
-        )
-    
-    def show_example_1(self):
-        """场景5: 实例演示1 - (x+2)² = 16 (35-48秒)"""
-        # 例题标签
-        example_label = Text(
-            "例题 1",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_SUBTITLE,
-            color=self.COLOR_SECONDARY,
-            weight=BOLD
-        ).move_to(UP * 6)
-        
-        self.play(Write(example_label), run_time=0.5)
-        
-        # 问题
-        problem = MathTex(
-            r"(x+2)^2 = 16",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 4.5)
-        
-        self.play(Write(problem), run_time=0.8)
-        self.wait(0.5)
-        
-        # 步骤1: 开平方
-        step1_label = Text(
-            "步骤1: 开平方",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_BODY,
-            color=GRAY_A
-        ).move_to(UP * 3.2)
-        
-        step1 = MathTex(
-            r"x+2 = \pm 4",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 2.5)
-        
-        self.play(FadeIn(step1_label, shift=DOWN * 0.2), run_time=0.4)
-        self.play(
-            TransformMatchingTex(problem.copy(), step1),
-            run_time=1.0
-        )
-        self.wait(0.5)
-        
-        # 步骤2: 移项
-        step2_label = Text(
-            "步骤2: 移项",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_BODY,
-            color=GRAY_A
-        ).move_to(UP * 1.2)
-        
-        step2 = MathTex(
-            r"x = -2 \pm 4",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 0.5)
-        
-        self.play(FadeIn(step2_label, shift=DOWN * 0.2), run_time=0.4)
-        self.play(
-            TransformMatchingTex(step1.copy(), step2),
-            run_time=1.0
-        )
-        self.wait(0.5)
-        
-        # 分离两解
-        step3_label = Text(
-            "步骤3: 计算",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_BODY,
-            color=GRAY_A
-        ).move_to(DOWN * 0.8)
-        
-        solutions = MathTex(
-            r"x_1 = 2, \quad x_2 = -6",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_SUCCESS
-        ).move_to(DOWN * 1.5)
-        
-        self.play(FadeIn(step3_label, shift=DOWN * 0.2), run_time=0.4)
-        self.play(Write(solutions), run_time=1.0)
-        
-        # 答案框
-        answer_rect = SurroundingRectangle(
-            solutions,
-            color=self.COLOR_SUCCESS,
-            buff=0.25,
-            corner_radius=0.1
-        )
-        
-        self.play(Create(answer_rect), run_time=0.6)
+        title = self._title("平方右侧 n 的符号决定解的个数")
+        general = self._card(3.7, 1.85,
+                             MathTex(r"(x+m)^2=n", font_size=56,
+                                     color=self.CYAN), self.CYAN)
+        positive = self._card(1.15, 1.75,
+                              MathTex(r"n>0:\quad x=-m\pm\sqrt n",
+                                      font_size=45, color=self.GREEN), self.GREEN)
+        zero = self._card(-1.4, 1.75,
+                          MathTex(r"n=0:\quad x=-m", font_size=49,
+                                  color=self.TITLE), self.TITLE)
+        negative = self._note("n < 0：平方不可能为负，没有实数解", -3.5, self.CORAL)
+        assert solve_shifted_square(2, 0) == (-2,)
+        assert solve_shifted_square(2, -1) == ()
+        self.play(Write(title), FadeIn(general), run_time=0.8)
+        self.play(FadeIn(positive), FadeIn(zero), run_time=0.8)
+        self.play(FadeIn(negative), run_time=0.4)
         self.wait(1.2)
-        
-        # 清理
-        self.play(
-            FadeOut(example_label),
-            FadeOut(problem),
-            FadeOut(step1_label),
-            FadeOut(step1),
-            FadeOut(step2_label),
-            FadeOut(step2),
-            FadeOut(step3_label),
-            FadeOut(solutions),
-            FadeOut(answer_rect),
-            run_time=0.6
-        )
-    
+        self._clear()
+
+    def show_example_1(self):
+        title = self._title("例题一：(x+2)² = 16")
+        first = self._card(3.7, 1.75,
+                           MathTex(r"(x+2)^2=16", font_size=54,
+                                   color=WHITE), self.CYAN)
+        second = self._card(1.1, 1.75,
+                            MathTex(r"x+2=\pm4", font_size=56,
+                                    color=self.VIOLET), self.VIOLET)
+        third = self._card(-1.5, 1.75,
+                           MathTex(r"x=-2\pm4:\quad x=2,-6",
+                                   font_size=45, color=self.GREEN), self.GREEN)
+        solutions = solve_shifted_square(2, 16)
+        assert solutions == (-6, 2)
+        assert all(equation_residual(x, 2, 16) == 0 for x in solutions)
+        note = self._note("代回原方程检验：4² = 16，(-4)² = 16", -3.5)
+        self.play(Write(title), FadeIn(first), run_time=0.8)
+        self.play(FadeIn(second), FadeIn(third), run_time=0.8)
+        self.play(FadeIn(note), run_time=0.4)
+        self.wait(1.0)
+        self._clear()
+
     def show_example_2(self):
-        """场景6: 实例演示2 - x² + 6x + 9 = 25 (48-60秒)"""
-        # 例题标签
-        example_label = Text(
-            "例题 2",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_SUBTITLE,
-            color=self.COLOR_SECONDARY,
-            weight=BOLD
-        ).move_to(UP * 6)
-        
-        self.play(Write(example_label), run_time=0.5)
-        
-        # 原始方程
-        original_eq = MathTex(
-            r"{{ x^2 + 6x + 9 }} = 25",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 4.5)
-        
-        self.play(Write(original_eq), run_time=0.8)
-        self.wait(0.3)
-        
-        # 高亮左侧
-        left_side = original_eq.get_part_by_tex(r"x^2 + 6x + 9")
-        self.play(
-            Indicate(left_side, scale_factor=1.1, color=self.COLOR_HIGHLIGHT),
-            run_time=0.8
-        )
-        
-        # 提示完全平方式
-        hint_perfect = Text(
-            "识别: 完全平方式",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_BODY,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 3.2)
-        
-        self.play(FadeIn(hint_perfect, shift=DOWN * 0.2), run_time=0.6)
-        self.wait(0.5)
-        
-        # 变换为完全平方形式
-        transformed = MathTex(
-            r"(x+3)^2 = 25",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 2.3)
-        
-        self.play(
-            TransformMatchingTex(original_eq.copy(), transformed),
-            run_time=1.0
-        )
-        self.play(FadeOut(hint_perfect), run_time=0.3)
-        self.wait(0.5)
-        
-        # 开平方
-        sqrt_step = MathTex(
-            r"x+3 = \pm 5",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 1.0)
-        
-        self.play(
-            TransformMatchingTex(transformed.copy(), sqrt_step),
-            run_time=1.0
-        )
-        self.wait(0.3)
-        
-        # 移项
-        solve_step = MathTex(
-            r"x = -3 \pm 5",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_PRIMARY
-        ).move_to(DOWN * 0.2)
-        
-        self.play(
-            TransformMatchingTex(sqrt_step.copy(), solve_step),
-            run_time=1.0
-        )
-        self.wait(0.3)
-        
-        # 最终答案
-        final_answers = MathTex(
-            r"x_1 = 2, \quad x_2 = -8",
-            font_size=self.FONT_SIZE_FORMULA,
-            color=self.COLOR_SUCCESS
-        ).move_to(DOWN * 1.5)
-        
-        self.play(Write(final_answers), run_time=1.0)
-        
-        # 答案框
-        answer_rect = SurroundingRectangle(
-            final_answers,
-            color=self.COLOR_SUCCESS,
-            buff=0.25,
-            corner_radius=0.1
-        )
-        
-        self.play(Create(answer_rect), run_time=0.6)
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(example_label),
-            FadeOut(original_eq),
-            FadeOut(transformed),
-            FadeOut(sqrt_step),
-            FadeOut(solve_step),
-            FadeOut(final_answers),
-            FadeOut(answer_rect),
-            run_time=0.6
-        )
-    
+        title = self._title("例题二：先识别完全平方式")
+        first = self._card(3.8, 1.65,
+                           MathTex(r"x^2+6x+9=25", font_size=49,
+                                   color=WHITE), self.CYAN)
+        second = self._card(1.5, 1.65,
+                            MathTex(r"(x+3)^2=25", font_size=51,
+                                    color=self.VIOLET), self.VIOLET)
+        third = self._card(-0.8, 1.65,
+                           MathTex(r"x+3=\pm5", font_size=53,
+                                   color=self.TITLE), self.TITLE)
+        fourth = self._card(-3.1, 1.65,
+                            MathTex(r"x=-3\pm5:\quad x=2,-8",
+                                    font_size=44, color=self.GREEN), self.GREEN)
+        solutions = solve_shifted_square(3, 25)
+        assert solutions == (-8, 2)
+        assert all(equation_residual(x, 3, 25) == 0 for x in solutions)
+        self.play(Write(title), FadeIn(first), run_time=0.8)
+        self.play(FadeIn(second), FadeIn(third), run_time=0.8)
+        self.play(FadeIn(fourth), run_time=0.5)
+        self.wait(1.1)
+        self._clear()
+
     def show_summary(self):
-        """场景7: 总结与关注 (60-75秒)"""
-        # 总结标题
-        summary_title = Text(
-            "方法要点",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_TITLE,
-            color=self.COLOR_PRIMARY,
-            weight=BOLD
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(summary_title), run_time=0.8)
-        
-        # 要点1
-        point1 = VGroup(
-            Circle(radius=0.15, color=self.COLOR_PRIMARY, fill_opacity=1),
-            Text(
-                "形式: (x+m)² = n",
-                font=self.FONT_CHINESE,
-                font_size=self.FONT_SIZE_BODY,
-                color=WHITE
-            ).shift(RIGHT * 1.5)
-        ).arrange(RIGHT, buff=0.3).move_to(UP * 3.5)
-        point1.shift(LEFT * 10)
-        
-        # 要点2
-        point2 = VGroup(
-            Circle(radius=0.15, color=self.COLOR_PRIMARY, fill_opacity=1),
-            Text(
-                "步骤: 开平方 → 移项",
-                font=self.FONT_CHINESE,
-                font_size=self.FONT_SIZE_BODY,
-                color=WHITE
-            ).shift(RIGHT * 1.5)
-        ).arrange(RIGHT, buff=0.3).move_to(UP * 2.0)
-        point2.shift(LEFT * 10)
-        
-        # 要点3
-        point3 = VGroup(
-            Circle(radius=0.15, color=self.COLOR_PRIMARY, fill_opacity=1),
-            Text(
-                "注意: n ≥ 0, 两个解",
-                font=self.FONT_CHINESE,
-                font_size=self.FONT_SIZE_BODY,
-                color=WHITE
-            ).shift(RIGHT * 1.5)
-        ).arrange(RIGHT, buff=0.3).move_to(UP * 0.5)
-        point3.shift(LEFT * 10)
-        
-        # 依次滑入
-        self.play(point1.animate.shift(RIGHT * 10), run_time=0.6)
-        self.wait(0.3)
-        self.play(point2.animate.shift(RIGHT * 10), run_time=0.6)
-        self.wait(0.3)
-        self.play(point3.animate.shift(RIGHT * 10), run_time=0.6)
-        self.wait(0.5)
-        
-        # 要点闪烁
-        all_points = VGroup(point1, point2, point3)
-        self.play(
-            Flash(all_points, color=self.COLOR_PRIMARY, flash_radius=0.5),
-            run_time=0.6
-        )
-        self.wait(0.8)
-        
-        # 作者信息放大
-        author_large = Text(
-            "上海初高中数学直通车",
-            font=self.FONT_CHINESE,
-            font_size=36,
-            color=WHITE,
-            weight=BOLD
-        ).move_to(DOWN * 2)
-        
-        author_id = Text(
-            "@emptyandcalm",
-            font=self.FONT_CHINESE,
-            font_size=28,
-            color=GRAY_B
-        ).next_to(author_large, DOWN, buff=0.3)
-        
-        self.play(
-            Transform(self.author_info, author_large),
-            run_time=0.8
-        )
-        self.play(FadeIn(author_id, shift=UP * 0.2), run_time=0.5)
-        
-        # 关注文字
-        follow_text = Text(
-            "关注我, 学更多数学技巧!",
-            font=self.FONT_CHINESE,
-            font_size=self.FONT_SIZE_SUBTITLE,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 4.5)
-        
-        self.play(
-            FadeIn(follow_text, shift=UP * 0.3, scale=1.1),
-            run_time=0.6
-        )
-        
-        # 装饰元素 - 小圆圈旋转
-        decorations = VGroup(*[
-            Circle(
-                radius=0.2,
-                color=self.COLOR_PRIMARY,
-                fill_opacity=0.6
-            ).move_to(
-                follow_text.get_center() + 2.5 * np.array([np.cos(i * PI / 4), np.sin(i * PI / 4), 0])
-            )
-            for i in range(8)
-        ])
-        
-        self.play(
-            *[FadeIn(dec, scale=0.5) for dec in decorations],
-            run_time=0.6
-        )
-        self.play(
-            Rotate(decorations, angle=PI, run_time=1.5)
-        )
-        
+        title = self._title("总结：先看 n 的符号，再开平方")
+        positive = self._card(3.7, 1.75,
+                              MathTex(r"n>0:\quad x=-m\pm\sqrt n",
+                                      font_size=44, color=self.GREEN), self.GREEN)
+        zero = self._card(1.1, 1.75,
+                          MathTex(r"n=0:\quad x=-m", font_size=48,
+                                  color=self.TITLE), self.TITLE)
+        negative = self._card(-1.5, 1.75,
+                              MathTex(r"n<0:\quad\text{无实数解}",
+                                      font_size=45, color=self.CORAL), self.CORAL)
+        note = self._note("正数两个互异实数解；零只有一个互异实数解", -3.5)
+        self.play(Write(title), FadeIn(positive), run_time=0.8)
+        self.play(FadeIn(zero), FadeIn(negative), run_time=0.8)
+        self.play(FadeIn(note), run_time=0.4)
         self.wait(1.0)
-        
-        # 全部淡出
-        self.play(
-            FadeOut(summary_title),
-            FadeOut(all_points),
-            FadeOut(self.author_info),
-            FadeOut(author_id),
-            FadeOut(follow_text),
-            FadeOut(decorations),
-            run_time=1.0
-        )
-
-
-# ==================== 渲染命令 ====================
-"""
-快速预览 (480p):
-manim -pql direct_square_root.py DirectSquareRootMethod
-
-高质量渲染 (1080p):
-manim -qh direct_square_root.py DirectSquareRootMethod
-
-4K质量 (2160p):
-manim -qk direct_square_root.py DirectSquareRootMethod
-
-GIF格式:
-manim -pql --format gif direct_square_root.py DirectSquareRootMethod
-"""
+        self._clear()
+        self.play(FadeOut(self.author_info), run_time=0.35)
