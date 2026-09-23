@@ -26,10 +26,11 @@ def sample_variance_unbiased(sample=SAMPLE):
 
 def normal_ci_known_sigma(sample=SAMPLE, sigma=SIGMA_DEMO, z=Z_95_APPROX):
     """仅在i.i.d.正态且sigma已知时为经典双侧均值置信区间。"""
-    n = len(tuple(sample))
+    data = tuple(sample)
+    n = len(data)
     if n < 1 or not isfinite(float(sigma)) or sigma <= 0 or not isfinite(float(z)) or z <= 0:
         raise ValueError("需要非空样本、已知正sigma与正临界值")
-    center = float(sample_mean(sample))
+    center = float(sample_mean(data))
     margin = float(z) * float(sigma) / sqrt(n)
     return center - margin, center + margin
 
