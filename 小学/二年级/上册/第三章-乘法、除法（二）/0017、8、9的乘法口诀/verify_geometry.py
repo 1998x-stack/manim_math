@@ -1,107 +1,65 @@
-import numpy as np
+"""7～9 口诀离线验收：数学数量、标准口诀和点阵静态布局。
 
-def verify_angles():
-    """
-    验证涉及的角度，如果大于90度，需要稍微分析一下；
-    如果大于180度，要加强注意⚠️，非常非常可能angle方向错了！
-    (Manim 的 Angle.from_three_points 默认是逆时针。需要添加 other_angle=True 参数。)
-    """
-    print("验证角度计算...")
+本脚本无需 Manim；不代表完成实际字形、像素边界和视频验收。
+"""
+from __future__ import annotations
 
-    # 在乘法口诀动画中，我们实际上不涉及具体的角度计算
-    # 但在其他几何动画中，需要注意以下情况：
-
-    # 例如，如果我们有一个角度计算：
-    # A = np.array([0, 0, 0])
-    # B = np.array([1, 0, 0])
-    # C = np.array([1, 1, 0])
-    #
-    # 向量 BA 和 BC
-    # vector_BA = A - B  # [-1, 0, 0]
-    # vector_BC = C - B  # [0, 1, 0]
-    #
-    # 计算夹角
-    # dot_product = np.dot(vector_BA, vector_BC)
-    # norms = np.linalg.norm(vector_BA) * np.linalg.norm(vector_BC)
-    # angle_rad = np.arccos(np.clip(dot_product / norms, -1.0, 1.0))
-    # angle_deg = np.degrees(angle_rad)
-    #
-    # print(f"角度为 {angle_deg} 度")
-    #
-    # if angle_deg > 180:
-    #     print("⚠️ 角度大于180度！需要检查方向，可能需要添加 other_angle=True 参数")
-    # elif angle_deg > 90:
-    #     print("角度大于90度，注意观察")
-    # else:
-    #     print("锐角，通常没问题")
-
-    print("乘法口诀动画中没有特定的角度计算需要验证")
+import ast
+from pathlib import Path
 
 
-def grep_MathTex():
-    """
-    避免 LaTeX 编译错误 (such as LaTeX Error: Unicode character 乘 (U+4E58))
-    """
-    print("检查 MathTex 使用...")
-
-    # 在我们的乘法口诀动画中，我们主要使用 Text 而不是 MathTex 来避免中文字符的 LaTeX 错误
-    # 所以我们不会遇到 Unicode character 错误
-
-    print("动画中使用 Text 而非 MathTex 来显示中文，避免了 LaTeX Unicode 错误")
+EXPECTED = {
+    7: ("一七得七", "二七十四", "三七二十一", "四七二十八", "五七三十五", "六七四十二", "七七四十九"),
+    8: ("一八得八", "二八十六", "三八二十四", "四八三十二", "五八四十", "六八四十八", "七八五十六", "八八六十四"),
+    9: ("一九得九", "二九十八", "三九二十七", "四九三十六", "五九四十五", "六九五十四", "七九六十三", "八九七十二", "九九八十一"),
+}
 
 
-def verify_boundaries():
-    """
-    验证元素是否在安全边界内
-    """
-    print("验证元素边界...")
+def load_pure_lesson_helpers():
+    """只读取原脚本的纯数学函数，避免为了检查而加载 Manim。"""
+    filename = Path(__file__).resolve().parent / "001_7、8、9的乘法口诀.py"
+    tree = ast.parse(filename.read_text(encoding="utf-8"), filename=str(filename))
+    selected = []
+    for node in tree.body:
+        if isinstance(node, ast.Assign) and any(
+            isinstance(target, ast.Name) and target.id == "CHINESE_DIGITS"
+            for target in node.targets
+        ):
+            selected.append(node)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in {
+            "chinese_number", "multiplication_mnemonic"
+        }:
+            selected.append(node)
+    assert len(selected) == 3, "缺少正确的数字或口诀生成函数"
+    module = ast.fix_missing_locations(ast.Module(body=selected, type_ignores=[]))
+    namespace = {}
+    exec(compile(module, str(filename), "exec"), namespace)
+    return namespace["multiplication_mnemonic"]
 
-    # 根据全局配置规范，坐标系边界参考：
-    # 横向: x ∈ [-4.5, +4.5] (建议 x ∈ [-4, +4])
-    # 纵向: y ∈ [-8, +8]，其中 y ∈ [-3, +5] 为主内容区域
 
-    # 验证我们在动画中使用的坐标是否在边界内
-    coordinates_used = [
-        (0, 7),    # 顶部作者信息
-        (0, 6),    # 标题
-        (0, 5.2),  # 副标题
-        (-2.5, 3), # 左侧图形位置
-        (2.5, -0.5), # 其他图形位置
-        (0, -7),   # 底部信息
-        (-4.5, 8), # 最大x,y值
-        (4.5, 8),  # 最大x,y值
-        (-4.5, -8), # 最小x,最大y值
-        (4.5, -8)  # 最大x,最小y值
-    ]
+def verify_tables() -> None:
+    mnemonic = load_pure_lesson_helpers()
+    for factor, phrases in EXPECTED.items():
+        assert len(phrases) == factor
+        for multiplier, expected in enumerate(phrases, start=1):
+            product = factor * multiplier
+            assert mnemonic(factor, multiplier) == expected, (factor, multiplier)
+            dot_positions = [
+                ((col - (factor - 1) / 2) * 0.42,
+                 (row - (multiplier - 1) / 2) * 0.42)
+                for row in range(multiplier)
+                for col in range(factor)
+            ]
+            assert len(dot_positions) == product
+            assert len(dot_positions) == len(set(dot_positions))
+            assert all(abs(x) + 0.095 < 4.5 and abs(y) + 0.095 < 8
+                       for x, y in dot_positions)
 
-    boundary_errors = []
 
-    for x, y in coordinates_used:
-        if x < -4.5 or x > 4.5:
-            boundary_errors.append(f"x坐标 {x} 超出边界 [-4.5, 4.5]")
-        if y < -8 or y > 8:
-            boundary_errors.append(f"y坐标 {y} 超出边界 [-8, 8]")
-
-    if boundary_errors:
-        print("发现边界错误：")
-        for error in boundary_errors:
-            print(f"  - {error}")
-    else:
-        print("✓ 所有元素都在安全边界内")
+def main() -> None:
+    verify_tables()
+    print("7～9 的 24 条口诀、点阵数量及静态布局检查通过；仍需实际渲染。")
 
 
 if __name__ == "__main__":
-    print("开始验证几何计算...")
-    print("="*50)
-
-    verify_angles()
-    print()
-
-    grep_MathTex()
-    print()
-
-    verify_boundaries()
-    print()
-
-    print("="*50)
-    print("验证完成！")
+    main()

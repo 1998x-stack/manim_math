@@ -1,33 +1,40 @@
+"""东南西北：以指北针为依据阅读常见上北地图。"""
 from manim import *
 
+config.frame_width = 9
+config.frame_height = 16
+config.pixel_width = 1080
+config.pixel_height = 1920
+
+
 class 东南西北Animation(Scene):
-    """东南西北的Manim动画演示"""
-    
+    """展示四个基本方向，说明“上北”是地图约定而非普遍规律。"""
+
     def construct(self):
-        # 标题
-        title = Text("东南西北", font_size=48)
-        title.to_edge(UP)
-        self.play(Write(title))
-        self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("上北下南")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
+        self.camera.background_color = "#1a1a2e"
+        title = Text("东南西北", font_size=48, color=GOLD).move_to(UP * 6.1)
+        subtitle = Text("观察地图上的指北针", font_size=29).move_to(UP * 4.6)
+        self.play(Write(title), FadeIn(subtitle))
+
+        horizontal = Line(LEFT * 2.0, RIGHT * 2.0, color=GRAY_B)
+        vertical = Line(DOWN * 2.0, UP * 2.0, color=GRAY_B)
+        center = Dot(color=WHITE, radius=0.1)
+        self.play(Create(horizontal), Create(vertical), FadeIn(center))
+
+        directions = (
+            ("北", UP * 2.55, UP * 1.85, RED_B),
+            ("南", DOWN * 2.55, DOWN * 1.85, BLUE_B),
+            ("西", LEFT * 2.55, LEFT * 1.85, BLUE_B),
+            ("东", RIGHT * 2.55, RIGHT * 1.85, BLUE_B),
+        )
+        for name, label_position, arrow_end, color in directions:
+            arrow = Arrow(ORIGIN, arrow_end, buff=0.15, color=color)
+            label = Text(name, font_size=46, color=color).move_to(label_position)
+            self.play(GrowArrow(arrow), FadeIn(label), run_time=0.6)
+
+        convention = Text("常见地图：上北下南，左西右东", font_size=27)
+        convention.move_to(DOWN * 4.4)
+        reminder = Text("实际方向请看图例或指北针", font_size=26, color=YELLOW)
+        reminder.move_to(DOWN * 5.4)
+        self.play(Write(convention), FadeIn(reminder))
         self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: Arrow, Text, Cross, VGroup, Circle, Compass
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_东南西北.py 东南西北Animation
-    pass

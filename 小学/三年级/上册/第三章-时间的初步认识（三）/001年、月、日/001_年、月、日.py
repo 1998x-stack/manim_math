@@ -1,33 +1,21 @@
+"""年、月、日的简短示例；完整课程见同目录 YearMonthDay。"""
+
 from manim import *
 
-class 年、月、日Animation(Scene):
-    """年、月、日的Manim动画演示"""
-    
+
+class YearMonthDayPreview(Scene):
+    """用中文 Text 呈现年月日知识点，避免把中文直接放入 MathTex。"""
+
     def construct(self):
-        # 标题
-        title = Text("年、月、日", font_size=48)
-        title.to_edge(UP)
+        title = Text("年、月、日", font_size=42).to_edge(UP)
         self.play(Write(title))
+
+        facts = VGroup(
+            Text("1 年 = 12 个月", font_size=34),
+            Text("大月：31 天；小月：30 天", font_size=30),
+            Text("2 月：平年 28 天，闰年 29 天", font_size=28),
+        ).arrange(DOWN, buff=0.65).move_to(ORIGIN)
+        for fact in facts:
+            self.play(Write(fact))
+            self.wait(0.35)
         self.wait(1)
-        
-        # 创建基本图形
-        circle = Circle(radius=2, color=BLUE)
-        circle.shift(LEFT * 3)
-        
-        # 添加标签
-        formula = MathTex("1年 = 12个月")
-        formula.next_to(circle, RIGHT, buff=1)
-        
-        # 动画序列
-        self.play(Create(circle))
-        self.play(Write(formula))
-        self.wait(2)
-        
-        # 更多动画元素可以根据需要添加
-        # 使用到的Manim元素: Calendar, Table, Text, VGroup, Rectangle, Indicate
-        
-        self.wait(1)
-        
-if __name__ == "__main__":
-    # 运行命令: manim -pql 001_年、月、日.py 年、月、日Animation
-    pass
