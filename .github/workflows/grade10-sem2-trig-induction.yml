@@ -1,0 +1,47 @@
+name: Grade 10 semester 2 trig induction checks
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第五章-三角比/003同角三角比的关系与诱导公式/**'
+      - '.github/workflows/grade10-sem2-trig-induction.yml'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第二学期/第五章-三角比/003同角三角比的关系与诱导公式/
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile and test trig induction mathematics
+        run: |
+          LESSON='高中/高一/第二学期/第五章-三角比/003同角三角比的关系与诱导公式'
+          python -m py_compile "$LESSON/trig_induction.py" "$LESSON/verify_induction.py"
+          python "$LESSON/verify_induction.py" -v
+      - name: Audit actual Manim source AST
+        run: |
+          LESSON='高中/高一/第二学期/第五章-三角比/003同角三角比的关系与诱导公式'
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "$LESSON/trig_induction.py" --json > /tmp/induction-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/induction-audit.json').read_text(encoding='utf-8'))
+          print('AST:', report['errors'], 'errors,', report['warnings'], 'warnings')
+          for finding in report['findings']:
+              print(finding)
+          assert report['errors'] == 0
+          # Each dynamic TeX argument is sourced from this scene's fixed verified formula strings.
+          assert {finding['code'] for finding in report['findings']} <= {'DYNAMIC_TEX'}
+          PY
