@@ -46,6 +46,7 @@ jobs:
       - name: Compile corrected scenes without importing Manim
         run: |
           python -m py_compile \
+            '高中/高二/第一学期/第十章-算法初步/001算法的概念/001算法的概念_animation.py' \
             '高中/高二/第二学期/第十三章-复数/001复数的概念/001_复数的概念.py' \
             '高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/complex_roots.py'
       - name: Upload audit report
