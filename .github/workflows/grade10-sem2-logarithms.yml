@@ -16,6 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+            /高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算/*.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
