@@ -1,10 +1,12 @@
-# 004 等底等高｜五年级起
-来源：基础面积定理。条件：底边 AB 从 (-3,-2) 至 (3,-2)，长度 6；顶点 P 在 y=2 的平行线上，垂距始终 4；S=6×4/2=12。P 的 x 从 -2.5 连续移动到 2.5；任意中间帧均在平行线上，底与高不变。底为 0 的退化三角形不作为本例。
+# 004 等底等高｜长方形等分与动点高度不变
 
-## 镜头与核验
-1. learning_fact: 明确底不变、问面积；objects: title/given 创建；check: 坐标单位一致。
-2. learning_fact: 三角形及垂高可见；objects: base/top_line/triangle/altitude/apex 创建；motion: 顶点与垂高均绑定同一 ValueTracker；check: 高的端点横坐标与顶点一致，端点在 y=-2。
-3. learning_fact: 动点不改变面积；objects: lengths/result 保留；motion: P 从 -2.5 向 2.5 移动；check: 所有帧 base=6,height=4,S=12。
-4. learning_fact: 总结等底等高；objects: conclusion 创建；check: triangle_area(6,4)==12，拒绝负高。
+- 数学规格：底 A=(-2,-1.5)、B=(2,-1.5)，长度 4；初始顶点 P=(-2,1.5)，对角点 Q=(2,1.5)，高 3，三角形面积 4×3/2=6。只考虑底为正、顶点在与底平行的 y=1.5 直线上；退化高 0 面积 0。
 
-验收状态：动态几何包围盒、中文字体、公式与实际播放帧尚需渲染后审查。
+## 分镜及核验
+1. `rectangle/primary/complement/diagonal`：长方形为 4×3，连接对角线分成真实等面积两三角形；可见 12÷2=6，而不是仅口头宣称面积为一半。
+2. 清理长方形两个填色三角形与其对角线，保留 `width_label/height_label/half_area` 并创建 `guide/base/apex_x`。
+3. `triangle/altitude/foot/apex` 全部基于同一 ValueTracker，顶点从 x=-2 到 2 再到 .25；脚点始终 (x,-1.5)，垂线端点 y=1.5 和 -1.5；底边始终 A→B。
+4. `conclusion` 显示底 4、高 3、面积 6；使用叉积或三角形面积公式核对三个端点与中间帧。
+
+## 验收
+逐帧检查顶点移动时三角形封闭、垂高不失效、顶部平行线无偏移；底为 0 视为非法输入。真实预览及 Mobject 包围盒尚需运行。
