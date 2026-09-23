@@ -1,10 +1,10 @@
-"""频率与概率：公平硬币的可复现抽样与大数定律的正确表述。
+"""频率与概率：公平硬币的可复现抽样与大数定律。
 
 预览：manim -pql freq_prob_animation.py FreqProbAnimation
-纯数学测试：python -m unittest -v test_frequency_math.py
+数学回归：python -m unittest -v test_frequency_math.py
 """
+from fractions import Fraction
 from manim import *
-
 from frequency_math import benchmark_probability, experiment
 
 config.pixel_width = 1080
@@ -33,17 +33,8 @@ class FreqProbAnimation(Scene):
         self.scene_5_summary()
         self.scene_6_outro()
 
-    def text(self, message, y, size=27, color=WHITE):
-        mob = Text(message, font=FONT, font_size=size, color=color)
-        mob.move_to(UP * y)
-        return self.fit(mob)
-
-    def math(self, expression, y, size=35, color=WHITE):
-        """仅传纯 LaTeX；中文一律交给 text。"""
-        return self.fit(MathTex(expression, font_size=size, color=color).move_to(UP * y))
-
     def fit(self, mob):
-        """单对象竖屏安全区约束，不能替代逐帧视觉复核。"""
+        """限制单对象安全区；不能代替真实渲染的逐帧排版检查。"""
         if mob.width > 7.8:
             mob.scale_to_fit_width(7.8)
         if mob.height > 13.4:
@@ -57,6 +48,13 @@ class FreqProbAnimation(Scene):
         if mob.get_bottom()[1] < -6.8:
             mob.shift(UP * (-6.8 - mob.get_bottom()[1]))
         return mob
+
+    def text(self, message, y, size=27, color=WHITE):
+        return self.fit(Text(message, font=FONT, font_size=size, color=color).move_to(UP * y))
+
+    def math(self, formula, y, size=35, color=WHITE):
+        """仅用于不含中文的 LaTeX。"""
+        return self.fit(MathTex(formula, font_size=size, color=color).move_to(UP * y))
 
     def show(self, mob, seconds=0.5):
         self.play(FadeIn(self.fit(mob)), run_time=seconds)
@@ -93,7 +91,7 @@ class FreqProbAnimation(Scene):
         self.show(self.text("n 次试验中，事件 A 发生了 m 次", 3.75, 29))
         self.show(self.formula_card(r"f_n(A)=\frac{m}{n},\qquad n\geq1", 2.0))
         n, heads, freq = self.data[9]
-        assert n == 10 and freq == heads / n
+        assert n == 10 and freq == Fraction(heads, n)
         self.show(self.text(f"本次模拟的前 {n} 次：正面 {heads} 次", 0.5, 27))
         self.show(self.math(r"f_{10}(A)=\frac{" + str(heads) + r"}{10}=" + f"{float(freq):.2f}",
                             -0.8, 32, RED))
@@ -102,13 +100,12 @@ class FreqProbAnimation(Scene):
         self.wait(0.8)
 
     def plot_data(self, end_n):
-        """两个镜头共用 self.data 的前缀，绝不重新抽样造另一条曲线。"""
+        """两个镜头共用 self.data 的前缀，不重新抽样。"""
         if not 2 <= end_n <= len(self.data):
             raise ValueError("折线至少需要两个样本点")
-        x_step = 5 if end_n <= 30 else 50
         axes = Axes(
-            x_range=[0, end_n, x_step], y_range=[0, 1, 0.25],
-            x_length=6.25, y_length=4.4,
+            x_range=[0, end_n, 5 if end_n <= 30 else 50],
+            y_range=[0, 1, 0.25], x_length=6.25, y_length=4.4,
             axis_config={"color": GRAY_B, "include_tip": False},
         ).move_to(UP * 0.7)
         baseline = DashedLine(axes.c2p(0, float(self.p)),
@@ -127,6 +124,7 @@ class FreqProbAnimation(Scene):
         self.play(Create(line), run_time=2.0)
         self.show(self.text("红线：同一次模拟的累计正面频率", -2.3, 23, RED))
         n, heads, freq = self.data[29]
+        assert freq == Fraction(heads, n)
         self.show(self.text(f"n={n}，正面 {heads} 次，频率 {float(freq):.3f}", -3.45, 26, GOLD))
         self.show(self.text("频率可能向理论值靠近，也可能暂时远离", -4.6, 23))
         self.wait(0.9)
@@ -138,10 +136,9 @@ class FreqProbAnimation(Scene):
         self.show(baseline, 0.3)
         self.show(self.math(r"P(A)=0.5", 3.8, 29, BLUE))
         self.play(Create(line), run_time=3.0)
-        checkpoints = (10, 50, 100, 200)
-        for n in checkpoints:
+        for n in (10, 50, 100, 200):
             _, heads, freq = self.data[n - 1]
-            assert freq == heads / n
+            assert freq == Fraction(heads, n)
         n, heads, freq = self.data[-1]
         self.show(self.text(f"本次 n={n}，正面 {heads} 次，频率 {float(freq):.3f}", -2.4, 26, RED))
         self.show(self.math(r"f_n(A)\xrightarrow[n\to\infty]{\mathrm{P}}P(A)",
