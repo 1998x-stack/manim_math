@@ -1,0 +1,30 @@
+name: Grade 8 term 2 chapter 21 lesson 001 polynomial
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第二学期/第二十一章-代数方程/001整式方程/**"
+      - ".github/workflows/grade8-term2-021-001-polynomial.yml"
+  workflow_dispatch:
+
+jobs:
+  check-polynomial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第二学期/第二十一章-代数方程/001整式方程/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check source syntax, equation math and skill AST
+        run: |
+          python -m py_compile "初中/八年级/第二学期/第二十一章-代数方程/001整式方程/integral_equation_animation.py" "初中/八年级/第二学期/第二十一章-代数方程/001整式方程/verify_integral_equation.py"
+          python "初中/八年级/第二学期/第二十一章-代数方程/001整式方程/verify_integral_equation.py"
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第二学期/第二十一章-代数方程/001整式方程/integral_equation_animation.py" --json
