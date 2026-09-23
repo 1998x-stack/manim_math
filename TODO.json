@@ -1,14 +1,45 @@
 {
   "schema_version": 1,
-  "generated_at": null,
+  "generated_at": "2026-09-23T06:42:49Z",
   "scope": ["小学", "初中", "高中", "external"],
-  "total_python_files": null,
+  "total_python_files": 613,
   "batch_size": 100,
-  "total_batches": null,
+  "total_batches": 7,
   "last_scanned_batch": null,
-  "scanned_files": {},
-  "scanned_file_count": 0,
-  "outstanding": 0,
-  "notice": "Unscanned planning baseline: zero listed findings does NOT mean zero defects. Run python tools/commit_gotchas.py scan --batch 0 --batch-size 100 --output TODO.json; commit the result after reviewing it. The CI first-batch artifact contains actual scanned candidates.",
-  "items": []
+  "scanned_files": {
+    "external/monge_circle.py": "41756dea30c1c58363e2c9ead405c437615c192ed3a6ff7e166008fca2e00fc2",
+    "初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py": "048ddbba3f528f820e1e77753fbdbdf44add7affbe8df5d94a75ac0c2028a05e"
+  },
+  "scanned_file_count": 2,
+  "outstanding": 2,
+  "notice": "CI run 35828031147 actually scanned 100 of 613 Python files, finding these two candidates. Only these two source hashes are recorded in the tracked TODO; see the CI artifact for the other 98 scanned filenames. Rerun batch 0 locally to persist complete coverage. These are review candidates, not render-validated defects.",
+  "ci_batch_zero_artifact": "https://github.com/1998x-stack/manim_math/actions/runs/35828031147/artifacts/10736176132",
+  "items": [
+    {
+      "id": "1fc0a846885e4edc",
+      "path": "external/monge_circle.py",
+      "line": 737,
+      "rule": "CHINESE_IN_TEX",
+      "priority": "P2",
+      "description": "Chinese text in Tex/MathTex; custom CJK template may be valid",
+      "detail": "\\text{✓ 半径 } R = \\sqrt{a^2 + b^2}",
+      "source_sha256": "41756dea30c1c58363e2c9ead405c437615c192ed3a6ff7e166008fca2e00fc2",
+      "history_ref": "H01/H06",
+      "status": "needs_review",
+      "checks": {"static": "pending", "math": "pending", "render": "pending", "visual": "pending"}
+    },
+    {
+      "id": "6e9b2d4102a1d0c1",
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py",
+      "line": 1030,
+      "rule": "NESTED_PLAY",
+      "priority": "P1",
+      "description": "self.play called inside another self.play",
+      "detail": "",
+      "source_sha256": "048ddbba3f528f820e1e77753fbdbdf44add7affbe8df5d94a75ac0c2028a05e",
+      "history_ref": "commit bc81f46c1ffbcb27ea54287716750fe379c28edf",
+      "status": "needs_review",
+      "checks": {"static": "pending", "math": "pending", "render": "pending", "visual": "pending"}
+    }
+  ]
 }
