@@ -1,0 +1,59 @@
+name: Grade 11 S2 circle render smoke
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py'
+      - '.github/workflows/grade11-s2-circle-render-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manim-real-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install minimal Manim and LaTeX runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg libcairo2-dev libpango1.0-dev pkg-config \
+            texlive-latex-base texlive-latex-extra texlive-fonts-recommended \
+            texlive-science fonts-noto-cjk
+          python -m pip install 'manim==0.19.2'
+          manim --version
+      - name: Render actual Scene and probe new output (never overwrite old MP4)
+        env:
+          LESSON: 高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
+        run: |
+          manim -ql --disable_caching --media_dir "$RUNNER_TEMP/circle-render-smoke" \
+            "$LESSON/circle_equation.py" CircleEquation
+          video="$(find "$RUNNER_TEMP/circle-render-smoke" -type f -name 'CircleEquation.mp4' -print -quit)"
+          test -n "$video" && test -s "$video"
+          ffprobe -v error -select_streams v:0 \
+            -show_entries stream=width,height,r_frame_rate,duration \
+            -of default=noprint_wrappers=1 "$video"
+          mkdir -p "$RUNNER_TEMP/circle-frames"
+          ffmpeg -hide_banner -loglevel error -y -ss 1 -i "$video" \
+            -frames:v 1 "$RUNNER_TEMP/circle-frames/first.png"
+          ffmpeg -hide_banner -loglevel error -y -ss 15 -i "$video" \
+            -frames:v 1 "$RUNNER_TEMP/circle-frames/mid.png"
+      - name: Upload preview and sample frames for human visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grade11-s2-circle-render-smoke
+          path: |
+            ${{ runner.temp }}/circle-render-smoke/videos/**/*.mp4
+            ${{ runner.temp }}/circle-frames/*.png
+          if-no-files-found: warn
