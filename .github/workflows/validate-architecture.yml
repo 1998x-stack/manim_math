@@ -50,4 +50,5 @@ jobs:
       - run: python tools/check_repository.py
       - run: python tools/audit_catalog.py --skip-file-check
       - run: python tools/legacy_contract.py --expect-count 534
-      - run: python -m unittest discover -s tests -p 'test_legacy_contract.py' -v
+      # Sparse checkout intentionally excludes course directories; tests use fixtures.
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
