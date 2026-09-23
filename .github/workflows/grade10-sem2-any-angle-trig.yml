@@ -1,0 +1,47 @@
+name: Grade 10 semester 2 arbitrary-angle trigonometry
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第五章-三角比/002任意角的三角比/**'
+      - '.github/workflows/grade10-sem2-any-angle-trig.yml'
+      - '.opencode/skills/manim-video-production/scripts/audit_scene.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第二学期/第五章-三角比/002任意角的三角比/
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile and test arbitrary-angle trigonometry
+        run: |
+          LESSON='高中/高一/第二学期/第五章-三角比/002任意角的三角比'
+          python -m py_compile "$LESSON/any_angle_trigonometry.py" "$LESSON/verify_any_angle_trig.py"
+          python "$LESSON/verify_any_angle_trig.py" -v
+      - name: Audit actual Manim source
+        run: |
+          LESSON='高中/高一/第二学期/第五章-三角比/002任意角的三角比'
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "$LESSON/any_angle_trigonometry.py" --json > /tmp/any-angle-audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/any-angle-audit.json').read_text(encoding='utf-8'))
+          print('AST:', report['errors'], 'errors,', report['warnings'], 'warnings')
+          for finding in report['findings']:
+              print(finding)
+          assert report['errors'] == 0
+          # Formula inputs are selected from fixed QUADRANTS data and checked in pure math tests.
+          assert {row['code'] for row in report['findings']} <= {'DYNAMIC_TEX'}
+          PY
