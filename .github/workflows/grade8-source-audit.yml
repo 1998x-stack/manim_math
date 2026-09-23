@@ -6,6 +6,7 @@ on:
       - "初中/八年级/**"
       - "tools/audit_grade8.py"
       - "tests/test_audit_grade8.py"
+      - "tests/test_grade8_quadratic_contract.py"
       - ".github/workflows/grade8-source-audit.yml"
   workflow_dispatch:
 
@@ -23,13 +24,16 @@ jobs:
             /初中/八年级/**/*.py
             /tools/audit_grade8.py
             /tests/test_audit_grade8.py
+            /tests/test_grade8_quadratic_contract.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Syntax-check every Grade 8 Python file
         run: python -m compileall -q "初中/八年级"
-      - name: Run dependency-free regression tests
+      - name: Run dependency-free audit tests
         run: python -m unittest discover -s tests -p 'test_audit_grade8.py' -v
+      - name: Run quadratic scene contract tests
+        run: python -m unittest discover -s tests -p 'test_grade8_quadratic_contract.py' -v
       - name: Audit Grade 8 and save per-file findings
         run: python tools/audit_grade8.py --json > grade8-audit.json
       - name: Enforce high-confidence checks on the repaired scene
