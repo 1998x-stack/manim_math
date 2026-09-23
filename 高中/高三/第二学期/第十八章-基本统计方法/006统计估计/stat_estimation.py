@@ -193,11 +193,11 @@ class StatEstimation(Scene):
         self.play(FadeIn(hook2, scale=1.05), run_time=0.5)
 
         # 视觉：大量总体点云
-        np.random.seed(42)
+        rng = np.random.default_rng(42)
         pop_dots = VGroup()
         for _ in range(120):
-            x = np.random.uniform(-3.8, 3.8)
-            y = np.random.uniform(-0.8, 3.5)
+            x = rng.uniform(-3.8, 3.8)
+            y = rng.uniform(-0.8, 3.5)
             d = Dot(np.array([x, y, 0]), radius=0.04, color=COLOR_POP, fill_opacity=0.4)
             pop_dots.add(d)
 
