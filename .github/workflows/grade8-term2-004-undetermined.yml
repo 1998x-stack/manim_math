@@ -1,0 +1,30 @@
+name: Grade 8 term 2 lesson 004 coefficients
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/**"
+      - ".github/workflows/grade8-term2-004-undetermined.yml"
+  workflow_dispatch:
+
+jobs:
+  check-lesson-004:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify syntax, exact two-point math and Skill AST audit
+        run: |
+          python -m py_compile "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/linear_function_undetermined_coefficients.py" "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/verify_linear_function_undetermined.py"
+          python "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/verify_linear_function_undetermined.py"
+          python .opencode/skills/manim-video-production/scripts/audit_scene.py "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/linear_function_undetermined_coefficients.py" --json
