@@ -1,0 +1,37 @@
+name: Manim four-lesson smoke tests
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/manim-four-lesson-smoke.yml'
+      - 'tools/smoke_manim_four_lessons.py'
+      - 'tools/test_probability_frequency_model.py'
+      - 'skills/source/manim-video-production/**'
+  workflow_dispatch:
+
+jobs:
+  four-course-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            skills/source/manim-video-production
+            tools/smoke_manim_four_lessons.py
+            tools/test_probability_frequency_model.py
+            小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高
+            小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型
+            高中/高一/第二学期/第六章-三角函数/003函数y=Asin(ωx+φ)的图像与性质/003_函数y=Asin(ωx+φ)的图像与性质.py
+            高中/高一/第二学期/第六章-三角函数/003函数y=Asin(ωx+φ)的图像与性质/verify_geometry.py
+            初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/probability_frequency.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install math test dependency
+        run: python -m pip install numpy==1.26.4
+      - name: Run four real-course production gates
+        run: python tools/smoke_manim_four_lessons.py
