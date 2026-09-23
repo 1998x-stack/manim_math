@@ -10,7 +10,7 @@ config.background_color = "#101827"
 
 
 class TriangleAngleSumVisual(Scene):
-    """Render: manim -pql triangle_angle_visual.py TriangleAngleSumVisual"""
+    """Render: manim triangle_angle_visual.py TriangleAngleSumVisual"""
 
     def construct(self):
         title = Text("三角形的内角和", font_size=43).to_edge(UP, buff=0.85)
@@ -30,6 +30,13 @@ class TriangleAngleSumVisual(Scene):
             return Arc(radius=0.48, start_angle=start, angle=sweep,
                        arc_center=p, color=color, stroke_width=6)
 
+        def vertex_tags(c):
+            return VGroup(
+                MathTex("A", font_size=34).move_to(A + DOWN * 0.5),
+                MathTex("B", font_size=34).move_to(B + DOWN * 0.5),
+                MathTex("C", font_size=34).move_to(c + UP * 0.5),
+            )
+
         def diagram():
             C = vertex_c()
             triangle = Polygon(A, B, C, stroke_color=WHITE,
@@ -37,12 +44,7 @@ class TriangleAngleSumVisual(Scene):
             angles = VGroup(arc_at(A, B, C, YELLOW),
                             arc_at(B, C, A, GREEN),
                             arc_at(C, A, B, ORANGE))
-            labels = VGroup(
-                MathTex("A", font_size=34).move_to(A + DOWN * 0.5),
-                MathTex("B", font_size=34).move_to(B + DOWN * 0.5),
-                MathTex("C", font_size=34).move_to(C + UP * 0.5),
-            )
-            return VGroup(triangle, angles, labels)
+            return VGroup(triangle, angles, vertex_tags(C))
 
         drawing = always_redraw(diagram)
         fact = MathTex(r"\angle A+\angle B+\angle C=180^\circ",
@@ -53,31 +55,33 @@ class TriangleAngleSumVisual(Scene):
         self.wait(1)
         self.play(FadeOut(drawing))
 
-        # At C, the straight angle above line l is partitioned by CA and CB.
+        # At C, CA and CB divide the straight angle below l into three parts.
         C = vertex_c()
         fixed = Polygon(A, B, C, color=WHITE, stroke_width=5)
-        parallel = Line(C + LEFT * 3.7, C + RIGHT * 3.7,
+        fixed_tags = vertex_tags(C)
+        parallel = Line(C + LEFT * 2.6, C + RIGHT * 2.6,
                         color=TEAL, stroke_width=4)
         parallel_tag = MathTex(r"\ell\parallel AB", color=TEAL,
                                font_size=34).move_to(UP * 3.7)
         proof = VGroup(
             Text("平行线的内错角相等", font_size=32),
-            MathTex(r"\alpha+\gamma+\beta=180^\circ", font_size=44),
+            MathTex(r"\angle A+\angle C+\angle B=180^\circ", font_size=42),
         ).arrange(DOWN, buff=0.35).move_to(DOWN * 3.5)
-        self.play(Create(fixed), Create(parallel), FadeIn(parallel_tag))
+        self.play(Create(fixed), FadeIn(fixed_tags), Create(parallel),
+                  FadeIn(parallel_tag))
         self.play(ReplacementTransform(fact, proof[1]), FadeIn(proof[0]))
         self.wait(2)
         self.play(FadeOut(proof), FadeOut(parallel_tag), FadeOut(parallel),
-                  FadeOut(fixed))
+                  FadeOut(fixed), FadeOut(fixed_tags))
 
         # Exterior angle at B equals the sum of the two remote interior angles.
-        C = vertex_c()
-        extension = Line(B, B + RIGHT * 1.3, color=TEAL, stroke_width=4)
+        extension = Line(B, B + RIGHT * 1.1, color=TEAL, stroke_width=4)
         exterior = VGroup(Polygon(A, B, C, color=WHITE, stroke_width=5),
                           extension)
         exterior_fact = MathTex(
             r"\angle CBD=\angle A+\angle C", font_size=43
         ).move_to(DOWN * 3.8)
-        d_tag = MathTex("D", font_size=32).next_to(extension.get_end(), RIGHT, buff=0.1)
-        self.play(Create(exterior), FadeIn(d_tag), Write(exterior_fact))
+        d_tag = MathTex("D", font_size=32).next_to(extension.get_end(), DOWN, buff=0.15)
+        self.play(Create(exterior), FadeIn(vertex_tags(C)),
+                  FadeIn(d_tag), Write(exterior_fact))
         self.wait(2)
