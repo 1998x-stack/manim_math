@@ -6,6 +6,7 @@ on:
       - "初中/九年级/**"
       - "tools/audit_grade9.py"
       - "tools/tests/test_audit_grade9.py"
+      - "tools/tests/test_grade9_proportions.py"
       - "tools/tests/test_grade9_similarity_concept.py"
       - "tools/tests/test_grade9_similarity_criteria.py"
       - "tools/tests/test_grade9_similarity_properties.py"
@@ -31,6 +32,7 @@ jobs:
             /初中/九年级/**/description.json
             /tools/audit_grade9.py
             /tools/tests/test_audit_grade9.py
+            /tools/tests/test_grade9_proportions.py
             /tools/tests/test_grade9_similarity_concept.py
             /tools/tests/test_grade9_similarity_criteria.py
             /tools/tests/test_grade9_similarity_properties.py
@@ -47,6 +49,8 @@ jobs:
         run: python tools/audit_grade9.py
       - name: Run dependency-free regression tests
         run: python -m unittest discover -s tools/tests -p 'test_audit_grade9.py' -v
+      - name: Verify proportional segments including small and extreme ratios
+        run: python tools/tests/test_grade9_proportions.py
       - name: Verify similarity concept mathematical geometry
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_concept.py' -v
       - name: Verify AA SAS SSS criteria and duplicate scene consistency
