@@ -1,0 +1,31 @@
+name: Junior grade 6 semester 1 prime factorization regression
+
+on:
+  pull_request:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/004分解素因数/**'
+      - '.github/workflows/junior-grade6-sem1-factorization.yml'
+  push:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/004分解素因数/**'
+      - '.github/workflows/junior-grade6-sem1-factorization.yml'
+
+jobs:
+  math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/六年级/第一学期/第一章-数的整除/004分解素因数/prime_factorization.py
+            /初中/六年级/第一学期/第一章-数的整除/004分解素因数/verify_prime_factorization.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile lesson and test script
+        run: |
+          python -m py_compile '初中/六年级/第一学期/第一章-数的整除/004分解素因数/prime_factorization.py' '初中/六年级/第一学期/第一章-数的整除/004分解素因数/verify_prime_factorization.py'
+      - name: Verify mathematical factorization and short-division invariants
+        run: python '初中/六年级/第一学期/第一章-数的整除/004分解素因数/verify_prime_factorization.py'
