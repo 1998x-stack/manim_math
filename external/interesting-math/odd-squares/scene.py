@@ -30,6 +30,9 @@ def odd_sum(n):
 class OddSquaresScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
+        watermark = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
+                         font_size=17, color=GREY_B).move_to(UP * 7.0)
+        self.add(watermark)
         title = Text("奇数为什么能拼出正方形？", font=FONT, font_size=34).move_to(UP * 6.3)
         hint = Text("每次沿两条边，加上一层新的方格", font=FONT, font_size=25).move_to(UP * 4.9)
         formula = MathTex("0=0^2", font_size=40).move_to(DOWN * 3.0)
