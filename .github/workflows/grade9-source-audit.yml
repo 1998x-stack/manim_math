@@ -7,6 +7,7 @@ on:
       - "tools/audit_grade9.py"
       - "tools/tests/test_audit_grade9.py"
       - "tools/tests/test_grade9_similarity_concept.py"
+      - "tools/tests/test_grade9_similarity_criteria.py"
       - ".github/workflows/grade9-source-audit.yml"
   workflow_dispatch:
 
@@ -26,6 +27,7 @@ jobs:
             /tools/audit_grade9.py
             /tools/tests/test_audit_grade9.py
             /tools/tests/test_grade9_similarity_concept.py
+            /tools/tests/test_grade9_similarity_criteria.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -37,3 +39,5 @@ jobs:
         run: python -m unittest discover -s tools/tests -p 'test_audit_grade9.py' -v
       - name: Verify similarity concept mathematical geometry
         run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_concept.py' -v
+      - name: Verify AA SAS SSS criteria and duplicate scene consistency
+        run: python -m unittest discover -s tools/tests -p 'test_grade9_similarity_criteria.py' -v
