@@ -93,8 +93,8 @@ class DirectSquareRootMethod(Scene):
                                       color=self.CYAN), self.CYAN)
         options = self._note("别漏掉负数：(-3)² 和 3² 都等于 9", 1.2)
         answer = self._card(-1.35, 1.9,
-                            MathTex(r"x=-3\quad\text{或}\quad x=3",
-                                    font_size=47, color=self.GREEN), self.GREEN)
+                            MathTex(r"x=-3,\quad x=3",
+                                    font_size=50, color=self.GREEN), self.GREEN)
         self.play(Write(title), FadeIn(question), run_time=0.8)
         self.play(FadeIn(options), run_time=0.5)
         self.play(FadeIn(answer), run_time=0.6)
@@ -213,8 +213,7 @@ class DirectSquareRootMethod(Scene):
                           MathTex(r"n=0:\quad x=-m", font_size=48,
                                   color=self.TITLE), self.TITLE)
         negative = self._card(-1.5, 1.75,
-                              MathTex(r"n<0:\quad\text{无实数解}",
-                                      font_size=45, color=self.CORAL), self.CORAL)
+                              self._note("n < 0：没有实数解", 0, self.CORAL), self.CORAL)
         note = self._note("正数两个互异实数解；零只有一个互异实数解", -3.5)
         self.play(Write(title), FadeIn(positive), run_time=0.8)
         self.play(FadeIn(zero), FadeIn(negative), run_time=0.8)
