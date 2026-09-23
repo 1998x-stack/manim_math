@@ -1,6 +1,6 @@
 """七年级第一学期：同类项与合并同类项。
 
-保留历史 Manim 场景入口 LikeTerms 与六个教学环节。
+保留 Scene 入口 LikeTerms 及六个教学镜头。
 运行：manim -pql like_terms.py LikeTerms
 """
 from manim import *
@@ -15,11 +15,10 @@ BLUE_C = "#3498db"
 RED_C = "#e74c3c"
 GREEN_C = "#2ecc71"
 PURPLE_C = "#9b59b6"
-ORANGE_C = "#f39c12"
 
 
 class LikeTerms(Scene):
-    """同类项的定义、反例、抵消模型、综合化简。"""
+    """定义、判断、正负模型、综合化简与回顾。"""
 
     @staticmethod
     def fit(mob, width=7.5):
@@ -71,7 +70,7 @@ class LikeTerms(Scene):
         )
         left = MathTex("3", "x^2y", font_size=52).move_to(LEFT * 1.9 + UP * 1)
         right = MathTex("-5", "x^2y", font_size=52).move_to(RIGHT * 1.9 + UP * 1)
-        # 分离传给 MathTex 的字母部分，避免依赖 TeX 字形数目的硬编码切片。
+        # 每项的字母部分是单独传给 MathTex 的参数，无需按 glyph 切片。
         frames = VGroup(
             SurroundingRectangle(left[1], color=PURPLE_C, buff=0.12),
             SurroundingRectangle(right[1], color=PURPLE_C, buff=0.12),
@@ -94,12 +93,8 @@ class LikeTerms(Scene):
             (r"2a^2", r"2a", "不是同类项：指数 2 与 1 不同", RED_C),
         )
         self.play(Write(title), run_time=0.65)
-        for idx, (left_tex, right_tex, reason, color) in enumerate(examples):
-            y = 3.8 - idx * 1.95
-            pair = self.fit(MathTex(
-                left_tex, r"\quad\text{和}\quad", right_tex, font_size=35
-            )).move_to(UP * y)
-            # MathTex 不承载中文，另以图形/文字容器表达两项之间的“和”。
+        for index, (left_tex, right_tex, reason, color) in enumerate(examples):
+            y = 3.8 - index * 1.95
             pair = self.fit(VGroup(
                 MathTex(left_tex, font_size=36),
                 Text("与", font_size=24),
@@ -110,28 +105,31 @@ class LikeTerms(Scene):
         self.wait(1.2)
         self.clear_content()
 
+    @staticmethod
+    def tile(color):
+        square = Square(side_length=0.59, stroke_color=color,
+                        fill_color=color, fill_opacity=0.25)
+        symbol = MathTex(r"x^2y", font_size=16, color=color)
+        return VGroup(square, symbol.move_to(square))
+
     def show_rule(self):
         title = self.heading("合并同类项的法则", BLUE_C)
         rule = self.note("系数相加，字母及其指数不变", y=3.65, color=PURPLE_C)
         formula = MathTex(r"3x^2y+(-5x^2y)", font_size=46).move_to(UP * 2)
-        numbers = MathTex(r"3+(-5)=-2", font_size=48, color=GREEN_C).move_to(UP * 0.35)
-        # 同一类字母块分别画出三个正块和五个负块：配对抵消剩两个负块。
-        def tile(color):
-            square = Square(side_length=0.59, stroke_color=color,
-                            fill_color=color, fill_opacity=0.25)
-            symbol = MathTex(r"x^2y", font_size=16, color=color)
-            return VGroup(square, symbol.move_to(square))
-        positives = VGroup(*[tile(BLUE_C) for _ in range(3)]).arrange(RIGHT, buff=0.16)
-        negatives = VGroup(*[tile(RED_C) for _ in range(5)]).arrange(RIGHT, buff=0.16)
+        coefficients = MathTex(r"3+(-5)=-2", font_size=48, color=GREEN_C)
+        coefficients.move_to(UP * 0.35)
+        positives = VGroup(*[self.tile(BLUE_C) for _ in range(3)]).arrange(RIGHT, buff=0.16)
+        negatives = VGroup(*[self.tile(RED_C) for _ in range(5)]).arrange(RIGHT, buff=0.16)
         positives.move_to(DOWN * 1.3)
         negatives.move_to(DOWN * 2.4)
+        remaining = VGroup(*[self.tile(RED_C) for _ in range(2)]).arrange(RIGHT, buff=0.16)
+        remaining.move_to(negatives.get_center())
         result = MathTex(r"=-2x^2y", font_size=47, color=GREEN_C).move_to(DOWN * 4.25)
-        conclusion = self.note("正负三个配对抵消，剩余两个负块", y=-5.4, color=YELLOW)
+        conclusion = self.note("三个正负配对抵消，剩余两个负块", y=-5.4, color=YELLOW)
         self.play(Write(title), FadeIn(rule), run_time=0.8)
-        self.play(Write(formula), Write(numbers), run_time=1)
+        self.play(Write(formula), Write(coefficients), run_time=1)
         self.play(FadeIn(positives), FadeIn(negatives), run_time=0.8)
-        self.play(*[FadeOut(positives[i]) for i in range(3)],
-                  *[FadeOut(negatives[i]) for i in range(3)], run_time=0.9)
+        self.play(FadeOut(positives), ReplacementTransform(negatives, remaining), run_time=0.9)
         self.play(Write(result), FadeIn(conclusion), run_time=0.8)
         self.wait(1)
         self.clear_content()
@@ -141,28 +139,26 @@ class LikeTerms(Scene):
         original = self.fit(MathTex(
             r"3x^2y-5x^2y+2xy+4x^2y-xy", font_size=39
         )).move_to(UP * 4.05)
-        # 每项是独立的 MathTex：符号随项移动，不依赖原公式的 glyph 索引。
+        # 每项独立排版，负号属于对应项，避免原式字形索引误框选。
         x2y_terms = self.fit(VGroup(*[
-            MathTex(term, font_size=40, color=BLUE_C)
-            for term in (r"3x^2y", r"-5x^2y", r"+4x^2y")
+            MathTex(item, font_size=40, color=BLUE_C)
+            for item in (r"3x^2y", r"-5x^2y", r"+4x^2y")
         ]).arrange(RIGHT, buff=0.35)).move_to(UP * 2.05)
         xy_terms = self.fit(VGroup(*[
-            MathTex(term, font_size=40, color=RED_C)
-            for term in (r"+2xy", r"-xy")
+            MathTex(item, font_size=40, color=RED_C)
+            for item in (r"+2xy", r"-xy")
         ]).arrange(RIGHT, buff=0.35)).move_to(UP * 0.4)
-        brackets = VGroup(
-            SurroundingRectangle(x2y_terms, color=BLUE_C, buff=0.14),
-            SurroundingRectangle(xy_terms, color=RED_C, buff=0.14),
-        )
-        coefficients = MathTex(
-            r"(3-5+4)x^2y+(2-1)xy", font_size=40
-        ).move_to(DOWN * 2.1)
+        blue_box = SurroundingRectangle(x2y_terms, color=BLUE_C, buff=0.14)
+        red_box = SurroundingRectangle(xy_terms, color=RED_C, buff=0.14)
+        coefficients = MathTex(r"(3-5+4)x^2y+(2-1)xy", font_size=40)
+        coefficients.move_to(DOWN * 2.1)
         arithmetic = MathTex(r"2x^2y+1xy", font_size=40).move_to(DOWN * 3.3)
-        answer = MathTex(r"2x^2y+xy", font_size=49, color=GREEN_C).move_to(DOWN * 4.5)
-        note = self.note("只合并相同字母部分；不能把 x²y 与 xy 合并", y=-5.65, color=YELLOW)
+        answer = MathTex(r"2x^2y+xy", font_size=49, color=GREEN_C)
+        answer.move_to(DOWN * 4.5)
+        note = self.note("只合并相同字母部分，不能把 x²y 与 xy 合并", y=-5.65, color=YELLOW)
         self.play(Write(title), Write(original), run_time=1)
-        self.play(FadeIn(x2y_terms), Create(brackets[0]), run_time=0.8)
-        self.play(FadeIn(xy_terms), Create(brackets[1]), run_time=0.8)
+        self.play(FadeIn(x2y_terms), Create(blue_box), run_time=0.8)
+        self.play(FadeIn(xy_terms), Create(red_box), run_time=0.8)
         self.play(Write(coefficients), run_time=0.85)
         self.play(Write(arithmetic), run_time=0.6)
         self.play(Write(answer), FadeIn(note), run_time=0.9)
