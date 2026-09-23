@@ -1,0 +1,40 @@
+name: Grade 12 source and metadata audit
+
+on:
+  pull_request:
+    paths:
+      - '高中/高三/**'
+      - '.github/workflows/grade12-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - '高中/高三/**'
+      - '.github/workflows/grade12-quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit-grade12:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高三/**/*.py
+            /高中/高三/**/description.json
+      - name: Unit tests (standard library only)
+        run: python -m unittest discover -s '高中/高三/tests' -v
+      - name: Full Grade 12 static audit (errors fail, review warnings reported)
+        run: |
+          python '高中/高三/tools/audit_grade12.py'
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('高中/高三')
+          lessons = [p for p in root.rglob('*.py') if 'tools' not in p.parts and 'tests' not in p.parts]
+          if len(lessons) < 20:
+              raise SystemExit('Incomplete sparse checkout: fewer than 20 lesson scripts')
+          print('Lesson scripts present:', len(lessons))
+          PY
