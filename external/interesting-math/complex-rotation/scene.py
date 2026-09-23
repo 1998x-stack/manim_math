@@ -21,6 +21,9 @@ def rotate_complex(z, theta):
 class ComplexRotationScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND
+        watermark = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
+                         font_size=17, color=GREY_B).move_to(UP * 7.0)
+        self.add(watermark)
         title = Text("复数乘法 = 平面旋转？", font=FONT, font_size=34).move_to(UP * 6.4)
         hint = Text("乘以单位复数：模不变，辐角增加", font=FONT,
                     font_size=25).move_to(UP * 5.2)
