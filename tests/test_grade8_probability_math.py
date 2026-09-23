@@ -1,8 +1,15 @@
-"""频率模拟数学契约；不导入 Manim，只从目标源码中提取纯数学函数。"""
+"""频率模拟数学契约；无 Manim。无 NumPy 的全局静态 CI 可安全跳过数值用例。
+
+专用 Grade 8 CI 显式安装并运行 NumPy 数值测试，不允许跳过。
+"""
 import ast
 from pathlib import Path
 import unittest
-import numpy as np
+
+try:
+    import numpy as np
+except ImportError:
+    np = None
 
 SOURCE = (Path(__file__).resolve().parents[1] / "初中" / "八年级" / "第二学期"
           / "第二十三章-概率初步" / "004频率与概率的关系" / "probability_frequency.py")
@@ -11,6 +18,8 @@ SOURCE = (Path(__file__).resolve().parents[1] / "初中" / "八年级" / "第二
 class ProbabilityFrequencyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        if np is None:
+            raise unittest.SkipTest("NumPy 未安装：本组数值检查由专用 Grade 8 CI 安装依赖执行")
         cls.source = SOURCE.read_text(encoding="utf-8")
         cls.tree = ast.parse(cls.source)
         function = next(node for node in cls.tree.body
@@ -49,17 +58,16 @@ class ProbabilityFrequencyTests(unittest.TestCase):
                 self.simulate(10, probability=p)
 
     def test_latex_is_ascii_and_original_scene_name_preserved(self):
-        classes = [n.name for n in self.tree.body if isinstance(n, ast.ClassDef)]
-        self.assertIn("ProbabilityFrequency", classes)
+        self.assertIn("ProbabilityFrequency", [node.name for node in self.tree.body
+                                              if isinstance(node, ast.ClassDef)])
         self.assertNotIn("np.random.seed(", self.source)
         self.assertIn("default_rng(seed)", self.source)
         for node in ast.walk(self.tree):
-            if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name):
-                continue
-            if node.func.id in ("MathTex", "Tex"):
-                for argument in node.args:
-                    if isinstance(argument, ast.Constant) and isinstance(argument.value, str):
-                        self.assertTrue(argument.value.isascii())
+            if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+                if node.func.id in ("MathTex", "Tex"):
+                    for argument in node.args:
+                        if isinstance(argument, ast.Constant) and isinstance(argument.value, str):
+                            self.assertTrue(argument.value.isascii())
 
 
 if __name__ == "__main__":
