@@ -1,0 +1,42 @@
+name: Grade 8 source audit
+
+on:
+  pull_request:
+    paths:
+      - "初中/八年级/**"
+      - "tools/audit_grade8.py"
+      - "tests/test_audit_grade8.py"
+      - ".github/workflows/grade8-source-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  grade8-static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/**/*.py
+            /tools/audit_grade8.py
+            /tests/test_audit_grade8.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Syntax-check every Grade 8 Python file
+        run: python -m compileall -q "初中/八年级"
+      - name: Run dependency-free regression tests
+        run: python -m unittest discover -s tests -p 'test_audit_grade8.py' -v
+      - name: Audit Grade 8 and save per-file findings
+        run: python tools/audit_grade8.py --json > grade8-audit.json
+      - name: Enforce high-confidence checks on the repaired scene
+        run: python tools/audit_grade8.py --root "初中/八年级/第一学期/第十七章-一元二次方程/001一元二次方程的概念" --strict
+      - name: Upload full Grade 8 audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: grade8-audit
+          path: grade8-audit.json
+          retention-days: 14
