@@ -95,7 +95,7 @@ class QuadraticFunctionIntro(Scene):
 
         # 五条抛物线定义
         # 曲线 x 范围限制在 [-2.5, 2.5]，避免顶端溢出
-        self.CURVE_X = [-2.5, 2.5]
+        self.CURVE_X = [-2.0, 2.0]
 
         # — 函数定义 —
         # 1) 标准     y = x²
@@ -178,7 +178,6 @@ class QuadraticFunctionIntro(Scene):
             FadeOut(hook),
             FadeOut(axes),
             FadeOut(curve),
-            FadeOut(x_lab) if x_lab else [],
             run_time=0.5,
         )
 
@@ -306,7 +305,7 @@ class QuadraticFunctionIntro(Scene):
         self.play(Create(axes), run_time=0.5)
 
         # 逐点描绘 — ValueTracker 动态绘制
-        t = ValueTracker(self.CURVE_X[0])
+        t = ValueTracker(self.CURVE_X[0] + 0.02)
         curve = always_redraw(
             lambda: axes.plot(self.f_std, x_range=[self.CURVE_X[0], t.get_value()], color=C_PRIMARY, stroke_width=3)
         )
