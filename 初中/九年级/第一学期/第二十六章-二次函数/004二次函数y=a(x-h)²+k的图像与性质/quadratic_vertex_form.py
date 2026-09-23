@@ -627,11 +627,12 @@ class QuadraticVertexForm(Scene):
         )
         
         # 公式强调
-        formula_emphasis = MathTex(
-            r"\text{当 } x = h \text{ 时，} y_{\min} = k",
-            font_size=24,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 5.5)
+        formula_emphasis = VGroup(
+            Text("当", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT),
+            MathTex("x = h", font_size=24, color=self.COLOR_HIGHLIGHT),
+            Text("时，", font="PingFang SC", font_size=24, color=self.COLOR_HIGHLIGHT),
+            MathTex(r"y_{\min} = k", font_size=24, color=self.COLOR_HIGHLIGHT),
+        ).arrange(RIGHT, buff=0.12).move_to(DOWN * 5.5)
         
         self.play(
             FadeIn(formula_emphasis, scale=0.9),

@@ -10,7 +10,6 @@
 
 from manim import *
 import numpy as np
-import random
 
 
 # ========== 全局配置 ==========
@@ -50,8 +49,7 @@ class SampleEstimation(Scene):
         self.FONT_CHINESE = "PingFang SC"
         
         # 设置随机种子（保证可重复性）
-        random.seed(42)
-        np.random.seed(42)
+        self.rng = np.random.default_rng(42)
         
         # 总体数据（100个数据点）
         self.population_size = 100
@@ -59,7 +57,7 @@ class SampleEstimation(Scene):
         self.population_std = 10
         
         # 生成总体数据
-        self.population_data = np.random.normal(
+        self.population_data = self.rng.normal(
             self.population_mean, 
             self.population_std, 
             self.population_size
@@ -245,7 +243,7 @@ class SampleEstimation(Scene):
         
         # 随机抽取10个点
         sample_size = 10
-        sample_indices = random.sample(range(self.population_size), sample_size)
+        sample_indices = self.rng.choice(self.population_size, size=sample_size, replace=False).tolist()
         
         self.sample_dots = VGroup()
         
@@ -478,7 +476,7 @@ class SampleEstimation(Scene):
         
         for i, size in enumerate(sample_sizes):
             # 随机抽样
-            indices = random.sample(range(self.population_size), size)
+            indices = self.rng.choice(self.population_size, size=size, replace=False).tolist()
             sample_data = self.population_data[indices]
             sample_mean = np.mean(sample_data)
             error = abs(sample_mean - self.actual_population_mean)
@@ -499,7 +497,7 @@ class SampleEstimation(Scene):
         conclusion = VGroup(
             Text("样本容量越大", font=self.FONT_CHINESE, font_size=28, color=WHITE),
             Text("→", font=self.FONT_CHINESE, font_size=28, color=self.COLOR_HIGHLIGHT),
-            Text("估计越准确", font=self.FONT_CHINESE, font_size=28, color=self.COLOR_ESTIMATE, weight=BOLD)
+            Text("通常更稳定，但仍有波动", font=self.FONT_CHINESE, font_size=24, color=self.COLOR_ESTIMATE, weight=BOLD)
         ).arrange(RIGHT, buff=0.4).move_to(DOWN * 0.5)
         
         self.play(FadeIn(conclusion, shift=UP * 0.3), run_time=1.0)
@@ -535,7 +533,7 @@ class SampleEstimation(Scene):
         
         # 有偏样本示例（只从左上角抽取）
         biased_label = Text(
-            "❌ 有偏样本（集中某区域）",
+            "固定选取前 10 个：非随机抽样",
             font=self.FONT_CHINESE,
             font_size=24,
             color=RED
@@ -578,7 +576,7 @@ class SampleEstimation(Scene):
         )
         
         representative_label = Text(
-            "✓ 代表性样本（随机分布）",
+            "简单随机抽样：仍有抽样误差",
             font=self.FONT_CHINESE,
             font_size=24,
             color=self.COLOR_ESTIMATE
@@ -587,7 +585,7 @@ class SampleEstimation(Scene):
         self.play(FadeIn(representative_label), run_time=0.5)
         
         # 高亮分散的点
-        representative_indices = random.sample(range(self.population_size), 10)
+        representative_indices = self.rng.choice(self.population_size, size=10, replace=False).tolist()
         representative_circles = VGroup()
         
         for idx in representative_indices:

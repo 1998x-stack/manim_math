@@ -308,7 +308,7 @@ class ArcLengthFormula(Scene):
         )
         
         self.angle_label = MathTex(
-            r"n°",
+            r"n^{\circ}",
             font_size=28,
             color=self.COLOR_ANGLE
         ).move_to(self.center + UP * 0.9 + RIGHT * 0.3)
@@ -357,7 +357,7 @@ class ArcLengthFormula(Scene):
         
         # 答案1: n°
         answer1 = MathTex(
-            r"n°",
+            r"n^{\circ}",
             font_size=32,
             color=self.COLOR_ANGLE
         ).next_to(question1, DOWN, buff=0.3)
@@ -390,7 +390,7 @@ class ArcLengthFormula(Scene):
         
         # 答案2: 360°
         answer2 = MathTex(
-            r"360°",
+            r"360^{\circ}",
             font_size=32,
             color=self.COLOR_CIRCLE
         ).next_to(question2, DOWN, buff=0.3)
@@ -453,8 +453,8 @@ class ArcLengthFormula(Scene):
         ).move_to(DOWN * 5.5 + LEFT * 2.5)
         
         # 标签
-        full_label = MathTex(r"360°", font_size=20, color=WHITE).next_to(full_sector, DOWN, buff=0.2)
-        part_label = MathTex(r"n°", font_size=20, color=self.COLOR_ANGLE).next_to(highlight_sector, RIGHT, buff=0.2)
+        full_label = MathTex(r"360^{\circ}", font_size=20, color=WHITE).next_to(full_sector, DOWN, buff=0.2)
+        part_label = MathTex(r"n^{\circ}", font_size=20, color=self.COLOR_ANGLE).next_to(highlight_sector, RIGHT, buff=0.2)
         
         pie_group = VGroup(full_sector, highlight_sector, full_label, part_label)
         

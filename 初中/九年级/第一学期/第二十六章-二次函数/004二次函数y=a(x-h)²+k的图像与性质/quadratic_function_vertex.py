@@ -722,7 +722,8 @@ class QuadraticFunctionVertex(Scene):
         # 卡片4: a>0
         card4_content = VGroup(
             Text("开口向上", font="PingFang SC", font_size=22, color=WHITE),
-            MathTex(r"\text{最小值} = k", font_size=22, color=WHITE)
+            VGroup(Text("最小值", font="PingFang SC", font_size=22, color=WHITE),
+                   MathTex("= k", font_size=22, color=WHITE)).arrange(RIGHT, buff=0.12)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         card4 = self.create_summary_card(
             card4_content,
@@ -734,7 +735,8 @@ class QuadraticFunctionVertex(Scene):
         # 卡片5: a<0
         card5_content = VGroup(
             Text("开口向下", font="PingFang SC", font_size=22, color=WHITE),
-            MathTex(r"\text{最大值} = k", font_size=22, color=WHITE)
+            VGroup(Text("最大值", font="PingFang SC", font_size=22, color=WHITE),
+                   MathTex("= k", font_size=22, color=WHITE)).arrange(RIGHT, buff=0.12)
         ).arrange(DOWN, buff=0.15, aligned_edge=LEFT)
         card5 = self.create_summary_card(
             card5_content,
