@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Exercise production_check on four real courses without claiming render success."""
+"""Run source/math checks on four real courses; distinguish missing render from passing."""
 from __future__ import annotations
 
+import ast
 import json
 from pathlib import Path
 import subprocess
@@ -16,9 +17,38 @@ PROB = ROOT / "初中/八年级/第二学期/第二十三章-概率初步/004频
 COURSES = (
     ("equal_area", AREAS / "005等面积法-同底等高", "lesson.py", "EqualAreaMovingApex", "test_area_model.py", True),
     ("butterfly", AREAS / "006等面积法-梯形蝴蝶模型", "lesson.py", "TrapezoidButterflyArea", "test_area_model.py", True),
-    ("trigonometry", TRIG, "003_函数y=Asin(ωx+φ)的图像与性质.py", "TrigonometricTransform", "verify_geometry.py", False),
-    ("probability", PROB, "probability_frequency.py", "ProbabilityFrequency", "../../../../../tools/test_probability_frequency_model.py", False),
+    ("probability", PROB, "probability_frequency.py", "ProbabilityFrequency", "test_probability_frequency_model.py", False),
 )
+
+
+def run(cmd: list[str]) -> subprocess.CompletedProcess:
+    return subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
+
+
+def check_trigonometry() -> list[str]:
+    """Actual Chinese Scene class currently cannot pass production_check's ASCII-only CLI gate."""
+    failures = []
+    source = TRIG / "003_函数y=Asin(ωx+φ)的图像与性质.py"
+    actual_class = "函数yAsinωxφ的图像与性质"
+    parsed = ast.parse(source.read_text(encoding="utf-8"))
+    if not any(isinstance(node, ast.ClassDef) and node.name == actual_class for node in parsed.body):
+        failures.append("trigonometry: true Unicode Scene class missing")
+    for label, command in (
+        ("syntax", [sys.executable, "-m", "py_compile", str(source)]),
+        ("ast", [sys.executable, str(SKILL / "audit_scene.py"), str(source), "--json"]),
+        ("math", [sys.executable, str(TRIG / "verify_geometry.py")]),
+    ):
+        result = run(command)
+        if result.returncode:
+            failures.append(f"trigonometry {label}: {result.stdout} {result.stderr}")
+        elif label == "ast":
+            payload = json.loads(result.stdout)
+            print(f"trigonometry: ast=pass warnings={payload['warnings']}")
+        else:
+            print(f"trigonometry: {label}=pass")
+    # Explicitly report, never treat an untested production gate or render as pass.
+    print("trigonometry: production_gate=BLOCKED (existing ASCII-only Scene name validation); render=not_run")
+    return failures
 
 
 def main() -> int:
@@ -28,7 +58,7 @@ def main() -> int:
             test = ROOT / "tools/test_probability_frequency_model.py" if name == "probability" else folder / math_test
             command = [sys.executable, str(SKILL / "production_check.py"),
                        str(folder / filename), scene, "--math-test", str(test), "--out-dir", work]
-            result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8")
+            result = run(command)
             try:
                 pointer = json.loads(result.stdout)
                 report = json.loads(Path(pointer["report"]).read_text(encoding="utf-8"))
@@ -44,17 +74,18 @@ def main() -> int:
             except (ValueError, KeyError, OSError) as exc:
                 failures.append(f"{name}: report error {exc}; stdout={result.stdout}; stderr={result.stderr}")
             if geometry:
-                checked = subprocess.run([sys.executable, str(SKILL / "verify_geometry.py"),
-                                          str(folder / "geometry_spec.json")],
-                                         capture_output=True, text=True, encoding="utf-8")
+                checked = run([sys.executable, str(SKILL / "verify_geometry.py"),
+                               str(folder / "geometry_spec.json")])
                 print(f"{name}: geometry_spec={'pass' if checked.returncode == 0 else 'fail'}")
                 if checked.returncode:
                     failures.append(f"{name}: geometry check {checked.stdout} {checked.stderr}")
+        failures.extend(check_trigonometry())
     for item in failures:
         print("FAIL: " + item, file=sys.stderr)
     if failures:
         return 1
-    print("PASS four real-course syntax/AST/math gates; Manim render and visual review NOT RUN")
+    print("PASS: four courses' syntax/AST/math and two geometry specs. "
+          "Three production gates partial; Unicode Scene gate blocked; no Manim renders performed.")
     return 0
 
 
