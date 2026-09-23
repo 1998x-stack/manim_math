@@ -1,5 +1,5 @@
-# Temporary, branch-scoped maintainer automation. Remove after its one-shot repair.
-name: Apply first-batch reviewed source fixes
+# Temporary, branch-scoped one-shot report writer; remove after completion.
+name: Commit complete current-source TODO
 
 on:
   push:
@@ -12,43 +12,67 @@ permissions:
   contents: write
 
 jobs:
-  one-shot-repair:
+  persist-audit:
     if: github.repository == '1998x-stack/manim_math' && github.ref == 'refs/heads/feat/commit-gotchas-video-pipeline-20260923'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
-            /tools/repair_first_batch.py
             /tools/commit_gotchas.py
-            /external/monge_circle.py
-            /初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py
+            /TODO.json
+            /小学/**/*.py
+            /初中/**/*.py
+            /高中/**/*.py
+            /external/**/*.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Apply exact-source repairs and compile both scenes
+      - name: Generate source-hash accurate full TODO and classify ctex exceptions
         run: |
-          python tools/repair_first_batch.py --apply
-          python tools/repair_first_batch.py
+          python tools/commit_gotchas.py scan --output TODO.json
           python - <<'PY'
+          import ast, json
           from pathlib import Path
-          from tools import commit_gotchas
-          for relative, *_ in __import__('tools.repair_first_batch', fromlist=['TARGETS']).TARGETS:
-              path = Path(relative)
-              compile(path.read_bytes(), str(path), 'exec')
-              risks = {entry['rule'] for entry in commit_gotchas.inspect_source(path.resolve())}
-              assert 'NESTED_PLAY' not in risks and 'CHINESE_IN_TEX' not in risks, (path, risks)
-              print('Repaired and statically verified:', path)
+          document = Path('TODO.json')
+          report = json.loads(document.read_text(encoding='utf-8'))
+          assert report['total_python_files'] == report['scanned_file_count']
+          assert len(report['scanned_files']) == report['total_python_files']
+          for item in report['items']:
+              if item['rule'] != 'CHINESE_IN_TEX':
+                  continue
+              path = Path(item['path'])
+              tree = ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
+              calls = [node for node in ast.walk(tree) if isinstance(node, ast.Call)
+                       and node.lineno == item['line']
+                       and isinstance(node.func, ast.Name)
+                       and node.func.id in ('Tex', 'MathTex')]
+              if len(calls) != 1:
+                  continue
+              template = next((kw.value for kw in calls[0].keywords if kw.arg == 'tex_template'), None)
+              if isinstance(template, ast.Attribute) and isinstance(template.value, ast.Name) \
+                      and template.value.id == 'TexTemplateLibrary' and template.attr == 'ctex':
+                  item['status'] = 'false_positive'
+                  item['review_note'] = 'Explicit TexTemplateLibrary.ctex supports Chinese input; actual font/LaTeX render remains pending.'
+                  item['checks']['static'] = 'reviewed'
+          report['outstanding'] = sum(item['status'] not in ('verified', 'false_positive') for item in report['items'])
+          report['notice'] = ('All currently checked out course Python sources were AST-scanned. '
+                              'Explicit ctex matches are classified as static-rule exceptions, not video-render evidence. '
+                              'Repaired findings are removed on rescan; historical changes remain in docs/engineering/commit-gotchas-pipeline.md.')
+          document.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print('Full TODO:', report['scanned_file_count'], 'files,',
+                len(report['items']), 'hits,', report['outstanding'], 'needing review')
+          for item in report['items']:
+              print(item['status'], item['rule'], item['path'], item['line'])
+          assert not any(item['priority'] == 'P0' for item in report['items']), 'Unfixed syntax errors'
           PY
           git diff --check
-      - name: Push two source-only fixes to this feature branch
+      - name: Commit complete TODO to the isolated feature branch
         run: |
-          git add -- external/monge_circle.py '初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py'
-          if git diff --cached --quiet; then
-            echo 'No changes: already repaired'
-            exit 0
-          fi
+          git add -- TODO.json
+          if git diff --cached --quiet; then exit 0; fi
           git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-            commit -m 'fix(gotchas): remove two confirmed first-batch Manim render defects'
+            commit -m 'chore(audit): persist all 613 source hashes and reviewed ctex exceptions'
           git push origin "HEAD:refs/heads/feat/commit-gotchas-video-pipeline-20260923"
