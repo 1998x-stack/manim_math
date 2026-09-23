@@ -32,9 +32,12 @@ def patch_degrees(text, variable):
 
 
 def _span(source, node):
+    # CPython AST columns are UTF-8 *byte* offsets, not Unicode string indices.
     lines = source.splitlines(keepends=True)
-    start = sum(map(len, lines[:node.lineno - 1])) + node.col_offset
-    end = sum(map(len, lines[:node.end_lineno - 1])) + node.end_col_offset
+    start = (sum(map(len, lines[:node.lineno - 1]))
+             + len(lines[node.lineno - 1].encode('utf-8')[:node.col_offset].decode('utf-8')))
+    end = (sum(map(len, lines[:node.end_lineno - 1]))
+           + len(lines[node.end_lineno - 1].encode('utf-8')[:node.end_col_offset].decode('utf-8')))
     return start, end
 
 
@@ -68,7 +71,7 @@ def _convert_tex(node, source):
     def together(*parts):
         return 'VGroup(' + ', '.join(parts) + ').arrange(RIGHT, buff=0.12)'
 
-    # Keep actual fraction and variable typesetting in MathTex while CJK uses Text.
+    # Keep fractions and mathematical variables in MathTex while CJK uses Text.
     if content == r'周期 T = \frac{2\pi}{\omega}':
         return together(text('周期：'), math(r'T=\frac{2\pi}{|\omega|}'))
     if content == r'左移 $\frac{\pi}{8}$':
