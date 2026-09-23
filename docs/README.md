@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | 仓库结构 | [文件与交付物地图](engineering/repository-map.md) | 分辨课程、源码、Prompt、视频和生成器的职责 |
 | 现状与架构 | [审计](architecture/audit.md)、[系统架构](architecture/architecture.md) | 新增基础设施或定位历史兼容边界 |
+| 第二阶段设计 | [稳定身份 ADR](architecture/adr-0001-stable-identities.md)、[阶段二蓝图](architecture/phase-2-blueprint.md)、[数据契约](architecture/phase-2-data-contract.md) | 设计 Topic/Scene/Artifact 身份、旧索引兼容及逐步迁移；这些是设计文档而非已完成迁移的声明 |
 | 分类与迁移 | [分类规范](architecture/categories.md)、[迁移计划](architecture/migration.md) | 新增 topic、调整路径、修改画廊索引 |
 | 课程参考 | [章节资料](curriculum/章节.md) | 核对学段、教材、知识点和先修条件；资料不代替教材核验 |
 | Prompt | [历史提示词索引](prompts/README.md)、[分层编写规范](prompts/authoring.md) | 解析知识点 `prompt.md`，形成可执行创作契约 |
