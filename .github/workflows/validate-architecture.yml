@@ -43,6 +43,11 @@ jobs:
             tests
             README.md
             AGENTS.md
+            # Three grade-one scene sources are needed by AST-based regression tests.
+            # Only source files are fetched; course MP4 media remain excluded.
+            小学/一年级/上册/第一章-10以内数的认识/001数一数/counting_animation.py
+            小学/一年级/下册/第二章-100以内数的认识/003百数表/003_百数表.py
+            小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合/005_连加、连减、加减混合.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -50,4 +55,4 @@ jobs:
       - run: python tools/check_repository.py
       - run: python tools/audit_catalog.py --skip-file-check
       - run: python tools/legacy_contract.py --expect-count 534
-      - run: python -m unittest discover -s tests -p 'test_legacy_contract.py' -v
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
