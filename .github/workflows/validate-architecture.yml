@@ -1,0 +1,30 @@
+name: Validate docs and skills
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'skills/**'
+      - '.codex/skills/**'
+      - '.opencode/skills/**'
+      - '.claude/skills/**'
+      - 'tools/**'
+      - 'README.md'
+      - 'AGENTS.md'
+      - '.github/workflows/validate-architecture.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/sync_skills.py --check
+      - run: python tools/check_repository.py
