@@ -1,24 +1,30 @@
 # 质量门禁与可追溯验证
 
-| 门禁 | 阶段 | 判据 | 证据 |
+从课程 Prompt 到数学规格、分镜、Scene、视频和画廊，每个阶段需要与任务风险相称的实际证据；**写在文档中的命令、计划或自动生成的候选组件不是通过证明**。文档型 PR 不需要运行 Manim，但必须区分结构检查与数学/媒体验收。
+
+| 门禁 | 适用变更 | 通过判据 | 实际证据 |
 | --- | --- | --- | --- |
-| 目录 | 文档/Skills | 分类索引可定位新文件、旧路径仍有入口、各 Agent Skills 内容完全一致 | `python tools/sync_skills.py --check`; `python tools/check_repository.py` |
-| 语法 | 代码 | `py_compile` 通过；Scene 类名与实际调用一致 | 执行日志 |
-| 数学 | 动画 | 前提完整；方程/定理/构型的边界样例正确；误差阈值有依据 | 纯 Python 测试、符号检查、证明引用 |
-| 版面 | 动画 | 字幕、点标、公式均在画面内，无关键遮挡，中文字体可读 | 低清渲染、关键帧审核 |
-| 渲染 | 视频 | 场景可完整渲染，分辨率、帧率、时长与设计一致 | CLI 日志、ffprobe |
-| 发布 | 画廊 | topic/scene 关联完整；旧链接/ID 不意外消失，明确版权与媒体来源 | 新旧 catalog 差异、链接检查 |
+| 课程/Prompt | 新知识点、重写生成要求 | 年级/学期/教材已核对或明确未知；历史规则与本次需求分开；无跨学段错误示例沿用 | 来源路径、待确认清单、[Prompt 契约](../prompts/authoring.md) |
+| 文档/Skills | README、docs、Skill 的变更 | 入口与相对链接有效；源 Skill 和三个镜像内容一致 | `python tools/sync_skills.py --check`、`python tools/check_repository.py`、人工链接检查 |
+| 代码 | Scene 和生成脚本 | Python 可解析，实际 Scene 类名和命令一致 | `python -m py_compile path/to/scene.py`、CLI 输出 |
+| 数学 | 定理、几何构造、数值过程 | 前提、定义域、证明和反例清晰；退化/边界行为明确；公式与几何不变量可核对 | 独立纯 Python 断言、SymPy/NumPy 记录、证明/来源；说明近似误差 |
+| 分镜与版面 | 字幕/公式/动画时序 | 每镜的数学事实正确，中文、点标和公式在画面内且无遮挡 | `storyboard.md`、低清渲染、关键帧人工审核 |
+| 生产视频 | 渲染、后期处理 | Scene 完整渲染；分辨率、帧率、时长、音轨符合设计且无误覆盖 | Manim 日志、`ffprobe`、文件及代表帧 |
+| 索引/迁移 | 新作品、路径/媒体修改 | 明确 scene/topic 与媒体关联；旧链接/ID 无意外消失；资源许可有记录 | 新旧 catalog 差异、路径/URL 检查、回退清单 |
 
-`tools/check_repository.py` 只校验此次文档和 Skills 的结构性约束；**不运行 Manim、不验证数学内容、不检测媒体版权**。任何 PR 中不得把结构检查通过说成数学或画质验收。`external/euler_line.py` 的退化三角形行为是单独的风险点，重构计算器时应先写针对退化点的回归测试。
-
-## 推荐本地命令
+## 常用检查命令
 
 ```bash
+# 只读的结构性检查
 python tools/sync_skills.py --check
 python tools/check_repository.py
-python -m py_compile assets/build_catalog.py
+
+# 按任务选择，必须替换成真实路径和类名
+python -m py_compile path/to/scene.py
+manim -pql path/to/scene.py ActualSceneClass
+
+# 确实需要更新画廊时执行；会写 assets/catalog.json
 python assets/build_catalog.py
-manim -pql external/euler_line.py EulerLineScene
 ```
 
-完整画质验证需本地渲染环境与人工审核，轻量 CI 不作等价替代。
+`tools/check_repository.py` 仅检查它显式列出的结构/镜像/分类约束，不会全面爬取 Markdown 相对链接、验证数学证明、检查视频或媒体许可。`assets/build_catalog.py` 是写操作，务必审阅索引差异。完整画质检查依赖具备字体、LaTeX、Manim、FFmpeg 的渲染环境和关键帧人工审核，轻量 CI 不等价替代。`external/euler_line.py` 的退化三角形行为仍需专门回归测试；不能因为本次文档检查通过就视为已解决。
