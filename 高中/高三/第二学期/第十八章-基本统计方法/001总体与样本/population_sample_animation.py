@@ -39,7 +39,7 @@ class PopulationSample(Scene):
         self.scene_8_outro()
 
     def fit(self, mob):
-        """单元素安全区保护；多对象相互遮挡需在实际渲染中复核。"""
+        """限制单元素安全区；实际渲染仍需检查多对象遮挡。"""
         if mob.width > 7.8:
             mob.scale_to_fit_width(7.8)
         if mob.height > 13.4:
@@ -58,7 +58,7 @@ class PopulationSample(Scene):
         return self.fit(Text(message, font=FONT, font_size=size, color=color).move_to(UP * y))
 
     def math(self, expression, y, size=34, color=WHITE):
-        """MathTex 只处理不含中文的数学表达式。"""
+        """默认模板只接收不含中文的 LaTeX 表达式。"""
         return self.fit(MathTex(expression, font_size=size, color=color).move_to(UP * y))
 
     def show(self, mob, duration=0.45):
@@ -72,7 +72,7 @@ class PopulationSample(Scene):
         self.show(self.text(title, 5.3, 39, color), 0.4)
 
     def member_grid(self, highlighted=()):
-        """所有格子均使用真正的个体编号，抽样高亮由同一份索引驱动。"""
+        """所有格子均使用真实个体编号，抽样高亮由同一份数据驱动。"""
         hits = frozenset(highlighted)
         assert hits <= set(POPULATION)
         cells = VGroup()
@@ -133,11 +133,11 @@ class PopulationSample(Scene):
         self.show(self.math(r"{20\choose6}=38760", 1.25, 37, GOLD))
         inclusion = inclusion_probability(len(POPULATION), len(self.selected))
         assert inclusion == Fraction(3, 10)
-        self.show(self.math(r"P(\text{一个指定个体被抽中})=\frac6{20}=\frac3{10}",
-                            -0.5, 29, BLUE))
-        self.show(self.member_grid(self.selected).scale(0.72).move_to(DOWN * 2.45), 0.7)
-        self.show(self.text("图中是固定随机种子产生的一次样本", -4.65, 22))
-        self.show(self.text("无放回意味着各个抽中事件并非相互独立", -5.5, 21, GOLD))
+        self.show(self.text("一个指定个体的入样概率：", -0.15, 23, BLUE))
+        self.show(self.math(r"P(i\in S)=\frac6{20}=\frac3{10}", -1.1, 31, BLUE))
+        self.show(self.member_grid(self.selected).scale(0.62).move_to(DOWN * 3.0), 0.7)
+        self.show(self.text("图中是固定随机种子产生的一次样本", -4.9, 22))
+        self.show(self.text("无放回意味着各个抽中事件并非相互独立", -5.7, 21, GOLD))
         self.wait(0.9)
 
     def scene_6_formula(self):
