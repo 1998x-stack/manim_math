@@ -182,7 +182,6 @@ class ParallelLinesTheorem(Scene):
                           color=self.BLUE, stroke_width=3)
         line_de = DashedLine(coords["D"], coords["E"],
                              color=self.GREEN, stroke_width=4)
-        diagram = VGroup(outline, line_de)
         dots = VGroup(*[Dot(coords[name], radius=0.075,
                             color=self.RED if name in "DE" else WHITE)
                         for name in "ABCDE"])
@@ -195,12 +194,12 @@ class ParallelLinesTheorem(Scene):
         ])
         self.play(Create(outline), run_time=0.8)
         self.play(FadeIn(dots), Write(labels), Create(line_de), run_time=0.75)
-        return coords
+        return coords, line_de
 
     def show_triangle_corollary(self):
         self.section_title("三角形中的平行线", "D 在 AB 上、E 在 AC 上，且 DE ∥ BC")
         a, b, c = (0.0, 2.6), (-2.5, -1.3), (2.5, -1.3)
-        pts = self.triangle_diagram(a, b, c, 2 / 5)
+        pts, _ = self.triangle_diagram(a, b, c, 2 / 5)
         segments = VGroup(*[
             Line(pts[u], pts[v], stroke_width=6,
                  color=YELLOW if i in (0, 2) else self.RED)
@@ -217,14 +216,13 @@ class ParallelLinesTheorem(Scene):
     def show_converse_theorem(self):
         self.section_title("逆定理：对应线段成比例", "D、E 分别在 AB、AC 的内部")
         a, b, c = (0.0, 2.6), (-2.5, -1.3), (2.5, -1.3)
-        points = self.triangle_diagram(a, b, c, 2 / 5)
+        _, line_de = self.triangle_diagram(a, b, c, 2 / 5)
         premise = MathTex(r"\frac{AD}{DB}=\frac{AE}{EC}",
                           font_size=39, color=self.GOLD).move_to(DOWN * 4.0)
         conclusion = MathTex(r"\therefore DE\parallel BC",
                              font_size=39, color=YELLOW).move_to(DOWN * 5.1)
         self.play(Write(premise), run_time=0.7)
-        self.play(Indicate(Line(points["D"], points["E"],
-                                color=self.GREEN)), run_time=0.5)
+        self.play(Indicate(line_de), run_time=0.5)
         self.play(Write(conclusion), run_time=0.8)
         self.wait(1)
         self.clear_section()
@@ -235,7 +233,7 @@ class ParallelLinesTheorem(Scene):
         a, b, c = (0.0, 2.7), (-1.5, 0.7), (3.0, -1.3)
         assert math.isclose(math.dist(a, b), 2.5)
         assert math.isclose(math.dist(a, c), 5.0)
-        pts = self.triangle_diagram(a, b, c, 2 / 5)
+        pts, _ = self.triangle_diagram(a, b, c, 2 / 5)
         data = (("A", "D", "AD=2", LEFT * 0.45),
                 ("D", "B", "DB=3", LEFT * 0.5),
                 ("A", "E", "AE=4", RIGHT * 0.55),
@@ -259,7 +257,7 @@ class ParallelLinesTheorem(Scene):
         self.play(Indicate(answer), run_time=0.45)
         answer_label = Text("EC=6", font=self.FONT, font_size=23,
                             color=YELLOW).move_to(known[3].get_center())
-        self.play(ReplacementTransform(known[3], answer_label), run_time=0.5)
+        self.play(Transform(known[3], answer_label), run_time=0.5)
         self.wait(1.0)
         self.clear_section()
 
