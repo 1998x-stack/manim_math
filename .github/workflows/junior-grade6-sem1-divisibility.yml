@@ -1,0 +1,25 @@
+name: Junior grade 6 semester 1 divisibility regression
+
+on:
+  pull_request:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/001整数和整除的意义/**'
+      - '.github/workflows/junior-grade6-sem1-divisibility.yml'
+  push:
+    paths:
+      - '初中/六年级/第一学期/第一章-数的整除/001整数和整除的意义/**'
+      - '.github/workflows/junior-grade6-sem1-divisibility.yml'
+
+jobs:
+  math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check source and test syntax
+        run: |
+          python -m py_compile '初中/六年级/第一学期/第一章-数的整除/001整数和整除的意义/divisibility_meaning.py' '初中/六年级/第一学期/第一章-数的整除/001整数和整除的意义/verify_divisibility.py'
+      - name: Verify arithmetic and scene source invariants
+        run: python '初中/六年级/第一学期/第一章-数的整除/001整数和整除的意义/verify_divisibility.py'
