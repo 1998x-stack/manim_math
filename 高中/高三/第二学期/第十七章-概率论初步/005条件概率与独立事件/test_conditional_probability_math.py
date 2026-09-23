@@ -37,7 +37,7 @@ class ConditionalProbabilityMathTests(unittest.TestCase):
         self.assertEqual(probability(set(first) & set(second), coins), Fraction(1, 4))
 
     def test_binomial_three_tosses(self):
-        self.assertEqual(binom if False else binomial(3, 2), Fraction(3, 8))
+        self.assertEqual(binomial(3, 2), Fraction(3, 8))
         self.assertEqual(sum((binomial(3, k) for k in range(4)), Fraction(0)), 1)
         self.assertEqual(binomial(3, 0, Fraction(0)), 1)
         self.assertEqual(binomial(3, 3, Fraction(1)), 1)
