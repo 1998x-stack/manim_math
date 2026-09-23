@@ -1,0 +1,57 @@
+name: Grade 12 one-time statistical estimation repair
+
+on:
+  push:
+    branches:
+      - fix/grade12-math-audit-20260923
+    paths:
+      - .github/workflows/grade12-one-time-rng-repair.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair-stat-estimation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: true
+          sparse-checkout: |
+            高中/高三/tools
+            高中/高三/tests
+            高中/高三/第二学期/第十八章-基本统计方法/006统计估计
+      - name: Guarded substitution and AST parse
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          p = Path('高中/高三/第二学期/第十八章-基本统计方法/006统计估计/stat_estimation.py')
+          original = p.read_text(encoding='utf-8')
+          before = ('        np.random.seed(42)\n        pop_dots = VGroup()\n'
+                    '        for _ in range(120):\n'
+                    '            x = np.random.uniform(-3.8, 3.8)\n'
+                    '            y = np.random.uniform(-0.8, 3.5)')
+          after = ('        rng = np.random.default_rng(42)\n        pop_dots = VGroup()\n'
+                   '        for _ in range(120):\n'
+                   '            x = rng.uniform(-3.8, 3.8)\n'
+                   '            y = rng.uniform(-0.8, 3.5)')
+          if original.count(before) != 1 or original.count(after) != 0:
+              raise SystemExit('Unexpected upstream changes: refusing unsafe replacement')
+          updated = original.replace(before, after, 1)
+          ast.parse(updated, filename=str(p))
+          p.write_text(updated, encoding='utf-8')
+          PY
+      - name: Verify remaining source
+        run: |
+          python -m unittest discover -s '高中/高三/tests' -v
+          python '高中/高三/tools/audit_grade12.py'
+          git diff --check
+      - name: Commit reviewed source change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- '高中/高三/第二学期/第十八章-基本统计方法/006统计估计/stat_estimation.py'
+          git commit -m 'fix(grade12): use local RNG for statistical estimation graphic'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
