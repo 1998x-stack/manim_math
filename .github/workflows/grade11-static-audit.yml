@@ -28,6 +28,11 @@ jobs:
           python-version: '3.11'
       - name: Unit tests without Manim
         run: python -m unittest discover -s tests -p 'test_audit_grade11.py' -v
+      - name: Sequence concept math regression and source compile
+        run: |
+          lesson='高中/高二/第一学期/第七章-数列与数学归纳法/001数列的概念'
+          python -m py_compile "$lesson/sequence_concept.py" "$lesson/sequence_data.py" "$lesson/test_sequence_data.py"
+          (cd "$lesson" && python -m unittest -v test_sequence_data.py)
       - name: Audit all grade-eleven Python files (report-only for legacy debt)
         run: python tools/audit_grade11.py --json > grade11-static-audit.json
       - name: Print audit inventory and every finding
