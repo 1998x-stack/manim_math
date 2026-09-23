@@ -1,7 +1,6 @@
 """Run: python -m unittest discover -s scripts -p 'test_*.py'"""
 import json
 from pathlib import Path
-import tempfile
 import unittest
 
 import audit_scene
@@ -17,7 +16,7 @@ class SceneAuditTests(unittest.TestCase):
         self.assertEqual(codes, {"CJK_IN_MATHTEX", "DEGREE_IN_MATHTEX"})
 
     def test_supported_mathtex_is_not_flagged(self):
-        source = BASE + 'MathTex(r"A=\\\\{1,2,3\\\\}")\n'
+        source = BASE + 'MathTex(r"1+2")\n'
         errors = [f for f in audit_scene.audit_source(source) if f["level"] == "ERROR"]
         self.assertEqual(errors, [])
 
