@@ -16,6 +16,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第一学期/第十六章-二次根式/002二次根式的性质/*.py
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
