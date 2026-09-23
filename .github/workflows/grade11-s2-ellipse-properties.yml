@@ -1,0 +1,30 @@
+name: Grade 11 S2 ellipse properties
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第二学期/第十二章-圆锥曲线/004椭圆的几何性质/**'
+      - '.github/workflows/grade11-s2-ellipse-properties.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ellipse-properties-math-and-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            高中/高二/第二学期/第十二章-圆锥曲线/004椭圆的几何性质
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile scene and validate ellipse properties without importing Manim
+        env:
+          LESSON: 高中/高二/第二学期/第十二章-圆锥曲线/004椭圆的几何性质
+        run: |
+          python -m py_compile "$LESSON/ellipse_properties.py" "$LESSON/verify_ellipse_properties.py"
+          python "$LESSON/verify_ellipse_properties.py" -v
