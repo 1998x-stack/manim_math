@@ -7,6 +7,7 @@ on:
       - "tools/audit_grade8.py"
       - "tests/test_audit_grade8.py"
       - "tests/test_grade8_quadratic_contract.py"
+      - "tests/test_grade8_pythagorean_math.py"
       - ".github/workflows/grade8-source-audit.yml"
   workflow_dispatch:
 
@@ -25,6 +26,7 @@ jobs:
             /tools/audit_grade8.py
             /tests/test_audit_grade8.py
             /tests/test_grade8_quadratic_contract.py
+            /tests/test_grade8_pythagorean_math.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -34,10 +36,14 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_audit_grade8.py' -v
       - name: Run quadratic scene contract tests
         run: python -m unittest discover -s tests -p 'test_grade8_quadratic_contract.py' -v
+      - name: Run Pythagorean converse mathematical tests
+        run: python -m unittest discover -s tests -p 'test_grade8_pythagorean_math.py' -v
       - name: Audit Grade 8 and save per-file findings
         run: python tools/audit_grade8.py --json > grade8-audit.json
-      - name: Enforce high-confidence checks on the repaired scene
-        run: python tools/audit_grade8.py --root "初中/八年级/第一学期/第十七章-一元二次方程/001一元二次方程的概念" --strict
+      - name: Enforce high-confidence checks on repaired scenes
+        run: |
+          python tools/audit_grade8.py --root "初中/八年级/第一学期/第十七章-一元二次方程/001一元二次方程的概念" --strict
+          python tools/audit_grade8.py --root "初中/八年级/第一学期/第十九章-几何证明/008勾股定理的逆定理" --strict
       - name: Upload full Grade 8 audit
         uses: actions/upload-artifact@v4
         with:
