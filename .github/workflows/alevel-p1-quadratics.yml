@@ -28,7 +28,7 @@ jobs:
           python-version: '3.11'
       - name: Compile A-Level P1 lesson sources
         run: python -m compileall -q '高中/A-Level/P1/01-Quadratics'
-      - name: Run each new lesson mathematics suite
+      - name: Run each consolidated lesson mathematics suite
         shell: bash
         run: |
           set -euo pipefail
@@ -36,9 +36,10 @@ jobs:
           for lesson in \
             '高中/A-Level/P1/01-Quadratics/03-quadratic-formula' \
             '高中/A-Level/P1/01-Quadratics/04-linear-quadratic-simultaneous' \
-            '高中/A-Level/P1/01-Quadratics/05-complex-quadratic-equations'; do
-            test -f "$lesson/test_math.py"
+            '高中/A-Level/P1/01-Quadratics/05-complex-quadratic-equations' \
+            '高中/A-Level/P1/01-Quadratics/06-quadratic-extrema'; do
+            test -f "$lesson/test_math.py" || { echo "Missing mathematics regression: $lesson" >&2; exit 1; }
             (cd "$lesson" && python -m unittest -v test_math.py)
             count=$((count + 1))
           done
-          test "$count" -eq 3
+          test "$count" -eq 4 || { echo "Expected four P1 chapter one suites; got $count" >&2; exit 1; }
