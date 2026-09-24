@@ -28,13 +28,17 @@ jobs:
           python-version: '3.11'
       - name: Compile A-Level P1 lesson sources
         run: python -m compileall -q '高中/A-Level/P1/01-Quadratics'
-      - name: Run separate math suites of both new lessons
+      - name: Run each new lesson mathematics suite
         shell: bash
         run: |
           set -euo pipefail
+          count=0
           for lesson in \
             '高中/A-Level/P1/01-Quadratics/03-quadratic-formula' \
-            '高中/A-Level/P1/01-Quadratics/04-linear-quadratic-simultaneous'; do
+            '高中/A-Level/P1/01-Quadratics/04-linear-quadratic-simultaneous' \
+            '高中/A-Level/P1/01-Quadratics/05-complex-quadratic-equations'; do
             test -f "$lesson/test_math.py"
             (cd "$lesson" && python -m unittest -v test_math.py)
+            count=$((count + 1))
           done
+          test "$count" -eq 3
