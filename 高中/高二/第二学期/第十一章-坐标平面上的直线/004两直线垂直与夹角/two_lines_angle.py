@@ -1,497 +1,211 @@
+"""两直线的垂直与夹角：区分锐角公式、直角特例及垂直线。
+
+保留 TwoLinesAngle 入口和五个教学分镜。原视频及音轨不作修改。
 """
-两直线的垂直与夹角 - Manim 教学动画
-高二数学 · 第十一章 · 坐标平面上的直线
 
-# 快速预览（低画质）
-manim -pql two_lines_angle.py TwoLinesAngle
-
-# 高画质渲染
-manim -qh two_lines_angle.py TwoLinesAngle
-
-# 4K生产级
-manim -qk two_lines_angle.py TwoLinesAngle
-
-知识点：
-  - 垂直条件：k₁·k₂ = -1
-  - 一般式垂直：A₁A₂ + B₁B₂ = 0
-  - 夹角公式：tan θ = |k₁-k₂|/(1+k₁k₂)
-
-Format: TikTok 竖屏 1080×1920
-Duration: ~41s
-"""
+import math
 
 from manim import *
-import numpy as np
 
-# ─── Config ────────────────────────────────────────────────────────────────────
-config.pixel_width  = 1080
+config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+config.frame_width = 9
 config.frame_height = 16
 
-# ─── Colors ────────────────────────────────────────────────────────────────────
-BG_COLOR      = "#0f0c29"
-LINE1_COLOR   = "#00d4ff"   # cyan  — l₁  k₁=2
-LINE2_COLOR   = "#ff6b6b"   # red   — l₂  k₂=-0.5  (垂直)
-LINE3_COLOR   = "#ffd93d"   # gold  — l₃  k₃=1/3   (夹角)
-ANGLE_COLOR   = "#a8ff78"   # green — θ arc
-FORMULA_BG    = "#16213e"
-HIGHLIGHT_COL = "#ffe066"
-AXIS_COL      = "#444466"
+BG_COLOR = "#0f0c29"
+LINE1_COLOR = "#00d4ff"
+LINE2_COLOR = "#ff6b6b"
+LINE3_COLOR = "#ffd93d"
+ANGLE_COLOR = "#a8ff78"
+FONT = "PingFang SC"
 
 
-# ─── Helpers ───────────────────────────────────────────────────────────────────
-def cn(text: str, size: int = 28, color=WHITE, **kw) -> Text:
-    """Chinese text using correct font."""
-    return Text(text, font="PingFang SC", font_size=size, color=color, **kw)
+def direction_from_general(a, b):
+    """一般式 Ax+By+C=0 的方向向量 (B,-A)。"""
+    if not math.isfinite(a) or not math.isfinite(b) or (a == 0 and b == 0):
+        raise ValueError("直线的 A、B 必须有限且不同时为零")
+    return b, -a
 
 
-def formula_box(
-    label_text: str,
-    formula_str: str,
-    label_size: int = 22,
-    formula_size: int = 26,
-    box_color: str = "#00d4ff",
-    width: float = 7.2,
-) -> VGroup:
-    """Rounded rectangle containing a Chinese label + MathTex formula."""
-    lbl  = cn(label_text, size=label_size, color=box_color)
-    fml  = MathTex(formula_str, font_size=formula_size, color=WHITE)
-    content = VGroup(lbl, fml).arrange(DOWN, buff=0.15)
-    box = RoundedRectangle(
-        width=width, height=content.height + 0.5,
-        corner_radius=0.15, color=box_color,
-        fill_color=FORMULA_BG, fill_opacity=0.85,
-        stroke_width=1.5,
-    )
-    return VGroup(box, content).arrange(IN, buff=0)  # overlay content on box
+def acute_line_angle(v, w):
+    """无向直线的较小夹角：[0, pi/2]；不以斜率公式处理垂线。"""
+    x1, y1 = v
+    x2, y2 = w
+    if not all(math.isfinite(c) for c in (x1, y1, x2, y2)):
+        raise ValueError("方向向量需要有限分量")
+    if (x1 == 0 and y1 == 0) or (x2 == 0 and y2 == 0):
+        raise ValueError("零方向向量不能确定直线")
+    cross = abs(x1 * y2 - y1 * x2)
+    dot = abs(x1 * x2 + y1 * y2)
+    return math.atan2(cross, dot)
 
 
-# ─── Scene ─────────────────────────────────────────────────────────────────────
+def slopes_perpendicular(k1, k2):
+    """仅对两条斜率都存在的直线适用。"""
+    if not math.isfinite(k1) or not math.isfinite(k2):
+        raise ValueError("无定义的斜率不得代入乘积条件")
+    return math.isclose(k1 * k2, -1.0, rel_tol=1e-10, abs_tol=1e-10)
+
+
+def tangent_acute_angle(k1, k2):
+    """当两线不垂直且都有斜率时，返回非负的 tan(theta)。"""
+    if not math.isfinite(k1) or not math.isfinite(k2):
+        raise ValueError("斜率必须存在且有限")
+    denominator = 1 + k1 * k2
+    if math.isclose(denominator, 0.0, abs_tol=1e-10):
+        raise ValueError("直角时 tan(theta) 不存在，不能套用分式")
+    return abs(k1 - k2) / abs(denominator)
+
+
+def clipped_slope(k, xb=(-3.0, 3.0), yb=(-2.5, 2.5)):
+    """求 y=kx 与可见坐标窗口的交段，确保数据坐标与画面一致。"""
+    if not math.isfinite(k):
+        raise ValueError("本工具只接受有限斜率，竖直线应单独绘制")
+    xmin, xmax = xb
+    ymin, ymax = yb
+    if not xmin < xmax or not ymin < ymax:
+        raise ValueError("坐标窗口必须非退化")
+    points = []
+    for x in (xmin, xmax):
+        y = k * x
+        if ymin - 1e-10 <= y <= ymax + 1e-10:
+            points.append((x, min(ymax, max(ymin, y))))
+    if k != 0:
+        for y in (ymin, ymax):
+            x = y / k
+            if xmin - 1e-10 <= x <= xmax + 1e-10:
+                points.append((min(xmax, max(xmin, x)), y))
+    distinct = []
+    for point in points:
+        if not any(math.dist(point, other) < 1e-9 for other in distinct):
+            distinct.append(point)
+    if len(distinct) < 2:
+        raise ValueError("直线在窗口内没有非退化可见线段")
+    return max(((p, q) for i, p in enumerate(distinct) for q in distinct[i + 1:]),
+               key=lambda pair: math.dist(*pair))
+
+
 class TwoLinesAngle(Scene):
-
-    # ── geometry constants ─────────────────────────────────────────────────────
-    K1 =  2.0        # slope of l₁ (persists through whole animation)
-    K2 = -0.5        # slope of l₂  (⊥ to l₁,  k₁·k₂ = -1)
-    K3 =  1.0 / 3.0  # slope of l₃  (forms 45° with l₁)
+    K1 = 2.0
+    K2 = -0.5
+    K3 = 1 / 3
 
     def construct(self):
         self.camera.background_color = BG_COLOR
-        self.setup_geometry()
-        self.verify_geometry()
+        self.author = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
+                           font_size=17, color=GRAY_B).move_to(UP * 6.95)
+        self.add(self.author)
         self.scene_1_title()
         self.scene_2_perpendicular()
         self.scene_3_angle_formula()
         self.scene_4_summary()
         self.scene_5_outro()
 
-    # ── geometry setup ─────────────────────────────────────────────────────────
-    def setup_geometry(self):
-        """Pre-calculate all geometry in AXES coordinates (not frame)."""
-        # Axes will be placed at frame y=1.0 center
-        self.axes_center_frame = UP * 1.0
+    def cn(self, text, size=26, color=WHITE):
+        return Text(text, font=FONT, font_size=size, color=color)
 
-        # Lines pass through origin (axes coords)
-        self.P_int = np.array([0.0, 0.0, 0.0])  # intersection in axes coords
+    def heading(self, text, color=WHITE):
+        old = [obj for obj in self.mobjects if obj is not self.author]
+        if old:
+            self.play(*[FadeOut(obj) for obj in old], run_time=0.4)
+        self.play(FadeIn(self.cn(text, 36, color).move_to(UP * 6.0)), run_time=0.4)
 
-        # l₁: y = K1*x  →  endpoints at axes x = ±1.25 (y = ±2.5)
-        self.l1_a = np.array([-1.25, -2.5, 0.0])
-        self.l1_b = np.array([ 1.25,  2.5, 0.0])
-
-        # l₂: y = K2*x  →  endpoints at axes x = ±3 (y = ∓1.5)
-        self.l2_a = np.array([-3.0,  1.5, 0.0])
-        self.l2_b = np.array([ 3.0, -1.5, 0.0])
-
-        # l₃: y = K3*x  →  endpoints at axes x = ±3 (y = ±1)
-        self.l3_a = np.array([-3.0, -1.0, 0.0])
-        self.l3_b = np.array([ 3.0,  1.0, 0.0])
-
-        # RightAngle arm endpoints (from intersection, in axes coords)
-        self.arm1_tip = np.array([0.5,  1.0, 0.0])  # direction (1, K1)  = (1,2)
-        self.arm2_tip = np.array([2.0, -1.0, 0.0])  # direction (2, K2*2)= (2,-1)
-
-        # Angle arc reference points (in axes coords)
-        # CCW arc from l₃ direction to l₁ direction spans 45°
-        self.P_on_l3 = np.array([1.5, 0.5, 0.0])   # on l₃, arctan(1/3) ≈ 18.4°
-        self.P_on_l1 = np.array([0.5, 1.0, 0.0])   # on l₁, arctan(2)   ≈ 63.4°
-
-    def verify_geometry(self):
-        """Numerical checks — runs during construct(), before any animation."""
-        eps = 1e-9
-
-        # 1) Perpendicular condition
-        product = self.K1 * self.K2
-        assert abs(product - (-1.0)) < eps, f"k1*k2 = {product}, expected -1"
-
-        # 2) RightAngle arm vectors must be perpendicular
-        v1 = self.arm1_tip - self.P_int
-        v2 = self.arm2_tip - self.P_int
-        dot = float(np.dot(v1[:2], v2[:2]))
-        assert abs(dot) < eps, f"arm dot product = {dot}, expected 0"
-
-        # 3) Angle formula: tan θ = 1  →  θ = 45°
-        tan_theta = abs(self.K1 - self.K3) / (1 + self.K1 * self.K3)
-        assert abs(tan_theta - 1.0) < eps, f"tan θ = {tan_theta}, expected 1"
-
-        # 4) Angle arc cross product > 0 (CCW arc is the acute angle)
-        v_l3 = self.P_on_l3 - self.P_int
-        v_l1 = self.P_on_l1 - self.P_int
-        cross_z = v_l3[0] * v_l1[1] - v_l3[1] * v_l1[0]
-        assert cross_z > 0, f"cross_z = {cross_z}, must be > 0 for CCW arc"
-
-        # 5) l₁ endpoints satisfy y = K1*x
-        for pt in [self.l1_a, self.l1_b]:
-            assert abs(pt[1] - self.K1 * pt[0]) < eps
-        # l₂ endpoints
-        for pt in [self.l2_a, self.l2_b]:
-            assert abs(pt[1] - self.K2 * pt[0]) < eps
-        # l₃ endpoints
-        for pt in [self.l3_a, self.l3_b]:
-            assert abs(pt[1] - self.K3 * pt[0]) < eps
-
-        print("✅ All geometry checks passed")
-
-    # ── scene helpers ──────────────────────────────────────────────────────────
-    def _make_axes(self):
-        ax = Axes(
-            x_range=[-3, 3, 1],
-            y_range=[-2.5, 2.5, 1],
-            x_length=6,
-            y_length=5,
-            axis_config=dict(
-                color=AXIS_COL,
-                stroke_width=1.5,
-                include_tip=True,
-                tip_length=0.15,
-                include_ticks=True,
-            ),
-        )
-        ax.move_to(self.axes_center_frame)
+    def axes(self):
+        ax = Axes(x_range=[-3, 3, 1], y_range=[-2.5, 2.5, 1],
+                  x_length=6, y_length=5, tips=False,
+                  axis_config={"color": GRAY_B, "include_numbers": True,
+                               "font_size": 18}).move_to(UP * 1.5)
+        self.play(Create(ax), run_time=0.65)
         return ax
 
-    def _c2p(self, ax, pt_axes):
-        """Convert axes-coordinate point to frame-coordinate point."""
-        return ax.c2p(pt_axes[0], pt_axes[1])
+    def draw(self, ax, k, color):
+        p, q = clipped_slope(k)
+        obj = Line(ax.c2p(*p), ax.c2p(*q), color=color, stroke_width=5)
+        self.play(Create(obj), run_time=0.55)
+        return obj
 
-    # ── Scene 1: Title ─────────────────────────────────────────────────────────
+    def panel(self, text, formula, note, color=ANGLE_COLOR):
+        rect = RoundedRectangle(width=8.0, height=2.5, corner_radius=0.15,
+                                stroke_color=color, stroke_width=2,
+                                fill_color="#16213e", fill_opacity=0.95).move_to(DOWN * 4.75)
+        label = self.cn(text, 22, color).move_to(rect.get_center() + UP * 0.78)
+        equation = MathTex(formula, font_size=30).move_to(rect.get_center() + UP * 0.05)
+        equation.scale_to_fit_width(min(equation.width, 7.5))
+        note_label = self.cn(note, 19, GRAY_A).move_to(rect.get_center() + DOWN * 0.79)
+        self.play(FadeIn(rect), FadeIn(label), Write(equation), FadeIn(note_label), run_time=0.85)
+
     def scene_1_title(self):
-        # Author branding (persistent)
-        self.author = cn(
-            "上海初高中数学直通车 @emptyandcalm",
-            size=18, color=GRAY_B
-        ).move_to(UP * 7.0)
-        self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.5)
+        self.heading("两直线的垂直与夹角")
+        self.play(FadeIn(self.cn("垂直用点积，夹角用点积与叉积", 29, ANGLE_COLOR).move_to(UP * 1)),
+                  run_time=0.6)
+        self.wait(0.8)
 
-        # Main title
-        title = cn("两直线的垂直与夹角", size=36, color=WHITE)
-        title.move_to(UP * 5.5)
-        subtitle = cn("高中数学 · 坐标几何", size=22, color=LIGHT_GRAY)
-        subtitle.move_to(UP * 4.8)
-
-        self.play(Write(title, run_time=1.0))
-        self.play(FadeIn(subtitle, shift=UP * 0.3), run_time=0.5)
-
-        # Axes intro
-        self.ax = self._make_axes()
-        self.play(FadeIn(self.ax, shift=UP * 0.2), run_time=0.8)
-        self.wait(0.5)
-
-        # Store for later cleanup
-        self.title_group = VGroup(title, subtitle)
-
-    # ── Scene 2: Perpendicular ─────────────────────────────────────────────────
     def scene_2_perpendicular(self):
-        ax = self.ax
+        self.heading("① 两直线垂直", LINE2_COLOR)
+        assert slopes_perpendicular(self.K1, self.K2)
+        assert math.isclose(acute_line_angle((1, self.K1), (1, self.K2)), math.pi / 2)
+        ax = self.axes()
+        self.draw(ax, self.K1, LINE1_COLOR)
+        self.draw(ax, self.K2, LINE2_COLOR)
+        origin = ax.c2p(0, 0)
+        arm1 = Line(origin, ax.c2p(0.35, 0.7))
+        arm2 = Line(origin, ax.c2p(0.7, -0.35))
+        self.play(Create(RightAngle(arm1, arm2, length=0.27, color=ANGLE_COLOR)),
+                  run_time=0.4)
+        self.play(FadeIn(MathTex(r"k_1=2,\quad k_2=-\frac12",
+                                font_size=27).move_to(DOWN * 2.45)), run_time=0.5)
+        self.panel("两条直线斜率均存在时", r"k_1k_2=-1",
+                   "本例两方向向量点积为零，夹角为 90°", LINE2_COLOR)
+        self.wait(0.85)
 
-        # ── section label
-        sec_label = cn("① 两直线垂直", size=28, color=LINE1_COLOR)
-        sec_label.move_to(UP * 5.0)
-        self.play(FadeOut(self.title_group, run_time=0.4),
-                  Write(sec_label, run_time=0.6))
-
-        # ── Draw l₁ (cyan, k=2)
-        p_l1a = self._c2p(ax, self.l1_a)
-        p_l1b = self._c2p(ax, self.l1_b)
-        line_l1 = Line(p_l1a, p_l1b, color=LINE1_COLOR, stroke_width=3)
-        lbl_l1 = MathTex(r"l_1", font_size=26, color=LINE1_COLOR)
-        lbl_l1.next_to(p_l1b, UR, buff=0.1)
-
-        self.play(Create(line_l1, run_time=0.9))
-        self.play(FadeIn(lbl_l1), run_time=0.3)
-
-        # ── Draw l₂ (red, k=-0.5)
-        p_l2a = self._c2p(ax, self.l2_a)
-        p_l2b = self._c2p(ax, self.l2_b)
-        line_l2 = Line(p_l2a, p_l2b, color=LINE2_COLOR, stroke_width=3)
-        lbl_l2 = MathTex(r"l_2", font_size=26, color=LINE2_COLOR)
-        lbl_l2.next_to(p_l2b, DR, buff=0.1)
-
-        self.play(Create(line_l2, run_time=0.9))
-        self.play(FadeIn(lbl_l2), run_time=0.3)
-
-        # ── RightAngle mark at intersection
-        p_int_f  = self._c2p(ax, self.P_int)
-        p_arm1_f = self._c2p(ax, self.arm1_tip)
-        p_arm2_f = self._c2p(ax, self.arm2_tip)
-
-        arm1 = Line(p_int_f, p_arm1_f, color=WHITE, stroke_width=0)  # invisible carrier
-        arm2 = Line(p_int_f, p_arm2_f, color=WHITE, stroke_width=0)
-
-        right_mark = RightAngle(arm1, arm2, length=0.28, color=WHITE, stroke_width=2.5)
-
-        int_dot = Dot(p_int_f, color=YELLOW, radius=0.10)
-
-        self.play(Create(right_mark, run_time=0.5),
-                  FadeIn(int_dot), run_time=0.3)
-
-        # ── Slope labels inside the axes area
-        k1_lbl = MathTex(r"k_1=2", font_size=24, color=LINE1_COLOR)
-        k1_lbl.move_to(self._c2p(ax, np.array([1.0, 2.3, 0])) + RIGHT * 0.5)
-
-        k2_lbl = MathTex(r"k_2=-\frac{1}{2}", font_size=24, color=LINE2_COLOR)
-        k2_lbl.move_to(self._c2p(ax, np.array([-2.0, 1.3, 0])) + LEFT * 0.3)
-
-        self.play(FadeIn(k1_lbl), FadeIn(k2_lbl), run_time=0.5)
-        self.wait(0.4)
-
-        # ── Formula explanation (lower area)
-        fx_line1 = VGroup(
-            MathTex(r"k_1 \cdot k_2", font_size=30, color=WHITE),
-            MathTex(r"= 2 \times \left(-\frac{1}{2}\right)", font_size=30, color=WHITE),
-        ).arrange(RIGHT, buff=0.15)
-        fx_line1.move_to(DOWN * 2.4)
-
-        self.play(Write(fx_line1, run_time=1.0))
-        self.wait(0.3)
-
-        fx_result = MathTex(r"= -1", font_size=36, color=HIGHLIGHT_COL)
-        fx_result.next_to(fx_line1, DOWN, buff=0.25)
-        self.play(Write(fx_result, run_time=0.7))
-
-        # Flash the -1
-        self.play(Indicate(fx_result, color=YELLOW, scale_factor=1.2), run_time=0.5)
-
-        conclusion = MathTex(r"\therefore\ l_1 \perp l_2", font_size=32, color=ANGLE_COLOR)
-        conclusion.next_to(fx_result, DOWN, buff=0.25)
-        self.play(Write(conclusion, run_time=0.6))
-        self.wait(0.5)
-
-        # General form
-        gen_lbl  = cn("一般式垂直条件", size=20, color=GRAY_A)
-        gen_form = MathTex(r"A_1 A_2 + B_1 B_2 = 0", font_size=26, color=GRAY_A)
-        gen_group = VGroup(gen_lbl, gen_form).arrange(RIGHT, buff=0.25)
-        gen_box = SurroundingRectangle(gen_group, color=GRAY_C,
-                                       buff=0.15, corner_radius=0.1, stroke_width=1)
-        gen_all = VGroup(gen_box, gen_group).move_to(DOWN * 4.6)
-
-        self.play(FadeIn(gen_all, shift=UP * 0.2), run_time=0.7)
-        self.wait(2.5)
-
-        # Keep for cleanup
-        self.s2_objects = VGroup(
-            sec_label, line_l2, lbl_l1, lbl_l2,
-            right_mark, arm1, arm2, int_dot,
-            k1_lbl, k2_lbl,
-            fx_line1, fx_result, conclusion, gen_all,
-        )
-        self.line_l1 = line_l1   # l₁ persists into scene 3
-
-    # ── Scene 3: Angle Formula ─────────────────────────────────────────────────
     def scene_3_angle_formula(self):
-        ax = self.ax
+        self.heading("② 两直线的较小夹角", ANGLE_COLOR)
+        theta = acute_line_angle((1, self.K3), (1, self.K1))
+        assert math.isclose(theta, math.pi / 4, abs_tol=1e-10)
+        assert math.isclose(tangent_acute_angle(self.K1, self.K3), 1.0)
+        ax = self.axes()
+        self.draw(ax, self.K1, LINE1_COLOR)
+        self.draw(ax, self.K3, LINE3_COLOR)
+        origin = ax.c2p(0, 0)
+        start = math.atan(self.K3)
+        arc = Arc(radius=0.65, start_angle=start, angle=theta,
+                  arc_center=origin, color=ANGLE_COLOR, stroke_width=4)
+        label = MathTex(r"\theta=45^{\circ}", font_size=27, color=ANGLE_COLOR)
+        label.move_to(origin + 1.15 * (RIGHT * math.cos(start + theta / 2)
+                                      + UP * math.sin(start + theta / 2)))
+        self.play(Create(arc), FadeIn(label), run_time=0.55)
+        self.play(FadeIn(MathTex(r"k_1=2,\quad k_2=\frac13", font_size=28)
+                         .move_to(DOWN * 2.4)), run_time=0.5)
+        self.panel("两线不垂直且斜率存在", r"\tan\theta=\frac{|k_1-k_2|}{|1+k_1k_2|}=1",
+                   "本例 θ=45°；分母为零时夹角是 90°", LINE3_COLOR)
+        self.wait(0.85)
 
-        # Fade out scene 2 unique elements
-        self.play(FadeOut(self.s2_objects), run_time=0.6)
-
-        # ── section label
-        sec_label = cn("② 两直线夹角", size=28, color=LINE3_COLOR)
-        sec_label.move_to(UP * 5.0)
-        self.play(Write(sec_label, run_time=0.6))
-
-        # ── Redraw l₁ label
-        p_l1b = self._c2p(ax, self.l1_b)
-        lbl_l1_new = MathTex(r"l_1\ (k_1=2)", font_size=22, color=LINE1_COLOR)
-        lbl_l1_new.next_to(p_l1b, UR, buff=0.1)
-        self.play(FadeIn(lbl_l1_new), run_time=0.3)
-
-        # ── Draw l₃ (gold, k=1/3)
-        p_l3a = self._c2p(ax, self.l3_a)
-        p_l3b = self._c2p(ax, self.l3_b)
-        line_l3 = Line(p_l3a, p_l3b, color=LINE3_COLOR, stroke_width=3)
-        lbl_l3 = MathTex(r"l_2\ \left(k_2=\frac{1}{3}\right)", font_size=22, color=LINE3_COLOR)
-        lbl_l3.next_to(p_l3b, DR, buff=0.1)
-
-        self.play(Create(line_l3, run_time=0.9))
-        self.play(FadeIn(lbl_l3), run_time=0.3)
-        self.wait(0.2)
-
-        # ── Angle arc (CCW from l₃ to l₁  →  45°)
-        p_int_f  = self._c2p(ax, self.P_int)
-        P_l3_f   = self._c2p(ax, self.P_on_l3)
-        P_l1_f   = self._c2p(ax, self.P_on_l1)
-
-        angle_arc = Angle.from_three_points(
-            P_l3_f, p_int_f, P_l1_f,
-            radius=0.55,
-            color=ANGLE_COLOR,
-            stroke_width=3,
-        )
-        theta_lbl = MathTex(r"\theta", font_size=28, color=ANGLE_COLOR)
-        # Place θ label between the two arms, slightly outward
-        mid_angle_dir = (
-            (self.P_on_l3 - self.P_int) / np.linalg.norm(self.P_on_l3 - self.P_int) +
-            (self.P_on_l1 - self.P_int) / np.linalg.norm(self.P_on_l1 - self.P_int)
-        )
-        mid_angle_dir /= np.linalg.norm(mid_angle_dir)
-        mid_angle_axes = self.P_int + 0.95 * mid_angle_dir
-        theta_lbl.move_to(self._c2p(ax, mid_angle_axes))
-
-        self.play(Create(angle_arc, run_time=0.8))
-        self.play(FadeIn(theta_lbl), run_time=0.3)
-        self.wait(0.3)
-
-        # ── Formula derivation
-        form_title = cn("夹角公式", size=24, color=ANGLE_COLOR)
-        form_title.move_to(DOWN * 2.0)
-
-        form1 = MathTex(
-            r"\tan\theta = \frac{|k_1 - k_2|}{1 + k_1 k_2}",
-            font_size=30, color=WHITE
-        ).next_to(form_title, DOWN, buff=0.2)
-
-        self.play(Write(form_title, run_time=0.5))
-        self.play(Write(form1, run_time=1.0))
-        self.wait(0.3)
-
-        # Substitution
-        form2 = MathTex(
-            r"= \frac{\left|2 - \dfrac{1}{3}\right|}{1 + 2 \cdot \dfrac{1}{3}}",
-            font_size=28, color=WHITE
-        ).next_to(form1, DOWN, buff=0.25)
-        self.play(Write(form2, run_time=0.9))
-        self.wait(0.2)
-
-        # Result
-        form3 = MathTex(r"= 1", font_size=32, color=HIGHLIGHT_COL)
-        form3.next_to(form2, DOWN, buff=0.2)
-        self.play(Write(form3, run_time=0.5))
-
-        result_full = MathTex(
-            r"\Rightarrow \theta = 45^{\circ}",
-            font_size=34, color=YELLOW
-        ).next_to(form3, DOWN, buff=0.18)
-        self.play(Write(result_full, run_time=0.7))
-        self.play(Indicate(result_full, scale_factor=1.15), run_time=0.5)
-        self.wait(0.6)
-
-        # Constraint note
-        note_lbl  = cn("注意：夹角取锐角", size=20, color=GRAY_A)
-        note_form = MathTex(r"\theta \in \left[0,\ \frac{\pi}{2}\right]",
-                            font_size=24, color=GRAY_A)
-        note_grp  = VGroup(note_lbl, note_form).arrange(RIGHT, buff=0.2)
-        note_box  = SurroundingRectangle(note_grp, color=GRAY_C,
-                                         buff=0.12, corner_radius=0.1, stroke_width=1)
-        note_all  = VGroup(note_box, note_grp)
-        note_all.move_to(DOWN * 5.3)
-        self.play(FadeIn(note_all, shift=UP * 0.2), run_time=0.6)
-        self.wait(2.0)
-
-        # Store for cleanup
-        self.s3_objects = VGroup(
-            sec_label, lbl_l1_new, line_l3, lbl_l3,
-            angle_arc, theta_lbl,
-            form_title, form1, form2, form3, result_full, note_all,
-        )
-        self.line_l3 = line_l3
-
-    # ── Scene 4: Summary ───────────────────────────────────────────────────────
     def scene_4_summary(self):
-        # Fade out axes region
-        self.play(
-            FadeOut(self.s3_objects),
-            FadeOut(self.ax),
-            FadeOut(self.line_l1),
-            run_time=0.7
+        self.heading("公式总结与适用范围")
+        cards = (
+            ("一般式垂直", r"A_1A_2+B_1B_2=0", "包括水平线与垂直线", LINE1_COLOR),
+            ("有斜率的垂直条件", r"k_1k_2=-1", "两条直线都不是垂直线", LINE2_COLOR),
+            ("较小夹角", r"\theta=\arctan\frac{|k_1-k_2|}{|1+k_1k_2|}",
+             "仅在两条斜率存在且不垂直时使用", LINE3_COLOR),
+            ("所有方向的夹角", r"\theta=\operatorname{atan2}(|u\times v|,|u\cdot v|)",
+             "u、v 为非零方向向量；0°≤θ≤90°", ANGLE_COLOR),
         )
+        for index, (title, tex, note, color) in enumerate(cards):
+            y = 4.4 - index * 2.75
+            panel = RoundedRectangle(width=8, height=2.35, corner_radius=0.15,
+                                     fill_color="#16213e", fill_opacity=0.95,
+                                     stroke_color=color, stroke_width=2).move_to(UP * y)
+            heading = self.cn(title, 23, color).move_to(panel.get_center() + UP * 0.67)
+            equation = MathTex(tex, font_size=25).move_to(panel.get_center())
+            equation.scale_to_fit_width(min(equation.width, 7.45))
+            note_text = self.cn(note, 19, GRAY_A).move_to(panel.get_center() + DOWN * 0.73)
+            self.play(FadeIn(VGroup(panel, heading, equation, note_text)), run_time=0.42)
+        self.wait(1.4)
 
-        # Summary title
-        sum_title = cn("公式总结", size=34, color=WHITE)
-        sum_title.move_to(UP * 5.5)
-        self.play(Write(sum_title, run_time=0.6))
-
-        # Box 1: Perpendicular slope condition
-        box1_lbl  = cn("斜率式垂直条件", size=21, color=LINE1_COLOR)
-        box1_form = MathTex(r"k_1 \cdot k_2 = -1", font_size=30, color=WHITE)
-        box1_content = VGroup(box1_lbl, box1_form).arrange(DOWN, buff=0.12)
-        box1_rect = SurroundingRectangle(box1_content, color=LINE1_COLOR,
-                                          buff=0.2, corner_radius=0.12,
-                                          fill_color=FORMULA_BG, fill_opacity=0.9,
-                                          stroke_width=2)
-        box1 = VGroup(box1_rect, box1_content).move_to(UP * 3.8)
-
-        # Box 2: General form perpendicular
-        box2_lbl  = cn("一般式垂直条件", size=21, color=LINE2_COLOR)
-        box2_form = MathTex(r"A_1 A_2 + B_1 B_2 = 0", font_size=28, color=WHITE)
-        box2_content = VGroup(box2_lbl, box2_form).arrange(DOWN, buff=0.12)
-        box2_rect = SurroundingRectangle(box2_content, color=LINE2_COLOR,
-                                          buff=0.2, corner_radius=0.12,
-                                          fill_color=FORMULA_BG, fill_opacity=0.9,
-                                          stroke_width=2)
-        box2 = VGroup(box2_rect, box2_content).move_to(UP * 1.5)
-
-        # Box 3: Angle formula
-        box3_lbl  = cn("两直线夹角公式", size=21, color=LINE3_COLOR)
-        box3_form = MathTex(
-            r"\tan\theta = \frac{|k_1 - k_2|}{1 + k_1 k_2}",
-            font_size=28, color=WHITE
-        )
-        box3_content = VGroup(box3_lbl, box3_form).arrange(DOWN, buff=0.12)
-        box3_rect = SurroundingRectangle(box3_content, color=LINE3_COLOR,
-                                          buff=0.2, corner_radius=0.12,
-                                          fill_color=FORMULA_BG, fill_opacity=0.9,
-                                          stroke_width=2)
-        box3 = VGroup(box3_rect, box3_content).move_to(DOWN * 1.0)
-
-        # Box 4: Range constraint
-        box4_lbl  = cn("夹角范围", size=21, color=ANGLE_COLOR)
-        box4_form = MathTex(
-            r"k_1 k_2 \neq -1,\quad \theta \in \left[0^{\circ},\ 90^{\circ}\right]",
-            font_size=24, color=WHITE
-        )
-        box4_content = VGroup(box4_lbl, box4_form).arrange(DOWN, buff=0.12)
-        box4_rect = SurroundingRectangle(box4_content, color=ANGLE_COLOR,
-                                          buff=0.2, corner_radius=0.12,
-                                          fill_color=FORMULA_BG, fill_opacity=0.9,
-                                          stroke_width=2)
-        box4 = VGroup(box4_rect, box4_content).move_to(DOWN * 3.5)
-
-        for box in [box1, box2, box3, box4]:
-            self.play(FadeIn(box, shift=RIGHT * 0.3), run_time=0.6)
-
-        # Flash all boxes
-        self.wait(0.5)
-        self.play(
-            *[Flash(b.submobjects[0], color=YELLOW, line_length=0.15,
-                    flash_radius=b.submobjects[0].width / 2 + 0.2,
-                    num_lines=10)
-              for b in [box1, box2, box3, box4]],
-            run_time=1.0
-        )
-        self.wait(2.0)
-
-        self.sum_group = VGroup(sum_title, box1, box2, box3, box4)
-
-    # ── Scene 5: Outro ─────────────────────────────────────────────────────────
     def scene_5_outro(self):
-        self.play(FadeOut(self.sum_group), run_time=0.5)
-
-        author_large = cn(
-            "上海初高中数学直通车\n@emptyandcalm",
-            size=32, color=WHITE
-        ).move_to(UP * 1.0)
-        self.play(Transform(self.author, author_large), run_time=0.8)
-
-        cta = cn("关注我，学更多数学！", size=30, color=YELLOW)
-        cta.move_to(DOWN * 0.8)
-        self.play(FadeIn(cta, shift=UP * 0.3, scale=1.1), run_time=0.7)
-        self.wait(1.5)
+        self.heading("先看方向，再选夹角公式")
+        self.play(FadeIn(self.cn("一般式点积条件没有斜率除零问题", 27, ANGLE_COLOR)
+                         .move_to(UP * 1)),
+                  FadeIn(self.cn("@emptyandcalm", 26, GRAY_A).move_to(DOWN * 0.5)),
+                  run_time=0.7)
+        self.wait(1.4)

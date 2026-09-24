@@ -68,13 +68,14 @@ class HighSchoolGotchaContracts(unittest.TestCase):
 
     def test_all_grades_have_no_untriaged_gotchas(self):
         data = audit(ROOT)
-        # New high-school lessons increase the source count; keep historical
-        # coverage floors, while requiring every newly discovered file to be clean.
+        # 新课程增加文件数；把历史基线作为下界，同时要求错误/警告为零。
         for grade, baseline in {'高一': 49, '高二': 42, '高三': 40}.items():
             self.assertGreaterEqual(data['grades'][grade], baseline, data['grades'])
         self.assertEqual(0, data['errors'], data['findings'])
         self.assertEqual(0, data['warnings'], data['findings'])
-        self.assertEqual(3, data['information'], data['findings'])
+        # 修复中文 MathTex/ctex 依赖后，信息级待渲染提醒应当减少；
+        # 固定等于 3 会把真实改进错误地判为 CI 失败。
+        self.assertLessEqual(data['information'], 3, data['findings'])
 
 
 if __name__ == '__main__':
