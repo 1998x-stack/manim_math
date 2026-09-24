@@ -42,7 +42,7 @@ class HighSchoolGotchaContracts(unittest.TestCase):
         self.assertIn('self.play(*[FadeOut(m) for m in list(self.mobjects)]', source)
         self.assertNotIn('self.play(self.play(', source)
         self.assertIn('self.x_range = [-2*np.pi, 2*np.pi, np.pi/2]', source)
-        self.assertIn('T=\frac{2\pi}{|\omega|}', source)
+        self.assertIn(r'T=\frac{2\pi}{|\omega|}', source)
 
     def test_math_invariants_for_negative_omega(self):
         for omega in (-4.0, -2.0, 1.0, 2.0, 4.0):
@@ -52,8 +52,8 @@ class HighSchoolGotchaContracts(unittest.TestCase):
                                        math.sin(omega * x), places=12)
 
     def test_custom_ctex_is_explicit_opt_in(self):
-        ctex = ast.parse('MathTex(r"\text{圆心}", tex_template=TexTemplateLibrary.ctex)')
-        default = ast.parse('MathTex(r"\text{圆心}")')
+        ctex = ast.parse(r'MathTex(r"\text{圆心}", tex_template=TexTemplateLibrary.ctex)')
+        default = ast.parse(r'MathTex(r"\text{圆心}")')
         self.assertEqual({1}, _ctex_calls(ctex))
         self.assertEqual(set(), _ctex_calls(default))
 
