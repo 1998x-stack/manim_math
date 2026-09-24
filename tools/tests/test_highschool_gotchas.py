@@ -32,7 +32,16 @@ class HighSchoolGotchaContracts(unittest.TestCase):
             self.assertTrue(any(marker in source for marker in
                                 (r'^{{\circ}}', r'^{\circ}', r'^\circ')),
                             f'Missing LaTeX degree notation in {path}')
-        self.assertIn('int(round(np.degrees(angle)))', RATIO.read_text(encoding='utf-8'))
+        ratio_source = RATIO.read_text(encoding='utf-8')
+        # The original Scene rounds an animated angle, while the revised Scene
+        # drives its exact quadrant labels and geometry from the same degrees.
+        self.assertTrue(
+            'int(round(np.degrees(angle)))' in ratio_source
+            or ('trig_coordinates(degrees)' in ratio_source
+                and 'angle = MathTex(fr' in ratio_source
+                and r'^\circ' in ratio_source),
+            'Angle labels must derive from the same angle as the geometry',
+        )
 
     def test_sine_scene_is_not_nested_play_or_chinese_tex(self):
         source = SINE.read_text(encoding='utf-8')
