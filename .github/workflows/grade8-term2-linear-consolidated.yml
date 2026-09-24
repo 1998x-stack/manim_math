@@ -1,0 +1,43 @@
+name: Grade 8 term 2 linear functions consolidated
+
+on:
+  pull_request:
+    paths:
+      - '初中/八年级/第二学期/第二十章-一次函数/**'
+      - '.github/workflows/grade8-term2-linear-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linear-functions-math:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/八年级/第二学期/第二十章-一次函数/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile linear-function lessons
+        run: python -m compileall -q '初中/八年级/第二学期/第二十章-一次函数'
+      - name: Run all linear-function mathematics regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          while IFS= read -r -d '' test_file; do
+            python "$test_file"
+            count=$((count + 1))
+          done < <(find '初中/八年级/第二学期/第二十章-一次函数' -type f -name 'verify_linear_function*.py' -print0 | sort -z)
+          if [ "$count" -lt 5 ]; then
+            echo "Expected at least five lesson regression scripts; found $count" >&2
+            exit 1
+          fi
+          echo "Passed $count lesson regressions"
