@@ -69,6 +69,12 @@ jobs:
             高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/complex_roots.py
             高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/description.json
             高中/高一/第一学期/第一章-集合与命题/002集合间的关系/verify_sets.py
+            高中/高一/第一学期/第一章-集合与命题/003集合的运算/set_operations.py
+            高中/高一/第一学期/第一章-集合与命题/003集合的运算/verify_set_operations.py
+            高中/高一/第一学期/第一章-集合与命题/004四种命题及其关系/four_propositions.py
+            高中/高一/第一学期/第一章-集合与命题/004四种命题及其关系/verify_four_propositions.py
+            高中/高一/第一学期/第一章-集合与命题/005充分条件与必要条件/sufficient_necessary_conditions.py
+            高中/高一/第一学期/第一章-集合与命题/005充分条件与必要条件/verify_conditions_scene.py
             高中/高一/第二学期/第六章-三角函数/003函数y=Asin(ωx+φ)的图像与性质/verify_geometry.py
       - uses: actions/setup-python@v5
         with:

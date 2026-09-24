@@ -1,0 +1,50 @@
+name: Grade 10 term 1 sets and propositions consolidated
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第一学期/第一章-集合与命题/**'
+      - 'tests/test_grade10_sem1_*.py'
+      - '.github/workflows/grade10-setlogic-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sets-and-logic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第一学期/第一章-集合与命题/**/*.py
+            /tests/test_grade10_sem1_*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile complete chapter Python sources
+        run: python -m compileall -q '高中/高一/第一学期/第一章-集合与命题'
+      - name: Run five original lesson regressions and verify coverage
+        shell: bash
+        run: |
+          set -euo pipefail
+          root='高中/高一/第一学期/第一章-集合与命题'
+          checks=(
+            "$root/001集合的概念与表示/verify_sets_concept.py"
+            "$root/002集合间的关系/verify_relations_scene.py"
+            "$root/003集合的运算/verify_set_operations.py"
+            "$root/004四种命题及其关系/verify_four_propositions.py"
+            "$root/005充分条件与必要条件/verify_conditions_scene.py"
+          )
+          for test_file in "${checks[@]}"; do
+            test -f "$test_file"
+            python "$test_file"
+          done
+          echo "Passed ${#checks[@]} original lesson regression suites"
+      - name: Run three repository-facing regression wrappers
+        run: python -m unittest discover -s tests -p 'test_grade10_sem1_*.py' -v
