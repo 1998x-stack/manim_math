@@ -1,0 +1,74 @@
+name: Grade 12 consolidated spatial geometry probability and statistics
+
+on:
+  pull_request:
+    paths:
+      - '高中/高三/第一学期/第十四章-空间直线与平面/**'
+      - '高中/高三/第二学期/第十七章-概率论初步/**'
+      - '高中/高三/第二学期/第十八章-基本统计方法/**'
+      - '高中/高三/tests/**'
+      - '.github/workflows/grade12-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lesson-math-and-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高三/第一学期/第十四章-空间直线与平面/**/*.py
+            /高中/高三/第二学期/第十七章-概率论初步/**/*.py
+            /高中/高三/第二学期/第十八章-基本统计方法/**/*.py
+            /高中/高三/tests/test_*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile affected high-school senior lessons and regression suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q '高中/高三/第一学期/第十四章-空间直线与平面'
+          python -m compileall -q '高中/高三/第二学期/第十七章-概率论初步'
+          python -m compileall -q '高中/高三/第二学期/第十八章-基本统计方法'
+          python -m compileall -q '高中/高三/tests'
+      - name: Run four spatial geometry lesson and repository mathematics suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          chapter='高中/高三/第一学期/第十四章-空间直线与平面'
+          count=0
+          for lesson in "$chapter"/00[1245]*; do
+            test -d "$lesson" || { echo "Missing geometry lesson: $lesson" >&2; exit 1; }
+            mapfile -d '' tests < <(find "$lesson" -maxdepth 1 -type f -name 'verify_*.py' -print0)
+            test "${#tests[@]}" -eq 1 || { echo "Expected exactly one geometry regression in $lesson" >&2; exit 1; }
+            python "${tests[0]}"
+            count=$((count+1))
+          done
+          test "$count" -eq 4 || { echo "Expected 4 spatial geometry lesson suites; got $count" >&2; exit 1; }
+          for name in plane_axioms spatial_lines line_plane_perpendicular plane_plane_parallel; do
+            test -f "高中/高三/tests/test_${name}.py" || { echo "Missing repository regression: $name" >&2; exit 1; }
+            python "高中/高三/tests/test_${name}.py"
+          done
+      - name: Run five probability and two statistics lesson regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          probability='高中/高三/第二学期/第十七章-概率论初步'
+          statistics='高中/高三/第二学期/第十八章-基本统计方法'
+          count=0
+          for lesson in "$probability"/00[1-5]* "$statistics"/00[1-2]*; do
+            test -d "$lesson" || { echo "Missing probability/statistics lesson: $lesson" >&2; exit 1; }
+            mapfile -d '' tests < <(find "$lesson" -maxdepth 1 -type f -name 'test_*math.py' -print0)
+            test "${#tests[@]}" -eq 1 || { echo "Expected one mathematical regression in $lesson" >&2; exit 1; }
+            python "${tests[0]}"
+            count=$((count+1))
+          done
+          test "$count" -eq 7 || { echo "Expected 7 probability/statistics lesson suites; got $count" >&2; exit 1; }
