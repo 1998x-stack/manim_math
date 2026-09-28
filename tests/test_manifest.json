@@ -27,17 +27,21 @@
       "source": "小学/奥数专题/04-平面几何/004-等底等高/lesson.py",
       "scene": "EqualBaseHeightScene",
       "tier": "pr",
-      "width": 270,
-      "height": 480
+      "request_width": 270,
+      "request_height": 480,
+      "expected_width": 270,
+      "expected_height": 480
     },
     {
       "id": "grade8-linear-function",
       "domain": "junior",
       "source": "初中/八年级/第二学期/第二十章-一次函数/002一次函数的图像/linear_function_graph.py",
       "scene": "LinearFunctionGraph",
-      "tier": "main",
-      "width": 270,
-      "height": 480
+      "tier": "pr",
+      "request_width": 270,
+      "request_height": 480,
+      "expected_width": 1080,
+      "expected_height": 1920
     },
     {
       "id": "grade10-any-angle-trig",
@@ -45,17 +49,21 @@
       "source": "高中/高一/第二学期/第五章-三角比/002任意角的三角比/any_angle_trigonometry.py",
       "scene": "AnyAngleTrigonometry",
       "tier": "nightly",
-      "width": 270,
-      "height": 480
+      "request_width": 270,
+      "request_height": 480,
+      "expected_width": 1080,
+      "expected_height": 1920
     },
     {
       "id": "grade11-circle-equation",
       "domain": "grade11",
       "source": "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py",
       "scene": "CircleEquation",
-      "tier": "main",
-      "width": 270,
-      "height": 480
+      "tier": "pr",
+      "request_width": 270,
+      "request_height": 480,
+      "expected_width": 1080,
+      "expected_height": 1920
     },
     {
       "id": "grade12-classical-probability",
@@ -63,8 +71,10 @@
       "source": "高中/高三/第二学期/第十七章-概率论初步/002古典概型/classical_prob.py",
       "scene": "ClassicalProbability",
       "tier": "nightly",
-      "width": 270,
-      "height": 480
+      "request_width": 270,
+      "request_height": 480,
+      "expected_width": 1080,
+      "expected_height": 1920
     },
     {
       "id": "alevel-quadratic-extrema",
@@ -72,8 +82,10 @@
       "source": "高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/lesson.py",
       "scene": "P1QuadraticExtrema",
       "tier": "main",
-      "width": 270,
-      "height": 480
+      "request_width": 270,
+      "request_height": 480,
+      "expected_width": 270,
+      "expected_height": 480
     }
   ]
 }

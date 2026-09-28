@@ -46,7 +46,7 @@ A maintained lesson should progressively obtain:
 - safe-zone/visual review;
 - regression link for each historical defect.
 
-A low-quality smoke render proves execution and media structure only. It does not prove visual correctness, pedagogy, or production readiness.
+A low-quality smoke render proves execution and media structure only. It does not prove visual correctness, pedagogy, or production readiness. The manifest separates requested render dimensions from expected media dimensions because a lesson may set `config.pixel_width` / `config.pixel_height` and legitimately override the CLI `-r` request; ffprobe validates the expected output contract.
 
 ## 4. Fault-injection matrix
 
@@ -103,7 +103,7 @@ pytest -m property tests/property -q
 
 The manifest tier means minimum automatic cadence:
 
-- `pr`: representative infrastructure smoke and nightly;
+- `pr`: representative infrastructure smoke and nightly; infrastructure changes include both CLI-sized and lesson-forced 1080×1920 representatives;
 - `main`: main + nightly;
 - `nightly`: nightly only.
 
