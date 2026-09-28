@@ -50,7 +50,7 @@ def validate_manifest(data: dict, root: Path = ROOT, check_sources: bool = True)
             errors.append(f"render {item.get('id')} needs domain")
         else:
             domains.add(domain)
-        for key in ("width", "height"):
+        for key in ("request_width", "request_height", "expected_width", "expected_height"):
             if not isinstance(item.get(key), int) or item[key] <= 0:
                 errors.append(f"render {item.get('id')} needs positive {key}")
 
@@ -92,9 +92,11 @@ def matrix_from_items(items: list[dict]) -> dict:
                 "id": item["id"],
                 "source": item["source"],
                 "scene": item["scene"],
-                "width": item["width"],
-                "height": item["height"],
-                "resolution": f"{item['width']},{item['height']}",
+                "request_width": item["request_width"],
+                "request_height": item["request_height"],
+                "expected_width": item["expected_width"],
+                "expected_height": item["expected_height"],
+                "request_resolution": f"{item['request_width']},{item['request_height']}",
                 "lesson": str(Path(item["source"]).parent),
             }
             for item in items
