@@ -32,6 +32,13 @@ jobs:
         with:
           lfs: false
           filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /pytest.ini
+            /tests/requirements-property.txt
+            /tests/property/**
+            /高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/math_model.py
+            /高中/高三/第二学期/第十七章-概率论初步/002古典概型/classical_probability_math.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
