@@ -1,45 +1,67 @@
 name: Main integration quality gate
+
 on:
   pull_request:
     paths:
       - 'tools/test_platform.py'
+      - 'tools/media_probe.py'
       - 'tests/test_manifest.json'
       - 'tests/test_test_platform.py'
+      - 'tests/test_media_probe.py'
       - '.github/workflows/main-integration.yml'
+      - '.github/workflows/pr-changed-render.yml'
+      - '.github/workflows/nightly-render-matrix.yml'
       - 'docs/engineering/testing-strategy.md'
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   control-plane:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with: {filter: 'blob:none'}
+        with:
+          filter: blob:none
+          fetch-depth: 0
       - uses: actions/setup-python@v5
-        with: {python-version: '3.11'}
-      - run: python tools/test_platform.py validate
-      - run: python -m unittest tests.test_test_platform -v
+        with:
+          python-version: '3.11'
+      - name: Compile control plane
+        run: python -m py_compile tools/test_platform.py tools/media_probe.py tests/test_test_platform.py tests/test_media_probe.py
+      - name: Validate test manifest
+        run: python tools/test_platform.py validate
+      - name: Run control-plane regressions
+        run: python -m unittest tests.test_test_platform tests.test_media_probe -v
       - name: Classify changed lesson paths
         if: github.event_name == 'pull_request'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          git fetch --no-tags --depth=1 origin "$BASE_SHA"
-          git diff --name-only "$BASE_SHA" "$GITHUB_SHA" > "$RUNNER_TEMP/changed-files.txt"
-          python tools/test_platform.py changed-lessons $(cat "$RUNNER_TEMP/changed-files.txt") | tee "$RUNNER_TEMP/changed-lessons.txt"
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/changed-files.txt"
+          python tools/test_platform.py changed-lessons --paths-file "$RUNNER_TEMP/changed-files.txt" | tee "$RUNNER_TEMP/changed-lessons.txt"
+          python tools/test_platform.py changed-matrix --paths-file "$RUNNER_TEMP/changed-files.txt"
+
   repository-tests:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-        with: {lfs: false, filter: 'blob:none'}
+        with:
+          lfs: false
+          filter: blob:none
       - uses: actions/setup-python@v5
-        with: {python-version: '3.11'}
-      - run: python -m pip install numpy==1.26.4
-      - run: python -m unittest discover -s tests -p 'test_*.py' -v
-      - run: python -m unittest discover -s tools/tests -p 'test_*.py' -v
+        with:
+          python-version: '3.11'
+      - name: Install lightweight mathematics dependency
+        run: python -m pip install numpy==1.26.4
+      - name: Repository unit and contract suite
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Historical tooling regression suite
+        run: python -m unittest discover -s tools/tests -p 'test_*.py' -v
