@@ -154,11 +154,20 @@ class P1QuadraticExtrema(Scene):
             return mob
 
         update_graph(graph)
-        vertex = always_redraw(lambda: Dot(axes.c2p(h.get_value(), k.get_value()),
-                                            radius=.085, color=GOLD))
-        symmetry = always_redraw(lambda: DashedLine(
+        vertex = Dot(axes.c2p(h.get_value(), k.get_value()), radius=.085, color=GOLD)
+        vertex.add_updater(
+            lambda mob: mob.move_to(axes.c2p(h.get_value(), k.get_value()))
+        )
+        symmetry = DashedLine(
             axes.c2p(h.get_value(), -3.5), axes.c2p(h.get_value(), 10.5),
-            color=GOLD, dash_length=.15, stroke_width=1.6))
+            color=GOLD, dash_length=.15, stroke_width=1.6,
+        )
+        symmetry.add_updater(
+            lambda mob: mob.put_start_and_end_on(
+                axes.c2p(h.get_value(), -3.5),
+                axes.c2p(h.get_value(), 10.5),
+            )
+        )
         self.play(Create(axes), Create(graph), FadeIn(vertex), FadeIn(symmetry), run_time=1)
         graph.add_updater(update_graph)
         start = tex(r'(h,k)=(0,0)', 39, GOLD).move_to((0, -3.2, 0))
@@ -173,6 +182,8 @@ class P1QuadraticExtrema(Scene):
         assert (h.get_value(), k.get_value()) == (float(UP_QUAD.h), float(UP_QUAD.k))
         self.wait(1.3)
         graph.clear_updaters()
+        vertex.clear_updaters()
+        symmetry.clear_updaters()
         self.clear_shot()
 
     def symmetry_and_intercepts(self):
