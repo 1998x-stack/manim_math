@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "suites": [
+    {
+      "id": "repository-contract",
+      "kind": "contract",
+      "command": "python -m unittest discover -s tests -p 'test_*.py' -v"
+    },
+    {
+      "id": "tool-regressions",
+      "kind": "regression",
+      "command": "python -m unittest discover -s tools/tests -p 'test_*.py' -v"
+    }
+  ],
+  "renders": [
+    {
+      "id": "grade8-linear-function",
+      "domain": "junior",
+      "source": "初中/八年级/第二学期/第二十章-一次函数/002一次函数的图像/linear_function_graph.py",
+      "scene": "LinearFunctionGraph",
+      "tier": "nightly",
+      "width": 270,
+      "height": 480
+    },
+    {
+      "id": "grade11-circle-equation",
+      "domain": "highschool",
+      "source": "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py",
+      "scene": "CircleEquation",
+      "tier": "nightly",
+      "width": 270,
+      "height": 480
+    }
+  ]
+}

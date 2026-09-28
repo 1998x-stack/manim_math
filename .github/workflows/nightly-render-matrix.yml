@@ -1,0 +1,37 @@
+name: Nightly representative render matrix
+on:
+  schedule:
+    - cron: '23 17 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  matrix:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {id: grade8-linear-function, source: '初中/八年级/第二学期/第二十章-一次函数/002一次函数的图像/linear_function_graph.py', scene: LinearFunctionGraph, resolution: '270,480'}
+          - {id: grade11-circle-equation, source: '高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py', scene: CircleEquation, resolution: '270,480'}
+    steps:
+      - uses: actions/checkout@v4
+        with: {lfs: false, filter: 'blob:none'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python tools/test_platform.py validate
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg pkg-config libcairo2-dev libpango1.0-dev texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science dvisvgm fonts-noto-cjk
+          python -m pip install 'manim==0.19.2'
+      - name: Render and probe
+        run: |
+          OUT="$RUNNER_TEMP/render-${{ matrix.id }}"
+          manim -ql -r '${{ matrix.resolution }}' --disable_caching --media_dir "$OUT" '${{ matrix.source }}' '${{ matrix.scene }}'
+          VIDEO="$(find "$OUT" -type f -name '${{ matrix.scene }}.mp4' -print -quit)"
+          test -n "$VIDEO" && test -s "$VIDEO"
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate:format=duration -of json "$VIDEO" | tee "$RUNNER_TEMP/${{ matrix.id }}-ffprobe.json"
+          mkdir -p "$RUNNER_TEMP/${{ matrix.id }}-frames"
+          ffmpeg -hide_banner -loglevel error -y -ss 1 -i "$VIDEO" -frames:v 1 "$RUNNER_TEMP/${{ matrix.id }}-frames/first.png"
