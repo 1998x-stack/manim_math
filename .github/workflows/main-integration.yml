@@ -5,11 +5,13 @@ on:
     paths:
       - 'tools/test_platform.py'
       - 'tools/media_probe.py'
+      - 'tools/render_smoke.sh'
       - 'tests/test_manifest.json'
       - 'tests/test_test_platform.py'
       - 'tests/test_media_probe.py'
       - '.github/workflows/main-integration.yml'
       - '.github/workflows/pr-changed-render.yml'
+      - '.github/workflows/main-render-smoke.yml'
       - '.github/workflows/nightly-render-matrix.yml'
       - 'docs/engineering/testing-strategy.md'
   push:
@@ -32,7 +34,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile control plane
-        run: python -m py_compile tools/test_platform.py tools/media_probe.py tests/test_test_platform.py tests/test_media_probe.py
+        run: |
+          python -m py_compile tools/test_platform.py tools/media_probe.py tests/test_test_platform.py tests/test_media_probe.py
+          bash -n tools/render_smoke.sh
       - name: Validate test manifest
         run: python tools/test_platform.py validate
       - name: Run control-plane regressions
