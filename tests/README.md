@@ -15,7 +15,7 @@ The repository is migrating to layered testing without breaking the existing uni
 
 ## Control files
 
-- `test_manifest.json`: logical suites and representative Scene registry
+- `test_manifest.json`: logical suites and representative Scene registry; each render records both requested preview dimensions and expected output dimensions
 - `../tools/test_platform.py`: validation/change selection/matrix generation
 - `../tools/media_probe.py`: hard ffprobe media checks
 - `../tools/render_smoke.sh`: shared real-Manim smoke runner
@@ -45,4 +45,4 @@ git diff --name-only BASE HEAD > /tmp/changed.txt
 python tools/test_platform.py changed-matrix --paths-file /tmp/changed.txt
 ```
 
-Real render smoke requires Manim, TeX/CJK and ffmpeg and should use `tools/render_smoke.sh` so local and CI semantics stay aligned.
+Real render smoke requires Manim, TeX/CJK and ffmpeg and should use `tools/render_smoke.sh` so local and CI semantics stay aligned. Do not assume the CLI `-r` request equals the final MP4 size: lesson code can override pixel dimensions, and the media gate checks the manifest's expected dimensions.
