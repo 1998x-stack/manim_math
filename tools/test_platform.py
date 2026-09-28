@@ -19,7 +19,7 @@ def load_manifest(path: Path = DEFAULT_MANIFEST) -> dict:
     return data
 
 
-def validate_manifest(data: dict, root: Path = ROOT) -> list[str]:
+def validate_manifest(data: dict, root: Path = ROOT, check_sources: bool = True) -> list[str]:
     errors: list[str] = []
     ids: set[str] = set()
     for section in ("suites", "renders"):
@@ -42,7 +42,7 @@ def validate_manifest(data: dict, root: Path = ROOT) -> list[str]:
         if not source or not scene:
             errors.append(f"render {item.get('id')} needs source and scene")
             continue
-        if not (root / source).is_file():
+        if check_sources and not (root / source).is_file():
             errors.append(f"render source missing: {source}")
         if item.get("tier") not in VALID_TIERS:
             errors.append(f"render {item.get('id')} has invalid tier")
@@ -95,6 +95,7 @@ def matrix_from_items(items: list[dict]) -> dict:
                 "width": item["width"],
                 "height": item["height"],
                 "resolution": f"{item['width']},{item['height']}",
+                "lesson": str(Path(item["source"]).parent),
             }
             for item in items
         ]
@@ -119,7 +120,9 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("validate")
+    validate = sub.add_parser("validate")
+    validate.add_argument("--skip-source-check", action="store_true")
+    sub.add_parser("sources")
 
     changed = sub.add_parser("changed-lessons")
     changed.add_argument("paths", nargs="*")
@@ -137,11 +140,16 @@ def main() -> int:
     data = load_manifest(args.manifest)
 
     if args.command == "validate":
-        errors = validate_manifest(data)
+        errors = validate_manifest(data, check_sources=not args.skip_source_check)
         if errors:
             print("\n".join(errors))
             return 1
         print(f"manifest ok: {len(data['suites'])} suites, {len(data['renders'])} renders")
+        return 0
+
+    if args.command == "sources":
+        for item in data.get("renders", []):
+            print(item["source"])
         return 0
 
     if args.command == "changed-lessons":
