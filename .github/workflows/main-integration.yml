@@ -67,7 +67,7 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          git diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/changed-files.txt"
+          git -c core.quotePath=false diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/changed-files.txt"
           python tools/test_platform.py changed-lessons --paths-file "$RUNNER_TEMP/changed-files.txt" | tee "$RUNNER_TEMP/changed-lessons.txt"
           python tools/test_platform.py changed-matrix --paths-file "$RUNNER_TEMP/changed-files.txt"
 
