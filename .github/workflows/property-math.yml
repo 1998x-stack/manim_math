@@ -1,0 +1,43 @@
+name: Pure mathematics property tests
+
+on:
+  pull_request:
+    paths:
+      - '高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/math_model.py'
+      - '高中/高三/第二学期/第十七章-概率论初步/002古典概型/classical_probability_math.py'
+      - 'tests/property/**'
+      - 'tests/requirements-property.txt'
+      - 'pytest.ini'
+      - '.github/workflows/property-math.yml'
+  push:
+    branches: [main]
+    paths:
+      - '高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/math_model.py'
+      - '高中/高三/第二学期/第十七章-概率论初步/002古典概型/classical_probability_math.py'
+      - 'tests/property/**'
+      - 'tests/requirements-property.txt'
+      - 'pytest.ini'
+      - '.github/workflows/property-math.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  property:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: tests/requirements-property.txt
+      - name: Install property-test dependencies
+        run: python -m pip install -r tests/requirements-property.txt
+      - name: Run pure mathematics invariants
+        run: pytest -m property tests/property -q
