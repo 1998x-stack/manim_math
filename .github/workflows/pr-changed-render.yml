@@ -57,7 +57,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/changed-files.txt"
+          git -c core.quotePath=false diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/changed-files.txt"
           matrix="$(python tools/test_platform.py changed-matrix --paths-file "$RUNNER_TEMP/changed-files.txt")"
           count="$(python -c 'import json,sys; print(len(json.loads(sys.argv[1])["include"]))' "$matrix")"
           if [[ "$count" == "0" ]] && grep -Eq '^(tests/test_manifest\.json|tools/test_platform\.py|tools/media_probe\.py|tools/render_smoke\.sh|\.github/workflows/(pr-changed-render|main-render-smoke|nightly-render-matrix)\.yml)$' "$RUNNER_TEMP/changed-files.txt"; then
