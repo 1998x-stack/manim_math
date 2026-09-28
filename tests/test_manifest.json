@@ -26,7 +26,7 @@
       "domain": "primary",
       "source": "小学/奥数专题/04-平面几何/004-等底等高/lesson.py",
       "scene": "EqualBaseHeightScene",
-      "tier": "nightly",
+      "tier": "pr",
       "width": 270,
       "height": 480
     },
@@ -35,7 +35,7 @@
       "domain": "junior",
       "source": "初中/八年级/第二学期/第二十章-一次函数/002一次函数的图像/linear_function_graph.py",
       "scene": "LinearFunctionGraph",
-      "tier": "nightly",
+      "tier": "main",
       "width": 270,
       "height": 480
     },
@@ -53,7 +53,7 @@
       "domain": "grade11",
       "source": "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py",
       "scene": "CircleEquation",
-      "tier": "nightly",
+      "tier": "main",
       "width": 270,
       "height": 480
     },
@@ -71,7 +71,7 @@
       "domain": "alevel",
       "source": "高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/lesson.py",
       "scene": "P1QuadraticExtrema",
-      "tier": "nightly",
+      "tier": "pr",
       "width": 270,
       "height": 480
     }
