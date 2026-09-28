@@ -1,0 +1,70 @@
+name: Nightly representative render matrix
+
+on:
+  schedule:
+    - cron: '23 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/test_platform.py
+            /tests/test_manifest.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate manifest
+        run: python tools/test_platform.py validate --skip-source-check
+      - id: matrix
+        run: echo "matrix=$(python tools/test_platform.py matrix --tier nightly)" >> "$GITHUB_OUTPUT"
+
+  render:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/media_probe.py
+            /tools/render_smoke.sh
+            /${{ matrix.lesson }}/**
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Manim render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg pkg-config libcairo2-dev libpango1.0-dev texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science dvisvgm fonts-noto-cjk
+          python -m pip install 'manim==0.19.2'
+      - name: Render representative Scene and enforce media contract
+        run: bash tools/render_smoke.sh '${{ matrix.source }}' '${{ matrix.scene }}' '${{ matrix.width }}' '${{ matrix.height }}' '${{ matrix.id }}'
+      - name: Upload nightly media evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-${{ matrix.id }}
+          path: |
+            ${{ runner.temp }}/render-${{ matrix.id }}/videos/**/*.mp4
+            ${{ runner.temp }}/${{ matrix.id }}-ffprobe.json
+            ${{ runner.temp }}/${{ matrix.id }}-frames/*.png
+          if-no-files-found: warn
+          retention-days: 7
