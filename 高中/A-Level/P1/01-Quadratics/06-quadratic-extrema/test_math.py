@@ -73,11 +73,16 @@ class QuadraticExtremaTests(unittest.TestCase):
             node for node in ast.walk(tree)
             if isinstance(node, ast.FunctionDef) and node.name == 'moving_parabola'
         )
-        for call in (node for node in ast.walk(moving) if isinstance(node, ast.Call)):
-            if isinstance(call.func, ast.Name) and call.func.id == 'always_redraw':
-                rendered = ast.unparse(call)
-                self.assertNotIn('.plot(', rendered)
+        always_redraw_calls = [
+            call for call in ast.walk(moving)
+            if isinstance(call, ast.Call)
+            and isinstance(call.func, ast.Name)
+            and call.func.id == 'always_redraw'
+        ]
+        self.assertEqual([], always_redraw_calls)
         self.assertIn('graph.add_updater(update_graph)', source)
+        self.assertIn('vertex.add_updater(', source)
+        self.assertIn('symmetry.add_updater(', source)
 
 
 if __name__ == '__main__':
