@@ -6,15 +6,22 @@ on:
 permissions:
   contents: read
 jobs:
-  matrix:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {lfs: false, filter: 'blob:none'}
+      - id: matrix
+        run: echo "matrix=$(python tools/test_platform.py matrix --tier nightly)" >> "$GITHUB_OUTPUT"
+  render:
+    needs: prepare
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - {id: grade8-linear-function, source: '初中/八年级/第二学期/第二十章-一次函数/002一次函数的图像/linear_function_graph.py', scene: LinearFunctionGraph, resolution: '270,480'}
-          - {id: grade11-circle-equation, source: '高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py', scene: CircleEquation, resolution: '270,480'}
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
         with: {lfs: false, filter: 'blob:none'}
