@@ -1,225 +1,26 @@
-# 集合的运算 - 动画分镜脚本
+# 集合的运算｜与 `set_operations.py` 对应的可验分镜
 
-## 元信息
-- 目标时长: 60-75 秒
-- 场景数量: 8 个
-- 难度等级: 高一
-- 知识点: 交集、并集、补集
+## 数学规格和画面坐标
 
-## 颜色配置
-```python
-COLOR_SET_A = "#e74c3c"        # 红色 - 集合A
-COLOR_SET_B = "#3498db"        # 蓝色 - 集合B
-COLOR_UNIVERSAL = "#95a5a6"    # 灰色 - 全集
-COLOR_INTERSECTION = "#9b59b6" # 紫色 - 交集
-COLOR_UNION = "#2ecc71"        # 绿色 - 并集
-COLOR_COMPLEMENT = "#f39c12"   # 橙色 - 补集
-COLOR_HIGHLIGHT = YELLOW
-BACKGROUND_COLOR = "#1a1a2e"
-```
+- 唯一全集 `U={1,2,3,4,5,6,7,8}`，`A={1,2,3,4}`，`B={3,4,5,6}`。三个运算和综合例题均不更换这三个集合；补集一律相对于 U。
+- 圆 A/B 半径均为 1.55，圆心分别为 (-0.9,1.45)、(0.9,1.45)；全集矩形中心 (0,1.45)，宽 7.5，高 5.1。每个数字点的真实位置由 `SetOperations.MARKER_POSITIONS` 唯一给出。1、2 位于仅 A，3、4 位于交集，5、6 位于仅 B，7、8 位于仅 U 区域。
+- 公式用 `MathTex`，中文用 `Text`；标题 y≈5.7、Venn 图 y≈1.45、定义 y≈-2.17、三条计算式 y≈-3.66/-4.48/-5.30。数值坐标检查不代替最终字体包围盒或关键帧审查。
 
-## 几何预计算清单
-| 元素 | 计算公式 | 存储变量 |
-|------|---------|---------|
-| 圆A中心 | 固定位置 LEFT*1.2 + UP*2 | self.center_A |
-| 圆B中心 | 固定位置 RIGHT*1.2 + UP*2 | self.center_B |
-| 圆半径 | 固定值 1.2 | self.radius |
-| 全集矩形 | 包含两圆 | self.universal_rect |
+| 镜头 / Scene 方法 | learning_fact / 给定条件 | 屏幕状态与实际数据 | 对象生命周期 | check |
+|---|---|---|---|---|
+| 1 `show_opening` | 所有运算对同一个 U/A/B 执行 | 同时显示全集矩形、重叠圆和 8 个标号 | 创建 `author_info`、`diagram`；标题与副标题退出 | 8 个编号唯一且各自位于正确区域 |
+| 2 `show_intersection` | `A∩B={3,4}` | 紫色 `Intersection` 覆盖双圆交叠区，只强调数字 3、4 | 临时填充、公式和标题清场；保留 `diagram` 的同一引用 | 集合交集与两圆的内部归属一致 |
+| 3 `show_union` | `A∪B={1,2,3,4,5,6}`，重复元素只写一次 | 绿色 `Union` 覆盖两圆；6 个数字依次强调 | 临时覆盖区与文字清场，保留底图 | 结果元素为 6 个而非 8 个 |
+| 4 `show_complement` | `U\setminus A={5,6,7,8}` | 橙色 `Difference(U,A)` 覆盖大矩形中 A 以外的区域；强调包括圆外的 7、8 | 操作后完整移除 `diagram`，性质镜头不残留旧画面 | 明示 U，结果包含 7、8 且不含 1–4 |
+| 5 `show_properties_1` | `A∩∅=∅`、`A∪∅=A`、`A∩A=A`、`A∪A=A` | 不再展示 Venn 图；四式逐条出现 | 公式组在本镜结束时退出 | 任意有限集和空集边界成立 |
+| 6 `show_properties_2` | `A∪(U\setminus A)=U`、`A∩(U\setminus A)=∅`、`U\setminus(U\setminus A)=A` | 三个补集恒等式相对同一 U | 公式组在本镜结束时退出 | 任意 A⊆U，含 A=∅、A=U |
+| 7 `show_example` | 在上述固定 U/A/B 上求 `(A∩B)`、`U\setminus(A∩B)`、`A∩(U\setminus B)` | 依次得到 `{3,4}`、`{1,2,5,6,7,8}`、`{1,2}`；强调第二式对应的 6 个数字 | 重新创建 `diagram`，与结果式一同退出 | 运算顺序及符号与真实元素一致 |
+| 8 `show_outro` | 总结交并补 | 中文总结和原作者标识 | 所有可见对象退出 | 片尾无残留、无超出竖屏安全区 |
 
----
+## 验证层级与保护
 
-## Scene 1: 开场介绍 (3-4秒)
-**目的**: 钩子 + 引出问题
-
-### 元素
-1. 作者标识 (顶部小字)
-2. 钩子问题 (大字)
-3. 两个圆形集合预览
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 作者信息淡入 | `FadeIn(author, shift=DOWN*0.2)` |
-| 0.3s | 钩子文字书写 | `Write(hook_text)` |
-| 1.0s | 两个圆形集合创建 | `Create(circle_A), Create(circle_B)` |
-| 2.5s | 等待 | `Wait(1.0)` |
-
-### 清理
-- FadeOut: hook_text
-- 保留: circles, author_info
-
----
-
-## Scene 2: 交集演示 (8-10秒)
-**目的**: 演示交集的定义和计算
-
-### 元素
-1. 标题: "交集 A ∩ B"
-2. 定义文字
-3. 两个圆形集合
-4. 交集区域高亮
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 标题淡入 | `FadeIn(title)` |
-| 0.5s | 定义公式书写 | `Write(formula)` |
-| 1.5s | 圆A填充动画 | `circle_A.animate.set_fill(opacity=0.3)` |
-| 2.0s | 圆B填充动画 | `circle_B.animate.set_fill(opacity=0.3)` |
-| 2.5s | 交集区域高亮 | `FadeIn(intersection_region)` |
-| 3.5s | 示例元素展示 | `FadeIn(example_elements)` |
-| 5.5s | 等待理解 | `Wait(2.0)` |
-
-### 清理
-- FadeOut: title, formula, intersection_region, example_elements
-- 保留: circles
-
----
-
-## Scene 3: 并集演示 (8-10秒)
-**目的**: 演示并集的定义和计算
-
-### 元素
-1. 标题: "并集 A ∪ B"
-2. 定义文字
-3. 两个圆形集合
-4. 并集区域高亮
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 标题淡入 | `FadeIn(title)` |
-| 0.5s | 定义公式书写 | `Write(formula)` |
-| 1.5s | 并集区域高亮 | `FadeIn(union_region)` |
-| 2.5s | 示例元素展示 | `FadeIn(example_elements)` |
-| 5.0s | 等待理解 | `Wait(2.0)` |
-
-### 清理
-- FadeOut: title, formula, union_region, example_elements
-- 保留: circles
-
----
-
-## Scene 4: 补集演示 (8-10秒)
-**目的**: 演示补集的定义和计算
-
-### 元素
-1. 全集矩形U
-2. 标题: "补集 ∁ᵤA"
-3. 定义文字
-4. 补集区域高亮
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 全集矩形创建 | `Create(universal_set)` |
-| 0.8s | 标题淡入 | `FadeIn(title)` |
-| 1.3s | 定义公式书写 | `Write(formula)` |
-| 2.3s | 补集区域高亮 | `FadeIn(complement_region)` |
-| 4.0s | 等待理解 | `Wait(2.0)` |
-
-### 清理
-- FadeOut: title, formula, complement_region
-- 保留: universal_set, circles
-
----
-
-## Scene 5: 运算性质1 (6-8秒)
-**目的**: 展示基本性质
-
-### 元素
-1. 标题: "基本性质"
-2. 公式列表
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 标题淡入 | `FadeIn(title)` |
-| 0.5s | 性质1展示 | `Write(property_1)` |
-| 1.5s | 性质2展示 | `Write(property_2)` |
-| 3.0s | 等待 | `Wait(2.0)` |
-
-### 清理
-- FadeOut: all properties
-- 保留: universal_set, circles
-
----
-
-## Scene 6: 运算性质2 (6-8秒)
-**目的**: 展示补集性质
-
-### 元素
-1. 标题: "补集性质"
-2. 公式列表
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 性质1展示 | `Write(property_1)` |
-| 1.0s | 性质2展示 | `Write(property_2)` |
-| 2.5s | 等待 | `Wait(2.0)` |
-
-### 清理
-- FadeOut: all properties
-- 保留: none
-
----
-
-## Scene 7: 综合示例 (8-10秒)
-**目的**: 综合应用示例
-
-### 元素
-1. 具体数字集合
-2. 计算过程
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 示例题目展示 | `Write(example)` |
-| 1.5s | 集合创建 | `Create(sets)` |
-| 3.0s | 结果展示 | `Write(result)` |
-| 5.0s | 等待 | `Wait(2.0)` |
-
-### 清理
-- FadeOut: all
-- 保留: none
-
----
-
-## Scene 8: 片尾关注 (3-4秒)
-**目的**: 引导关注
-
-### 元素
-1. 作者信息放大
-2. 关注提示
-3. 装饰元素
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 作者信息放大 | `Transform(author)` |
-| 0.8s | 关注提示淡入 | `FadeIn(follow_text)` |
-| 2.0s | 装饰动画 | `Rotate(decorations)` |
-
-### 清理
-- FadeOut: all
-
----
-
-## 元素生命周期追踪表
-| 元素 | 创建场景 | 销毁场景 | 备注 |
-|------|---------|---------|------|
-| author_info | Scene 1 | Scene 8 | 作者信息 |
-| circle_A | Scene 1 | Scene 7 | 集合A |
-| circle_B | Scene 1 | Scene 7 | 集合B |
-| universal_set | Scene 4 | Scene 7 | 全集 |
-| hook_text | Scene 1 | Scene 1 | 开场钩子 |
-
----
-
-## 动画节奏说明
-- 开场快节奏吸引注意 (3-4秒)
-- 核心概念详细讲解 (每个8-10秒)
-- 性质快速展示 (每个6-8秒)
-- 片尾引导关注 (3-4秒)
-- 总时长: 60-75秒
+1. `python -m py_compile set_operations.py verify_set_operations.py`。
+2. `python verify_set_operations.py`：纯 Python 从真实 Scene AST 提取数学模型、圆心半径及 8 个元素位置，校验所有交并补结论与退化输入。
+3. `python .opencode/skills/manim-video-production/scripts/audit_scene.py <本课/set_operations.py> --json`；AST 告警逐条判断。
+4. 在确有 Manim、TeX、中文字体时：`manim -ql set_operations.py SetOperations`；逐镜查看首帧、着色图层、中文、数学式、公式与具体数字的空间对应；高质量版本用 `ffprobe` 验证宽高、帧率及音轨。当前未执行的层级必须写 `not_run`，不得用旧 MP4 充当验收。
+5. 不覆盖本课程原有 `.mp4` 或音轨；没有真实媒体验收前保持 PR 为 Draft。

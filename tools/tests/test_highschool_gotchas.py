@@ -27,8 +27,21 @@ class HighSchoolGotchaContracts(unittest.TestCase):
             findings = audit_source(source, str(path))
             self.assertFalse(any(item['code'] == 'UNICODE_IN_TEX' for item in findings),
                              findings)
-            self.assertIn('^{{\\circ}}', source)
-        self.assertIn('int(round(np.degrees(angle)))', RATIO.read_text(encoding='utf-8'))
+            # f-string braces are doubled; raw MathTex literals need not double
+            # them. Both forms compile to a valid LaTeX degree symbol.
+            self.assertTrue(any(marker in source for marker in
+                                (r'^{{\circ}}', r'^{\circ}', r'^\circ')),
+                            f'Missing LaTeX degree notation in {path}')
+        ratio_source = RATIO.read_text(encoding='utf-8')
+        # The original Scene rounds an animated angle, while the revised Scene
+        # drives its exact quadrant labels and geometry from the same degrees.
+        self.assertTrue(
+            'int(round(np.degrees(angle)))' in ratio_source
+            or ('trig_coordinates(degrees)' in ratio_source
+                and 'angle = MathTex(fr' in ratio_source
+                and r'^\circ' in ratio_source),
+            'Angle labels must derive from the same angle as the geometry',
+        )
 
     def test_sine_scene_is_not_nested_play_or_chinese_tex(self):
         source = SINE.read_text(encoding='utf-8')
@@ -38,7 +51,7 @@ class HighSchoolGotchaContracts(unittest.TestCase):
         self.assertIn('self.play(*[FadeOut(m) for m in list(self.mobjects)]', source)
         self.assertNotIn('self.play(self.play(', source)
         self.assertIn('self.x_range = [-2*np.pi, 2*np.pi, np.pi/2]', source)
-        self.assertIn('T=\\frac{2\\pi}{|\\omega|}', source)
+        self.assertIn(r'T=\frac{2\pi}{|\omega|}', source)
 
     def test_math_invariants_for_negative_omega(self):
         for omega in (-4.0, -2.0, 1.0, 2.0, 4.0):
@@ -48,20 +61,21 @@ class HighSchoolGotchaContracts(unittest.TestCase):
                                        math.sin(omega * x), places=12)
 
     def test_custom_ctex_is_explicit_opt_in(self):
-        ctex = ast.parse('MathTex(r"\\text{圆心}", tex_template=TexTemplateLibrary.ctex)')
-        default = ast.parse('MathTex(r"\\text{圆心}")')
+        ctex = ast.parse(r'MathTex(r"\text{圆心}", tex_template=TexTemplateLibrary.ctex)')
+        default = ast.parse(r'MathTex(r"\text{圆心}")')
         self.assertEqual({1}, _ctex_calls(ctex))
         self.assertEqual(set(), _ctex_calls(default))
 
     def test_all_grades_have_no_untriaged_gotchas(self):
         data = audit(ROOT)
-        # New high-school lessons increase the source count; keep historical
-        # coverage floors, while requiring every newly discovered file to be clean.
+        # 新课程增加文件数；把历史基线作为下界，同时要求错误/警告为零。
         for grade, baseline in {'高一': 49, '高二': 42, '高三': 40}.items():
             self.assertGreaterEqual(data['grades'][grade], baseline, data['grades'])
         self.assertEqual(0, data['errors'], data['findings'])
         self.assertEqual(0, data['warnings'], data['findings'])
-        self.assertEqual(3, data['information'], data['findings'])
+        # 修复中文 MathTex/ctex 依赖后，信息级待渲染提醒应当减少；
+        # 固定等于 3 会把真实改进错误地判为 CI 失败。
+        self.assertLessEqual(data['information'], 3, data['findings'])
 
 
 if __name__ == '__main__':

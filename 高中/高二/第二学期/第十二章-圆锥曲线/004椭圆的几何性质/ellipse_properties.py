@@ -1,56 +1,95 @@
-"""
-椭圆的几何性质动画 - Ellipse Geometric Properties Animation
-使用 Manim 创建的高中几何教学视频
+"""椭圆几何性质：数据坐标驱动焦点、准线、焦半径、通径和可见动画。
 
-内容: 离心率、准线、通径、焦半径、对称性
-目标观众: 高二学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
+保留 EllipseProperties 与九个原分镜入口；不覆盖原有视频、音轨及 prompt。
 """
+
+import math
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG_COLOR = "#1a1a2e"
+C_ELLIPSE = "#e74c3c"
+C_FOCUS = "#f39c12"
+C_DIRECTRIX = "#9b59b6"
+C_LATUS = "#16a085"
+FONT = "Noto Sans CJK SC"
+A, B = 3.0, 2.0
+
+
+def ellipse_parameters(a=A, b=B):
+    """横向非退化椭圆的半焦距和离心率，要求 a>b>0。"""
+    if not all(math.isfinite(v) for v in (a, b)) or not a > b > 0:
+        raise ValueError("椭圆需要有限参数 a>b>0")
+    c = math.sqrt((a-b)*(a+b))
+    return c, c/a
+
+
+def ellipse_point(theta, a=A, b=B):
+    if not math.isfinite(theta):
+        raise ValueError("参数角必须有限")
+    ellipse_parameters(a, b)
+    return a*math.cos(theta), b*math.sin(theta)
+
+
+def ellipse_residual(point, a=A, b=B):
+    ellipse_parameters(a, b)
+    x, y = point
+    if not all(math.isfinite(v) for v in (x, y)):
+        raise ValueError("点坐标必须有限")
+    return (x/a)**2+(y/b)**2-1
+
+
+def ellipse_foci(a=A, b=B):
+    c, _ = ellipse_parameters(a, b)
+    return (-c, 0.), (c, 0.)
+
+
+def focal_radii(point, a=A, b=B):
+    f1, f2 = ellipse_foci(a, b)
+    return math.dist(point, f1), math.dist(point, f2)
+
+
+def focal_radius_formula(point, a=A, b=B):
+    """仅对椭圆上的点适用：|PF1|=a+ex，|PF2|=a-ex。"""
+    if abs(ellipse_residual(point, a, b)) > 1e-8:
+        raise ValueError("焦半径公式的点必须位于椭圆上")
+    _, e = ellipse_parameters(a, b)
+    return a+e*point[0], a-e*point[0]
+
+
+def directrix_positions(a=A, b=B):
+    c, _ = ellipse_parameters(a, b)
+    d = a*a/c
+    return -d, d
+
+
+def latus_rectum_endpoints(a=A, b=B):
+    c, _ = ellipse_parameters(a, b)
+    y = b*b/a
+    return (c, -y), (c, y)
+
+
+def axis_units(x_bounds=(-5., 5.), y_bounds=(-4., 4.),
+               x_length=7., y_length=5.6):
+    if (x_bounds[0]>=x_bounds[1] or y_bounds[0]>=y_bounds[1]
+            or not all(math.isfinite(v) and v>0 for v in (x_length, y_length))):
+        raise ValueError("轴域和画面长度必须有效")
+    return x_length/(x_bounds[1]-x_bounds[0]), y_length/(y_bounds[1]-y_bounds[0])
+
 
 class EllipseProperties(Scene):
-    """
-    椭圆几何性质教学动画场景
-    
-    场景顺序:
-    1. 开场钩子
-    2. 范围与对称性
-    3. 离心率概念
-    4. 离心率的影响
-    5. 准线的定义
-    6. 焦半径公式
-    7. 通径
-    8. 性质总结
-    9. 片尾
-    """
-    
+    """九镜：范围对称、离心率、准线、焦半径、通径及可见总结。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#e74c3c"      # 红色 - 椭圆
-        self.COLOR_FOCUS = "#f39c12"        # 橙色 - 焦点
-        self.COLOR_DIRECTRIX = "#9b59b6"    # 紫色 - 准线
-        self.COLOR_LATUS = "#16a085"        # 青绿 - 通径
-        self.COLOR_HIGHLIGHT = YELLOW        # 高亮色
-        self.COLOR_AUXILIARY = GRAY_B        # 辅助线
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
+        self.camera.background_color = BG_COLOR
+        self.author = Text("上海初高中数学直通车 @emptyandcalm",
+                           font=FONT, font_size=17, color=GRAY_B).move_to(UP*6.8)
+        self.add(self.author)
         self.show_opening()
         self.show_range_symmetry()
         self.show_eccentricity_concept()
@@ -60,831 +99,167 @@ class EllipseProperties(Scene):
         self.show_latus_rectum()
         self.show_summary()
         self.show_outro()
-    
-    def setup_geometry(self):
-        """初始化椭圆和所有几何元素"""
-        # 椭圆参数
-        self.a = 3.0  # 长半轴
-        self.b = 2.0  # 短半轴
-        self.c = np.sqrt(self.a**2 - self.b**2)  # 半焦距
-        self.e = self.c / self.a  # 离心率
-        
-        # 准线位置
-        self.directrix_x = self.a**2 / self.c
-        
-        # 通径长度
-        self.latus_length = 2 * self.b**2 / self.a
-        
-        # 缩放因子
-        self.SCALE = 0.65
-        self.OFFSET = UP * 1.0
-        
-        # 坐标系配置
-        self.axes = Axes(
-            x_range=[-5, 5, 1],
-            y_range=[-3, 3, 1],
-            x_length=8 * self.SCALE,
-            y_length=5 * self.SCALE,
-            axis_config={
-                "include_numbers": False,
-                "stroke_color": GRAY_B,
-                "stroke_width": 2
-            }
-        ).move_to(self.OFFSET)
-        
-        # 坐标轴标签
-        self.x_label = MathTex("x", font_size=24, color=GRAY_A).next_to(
-            self.axes.x_axis.get_end(), RIGHT, buff=0.1
-        )
-        self.y_label = MathTex("y", font_size=24, color=GRAY_A).next_to(
-            self.axes.y_axis.get_end(), UP, buff=0.1
-        )
-        
-        # 焦点位置
-        self.F1 = self.axes.c2p(-self.c, 0)
-        self.F2 = self.axes.c2p(self.c, 0)
-        
-        # 顶点位置
-        self.A1 = self.axes.c2p(-self.a, 0)
-        self.A2 = self.axes.c2p(self.a, 0)
-        self.B1 = self.axes.c2p(0, -self.b)
-        self.B2 = self.axes.c2p(0, self.b)
-        
-        # 验证几何关系
-        self.verify_geometry()
-        
-        print("✓ 几何数据初始化完成")
-        print(f"  a = {self.a}, b = {self.b}, c = {self.c:.4f}")
-        print(f"  e = {self.e:.4f}")
-        print(f"  准线 x = ±{self.directrix_x:.4f}")
-        print(f"  通径 = {self.latus_length:.4f}")
-    
-    def verify_geometry(self):
-        """验证几何关系"""
-        epsilon = 1e-6
-        
-        # 验证 a² = b² + c²
-        if abs(self.a**2 - (self.b**2 + self.c**2)) > epsilon:
-            raise ValueError("关系错误: a² ≠ b² + c²")
-        
-        # 验证离心率范围
-        if not (0 < self.e < 1):
-            raise ValueError(f"离心率错误: e = {self.e} 不在 (0, 1) 范围内")
-        
-        print("✓ 几何关系验证通过")
-    
+
+    def cn(self, text, size=25, color=WHITE):
+        return Text(text, font=FONT, font_size=size, color=color)
+
+    def stage(self, heading, color=GOLD):
+        visible = [obj for obj in self.mobjects if obj is not self.author]
+        if visible:
+            self.play(*[FadeOut(obj) for obj in visible], run_time=0.4)
+        self.play(FadeIn(self.cn(heading, 34, color).move_to(UP*5.9)), run_time=0.4)
+
+    def diagram(self, a=A, b=B, draw_foci=True):
+        ux, uy = axis_units()
+        assert math.isclose(ux, uy, rel_tol=0, abs_tol=1e-12)
+        axes = Axes(x_range=[-5,5,1], y_range=[-4,4,1],
+                    x_length=7., y_length=5.6, tips=False,
+                    axis_config={"color": GRAY_B, "include_numbers": False}).move_to(UP*1.4)
+        curve = Ellipse(width=2*a*ux, height=2*b*uy,
+                        stroke_width=5, color=C_ELLIPSE).move_to(axes.c2p(0,0))
+        self.play(Create(axes), Create(curve), run_time=0.8)
+        if draw_foci:
+            for index, focus in enumerate(ellipse_foci(a, b), start=1):
+                dot = Dot(axes.c2p(*focus), radius=0.085, color=C_FOCUS)
+                label = MathTex(f"F_{index}", font_size=22, color=C_FOCUS).next_to(dot, DOWN, buff=0.1)
+                self.play(FadeIn(dot), FadeIn(label), run_time=0.17)
+        return axes, curve
+
+    def panel(self, title, tex, note, color=YELLOW):
+        rect = RoundedRectangle(width=8.0, height=2.45, corner_radius=0.14,
+                                stroke_width=2, stroke_color=color,
+                                fill_color="#16213e", fill_opacity=0.95).move_to(DOWN*4.6)
+        title_obj = self.cn(title, 22, color).move_to(rect.get_center()+UP*0.75)
+        equation = MathTex(tex, font_size=30).move_to(rect.get_center()+UP*0.02)
+        equation.scale_to_fit_width(min(equation.width, 7.45))
+        note_obj = self.cn(note, 18, GRAY_A).move_to(rect.get_center()+DOWN*0.76)
+        note_obj.scale_to_fit_width(min(note_obj.width, 7.5))
+        self.play(FadeIn(rect), FadeIn(title_obj), Write(equation), FadeIn(note_obj), run_time=0.75)
+
     def show_opening(self):
-        """场景1: 开场钩子"""
-        # 作者信息
-        self.author_info = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7)
-        
-        self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
-        
-        # 钩子问题
-        hook = Text(
-            "椭圆有哪些神奇的性质？",
-            font="PingFang SC",
-            font_size=40,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 6)
-        
-        self.play(Write(hook), run_time=1.0)
-        
-        # 创建坐标系和椭圆
-        axes_group = VGroup(self.axes, self.x_label, self.y_label)
-        self.play(Create(axes_group), run_time=0.8)
-        
-        self.ellipse = Ellipse(
-            width=2 * self.a * self.axes.x_axis.unit_size,
-            height=2 * self.b * self.axes.y_axis.unit_size,
-            color=self.COLOR_PRIMARY,
-            stroke_width=3
-        ).move_to(self.axes.c2p(0, 0))
-        
-        self.play(Create(self.ellipse), run_time=1.5)
-        self.wait(0.5)
-        
-        # 清理钩子
-        self.play(FadeOut(hook), run_time=0.4)
-    
+        self.stage("从椭圆方程探索几何性质")
+        self.diagram()
+        self.panel("标准方程：a=3，b=2，c=√5", r"\frac{x^2}{9}+\frac{y^2}{4}=1",
+                   "以下所有点与长度都使用该坐标系", C_ELLIPSE)
+        self.wait(0.7)
+
     def show_range_symmetry(self):
-        """场景2: 范围与对称性"""
-        # 标题
-        title = Text(
-            "范围与对称性",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 边界矩形
-        boundary_rect = Rectangle(
-            width=2 * self.a * self.axes.x_axis.unit_size,
-            height=2 * self.b * self.axes.y_axis.unit_size,
-            color=self.COLOR_AUXILIARY,
-            stroke_width=2
-        ).move_to(self.axes.c2p(0, 0))
-        
-        self.play(Create(boundary_rect), run_time=1.0)
-        
-        # 范围标注
-        range_x = MathTex(
-            r"-a \leq x \leq a",
-            font_size=22,
-            color=WHITE
-        ).move_to(DOWN * 4)
-        
-        range_y = MathTex(
-            r"-b \leq y \leq b",
-            font_size=22,
-            color=WHITE
-        ).next_to(range_x, DOWN, buff=0.2)
-        
-        self.play(FadeIn(range_x), FadeIn(range_y), run_time=0.8)
-        
-        # 对称性演示 - 创建测试点
-        test_point = Dot(self.axes.c2p(2, 1.3), color=YELLOW, radius=0.06)
-        self.play(FadeIn(test_point, scale=0.5), run_time=0.5)
-        
-        # x轴对称
-        mirror_x = Dot(self.axes.c2p(2, -1.3), color=YELLOW, radius=0.06)
-        self.play(FadeIn(mirror_x), run_time=0.5)
-        self.wait(0.5)
-        
-        # y轴对称
-        mirror_y = Dot(self.axes.c2p(-2, 1.3), color=YELLOW, radius=0.06)
-        self.play(FadeIn(mirror_y), run_time=0.5)
-        
-        # 原点对称
-        mirror_o = Dot(self.axes.c2p(-2, -1.3), color=YELLOW, radius=0.06)
-        self.play(FadeIn(mirror_o), run_time=0.5)
-        
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(boundary_rect),
-            FadeOut(range_x),
-            FadeOut(range_y),
-            FadeOut(test_point),
-            FadeOut(mirror_x),
-            FadeOut(mirror_y),
-            FadeOut(mirror_o),
-            run_time=0.6
-        )
-    
+        self.stage("① 椭圆范围与四重对称")
+        ax, curve = self.diagram()
+        bounds = Rectangle(width=2*A*axis_units()[0], height=2*B*axis_units()[1],
+                           color=GRAY_B, stroke_width=2).move_to(ax.c2p(0,0))
+        self.play(Create(bounds), run_time=0.45)
+        theta = math.pi/4
+        x, y = ellipse_point(theta)
+        # 原例 (2, 1.3) 不在曲线上；四个对称点必须与标准方程逐个对应。
+        for px, py in ((x,y), (x,-y), (-x,y), (-x,-y)):
+            assert abs(ellipse_residual((px, py))) < 1e-10
+            self.play(FadeIn(Dot(ax.c2p(px,py), radius=0.11, color=YELLOW)), run_time=0.23)
+        self.panel("横轴、纵轴与原点均为对称元素",
+                   r"-3\le x\le3,\quad -2\le y\le2",
+                   "每个对称点都满足同一个椭圆方程", C_ELLIPSE)
+        self.wait(0.75)
+
     def show_eccentricity_concept(self):
-        """场景3: 离心率概念"""
-        # 标题
-        title = Text(
-            "离心率",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 公式
-        formula = MathTex(
-            r"e = \frac{c}{a}",
-            font_size=32,
-            color=WHITE
-        ).move_to(UP * 4.5)
-        
-        self.play(Write(formula), run_time=1.0)
-        
-        # 焦点标记
-        f1_dot = Dot(self.F1, color=self.COLOR_FOCUS, radius=0.08)
-        f2_dot = Dot(self.F2, color=self.COLOR_FOCUS, radius=0.08)
-        
-        f1_label = MathTex("F_1", font_size=20, color=self.COLOR_FOCUS).next_to(
-            f1_dot, DOWN, buff=0.1
-        )
-        f2_label = MathTex("F_2", font_size=20, color=self.COLOR_FOCUS).next_to(
-            f2_dot, DOWN, buff=0.1
-        )
-        
-        self.play(
-            FadeIn(f1_dot, scale=0.5),
-            FadeIn(f1_label),
-            FadeIn(f2_dot, scale=0.5),
-            FadeIn(f2_label),
-            run_time=1.2
-        )
-        
-        # c 标注
-        c_line = Line(self.F1, self.F2, color=self.COLOR_FOCUS, stroke_width=3)
-        c_brace = Brace(c_line, direction=DOWN, buff=0.3, color=self.COLOR_FOCUS)
-        c_label = MathTex("2c", font_size=22, color=self.COLOR_FOCUS).next_to(
-            c_brace, DOWN, buff=0.05
-        )
-        
-        self.play(Create(c_line), FadeIn(c_brace), FadeIn(c_label), run_time=1.0)
-        
-        # a 标注
-        a_line = Line(self.axes.c2p(0, 0), self.A2, color=self.COLOR_PRIMARY, stroke_width=3)
-        a_label = MathTex("a", font_size=22, color=self.COLOR_PRIMARY).next_to(
-            a_line.get_center(), UP, buff=0.1
-        )
-        
-        self.play(Create(a_line), FadeIn(a_label), run_time=0.8)
-        
-        # e 值计算
-        e_value = MathTex(
-            f"e = \\frac{{{self.c:.3f}}}{{{self.a}}} \\approx {self.e:.3f}",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 3.5)
-        
-        self.play(Write(e_value), run_time=1.2)
-        
-        # 范围说明
-        range_text = MathTex(
-            r"0 < e < 1",
-            font_size=24,
-            color=WHITE
-        ).move_to(DOWN * 4.5)
-        
-        self.play(FadeIn(range_text), run_time=0.6)
-        
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(formula),
-            FadeOut(c_line),
-            FadeOut(c_brace),
-            FadeOut(c_label),
-            FadeOut(a_line),
-            FadeOut(a_label),
-            FadeOut(e_value),
-            FadeOut(range_text),
-            run_time=0.6
-        )
-        
-        # 保存焦点
-        self.f1_dot = f1_dot
-        self.f1_label = f1_label
-        self.f2_dot = f2_dot
-        self.f2_label = f2_label
-    
+        self.stage("② 离心率是半焦距与长半轴之比")
+        ax, curve = self.diagram()
+        c, e = ellipse_parameters()
+        self.play(Create(Line(ax.c2p(0,0), ax.c2p(c,0), color=C_FOCUS, stroke_width=4)),
+                  run_time=0.5)
+        self.panel("焦距为 2c，不要把焦距和半焦距混淆",
+                   r"e=\frac ca=\frac{\sqrt5}{3}\approx0.745",
+                   "非退化椭圆满足 0<e<1", C_FOCUS)
+        self.wait(0.85)
+
     def show_eccentricity_effect(self):
-        """场景4: 离心率的影响"""
-        # 标题
-        title = Text(
-            "离心率的影响",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 原始椭圆淡化
-        self.play(self.ellipse.animate.set_stroke(opacity=0.3), run_time=0.4)
-        
-        # e → 1 (椭圆变扁)
-        text_flat = Text(
-            "e 接近 1，椭圆越扁",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 4.5)
-        
-        # 创建扁椭圆
-        flat_ellipse = Ellipse(
-            width=2 * self.a * self.axes.x_axis.unit_size,
-            height=2 * 0.7 * self.axes.y_axis.unit_size,  # b变小
-            color=YELLOW,
-            stroke_width=3
-        ).move_to(self.axes.c2p(0, 0))
-        
-        self.play(Create(flat_ellipse), FadeIn(text_flat), run_time=1.5)
-        self.wait(1.0)
-        
-        # 恢复
-        self.play(FadeOut(flat_ellipse), FadeOut(text_flat), run_time=0.5)
-        
-        # e → 0 (椭圆变圆)
-        text_round = Text(
-            "e 接近 0，椭圆越圆",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 4.5)
-        
-        # 创建圆椭圆
-        round_ellipse = Ellipse(
-            width=2 * self.a * self.axes.x_axis.unit_size,
-            height=2 * 2.8 * self.axes.y_axis.unit_size,  # b接近a
-            color=YELLOW,
-            stroke_width=3
-        ).move_to(self.axes.c2p(0, 0))
-        
-        self.play(Create(round_ellipse), FadeIn(text_round), run_time=1.5)
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(round_ellipse),
-            FadeOut(text_round),
-            FadeOut(title),
-            run_time=0.5
-        )
-        
-        # 恢复原椭圆
-        self.play(self.ellipse.animate.set_stroke(opacity=1.0), run_time=0.3)
-        
-        # 极限说明
-        limit_text = Text(
-            "e=0时为圆，e=1时退化为线段",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(limit_text, shift=UP * 0.2), run_time=0.8)
-        self.wait(1.5)
-        self.play(FadeOut(limit_text), run_time=0.4)
-    
+        self.stage("③ 固定长半轴 a，比较不同离心率")
+        ax, base = self.diagram()
+        flat_b, round_b = 0.65, 2.99
+        _, flat_e = ellipse_parameters(A, flat_b)
+        _, round_e = ellipse_parameters(A, round_b)
+        for b, e, explanation in ((flat_b, flat_e, "e 接近 1：椭圆较扁"),
+                                  (round_b, round_e, "e 接近 0：椭圆接近圆")):
+            new_ellipse = Ellipse(width=2*A*axis_units()[0],
+                                  height=2*b*axis_units()[1],
+                                  color=YELLOW, stroke_width=5).move_to(ax.c2p(0,0))
+            label = self.cn(explanation, 23, YELLOW).move_to(DOWN*2.55)
+            formula = MathTex(rf"a=3,\quad b={b:.2f},\quad e\approx{e:.3f}",
+                              font_size=27).move_to(DOWN*3.05)
+            self.play(Create(new_ellipse), FadeIn(label), FadeIn(formula), run_time=0.65)
+            self.wait(0.55)
+            self.play(FadeOut(new_ellipse), FadeOut(label), FadeOut(formula), run_time=0.35)
+        self.panel("圆是 e→0 的极限，线段是 e→1 的退化极限",
+                   r"e=\sqrt{1-\frac{b^2}{a^2}}",
+                   "本课只讨论 a>b>0 的非退化椭圆", C_ELLIPSE)
+        self.wait(0.75)
+
     def show_directrix(self):
-        """场景5: 准线的定义"""
-        # 标题
-        title = Text(
-            "准线",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_DIRECTRIX
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 公式
-        formula = MathTex(
-            r"x = \pm \frac{a^2}{c}",
-            font_size=30,
-            color=WHITE
-        ).move_to(UP * 4.7)
-        
-        self.play(Write(formula), run_time=1.0)
-        
-        # 右准线
-        directrix_right = DashedLine(
-            self.axes.c2p(self.directrix_x, -4),
-            self.axes.c2p(self.directrix_x, 4),
-            color=self.COLOR_DIRECTRIX,
-            stroke_width=3,
-            dash_length=0.1
-        )
-        
-        # 左准线
-        directrix_left = DashedLine(
-            self.axes.c2p(-self.directrix_x, -4),
-            self.axes.c2p(-self.directrix_x, 4),
-            color=self.COLOR_DIRECTRIX,
-            stroke_width=3,
-            dash_length=0.1
-        )
-        
-        self.play(Create(directrix_right), run_time=0.7)
-        self.play(Create(directrix_left), run_time=0.7)
-        
-        # 准线标注
-        d_label_r = MathTex(
-            r"x = \frac{a^2}{c}",
-            font_size=20,
-            color=self.COLOR_DIRECTRIX
-        ).next_to(directrix_right, UP, buff=0.1)
-        
-        d_label_l = MathTex(
-            r"x = -\frac{a^2}{c}",
-            font_size=20,
-            color=self.COLOR_DIRECTRIX
-        ).next_to(directrix_left, UP, buff=0.1)
-        
-        self.play(FadeIn(d_label_r), FadeIn(d_label_l), run_time=0.8)
-        
-        # 数值计算
-        calculation = MathTex(
-            f"\\frac{{{self.a**2}}}{{{self.c:.3f}}} \\approx {self.directrix_x:.2f}",
-            font_size=24,
-            color=YELLOW
-        ).move_to(DOWN * 4)
-        
-        self.play(Write(calculation), run_time=1.0)
-        
-        # 焦点到准线距离标注
-        distance_line = DashedLine(
-            self.F2,
-            self.axes.c2p(self.directrix_x, 0),
-            color=self.COLOR_AUXILIARY,
-            stroke_width=2,
-            dash_length=0.08
-        )
-        
-        self.play(Create(distance_line), run_time=0.8)
-        
-        distance_value = self.directrix_x - self.c
-        distance_label = MathTex(
-            f"{distance_value:.2f}",
-            font_size=20,
-            color=YELLOW
-        ).next_to(distance_line.get_center(), DOWN, buff=0.1)
-        
-        self.play(FadeIn(distance_label), run_time=0.6)
-        
-        self.wait(2.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(formula),
-            FadeOut(d_label_r),
-            FadeOut(d_label_l),
-            FadeOut(calculation),
-            FadeOut(distance_line),
-            FadeOut(distance_label),
-            run_time=0.6
-        )
-        
-        # 保存准线
-        self.directrix_right = directrix_right
-        self.directrix_left = directrix_left
-    
+        self.stage("④ 两条准线 x=±a²/c", C_DIRECTRIX)
+        ax, curve = self.diagram()
+        left, right = directrix_positions()
+        for coordinate, sign in ((left, "-"), (right, "+")):
+            line = DashedLine(ax.c2p(coordinate,-3.7), ax.c2p(coordinate,3.7),
+                              color=C_DIRECTRIX, stroke_width=3, dash_length=0.13)
+            label = MathTex(rf"x={sign}\frac{{9}}{{\sqrt5}}",
+                            font_size=21, color=C_DIRECTRIX).next_to(line, UP, buff=0.08)
+            self.play(Create(line), FadeIn(label), run_time=0.5)
+        self.panel("准线分别位于焦点外侧，且都在轴域内",
+                   r"x=\pm\frac{a^2}{c}=\pm\frac9{\sqrt5}",
+                   "准线与焦点不可画在同一个 x 坐标上", C_DIRECTRIX)
+        self.wait(0.75)
+
     def show_focal_radius(self):
-        """场景6: 焦半径公式"""
-        # 标题
-        title = Text(
-            "焦半径",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 椭圆上一点P (取第一象限)
-        t = np.pi / 4
-        x_p = self.a * np.cos(t)
-        y_p = self.b * np.sin(t)
-        point_P = Dot(self.axes.c2p(x_p, y_p), color=YELLOW, radius=0.08)
-        p_label = Text("P", font="PingFang SC", font_size=22, color=WHITE).next_to(
-            point_P, UP + RIGHT, buff=0.1
-        )
-        
-        self.play(FadeIn(point_P, scale=0.5), FadeIn(p_label), run_time=0.6)
-        
-        # 连线 PF1, PF2
-        line_pf1 = Line(point_P.get_center(), self.F1, color=self.COLOR_AUXILIARY, stroke_width=2)
-        line_pf2 = Line(point_P.get_center(), self.F2, color=self.COLOR_AUXILIARY, stroke_width=2)
-        
-        self.play(Create(line_pf1), run_time=0.6)
-        self.play(Create(line_pf2), run_time=0.6)
-        
-        # 公式1
-        formula1 = MathTex(
-            r"|PF_1| = a + ex_0",
-            font_size=26,
-            color=WHITE
-        ).move_to(UP * 3.8)
-        
-        self.play(Write(formula1), run_time=1.0)
-        
-        # 公式2
-        formula2 = MathTex(
-            r"|PF_2| = a - ex_0",
-            font_size=26,
-            color=WHITE
-        ).move_to(UP * 3.2)
-        
-        self.play(Write(formula2), run_time=1.0)
-        
-        # x0标注
-        x0_line = DashedLine(
-            self.axes.c2p(x_p, 0),
-            point_P.get_center(),
-            color=GRAY_A,
-            stroke_width=1.5,
-            dash_length=0.06
-        )
-        
-        x0_label = MathTex(
-            "x_0",
-            font_size=20,
-            color=GRAY_A
-        ).next_to(self.axes.c2p(x_p, 0), DOWN, buff=0.1)
-        
-        self.play(Create(x0_line), FadeIn(x0_label), run_time=0.8)
-        
-        # 数值验证
-        r1 = self.a + self.e * x_p
-        r2 = self.a - self.e * x_p
-        
-        verification = Text(
-            f"|PF₁|+|PF₂| = {r1:.2f}+{r2:.2f} = {r1+r2:.2f} = 2a",
-            font="PingFang SC",
-            font_size=20,
-            color=YELLOW
-        ).move_to(DOWN * 4.5)
-        
-        self.play(FadeIn(verification, shift=UP * 0.2), run_time=1.0)
-        
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(point_P),
-            FadeOut(p_label),
-            FadeOut(line_pf1),
-            FadeOut(line_pf2),
-            FadeOut(formula1),
-            FadeOut(formula2),
-            FadeOut(x0_line),
-            FadeOut(x0_label),
-            FadeOut(verification),
-            run_time=0.6
-        )
-    
+        self.stage("⑤ 焦半径：同一椭圆点的两段距离")
+        ax, curve = self.diagram()
+        p = ellipse_point(math.pi/4)
+        f1, f2 = ellipse_foci()
+        actual = focal_radii(p)
+        expected = focal_radius_formula(p)
+        assert all(math.isclose(x,y,abs_tol=1e-10) for x,y in zip(actual, expected))
+        dot = Dot(ax.c2p(*p), radius=0.1, color=YELLOW)
+        self.play(FadeIn(dot), Create(Line(ax.c2p(*p), ax.c2p(*f1), color=C_FOCUS)),
+                  Create(Line(ax.c2p(*p), ax.c2p(*f2), color=C_LATUS)), run_time=0.65)
+        self.panel("左焦点 F₁ 与右焦点 F₂ 的符号不同",
+                   r"|PF_1|=a+ex_0,\quad |PF_2|=a-ex_0",
+                   "两条焦半径之和恒为 2a=6", C_FOCUS)
+        self.wait(0.8)
+
     def show_latus_rectum(self):
-        """场景7: 通径"""
-        # 标题
-        title = Text(
-            "通径",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_LATUS
-        ).move_to(UP * 5.5)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 定义文字
-        definition = Text(
-            "过焦点垂直于长轴的弦",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(UP * 4.8)
-        
-        self.play(FadeIn(definition), run_time=0.9)
-        
-        # 计算通径端点
-        # 过右焦点F2(c, 0)，垂直于x轴，代入椭圆方程
-        # c²/a² + y²/b² = 1
-        # y² = b²(1 - c²/a²) = b²(a² - c²)/a² = b⁴/a²
-        # y = ±b²/a
-        y_latus = self.b**2 / self.a
-        
-        p1 = self.axes.c2p(self.c, y_latus)
-        p2 = self.axes.c2p(self.c, -y_latus)
-        
-        # 通径
-        latus_rectum = Line(p1, p2, color=self.COLOR_LATUS, stroke_width=4)
-        
-        self.play(Create(latus_rectum), run_time=1.0)
-        
-        # 端点标注
-        p1_dot = Dot(p1, color=self.COLOR_LATUS, radius=0.06)
-        p2_dot = Dot(p2, color=self.COLOR_LATUS, radius=0.06)
-        
-        self.play(FadeIn(p1_dot), FadeIn(p2_dot), run_time=0.5)
-        
-        # 公式
-        formula = MathTex(
-            r"\text{长度} = \frac{2b^2}{a}",
-            font_size=28,
-            color=WHITE,
-            tex_template=TexTemplateLibrary.ctex
-        ).move_to(UP * 3.5)
-        
-        self.play(Write(formula), run_time=1.5)
-        
-        # 数值计算
-        calculation = MathTex(
-            f"= \\frac{{2 \\times {self.b**2}}}{{{self.a}}} \\approx {self.latus_length:.2f}",
-            font_size=24,
-            color=YELLOW
-        ).move_to(DOWN * 4)
-        
-        self.play(Write(calculation), run_time=1.0)
-        
-        # 长度标注
-        brace = Brace(latus_rectum, direction=RIGHT, buff=0.1, color=self.COLOR_LATUS)
-        brace_label = MathTex(
-            f"{self.latus_length:.2f}",
-            font_size=20,
-            color=self.COLOR_LATUS
-        ).next_to(brace, RIGHT, buff=0.05)
-        
-        self.play(FadeIn(brace), FadeIn(brace_label), run_time=1.0)
-        
-        self.wait(2.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(definition),
-            FadeOut(latus_rectum),
-            FadeOut(p1_dot),
-            FadeOut(p2_dot),
-            FadeOut(formula),
-            FadeOut(calculation),
-            FadeOut(brace),
-            FadeOut(brace_label),
-            run_time=0.6
-        )
-    
+        self.stage("⑥ 通径：过焦点且垂直长轴的弦", C_LATUS)
+        ax, curve = self.diagram()
+        p, q = latus_rectum_endpoints()
+        assert abs(ellipse_residual(p))<1e-10 and abs(ellipse_residual(q))<1e-10
+        segment = Line(ax.c2p(*p), ax.c2p(*q), color=C_LATUS, stroke_width=5)
+        self.play(Create(segment), FadeIn(Dot(ax.c2p(*p), color=YELLOW)),
+                  FadeIn(Dot(ax.c2p(*q), color=YELLOW)), run_time=0.65)
+        self.panel("端点 (c,±b²/a)，实际坐标长度 8/3",
+                   r"\ell=\frac{2b^2}{a}=\frac83",
+                   "通径过右焦点；左焦点处有对称的一条", C_LATUS)
+        self.wait(0.85)
+
     def show_summary(self):
-        """场景8: 性质总结"""
-        # 清空场景
-        self.play(
-            FadeOut(self.ellipse),
-            FadeOut(self.f1_dot),
-            FadeOut(self.f1_label),
-            FadeOut(self.f2_dot),
-            FadeOut(self.f2_label),
-            FadeOut(self.directrix_right),
-            FadeOut(self.directrix_left),
-            FadeOut(self.axes),
-            FadeOut(self.x_label),
-            FadeOut(self.y_label),
-            run_time=0.5
+        self.stage("椭圆几何性质：由方程到图形")
+        cards = (
+            ("范围与对称", r"|x|\le a,\ |y|\le b", C_ELLIPSE),
+            ("离心率", r"e=c/a,\quad 0<e<1", C_FOCUS),
+            ("两条准线", r"x=\pm a^2/c", C_DIRECTRIX),
+            ("焦半径", r"|PF_1|+|PF_2|=2a", YELLOW),
+            ("通径", r"\ell=2b^2/a", C_LATUS),
         )
-        
-        # 总结标题
-        summary_title = Text(
-            "椭圆的几何性质",
-            font="PingFang SC",
-            font_size=38,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 2.5)
-        
-        self.play(Write(summary_title), run_time=0.5)
-        
-        # 5个性质卡片
-        card1 = self.create_property_card(
-            "对称性",
-            "关于x轴、y轴、原点对称",
-            self.COLOR_PRIMARY,
-            UP * 1.2
-        )
-        
-        card2 = self.create_property_card(
-            "离心率",
-            "e = c/a (0 < e < 1)",
-            self.COLOR_FOCUS,
-            UP * 0.3
-        )
-        
-        card3 = self.create_property_card(
-            "准线",
-            "x = ±a²/c",
-            self.COLOR_DIRECTRIX,
-            DOWN * 0.6
-        )
-        
-        card4 = self.create_property_card(
-            "通径",
-            "长度 = 2b²/a",
-            self.COLOR_LATUS,
-            DOWN * 1.5
-        )
-        
-        card5 = self.create_property_card(
-            "焦半径",
-            "|PF₁|=a+ex₀, |PF₂|=a-ex₀",
-            YELLOW,
-            DOWN * 2.4
-        )
-        
-        cards = VGroup(card1, card2, card3, card4, card5)
-        
-        for i, card in enumerate(cards):
-            self.play(card.animate.shift(RIGHT * 0), run_time=0.5)
-            if i < len(cards) - 1:
-                self.wait(0.3)
-        
-        self.wait(4.0)
-        
-        # 清理
-        self.play(
-            FadeOut(summary_title),
-            FadeOut(cards),
-            run_time=0.5
-        )
-    
-    def create_property_card(self, title, content, color, position):
-        """创建性质卡片"""
-        # 图标
-        icon = Ellipse(
-            width=0.4,
-            height=0.25,
-            fill_color=color,
-            fill_opacity=0.8,
-            stroke_width=0
-        )
-        
-        # 标题
-        title_text = Text(
-            title,
-            font="PingFang SC",
-            font_size=24,
-            color=WHITE
-        )
-        
-        # 内容
-        content_text = Text(
-            content,
-            font="PingFang SC",
-            font_size=18,
-            color=GRAY_A
-        )
-        
-        # 组合
-        card = VGroup(icon, title_text, content_text).arrange(RIGHT, buff=0.25)
-        card.move_to(position)
-        
-        # 初始位置在左侧外
-        card.shift(LEFT * 10)
-        
-        return card
-    
+        for index, (name, formula, color) in enumerate(cards):
+            center_y = 3.9-index*2.1
+            box = RoundedRectangle(width=7.8, height=1.7, corner_radius=0.12,
+                                   stroke_color=color, stroke_width=2,
+                                   fill_color="#16213e", fill_opacity=0.95).move_to(UP*center_y)
+            title = self.cn(name, 23, color).move_to(box.get_center()+UP*0.45)
+            math_formula = MathTex(formula, font_size=28).move_to(box.get_center()+DOWN*0.35)
+            self.play(FadeIn(VGroup(box,title,math_formula), shift=RIGHT*0.25), run_time=0.35)
+        self.wait(1.4)
+
     def show_outro(self):
-        """场景9: 片尾"""
-        # 作者信息放大
-        author_name = Text(
-            "上海初高中数学直通车",
-            font="PingFang SC",
-            font_size=40,
-            color=WHITE
-        ).move_to(UP * 1.5)
-        
-        author_id = Text(
-            "@emptyandcalm",
-            font="PingFang SC",
-            font_size=32,
-            color=GRAY_B
-        ).move_to(UP * 0.5)
-        
-        self.play(
-            Transform(self.author_info, author_name),
-            run_time=0.8
-        )
-        self.play(FadeIn(author_id, shift=UP * 0.3), run_time=0.5)
-        
-        # 关注提示
-        follow_text = Text(
-            "关注我, 掌握更多数学知识!",
-            font="PingFang SC",
-            font_size=30,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 0.5)
-        
-        self.play(FadeIn(follow_text, shift=UP * 0.3, scale=1.1), run_time=0.6)
-        
-        # 装饰椭圆
-        ellipses = VGroup(*[
-            Ellipse(
-                width=0.6,
-                height=0.4,
-                color=self.COLOR_PRIMARY,
-                fill_opacity=0.5,
-                stroke_width=2
-            ).move_to(
-                follow_text.get_center() + 2.5 * np.array([np.cos(i * PI / 3), np.sin(i * PI / 3), 0])
-            )
-            for i in range(6)
-        ])
-        
-        self.play(
-            *[FadeIn(ellipse, scale=0.5) for ellipse in ellipses],
-            run_time=0.8,
-            lag_ratio=0.1
-        )
-        
-        self.play(Rotate(ellipses, angle=PI, run_time=1.5))
-        self.wait(0.5)
-        
-        # 全部淡出
-        self.play(
-            FadeOut(self.author_info),
-            FadeOut(author_id),
-            FadeOut(follow_text),
-            FadeOut(ellipses),
-            run_time=1.0
-        )
-
-
-# 运行命令:
-# manim -pql ellipse_properties.py EllipseProperties  # 快速预览
-# manim -qh ellipse_properties.py EllipseProperties   # 高质量渲染
+        self.stage("核对条件、坐标和实际图形")
+        self.play(FadeIn(self.cn("每个公式都应与同一幅几何图相对应", 26)
+                         .move_to(UP*1.1)),
+                  FadeIn(self.cn("@emptyandcalm", 26, GRAY_A).move_to(DOWN*0.6)),
+                  run_time=0.65)
+        self.wait(1.3)

@@ -1,192 +1,23 @@
-# 充分条件与必要条件 - 动画分镜脚本
+# 充分条件与必要条件｜对应 `sufficient_necessary_conditions.py` 的五镜分镜
 
-## 元信息
-- 目标时长: 60-90 秒
-- 场景数量: 5 个
-- 难度等级: 中等
-- 针对年级: 高一
-- 章节: 第一章 集合与命题
+## 数学定义与画面约束
 
-## 颜色配置
-```python
-COLOR_LOGIC = "#3498db"        # 蓝色 - 逻辑关系
-COLOR_SUFFICIENT = "#e74c3c"   # 红色 - 充分条件
-COLOR_NECESSARY = "#2ecc71"    # 绿色 - 必要条件
-COLOR_EQUIVALENT = "#f39c12"   # 橙色 - 充要条件
-COLOR_SET = "#9b59b6"          # 紫色 - 集合关系
-COLOR_AUXILIARY = GRAY_B       # 辅助元素颜色
-COLOR_HIGHLIGHT = YELLOW       # 高亮颜色
-```
+前两课例始终在实数论域 `x∈ℝ` 中使用 `p: x>2` 与 `q: x>0`，所以 `p⇒q`，即 p 是 q 的充分条件，q 是 p 的必要条件；反向 `q⇒p` 为假，反例 `x=1`。对应的解集 `P=(2,+∞)` 严格包含于 `Q=(0,+∞)`。
 
-## 几何预计算清单
-| 元素 | 计算公式 | 存储变量 |
-|------|---------|---------|
-| 命题P集合中心 | 由逻辑决定 | self.set_P |
-| 命题Q集合中心 | 由逻辑决定 | self.set_Q |
-| 集合半径 | 设定固定值 | self.radius |
+**充要镜必须明示换了一组条件**：`r: |x|<1`、`s: -1<x<1`，二者解集 R 与 S 相同，因此 `r⇔s`。不能把原本真包含的 P/Q 两圆直接移动为相等后继续沿用原来的 p/q 文案。
 
----
+竖屏逻辑范围 9×16，建议安全区 x∈[-4,4]、y∈[-7,7]；作者标识 y≈6.8、标题 y≈5.65、集合图中心 y≈1.35、定义与示例安排在 y≈-1.9 到 -5.05，不再使用旧片尾 y=-7.5 的溢出位置。理论坐标检测不能代替实际 Mobject 包围盒检测。
 
-## Scene 1: 开场介绍 (4-5秒)
-**目的**: 引出充分条件与必要条件的概念
+| 镜头 / Scene 方法 | learning_fact / 数学条件 | 可见状态、生命周期与检查 |
+|---|---|---|
+| 1 `show_opening` | `p⇒q` 表示 p 成立必能推出 q | 简要展示箭头与标题；作者标识常驻，临时对象退场；不能把箭头读成 q⇒p |
+| 2 `show_sufficient_condition` | 在 ℝ 上 `x>2 ⇒ x>0`；P 真包含于 Q | Q 圆半径 1.92、中心 (0,1.35)；P 圆半径 1.12、中心 (-0.5,1.35)；圆心距 + 小半径 < 大半径。显示 p/q 的数学式与 P⊊Q；结尾保留同一个 `inclusion` 图组 |
+| 3 `show_necessary_condition` | q 对 p 必要，不意味着 q 对 p 充分 | 直接沿用镜头 2 的集合对象；屏上仍为 p⇒q 与 q⇐p，显示 x=1 时 q 真 p 假，结束后完整移除 `inclusion` |
+| 4 `show_equivalent_condition` | 新定义 r、s，`|x|<1 ⇔ -1<x<1` | 先说明条件已更换；R/S 同心同半径，用实线与虚线轮廓表示同一解集；本镜所有对象按原始引用清理 |
+| 5 `show_summary` | p 对 q 充分、q 对 p 必要；r 与 s 互为充要 | 同屏呈现三行方向关系，强调只有双向蕴含才是充要；作者和卡片全部退出，文字位于竖屏安全区 |
 
-### 元素
-1. 作者标识 (顶部小字)
-2. 主题标题
-3. 核心概念介绍
+## 分层回归
 
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 作者信息淡入 | `FadeIn(author, shift=DOWN*0.2)` |
-| 0.3s | 主题标题书写 | `Write(title)` |
-| 1.1s | 副标题出现 | `FadeIn(subtitle)` |
-| 2.1s | 核心概念出现 | `Write(concept)` |
-| 3.5s | 等待 | `Wait(0.5)` |
-
-### 元素
-- 作者: `Text("上海初高中数学直通车 @emptyandcalm", ...)`
-- 标题: `Text("充分条件与必要条件", ...)`
-- 副标题: `Text("逻辑推理的重要概念", ...)`
-- 概念: `MathTex(r"p \Rightarrow q")`
-
-### 清理
-- 保留: 标题、副标题
-
----
-
-## Scene 2: 充分条件解释 (15-20秒)
-**目的**: 解释什么是充分条件，p是q的充分条件
-
-### 元素
-1. 命题P的集合表示
-2. 命题Q的集合表示
-3. 集合关系可视化 (P⊆Q)
-4. 文字解释
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 清理前一幕 | `FadeOut(...)` |
-| 0.2s | 显示P集合 | `Create(set_P)` |
-| 1.0s | 显示Q集合 | `Create(set_Q)` |
-| 2.0s | 调整位置展示P⊆Q关系 | `set_P.animate.move_to(...)` |
-| 3.0s | 添加箭头表示蕴含关系 | `Create(arrow)` |
-| 4.0s | 添加充分条件标签 | `Write(sufficient_label)` |
-| 5.0s | 添加定义文字 | `Write(def_sufficient)` |
-| 6.0s | 高亮展示 | `Indicate(...) or Flash(...)` |
-
-### 元素
-- P集合: `Circle(color=COLOR_SUFFICIENT, ...)`
-- Q集合: `Circle(color=COLOR_LOGIC, ...)`
-- 箭头: `Arrow(...)`
-- 标签: `Text("充分条件", ...)`
-- 定义: `Text("p是q的充分条件", ...)`
-
-### 清理
-- 保留: 集合图示、箭头、部分标签
-
----
-
-## Scene 3: 必要条件解释 (15-20秒)
-**目的**: 解释什么是必要条件，q是p的必要条件
-
-### 元素
-1. 之前的集合关系
-2. 必要条件的文字说明
-3. 集合关系的另一种解读
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 保留之前元素 | - |
-| 0.2s | 强调P→Q关系 | `Indicate(arrow)` |
-| 1.0s | 添加q是必要条件标签 | `Write(necessary_label)` |
-| 2.0s | 添加定义文字 | `Write(def_necessary)` |
-| 3.0s | 添加"有它一定行，没它一定不行"说明 | `Write(explanation)` |
-| 4.0s | 举例说明 | `Transform(...) or Write(example)` |
-| 5.0s | 高亮关键部分 | `Flash(...) or ApplyWave(...)` |
-
-### 元素
-- 必要条件标签: `Text("必要条件", ...)`
-- 定义: `Text("q是p的必要条件", ...)`
-- 解释: `Text("有它一定行，没它一定不行", ...)`
-- 例子: `MathTex(r"若x > 2, 则x > 0")`
-
-### 清理
-- 保留: 集合图示、部分关键标签
-
----
-
-## Scene 4: 充要条件讲解 (15-20秒)
-**目的**: 解释充要条件，p⟺q的情况
-
-### 元素
-1. 两个相等的集合 (P=Q)
-2. 双向箭头表示等价关系
-3. 充要条件的定义
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 调整现有集合 | `set_P.animate..., set_Q.animate...` |
-| 1.0s | 展示P=Q的情况 | `Transform(set_Q, equal_set)` |
-| 2.0s | 添加双向箭头 | `Create(double_arrow)` |
-| 3.0s | 添加充要条件标签 | `Write(equivalent_label)` |
-| 4.0s | 添加等价符号 | `Write(symbol_equivalent)` |
-| 5.0s | 添加充要条件定义 | `Write(def_equivalent)` |
-| 6.0s | 高亮等价关系 | `Flash(...) or ApplyWave(...)` |
-
-### 元素
-- 相等集合: `Circle(...) 位置重合`
-- 双向箭头: `DoubleArrow(...)`
-- 标签: `Text("充要条件", ...)`
-- 符号: `MathTex(r"p \iff q")`
-- 定义: `Text("充分必要条件", ...)`
-
-### 清理
-- 保留: 关键视觉元素
-
----
-
-## Scene 5: 总结与应用 (10-15秒)
-**目的**: 总结三种条件，并给出实际应用
-
-### 元素
-1. 三种条件对比表
-2. 实际应用场景
-3. 片尾关注信息
-
-### 动画序列
-| 时间 | 动作 | 代码参考 |
-|------|------|---------|
-| 0.0s | 清理之前元素 | `FadeOut(...)` |
-| 0.2s | 显示条件对比表 | `Write(conditions_table)` |
-| 2.0s | 展示实际例子 | `Write(real_example)` |
-| 3.5s | 添加学习建议 | `Write(advice)` |
-| 5.0s | 作者信息出现 | `FadeIn(final_author)` |
-| 6.0s | 关注提示 | `Write(follow_up)` |
-| 7.0s | 最终效果 | `Indicate(...) or Flash(...)` |
-| 8.0s | 结束 | `Wait(1.0)` |
-
-### 元素
-- 对比表: `Table(...)`
-- 例子: `MathTex(r"x > 2 \Rightarrow x > 0")`
-- 建议: `Text("理解集合关系是关键", ...)`
-- 作者信息: `Text("@emptyandcalm", ...)`
-- 关注提示: `Text("关注我，获得更多数学技巧!", ...)`
-
-### 清理
-- 全部元素淡出
-
----
-
-## 元素生命周期追踪表
-| 元素 | 创建场景 | 销毁场景 | 备注 |
-|------|---------|---------|------|
-| 标题 | Scene 1 | Scene 5 | 主标题 |
-| 集合P | Scene 2 | Scene 5 | 命题P的集合表示 |
-| 集合Q | Scene 2 | Scene 5 | 命题Q的集合表示 |
-| 箭头 | Scene 2 | Scene 5 | 逻辑关系箭头 |
-| 条件标签 | Scene 2-4 | Scene 5 | 充分/必要/充要标签 |
-| 作者信息 | Scene 1 | Scene 5 | 作者标识 |
+1. `python -m py_compile sufficient_necessary_conditions.py verify_conditions_scene.py`；`python verify_conditions_scene.py`。测试从真实 Scene 提取圆心、半径及数学门槛，包含 x=0、1、2、±1 等边界，不导入 Manim。
+2. 运行 `.opencode/skills/manim-video-production/scripts/audit_scene.py`，将 ERROR 修复、WARN 逐项确认。
+3. 只有安装 Manim、TeX、中文字体后才能 `manim -ql sufficient_necessary_conditions.py SufficientNecessaryConditions`；检查首帧、同心圆实虚线、公式、符号、文字宽度和所有关键帧。正式成片另使用 ffprobe 和音轨检查。未执行的层级写 `not_run`，不得覆盖原 MP4 或将旧视频视为本次通过。

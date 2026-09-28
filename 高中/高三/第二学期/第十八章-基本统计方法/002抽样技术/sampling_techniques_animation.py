@@ -1,65 +1,35 @@
-"""
-抽样技术 — Sampling Techniques Animation
-高三数学 第十八章 基本统计方法
-TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""抽样技术：简单随机、随机起点系统抽样、比例分层抽样。
 
+预览：manim -pql sampling_techniques_animation.py SamplingTechniques
+回归：python -m unittest -v test_sampling_techniques_math.py
+"""
+from fractions import Fraction
+from math import comb
 from manim import *
-import numpy as np
+from sampling_techniques_math import (ALLOCATIONS, LAYERS, POPULATION,
+    allocation_rates, random_systematic, simple_random, stratified)
 
-config.pixel_width  = 1080
+config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+config.frame_width = 9
 config.frame_height = 16
 
-BG        = "#1a1a2e"
-C_SIMPLE  = "#e74c3c"
-C_SYS     = "#3498db"
-C_STRAT   = "#2ecc71"
-C_SAMPLE  = "#f39c12"
-C_GOLD    = GOLD
-C_GRAY    = GRAY_B
-C_WHITE   = WHITE
-FONT      = "PingFang SC"
-
-DOT_SPACING = 0.65
-GRID_COLS   = 8
-GRID_ROWS   = 5
-GRID_CX     = 0.0
-GRID_CY     = 1.8
-N_POP       = GRID_COLS * GRID_ROWS
-N_SAMPLE    = 5
-
-
-def grid_pos(col, row, cx=GRID_CX, cy=GRID_CY,
-             sp=DOT_SPACING, cols=GRID_COLS, rows=GRID_ROWS):
-    x = cx + (col - (cols - 1) / 2) * sp
-    y = cy + (row - (rows - 1) / 2) * sp
-    return np.array([x, y, 0.0])
-
-
-def all_grid_positions():
-    pos = []
-    for row in range(GRID_ROWS):
-        for col in range(GRID_COLS):
-            pos.append(grid_pos(col, row))
-    return pos
+FONT = "Noto Sans CJK SC"
+BG = "#1a1a2e"
+CARD = "#16213e"
+RED = "#ef6b68"
+BLUE = "#56a5e8"
+GOLD = "#f1c40f"
+GREEN = "#58d68d"
 
 
 class SamplingTechniques(Scene):
-
     def construct(self):
         self.camera.background_color = BG
-        self.all_pos = all_grid_positions()
-        self.sys_k     = N_POP // N_SAMPLE
-        self.sys_start = 3
-        self.sys_indices = [self.sys_start + i * self.sys_k for i in range(N_SAMPLE)]
-        rng = np.random.default_rng(7)
-        self.simple_indices = sorted(rng.choice(N_POP, N_SAMPLE, replace=False).tolist())
-        self.layers      = [20, 12, 8]
-        self.layer_alloc = [5, 3, 2]
-        self.layer_colors = ["#e8a838", "#5b9cf6", "#a0e080"]
+        self.simple_ids = simple_random(size=5, seed=7)
+        self.system_start, self.system_ids = random_systematic(size=5, seed=13)
+        self.layer_samples = stratified(seed=19)
+        self.stratified_ids = frozenset(i for layer in self.layer_samples for i in layer)
         self.s0_opening()
         self.s1_simple_random()
         self.s2_systematic()
@@ -67,416 +37,117 @@ class SamplingTechniques(Scene):
         self.s4_summary()
         self.s5_outro()
 
-    def T(self, txt, size=28, color=C_WHITE, **kw):
-        return Text(txt, font=FONT, font_size=size, color=color, **kw)
+    def fit(self, mob):
+        """对象安全区保护；成片仍需逐帧查多对象交叠。"""
+        if mob.width > 7.8:
+            mob.scale_to_fit_width(7.8)
+        if mob.height > 13.4:
+            mob.scale_to_fit_height(13.4)
+        if mob.get_left()[0] < -3.9:
+            mob.shift(RIGHT * (-3.9 - mob.get_left()[0]))
+        if mob.get_right()[0] > 3.9:
+            mob.shift(LEFT * (mob.get_right()[0] - 3.9))
+        if mob.get_top()[1] > 6.8:
+            mob.shift(DOWN * (mob.get_top()[1] - 6.8))
+        if mob.get_bottom()[1] < -6.8:
+            mob.shift(UP * (-6.8 - mob.get_bottom()[1]))
+        return mob
 
-    def make_dot(self, pos, color=C_GRAY, r=0.10):
-        return Dot(pos, radius=r, color=color, fill_opacity=0.85)
+    def text(self, content, y, size=26, color=WHITE):
+        return self.fit(Text(content, font=FONT, font_size=size, color=color).move_to(UP * y))
 
-    def build_grid_dots(self, highlight_indices=None,
-                        hi_color=C_SAMPLE, base_color=C_GRAY):
-        hi_set = set(highlight_indices or [])
-        dots = VGroup()
-        for i, pos in enumerate(self.all_pos):
-            c = hi_color if i in hi_set else base_color
-            dots.add(self.make_dot(pos, color=c))
-        return dots
+    def math(self, latex, y, size=34, color=WHITE):
+        """仅使用纯数学 LaTeX，中文文本单独绘制。"""
+        return self.fit(MathTex(latex, font_size=size, color=color).move_to(UP * y))
 
-    def section_title(self, txt, color=C_GOLD):
-        t = self.T(txt, size=38, color=color)
-        t.move_to(UP * 6.0)
-        return t
+    def show(self, mob, duration=0.45):
+        self.play(FadeIn(self.fit(mob)), run_time=duration)
+        return mob
 
-    # ── FIX 1 ─────────────────────────────────────────────────────────────────
-    # formula_box: replaced MathTex(tex_str) with a VGroup(Text label + MathTex)
-    # approach so that Chinese strings never enter MathTex.
-    # The method now accepts `tex_str` (pure LaTeX, no Chinese) and an optional
-    # `label_str` (plain Text shown above the box).
-    # ──────────────────────────────────────────────────────────────────────────
-    def formula_box(self, tex_str, label_str=None, box_color=C_SIMPLE):
-        """公式框 — tex_str 必须是纯 LaTeX（不含中文），中文说明用 label_str"""
-        formula = MathTex(tex_str, font_size=40, color=box_color)
-        formula.move_to(DOWN * 5.2)
-        bg = RoundedRectangle(
-            width=7.2, height=1.05,
-            corner_radius=0.18,
-            fill_color=box_color, fill_opacity=0.12,
-            stroke_color=box_color, stroke_width=1.8
-        ).move_to(formula.get_center())
-        grp = VGroup(bg, formula)
-        if label_str:
-            lbl = self.T(label_str, size=20, color=box_color)
-            lbl.next_to(bg, UP, buff=0.12)
-            grp.add(lbl)
-        return grp
+    def page(self, heading, color=GOLD):
+        if self.mobjects:
+            self.play(*[FadeOut(obj) for obj in tuple(self.mobjects)], run_time=0.3)
+        self.show(self.text("上海初高中数学直通车  @emptyandcalm", 6.5, 19, GRAY_B), 0.15)
+        self.show(self.text(heading, 5.35, 37, color), 0.4)
 
-    def highlight_ring(self, dot, color=C_SAMPLE):
-        return Circle(radius=0.18, color=color, stroke_width=2.5
-                      ).move_to(dot.get_center())
+    def member_grid(self, highlighted=()):
+        """40个编号严格采用1..40顺序排列，抽样序列与高亮格子一致。"""
+        chosen = frozenset(highlighted)
+        assert chosen <= set(POPULATION)
+        cells = VGroup()
+        for member in POPULATION:
+            hit = member in chosen
+            box = RoundedRectangle(
+                width=0.63, height=0.62, corner_radius=0.06,
+                stroke_color=GOLD if hit else GRAY_B,
+                stroke_width=2 if hit else 0.8,
+                fill_color=BLUE if hit else CARD, fill_opacity=0.95,
+            )
+            label = Text(str(member), font=FONT, font_size=19,
+                         color=BG if hit else WHITE)
+            cells.add(VGroup(box, label))
+        return cells.arrange_in_grid(rows=5, cols=8, buff=0.12)
 
     def s0_opening(self):
-        self.author = self.T("上海初高中数学直通车 @emptyandcalm",
-                              size=18, color=C_GRAY).move_to(UP * 7.2)
-        self.play(FadeIn(self.author, shift=DOWN * 0.15), run_time=0.3)
-        hook = self.T("如何从40人中公平地\n抽取5人?", size=40, color=C_GOLD)
-        hook.move_to(UP * 5.4)
-        sub  = self.T("三种抽样方法全解析", size=28, color=C_GRAY)
-        sub.move_to(UP * 4.2)
-        self.play(Write(hook), run_time=0.9)
-        self.play(FadeIn(sub, shift=UP * 0.2), run_time=0.4)
-        dots = VGroup(*[self.make_dot(p) for p in self.all_pos])
-        self.play(
-            LaggedStart(*[GrowFromCenter(d) for d in dots], lag_ratio=0.03),
-            run_time=1.4
-        )
-        q = self.T("?", size=100, color=C_GOLD).move_to(GRID_CY * UP)
-        self.play(FadeIn(q, scale=0.4), run_time=0.4)
-        self.wait(0.4)
-        self.play(FadeOut(q), FadeOut(hook), FadeOut(sub), FadeOut(dots), run_time=0.5)
+        self.page("三种常见抽样技术")
+        self.show(self.text("从40个编号个体中抽取一部分", 3.8, 29))
+        self.show(self.member_grid().move_to(UP * 1.1), 0.8)
+        self.show(self.text("不同抽样方案，能够产生的样本集合不同", -1.9, 25, GOLD))
+        self.show(self.text("以下均为教学用模拟总体", -3.15, 23, GREEN))
+        self.wait(0.7)
 
     def s1_simple_random(self):
-        title = self.section_title("① 简单随机抽样", color=C_SIMPLE)
-        self.play(Write(title), run_time=0.6)
-        def_txt = self.T("每个个体被抽到的概率相等", size=26, color=C_WHITE)
-        def_txt.move_to(UP * 4.9)
-        self.play(FadeIn(def_txt), run_time=0.4)
-        dots = VGroup(*[self.make_dot(p) for p in self.all_pos])
-        self.play(
-            LaggedStart(*[FadeIn(d, scale=0.5) for d in dots], lag_ratio=0.02),
-            run_time=1.0
-        )
-        method1 = self.T("方法1: 抽签法", size=26, color=C_SIMPLE)
-        method1.move_to(DOWN * 0.4)
-        self.play(FadeIn(method1), run_time=0.3)
-        explain1 = self.T("给每人编号 → 抽取签条", size=22, color=C_GRAY)
-        explain1.move_to(DOWN * 1.1)
-        self.play(FadeIn(explain1), run_time=0.3)
-        rings = VGroup()
-        for idx in self.simple_indices:
-            dot = dots[idx]
-            self.play(dot.animate.set_color(C_SIMPLE).scale(1.4), run_time=0.25)
-            ring = self.highlight_ring(dot, C_SIMPLE)
-            self.play(Create(ring), run_time=0.2)
-            rings.add(ring)
-        self.wait(0.5)
-        self.play(FadeOut(method1), FadeOut(explain1), run_time=0.3)
-        for idx in self.simple_indices:
-            dots[idx].set_color(C_GRAY).scale(1 / 1.4)
-        self.play(FadeOut(rings), run_time=0.2)
-        method2 = self.T("方法2: 随机数表法", size=26, color=C_SIMPLE)
-        method2.move_to(DOWN * 0.4)
-        self.play(FadeIn(method2), run_time=0.3)
-        num_strs = ["17", "83", "05", "39", "72",
-                    "04", "61", "28", "90", "53",
-                    "36", "14", "77", "02", "45"]
-        num_group = VGroup()
-        for k, s in enumerate(num_strs):
-            col = k % 5
-            row = k // 5
-            x = -2.0 + col * 1.0
-            y = -1.4 - row * 0.55
-            t = Text(s, font="Courier New", font_size=24,
-                     color=C_GRAY if s not in ["05","04","02","14","36"] else C_SIMPLE)
-            t.move_to(np.array([x, y, 0]))
-            num_group.add(t)
-        self.play(
-            LaggedStart(*[FadeIn(t, scale=0.6) for t in num_group], lag_ratio=0.05),
-            run_time=0.8
-        )
-        explain2 = self.T("查表获取随机编号", size=22, color=C_GRAY)
-        explain2.move_to(DOWN * 2.6)
-        self.play(FadeIn(explain2), run_time=0.3)
-        self.wait(0.6)
-        # ── pure-LaTeX formula (no Chinese inside MathTex) ──
-        fbox = self.formula_box(
-            r"P = \frac{n}{N} = \frac{5}{40} = 12.5\%",
-            label_str="等概率",
-            box_color=C_SIMPLE
-        )
-        self.play(FadeIn(fbox), run_time=0.5)
+        self.page("① 简单随机抽样", RED)
+        assert len(self.simple_ids) == len(set(self.simple_ids)) == 5
+        self.show(self.text("40人中等可能选出任意一个5人子集", 3.8, 26))
+        self.show(self.member_grid(self.simple_ids).move_to(UP * 1.1), 0.8)
+        self.show(self.text("本次抽到：" + "、".join(map(str, self.simple_ids)), -1.8, 23, GOLD))
+        assert comb(40, 5) == 658008
+        self.show(self.math(r"{40\choose5}=658008", -3.05, 37, RED))
+        self.show(self.math(r"P(i\in S)=\frac5{40}=\frac18", -4.35, 32, BLUE))
         self.wait(0.8)
-        self.play(
-            FadeOut(title), FadeOut(def_txt),
-            FadeOut(dots), FadeOut(method2),
-            FadeOut(num_group), FadeOut(explain2),
-            FadeOut(fbox),
-            run_time=0.5
-        )
 
     def s2_systematic(self):
-        title = self.section_title("② 系统抽样", color=C_SYS)
-        self.play(Write(title), run_time=0.6)
-        def_txt = self.T("按相等间隔依次抽取", size=26, color=C_WHITE)
-        def_txt.move_to(UP * 4.9)
-        self.play(FadeIn(def_txt), run_time=0.4)
-        dots = VGroup(*[self.make_dot(p) for p in self.all_pos])
-        self.play(
-            LaggedStart(*[FadeIn(d, scale=0.5) for d in dots], lag_ratio=0.02),
-            run_time=1.0
-        )
-        step1 = self.T("Step1: 总体分成 5 段，每段 8 人", size=22, color=C_GRAY)
-        step1.move_to(DOWN * 0.5)
-        self.play(FadeIn(step1), run_time=0.3)
-        seg_lines = VGroup()
-        for seg in range(1, N_SAMPLE):
-            linear_col = seg * (GRID_COLS / N_SAMPLE)
-            x = GRID_CX + (linear_col - (GRID_COLS - 1) / 2) * DOT_SPACING
-            y_top = GRID_CY + (GRID_ROWS - 1) / 2 * DOT_SPACING + 0.2
-            y_bot = GRID_CY - (GRID_ROWS - 1) / 2 * DOT_SPACING - 0.2
-            line = DashedLine(
-                np.array([x, y_bot, 0]), np.array([x, y_top, 0]),
-                color=C_SYS, dash_length=0.12, stroke_width=1.5
-            )
-            seg_lines.add(line)
-        seg_labels = VGroup()
-        for seg in range(N_SAMPLE):
-            lx_start = (seg * GRID_COLS / N_SAMPLE)
-            lx_end   = ((seg + 1) * GRID_COLS / N_SAMPLE)
-            lx_mid   = (lx_start + lx_end) / 2
-            x = GRID_CX + (lx_mid - (GRID_COLS - 1) / 2) * DOT_SPACING
-            y = GRID_CY + (GRID_ROWS - 1) / 2 * DOT_SPACING + 0.45
-            lbl = self.T(f"段{seg+1}", size=18, color=C_SYS)
-            lbl.move_to(np.array([x, y, 0]))
-            seg_labels.add(lbl)
-        self.play(Create(seg_lines), FadeIn(seg_labels), run_time=0.7)
-        self.wait(0.3)
-        self.play(FadeOut(step1), run_time=0.2)
-        step2 = self.T("Step2: 第一段随机选起点 (编号4)", size=22, color=C_GRAY)
-        step2.move_to(DOWN * 0.5)
-        self.play(FadeIn(step2), run_time=0.3)
-        start_dot = dots[self.sys_start]
-        self.play(start_dot.animate.set_color(C_SAMPLE).scale(1.6), run_time=0.4)
-        start_ring = self.highlight_ring(start_dot, C_SAMPLE)
-        self.play(Create(start_ring), run_time=0.3)
-        self.wait(0.3)
-        self.play(FadeOut(step2), run_time=0.2)
-        step3 = self.T("Step3: 间隔 k=8 依次抽取", size=22, color=C_GRAY)
-        step3.move_to(DOWN * 0.5)
-        self.play(FadeIn(step3), run_time=0.3)
-        sampled_rings = VGroup(start_ring)
-        arrows = VGroup()
-        prev_idx = self.sys_start
-        for idx in self.sys_indices[1:]:
-            dot = dots[idx]
-            arr = Arrow(
-                dots[prev_idx].get_center() + RIGHT * 0.15,
-                dot.get_center() + LEFT  * 0.15,
-                buff=0, color=C_SYS, stroke_width=2.0,
-                max_tip_length_to_length_ratio=0.18
-            )
-            self.play(GrowArrow(arr), run_time=0.25)
-            self.play(dot.animate.set_color(C_SAMPLE).scale(1.6), run_time=0.2)
-            ring = self.highlight_ring(dot, C_SYS)
-            self.play(Create(ring), run_time=0.15)
-            sampled_rings.add(ring)
-            arrows.add(arr)
-            prev_idx = idx
-        self.wait(0.4)
-        fbox = self.formula_box(
-            r"k = \frac{N}{n} = \frac{40}{5} = 8",
-            label_str="抽样间隔",
-            box_color=C_SYS
-        )
-        self.play(FadeIn(fbox), run_time=0.5)
-        self.wait(0.9)
-        self.play(
-            FadeOut(title), FadeOut(def_txt),
-            FadeOut(dots), FadeOut(seg_lines), FadeOut(seg_labels),
-            FadeOut(step3), FadeOut(sampled_rings), FadeOut(arrows),
-            FadeOut(fbox),
-            run_time=0.5
-        )
+        self.page("② 等距系统抽样", BLUE)
+        assert len(self.system_ids) == 5 and 1 <= self.system_start <= 8
+        self.show(self.text("按编号顺序每8人一段，首段随机选一个起点", 3.8, 24))
+        self.show(self.member_grid(self.system_ids).move_to(UP * 1.1), 0.8)
+        self.show(self.math(r"k=\frac{40}{5}=8", -1.9, 37, BLUE))
+        self.show(self.text("本次首段起点：" + str(self.system_start), -2.85, 25, GOLD))
+        self.show(self.text("依次选出编号：" + "、".join(map(str, self.system_ids)), -3.7, 23))
+        self.show(self.text("仅有8种等距样本，不能当作全部5人组合等可能", -4.8, 21, GREEN))
+        self.wait(0.8)
 
     def s3_stratified(self):
-        title = self.section_title("③ 分层抽样", color=C_STRAT)
-        self.play(Write(title), run_time=0.6)
-        def_txt = self.T("按各层比例分别随机抽取", size=26, color=C_WHITE)
-        def_txt.move_to(UP * 4.9)
-        self.play(FadeIn(def_txt), run_time=0.4)
-        scenario = self.T("学校 40 人中抽取 10 人", size=24, color=C_GRAY)
-        scenario.move_to(UP * 4.1)
-        self.play(FadeIn(scenario), run_time=0.3)
-        layer_names  = ["高一  20人", "高二  12人", "高三  8人"]
-        layer_counts = self.layers
-        layer_allocs = self.layer_alloc
-        centers_y    = [2.5, 0.9, -0.7]
-        bw = 6.5; bh = 1.3
-        layer_boxes  = VGroup()
-        layer_labels = VGroup()
-        dot_groups   = VGroup()
-        for i, (name, cnt, alloc, cy, col) in enumerate(
-            zip(layer_names, layer_counts, layer_allocs, centers_y, self.layer_colors)
-        ):
-            rect = RoundedRectangle(
-                width=bw, height=bh, corner_radius=0.18,
-                fill_color=col, fill_opacity=0.15,
-                stroke_color=col, stroke_width=2.2
-            ).move_to(np.array([0, cy, 0]))
-            layer_boxes.add(rect)
-            lbl = self.T(name, size=23, color=col)
-            lbl.move_to(np.array([-2.5, cy, 0]))
-            layer_labels.add(lbl)
-            n_vis = min(cnt, 12)
-            d_grp = VGroup()
-            for j in range(n_vis):
-                dx = -0.5 + (j % 6) * 0.38
-                dy = cy + 0.18 - (j // 6) * 0.38
-                d = self.make_dot(np.array([dx + 1.5, dy, 0]), color=col, r=0.09)
-                d_grp.add(d)
-            dot_groups.add(d_grp)
-        for i in range(3):
-            self.play(
-                FadeIn(layer_boxes[i]),
-                FadeIn(layer_labels[i]),
-                LaggedStart(*[GrowFromCenter(d) for d in dot_groups[i]], lag_ratio=0.04),
-                run_time=0.6
-            )
-        self.wait(0.4)
-        alloc_labels = VGroup()
-        arrows_right = VGroup()
-        for i, (alloc, cy, col) in enumerate(
-            zip(layer_allocs, centers_y, self.layer_colors)
-        ):
-            arr = Arrow(
-                np.array([2.4, cy, 0]), np.array([3.1, cy, 0]),
-                buff=0, color=col, stroke_width=2.5,
-                max_tip_length_to_length_ratio=0.25
-            )
-            lbl = self.T(f"抽 {alloc} 人", size=22, color=col)
-            lbl.move_to(np.array([3.85, cy, 0]))
-            arrows_right.add(arr)
-            alloc_labels.add(lbl)
-        self.play(
-            LaggedStart(
-                *[AnimationGroup(GrowArrow(a), FadeIn(l))
-                  for a, l in zip(arrows_right, alloc_labels)],
-                lag_ratio=0.3
-            ),
-            run_time=1.0
-        )
-
-        # ── FIX 1 applied here ──────────────────────────────────────────────
-        # Original (broken): MathTex(r"\frac{\text{各层抽取数}}{\text{各层总数}} = \frac{n}{N}")
-        # Fix: pure LaTeX with no Chinese inside MathTex; Chinese description goes in label_str
-        fbox = self.formula_box(
-            r"\frac{n_i}{N_i} = \frac{n}{N}",
-            label_str="按比例抽取（各层抽取数 / 各层总数）",
-            box_color=C_STRAT
-        )
-        # ────────────────────────────────────────────────────────────────────
-
-        self.play(FadeIn(fbox), run_time=0.5)
-        note = self.T("总体差异明显时最适用", size=22, color=C_GRAY)
-        note.move_to(DOWN * 6.6)
-        self.play(FadeIn(note), run_time=0.3)
-        self.wait(1.2)
-        self.play(
-            FadeOut(title), FadeOut(def_txt), FadeOut(scenario),
-            FadeOut(layer_boxes), FadeOut(layer_labels), FadeOut(dot_groups),
-            FadeOut(arrows_right), FadeOut(alloc_labels),
-            FadeOut(fbox), FadeOut(note),
-            run_time=0.6
-        )
+        self.page("③ 按比例分层抽样", GREEN)
+        assert tuple(map(len, LAYERS)) == (20, 12, 8)
+        assert tuple(map(len, self.layer_samples)) == ALLOCATIONS
+        assert allocation_rates() == (Fraction(1, 4),) * 3
+        self.show(self.text("总体分三层：20人、12人、8人；共抽10人", 3.85, 24))
+        self.show(self.member_grid(self.stratified_ids).move_to(UP * 1.1), 0.8)
+        for group, layer, size, y, color in zip(
+                self.layer_samples, ("第一层", "第二层", "第三层"), ALLOCATIONS,
+                (-1.85, -2.7, -3.55), (RED, BLUE, GREEN)):
+            self.show(self.text(layer + "抽" + str(size) + "人：" + "、".join(map(str, group)),
+                                y, 21, color))
+        self.show(self.math(r"\frac5{20}=\frac3{12}=\frac2{8}=\frac14", -4.7, 31, GOLD))
+        self.show(self.text("各层内部独立实施无放回随机抽样", -5.65, 22))
+        self.wait(0.9)
 
     def s4_summary(self):
-        title = self.T("三种抽样方法对比", size=38, color=C_GOLD)
-        title.move_to(UP * 6.0)
-        self.play(Write(title), run_time=0.6)
-        banner_bg = RoundedRectangle(
-            width=7.8, height=0.75, corner_radius=0.18,
-            fill_color=C_GOLD, fill_opacity=0.15,
-            stroke_color=C_GOLD, stroke_width=1.5
-        ).move_to(UP * 4.9)
-        banner_txt = self.T("共同点: 等概率抽样", size=26, color=C_GOLD)
-        banner_txt.move_to(banner_bg.get_center())
-        self.play(FadeIn(banner_bg), Write(banner_txt), run_time=0.5)
-        card_data = [
-            ("① 简单随机抽样", C_SIMPLE,
-             "适用: 总体较小\n方法: 抽签/随机数表\n特点: 完全随机"),
-            ("② 系统抽样",    C_SYS,
-             "适用: 总体较大\n方法: 等距间隔 k=N/n\n特点: 操作简便"),
-            ("③ 分层抽样",    C_STRAT,
-             "适用: 总体差异明显\n方法: 各层按比例\n特点: 代表性强"),
-        ]
-        centers_y = [2.8, 1.0, -0.8]
-        cards = VGroup()
-        for (hdr, col, body), cy in zip(card_data, centers_y):
-            bg = RoundedRectangle(
-                width=7.8, height=1.55, corner_radius=0.2,
-                fill_color=col, fill_opacity=0.12,
-                stroke_color=col, stroke_width=2.0
-            ).move_to(np.array([0, cy, 0]))
-            bar = Rectangle(
-                width=0.18, height=1.55,
-                fill_color=col, fill_opacity=1.0, stroke_width=0
-            ).move_to(np.array([-3.81, cy, 0]))
-            h = self.T(hdr, size=24, color=col)
-            h.move_to(np.array([0.3, cy + 0.38, 0]))
-            b = self.T(body, size=18, color=C_WHITE)
-            b.move_to(np.array([0.3, cy - 0.18, 0]))
-            cards.add(VGroup(bg, bar, h, b))
-        for card in cards:
-            self.play(FadeIn(card, shift=RIGHT * 0.3), run_time=0.4)
-        summary_bg = RoundedRectangle(
-            width=7.8, height=0.85, corner_radius=0.2,
-            fill_color="#16213e", fill_opacity=1.0,
-            stroke_color=YELLOW, stroke_width=1.5
-        ).move_to(DOWN * 2.8)
-        summary_txt = self.T("掌握三种方法, 轻松应对抽样题!", size=24, color=YELLOW)
-        summary_txt.move_to(summary_bg.get_center())
-        self.play(FadeIn(summary_bg), Write(summary_txt), run_time=0.6)
-        self.wait(1.8)
-        self.play(
-            FadeOut(title), FadeOut(banner_bg), FadeOut(banner_txt),
-            FadeOut(cards), FadeOut(summary_bg), FadeOut(summary_txt),
-            run_time=0.6
-        )
+        self.page("三种方法的不同", GOLD)
+        self.show(self.text("简单随机：任意5人子集都有相同抽中概率", 3.7, 25, RED))
+        self.show(self.text("系统抽样：随机起点，再按固定间隔抽5人", 2.45, 25, BLUE))
+        self.show(self.text("分层抽样：按20、12、8分层，分别抽5、3、2人", 1.2, 23, GREEN))
+        self.show(self.math(r"n_{\mathrm{simple}}=n_{\mathrm{system}}=5", -0.65, 29))
+        self.show(self.math(r"n_{\mathrm{stratified}}=10", -1.85, 31, GOLD))
+        self.show(self.text("等入样概率，不等于所有方案都允许任意子集", -3.3, 23))
+        self.show(self.text("抽样规则应与总体构成、推断目标相匹配", -4.5, 24, GREEN))
+        self.wait(0.8)
 
     def s5_outro(self):
-        author_big = self.T("上海初高中数学直通车", size=40, color=C_WHITE)
-        author_big.move_to(UP * 2.0)
-        author_id = self.T("@emptyandcalm", size=30, color=C_GRAY)
-        author_id.move_to(UP * 1.0)
-        self.play(Transform(self.author, author_big), run_time=0.8)
-        self.play(FadeIn(author_id, shift=UP * 0.3), run_time=0.4)
-        follow = self.T("关注我，获得更多数学技巧!", size=30, color=C_GOLD)
-        follow.move_to(DOWN * 0.1)
-        self.play(FadeIn(follow, scale=1.1), run_time=0.5)
-        icons = VGroup(
-            Circle(radius=0.28, fill_color=C_SIMPLE,
-                   fill_opacity=0.9, stroke_width=0).shift(LEFT * 2.0 + DOWN * 2.0),
-            Circle(radius=0.28, fill_color=C_SYS,
-                   fill_opacity=0.9, stroke_width=0).shift(DOWN * 2.0),
-            Circle(radius=0.28, fill_color=C_STRAT,
-                   fill_opacity=0.9, stroke_width=0).shift(RIGHT * 2.0 + DOWN * 2.0),
-        )
-        icon_labels = VGroup(
-            self.T("简单", size=16, color=C_WHITE).move_to(icons[0].get_center()),
-            self.T("系统", size=16, color=C_WHITE).move_to(icons[1].get_center()),
-            self.T("分层", size=16, color=C_WHITE).move_to(icons[2].get_center()),
-        )
-        self.play(*[GrowFromCenter(ic) for ic in icons], run_time=0.6)
-        self.play(FadeIn(icon_labels), run_time=0.3)
-        kp_items = [
-            ("简单随机: ", "P = n/N", C_SIMPLE),
-            ("系统抽样: ", "间隔 k = N/n", C_SYS),
-            ("分层抽样: ", "各层按比例", C_STRAT),
-        ]
-        kp_group = VGroup()
-        for j, (term, val, col) in enumerate(kp_items):
-            t1 = self.T(term, size=20, color=col)
-            t2 = self.T(val,  size=20, color=C_WHITE)
-            row = VGroup(t1, t2).arrange(RIGHT, buff=0.05)
-            row.move_to(np.array([0, -3.3 - j * 0.65, 0]))
-            kp_group.add(row)
-        self.play(
-            LaggedStart(*[FadeIn(r, shift=RIGHT * 0.15) for r in kp_group], lag_ratio=0.2),
-            run_time=0.8
-        )
-        self.wait(1.5)
-        self.play(
-            FadeOut(self.author), FadeOut(author_id),
-            FadeOut(follow), FadeOut(icons), FadeOut(icon_labels),
-            FadeOut(kp_group),
-            run_time=1.0
-        )
+        self.page("本节要点")
+        self.show(self.text("随机选子集 · 随机起点等距 · 层内按比例随机", 3.0, 26))
+        self.show(self.text("同一组抽样数据必须对应同一组高亮编号", 1.35, 24, GREEN))
+        self.show(self.text("@emptyandcalm", -2.3, 27, GRAY_B))
+        self.wait(1)

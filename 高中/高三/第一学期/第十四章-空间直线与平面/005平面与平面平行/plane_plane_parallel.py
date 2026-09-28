@@ -1,9 +1,4 @@
-"""
-平面与平面平行 - Plane-Plane Parallel
-高三数学第十四章：空间直线与平面
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""高三：两平面平行。定理完整前提与斜投影示意严格分离。"""
 
 from manim import *
 import numpy as np
@@ -13,40 +8,58 @@ config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
-BG_COLOR = "#1a1a2e"
-C_ALPHA   = "#4FC3F7"   # 蓝  平面α
-C_BETA    = "#F06292"   # 粉  平面β
-C_GAMMA   = "#81C784"   # 绿  平面γ
-C_LINE_A  = "#FFD54F"   # 金  直线a
-C_LINE_B  = "#CE93D8"   # 紫  直线b
-C_LINE_L  = "#FF8A65"   # 橙  直线l
-C_GOLD    = "#FFD700"
-C_GRAY    = GRAY_B
-FONT_CN   = "PingFang SC"
+BG = "#1a1a2e"
+BLUE = "#4FC3F7"
+PINK = "#F06292"
+GREEN = "#81C784"
+YELLOW = "#FFD54F"
+PURPLE = "#CE93D8"
 
 
-def iso(x, y, z, sx=0.80, sy=0.52):
-    """等角投影 3D → 2D"""
-    px = (x - y) * sx * 0.5
-    py = (x + y) * sy * 0.35 + z * sy
-    return np.array([px, py, 0])
+def iso(x, y, z):
+    """三维坐标斜投影，仅用于展示有限平面片，不用于判断三维交点。"""
+    return np.array([0.40 * (x - y), 0.182 * (x + y) + 0.52 * z, 0])
 
 
-def plane_quad(cx, cy, z_val, W=4.2, D=2.0, **kwargs):
-    """在 z=z_val 处绘制平面四边形"""
-    verts = [
-        iso(cx - W/2, cy - D/2, z_val),
-        iso(cx + W/2, cy - D/2, z_val),
-        iso(cx + W/2, cy + D/2, z_val),
-        iso(cx - W/2, cy + D/2, z_val),
-    ]
-    return Polygon(*verts, **kwargs)
+def fit_text(message, size=27, color=WHITE):
+    label = Text(message, font_size=size, color=color)
+    if label.width > 7.35:
+        label.scale_to_fit_width(7.35)
+    return label
+
+
+def plane(z, color, extent=2.9):
+    vertices = [iso(-extent, -1.5, z), iso(extent, -1.5, z),
+                iso(extent, 1.5, z), iso(-extent, 1.5, z)]
+    return Polygon(*vertices, color=color, fill_color=color,
+                   fill_opacity=0.15, stroke_width=2.1)
 
 
 class PlanePlaneParallelScene(Scene):
+    """保留原七镜头 Scene 入口，并分别展示定理成立条件。"""
+
+    def setup_geometry(self):
+        self.alpha_normal = np.array((0.0, 0.0, 1.0))
+        self.beta_normal = np.array((0.0, 0.0, 1.0))
+        self.beta_origin = np.array((0.0, 0.0, 2.0))
+        self.a_direction = np.array((1.0, 0.0, 0.0))
+        self.b_direction = np.array((0.0, 1.0, 0.0))
+        self.gamma_normal = np.array((0.0, 1.0, 0.0))
+        assert np.linalg.norm(np.cross(self.a_direction, self.b_direction)) > 0.01
+        assert np.isclose(np.dot(self.alpha_normal, self.a_direction), 0)
+        assert np.isclose(np.dot(self.beta_normal, self.b_direction), 0)
+        assert not np.isclose(np.dot(self.beta_origin, self.alpha_normal), 0)
+        assert np.linalg.norm(np.cross(self.alpha_normal, self.gamma_normal)) > 0.01
+        self.ab = np.array((0.0, 0.0, 2.0))
+        self.cd = np.array((0.0, 0.0, 2.0))
+        assert np.allclose(self.ab, self.cd)
+
     def construct(self):
-        self.camera.background_color = BG_COLOR
+        self.camera.background_color = BG
         self.setup_geometry()
+        self.author = fit_text("上海初高中数学直通车  @emptyandcalm", 18, GRAY_B)
+        self.author.move_to(UP * 7.2)
+        self.add(self.author)
         self.scene_1_opening()
         self.scene_2_definition()
         self.scene_3_criterion()
@@ -55,337 +68,120 @@ class PlanePlaneParallelScene(Scene):
         self.scene_6_summary()
         self.scene_7_outro()
 
-    # ============================================================
-    def setup_geometry(self):
-        """统一初始化所有几何数据"""
-        # ---- Scene 3: 判定定理 ----
-        # 平面α (z=0), 平面β (z=2.2)
-        # α内两条相交直线 a, b 都平行于β
-        # a 方向: x轴方向 (1,0,0)
-        # b 方向: y轴方向 (0,1,0)
-        self.s3_a_s = iso(-2.0,  0.5, 0.0)
-        self.s3_a_e = iso( 2.0,  0.5, 0.0)
-        self.s3_b_s = iso( 0.5, -1.5, 0.0)
-        self.s3_b_e = iso( 0.5,  1.5, 0.0)
-        self.s3_P   = iso( 0.5,  0.5, 0.0)   # a ∩ b 的交点
+    def heading(self, title, subtitle):
+        head = fit_text(title, 37, YELLOW).move_to(UP * 5.85)
+        note = fit_text(subtitle, 22, GRAY_A).move_to(UP * 5.05)
+        self.play(Write(head), FadeIn(note), run_time=0.65)
 
-        # 验证 a, b 的方向向量不共线
-        da_3d = np.array([1, 0, 0])
-        db_3d = np.array([0, 1, 0])
-        cross = np.cross(da_3d, db_3d)
-        self.s3_cross_norm = np.linalg.norm(cross)   # 应 > 0
+    def clear_lesson(self):
+        visible = [obj for obj in self.mobjects if obj is not self.author]
+        if visible:
+            self.play(*[FadeOut(obj) for obj in visible], run_time=0.4)
 
-        # ---- Scene 4: 性质定理 ----
-        # α∥β, 第三平面γ同时截 α 和 β
-        # α (z=0), β (z=2.0), γ 竖直
-        # γ∩α = 直线a_low, γ∩β = 直线a_high
-        self.s4_a_low_s  = iso(-2.0, 0, 0.0)
-        self.s4_a_low_e  = iso( 2.0, 0, 0.0)
-        self.s4_a_high_s = iso(-2.0, 0, 2.0)
-        self.s4_a_high_e = iso( 2.0, 0, 2.0)
+    def two_planes(self, ztop=2.0):
+        alpha, beta = plane(0, BLUE), plane(ztop, PINK)
+        lab_a = MathTex(r"\alpha", font_size=40, color=BLUE).move_to(iso(3.25, 1.5, 0))
+        lab_b = MathTex(r"\beta", font_size=40, color=PINK).move_to(iso(3.25, 1.5, ztop))
+        self.play(Create(alpha), Write(lab_a), run_time=0.7)
+        self.play(Create(beta), Write(lab_b), run_time=0.7)
+        return alpha, beta
 
-        # 验证两交线平行（3D方向相同）
-        dir_low  = np.array([1, 0, 0])
-        dir_high = np.array([1, 0, 0])
-        cos_par = np.dot(dir_low, dir_high)
-        self.s4_lines_parallel = abs(cos_par - 1.0) < 1e-6
+    def line(self, start, end, name, color, label_direction=RIGHT):
+        obj = Line(iso(*start), iso(*end), color=color, stroke_width=3.3)
+        label = MathTex(name, font_size=35, color=color)
+        label.next_to(obj.get_end(), label_direction, buff=0.11)
+        self.play(Create(obj), Write(label), run_time=0.6)
+        return obj, label
 
-        # ---- Scene 5: 推论 ----
-        # 夹在两平行平面间的平行线段相等
-        # 线段 AB 和 CD 分别连接 α (z=0) 和 β (z=2.0)
-        self.s5_A = iso(-1.5, 0.5, 0.0)
-        self.s5_B = iso(-1.5, 0.5, 2.0)
-        self.s5_C = iso( 1.5, 0.5, 0.0)
-        self.s5_D = iso( 1.5, 0.5, 2.0)
-
-        # 验证 AB = CD（等长）
-        AB = np.linalg.norm(self.s5_B - self.s5_A)
-        CD = np.linalg.norm(self.s5_D - self.s5_C)
-        self.s5_equal_ok = abs(AB - CD) < 1e-6
-
-        # ---- 边界检查 ----
-        all_pts = [
-            self.s3_a_s, self.s3_a_e, self.s3_b_s, self.s3_b_e, self.s3_P,
-            self.s4_a_low_s, self.s4_a_low_e, self.s4_a_high_s, self.s4_a_high_e,
-            self.s5_A, self.s5_B, self.s5_C, self.s5_D,
-        ]
-        for pt in all_pts:
-            assert abs(pt[0]) <= 4.5, f"X超界: {pt}"
-            assert abs(pt[1]) <= 7.0, f"Y超界: {pt}"
-
-        assert self.s3_cross_norm > 0.5, "a与b方向共线，无法确定平面"
-        assert self.s4_lines_parallel, "性质定理交线不平行"
-        assert self.s5_equal_ok, "平行线段长度不等"
-        print("✓ 几何数据初始化完成")
-
-    # ============================================================
     def scene_1_opening(self):
-        self.author = Text(
-            "上海初高中数学直通车  @emptyandcalm",
-            font=FONT_CN, font_size=18, color=C_GRAY
-        ).move_to(UP * 7.3)
-        self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
-
-        hook = Text("两平面如何判断平行？", font=FONT_CN, font_size=42, color=C_GOLD).move_to(UP * 5.6)
-        sub  = Text("一个定义 + 一判定 + 一性质",
-                    font=FONT_CN, font_size=26, color=C_GRAY).move_to(UP * 4.8)
+        self.heading("如何判定两个平面平行？", "平行的定义、判定和截线性质，各有必要条件")
+        hook = fit_text("不能只记结论箭头，必须核对几何关系", 29, GREEN)
+        hook.move_to(UP * 0.6)
         self.play(Write(hook), run_time=0.7)
-        self.play(FadeIn(sub), run_time=0.4)
-        self.wait(0.5)
-        self.play(FadeOut(hook), FadeOut(sub), run_time=0.4)
+        self.wait(0.7)
+        self.clear_lesson()
 
-    # ============================================================
     def scene_2_definition(self):
-        title = Text("定义：面面平行", font=FONT_CN, font_size=36, color=C_ALPHA).move_to(UP * 6.1)
-        self.play(Write(title), run_time=0.5)
+        self.heading("定义 · 两个平面无公共点", "平行四边形只是无限平面的有限示意")
+        self.two_planes()
+        statement = MathTex(r"\alpha\cap\beta=\varnothing"
+                            r"\quad\Longleftrightarrow\quad\alpha\parallel\beta",
+                            font_size=39, color=GREEN).move_to(DOWN * 3.7)
+        self.play(Write(statement), run_time=0.85)
+        self.wait(0.8)
+        self.clear_lesson()
 
-        alpha = plane_quad(0, 0, 0.0, color=C_ALPHA, fill_color=C_ALPHA,
-                           fill_opacity=0.15, stroke_width=2.5)
-        beta  = plane_quad(0, 0, 2.0, color=C_BETA,  fill_color=C_BETA,
-                           fill_opacity=0.15, stroke_width=2.5)
-        la = MathTex(r"\alpha", color=C_ALPHA, font_size=40).move_to(iso(2.5, 1.3, 0.0))
-        lb = MathTex(r"\beta",  color=C_BETA,  font_size=40).move_to(iso(2.5, 1.3, 2.0))
-        self.play(Create(alpha), Write(la), run_time=0.7)
-        self.play(Create(beta),  Write(lb), run_time=0.7)
-
-        # 双向箭头表示"无公共点"
-        mid_a = iso(0, -1.3, 0.0)
-        mid_b = iso(0, -1.3, 2.0)
-        double_arr = DoubleArrow(mid_a, mid_b, color=C_GOLD,
-                                 buff=0.1, stroke_width=2)
-        dist_lbl = Text("无公共点", font=FONT_CN, font_size=22,
-                        color=C_GOLD).next_to(double_arr, RIGHT, buff=0.15)
-        self.play(GrowArrow(double_arr), run_time=0.5)
-        self.play(FadeIn(dist_lbl), run_time=0.3)
-
-        formula = MathTex(r"\alpha \cap \beta = \emptyset \;\Rightarrow\; \alpha \parallel \beta",
-                          font_size=34, color=C_GOLD).move_to(DOWN * 3.5)
-        self.play(Write(formula), run_time=0.6)
-        self.wait(0.9)
-
-        self.play(
-            FadeOut(title), FadeOut(alpha), FadeOut(beta),
-            FadeOut(la), FadeOut(lb),
-            FadeOut(double_arr), FadeOut(dist_lbl), FadeOut(formula),
-            run_time=0.5
-        )
-
-    # ============================================================
     def scene_3_criterion(self):
-        title = Text("判定定理", font=FONT_CN, font_size=36, color=C_LINE_A).move_to(UP * 6.1)
-        sub   = Text("α 内两相交直线都平行 β  ⇒  α ∥ β",
-                     font=FONT_CN, font_size=22, color=C_GRAY).move_to(UP * 5.4)
-        self.play(Write(title), FadeIn(sub), run_time=0.6)
+        self.heading("判定 · 面内两条相交线都平行另一个面", "两条面内平行线不够，必须在同一点相交")
+        self.two_planes()
+        self.line((-2.2, 0.2, 0), (2.2, 0.2, 0), "a", YELLOW)
+        self.line((0.4, -1.3, 0), (0.4, 1.3, 0), "b", PURPLE, UP)
+        p = Dot(iso(0.4, 0.2, 0), radius=0.12, color=GREEN)
+        p_label = MathTex("P", font_size=31, color=GREEN).next_to(p, DOWN, buff=0.1)
+        self.play(FadeIn(p), Write(p_label), run_time=0.4)
+        conditions = MathTex(r"a,b\subset\alpha,\quad a\cap b=\{P\}",
+                             font_size=35).move_to(DOWN * 2.6)
+        parallel = MathTex(r"a\parallel\beta,\quad b\parallel\beta",
+                           font_size=36).move_to(DOWN * 3.65)
+        conclusion = MathTex(r"\Longrightarrow\ \alpha\parallel\beta",
+                             font_size=42, color=GREEN).move_to(DOWN * 4.75)
+        self.play(Write(conditions), Write(parallel), run_time=0.8)
+        self.play(Write(conclusion), run_time=0.7)
+        self.wait(0.85)
+        self.clear_lesson()
 
-        # 平面 α (下)  β (上)
-        alpha = plane_quad(0, 0, 0.0, color=C_ALPHA, fill_color=C_ALPHA,
-                           fill_opacity=0.13, stroke_width=2)
-        beta  = plane_quad(0, 0, 2.2, color=C_BETA,  fill_color=C_BETA,
-                           fill_opacity=0.13, stroke_width=2)
-        la = MathTex(r"\alpha", color=C_ALPHA, font_size=38).move_to(iso(2.4, 1.2, 0.0))
-        lb = MathTex(r"\beta",  color=C_BETA,  font_size=38).move_to(iso(2.4, 1.2, 2.2))
-        self.play(Create(alpha), Write(la), Create(beta), Write(lb), run_time=0.8)
-
-        # 直线 a (在α内, 沿x)
-        line_a = Line(self.s3_a_s, self.s3_a_e, color=C_LINE_A, stroke_width=3)
-        lbl_a  = MathTex("a", color=C_LINE_A, font_size=32).next_to(self.s3_a_e, RIGHT, buff=0.1)
-        # 直线 b (在α内, 沿y)
-        line_b = Line(self.s3_b_s, self.s3_b_e, color=C_LINE_B, stroke_width=3)
-        lbl_b  = MathTex("b", color=C_LINE_B, font_size=32).next_to(self.s3_b_e, UP, buff=0.1)
-        # 交点 P
-        dot_P = Dot(self.s3_P, radius=0.10, color=C_GOLD)
-        lbl_P = Text("P", font=FONT_CN, font_size=20, color=C_GOLD).next_to(
-            self.s3_P, DOWN+RIGHT, buff=0.06)
-        self.play(Create(line_a), Write(lbl_a), run_time=0.4)
-        self.play(Create(line_b), Write(lbl_b), run_time=0.4)
-        self.play(FadeIn(dot_P), Write(lbl_P), run_time=0.3)
-
-        # 条件说明
-        cond = VGroup(
-            MathTex(r"a \subset \alpha,\; b \subset \alpha,\; a \cap b = P",
-                    font_size=24, color=WHITE),
-            MathTex(r"a \parallel \beta,\; b \parallel \beta",
-                    font_size=24, color=WHITE),
-        ).arrange(DOWN, buff=0.2).move_to(DOWN * 3.0)
-        self.play(FadeIn(cond, shift=UP * 0.2), run_time=0.5)
-
-        conc = MathTex(r"\Rightarrow\; \alpha \parallel \beta",
-                       font_size=36, color=C_GOLD).move_to(DOWN * 4.3)
-        self.play(Write(conc), run_time=0.5)
-        self.wait(1.2)
-
-        self.play(
-            FadeOut(title), FadeOut(sub),
-            FadeOut(alpha), FadeOut(beta), FadeOut(la), FadeOut(lb),
-            FadeOut(line_a), FadeOut(lbl_a), FadeOut(line_b), FadeOut(lbl_b),
-            FadeOut(dot_P), FadeOut(lbl_P), FadeOut(cond), FadeOut(conc),
-            run_time=0.5
-        )
-
-    # ============================================================
     def scene_4_property(self):
-        title = Text("性质定理", font=FONT_CN, font_size=36, color=C_LINE_B).move_to(UP * 6.1)
-        sub   = Text("α∥β 同截第三平面 γ  ⇒  交线平行",
-                     font=FONT_CN, font_size=22, color=C_GRAY).move_to(UP * 5.4)
-        self.play(Write(title), FadeIn(sub), run_time=0.6)
-
-        alpha = plane_quad(0, 0, 0.0, color=C_ALPHA, fill_color=C_ALPHA,
-                           fill_opacity=0.13, stroke_width=2)
-        beta  = plane_quad(0, 0, 2.0, color=C_BETA,  fill_color=C_BETA,
-                           fill_opacity=0.13, stroke_width=2)
-        la = MathTex(r"\alpha", color=C_ALPHA, font_size=36).move_to(iso(2.4, 1.2, 0.0))
-        lb = MathTex(r"\beta",  color=C_BETA,  font_size=36).move_to(iso(2.4, 1.2, 2.0))
-
-        # 平面 γ (竖直截面, 穿过两平面)
-        gamma_verts = [
-            iso(-2.5, 0, -0.3), iso(2.5, 0, -0.3),
-            iso(2.5, 0, 2.4),   iso(-2.5, 0, 2.4),
-        ]
-        gamma = Polygon(*gamma_verts, color=C_GAMMA, fill_color=C_GAMMA,
+        self.heading("性质 · 同一截面与两平面所成的交线平行", "第三平面 γ 必须分别与 α、β 相交")
+        self.two_planes()
+        gamma_vertices = [iso(-2.7, 0, -0.3), iso(2.7, 0, -0.3),
+                          iso(2.7, 0, 2.3), iso(-2.7, 0, 2.3)]
+        gamma = Polygon(*gamma_vertices, color=GREEN, fill_color=GREEN,
                         fill_opacity=0.14, stroke_width=2)
-        lg = MathTex(r"\gamma", color=C_GAMMA, font_size=36).move_to(iso(-2.2, 0, 2.2))
+        gamma_label = MathTex(r"\gamma", font_size=38, color=GREEN)
+        gamma_label.move_to(iso(-2.8, 0, 2.2))
+        self.play(Create(gamma), Write(gamma_label), run_time=0.7)
+        self.line((-2.5, 0, 0), (2.5, 0, 0), "a", YELLOW)
+        self.line((-2.5, 0, 2), (2.5, 0, 2), "b", PURPLE)
+        intersections = MathTex(r"\alpha\cap\gamma=a,\quad\beta\cap\gamma=b",
+                                font_size=32).move_to(DOWN * 3.45)
+        result = MathTex(r"\alpha\parallel\beta\ \Longrightarrow\ a\parallel b",
+                         font_size=36, color=GREEN).move_to(DOWN * 4.6)
+        self.play(Write(intersections), Write(result), run_time=0.8)
+        self.wait(0.8)
+        self.clear_lesson()
 
-        self.play(Create(alpha), Write(la), Create(beta), Write(lb), run_time=0.7)
-        self.play(Create(gamma), Write(lg), run_time=0.7)
-
-        # 交线 a = α∩γ (下), b = β∩γ (上)
-        line_a = Line(self.s4_a_low_s,  self.s4_a_low_e,
-                      color=C_LINE_A, stroke_width=3.5)
-        lbl_a  = MathTex("a", color=C_LINE_A, font_size=30).next_to(
-            self.s4_a_low_e, RIGHT, buff=0.1)
-        line_b = Line(self.s4_a_high_s, self.s4_a_high_e,
-                      color=C_LINE_B, stroke_width=3.5)
-        lbl_b  = MathTex("b", color=C_LINE_B, font_size=30).next_to(
-            self.s4_a_high_e, RIGHT, buff=0.1)
-
-        self.play(Create(line_a), Write(lbl_a), run_time=0.5)
-        self.play(Create(line_b), Write(lbl_b), run_time=0.5)
-        self.play(
-            Flash(line_a, color=C_LINE_A, flash_radius=0.3),
-            Flash(line_b, color=C_LINE_B, flash_radius=0.3),
-            run_time=0.5
-        )
-
-        conc = Text("a ∥ b（两交线平行）", font=FONT_CN, font_size=26,
-                    color=WHITE).move_to(DOWN * 3.2)
-        formula = MathTex(
-            r"\alpha \parallel \beta,\; \alpha \cap \gamma = a,\; \beta \cap \gamma = b"
-            r"\;\Rightarrow\; a \parallel b",
-            font_size=24, color=C_GOLD
-        ).move_to(DOWN * 4.3)
-        self.play(FadeIn(conc, shift=UP*0.2), run_time=0.4)
-        self.play(Write(formula), run_time=0.7)
-        self.wait(1.3)
-
-        self.play(
-            FadeOut(title), FadeOut(sub),
-            FadeOut(alpha), FadeOut(beta), FadeOut(gamma),
-            FadeOut(la), FadeOut(lb), FadeOut(lg),
-            FadeOut(line_a), FadeOut(lbl_a), FadeOut(line_b), FadeOut(lbl_b),
-            FadeOut(conc), FadeOut(formula),
-            run_time=0.5
-        )
-
-    # ============================================================
     def scene_5_corollary(self):
-        title = Text("推论：夹在两平行平面间的", font=FONT_CN,
-                     font_size=28, color=C_GOLD).move_to(UP * 6.0)
-        title2 = Text("平行线段相等", font=FONT_CN, font_size=32,
-                      color=C_GOLD).move_to(UP * 5.3)
-        self.play(Write(title), Write(title2), run_time=0.6)
+        self.heading("推论 · 夹在平行平面间的平行线段等长", "两个端点必须分别位于同一对平行平面")
+        self.two_planes()
+        self.line((-1.4, 0.1, 0), (-1.4, 0.1, 2), "AB", YELLOW, UP)
+        self.line((1.4, 0.1, 0), (1.4, 0.1, 2), "CD", PURPLE, UP)
+        premise = MathTex(r"AB\parallel CD,\quad A,C\in\alpha,\ B,D\in\beta",
+                          font_size=31).move_to(DOWN * 3.3)
+        result = MathTex(r"\alpha\parallel\beta\ \Longrightarrow\ |AB|=|CD|",
+                         font_size=39, color=GREEN).move_to(DOWN * 4.55)
+        self.play(Write(premise), run_time=0.7)
+        self.play(Write(result), run_time=0.7)
+        self.wait(0.85)
+        self.clear_lesson()
 
-        alpha = plane_quad(0, 0, 0.0, W=5.0, D=2.2,
-                           color=C_ALPHA, fill_color=C_ALPHA,
-                           fill_opacity=0.13, stroke_width=2)
-        beta  = plane_quad(0, 0, 2.0, W=5.0, D=2.2,
-                           color=C_BETA,  fill_color=C_BETA,
-                           fill_opacity=0.13, stroke_width=2)
-        la = MathTex(r"\alpha", color=C_ALPHA, font_size=36).move_to(iso(2.9, 1.4, 0.0))
-        lb = MathTex(r"\beta",  color=C_BETA,  font_size=36).move_to(iso(2.9, 1.4, 2.0))
-        self.play(Create(alpha), Write(la), Create(beta), Write(lb), run_time=0.7)
-
-        # 线段 AB
-        seg_AB = Line(self.s5_A, self.s5_B, color=C_LINE_A, stroke_width=3.5)
-        dA = Dot(self.s5_A, radius=0.09, color=C_LINE_A)
-        dB = Dot(self.s5_B, radius=0.09, color=C_LINE_A)
-        lA = Text("A", font=FONT_CN, font_size=20, color=C_LINE_A).next_to(
-            self.s5_A, DOWN+LEFT, buff=0.06)
-        lB = Text("B", font=FONT_CN, font_size=20, color=C_LINE_A).next_to(
-            self.s5_B, UP+LEFT, buff=0.06)
-
-        # 线段 CD
-        seg_CD = Line(self.s5_C, self.s5_D, color=C_LINE_B, stroke_width=3.5)
-        dC = Dot(self.s5_C, radius=0.09, color=C_LINE_B)
-        dD = Dot(self.s5_D, radius=0.09, color=C_LINE_B)
-        lC = Text("C", font=FONT_CN, font_size=20, color=C_LINE_B).next_to(
-            self.s5_C, DOWN+RIGHT, buff=0.06)
-        lD = Text("D", font=FONT_CN, font_size=20, color=C_LINE_B).next_to(
-            self.s5_D, UP+RIGHT, buff=0.06)
-
-        self.play(
-            Create(seg_AB), FadeIn(dA), FadeIn(dB), Write(lA), Write(lB),
-            run_time=0.5
-        )
-        self.play(
-            Create(seg_CD), FadeIn(dC), FadeIn(dD), Write(lC), Write(lD),
-            run_time=0.5
-        )
-
-        equal_lbl = MathTex(r"AB = CD", color=C_GOLD, font_size=40).move_to(DOWN * 3.2)
-        cond_lbl  = Text("（AB ∥ CD 且均夹在 α∥β 间）",
-                         font=FONT_CN, font_size=20, color=C_GRAY).move_to(DOWN * 3.9)
-        self.play(Write(equal_lbl), run_time=0.5)
-        self.play(FadeIn(cond_lbl), run_time=0.3)
-        self.wait(1.0)
-
-        self.play(
-            FadeOut(title), FadeOut(title2),
-            FadeOut(alpha), FadeOut(beta), FadeOut(la), FadeOut(lb),
-            FadeOut(seg_AB), FadeOut(dA), FadeOut(dB), FadeOut(lA), FadeOut(lB),
-            FadeOut(seg_CD), FadeOut(dC), FadeOut(dD), FadeOut(lC), FadeOut(lD),
-            FadeOut(equal_lbl), FadeOut(cond_lbl),
-            run_time=0.5
-        )
-
-    # ============================================================
     def scene_6_summary(self):
-        title = Text("核心总结", font=FONT_CN, font_size=36, color=C_GOLD).move_to(UP * 5.8)
-        self.play(Write(title), run_time=0.5)
+        self.heading("面面平行 · 条件不能省略", "错误的无条件箭头会让正确的定理变成假命题")
+        lines = (("定义：两个平面无公共点", BLUE),
+                 ("判定：面内两相交线都平行另一面", YELLOW),
+                 ("性质：第三平面分别截出两条平行交线", PURPLE),
+                 ("推论：两面间平行线段等长，端点要在两面", GREEN))
+        for i, (message, color) in enumerate(lines):
+            label = fit_text(message, 26, color).move_to([0, 3.2 - 1.55 * i, 0])
+            self.play(FadeIn(label, shift=RIGHT * 0.2), run_time=0.5)
+        counter = fit_text("反例：两条平行面内线都平行另一面，仍不足以定面面平行", 20)
+        counter.move_to(DOWN * 4.0)
+        self.play(FadeIn(counter), run_time=0.65)
+        self.wait(1.0)
+        self.clear_lesson()
 
-        items = [
-            ("定义",   r"\alpha \cap \beta = \emptyset \Rightarrow \alpha \parallel \beta",   C_ALPHA),
-            ("判定",   r"a \parallel \beta,\; b \parallel \beta \Rightarrow \alpha \parallel \beta", C_LINE_A),
-            ("性质",   r"\alpha \parallel \beta \Rightarrow a \parallel b",                   C_LINE_B),
-            ("推论",   r"AB \parallel CD \Rightarrow AB = CD",                                C_GOLD),
-        ]
-        y = 4.3
-        groups = VGroup()
-        for (name, fml, col) in items:
-            box = RoundedRectangle(width=7.6, height=1.3, corner_radius=0.2,
-                                   color=col, fill_color=col, fill_opacity=0.07,
-                                   stroke_width=1.5).move_to(np.array([0, y, 0]))
-            t1 = Text(name, font=FONT_CN, font_size=24, color=col)
-            t2 = MathTex(fml, font_size=22, color=WHITE)
-            VGroup(t1, t2).arrange(RIGHT, buff=0.3).move_to(box.get_center())
-            grp = VGroup(box, t1, t2)
-            groups.add(grp)
-            self.play(FadeIn(grp, shift=RIGHT*0.3), run_time=0.4)
-            y -= 1.8
-
-        tip = Text("口诀：两交线平行→面面平行；面面平行→两截线平行",
-                   font=FONT_CN, font_size=18, color=C_GRAY).move_to(DOWN * 1.2)
-        self.play(FadeIn(tip), run_time=0.4)
-        self.wait(1.5)
-        self.play(FadeOut(title), FadeOut(groups), FadeOut(tip), run_time=0.5)
-
-    # ============================================================
     def scene_7_outro(self):
-        big = Text("上海初高中数学直通车", font=FONT_CN, font_size=38, color=WHITE).move_to(UP * 1.5)
-        uid = Text("@emptyandcalm", font=FONT_CN, font_size=28, color=C_GRAY).move_to(UP * 0.5)
-        flw = Text("关注我，获得更多数学技巧！",
-                   font=FONT_CN, font_size=30, color=C_GOLD).move_to(DOWN * 0.5)
-        self.play(Transform(self.author, big), run_time=0.6)
-        self.play(FadeIn(uid, shift=UP*0.2), run_time=0.4)
-        self.play(FadeIn(flw, scale=1.05), run_time=0.5)
-        self.wait(1.5)
-        self.play(FadeOut(self.author), FadeOut(uid), FadeOut(flw), run_time=0.8)
+        closing = fit_text("先看条件是否满足，再用判定或性质", 30, GREEN)
+        closing.move_to(UP * 0.5)
+        self.play(Write(closing), run_time=0.8)
+        self.wait(1.2)
+        self.play(FadeOut(closing), FadeOut(self.author), run_time=0.6)

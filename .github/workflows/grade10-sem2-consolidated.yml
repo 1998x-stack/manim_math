@@ -1,0 +1,50 @@
+name: Grade 10 term 2 consolidated mathematics
+
+on:
+  pull_request:
+    paths:
+      - '高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/**'
+      - '高中/高一/第二学期/第五章-三角比/**'
+      - '.github/workflows/grade10-sem2-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/**/*.py
+            /高中/高一/第二学期/第五章-三角比/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile both chapters
+        shell: bash
+        run: |
+          python -m compileall -q '高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）' '高中/高一/第二学期/第五章-三角比'
+      - name: Run five mathematics and source regression scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          p='高中/高一/第二学期'
+          tests=(
+            "$p/第四章-幂函数、指数函数和对数函数（下）/002反函数/verify_inverse.py"
+            "$p/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程/verify_equations.py"
+            "$p/第五章-三角比/001任意角与弧度制/verify_radians.py"
+            "$p/第五章-三角比/002任意角的三角比/verify_any_angle_trig.py"
+            "$p/第五章-三角比/003同角三角比的关系与诱导公式/verify_induction.py"
+          )
+          for test_file in "${tests[@]}"; do
+            test -f "$test_file"
+            python "$test_file"
+          done
+          echo "Passed ${#tests[@]} course regression suites"

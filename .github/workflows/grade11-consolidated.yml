@@ -1,0 +1,62 @@
+name: Grade 11 consolidated mathematics and source checks
+
+on:
+  pull_request:
+    paths:
+      - '高中/高二/第一学期/第七章-数列与数学归纳法/**'
+      - '高中/高二/第二学期/第十一章-坐标平面上的直线/**'
+      - '高中/高二/第二学期/第十二章-圆锥曲线/**'
+      - 'tools/tests/test_highschool_gotchas.py'
+      - '.github/workflows/grade11-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-and-math:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /高中/高二/第一学期/第七章-数列与数学归纳法/**/*.py
+            /高中/高二/第二学期/第十一章-坐标平面上的直线/**/*.py
+            /高中/高二/第二学期/第十二章-圆锥曲线/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile both semesters of affected lesson scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q '高中/高二/第一学期/第七章-数列与数学归纳法'
+          python -m compileall -q '高中/高二/第二学期/第十一章-坐标平面上的直线'
+          python -m compileall -q '高中/高二/第二学期/第十二章-圆锥曲线'
+      - name: Run both sequence lesson mathematical regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          chapter='高中/高二/第一学期/第七章-数列与数学归纳法'
+          (cd "$chapter/001数列的概念" && python -m unittest -v test_sequence_data.py)
+          (cd "$chapter/002等差数列" && python -m unittest -v test_arithmetic_model.py)
+      - name: Run all nine analytic geometry lesson mathematical regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          lines='高中/高二/第二学期/第十一章-坐标平面上的直线'
+          conics='高中/高二/第二学期/第十二章-圆锥曲线'
+          count=0
+          for lesson in "$lines"/00[1-5]* "$conics"/00[1-4]*; do
+            test -d "$lesson" || { echo "Missing lesson directory: $lesson" >&2; exit 1; }
+            mapfile -d '' tests < <(find "$lesson" -maxdepth 1 -type f -name 'verify_*.py' -print0)
+            test "${#tests[@]}" -eq 1 || { echo "Expected one math test per lesson: $lesson" >&2; exit 1; }
+            echo "Checking ${tests[0]}"
+            python "${tests[0]}"
+            count=$((count + 1))
+          done
+          test "$count" -eq 9 || { echo "Expected nine independent analytic-geometry test suites, got $count" >&2; exit 1; }

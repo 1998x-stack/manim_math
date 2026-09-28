@@ -1,54 +1,96 @@
+"""高二下《直线的方程》：五种形式及各自适用条件（Manim 0.19.x）。
+
+数学模型独立于 Manim；保留 LineEquations 入口及原八个教学分镜。
+旧视频、音轨及课程原始提示不随源码修改。
 """
-直线的方程 - 五种形式教学动画
-年级: 高二第二学期  章节: 坐标平面上的直线
 
-五种形式：点斜式 / 斜截式 / 两点式 / 截距式 / 一般式
-
-输出格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车  @emptyandcalm
-
-运行:
-    manim -pql line_equations.py LineEquations   # 快速预览
-    manim -qh  line_equations.py LineEquations   # 高质量
-"""
+import math
 
 from manim import *
-import numpy as np
 
-# ──────────────────────────────────────────────
-# 全局配置  TikTok 竖屏
-# ──────────────────────────────────────────────
-config.pixel_width  = 1080
+config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+config.frame_width = 9
 config.frame_height = 16
 
-# ──────────────────────────────────────────────
-# 颜色
-# ──────────────────────────────────────────────
-BG_COLOR   = "#1a1a2e"
-C_PS       = "#e74c3c"   # 点斜式  红
-C_SI       = "#3498db"   # 斜截式  蓝
-C_TP       = "#2ecc71"   # 两点式  绿
-C_IC       = "#f39c12"   # 截距式  橙
-C_GN       = "#9b59b6"   # 一般式  紫
-C_AX       = "#7f8c8d"   # 轴色
-C_HL       = YELLOW      # 高亮
-C_BG_CARD  = "#16213e"   # 卡片背景
-FONT       = "PingFang SC"
+BG_COLOR = "#1a1a2e"
+C_PS = "#e74c3c"
+C_SI = "#3498db"
+C_TP = "#2ecc71"
+C_IC = "#f39c12"
+C_GN = "#9b59b6"
+FONT = "PingFang SC"
 
 
-# ══════════════════════════════════════════════
+def coefficients_through_points(p, q):
+    """返回 Ax+By+C=0 的系数；同一点不能确定唯一的直线。"""
+    x1, y1 = p
+    x2, y2 = q
+    if x1 == x2 and y1 == y2:
+        raise ValueError("两个重合点不能确定唯一直线")
+    return y1 - y2, x2 - x1, x1 * y2 - x2 * y1
+
+
+def slope_intercept(coefficients):
+    """垂直线不能写成 y=kx+b，返回 None；禁止零法向量。"""
+    a, b, c = coefficients
+    if a == 0 and b == 0:
+        raise ValueError("一般式要求 A、B 不同时为零")
+    if b == 0:
+        return None
+    return -a / b, -c / b
+
+
+def intercepts(coefficients):
+    """仅当 x、y 截距均非零时，才能写 x/a+y/b=1。"""
+    a, b, c = coefficients
+    if a == 0 or b == 0 or c == 0:
+        raise ValueError("截距式要求 A、B、C 均非零")
+    return -c / a, -c / b
+
+
+def clip_line(coefficients, x_bounds=(-4.0, 4.0), y_bounds=(-2.0, 5.0)):
+    """与数据坐标矩形求交；不把越界端点交给 Manim 裁剪。"""
+    a, b, c = coefficients
+    if a == 0 and b == 0:
+        raise ValueError("一般式要求 A、B 不同时为零")
+    xmin, xmax = x_bounds
+    ymin, ymax = y_bounds
+    if not xmin < xmax or not ymin < ymax:
+        raise ValueError("坐标窗口必须非退化")
+    points = []
+    if b != 0:
+        for x in (xmin, xmax):
+            y = -(a * x + c) / b
+            if ymin - 1e-10 <= y <= ymax + 1e-10:
+                points.append((x, min(ymax, max(ymin, y))))
+    if a != 0:
+        for y in (ymin, ymax):
+            x = -(b * y + c) / a
+            if xmin - 1e-10 <= x <= xmax + 1e-10:
+                points.append((min(xmax, max(xmin, x)), y))
+    unique = []
+    for p in points:
+        if not any(math.dist(p, q) < 1e-9 for q in unique):
+            unique.append(p)
+    if len(unique) < 2:
+        raise ValueError("直线与坐标窗口没有非退化交段")
+    return max(
+        ((p, q) for i, p in enumerate(unique) for q in unique[i + 1:]),
+        key=lambda pq: math.dist(*pq),
+    )
+
+
 class LineEquations(Scene):
-    """直线方程五种形式教学动画"""
+    """八镜教学：点斜式、斜截式、两点式、截距式、一般式及总结。"""
 
-    # ──────────────────────────────────────────
-    # construct
-    # ──────────────────────────────────────────
     def construct(self):
         self.camera.background_color = BG_COLOR
-        self.setup_geometry()
-
+        self.author_banner = Text(
+            "上海初高中数学直通车  @emptyandcalm",
+            font=FONT, font_size=17, color=GRAY_B,
+        ).move_to(UP * 6.95)
+        self.add(self.author_banner)
         self.scene_opening()
         self.scene_point_slope()
         self.scene_slope_intercept()
@@ -58,576 +100,160 @@ class LineEquations(Scene):
         self.scene_summary()
         self.scene_outro()
 
-    # ──────────────────────────────────────────
-    # 几何数据统一初始化
-    # ──────────────────────────────────────────
-    def setup_geometry(self):
-        # 坐标轴参数
-        self.AX_CTR    = np.array([0.0, 2.0, 0.0])
-        self.AX_XR     = [-4, 4, 1]
-        self.AX_YR     = [-2, 5, 1]
-        self.AX_XLEN   = 6.5
-        self.AX_YLEN   = 5.2
+    def cn(self, text, size=26, color=WHITE):
+        return Text(text, font=FONT, font_size=size, color=color)
 
-        # ① 点斜式: 过 P(1, 2)，k = 2  →  y = 2x
-        self.ps_P  = np.array([1.0, 2.0])
-        self.ps_k  = 2.0
-        self.ps_b  = self.ps_P[1] - self.ps_k * self.ps_P[0]   # = 0
+    def clear_stage(self):
+        visible = [item for item in self.mobjects if item is not self.author_banner]
+        if visible:
+            self.play(*[FadeOut(item) for item in visible], run_time=0.45)
 
-        # ② 斜截式: k = 1, b = 3  →  y = x + 3
-        self.si_k  = 1.0
-        self.si_b  = 3.0
+    def heading(self, name, color=GOLD):
+        self.clear_stage()
+        title = self.cn(name, size=36, color=color).move_to(UP * 6.05)
+        self.play(FadeIn(title), run_time=0.4)
+        return title
 
-        # ③ 两点式: P1(-1, 1), P2(2, 4)  →  y = x + 2
-        self.tp_P1 = np.array([-1.0, 1.0])
-        self.tp_P2 = np.array([ 2.0, 4.0])
-        self.tp_k  = (self.tp_P2[1]-self.tp_P1[1]) / (self.tp_P2[0]-self.tp_P1[0])  # 1
-        self.tp_b  = self.tp_P1[1] - self.tp_k * self.tp_P1[0]                       # 2
-        # 辅助直角顶点（与P1同y，与P2同x）
-        self.tp_Px = np.array([self.tp_P2[0], self.tp_P1[1]])  # (2, 1)
-
-        # ④ 截距式: a = 3, b = 2  →  y = -2x/3 + 2
-        self.ic_a  = 3.0
-        self.ic_b  = 2.0
-        self.ic_k  = -self.ic_b / self.ic_a   # -2/3
-        self.ic_bi = self.ic_b                 # y截距 = 2
-
-        # ⑤ 一般式: 2x + 3y - 6 = 0  (同④同一直线)
-        self.gn_A, self.gn_B, self.gn_C = 2.0, 3.0, -6.0
-        self.gn_k  = -self.gn_A / self.gn_B   # -2/3
-        self.gn_bi = -self.gn_C / self.gn_B   # 2
-
-        # ---- 验证 ----
-        assert abs(self.ps_b) < 1e-10,          "点斜式 b 应=0"
-        assert abs(self.tp_k - 1.0) < 1e-10,    "两点式 k 应=1"
-        assert abs(self.tp_b - 2.0) < 1e-10,    "两点式 b 应=2"
-        assert abs(self.gn_k - self.ic_k) < 1e-10, "一般式=截距式同线"
-        print("✓ 几何数据验证通过")
-
-    # ──────────────────────────────────────────
-    # 工具: 创建坐标系
-    # ──────────────────────────────────────────
-    def make_axes(self):
+    def axes(self):
         ax = Axes(
-            x_range=self.AX_XR,
-            y_range=self.AX_YR,
-            x_length=self.AX_XLEN,
-            y_length=self.AX_YLEN,
-            axis_config=dict(
-                color=C_AX,
-                include_numbers=True,
-                font_size=18,
-                numbers_to_include=[-3,-2,-1,1,2,3,4],
-                include_ticks=True,
-                tick_size=0.07,
-            ),
-        ).move_to(self.AX_CTR)
-        lx = Text("x", font=FONT, font_size=20, color=C_AX).next_to(ax.x_axis.get_right(), RIGHT, buff=0.12)
-        ly = Text("y", font=FONT, font_size=20, color=C_AX).next_to(ax.y_axis.get_top(),   UP,    buff=0.12)
-        return ax, lx, ly
+            x_range=[-4, 4, 1], y_range=[-2, 5, 1],
+            x_length=6.0, y_length=5.0,
+            axis_config={"include_numbers": True, "font_size": 18, "color": GRAY_B},
+            tips=False,
+        ).move_to(UP * 1.35)
+        self.play(Create(ax), run_time=0.7)
+        return ax
 
-    # ──────────────────────────────────────────
-    # 工具: 在坐标系内画直线 y=kx+b
-    # ──────────────────────────────────────────
-    def line_on_axes(self, ax, k, b, color, sw=3):
-        xmin, xmax = self.AX_XR[0], self.AX_XR[1]
-        ymin, ymax = self.AX_YR[0], self.AX_YR[1]
-        pts = []
-        for xv in [xmin, xmax]:
-            yv = k*xv + b
-            if ymin <= yv <= ymax:
-                pts.append((xv, yv))
-        if abs(k) > 1e-10:
-            for yv in [ymin, ymax]:
-                xv = (yv - b) / k
-                if xmin <= xv <= xmax:
-                    pts.append((xv, yv))
-        u = []
-        for p in pts:
-            if not any(abs(p[0]-q[0])<1e-8 and abs(p[1]-q[1])<1e-8 for q in u):
-                u.append(p)
-        if len(u) < 2:
-            u = [(xmin, k*xmin+b), (xmax, k*xmax+b)]
-        return Line(ax.c2p(*u[0]), ax.c2p(*u[1]), color=color, stroke_width=sw)
+    def draw_line(self, ax, coeff, color):
+        p, q = clip_line(coeff)
+        line = Line(ax.c2p(*p), ax.c2p(*q), color=color, stroke_width=5)
+        self.play(Create(line), run_time=0.65)
+        return line
 
-    # ──────────────────────────────────────────
-    # 工具: 创建公式卡片
-    # ──────────────────────────────────────────
-    def formula_card(self, title_cn, tex_str, color, width=7.6, height=1.6, pos=DOWN*4.3):
-        bg  = RoundedRectangle(
-            width=width, height=height, corner_radius=0.18,
-            fill_color=C_BG_CARD, fill_opacity=1,
-            stroke_color=color, stroke_width=2.5
-        ).move_to(pos)
-        title = Text(title_cn, font=FONT, font_size=26, color=color).move_to(
-            bg.get_center() + LEFT * (width/2 - 0.9)
-        )
-        formula = MathTex(tex_str, font_size=30, color=WHITE).move_to(
-            bg.get_center() + RIGHT * 0.6
-        )
-        return VGroup(bg, title, formula)
+    def mark(self, ax, point, name, direction=UR, color=YELLOW):
+        dot = Dot(ax.c2p(*point), radius=0.09, color=color)
+        label = MathTex(name, font_size=23, color=color).next_to(dot, direction, buff=0.13)
+        self.play(FadeIn(dot), FadeIn(label), run_time=0.35)
+        return dot, label
 
-    # ══════════════════════════════════════════
-    # Scene 1  开场
-    # ══════════════════════════════════════════
+    def formula(self, label, expression, explanation, color, size=31):
+        panel = RoundedRectangle(
+            width=8.0, height=2.45, corner_radius=0.15,
+            fill_color="#16213e", fill_opacity=0.95,
+            stroke_color=color, stroke_width=2,
+        ).move_to(DOWN * 4.75)
+        heading = self.cn(label, 23, color).move_to(panel.get_center() + UP * 0.77)
+        math_label = MathTex(expression, font_size=size).move_to(panel.get_center() + UP * 0.10)
+        note = self.cn(explanation, 20, GRAY_A).move_to(panel.get_center() + DOWN * 0.77)
+        math_label.scale_to_fit_width(min(math_label.width, 7.5))
+        self.play(FadeIn(panel), FadeIn(heading), Write(math_label), FadeIn(note), run_time=0.85)
+        return VGroup(panel, heading, math_label, note)
+
     def scene_opening(self):
-        # 作者条
-        self.author_banner = Text(
-            "上海初高中数学直通车  @emptyandcalm",
-            font=FONT, font_size=20, color=GRAY_B
-        ).move_to(UP * 7.0)
-        self.play(FadeIn(self.author_banner, shift=DOWN*0.2), run_time=0.4)
+        self.heading("直线的方程：五种形式")
+        prompts = VGroup(*[
+            self.cn(text, 27, color)
+            for text, color in (
+                ("① 点斜式：一点与斜率", C_PS),
+                ("② 斜截式：斜率与纵截距", C_SI),
+                ("③ 两点式：两个不同点", C_TP),
+                ("④ 截距式：两个非零截距", C_IC),
+                ("⑤ 一般式：包括垂直线", C_GN),
+            )
+        ]).arrange(DOWN, buff=0.45).move_to(UP * 0.6)
+        for line in prompts:
+            self.play(FadeIn(line, shift=RIGHT * 0.2), run_time=0.3)
+        self.wait(0.9)
 
-        # 大标题
-        title = Text("直线的方程", font=FONT, font_size=52, color=GOLD).move_to(UP * 5.8)
-        subtitle = Text("五种形式，一条直线的五张面孔", font=FONT, font_size=26, color=GRAY_A
-                        ).move_to(UP * 4.9)
-        self.play(Write(title), run_time=0.8)
-        self.play(FadeIn(subtitle, shift=UP*0.2), run_time=0.5)
-
-        # 五种形式名称依次飞入
-        names_data = [
-            ("① 点斜式", C_PS, UP*3.5),
-            ("② 斜截式", C_SI, UP*2.6),
-            ("③ 两点式", C_TP, UP*1.7),
-            ("④ 截距式", C_IC, UP*0.8),
-            ("⑤ 一般式", C_GN, DOWN*0.1),
-        ]
-        name_objs = []
-        for txt, col, pos in names_data:
-            obj = Text(txt, font=FONT, font_size=30, color=col).move_to(pos)
-            obj.shift(RIGHT * 9)   # 屏幕右侧外
-            self.add(obj)
-            self.play(obj.animate.shift(LEFT * 9), run_time=0.35)
-            name_objs.append(obj)
-
-        self.wait(0.6)
-
-        # 全部淡出，标题缩小
-        title_small = Text("直线的方程", font=FONT, font_size=34, color=GOLD).move_to(UP * 6.3)
-        self.play(
-            *[FadeOut(o) for o in name_objs],
-            FadeOut(subtitle),
-            Transform(title, title_small),
-            run_time=0.6,
-        )
-        self.title_obj = title
-
-    # ══════════════════════════════════════════
-    # Scene 2  点斜式
-    # ══════════════════════════════════════════
     def scene_point_slope(self):
-        scene_label = Text("① 点斜式", font=FONT, font_size=38, color=C_PS).move_to(UP*5.5)
-        self.play(Write(scene_label), run_time=0.5)
+        self.heading("① 点斜式", C_PS)
+        ax = self.axes()
+        self.draw_line(ax, (-2, 1, 0), C_PS)  # y=2x
+        self.mark(ax, (1, 2), r"P(1,2)", UR)
+        self.mark(ax, (0, 0), r"O(0,0)", DL, C_PS)
+        right = DashedLine(ax.c2p(0, 0), ax.c2p(1, 0), color=GRAY_A)
+        rise = DashedLine(ax.c2p(1, 0), ax.c2p(1, 2), color=GRAY_A)
+        self.play(Create(right), Create(rise), run_time=0.5)
+        self.formula("已知 P(1,2)，斜率 k=2", r"y-2=2(x-1)",
+                     "点斜式要求斜率存在；本例化简为 y=2x", C_PS)
+        self.wait(1.0)
 
-        ax, lx, ly = self.make_axes()
-        self.play(Create(ax), FadeIn(lx), FadeIn(ly), run_time=0.9)
-
-        # 画直线 y = 2x
-        line = self.line_on_axes(ax, self.ps_k, self.ps_b, C_PS)
-        self.play(Create(line), run_time=0.8)
-
-        # 标记点 P(1, 2)
-        P_scene = ax.c2p(*self.ps_P)
-        dot_P = Dot(P_scene, radius=0.12, color=C_HL)
-        label_P = MathTex(r"(1,\ 2)", font_size=26, color=C_HL).next_to(dot_P, UR, buff=0.15)
-        self.play(FadeIn(dot_P, scale=0.4), Write(label_P), run_time=0.5)
-
-        # 用虚线展示 rise / run，演示斜率
-        # run: (1,0) → (2,0)  /  rise: (2,0) → (2,2) 的方向（在坐标系坐标里）
-        pt_run_end = np.array([2.0, 0.0])   # (run结束) x轴上
-        pt_rise_end = np.array([2.0, 2.0])  # (rise结束) = P的右移一位 + 上移2位
-
-        # 从 P(1,2) 向右走1单位 → Q(2,2)
-        Q = np.array([2.0, 2.0])
-        # 从 Q(2,2) 向下走到(2,0) 也可以;  
-        # 更直观：从原点沿x轴向右1, 再向上2
-        # 改用: 从P(1,2)出发, right→(2,2), 再下→(2,0) not intuitive
-        # 最佳: 从(0,0)出发，run到(1,0)，rise到(1,2)
-        O_scene = ax.c2p(0, 0)
-        R_scene = ax.c2p(1, 0)   # run end
-        P2_scene = ax.c2p(1, 2)  # = P
-
-        run_line  = DashedLine(O_scene, R_scene, color=C_AX, dash_length=0.1, stroke_width=2)
-        rise_line = DashedLine(R_scene, P2_scene, color=C_AX, dash_length=0.1, stroke_width=2)
-        run_brace  = BraceBetweenPoints(O_scene, R_scene, direction=DOWN, color=GRAY_A)
-        rise_brace = BraceBetweenPoints(R_scene, P2_scene, direction=RIGHT, color=GRAY_A)
-        run_label  = Text("run=1", font=FONT, font_size=18, color=GRAY_A).next_to(run_brace,  DOWN,  buff=0.1)
-        rise_label = Text("rise=2", font=FONT, font_size=18, color=GRAY_A).next_to(rise_brace, RIGHT, buff=0.1)
-
-        self.play(Create(run_line), GrowFromEdge(run_brace, LEFT), FadeIn(run_label), run_time=0.6)
-        self.play(Create(rise_line), GrowFromEdge(rise_brace, DOWN), FadeIn(rise_label), run_time=0.6)
-
-        slope_text = Text("斜率 k = rise/run = 2", font=FONT, font_size=24, color=C_HL
-                          ).move_to(DOWN*3.3)
-        self.play(FadeIn(slope_text, shift=UP*0.2), run_time=0.5)
-        self.wait(0.5)
-
-        # 公式卡片
-        card = self.formula_card("点斜式", r"y - y_0 = k(x - x_0)", C_PS)
-        card_example = MathTex(r"y - 2 = 2(x - 1)", font_size=26, color=GRAY_A
-                               ).next_to(card, DOWN, buff=0.15)
-        self.play(FadeIn(card), run_time=0.5)
-        self.play(Write(card_example), run_time=0.5)
-        self.wait(1.4)
-
-        # 清理
-        self.play(*[FadeOut(o) for o in [
-            scene_label, ax, lx, ly, line, dot_P, label_P,
-            run_line, rise_line, run_brace, rise_brace, run_label, rise_label,
-            slope_text, card, card_example
-        ]], run_time=0.5)
-
-    # ══════════════════════════════════════════
-    # Scene 3  斜截式
-    # ══════════════════════════════════════════
     def scene_slope_intercept(self):
-        scene_label = Text("② 斜截式", font=FONT, font_size=38, color=C_SI).move_to(UP*5.5)
-        self.play(Write(scene_label), run_time=0.5)
+        self.heading("② 斜截式", C_SI)
+        ax = self.axes()
+        self.draw_line(ax, (1, -1, 3), C_SI)  # y=x+3
+        self.mark(ax, (0, 3), r"(0,3)", UR)
+        self.formula("斜率 k=1，纵截距 b=3", r"y=kx+b=x+3",
+                     "纵截距是交点的纵坐标，可正可负或为零", C_SI)
+        self.wait(1.0)
 
-        ax, lx, ly = self.make_axes()
-        self.play(Create(ax), FadeIn(lx), FadeIn(ly), run_time=0.9)
-
-        # 画 y = x + 3
-        line = self.line_on_axes(ax, self.si_k, self.si_b, C_SI)
-        self.play(Create(line), run_time=0.8)
-
-        # 标记 y 截距 b = 3
-        y_int_scene = ax.c2p(0, self.si_b)
-        dot_b = Dot(y_int_scene, radius=0.12, color=C_HL)
-        label_b = MathTex(r"b = 3", font_size=28, color=C_HL).next_to(dot_b, RIGHT, buff=0.18)
-        self.play(FadeIn(dot_b, scale=0.4), Write(label_b), run_time=0.5)
-
-        # 竖向虚线 + Brace 标注截距
-        origin_scene = ax.c2p(0, 0)
-        v_dash = DashedLine(origin_scene, y_int_scene, color=C_HL,
-                            dash_length=0.1, stroke_width=2.5)
-        v_brace = BraceBetweenPoints(origin_scene, y_int_scene, direction=LEFT, color=C_HL)
-        v_text  = Text("y轴截距 b", font=FONT, font_size=20, color=C_HL
-                       ).next_to(v_brace, LEFT, buff=0.12)
-        self.play(Create(v_dash), GrowFromEdge(v_brace, DOWN), FadeIn(v_text), run_time=0.7)
-
-        # 说明
-        explain = Text("直线与y轴的交点纵坐标就是b", font=FONT, font_size=23, color=WHITE
-                       ).move_to(DOWN*3.3)
-        self.play(FadeIn(explain, shift=UP*0.2), run_time=0.5)
-        self.wait(0.5)
-
-        # 公式卡片
-        card = self.formula_card("斜截式", r"y = kx + b", C_SI)
-        card_ex = MathTex(r"y = x + 3", font_size=26, color=GRAY_A
-                          ).next_to(card, DOWN, buff=0.15)
-        self.play(FadeIn(card), Write(card_ex), run_time=0.6)
-        self.wait(1.3)
-
-        self.play(*[FadeOut(o) for o in [
-            scene_label, ax, lx, ly, line,
-            dot_b, label_b, v_dash, v_brace, v_text,
-            explain, card, card_ex
-        ]], run_time=0.5)
-
-    # ══════════════════════════════════════════
-    # Scene 4  两点式
-    # ══════════════════════════════════════════
     def scene_two_point(self):
-        scene_label = Text("③ 两点式", font=FONT, font_size=38, color=C_TP).move_to(UP*5.5)
-        self.play(Write(scene_label), run_time=0.5)
+        self.heading("③ 两点式", C_TP)
+        ax = self.axes()
+        p, q = (-1, 1), (2, 4)
+        coeff = coefficients_through_points(p, q)
+        self.draw_line(ax, coeff, C_TP)
+        self.mark(ax, p, r"P_1(-1,1)", DL)
+        self.mark(ax, q, r"P_2(2,4)", UR)
+        corner = (q[0], p[1])
+        self.play(Create(DashedLine(ax.c2p(*p), ax.c2p(*corner), color=GRAY_A)),
+                  Create(DashedLine(ax.c2p(*corner), ax.c2p(*q), color=GRAY_A)),
+                  run_time=0.45)
+        self.formula("两点确定一条直线", r"3(y-1)=3(x+1)",
+                     "交叉相乘适用于水平线和垂直线", C_TP)
+        self.wait(0.45)
+        self.play(Write(MathTex(r"y=x+2", color=C_TP, font_size=30).move_to(DOWN * 2.9)),
+                  run_time=0.5)
+        self.wait(0.8)
 
-        ax, lx, ly = self.make_axes()
-        self.play(Create(ax), FadeIn(lx), FadeIn(ly), run_time=0.9)
-
-        # 画直线 y = x + 2
-        line = self.line_on_axes(ax, self.tp_k, self.tp_b, C_TP)
-        self.play(Create(line), run_time=0.8)
-
-        # 标记两点
-        P1s = ax.c2p(*self.tp_P1)
-        P2s = ax.c2p(*self.tp_P2)
-        dot1 = Dot(P1s, radius=0.12, color=C_HL)
-        dot2 = Dot(P2s, radius=0.12, color=C_HL)
-        lbl1 = MathTex(r"P_1(-1,\ 1)", font_size=24, color=C_HL).next_to(dot1, DL, buff=0.15)
-        lbl2 = MathTex(r"P_2(2,\ 4)",  font_size=24, color=C_HL).next_to(dot2, UR, buff=0.15)
-        self.play(FadeIn(dot1, scale=0.4), FadeIn(dot2, scale=0.4), run_time=0.4)
-        self.play(Write(lbl1), Write(lbl2), run_time=0.5)
-
-        # 辅助直角三角形（Px = (2, 1)）
-        Pxs = ax.c2p(*self.tp_Px)
-        h_dash = DashedLine(P1s, Pxs, color=GRAY_B, dash_length=0.1, stroke_width=2)  # 水平
-        v_dash = DashedLine(Pxs, P2s, color=GRAY_B, dash_length=0.1, stroke_width=2)  # 竖直
-        self.play(Create(h_dash), Create(v_dash), run_time=0.6)
-
-        # Brace 标注 Δx 和 Δy
-        brace_dx = BraceBetweenPoints(P1s, Pxs, direction=DOWN, color=GRAY_A)
-        brace_dy = BraceBetweenPoints(Pxs, P2s, direction=RIGHT, color=GRAY_A)
-        lbl_dx = MathTex(r"x_2 - x_1", font_size=20, color=GRAY_A).next_to(brace_dx, DOWN, buff=0.1)
-        lbl_dy = MathTex(r"y_2 - y_1", font_size=20, color=GRAY_A).next_to(brace_dy, RIGHT, buff=0.1)
-        self.play(
-            GrowFromEdge(brace_dx, LEFT), FadeIn(lbl_dx),
-            GrowFromEdge(brace_dy, DOWN), FadeIn(lbl_dy),
-            run_time=0.6
-        )
-
-        # 直角标记（Px 处）
-        # 水平向量从 Px 到 P1，竖直向量从 Px 到 P2
-        # 验证脚本已确认为直角，叉积z=-9（顺时针）→ 用 other_angle 的 Elbow
-        size = 0.18
-        vec_h = (P1s - Pxs) / np.linalg.norm(P1s - Pxs) * size  # 向左
-        vec_v = (P2s - Pxs) / np.linalg.norm(P2s - Pxs) * size  # 向上
-        right_angle_sq = Polygon(
-            Pxs, Pxs + vec_h, Pxs + vec_h + vec_v, Pxs + vec_v,
-            color=GRAY_A, stroke_width=1.5, fill_opacity=0
-        )
-        self.play(Create(right_angle_sq), run_time=0.3)
-
-        explain = Text("相似比 → 斜率不变 → 方程", font=FONT, font_size=23, color=WHITE
-                       ).move_to(DOWN*3.3)
-        self.play(FadeIn(explain, shift=UP*0.2), run_time=0.5)
-        self.wait(0.5)
-
-        # 公式卡片
-        card = self.formula_card(
-            "两点式",
-            r"\frac{y-y_1}{y_2-y_1}=\frac{x-x_1}{x_2-x_1}",
-            C_TP, height=1.8
-        )
-        card_ex = MathTex(r"y - 1 = x + 1\ \Rightarrow\ y = x + 2",
-                          font_size=24, color=GRAY_A).next_to(card, DOWN, buff=0.15)
-        self.play(FadeIn(card), Write(card_ex), run_time=0.7)
-        self.wait(1.3)
-
-        self.play(*[FadeOut(o) for o in [
-            scene_label, ax, lx, ly, line,
-            dot1, dot2, lbl1, lbl2,
-            h_dash, v_dash, brace_dx, brace_dy, lbl_dx, lbl_dy,
-            right_angle_sq, explain, card, card_ex
-        ]], run_time=0.5)
-
-    # ══════════════════════════════════════════
-    # Scene 5  截距式
-    # ══════════════════════════════════════════
     def scene_intercept(self):
-        scene_label = Text("④ 截距式", font=FONT, font_size=38, color=C_IC).move_to(UP*5.5)
-        self.play(Write(scene_label), run_time=0.5)
+        self.heading("④ 截距式", C_IC)
+        ax = self.axes()
+        self.draw_line(ax, (2, 3, -6), C_IC)
+        self.mark(ax, (3, 0), r"(3,0)", DR, C_IC)
+        self.mark(ax, (0, 2), r"(0,2)", UL, C_IC)
+        self.formula("横截距 a=3，纵截距 b=2", r"\frac{x}{3}+\frac{y}{2}=1",
+                     "a、b 都必须非零；过原点的直线不适用", C_IC)
+        self.wait(1.0)
 
-        ax, lx, ly = self.make_axes()
-        self.play(Create(ax), FadeIn(lx), FadeIn(ly), run_time=0.9)
-
-        # 画 y = -2x/3 + 2  (x/3 + y/2 = 1)
-        line = self.line_on_axes(ax, self.ic_k, self.ic_bi, C_IC)
-        self.play(Create(line), run_time=0.8)
-
-        # x 截距点 (3, 0)
-        x_int_scene = ax.c2p(self.ic_a, 0)
-        dot_a = Dot(x_int_scene, radius=0.12, color=C_IC)
-        lbl_a = MathTex(r"(3,\ 0)", font_size=26, color=C_IC).next_to(dot_a, DR, buff=0.15)
-        self.play(FadeIn(dot_a, scale=0.4), Write(lbl_a), run_time=0.5)
-
-        # y 截距点 (0, 2)
-        y_int_scene = ax.c2p(0, self.ic_b)
-        dot_b = Dot(y_int_scene, radius=0.12, color=C_IC)
-        lbl_b = MathTex(r"(0,\ 2)", font_size=26, color=C_IC).next_to(dot_b, UL, buff=0.15)
-        self.play(FadeIn(dot_b, scale=0.4), Write(lbl_b), run_time=0.5)
-
-        # Flash 强调
-        self.play(
-            Flash(dot_a, color=C_IC, flash_radius=0.3),
-            Flash(dot_b, color=C_IC, flash_radius=0.3),
-            run_time=0.5
-        )
-
-        # 标注 a, b
-        origin_scene = ax.c2p(0, 0)
-        brace_a = BraceBetweenPoints(origin_scene, x_int_scene, direction=DOWN, color=GRAY_A)
-        brace_b = BraceBetweenPoints(origin_scene, y_int_scene, direction=LEFT, color=GRAY_A)
-        text_a  = Text("x截距 a=3", font=FONT, font_size=19, color=GRAY_A
-                       ).next_to(brace_a, DOWN, buff=0.1)
-        text_b  = Text("y截距 b=2", font=FONT, font_size=19, color=GRAY_A
-                       ).next_to(brace_b, LEFT, buff=0.1)
-        self.play(
-            GrowFromEdge(brace_a, LEFT), FadeIn(text_a),
-            GrowFromEdge(brace_b, DOWN), FadeIn(text_b),
-            run_time=0.6
-        )
-
-        explain = Text("两截距各自独立，记忆方便！", font=FONT, font_size=23, color=WHITE
-                       ).move_to(DOWN*3.3)
-        self.play(FadeIn(explain, shift=UP*0.2), run_time=0.5)
-        self.wait(0.5)
-
-        # 公式卡片
-        card = self.formula_card("截距式", r"\frac{x}{a}+\frac{y}{b}=1", C_IC)
-        card_ex = MathTex(r"\frac{x}{3}+\frac{y}{2}=1", font_size=28, color=GRAY_A
-                          ).next_to(card, DOWN, buff=0.15)
-        self.play(FadeIn(card), Write(card_ex), run_time=0.6)
-        self.wait(1.3)
-
-        self.play(*[FadeOut(o) for o in [
-            scene_label, ax, lx, ly, line,
-            dot_a, lbl_a, dot_b, lbl_b,
-            brace_a, brace_b, text_a, text_b,
-            explain, card, card_ex
-        ]], run_time=0.5)
-
-    # ══════════════════════════════════════════
-    # Scene 6  一般式
-    # ══════════════════════════════════════════
     def scene_general(self):
-        scene_label = Text("⑤ 一般式", font=FONT, font_size=38, color=C_GN).move_to(UP*5.5)
-        self.play(Write(scene_label), run_time=0.5)
-
-        ax, lx, ly = self.make_axes()
-        self.play(Create(ax), FadeIn(lx), FadeIn(ly), run_time=0.9)
-
-        # 同一直线 y = -2x/3 + 2（与截距式相同）
-        line = self.line_on_axes(ax, self.gn_k, self.gn_bi, C_GN)
-        self.play(Create(line), run_time=0.8)
-
-        # 两个截距点（已知）
-        P_x = ax.c2p(3, 0)
-        P_y = ax.c2p(0, 2)
-        dot_x = Dot(P_x, radius=0.1, color=GRAY_A)
-        dot_y = Dot(P_y, radius=0.1, color=GRAY_A)
-        self.play(FadeIn(dot_x), FadeIn(dot_y), run_time=0.3)
-
-        # 方程 2x + 3y - 6 = 0
-        eq_general = MathTex(r"2x + 3y - 6 = 0", font_size=36, color=C_GN).move_to(DOWN*3.2)
-        self.play(Write(eq_general), run_time=0.7)
-        self.wait(0.4)
-
-        # 变形 → 斜截式
-        arrow_tf = Text("化为斜截式 →", font=FONT, font_size=22, color=GRAY_A).move_to(DOWN*4.2)
-        eq_slope = MathTex(r"y = -\frac{2}{3}x + 2", font_size=32, color=GRAY_A).move_to(DOWN*5.1)
-        self.play(FadeIn(arrow_tf, shift=UP*0.2), run_time=0.4)
-        self.play(Write(eq_slope), run_time=0.6)
+        self.heading("⑤ 一般式", C_GN)
+        ax = self.axes()
+        self.draw_line(ax, (2, 3, -6), C_GN)
+        self.mark(ax, (3, 0), r"(3,0)", DR, C_GN)
+        self.mark(ax, (0, 2), r"(0,2)", UL, C_GN)
+        self.formula("与上一镜截距式表示同一条直线", r"2x+3y-6=0",
+                     "Ax+By+C=0，A、B 不同时为零", C_GN)
         self.wait(0.5)
+        self.play(Write(MathTex(r"x=3\;(A=1,B=0,C=-3)", font_size=28,
+                                color=C_GN).move_to(DOWN * 2.9)), run_time=0.5)
+        self.wait(0.8)
 
-        # 强调"最通用"
-        note = Text("最通用！可表示所有直线（包括垂直线）", font=FONT, font_size=21, color=C_HL
-                    ).move_to(DOWN*6.1)
-        self.play(FadeIn(note, shift=UP*0.2), run_time=0.5)
-        self.wait(1.2)
-
-        self.play(*[FadeOut(o) for o in [
-            scene_label, ax, lx, ly, line,
-            dot_x, dot_y,
-            eq_general, arrow_tf, eq_slope, note
-        ]], run_time=0.5)
-
-    # ══════════════════════════════════════════
-    # Scene 7  总结
-    # ══════════════════════════════════════════
     def scene_summary(self):
-        title_s = Text("五种形式总览", font=FONT, font_size=40, color=GOLD).move_to(UP*5.5)
-        self.play(Write(title_s), run_time=0.6)
-
-        # 五行对比卡片
-        rows = [
-            ("① 点斜式", r"y - y_0 = k(x - x_0)", C_PS, "已知一点+斜率"),
-            ("② 斜截式", r"y = kx + b",            C_SI, "斜率+y截距"),
-            ("③ 两点式", r"\frac{y-y_1}{y_2-y_1}=\frac{x-x_1}{x_2-x_1}", C_TP, "已知两点"),
-            ("④ 截距式", r"\frac{x}{a}+\frac{y}{b}=1", C_IC, "已知两截距"),
-            ("⑤ 一般式", r"Ax + By + C = 0",       C_GN, "最通用形式"),
-        ]
-
-        card_objs = []
-        start_y = 4.3
-        gap = 1.75
-        for i, (name, tex, color, hint) in enumerate(rows):
-            y_pos = start_y - i * gap
-            # 卡片背景
-            bg = RoundedRectangle(
-                width=8.2, height=1.5, corner_radius=0.15,
-                fill_color=C_BG_CARD, fill_opacity=1,
-                stroke_color=color, stroke_width=2
-            ).move_to(UP * y_pos)
-
-            # 名称
-            name_t = Text(name, font=FONT, font_size=22, color=color).move_to(
-                bg.get_center() + LEFT * 2.8
-            )
-            # 公式
-            formula_t = MathTex(tex, font_size=22, color=WHITE).move_to(
-                bg.get_center() + RIGHT * 0.3
-            )
-            # 适用提示（最右侧小字）
-            hint_t = Text(hint, font=FONT, font_size=16, color=GRAY_B).move_to(
-                bg.get_right() + LEFT * 0.8
-            )
-
-            card = VGroup(bg, name_t, formula_t)
-            card.shift(LEFT * 12)
-            self.add(card)
-            self.play(card.animate.shift(RIGHT * 12), run_time=0.4)
-            card_objs.append(card)
-
-        self.wait(1.5)
-
-        # 技巧提示
-        tip = Text(
-            "💡  根据已知条件灵活选择最简形式！",
-            font=FONT, font_size=25, color=C_HL
-        ).move_to(DOWN * 4.8)
-        self.play(FadeIn(tip, shift=UP*0.3), run_time=0.6)
-        self.wait(1.8)
-
-        self.play(
-            *[FadeOut(c) for c in card_objs],
-            FadeOut(title_s), FadeOut(tip),
-            run_time=0.6
+        self.heading("五种形式：条件决定写法")
+        rows = (
+            ("点斜式", r"y-y_0=k(x-x_0)", "斜率存在", C_PS),
+            ("斜截式", r"y=kx+b", "斜率存在", C_SI),
+            ("两点式", r"(y-y_1)(x_2-x_1)=(x-x_1)(y_2-y_1)", "两点不同", C_TP),
+            ("截距式", r"\frac{x}{a}+\frac{y}{b}=1", "a、b非零", C_IC),
+            ("一般式", r"Ax+By+C=0", "A、B不同时为零", C_GN),
         )
+        for index, (name, expression, condition, color) in enumerate(rows):
+            y = 4.65 - index * 2.12
+            panel = RoundedRectangle(width=8.0, height=1.82, corner_radius=0.12,
+                                     fill_color="#16213e", fill_opacity=0.95,
+                                     stroke_color=color, stroke_width=1.5).move_to(UP * y)
+            title = self.cn(name, 21, color).move_to(panel.get_center() + UP * 0.55)
+            equation = MathTex(expression, font_size=26).move_to(panel.get_center())
+            equation.scale_to_fit_width(min(equation.width, 7.5))
+            note = self.cn(condition, 19, GRAY_B).move_to(panel.get_center() + DOWN * 0.58)
+            self.play(FadeIn(VGroup(panel, title, equation, note)), run_time=0.28)
+        self.wait(1.7)
 
-    # ══════════════════════════════════════════
-    # Scene 8  片尾
-    # ══════════════════════════════════════════
     def scene_outro(self):
-        self.play(FadeOut(self.title_obj), run_time=0.4)
-
-        author_big = Text(
-            "上海初高中数学直通车",
-            font=FONT, font_size=44, color=WHITE
-        ).move_to(UP * 2.2)
-        author_id = Text(
-            "@emptyandcalm",
-            font=FONT, font_size=32, color=GRAY_B
-        ).move_to(UP * 1.2)
-        follow_t = Text(
-            "关注我，获得更多数学技巧！",
-            font=FONT, font_size=30, color=C_HL
-        ).move_to(DOWN * 0.1)
-
-        self.play(Transform(self.author_banner, author_big), run_time=0.7)
-        self.play(FadeIn(author_id, shift=UP*0.2), run_time=0.4)
-        self.play(FadeIn(follow_t, scale=1.05, shift=UP*0.2), run_time=0.6)
-
-        # 五个彩色圆点装饰（代表五种形式）
-        dots_deco = VGroup(*[
-            Dot(radius=0.22, color=col, fill_opacity=0.9)
-            for col in [C_PS, C_SI, C_TP, C_IC, C_GN]
-        ]).arrange(RIGHT, buff=0.5).move_to(DOWN * 1.8)
-
-        self.play(*[FadeIn(d, scale=0.5) for d in dots_deco], run_time=0.5)
-        self.play(
-            *[d.animate.shift(UP * 0.25) for d in dots_deco[::2]],   # 奇数跳
-            *[d.animate.shift(DOWN * 0.25) for d in dots_deco[1::2]], # 偶数沉
-            run_time=0.5
-        )
-        self.play(
-            *[d.animate.shift(DOWN * 0.25) for d in dots_deco[::2]],
-            *[d.animate.shift(UP * 0.25) for d in dots_deco[1::2]],
-            run_time=0.5
-        )
-
-        bottom_tip = Text(
-            "直线方程五合一，灵活运用得高分！",
-            font=FONT, font_size=24, color=GRAY_A
-        ).move_to(DOWN * 3.2)
-        self.play(FadeIn(bottom_tip, shift=UP*0.2), run_time=0.5)
-
+        self.clear_stage()
+        heading = self.cn("一条直线，多种写法", 39, GOLD).move_to(UP * 2.2)
+        message = self.cn("先核实条件，再选择方程形式", 27).move_to(UP * 0.8)
+        byline = self.cn("@emptyandcalm", 27, GRAY_A).move_to(DOWN * 0.8)
+        self.play(Write(heading), FadeIn(message), FadeIn(byline), run_time=0.9)
         self.wait(1.5)
-        self.play(
-            *[FadeOut(o) for o in [
-                self.author_banner, author_id, follow_t,
-                dots_deco, bottom_tip
-            ]],
-            run_time=1.0
-        )
