@@ -38,8 +38,8 @@ class TestTestingPlatform(unittest.TestCase):
         self.assertEqual({"include": []}, changed_render_matrix(data, ["docs/README.md"]))
 
     def test_matrix_is_derived_from_manifest(self):
-        data = {"renders": [{"id": "a", "tier": "nightly", "source": "a.py", "scene": "A", "width": 270, "height": 480}]}
-        expected = {"include": [{"id": "a", "source": "a.py", "scene": "A", "width": 270, "height": 480, "resolution": "270,480"}]}
+        data = {"renders": [{"id": "a", "tier": "nightly", "source": "高中/高一/课/lesson.py", "scene": "A", "width": 270, "height": 480}]}
+        expected = {"include": [{"id": "a", "source": "高中/高一/课/lesson.py", "scene": "A", "width": 270, "height": 480, "resolution": "270,480", "lesson": "高中/高一/课"}]}
         self.assertEqual(expected, render_matrix(data, "nightly"))
 
     def test_manifest_rejects_duplicates_missing_sources_dimensions_and_domains(self):
@@ -55,6 +55,8 @@ class TestTestingPlatform(unittest.TestCase):
         self.assertTrue(any("positive width" in e for e in errors))
         self.assertTrue(any("needs domain" in e for e in errors))
         self.assertTrue(any("missing required render domains" in e for e in errors))
+        sparse_errors = validate_manifest(data, Path("/definitely-not-a-repository"), check_sources=False)
+        self.assertFalse(any("source missing" in e for e in sparse_errors))
 
 
 if __name__ == "__main__":
