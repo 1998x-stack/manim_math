@@ -1,0 +1,44 @@
+name: Grade 7 consolidated polynomial mathematics
+
+on:
+  pull_request:
+    paths:
+      - '初中/七年级/第一学期/第九章-整式/**'
+      - 'tests/test_grade7_like_terms_lesson.py'
+      - '.github/workflows/grade7-polynomials-consolidated.yml'
+  workflow_dispatch:
+
+jobs:
+  polynomial-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/七年级/第一学期/第九章-整式/**/*.py
+            /tests/test_grade7_like_terms_lesson.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile polynomial lessons and tests
+        run: |
+          python -m compileall -q '初中/七年级/第一学期/第九章-整式'
+          python -m py_compile tests/test_grade7_like_terms_lesson.py
+      - name: Run every lesson regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          while IFS= read -r -d '' test_file; do
+            python "$test_file"
+            count=$((count + 1))
+          done < <(find '初中/七年级/第一学期/第九章-整式' -type f -name verify_lesson.py -print0 | sort -z)
+          if [ "$count" -lt 6 ]; then
+            echo "Expected at least 6 lesson regression scripts, found $count" >&2
+            exit 1
+          fi
+          python tests/test_grade7_like_terms_lesson.py

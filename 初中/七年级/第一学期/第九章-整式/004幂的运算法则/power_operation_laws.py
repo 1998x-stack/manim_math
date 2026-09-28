@@ -1,55 +1,53 @@
-"""
-幂的运算法则动画 - Power Operation Laws Animation
-使用 Manim 创建的七年级数学教学视频
+"""幂的运算法则：七年级竖屏教学动画。
 
-内容: 同底数幂相乘、幂的乘方、积的乘方、同底数幂相除
-目标观众: 七年级学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
+Scene 入口沿用 PowerOperationLaws；数学例题与可见因子数量保持一致。
+使用：manim power_operation_laws.py PowerOperationLaws
+注意：本文件不执行渲染，也不会修改已有视频或音轨。
 """
 
 from manim import *
-import numpy as np
 
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#1a1a2e"
+ACCENT = "#3498db"
+FACTOR = "#e74c3c"
+EXPONENT = "#2ecc71"
+SAFE_WIDTH = 7.5
+
 
 class PowerOperationLaws(Scene):
-    """
-    幂的运算法则教学动画场景
-    
-    场景顺序:
-    1. 开场钩子
-    2. 法则一 - 同底数幂相乘
-    3. 法则二 - 幂的乘方
-    4. 法则三 - 积的乘方
-    5. 法则四 - 同底数幂相除
-    6. 四法则总结
-    7. 片尾关注
-    """
-    
+    """用可见的因子展开和反例条件说明四条幂的运算法则。"""
+
+    def fit(self, mob, width=SAFE_WIDTH):
+        if mob.width > width:
+            mob.scale_to_fit_width(width)
+        return mob
+
+    def heading(self, message):
+        return self.fit(Text(message, font_size=38, color=ACCENT)).move_to(UP * 5.5)
+
+    def equation(self, tex, y=2.9, size=46, color=WHITE):
+        return self.fit(MathTex(tex, font_size=size, color=color)).move_to(UP * y)
+
+    def note(self, message, y, color=YELLOW):
+        return self.fit(Text(message, font_size=26, color=color)).move_to(UP * y)
+
+    def clear_content(self):
+        """仅淡出真正位于 Scene 内的对象，持续保留顶部作者标识。"""
+        visible = [mob for mob in tuple(self.mobjects) if mob is not self.author_info]
+        if visible:
+            self.play(*[FadeOut(mob) for mob in visible], run_time=0.45)
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要公式
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 底数
-        self.COLOR_HIGHLIGHT = YELLOW       # 黄色 - 强调
-        self.COLOR_EXPONENT = "#2ecc71"     # 绿色 - 指数
-        self.COLOR_AUXILIARY = GRAY_B       # 灰色 - 辅助
-        
-        # 位置配置
-        self.TITLE_Y = 5.5
-        self.FORMULA_Y = 2.0
-        self.EXAMPLE_Y = -0.5
-        self.EXPLAIN_Y = -3.5
-        
-        # 执行动画序列
+        self.camera.background_color = BG
+        self.author_info = self.fit(
+            Text("上海初高中数学直通车  @emptyandcalm", font_size=19, color=GRAY_B)
+        ).move_to(UP * 6.75)
+        self.add(self.author_info)
         self.show_opening()
         self.show_law_1_same_base_multiply()
         self.show_law_2_power_of_power()
@@ -57,695 +55,120 @@ class PowerOperationLaws(Scene):
         self.show_law_4_same_base_divide()
         self.show_summary()
         self.show_outro()
-    
+
     def show_opening(self):
-        """场景1: 开场钩子"""
-        # 作者信息（顶部）
-        self.author_info = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7)
-        
-        self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
-        
-        # 钩子问题
-        hook_chinese = Text(
-            "你会算吗?",
-            font="PingFang SC",
-            font_size=40,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 4)
-        
-        hook_question = MathTex(
-            r"2^3 \times 2^5 = \,?",
-            font_size=60,
-            color=WHITE
-        ).move_to(UP * 2)
-        
-        # 分别着色
-        hook_question.set_color_by_tex("2", self.COLOR_SECONDARY)
-        hook_question.set_color_by_tex("?", self.COLOR_HIGHLIGHT)
-        
-        self.play(Write(hook_chinese), run_time=0.8)
-        self.play(Write(hook_question), run_time=1.0)
-        
-        # 思考提示
-        hint = Text(
-            "别急着展开计算!",
-            font="PingFang SC",
-            font_size=28,
-            color=GRAY_A
-        ).move_to(DOWN * 0.5)
-        
-        self.play(FadeIn(hint, shift=UP * 0.3), run_time=0.5)
-        
-        # 问号闪烁
-        question_mark = hook_question[-1]
-        self.play(
-            Flash(question_mark, color=self.COLOR_HIGHLIGHT, flash_radius=0.5),
-            run_time=0.5
-        )
-        
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(hook_chinese),
-            FadeOut(hook_question),
-            FadeOut(hint),
-            run_time=0.5
-        )
-    
+        title = self.heading("四种幂的运算，分清指数")
+        question = self.equation(r"2^3\cdot 2^5 = \, ?", y=2)
+        hint = self.note("每条法则都有适用条件", -0.5)
+        self.play(Write(title), Write(question), run_time=1)
+        self.play(FadeIn(hint), run_time=0.5)
+        self.wait(1)
+        self.clear_content()
+
     def show_law_1_same_base_multiply(self):
-        """场景2: 法则一 - 同底数幂相乘"""
-        # 标题
-        title = Text(
-            "法则一：同底数幂相乘",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * self.TITLE_Y)
-        
-        self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.8)
-        
-        # 通用公式
-        formula = MathTex(
-            r"a^m \times a^n = a^{m+n}",
-            font_size=48
-        ).move_to(UP * self.FORMULA_Y)
-        
-        # 着色
-        formula.set_color_by_tex("a", self.COLOR_SECONDARY)
-        formula.set_color_by_tex("m", self.COLOR_EXPONENT)
-        formula.set_color_by_tex("n", self.COLOR_EXPONENT)
-        
-        self.play(Write(formula), run_time=1.2)
-        
-        # 关键提示
-        key_point = Text(
-            "底数不变，指数相加",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 0.5)
-        
-        self.play(FadeIn(key_point), run_time=0.6)
-        self.wait(1.0)
-        
-        # 具体例子
-        example_label = Text(
-            "例子:",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(UP * self.EXAMPLE_Y + LEFT * 3)
-        
-        example = MathTex(
-            r"2^3 \times 2^5 = 2^{3+5} = 2^8",
-            font_size=40
-        ).next_to(example_label, RIGHT, buff=0.3)
-        
-        example.set_color_by_tex("2", self.COLOR_SECONDARY)
-        example.set_color_by_tex("3", self.COLOR_EXPONENT)
-        example.set_color_by_tex("5", self.COLOR_EXPONENT)
-        example.set_color_by_tex("8", self.COLOR_EXPONENT)
-        
-        self.play(
-            FadeIn(example_label),
-            Write(example),
-            run_time=1.5
-        )
-        
-        # 可视化解释
-        explain_1 = MathTex(
-            r"2^3 = 2 \times 2 \times 2",
-            font_size=32
-        ).move_to(UP * self.EXPLAIN_Y)
-        explain_1.set_color_by_tex("2", self.COLOR_SECONDARY)
-        
-        explain_2 = MathTex(
-            r"2^5 = 2 \times 2 \times 2 \times 2 \times 2",
-            font_size=32
-        ).next_to(explain_1, DOWN, buff=0.3)
-        explain_2.set_color_by_tex("2", self.COLOR_SECONDARY)
-        
-        self.play(
-            FadeIn(explain_1, shift=UP * 0.2),
-            run_time=0.8
-        )
-        self.wait(0.5)
-        self.play(
-            FadeIn(explain_2, shift=UP * 0.2),
-            run_time=0.8
-        )
-        
-        # 合并说明
-        merge_text = Text(
-            "共有 3+5=8 个底数相乘",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).next_to(explain_2, DOWN, buff=0.5)
-        
-        self.play(FadeIn(merge_text), run_time=0.6)
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(formula),
-            FadeOut(key_point),
-            FadeOut(example_label),
-            FadeOut(example),
-            FadeOut(explain_1),
-            FadeOut(explain_2),
-            FadeOut(merge_text),
-            run_time=0.6
-        )
-    
+        title = self.heading("法则一：同底数幂相乘")
+        formula = self.equation(r"a^m\cdot a^n=a^{m+n}")
+        assumption = self.note("m、n 为非负整数；底数相同", 1.5, GRAY_A)
+        rule = self.note("底数不变，指数相加", 0.4)
+        example = self.equation(r"2^3\cdot 2^5=2^{3+5}=2^8", y=-1.2, size=39)
+        # 八个真实显示的因子，而非只用一句文字声称有八个。
+        factors = VGroup(*[MathTex("2", font_size=37, color=FACTOR) for _ in range(8)])
+        factors.arrange(RIGHT, buff=0.29).move_to(DOWN * 3.0)
+        explanation = self.note("左边 3 个，右边 5 个：一共 8 个因子", -4.55)
+        self.play(Write(title), Write(formula), run_time=1)
+        self.play(FadeIn(assumption), FadeIn(rule), run_time=0.65)
+        self.play(Write(example), run_time=0.8)
+        self.play(LaggedStart(*[FadeIn(factor) for factor in factors], lag_ratio=0.08), run_time=1)
+        self.play(FadeIn(explanation), run_time=0.5)
+        self.wait(1.1)
+        self.clear_content()
+
     def show_law_2_power_of_power(self):
-        """场景3: 法则二 - 幂的乘方"""
-        # 标题
-        title = Text(
-            "法则二：幂的乘方",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * self.TITLE_Y)
-        
-        self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.8)
-        
-        # 通用公式
-        formula = MathTex(
-            r"(a^m)^n = a^{mn}",
-            font_size=48
-        ).move_to(UP * self.FORMULA_Y)
-        
-        formula.set_color_by_tex("a", self.COLOR_SECONDARY)
-        formula.set_color_by_tex("m", self.COLOR_EXPONENT)
-        formula.set_color_by_tex("n", self.COLOR_EXPONENT)
-        
-        self.play(Write(formula), run_time=1.2)
-        
-        # 关键提示
-        key_point = Text(
-            "底数不变，指数相乘",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 0.5)
-        
-        self.play(FadeIn(key_point), run_time=0.6)
-        self.wait(0.8)
-        
-        # 具体例子
-        example_label = Text(
-            "例子:",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(UP * self.EXAMPLE_Y + LEFT * 3)
-        
-        example = MathTex(
-            r"(2^3)^2 = 2^{3 \times 2} = 2^6",
-            font_size=40
-        ).next_to(example_label, RIGHT, buff=0.3)
-        
-        example.set_color_by_tex("2", self.COLOR_SECONDARY)
-        example.set_color_by_tex("3", self.COLOR_EXPONENT)
-        example.set_color_by_tex("6", self.COLOR_EXPONENT)
-        
-        self.play(
-            FadeIn(example_label),
-            Write(example),
-            run_time=1.5
-        )
-        
-        # 可视化解释
-        explain_1 = MathTex(
-            r"(2^3)^2 = 2^3 \times 2^3",
-            font_size=32
-        ).move_to(UP * self.EXPLAIN_Y)
-        explain_1.set_color_by_tex("2", self.COLOR_SECONDARY)
-        
-        explain_2 = MathTex(
-            r"= (2 \times 2 \times 2) \times (2 \times 2 \times 2)",
-            font_size=28
-        ).next_to(explain_1, DOWN, buff=0.3)
-        explain_2.set_color_by_tex("2", self.COLOR_SECONDARY)
-        
-        self.play(FadeIn(explain_1, shift=UP * 0.2), run_time=0.8)
-        self.wait(0.5)
-        self.play(FadeIn(explain_2, shift=UP * 0.2), run_time=0.8)
-        
-        # 合并说明
-        merge_text = Text(
-            "共有 3×2=6 个底数相乘",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).next_to(explain_2, DOWN, buff=0.5)
-        
-        self.play(FadeIn(merge_text), run_time=0.6)
-        self.wait(1.8)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(formula),
-            FadeOut(key_point),
-            FadeOut(example_label),
-            FadeOut(example),
-            FadeOut(explain_1),
-            FadeOut(explain_2),
-            FadeOut(merge_text),
-            run_time=0.6
-        )
-    
+        title = self.heading("法则二：幂的乘方")
+        formula = self.equation(r"(a^m)^n=a^{mn}")
+        assumption = self.note("m、n 为非负整数", 1.5, GRAY_A)
+        rule = self.note("底数不变，指数相乘", 0.4)
+        example = self.equation(r"(2^3)^2=2^{3\cdot2}=2^6", y=-1.2, size=40)
+        rows = VGroup(
+            MathTex(r"2\cdot2\cdot2", font_size=39, color=FACTOR),
+            MathTex(r"2\cdot2\cdot2", font_size=39, color=FACTOR),
+        ).arrange(DOWN, buff=0.35).move_to(DOWN * 3.05)
+        explanation = self.note("每组 3 个，共 2 组，指数为 6", -4.65)
+        self.play(Write(title), Write(formula), run_time=1)
+        self.play(FadeIn(assumption), FadeIn(rule), run_time=0.6)
+        self.play(Write(example), run_time=0.8)
+        for row in rows:
+            self.play(Write(row), run_time=0.55)
+        self.play(FadeIn(explanation), run_time=0.5)
+        self.wait(1.1)
+        self.clear_content()
+
     def show_law_3_product_power(self):
-        """场景4: 法则三 - 积的乘方"""
-        # 标题
-        title = Text(
-            "法则三：积的乘方",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * self.TITLE_Y)
-        
-        self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.8)
-        
-        # 通用公式
-        formula = MathTex(
-            r"(ab)^n = a^n b^n",
-            font_size=48
-        ).move_to(UP * self.FORMULA_Y)
-        
-        formula.set_color_by_tex("a", self.COLOR_SECONDARY)
-        formula.set_color_by_tex("b", "#f39c12")  # 橙色
-        formula.set_color_by_tex("n", self.COLOR_EXPONENT)
-        
-        self.play(Write(formula), run_time=1.2)
-        
-        # 关键提示
-        key_point = Text(
-            "每个因数分别乘方",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 0.5)
-        
-        self.play(FadeIn(key_point), run_time=0.6)
-        self.wait(0.8)
-        
-        # 具体例子
-        example_label = Text(
-            "例子:",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(UP * self.EXAMPLE_Y + LEFT * 3.2)
-        
-        example = MathTex(
-            r"(2 \times 3)^2 = 2^2 \times 3^2",
-            font_size=40
-        ).next_to(example_label, RIGHT, buff=0.3)
-        
-        example[0][1].set_color(self.COLOR_SECONDARY)  # 2
-        example[0][3].set_color("#f39c12")  # 3
-        example[0][7].set_color(self.COLOR_SECONDARY)  # 2
-        example[0][10].set_color("#f39c12")  # 3
-        
-        self.play(
-            FadeIn(example_label),
-            Write(example),
-            run_time=1.5
+        title = self.heading("法则三：积的乘方")
+        formula = self.equation(r"(ab)^n=a^nb^n")
+        assumption = self.note("n 为非负整数", 1.5, GRAY_A)
+        rule = self.note("每个因数分别乘方，再相乘", 0.4)
+        example = self.equation(r"(2\cdot3)^2=2^2\cdot3^2", y=-1.2, size=40)
+        expanded = self.equation(
+            r"(2\cdot3)(2\cdot3)=(2\cdot2)(3\cdot3)", y=-2.9, size=35
         )
-        
-        # 计算验证
-        verify_1 = MathTex(
-            r"= 4 \times 9 = 36",
-            font_size=36
-        ).next_to(example, DOWN, buff=0.5)
-        
-        verify_2_chinese = Text(
-            "验证：",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(UP * self.EXPLAIN_Y + LEFT * 3.2)
-        
-        verify_2 = MathTex(
-            r"(2 \times 3)^2 = 6^2 = 36",
-            font_size=32
-        ).next_to(verify_2_chinese, RIGHT, buff=0.3)
-        
-        verify_2[0][1].set_color(self.COLOR_SECONDARY)
-        verify_2[0][3].set_color("#f39c12")
-        
-        self.play(Write(verify_1), run_time=0.8)
-        self.wait(0.5)
-        self.play(
-            FadeIn(verify_2_chinese),
-            Write(verify_2),
-            run_time=1.0
-        )
-        
-        # 正确标记
-        check_mark = Text(
-            "✓ 结果一致!",
-            font="PingFang SC",
-            font_size=28,
-            color=self.COLOR_EXPONENT
-        ).next_to(verify_2, DOWN, buff=0.5)
-        
-        self.play(FadeIn(check_mark, scale=1.2), run_time=0.5)
-        self.wait(1.8)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(formula),
-            FadeOut(key_point),
-            FadeOut(example_label),
-            FadeOut(example),
-            FadeOut(verify_1),
-            FadeOut(verify_2_chinese),
-            FadeOut(verify_2),
-            FadeOut(check_mark),
-            run_time=0.6
-        )
-    
+        result = self.equation(r"=4\cdot9=36", y=-4.5, size=39, color=EXPONENT)
+        self.play(Write(title), Write(formula), run_time=1)
+        self.play(FadeIn(assumption), FadeIn(rule), run_time=0.6)
+        self.play(Write(example), run_time=0.8)
+        self.play(Write(expanded), run_time=0.9)
+        self.play(Write(result), run_time=0.65)
+        self.wait(1.4)
+        self.clear_content()
+
     def show_law_4_same_base_divide(self):
-        """场景5: 法则四 - 同底数幂相除"""
-        # 标题
-        title = Text(
-            "法则四：同底数幂相除",
-            font="PingFang SC",
-            font_size=36,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * self.TITLE_Y)
-        
-        self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.8)
-        
-        # 通用公式（带条件）
-        formula = MathTex(
-            r"a^m \div a^n = a^{m-n}",
-            font_size=48
-        ).move_to(UP * (self.FORMULA_Y + 0.5))
-        
-        formula.set_color_by_tex("a", self.COLOR_SECONDARY)
-        formula.set_color_by_tex("m", self.COLOR_EXPONENT)
-        formula.set_color_by_tex("n", self.COLOR_EXPONENT)
-        
-        condition = MathTex(
-            r"(a \neq 0)",
-            font_size=32,
-            color="#f39c12"
-        ).next_to(formula, RIGHT, buff=0.3)
-        
-        self.play(Write(formula), run_time=1.2)
-        self.play(FadeIn(condition), run_time=0.4)
-        
-        # 关键提示
-        key_point = Text(
-            "底数不变，指数相减",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 0.3)
-        
-        self.play(FadeIn(key_point), run_time=0.6)
-        self.wait(1.0)
-        
-        # 具体例子
-        example_label = Text(
-            "例子:",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(UP * self.EXAMPLE_Y + LEFT * 3)
-        
-        example = MathTex(
-            r"2^5 \div 2^3 = 2^{5-3} = 2^2 = 4",
-            font_size=40
-        ).next_to(example_label, RIGHT, buff=0.3)
-        
-        example.set_color_by_tex("2", self.COLOR_SECONDARY)
-        example.set_color_by_tex("5", self.COLOR_EXPONENT)
-        example.set_color_by_tex("3", self.COLOR_EXPONENT)
-        
-        self.play(
-            FadeIn(example_label),
-            Write(example),
-            run_time=1.5
+        title = self.heading("法则四：同底数幂相除")
+        formula = self.equation(r"\frac{a^m}{a^n}=a^{m-n}", y=3.2)
+        condition = self.note("a ≠ 0；本课约分演示取 m ≥ n ≥ 0", 1.65, GRAY_A)
+        rule = self.note("底数不变，指数相减", 0.4)
+        example = self.equation(r"\frac{2^5}{2^3}=2^{5-3}=2^2=4", y=-1.0, size=39)
+        expanded = self.equation(
+            r"\frac{2\cdot2\cdot2\cdot2\cdot2}{2\cdot2\cdot2}", y=-2.7, size=42
         )
-        
-        # 可视化解释
-        explain_1 = MathTex(
-            r"2^5 = 2 \times 2 \times 2 \times 2 \times 2",
-            font_size=28
-        ).move_to(UP * (self.EXPLAIN_Y + 0.5))
-        explain_1.set_color_by_tex("2", self.COLOR_SECONDARY)
-        
-        explain_2 = MathTex(
-            r"2^3 = 2 \times 2 \times 2",
-            font_size=28
-        ).next_to(explain_1, DOWN, buff=0.3)
-        explain_2.set_color_by_tex("2", self.COLOR_SECONDARY)
-        
-        self.play(FadeIn(explain_1, shift=UP * 0.2), run_time=0.8)
-        self.wait(0.4)
-        self.play(FadeIn(explain_2, shift=UP * 0.2), run_time=0.8)
-        
-        # 约分说明
-        cancel_text = Text(
-            "约去3个2，剩余 5-3=2 个",
-            font="PingFang SC",
-            font_size=24,
-            color=self.COLOR_HIGHLIGHT
-        ).next_to(explain_2, DOWN, buff=0.5)
-        
-        self.play(FadeIn(cancel_text), run_time=0.6)
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(formula),
-            FadeOut(condition),
-            FadeOut(key_point),
-            FadeOut(example_label),
-            FadeOut(example),
-            FadeOut(explain_1),
-            FadeOut(explain_2),
-            FadeOut(cancel_text),
-            run_time=0.6
-        )
-    
+        remainder = self.equation(r"=2\cdot2=4", y=-4.45, size=39, color=EXPONENT)
+        footnote = self.note("分母非零，约去三对因子后剩两对中的两个", -5.75, GRAY_A)
+        self.play(Write(title), Write(formula), run_time=1)
+        self.play(FadeIn(condition), FadeIn(rule), run_time=0.6)
+        self.play(Write(example), run_time=0.8)
+        self.play(Write(expanded), run_time=0.8)
+        self.play(Write(remainder), FadeIn(footnote), run_time=0.75)
+        self.wait(1.2)
+        self.clear_content()
+
+    def create_law_card(self, heading, formula_tex, description, color, y):
+        number = Text(heading, font_size=23, color=color)
+        formula = self.fit(MathTex(formula_tex, font_size=29), width=6.8)
+        note = self.fit(Text(description, font_size=18, color=GRAY_A), width=6.8)
+        content = VGroup(number, formula, note).arrange(DOWN, buff=0.08)
+        box = RoundedRectangle(width=7.7, height=1.62, corner_radius=0.13,
+                               stroke_color=color, stroke_width=2)
+        return VGroup(box, content).move_to(UP * y)
+
     def show_summary(self):
-        """场景6: 四法则总结"""
-        # 标题
-        title = Text(
-            "幂的运算四大法则",
-            font="PingFang SC",
-            font_size=40,
-            color=GOLD
-        ).move_to(UP * 6)
-        
-        self.play(Write(title), run_time=1.0)
-        
-        # 创建四个法则卡片
-        cards = VGroup()
-        
-        # 卡片1: 同底数幂相乘
-        card_1 = self.create_law_card(
-            "法则1",
-            r"a^m \times a^n = a^{m+n}",
-            "底数不变，指数相加",
-            self.COLOR_PRIMARY,
-            UP * 3
+        title = self.heading("四条法则：运算对象不同")
+        cards = VGroup(
+            self.create_law_card("同底数幂相乘", r"a^m\cdot a^n=a^{m+n}", "底数不变，指数相加", ACCENT, 3.55),
+            self.create_law_card("幂的乘方", r"(a^m)^n=a^{mn}", "底数不变，指数相乘", EXPONENT, 1.65),
+            self.create_law_card("积的乘方", r"(ab)^n=a^nb^n", "每个因数分别乘方", YELLOW, -0.25),
+            self.create_law_card("同底数幂相除", r"\frac{a^m}{a^n}=a^{m-n}", "a ≠ 0；指数相减", FACTOR, -2.15),
         )
-        cards.add(card_1)
-        
-        # 卡片2: 幂的乘方
-        card_2 = self.create_law_card(
-            "法则2",
-            r"(a^m)^n = a^{mn}",
-            "底数不变，指数相乘",
-            self.COLOR_EXPONENT,
-            UP * 1
-        )
-        cards.add(card_2)
-        
-        # 卡片3: 积的乘方
-        card_3 = self.create_law_card(
-            "法则3",
-            r"(ab)^n = a^n b^n",
-            "每个因数分别乘方",
-            "#9b59b6",
-            DOWN * 1
-        )
-        cards.add(card_3)
-        
-        # 卡片4: 同底数幂相除
-        card_4 = self.create_law_card(
-            "法则4",
-            r"a^m \div a^n = a^{m-n}",
-            "底数不变，指数相减",
-            self.COLOR_SECONDARY,
-            DOWN * 3
-        )
-        cards.add(card_4)
-        
-        # 卡片依次滑入
-        for i, card in enumerate(cards):
-            card.shift(LEFT * 10)  # 初始位置在左侧外
-            self.play(
-                card.animate.shift(RIGHT * 10),
-                run_time=0.6
-            )
-            if i < len(cards) - 1:
-                self.wait(0.3)
-        
-        self.wait(1.0)
-        
-        # 记忆口诀
-        mnemonic = Text(
-            "同底数看运算，乘加除减乘方乘",
-            font="PingFang SC",
-            font_size=28,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 5.5)
-        
-        self.play(FadeIn(mnemonic, shift=UP * 0.3), run_time=0.8)
-        
-        # 所有卡片闪烁
-        self.play(
-            *[Flash(card, color=YELLOW, flash_radius=0.5) for card in cards],
-            run_time=0.8
-        )
-        
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(cards),
-            FadeOut(mnemonic),
-            run_time=0.6
-        )
-    
-    def create_law_card(self, number, formula_tex, description, color, position):
-        """创建法则卡片"""
-        # 法则编号
-        number_text = Text(
-            number,
-            font="PingFang SC",
-            font_size=24,
-            color=color,
-            weight=BOLD
-        )
-        
-        # 公式
-        formula = MathTex(
-            formula_tex,
-            font_size=32
-        )
-        
-        # 描述
-        desc = Text(
-            description,
-            font="PingFang SC",
-            font_size=18,
-            color=GRAY_A
-        )
-        
-        # 组合
-        card_content = VGroup(number_text, formula, desc).arrange(DOWN, buff=0.15)
-        
-        # 背景框
-        box = SurroundingRectangle(
-            card_content,
-            color=color,
-            buff=0.25,
-            corner_radius=0.1,
-            stroke_width=2
-        )
-        
-        card = VGroup(box, card_content)
-        card.move_to(position)
-        
-        return card
-    
+        reminder = self.note("乘除法不要与幂的乘方混淆", -4.35)
+        self.play(Write(title), run_time=0.6)
+        for card in cards:
+            self.play(FadeIn(card, shift=UP * 0.15), run_time=0.5)
+        self.play(FadeIn(reminder), run_time=0.5)
+        self.wait(1.3)
+        self.clear_content()
+
     def show_outro(self):
-        """场景7: 片尾关注"""
-        # 作者信息放大
-        author_name = Text(
-            "上海初高中数学直通车",
-            font="PingFang SC",
-            font_size=40,
-            color=WHITE
-        ).move_to(UP * 2)
-        
-        author_id = Text(
-            "@emptyandcalm",
-            font="PingFang SC",
-            font_size=32,
-            color=GRAY_B
-        ).move_to(UP * 1)
-        
-        self.play(
-            Transform(self.author_info, author_name),
-            run_time=0.8
-        )
-        self.play(FadeIn(author_id, shift=UP * 0.3), run_time=0.5)
-        
-        # 关注提示
-        follow_text = Text(
-            "关注我，掌握更多数学技巧!",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(ORIGIN)
-        
-        self.play(FadeIn(follow_text, shift=UP * 0.3, scale=1.1), run_time=0.8)
-        
-        # 装饰 - 小公式环绕
-        decorations = VGroup()
-        formulas_deco = [
-            r"a^m",
-            r"a^n",
-            r"a^{m+n}",
-            r"(a^m)^n",
-        ]
-        
-        for i, formula in enumerate(formulas_deco):
-            deco = MathTex(formula, font_size=28, color=self.COLOR_PRIMARY)
-            angle = i * TAU / len(formulas_deco)
-            deco.move_to(follow_text.get_center() + 2.5 * np.array([np.cos(angle), np.sin(angle), 0]))
-            decorations.add(deco)
-        
-        self.play(
-            *[FadeIn(deco, scale=0.5) for deco in decorations],
-            run_time=0.6
-        )
-        
-        self.play(Rotate(decorations, angle=PI, run_time=1.5))
-        
-        self.wait(1.5)
-        
-        # 全部淡出
-        self.play(
-            FadeOut(self.author_info),
-            FadeOut(author_id),
-            FadeOut(follow_text),
-            FadeOut(decorations),
-            run_time=1.0
-        )
-
-
-# 运行命令:
-# manim -pql power_operation_laws.py PowerOperationLaws  # 快速预览
-# manim -qh power_operation_laws.py PowerOperationLaws   # 高质量渲染
+        title = self.heading("运算之前，先看底数与指数")
+        formula = self.equation(r"2^3\cdot2^5=2^8", y=2, color=EXPONENT)
+        reminder = self.note("同底数相乘，指数相加", -0.4)
+        self.play(Write(title), Write(formula), FadeIn(reminder), run_time=1)
+        self.wait(1.1)
+        self.play(*[FadeOut(mob) for mob in tuple(self.mobjects)], run_time=0.65)

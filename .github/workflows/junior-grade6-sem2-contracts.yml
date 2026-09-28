@@ -1,0 +1,59 @@
+name: Grade 6 term 2 rational numbers consolidated checks
+
+on:
+  pull_request:
+    paths:
+      - '初中/六年级/第二学期/第五章-有理数/**'
+      - '.github/workflows/junior-grade6-sem2-contracts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lesson-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+            /初中/六年级/第二学期/第五章-有理数/**/*.py
+            /初中/六年级/第二学期/第五章-有理数/**/*.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile rational number lessons
+        run: python -m compileall -q '初中/六年级/第二学期/第五章-有理数'
+      - name: Run five original course math regression suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          for test_file in \
+            '初中/六年级/第二学期/第五章-有理数/001有理数的概念/test_rational_numbers.py' \
+            '初中/六年级/第二学期/第五章-有理数/002相反数/test_opposite_numbers.py' \
+            '初中/六年级/第二学期/第五章-有理数/003数轴/test_number_line_lesson.py' \
+            '初中/六年级/第二学期/第五章-有理数/004绝对值/test_absolute_value.py' \
+            '初中/六年级/第二学期/第五章-有理数/005有理数的大小比较/test_rational_comparison.py'; do
+            test -f "$test_file"
+            python "$test_file"
+            count=$((count + 1))
+          done
+          test "$count" -eq 5
+      - name: Skill AST audit of five repaired scenes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for scene in \
+            '初中/六年级/第二学期/第五章-有理数/001有理数的概念/rational_numbers.py' \
+            '初中/六年级/第二学期/第五章-有理数/002相反数/opposite_numbers.py' \
+            '初中/六年级/第二学期/第五章-有理数/003数轴/number_line_lesson.py' \
+            '初中/六年级/第二学期/第五章-有理数/004绝对值/absolute_value.py' \
+            '初中/六年级/第二学期/第五章-有理数/005有理数的大小比较/005_有理数的大小比较.py'; do
+            python .opencode/skills/manim-video-production/scripts/audit_scene.py "$scene" --json
+          done

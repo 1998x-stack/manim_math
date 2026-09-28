@@ -1,59 +1,93 @@
-"""
-因式分解——提公因式法 教学动画
-Factorization - Common Factor Method Teaching Animation
+"""因式分解——提公因式法。保留 CommonFactorMethod 和原有七镜头入口。
 
-内容: 提公因式法的概念、步骤和应用
-年级: 七年级
-目标观众: 初中学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
+公因式系数取非零项系数绝对值的 GCD；字母取各项对应指数的最小值。
+原有 MP4 不在本次代码修复中修改。
 """
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#1a1a2e"
+PRIMARY = "#3498db"
+FACTOR_COLOR = "#e74c3c"
+RESULT_COLOR = "#2ecc71"
+SAFE_WIDTH = 7.4
+
+
+def common_factor_data(terms):
+    """接收非零整系数 (coefficient, x_power, y_power)，返回公因式及商项。
+
+    返回值 (gcd_coefficient, min_x_power, min_y_power), quotient_terms。
+    与具体变量名无关，适用于场景示例中的 (x,y) 或 (a,b)。
+    """
+    from math import gcd
+
+    if not isinstance(terms, (tuple, list)) or not terms:
+        raise ValueError("至少需要一个非零单项式")
+    normalized = []
+    for term in terms:
+        if (not isinstance(term, (tuple, list)) or len(term) != 3
+                or any(type(value) is not int for value in term)):
+            raise ValueError("每一项必须提供三个整数：系数和两个指数")
+        coefficient, x_power, y_power = term
+        if coefficient == 0 or x_power < 0 or y_power < 0:
+            raise ValueError("系数必须非零，指数必须是非负整数")
+        normalized.append((coefficient, x_power, y_power))
+    factor_coefficient = 0
+    for coefficient, _, _ in normalized:
+        factor_coefficient = gcd(factor_coefficient, abs(coefficient))
+    x_min = min(term[1] for term in normalized)
+    y_min = min(term[2] for term in normalized)
+    quotient = tuple((coef // factor_coefficient, xp - x_min, yp - y_min)
+                     for coef, xp, yp in normalized)
+    return (factor_coefficient, x_min, y_min), quotient
+
 
 class CommonFactorMethod(Scene):
-    """
-    因式分解——提公因式法教学动画场景
-    
-    场景顺序:
-    1. 开场钩子 - 引出问题
-    2. 概念引入 - 什么是公因式
-    3. 提取步骤演示 - 详细三步骤
-    4. 口诀记忆 - 记忆技巧
-    5. 练习示例1 - 基础例题
-    6. 练习示例2 - 进阶例题
-    7. 结尾总结 - 要点回顾
-    """
-    
+    """通过实际商项和反向展开讲解提公因式。"""
+
+    def fit(self, mob, max_width=SAFE_WIDTH):
+        if mob.width > max_width:
+            mob.scale_to_fit_width(max_width)
+        return mob
+
+    def heading(self, content):
+        return self.fit(Text(content, font_size=38, color=PRIMARY)).move_to(UP * 5.5)
+
+    def formula(self, tex, y, color=WHITE, size=41):
+        return self.fit(MathTex(tex, font_size=size, color=color)).move_to(UP * y)
+
+    def note(self, content, y, color=GRAY_A):
+        return self.fit(Text(content, font_size=25, color=color)).move_to(UP * y)
+
+    def clear_content(self):
+        visible = [mob for mob in tuple(self.mobjects) if mob is not self.author_info]
+        if visible:
+            self.play(*[FadeOut(mob) for mob in visible], run_time=0.45)
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主公式
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 公因式高亮
-        self.COLOR_HIGHLIGHT = YELLOW       # 黄色 - 强调
-        self.COLOR_AUXILIARY = GRAY_B       # 灰色 - 辅助
-        self.COLOR_SUCCESS = "#2ecc71"      # 绿色 - 正确
-        self.COLOR_STEP = "#9b59b6"         # 紫色 - 步骤
-        
-        # 字体大小
-        self.FONT_TITLE = 36
-        self.FONT_SUBTITLE = 28
-        self.FONT_BODY = 22
-        self.FONT_SMALL = 18
-        self.FONT_FORMULA = 32
-        
-        # 执行动画序列
+        self.camera.background_color = BG
+        self.first_factor, self.first_quotient = common_factor_data(
+            ((6, 2, 1), (-9, 1, 2))
+        )
+        self.second_factor, self.second_quotient = common_factor_data(
+            ((12, 2, 1), (-8, 1, 2))
+        )
+        self.third_factor, self.third_quotient = common_factor_data(
+            ((5, 3, 0), (10, 2, 0), (-15, 1, 0))
+        )
+        assert self.first_factor == (3, 1, 1)
+        assert self.first_quotient == ((2, 1, 0), (-3, 0, 1))
+        assert self.second_factor == (4, 1, 1)
+        assert self.third_factor == (5, 1, 0)
+        self.author_info = self.fit(
+            Text("上海初高中数学直通车  @emptyandcalm", font_size=19, color=GRAY_B)
+        ).move_to(UP * 6.75)
+        self.add(self.author_info)
         self.show_opening()
         self.show_concept_intro()
         self.show_extraction_steps()
@@ -61,799 +95,106 @@ class CommonFactorMethod(Scene):
         self.show_example_1()
         self.show_example_2()
         self.show_summary()
-    
+
     def show_opening(self):
-        """场景1: 开场钩子"""
-        # 作者信息 (顶部)
-        self.author_info = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7)
-        
-        self.play(FadeIn(self.author_info, shift=DOWN * 0.2), run_time=0.3)
-        
-        # 钩子问题
-        hook_text = Text(
-            "这个式子能化简吗?",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(UP * 5)
-        
-        self.play(Write(hook_text), run_time=1.0)
-        
-        # 示例公式
-        example_formula = MathTex(
-            r"6x^2y - 9xy^2",
-            font_size=self.FONT_FORMULA + 8,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 2)
-        
-        self.play(Write(example_formula), run_time=1.2)
-        
-        # 问号闪烁
-        question_mark = Text(
-            "?",
-            font="PingFang SC",
-            font_size=60,
-            color=self.COLOR_HIGHLIGHT
-        ).next_to(example_formula, RIGHT, buff=0.3)
-        
-        self.play(
-            FadeIn(question_mark, scale=1.5),
-            Flash(question_mark, color=self.COLOR_HIGHLIGHT, flash_radius=0.5),
-            run_time=0.5
-        )
-        self.wait(0.5)
-        
-        # 清理
-        self.play(
-            FadeOut(hook_text),
-            FadeOut(question_mark),
-            example_formula.animate.move_to(UP * 3.5).scale(0.8),
-            run_time=0.6
-        )
-        
-        # 保存供下一场景使用
-        self.example_formula = example_formula
-    
+        title = self.heading("因式分解：乘法的逆过程")
+        problem = self.formula(r"6x^2y-9xy^2=\,?", 2.0, PRIMARY, 48)
+        hint = self.note("先找出两项共同含有的因式", -0.7, YELLOW)
+        self.play(Write(title), Write(problem), run_time=1)
+        self.play(FadeIn(hint), run_time=0.5)
+        self.wait(0.9)
+        self.clear_content()
+
     def show_concept_intro(self):
-        """场景2: 概念引入"""
-        # 标题
-        title = Text(
-            "什么是公因式?",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 5.5)
-        
-        self.play(FadeIn(title, shift=DOWN * 0.3), run_time=0.5)
-        
-        # 简单例子: 6x + 9x
-        simple_example = MathTex(
-            r"6x + 9x",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(UP * 2)
-        
-        self.play(
-            Transform(self.example_formula, simple_example),
-            run_time=0.8
-        )
-        self.wait(0.5)
-        
-        # 拆解为乘积形式
-        explanation_text = Text(
-            "展开看看:",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(ORIGIN)
-        
-        self.play(FadeIn(explanation_text), run_time=0.4)
-        
-        # 展开形式
-        expanded = MathTex(
-            r"6 \cdot x + 9 \cdot x",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(DOWN * 1.5)
-        
-        self.play(Write(expanded), run_time=1.0)
-        self.wait(0.5)
-        
-        # 高亮公因式 x
-        common_factor_boxes = VGroup(
-            SurroundingRectangle(expanded[0][2], color=self.COLOR_SECONDARY, buff=0.08),
-            SurroundingRectangle(expanded[0][6], color=self.COLOR_SECONDARY, buff=0.08)
-        )
-        
-        self.play(Create(common_factor_boxes), run_time=0.6)
-        
-        # 说明文字
-        explanation = Text(
-            "x 是公因式 (各项都有的因式)",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=self.COLOR_SECONDARY
-        ).move_to(DOWN * 3.5)
-        
-        self.play(FadeIn(explanation, shift=UP * 0.2), run_time=0.5)
-        self.wait(1.5)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(explanation_text),
-            FadeOut(expanded),
-            FadeOut(common_factor_boxes),
-            FadeOut(explanation),
-            FadeOut(self.example_formula),
-            run_time=0.6
-        )
-    
+        title = self.heading("什么是公因式？")
+        original = self.formula(r"ab+ac", 3.7, PRIMARY, 53)
+        expanded = self.formula(r"a\cdot b+a\cdot c", 1.7, WHITE, 42)
+        factored = self.formula(r"=a(b+c)", -0.5, RESULT_COLOR, 48)
+        note = self.note("两个乘积都含有 a，把 a 提到括号外", -3.0, YELLOW)
+        self.play(Write(title), Write(original), run_time=0.8)
+        self.play(Write(expanded), run_time=0.65)
+        self.play(Write(factored), run_time=0.75)
+        self.play(FadeIn(note), run_time=0.5)
+        self.wait(1.2)
+        self.clear_content()
+
     def show_extraction_steps(self):
-        """场景3: 提取步骤演示"""
-        # 主标题
-        main_title = Text(
-            "提公因式法 - 三步骤",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 6)
-        
-        self.play(Write(main_title), run_time=0.8)
-        
-        # === 步骤1: 找公因式 ===
-        step1_title = Text(
-            "步骤1: 找公因式",
-            font="PingFang SC",
-            font_size=self.FONT_SUBTITLE,
-            color=self.COLOR_STEP
-        ).move_to(UP * 4.5)
-        
-        self.play(FadeIn(step1_title, shift=RIGHT * 0.3), run_time=0.5)
-        
-        # 公式
-        formula = MathTex(
-            r"6x^2y - 9xy^2",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(UP * 2.5)
-        
-        self.play(Write(formula), run_time=0.8)
-        
-        # 分析系数
-        coeff_text = Text(
-            "系数: 6, 9 → GCD = 3",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(UP * 0.5)
-        
-        coeff_boxes = VGroup(
-            SurroundingRectangle(formula[0][0], color=YELLOW, buff=0.08),
-            SurroundingRectangle(formula[0][3], color=YELLOW, buff=0.08)
+        title = self.heading("例题：找、提、除、验")
+        original = self.formula(r"6x^2y-9xy^2", 3.9, WHITE, 48)
+        analysis = self.note("系数最大公因数是 3；x 与 y 的最低指数都为 1", 2.4, YELLOW)
+        common = self.formula(r"3xy", 0.95, FACTOR_COLOR, 56)
+        quotients = VGroup(
+            self.formula(r"\frac{6x^2y}{3xy}=2x", -0.75, WHITE, 36),
+            self.formula(r"\frac{-9xy^2}{3xy}=-3y", -2.05, WHITE, 36),
         )
-        
-        self.play(Create(coeff_boxes), run_time=0.5)
-        self.play(FadeIn(coeff_text), run_time=0.5)
-        self.wait(0.8)
-        
-        # 分析字母
-        var_text = Text(
-            "字母: x²y, xy² → xy (最低次幂)",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(DOWN * 0.5)
-        
-        var_boxes = VGroup(
-            SurroundingRectangle(formula[0][1:4], color=YELLOW, buff=0.08),
-            SurroundingRectangle(formula[0][4:7], color=YELLOW, buff=0.08)
-        )
-        
-        self.play(
-            FadeOut(coeff_boxes),
-            Create(var_boxes),
-            run_time=0.5
-        )
-        self.play(FadeIn(var_text), run_time=0.5)
-        self.wait(0.8)
-        
-        # # 公因式结果
-        # common_factor_result = MathTex(
-        #     r"\text{公因式} = 3xy",
-        #     font_size=self.FONT_FORMULA - 4,
-        #     color=self.COLOR_SECONDARY
-        # ).move_to(DOWN * 2)
-        
-        # 修复中文问题
-        common_factor_text = Text(
-            "公因式",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=self.COLOR_SECONDARY
-        )
-        common_factor_math = MathTex(
-            r"= 3xy",
-            font_size=self.FONT_FORMULA - 4,
-            color=self.COLOR_SECONDARY
-        )
-        common_factor_result = VGroup(common_factor_text, common_factor_math).arrange(RIGHT, buff=0.2).move_to(DOWN * 2)
-        
-        self.play(
-            FadeOut(var_boxes),
-            Write(common_factor_result),
-            run_time=0.8
-        )
+        answer = self.formula(r"6x^2y-9xy^2=3xy(2x-3y)", -3.6, RESULT_COLOR, 38)
+        self.play(Write(title), Write(original), run_time=0.85)
+        self.play(FadeIn(analysis), Write(common), run_time=0.85)
+        for quotient in quotients:
+            self.play(Write(quotient), run_time=0.65)
+        self.play(Write(answer), run_time=0.85)
+        self.wait(1.2)
+        self.clear_content()
+        # 清屏后才展示反向乘法检查；不留下原式与新公式叠在同一位置。
+        check_title = self.heading("检验：再乘回原式")
+        verification = self.formula(r"3xy(2x-3y)", 2.4, FACTOR_COLOR, 48)
+        expanded = self.formula(r"=6x^2y-9xy^2", 0.25, RESULT_COLOR, 45)
+        self.play(Write(check_title), Write(verification), run_time=0.8)
+        self.play(Write(expanded), run_time=0.85)
         self.wait(1.0)
-        
-        # 清理步骤1
-        self.play(
-            FadeOut(step1_title),
-            FadeOut(coeff_text),
-            FadeOut(var_text),
-            FadeOut(common_factor_result),
-            run_time=0.4
-        )
-        
-        # === 步骤2: 提取公因式 ===
-        step2_title = Text(
-            "步骤2: 提取公因式",
-            font="PingFang SC",
-            font_size=self.FONT_SUBTITLE,
-            color=self.COLOR_STEP
-        ).move_to(UP * 4.5)
-        
-        self.play(FadeIn(step2_title, shift=RIGHT * 0.3), run_time=0.5)
-        
-        # 变换为因式分解形式
-        factored = MathTex(
-            r"3xy", r"(", r"2x - 3y", r")",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        )
-        factored[0].set_color(self.COLOR_SECONDARY)  # 公因式红色
-        factored.move_to(UP * 2.5)
-        
-        # 添加箭头
-        arrow = Arrow(
-            formula.get_bottom() + DOWN * 0.3,
-            factored.get_top() + UP * 0.3,
-            color=self.COLOR_HIGHLIGHT,
-            buff=0.1
-        )
-        
-        self.play(GrowArrow(arrow), run_time=0.5)
-        self.play(
-            ReplacementTransform(formula.copy(), factored),
-            run_time=1.0
-        )
-        
-        # 说明商式
-        quotient_text = Text(
-            "括号内是各项除以公因式的商",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(DOWN * 0.5)
-        
-        quotient_detail = MathTex(
-            r"6x^2y \div 3xy = 2x",
-            font_size=self.FONT_BODY + 2,
-            color=GRAY_A
-        ).move_to(DOWN * 1.5)
-        
-        quotient_detail2 = MathTex(
-            r"9xy^2 \div 3xy = 3y",
-            font_size=self.FONT_BODY + 2,
-            color=GRAY_A
-        ).move_to(DOWN * 2.5)
-        
-        self.play(FadeIn(quotient_text), run_time=0.5)
-        self.play(Write(quotient_detail), run_time=0.8)
-        self.play(Write(quotient_detail2), run_time=0.8)
-        self.wait(1.0)
-        
-        # 清理步骤2
-        self.play(
-            FadeOut(step2_title),
-            FadeOut(arrow),
-            FadeOut(quotient_text),
-            FadeOut(quotient_detail),
-            FadeOut(quotient_detail2),
-            run_time=0.4
-        )
-        
-        # === 步骤3: 检验结果 ===
-        step3_title = Text(
-            "步骤3: 检验结果",
-            font="PingFang SC",
-            font_size=self.FONT_SUBTITLE,
-            color=self.COLOR_STEP
-        ).move_to(UP * 4.5)
-        
-        self.play(FadeIn(step3_title, shift=RIGHT * 0.3), run_time=0.5)
-        
-        # 展开验证
-        verify_text = Text(
-            "展开验证:",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(UP * 0.5)
-        
-        expansion = MathTex(
-            r"3xy(2x - 3y) = 6x^2y - 9xy^2",
-            font_size=self.FONT_FORMULA - 4,
-            color=WHITE
-        ).move_to(DOWN * 1)
-        
-        self.play(FadeIn(verify_text), run_time=0.4)
-        self.play(Write(expansion), run_time=1.2)
-        
-        # 对比箭头
-        comparison_arrow = DoubleArrow(
-            formula.get_right() + RIGHT * 0.3,
-            factored.get_left() + LEFT * 0.3,
-            color=self.COLOR_SUCCESS,
-            buff=0.1,
-            stroke_width=3
-        ).rotate(90 * DEGREES)
-        
-        check_text = Text(
-            "相等!",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=self.COLOR_SUCCESS
-        ).next_to(expansion, DOWN, buff=0.5)
-        
-        # 打勾
-        checkmark = MathTex(
-            r"\checkmark",
-            font_size=60,
-            color=self.COLOR_SUCCESS
-        ).next_to(check_text, RIGHT, buff=0.3)
-        
-        self.play(FadeIn(check_text), run_time=0.5)
-        self.play(DrawBorderThenFill(checkmark), run_time=0.6)
-        self.wait(1.0)
-        
-        # 清理全部
-        self.play(
-            FadeOut(main_title),
-            FadeOut(step3_title),
-            FadeOut(formula),
-            FadeOut(factored),
-            FadeOut(verify_text),
-            FadeOut(expansion),
-            FadeOut(check_text),
-            FadeOut(checkmark),
-            run_time=0.6
-        )
-    
+        self.clear_content()
+
     def show_memory_tips(self):
-        """场景4: 口诀记忆"""
-        # 标题
-        title = Text(
-            "记忆口诀",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 6)
-        
-        self.play(Write(title), run_time=0.6)
-        
-        # 口诀卡片背景
-        card_bg = RoundedRectangle(
-            width=7,
-            height=5,
-            corner_radius=0.3,
-            color=self.COLOR_STEP,
-            fill_opacity=0.1,
-            stroke_width=3
-        ).move_to(UP * 1)
-        
-        self.play(FadeIn(card_bg, scale=0.8), run_time=0.6)
-        
-        # 口诀内容
-        lines = [
-            "找: 找出公因式",
-            "提: 提到括号外",
-            "除: 各项除公因式",
-            "验: 乘法验证答案"
-        ]
-        
-        line_objects = VGroup()
-        for i, line in enumerate(lines):
-            line_obj = Text(
-                line,
-                font="PingFang SC",
-                font_size=self.FONT_BODY + 2,
-                color=WHITE
-            ).move_to(UP * (2.5 - i * 1))
-            line_objects.add(line_obj)
-        
-        # 依次书写口诀
-        for line_obj in line_objects:
-            self.play(Write(line_obj), run_time=0.8)
-            self.wait(0.1)
-        
-        # 装饰图标
-        icons = VGroup(
-            MathTex(r"\searrow", font_size=40, color=YELLOW).next_to(line_objects[0], LEFT),
-            MathTex(r"\rightarrow", font_size=40, color=YELLOW).next_to(line_objects[1], LEFT),
-            MathTex(r"\div", font_size=40, color=YELLOW).next_to(line_objects[2], LEFT),
-            MathTex(r"\checkmark", font_size=40, color=YELLOW).next_to(line_objects[3], LEFT)
+        title = self.heading("提公因式：四个动作")
+        instructions = (
+            "找：系数取最大公因数",
+            "提：字母取公有的最低次幂",
+            "除：每一项除以公因式，保留符号",
+            "验：把括号乘开，核对原式",
         )
-        
-        self.play(FadeIn(icons, shift=RIGHT * 0.2), run_time=0.6)
-        
-        # 整体强调
-        self.play(
-            Indicate(card_bg, scale_factor=1.05, color=self.COLOR_HIGHLIGHT),
-            run_time=1.0
-        )
-        self.wait(1.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(card_bg),
-            FadeOut(line_objects),
-            FadeOut(icons),
-            run_time=0.6
-        )
-    
+        lines = VGroup(*[self.fit(Text(s, font_size=26, color=WHITE))
+                         for s in instructions]).arrange(DOWN, buff=0.52)
+        lines.move_to(UP * 0.65)
+        self.play(Write(title), run_time=0.65)
+        for line in lines:
+            self.play(FadeIn(line, shift=RIGHT * 0.15), run_time=0.6)
+        self.wait(1.2)
+        self.clear_content()
+
     def show_example_1(self):
-        """场景5: 练习示例1"""
-        # 例题标题
-        title = Text(
-            "练习1",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 6)
-        
-        self.play(Write(title), run_time=0.5)
-        
-        # 题目
-        problem_label = Text(
-            "因式分解:",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(UP * 4)
-        
-        problem = MathTex(
-            r"12a^2b - 8ab^2",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(UP * 3)
-        
-        self.play(Write(problem_label), run_time=0.4)
-        self.play(Write(problem), run_time=0.8)
-        self.wait(0.5)
-        
-        # 找公因式过程
-        analysis = Text(
-            "系数GCD: 4  字母: ab",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 1.5)
-        
-        common_factor_box = SurroundingRectangle(
-            analysis,
-            color=self.COLOR_SECONDARY,
-            buff=0.2,
-            corner_radius=0.1
-        )
-        
-        self.play(FadeIn(analysis), run_time=0.6)
-        self.play(Create(common_factor_box), run_time=0.4)
-        self.wait(0.8)
-        
-        # 箭头
-        arrow = Arrow(
-            problem.get_bottom() + DOWN * 0.2,
-            UP * 0.3,
-            color=self.COLOR_HIGHLIGHT,
-            buff=0.1
-        )
-        
-        self.play(GrowArrow(arrow), run_time=0.5)
-        
-        # 答案
-        answer = MathTex(
-            r"4ab", r"(", r"3a - 2b", r")",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(DOWN * 0.5)
-        answer[0].set_color(self.COLOR_SECONDARY)
-        
-        self.play(Write(answer), run_time=1.0)
-        
-        # 高亮答案
-        answer_box = SurroundingRectangle(
-            answer,
-            color=self.COLOR_SUCCESS,
-            buff=0.2,
-            corner_radius=0.1
-        )
-        
-        self.play(Create(answer_box), run_time=0.5)
-        
-        # 确认对号
-        check = MathTex(
-            r"\checkmark",
-            font_size=50,
-            color=self.COLOR_SUCCESS
-        ).next_to(answer, RIGHT, buff=0.4)
-        
-        self.play(
-            DrawBorderThenFill(check),
-            Flash(check, color=self.COLOR_SUCCESS),
-            run_time=0.6
-        )
-        self.wait(2.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(problem_label),
-            FadeOut(problem),
-            FadeOut(analysis),
-            FadeOut(common_factor_box),
-            FadeOut(arrow),
-            FadeOut(answer),
-            FadeOut(answer_box),
-            FadeOut(check),
-            run_time=0.6
-        )
-    
+        title = self.heading("练习一：两项式")
+        original = self.formula(r"12a^2b-8ab^2", 3.65, WHITE, 47)
+        gcd_note = self.note("系数取 4；字母取 ab", 1.85, YELLOW)
+        quotient = self.formula(r"12a^2b\div 4ab=3a", 0.35, WHITE, 36)
+        quotient2 = self.formula(r"-8ab^2\div 4ab=-2b", -1.1, WHITE, 36)
+        result = self.formula(r"=4ab(3a-2b)", -3.1, RESULT_COLOR, 46)
+        self.play(Write(title), Write(original), run_time=0.85)
+        self.play(FadeIn(gcd_note), run_time=0.45)
+        self.play(Write(quotient), Write(quotient2), run_time=0.9)
+        self.play(Write(result), run_time=0.75)
+        self.wait(1.2)
+        self.clear_content()
+
     def show_example_2(self):
-        """场景6: 练习示例2"""
-        # 例题标题
-        title = Text(
-            "练习2",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 6)
-        
-        self.play(Write(title), run_time=0.5)
-        
-        # 题目
-        problem_label = Text(
-            "因式分解:",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(UP * 4)
-        
-        problem = MathTex(
-            r"5x^3 + 10x^2 - 15x",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(UP * 3)
-        
-        self.play(Write(problem_label), run_time=0.4)
-        self.play(Write(problem), run_time=0.8)
-        self.wait(0.5)
-        
-        # 分析系数
-        coeff_hint = Text(
-            "系数: 5, 10, 15 → GCD = 5",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(UP * 1.5)
-        
-        self.play(FadeIn(coeff_hint), run_time=0.6)
-        
-        # 高亮系数
-        coeff_boxes = VGroup(
-            SurroundingRectangle(problem[0][0], color=YELLOW, buff=0.08),
-            SurroundingRectangle(problem[0][5], color=YELLOW, buff=0.08),
-            SurroundingRectangle(problem[0][6:8], color=YELLOW, buff=0.08)
-        )
-        self.play(Create(coeff_boxes), run_time=0.5)
-        self.wait(0.6)
-        
-        # 分析字母
-        var_hint = Text(
-            "字母: x³, x², x → 最低次幂 x",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=GRAY_A
-        ).move_to(UP * 0.5)
-        
-        self.play(
-            FadeOut(coeff_boxes),
-            FadeIn(var_hint),
-            run_time=0.6
-        )
-        
-        # # 公因式
-        # common_factor_result = MathTex(
-        #     r"\text{公因式: } 5x",
-        #     font_size=self.FONT_BODY + 4,
-        #     color=self.COLOR_SECONDARY
-        # ).move_to(DOWN * 0.5)
-        
-        # 修复中文
-        cf_text = Text(
-            "公因式:",
-            font="PingFang SC",
-            font_size=self.FONT_BODY,
-            color=self.COLOR_SECONDARY
-        )
-        cf_math = MathTex(
-            r"5x",
-            font_size=self.FONT_BODY + 4,
-            color=self.COLOR_SECONDARY
-        )
-        common_factor_result = VGroup(cf_text, cf_math).arrange(RIGHT, buff=0.2).move_to(DOWN * 0.5)
-        
-        self.play(Write(common_factor_result), run_time=0.8)
-        self.wait(0.8)
-        
-        # 箭头
-        arrow = Arrow(
-            common_factor_result.get_bottom() + DOWN * 0.2,
-            DOWN * 2,
-            color=self.COLOR_HIGHLIGHT,
-            buff=0.1
-        )
-        
-        self.play(GrowArrow(arrow), run_time=0.5)
-        
-        # 答案
-        answer = MathTex(
-            r"5x", r"(", r"x^2 + 2x - 3", r")",
-            font_size=self.FONT_FORMULA,
-            color=WHITE
-        ).move_to(DOWN * 2.8)
-        answer[0].set_color(self.COLOR_SECONDARY)
-        
-        self.play(Write(answer), run_time=1.0)
-        
-        # 答案框
-        answer_box = SurroundingRectangle(
-            answer,
-            color=self.COLOR_SUCCESS,
-            buff=0.2,
-            corner_radius=0.1
-        )
-        
-        self.play(Create(answer_box), run_time=0.5)
-        
-        # 确认
-        check = MathTex(
-            r"\checkmark",
-            font_size=50,
-            color=self.COLOR_SUCCESS
-        ).next_to(answer, RIGHT, buff=0.4)
-        
-        self.play(
-            Flash(answer, color=self.COLOR_SUCCESS),
-            DrawBorderThenFill(check),
-            run_time=0.8
-        )
-        self.wait(2.0)
-        
-        # 清理
-        self.play(
-            FadeOut(title),
-            FadeOut(problem_label),
-            FadeOut(problem),
-            FadeOut(coeff_hint),
-            FadeOut(var_hint),
-            FadeOut(common_factor_result),
-            FadeOut(arrow),
-            FadeOut(answer),
-            FadeOut(answer_box),
-            FadeOut(check),
-            run_time=0.6
-        )
-    
+        title = self.heading("练习二：三项式")
+        original = self.formula(r"5x^3+10x^2-15x", 3.75, WHITE, 46)
+        gcd_note = self.note("系数取 5；最低次幂 x¹，公因式为 5x", 2.1, YELLOW)
+        quotient = self.formula(r"x^2+2x-3", 0.5, WHITE, 47)
+        factor = self.formula(r"5x(x^2+2x-3)", -1.6, RESULT_COLOR, 48)
+        check = self.formula(r"=5x^3+10x^2-15x", -3.8, WHITE, 40)
+        self.play(Write(title), Write(original), run_time=0.85)
+        self.play(FadeIn(gcd_note), Write(quotient), run_time=0.8)
+        self.play(Write(factor), run_time=0.8)
+        self.play(Write(check), run_time=0.75)
+        self.wait(1.2)
+        self.clear_content()
+
     def show_summary(self):
-        """场景7: 结尾总结"""
-        # 总结标题
-        title = Text(
-            "总结",
-            font="PingFang SC",
-            font_size=self.FONT_TITLE + 4,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 6)
-        
-        self.play(Write(title), run_time=0.8)
-        
-        # 要点卡片
-        points = [
-            "✓ 公因式 = 系数GCD × 公有字母最低次幂",
-            "✓ 提取要完全 (不能漏)",
-            "✓ 记住: 找-提-除-验"
-        ]
-        
-        point_objects = VGroup()
-        for i, point in enumerate(points):
-            point_obj = Text(
-                point,
-                font="PingFang SC",
-                font_size=self.FONT_BODY,
-                color=WHITE,
-                line_spacing=1.2
-            ).move_to(UP * (3 - i * 1.5))
-            point_objects.add(point_obj)
-        
-        # 依次滑入
-        for point_obj in point_objects:
-            self.play(FadeIn(point_obj, shift=RIGHT * 0.5), run_time=0.5)
-            self.wait(0.5)
-        
-        # 装饰
-        decorations = VGroup(
-            MathTex(r"\star", font_size=30, color=GOLD).move_to(UP * 5 + LEFT * 3),
-            MathTex(r"\star", font_size=30, color=GOLD).move_to(UP * 5 + RIGHT * 3),
-            MathTex(r"\star", font_size=30, color=GOLD).move_to(DOWN * 0.5 + LEFT * 3),
-            MathTex(r"\star", font_size=30, color=GOLD).move_to(DOWN * 0.5 + RIGHT * 3)
-        )
-        
-        self.play(Create(decorations), run_time=0.6)
-        self.wait(1.0)
-        
-        # 作者信息放大居中
-        author_large = Text(
-            "上海初高中数学直通车",
-            font="PingFang SC",
-            font_size=32,
-            color=WHITE
-        ).move_to(DOWN * 3)
-        
-        author_id = Text(
-            "@emptyandcalm",
-            font="PingFang SC",
-            font_size=28,
-            color=GRAY_B
-        ).move_to(DOWN * 4)
-        
-        self.play(
-            Transform(self.author_info, author_large),
-            run_time=0.8
-        )
-        self.play(FadeIn(author_id, shift=UP * 0.3), run_time=0.5)
-        
-        # 关注提示
-        follow_text = Text(
-            "关注我，学更多数学技巧!",
-            font="PingFang SC",
-            font_size=26,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 5.5)
-        
-        self.play(Write(follow_text), run_time=0.8)
-        self.play(Flash(follow_text, color=self.COLOR_HIGHLIGHT), run_time=0.5)
-        
-        self.wait(1.0)
-        
-        # 结束淡出
-        self.play(
-            FadeOut(title),
-            FadeOut(point_objects),
-            FadeOut(decorations),
-            FadeOut(self.author_info),
-            FadeOut(author_id),
-            FadeOut(follow_text),
-            run_time=1.0
-        )
-
-
-# 渲染命令:
-# manim -pql common_factor_method.py CommonFactorMethod  # 快速预览 (480p)
-# manim -qh common_factor_method.py CommonFactorMethod   # 高质量渲染 (1080p)
-# manim -qk common_factor_method.py CommonFactorMethod   # 4K渲染
+        title = self.heading("公因式提取完整，结果才正确")
+        formula = self.formula(r"6x^2y-9xy^2=3xy(2x-3y)", 2.4, RESULT_COLOR, 38)
+        rule = self.note("系数取最大公因数，字母取最低次幂", 0.1, YELLOW)
+        warning = self.note("括号内每一项的正负号也必须保留", -2.1, WHITE)
+        self.play(Write(title), Write(formula), run_time=0.9)
+        self.play(FadeIn(rule), FadeIn(warning), run_time=0.7)
+        self.wait(1.2)
+        self.play(*[FadeOut(mob) for mob in tuple(self.mobjects)], run_time=0.7)

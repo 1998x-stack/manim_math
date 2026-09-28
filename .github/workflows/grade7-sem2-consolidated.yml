@@ -1,0 +1,47 @@
+name: Grade 7 semester 2 real numbers and geometry consolidated checks
+
+on:
+  pull_request:
+    paths:
+      - '初中/七年级/第二学期/第十二章-实数/**'
+      - '初中/七年级/第二学期/第十三章-相交线 平行线/**'
+      - '.github/workflows/grade7-sem2-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-and-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /初中/七年级/第二学期/第十二章-实数/**/*.py
+            /初中/七年级/第二学期/第十三章-相交线 平行线/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile all chapter scripts
+        run: |
+          python -m compileall -q '初中/七年级/第二学期/第十二章-实数'
+          python -m compileall -q '初中/七年级/第二学期/第十三章-相交线 平行线'
+      - name: Run six distinct lesson math and AST regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          ch12='初中/七年级/第二学期/第十二章-实数'
+          ch13='初中/七年级/第二学期/第十三章-相交线 平行线'
+          count=0
+          for lesson in "$ch12"/00[2-5]* "$ch13"/00[1-2]*; do
+            test -f "$lesson/check_lesson.py" || { echo "Missing regression: $lesson" >&2; exit 1; }
+            echo "Running $lesson/check_lesson.py"
+            python "$lesson/check_lesson.py"
+            count=$((count + 1))
+          done
+          test "$count" -eq 6 || { echo "Expected six lesson suites; got $count" >&2; exit 1; }
