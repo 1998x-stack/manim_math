@@ -55,7 +55,7 @@ jobs:
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg pkg-config libcairo2-dev libpango1.0-dev texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science dvisvgm fonts-noto-cjk
           python -m pip install 'manim==0.19.2'
       - name: Render main representative Scene
-        run: bash tools/render_smoke.sh '${{ matrix.source }}' '${{ matrix.scene }}' '${{ matrix.width }}' '${{ matrix.height }}' '${{ matrix.id }}'
+        run: bash tools/render_smoke.sh '${{ matrix.source }}' '${{ matrix.scene }}' '${{ matrix.request_width }}' '${{ matrix.request_height }}' '${{ matrix.expected_width }}' '${{ matrix.expected_height }}' '${{ matrix.id }}'
       - name: Upload main render evidence
         if: always()
         uses: actions/upload-artifact@v4
