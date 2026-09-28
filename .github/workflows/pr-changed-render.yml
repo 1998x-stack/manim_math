@@ -15,7 +15,10 @@ on:
       - 'tests/test_manifest.json'
       - 'tools/test_platform.py'
       - 'tools/media_probe.py'
+      - 'tools/render_smoke.sh'
       - '.github/workflows/pr-changed-render.yml'
+      - '.github/workflows/main-render-smoke.yml'
+      - '.github/workflows/nightly-render-matrix.yml'
   workflow_dispatch:
 
 permissions:
@@ -49,9 +52,14 @@ jobs:
           git diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/changed-files.txt"
           matrix="$(python tools/test_platform.py changed-matrix --paths-file "$RUNNER_TEMP/changed-files.txt")"
           count="$(python -c 'import json,sys; print(len(json.loads(sys.argv[1])["include"]))' "$matrix")"
+          if [[ "$count" == "0" ]] && grep -Eq '^(tests/test_manifest\.json|tools/test_platform\.py|tools/media_probe\.py|tools/render_smoke\.sh|\.github/workflows/(pr-changed-render|main-render-smoke|nightly-render-matrix)\.yml)$' "$RUNNER_TEMP/changed-files.txt"; then
+            matrix="$(python tools/test_platform.py matrix --tier pr)"
+            count="$(python -c 'import json,sys; print(len(json.loads(sys.argv[1])["include"]))' "$matrix")"
+            echo "render infrastructure changed; using PR representative tier"
+          fi
           echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
           echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "registered changed renders: $count"
+          echo "registered renders: $count"
       - id: manual
         if: github.event_name == 'workflow_dispatch'
         run: |
@@ -81,23 +89,8 @@ jobs:
           sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg pkg-config libcairo2-dev libpango1.0-dev texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science dvisvgm fonts-noto-cjk
           python -m pip install 'manim==0.19.2'
-      - name: Render changed registered Scene
-        shell: bash
-        run: |
-          set -euo pipefail
-          OUT="$RUNNER_TEMP/render-${{ matrix.id }}"
-          SOURCE='${{ matrix.source }}'
-          LESSON_DIR="$(dirname "$SOURCE")"
-          SOURCE_FILE="$(basename "$SOURCE")"
-          (
-            cd "$LESSON_DIR"
-            manim -ql -r '${{ matrix.resolution }}' --disable_caching --media_dir "$OUT" "$SOURCE_FILE" '${{ matrix.scene }}'
-          )
-          VIDEO="$(find "$OUT" -type f -name '${{ matrix.scene }}.mp4' -print -quit)"
-          test -n "$VIDEO" && test -s "$VIDEO"
-          python tools/media_probe.py "$VIDEO" --width '${{ matrix.width }}' --height '${{ matrix.height }}' --json-output "$RUNNER_TEMP/${{ matrix.id }}-ffprobe.json"
-          mkdir -p "$RUNNER_TEMP/${{ matrix.id }}-frames"
-          ffmpeg -hide_banner -loglevel error -y -ss 1 -i "$VIDEO" -frames:v 1 "$RUNNER_TEMP/${{ matrix.id }}-frames/first.png"
+      - name: Render changed or representative Scene
+        run: bash tools/render_smoke.sh '${{ matrix.source }}' '${{ matrix.scene }}' '${{ matrix.width }}' '${{ matrix.height }}' '${{ matrix.id }}'
       - name: Upload PR render evidence
         if: always()
         uses: actions/upload-artifact@v4
