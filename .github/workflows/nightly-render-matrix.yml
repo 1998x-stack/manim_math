@@ -41,28 +41,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install render dependencies
+      - name: Install Manim render dependencies
         run: |
           sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg pkg-config libcairo2-dev libpango1.0-dev texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science dvisvgm fonts-noto-cjk
           python -m pip install 'manim==0.19.2'
       - name: Render representative Scene and enforce media contract
-        shell: bash
-        run: |
-          set -euo pipefail
-          OUT="$RUNNER_TEMP/render-${{ matrix.id }}"
-          SOURCE='${{ matrix.source }}'
-          LESSON_DIR="$(dirname "$SOURCE")"
-          SOURCE_FILE="$(basename "$SOURCE")"
-          (
-            cd "$LESSON_DIR"
-            manim -ql -r '${{ matrix.resolution }}' --disable_caching --media_dir "$OUT" "$SOURCE_FILE" '${{ matrix.scene }}'
-          )
-          VIDEO="$(find "$OUT" -type f -name '${{ matrix.scene }}.mp4' -print -quit)"
-          test -n "$VIDEO" && test -s "$VIDEO"
-          python tools/media_probe.py "$VIDEO" --width '${{ matrix.width }}' --height '${{ matrix.height }}' --json-output "$RUNNER_TEMP/${{ matrix.id }}-ffprobe.json"
-          mkdir -p "$RUNNER_TEMP/${{ matrix.id }}-frames"
-          ffmpeg -hide_banner -loglevel error -y -ss 1 -i "$VIDEO" -frames:v 1 "$RUNNER_TEMP/${{ matrix.id }}-frames/first.png"
+        run: bash tools/render_smoke.sh '${{ matrix.source }}' '${{ matrix.scene }}' '${{ matrix.width }}' '${{ matrix.height }}' '${{ matrix.id }}'
       - name: Upload nightly media evidence
         if: always()
         uses: actions/upload-artifact@v4
