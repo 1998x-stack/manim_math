@@ -56,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           while IFS= read -r source; do
-            found="$(git ls-tree -r --name-only "$GITHUB_SHA" -- "$source")"
+            found="$(git -c core.quotePath=false ls-tree -r --name-only "$GITHUB_SHA" -- "$source")"
             [[ "$found" == "$source" ]] || { echo "Missing registered render source: $source" >&2; exit 1; }
           done < <(python tools/test_platform.py sources)
       - name: Run control-plane regressions
