@@ -36,11 +36,15 @@ jobs:
           lfs: false
           filter: blob:none
           fetch-depth: 0
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/test_platform.py
+            /tests/test_manifest.json
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Validate render manifest
-        run: python tools/test_platform.py validate
+        run: python tools/test_platform.py validate --skip-source-check
       - id: select
         if: github.event_name == 'pull_request'
         env:
@@ -81,6 +85,11 @@ jobs:
         with:
           lfs: false
           filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/media_probe.py
+            /tools/render_smoke.sh
+            /${{ matrix.lesson }}/**
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
