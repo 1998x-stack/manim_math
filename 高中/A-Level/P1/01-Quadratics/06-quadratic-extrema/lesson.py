@@ -143,14 +143,24 @@ class P1QuadraticExtrema(Scene):
         axes = self.axis((0, 3.2), (-4, 11), width=6.55, height=5.1, pos=(0, .6, 0))
         h, k = ValueTracker(0), ValueTracker(0)
         f = lambda x: (x-h.get_value())**2+k.get_value()
-        graph = always_redraw(lambda: axes.plot(f, x_range=[0, 3.2], color=CYAN,
-                                                  stroke_width=5))
+        samples = [3.2*i/80 for i in range(81)]
+        graph = VMobject(color=CYAN, stroke_width=5)
+
+        def update_graph(mob):
+            # Keep a stable VMobject topology.  always_redraw(...axes.plot...)
+            # calls become() while Create is also changing the curve and can
+            # crash Manim 0.19.x when an intermediate subpath is empty.
+            mob.set_points_smoothly([axes.c2p(x, f(x)) for x in samples])
+            return mob
+
+        update_graph(graph)
         vertex = always_redraw(lambda: Dot(axes.c2p(h.get_value(), k.get_value()),
                                             radius=.085, color=GOLD))
         symmetry = always_redraw(lambda: DashedLine(
             axes.c2p(h.get_value(), -3.5), axes.c2p(h.get_value(), 10.5),
             color=GOLD, dash_length=.15, stroke_width=1.6))
         self.play(Create(axes), Create(graph), FadeIn(vertex), FadeIn(symmetry), run_time=1)
+        graph.add_updater(update_graph)
         start = tex(r'(h,k)=(0,0)', 39, GOLD).move_to((0, -3.2, 0))
         self.play(FadeIn(start))
         checkpoint(self, axes=axes, graph=graph, vertex=vertex, axis=symmetry, label=start)
@@ -162,6 +172,7 @@ class P1QuadraticExtrema(Scene):
         checkpoint(self, graph=graph, vertex=vertex, axis=symmetry, label=start)
         assert (h.get_value(), k.get_value()) == (float(UP_QUAD.h), float(UP_QUAD.k))
         self.wait(1.3)
+        graph.clear_updaters()
         self.clear_shot()
 
     def symmetry_and_intercepts(self):
