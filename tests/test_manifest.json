@@ -30,6 +30,24 @@
       "tier": "nightly",
       "width": 270,
       "height": 480
+    },
+    {
+      "id": "primary-equal-base-height",
+      "domain": "primary",
+      "source": "小学/奥数专题/04-平面几何/004-等底等高/lesson.py",
+      "scene": "EqualBaseHeightScene",
+      "tier": "nightly",
+      "width": 270,
+      "height": 480
+    },
+    {
+      "id": "alevel-quadratic-extrema",
+      "domain": "alevel",
+      "source": "高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/lesson.py",
+      "scene": "P1QuadraticExtrema",
+      "tier": "nightly",
+      "width": 270,
+      "height": 480
     }
   ]
 }
