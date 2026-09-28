@@ -1,0 +1,56 @@
+name: Grade 8 term 2 linear functions consolidated checks
+
+on:
+  pull_request:
+    paths:
+      - '初中/八年级/第二学期/第二十章-一次函数/**'
+      - '.github/workflows/grade8-term2-linear-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linear-functions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+            /初中/八年级/第二学期/第二十章-一次函数/**/*.py
+            /初中/八年级/第二学期/第二十章-一次函数/**/*.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile chapter sources
+        run: python -m compileall -q '初中/八年级/第二学期/第二十章-一次函数'
+      - name: Test four original course mathematics suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          root='初中/八年级/第二学期/第二十章-一次函数'
+          for test_file in \
+            "$root/002一次函数的图像/verify_linear_function_graph.py" \
+            "$root/003一次函数的性质/verify_linear_function_properties.py" \
+            "$root/004待定系数法求一次函数解析式/verify_linear_function_undetermined.py" \
+            "$root/005一次函数与方程、不等式的关系/verify_linear_function_equation_inequality.py"; do
+            test -f "$test_file"
+            python "$test_file"
+          done
+      - name: Skill AST audit of four repaired scenes
+        shell: bash
+        run: |
+          set -euo pipefail
+          root='初中/八年级/第二学期/第二十章-一次函数'
+          for scene in \
+            "$root/002一次函数的图像/linear_function_graph.py" \
+            "$root/003一次函数的性质/linear_function_properties.py" \
+            "$root/004待定系数法求一次函数解析式/linear_function_undetermined_coefficients.py" \
+            "$root/005一次函数与方程、不等式的关系/linear_function_equation_inequality.py"; do
+            python .opencode/skills/manim-video-production/scripts/audit_scene.py "$scene" --json
+          done

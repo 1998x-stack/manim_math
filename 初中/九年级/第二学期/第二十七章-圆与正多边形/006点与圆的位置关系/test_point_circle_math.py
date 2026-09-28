@@ -38,7 +38,8 @@ class PointCircleMathTests(unittest.TestCase):
         dynamic = ast.get_source_segment(source, methods['show_dynamic_demo'])
         self.assertNotIn('always_redraw(lambda: MathTex(', dynamic)
         self.assertNotIn('always_redraw(lambda: Text(', dynamic)
-        self.assertNotIn('RIGHT * 0', source)
+        # Match a literal zero displacement only; RIGHT * 0.8 is a valid nonzero offset.
+        self.assertNotRegex(source, r'\bRIGHT\s*\*\s*0(?![\d.])')
         self.assertNotIn('LEFT * 10', source)
 
 

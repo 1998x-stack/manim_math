@@ -1,0 +1,56 @@
+name: Grade 8 term 1 radical lesson consolidated checks
+
+on:
+  pull_request:
+    paths:
+      - '初中/八年级/第一学期/第十六章-二次根式/**'
+      - '.github/workflows/grade8-term1-radicals-consolidated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  radical-lessons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.opencode/skills/manim-video-production/scripts/audit_scene.py
+            /初中/八年级/第一学期/第十六章-二次根式/**/*.py
+            /初中/八年级/第一学期/第十六章-二次根式/**/*.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile all grade 8 radical sources
+        run: python -m compileall -q '初中/八年级/第一学期/第十六章-二次根式'
+      - name: Run all five repaired lesson math tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          for test_file in \
+            '初中/八年级/第一学期/第十六章-二次根式/002二次根式的性质/test_radical_properties_math.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/003最简二次根式/test_simplest_radical_math.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/test_like_radicals_math.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/test_radical_mul_div_math.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/test_radical_add_sub_math.py'; do
+            test -f "$test_file"
+            python "$test_file"
+          done
+      - name: Skill AST audit of five repaired scenes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for scene in \
+            '初中/八年级/第一学期/第十六章-二次根式/002二次根式的性质/radical_properties.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/003最简二次根式/simplest_radical.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/like_radicals.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/radical_mul_div.py' \
+            '初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/radical_add_sub.py'; do
+            python .opencode/skills/manim-video-production/scripts/audit_scene.py "$scene" --json
+          done
