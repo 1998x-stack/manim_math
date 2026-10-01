@@ -32,3 +32,10 @@ __pycache__/
 !.codex/skills/
 doc.md
 .ruff_cache/
+
+# Locally installed agent skills (kept outside this project's source history)
+.claude/skills/manim-video-generation/
+.claude/skills/publish-video/
+.opencode/skills/manim_math_skill/
+.opencode/skills/notion-client-skill/
+.opencode/skills/planning-with-files/
