@@ -1,16 +1,13 @@
 name: ManimGX bulk source codemod
 
 on:
-  push:
-    branches:
-      - feat/manimgx-migration-v1
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   migrate:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
