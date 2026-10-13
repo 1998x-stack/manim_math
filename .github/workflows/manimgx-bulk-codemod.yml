@@ -1,0 +1,36 @@
+name: ManimGX bulk source codemod
+
+on:
+  push:
+    branches:
+      - feat/manimgx-migration-v1
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/manimgx-migration-v1
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Apply mechanically safe source migration
+        run: python tools/manimgx_migrate.py . --write
+      - name: Commit migrated Python sources
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No mechanical ManimCE migration changes remain."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor(manimgx): bulk migrate safe ManimCE source patterns"
+          git push origin HEAD:feat/manimgx-migration-v1
