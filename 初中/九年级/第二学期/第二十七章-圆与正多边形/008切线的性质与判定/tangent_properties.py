@@ -3,14 +3,14 @@
 将冗余而可能出现不一致的切点计算集中到 tangent_math.py 和 tangent_theorems.py；
 此课单独保留原 TangentProperties 类名及八个公开分镜方法。
 """
-from manim import *
+from manimgx import *
 import numpy as np
 from tangent_math import tangent_points, verify_tangent_geometry
 from tangent_theorems import TangentTheorems
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

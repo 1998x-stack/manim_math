@@ -1,6 +1,6 @@
 """认识面积的简短示例；完整课程见同目录 001认识面积_animation.py。"""
 
-from manim import *
+from manimgx import *
 
 
 class AreaIntroductionPreview(Scene):

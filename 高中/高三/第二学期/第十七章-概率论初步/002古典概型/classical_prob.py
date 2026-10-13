@@ -3,7 +3,7 @@
 预览：manim -pql classical_prob.py ClassicalProbability
 数学回归：python -m unittest -v test_classical_probability_math.py
 """
-from manim import *
+from manimgx import *
 
 from classical_probability_math import (
     ball_outcomes, die_outcomes, double_die_outcomes, example_probabilities,
@@ -12,7 +12,7 @@ from classical_probability_math import (
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = "#1a1a2e"

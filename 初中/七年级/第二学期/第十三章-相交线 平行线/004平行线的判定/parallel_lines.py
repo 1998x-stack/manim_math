@@ -1,11 +1,11 @@
 """平行线的三条判定：先展示不平行反例，再在正确的两交点角对上判定。"""
 from math import atan2, cos, degrees, pi, radians, sin
 import numpy as np
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = '#1a1a2e'

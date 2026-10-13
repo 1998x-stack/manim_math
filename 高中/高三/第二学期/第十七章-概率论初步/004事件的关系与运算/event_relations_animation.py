@@ -3,14 +3,14 @@
 预览：manim -pql event_relations_animation.py EventRelations
 数学回归：python -m unittest -v test_event_relations_math.py
 """
-from manim import *
+from manimgx import *
 from event_relations_math import (A, B, OMEGA, complement, complementary,
                                   event, intersection, mutually_exclusive,
                                   probability, union)
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = "#1a1a2e"

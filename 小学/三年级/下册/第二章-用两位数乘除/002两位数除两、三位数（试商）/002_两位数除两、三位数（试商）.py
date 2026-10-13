@@ -1,6 +1,6 @@
 """两位数除法试商的简短示例；完整课程见同目录 TwoDigitDivisionLesson。"""
 
-from manim import *
+from manimgx import *
 
 
 class TrialQuotientPreview(Scene):

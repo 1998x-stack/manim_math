@@ -1,6 +1,6 @@
 """抽屉原理：n+1 个物体分到 n 个抽屉，至少有一个装两个或更多。"""
 
-from manim import *
+from manimgx import *
 
 
 class 抽屉原理Animation(Scene):

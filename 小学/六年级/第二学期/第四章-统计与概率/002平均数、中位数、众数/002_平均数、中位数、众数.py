@@ -1,6 +1,6 @@
 """平均数、中位数与众数：同一组数据的三个不同统计量。"""
 
-from manim import *
+from manimgx import *
 
 
 class 平均数中位数众数Animation(Scene):

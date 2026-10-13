@@ -1,6 +1,6 @@
 """两位数除以一位数的简短示例；完整课程参见同目录的教学场景。"""
 
-from manim import *
+from manimgx import *
 
 
 class TwoDigitDivisionPreview(Scene):

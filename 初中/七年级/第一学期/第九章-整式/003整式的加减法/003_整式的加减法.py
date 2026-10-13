@@ -4,11 +4,11 @@
 运行：manim -pql 003_整式的加减法.py 整式的加减法Animation
 """
 
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

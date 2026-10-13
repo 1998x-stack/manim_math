@@ -8,10 +8,10 @@ Model: `math_model.py`. Geometric tiling uses x=d=2 as an illustration ONLY.
 It does not prove the general algebraic identity for all real x.
 """
 from math import sqrt
-from manim import *
+from manimgx import *
 from math_model import EXAMPLE, PRACTICE, Quadratic, area_square_model, discriminant_family
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 BG = '#101724'
 PANEL = '#1A2A3E'

@@ -9,7 +9,7 @@ inverse_proportion.py
     manim -qh --resolution 1080,1920 inverse_proportion.py InverseProportion
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 # ── 颜色 ──────────────────────────────────────────────

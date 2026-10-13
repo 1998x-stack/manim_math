@@ -1,14 +1,18 @@
 """八年级概率：频率与概率的关系。使用独立随机生成器，数据/图像同源。
 
 H 表示硬币正面事件；中文一律使用 Text，公式使用 MathTex。
-运行：manim -ql probability_frequency.py ProbabilityFrequency
+检查：manimgx inspect probability_frequency.py ProbabilityFrequency -t 0,end
+预览：manimgx render probability_frequency.py ProbabilityFrequency -r 270x480 --fps 15 -o preview.mp4
 """
-from manim import *
+
+from manimgx import *
 import numpy as np
 
-config.pixel_width, config.pixel_height = 1080, 1920
-config.frame_width, config.frame_height = 9, 16
-FONT = "PingFang SC"
+from manim_math_gx import CJK_FONT, configure_render
+
+
+configure_render()
+FONT = CJK_FONT
 GOLD, CYAN, GREEN, ORANGE, BG = "#f9ca24", "#22a6b3", "#6ab04c", "#f0932b", "#1a1a2e"
 
 
@@ -28,7 +32,7 @@ class ProbabilityFrequency(Scene):
         self.camera.background_color = BG
         self.flips, self.frequency = simulate_frequencies(1000, seed=42)
         self.author = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
-                           font_size=18, color=GRAY_B).move_to(UP * 7.0)
+                           font_size=22, color=GRAY_B).move_to(UP * 7.0)
         self.play(FadeIn(self.author), run_time=0.3)
         self.scene_opening()
         self.scene_freq_def()

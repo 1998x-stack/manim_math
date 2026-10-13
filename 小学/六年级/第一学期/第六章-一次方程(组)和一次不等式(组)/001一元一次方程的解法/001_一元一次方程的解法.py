@@ -1,6 +1,6 @@
 """一元一次方程：同乘非零最小公倍数，并代回检验。"""
 
-from manim import *
+from manimgx import *
 
 
 class 一元一次方程的解法Animation(Scene):

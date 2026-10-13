@@ -4,11 +4,11 @@
 数学约定：所有对数在实数范围内讨论；不能把近似小数写成精确等式。
 """
 
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 AUTHOR_NAME = "上海初高中数学直通车"

@@ -1,6 +1,6 @@
 """线段的相等、和、差、倍与分：中点 B 将 AC 等分。"""
 
-from manim import *
+from manimgx import *
 
 
 class 线段相等与和差倍分Animation(Scene):

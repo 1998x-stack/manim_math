@@ -1,4 +1,4 @@
-from manim import *
+from manimgx import *
 
 class 一元一次不等式的解法Animation(Scene):
     """一元一次不等式的解法的Manim动画演示"""

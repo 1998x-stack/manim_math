@@ -1,10 +1,10 @@
 """六年级下 · 有理数大小比较：保留原 (-2,0,1) 示例并补齐同号与分数。"""
 from fractions import Fraction
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

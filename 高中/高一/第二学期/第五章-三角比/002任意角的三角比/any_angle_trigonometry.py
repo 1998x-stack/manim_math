@@ -3,13 +3,13 @@
 屏上单位圆的半径必须等于坐标轴的 1 个单位，而非简单写 Circle(radius=2)。
 正切仅在 cos(alpha)!=0 时存在；象限符号规则不包括坐标轴上的角。
 """
-from manim import *
+from manimgx import *
 import math
 import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 FONT = "Noto Sans CJK SC"
 BG = "#1a1a2e"

@@ -1,10 +1,10 @@
 """分式方程：明确原方程定义域、去分母的必要条件和增根检验。"""
 from math import isfinite
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG_COLOR = "#1a1a2e"

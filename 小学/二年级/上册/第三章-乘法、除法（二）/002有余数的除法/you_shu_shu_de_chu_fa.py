@@ -2,12 +2,12 @@
 
 教学模型：13 = 4 × 3 + 1，0 <= 1 < 4。始终移动同一批对象，不复制苹果。
 """
-from manim import *
+from manimgx import *
 
 # 本文件作为独立竖屏视频渲染；从其他脚本导入时请注意 Manim 全局配置。
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

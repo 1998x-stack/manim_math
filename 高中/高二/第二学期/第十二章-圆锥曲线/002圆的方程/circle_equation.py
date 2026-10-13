@@ -4,19 +4,22 @@
 """
 
 import math
+import os
 
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG_COLOR = "#1a1a2e"
 C_CURVE = "#3498db"
 C_CENTER = "#e74c3c"
 C_LINE = "#2ecc71"
-FONT = "PingFang SC"
+# ManimGX ships Noto CJK and resolves the generic family consistently across platforms.
+# Override with MANIM_MATH_CJK_FONT="PingFang SC" when exact legacy macOS typography is required.
+FONT = os.getenv("MANIM_MATH_CJK_FONT", "sans-serif")
 CENTER = (2.0, 1.0)
 RADIUS = 1.5
 GENERAL = (-4.0, -2.0, 2.75)
@@ -90,7 +93,7 @@ class CircleEquation(Scene):
     def construct(self):
         self.camera.background_color = BG_COLOR
         self.author = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
-                           font_size=17, color=GRAY_B).move_to(UP*6.95)
+                           font_size=22, color=GRAY_B).move_to(UP*6.95)
         self.add(self.author)
         self.show_opening()
         self.show_definition()
@@ -138,103 +141,90 @@ class CircleEquation(Scene):
         self.play(FadeIn(rect), FadeIn(heading), Write(equation), FadeIn(note_text), run_time=0.8)
 
     def draw_line(self, ax, y, color=C_LINE):
-        segment = Line(ax.c2p(-4,y), ax.c2p(4,y), color=color, stroke_width=5)
-        self.play(Create(segment), run_time=0.6)
-        return segment
+        line = Line(ax.c2p(-3.6, y), ax.c2p(3.6, y), color=color, stroke_width=4)
+        self.play(Create(line), run_time=0.55)
+        return line
 
     def show_opening(self):
-        self.stage("由圆心和半径建立一个圆")
-        ax = self.diagram()
-        self.panel("圆心 O(2,1)，半径 r=1.5",
-                   r"(x-2)^2+(y-1)^2=2.25",
-                   "同一坐标尺度，点与圆周能严格对应", C_CURVE)
-        self.wait(0.75)
+        title = self.cn("圆的方程", 46, C_CURVE).move_to(UP*2.2)
+        subtitle = self.cn("一条方程，统一圆的几何信息", 27, GRAY_A).next_to(title, DOWN, buff=0.55)
+        formula = MathTex(r"(x-a)^2+(y-b)^2=r^2", font_size=44, color=YELLOW).next_to(subtitle, DOWN, buff=0.9)
+        self.play(Write(title), FadeIn(subtitle), run_time=0.9)
+        self.play(Write(formula), run_time=0.8)
+        self.wait(0.7)
 
     def show_definition(self):
-        self.stage("圆：到定点距离等于定长的点的轨迹")
+        self.stage("从定义到标准方程")
         ax = self.diagram()
-        edge = (CENTER[0]+RADIUS, CENTER[1])
-        self.play(Create(Line(ax.c2p(*CENTER), ax.c2p(*edge),
-                              color=YELLOW, stroke_width=4)), run_time=0.5)
-        self.panel("中心到每个圆周点的距离都是 r",
-                   r"\sqrt{(x-2)^2+(y-1)^2}=1.5",
-                   "点恰好在圆周上，不包括圆盘内部", C_CURVE)
-        self.wait(0.8)
+        point = Dot(ax.c2p(3.06, 2.06), radius=0.075, color=YELLOW)
+        radius_line = Line(ax.c2p(*CENTER), point.get_center(), color=YELLOW, stroke_width=3)
+        p_label = MathTex(r"P(x,y)", font_size=24, color=YELLOW).next_to(point, UR, buff=0.12)
+        relation = MathTex(r"|PO|=r", font_size=32, color=YELLOW).move_to(DOWN*2.1)
+        self.play(FadeIn(point), Create(radius_line), FadeIn(p_label), Write(relation), run_time=0.8)
+        self.panel("平方距离", r"(x-a)^2+(y-b)^2=r^2", "圆：到定点 O 的距离恒为 r")
+        self.wait(0.35)
 
     def show_standard_equation(self):
-        self.stage("圆的标准方程")
+        self.stage("标准方程读图")
         ax = self.diagram()
-        self.panel("圆心 (a,b)，半径 r>0",
-                   r"(x-a)^2+(y-b)^2=r^2",
-                   "本例 a=2、b=1、r=1.5", C_CURVE)
-        self.wait(0.6)
-        self.play(Write(MathTex(r"(x-2)^2+(y-1)^2=2.25",
-                                font_size=28, color=YELLOW).move_to(DOWN*2.65)), run_time=0.5)
-        self.wait(0.55)
+        center = MathTex(r"O(a,b)", font_size=28, color=C_CENTER).move_to(DOWN*2.0)
+        radius = MathTex(r"r>0", font_size=28, color=YELLOW).next_to(center, DOWN, buff=0.32)
+        self.play(FadeIn(center), FadeIn(radius), run_time=0.5)
+        self.panel("例", r"(x-2)^2+(y-1)^2=\frac94", "圆心 (2,1)，半径 3/2")
+        self.wait(0.35)
 
     def show_general_equation(self):
-        self.stage("一般式：先配方再判断是否为圆")
-        ax = self.diagram()
-        self.play(Write(MathTex(r"x^2+y^2+Dx+Ey+F=0", font_size=30)
-                        .move_to(DOWN*2.45)), run_time=0.5)
-        self.panel("判别量须为正，圆心与半径才能确定",
-                   r"O=(-D/2,-E/2),\quad r=\frac{\sqrt{D^2+E^2-4F}}{2}",
-                   "判别量为零仅为单点，负数没有实点", C_CURVE)
-        self.wait(0.75)
-        self.play(Write(MathTex(r"D=-4,\ E=-2,\ F=2.75,\quad r=1.5",
-                                font_size=26).move_to(DOWN*2.45)), run_time=0.5)
-        self.wait(0.5)
+        self.stage("一般式如何还原")
+        line1 = MathTex(r"x^2+y^2+Dx+Ey+F=0", font_size=36).move_to(UP*2.4)
+        line2 = MathTex(r"(x+\frac D2)^2+(y+\frac E2)^2=\frac{D^2+E^2-4F}{4}", font_size=31).next_to(line1, DOWN, buff=0.65)
+        cond = MathTex(r"D^2+E^2-4F>0", font_size=31, color=YELLOW).next_to(line2, DOWN, buff=0.58)
+        self.play(Write(line1), run_time=0.6)
+        self.play(TransformFromCopy(line1, line2), FadeIn(cond), run_time=0.9)
+        self.panel("结论", r"O(-\frac D2,-\frac E2),\quad r=\frac12\sqrt{D^2+E^2-4F}", "判别量必须为正")
+        self.wait(0.35)
 
     def show_line_separate(self):
-        self.stage("① 相离：圆心到直线的距离大于半径")
-        assert center_line_distance(CENTER, SEPARATE) > RADIUS
-        assert len(line_circle_intersections(CENTER, RADIUS, SEPARATE)) == 0
+        self.stage("直线与圆：相离")
         ax = self.diagram()
         self.draw_line(ax, -1)
-        foot = (2.0, -1.0)
-        self.play(Create(DashedLine(ax.c2p(*CENTER), ax.c2p(*foot),
-                                    color=YELLOW, dash_length=0.12)), run_time=0.5)
-        self.panel("l：y=-1，垂足 Q(2,-1)", r"d=|1-(-1)|=2>1.5=r",
-                   "圆与直线没有公共点", C_LINE)
-        self.wait(0.9)
+        d = center_line_distance(CENTER, SEPARATE)
+        assert d > RADIUS and line_circle_intersections(CENTER, RADIUS, SEPARATE) == ()
+        self.panel("比较距离", rf"d={d:g}>r={RADIUS:g}", "没有交点 → 相离", RED)
+        self.wait(0.3)
 
     def show_line_tangent(self):
-        self.stage("② 相切：圆心到直线的距离等于半径")
-        points = line_circle_intersections(CENTER, RADIUS, TANGENT)
-        assert len(points) == 1 and math.dist(points[0], (2,2.5)) < 1e-10
+        self.stage("直线与圆：相切")
         ax = self.diagram()
         self.draw_line(ax, 2.5)
-        self.play(Create(Line(ax.c2p(*CENTER), ax.c2p(*points[0]),
-                              color=YELLOW, stroke_width=4)), run_time=0.5)
-        self.play(FadeIn(Dot(ax.c2p(*points[0]), color=YELLOW, radius=0.11)),
-                  run_time=0.4)
-        self.panel("l：y=2.5，唯一公共点 T(2,2.5)", r"d=|1-2.5|=1.5=r",
-                   "半径垂直于该水平切线", C_LINE)
-        self.wait(0.9)
+        points = line_circle_intersections(CENTER, RADIUS, TANGENT)
+        assert len(points) == 1
+        tangent = Dot(ax.c2p(*points[0]), radius=0.085, color=YELLOW)
+        self.play(FadeIn(tangent), run_time=0.35)
+        d = center_line_distance(CENTER, TANGENT)
+        self.panel("比较距离", rf"d={d:g}=r={RADIUS:g}", "一个交点 → 相切", YELLOW)
+        self.wait(0.3)
 
     def show_line_intersect(self):
-        self.stage("③ 相交：圆心到直线的距离小于半径")
-        points = line_circle_intersections(CENTER, RADIUS, INTERSECT)
-        assert len(points) == 2
+        self.stage("直线与圆：相交")
         ax = self.diagram()
         self.draw_line(ax, 1)
-        for p in points:
-            self.play(FadeIn(Dot(ax.c2p(*p), color=YELLOW, radius=0.11)), run_time=0.25)
-        self.panel("l：y=1，两个公共点", r"(0.5,1),\quad (3.5,1)",
-                   "中心到直线距离 d=0，小于 r=1.5", C_LINE)
-        self.wait(0.75)
-        self.stage("三种位置关系由 d 与 r 的大小决定")
-        cases = VGroup(self.cn("d>r：相离，零个公共点", 27, C_CENTER),
-                       self.cn("d=r：相切，一个公共点", 27, YELLOW),
-                       self.cn("d<r：相交，两个公共点", 27, C_LINE))
-        cases.arrange(DOWN, buff=0.7).move_to(UP*0.8)
-        self.play(FadeIn(cases), run_time=0.65)
-        self.wait(1.0)
+        points = line_circle_intersections(CENTER, RADIUS, INTERSECT)
+        assert len(points) == 2
+        dots = VGroup(*[Dot(ax.c2p(*p), radius=0.075, color=YELLOW) for p in points])
+        self.play(FadeIn(dots), run_time=0.4)
+        d = center_line_distance(CENTER, INTERSECT)
+        self.panel("比较距离", rf"d={d:g}<r={RADIUS:g}", "两个交点 → 相交", GREEN)
+        self.wait(0.3)
 
     def show_outro(self):
-        self.stage("由标准式求圆心半径，再比较 d 与 r")
-        self.play(FadeIn(self.cn("注意一般式的判别量须大于零", 27, YELLOW)
-                         .move_to(UP*1.1)),
-                  FadeIn(self.cn("@emptyandcalm", 26, GRAY_A).move_to(DOWN*0.7)),
-                  run_time=0.65)
-        self.wait(1.25)
+        self.stage("一个统一框架", C_CURVE)
+        rows = VGroup(
+            self.cn("标准式 → 圆心与半径", 26, WHITE),
+            self.cn("一般式 → 配方还原", 26, WHITE),
+            self.cn("点与圆 → 代入看残差", 26, WHITE),
+            self.cn("直线与圆 → 比较 d 与 r", 26, WHITE),
+        ).arrange(DOWN, buff=0.42, aligned_edge=LEFT).move_to(UP*0.5)
+        self.play(LaggedStart(*[FadeIn(row, shift=RIGHT*0.2) for row in rows], lag_ratio=0.18), run_time=1.3)
+        final = MathTex(r"d>r,\ d=r,\ d<r", font_size=38, color=YELLOW).move_to(DOWN*2.0)
+        self.play(Write(final), run_time=0.7)
+        self.wait(0.8)

@@ -8,10 +8,10 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from manim import *
+from manimgx import *
 from area_model import butterfly_areas, lesson_points, triangle_area
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 config.pixel_width = 270 if os.getenv("MANIM_PREVIEW") == "1" else 1080
 config.pixel_height = 480 if os.getenv("MANIM_PREVIEW") == "1" else 1920

@@ -1,10 +1,10 @@
 """一次函数与方程、不等式：同一零点驱动图像、数轴和代数答案。"""
 from math import isfinite
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

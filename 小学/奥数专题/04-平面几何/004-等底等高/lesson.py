@@ -1,7 +1,9 @@
 """等底等高：先用对角线把长方形等分，再平移顶点观察面积不变量。"""
-from manim import *
+from manimgx import *
 
-config.frame_width, config.frame_height = 9, 16
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
+
+config.frame_height = 16
 BG, FONT = "#101827", "Noto Sans CJK SC"
 
 

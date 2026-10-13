@@ -5,12 +5,12 @@ From this directory: python -m manim render -r 270,480 --fps 15 lesson.py P1Line
 Requires Manim CE, a working TeX installation and Noto Sans CJK SC.
 """
 from math import cos, sin, sqrt
-from manim import *
+from manimgx import *
 from math_model import (MAIN_CURVE, MAIN_LINE, TANGENT, MISSED,
                         PRACTICE_CURVE, PRACTICE_LINE,
                         discriminant, intersections, circle_line_points)
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 BG, PANEL, INK = '#101724', '#1A2A3E', '#F0F5FC'
 TEAL, GOLD, PINK, GREEN = '#55DCD0', '#FFD36B', '#FF8C9A', '#92E5B5'

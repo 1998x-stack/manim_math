@@ -1,11 +1,11 @@
 """圆周角定理：用同一组精确点验证图形、公式与教学结论。"""
 import math
 import numpy as np
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

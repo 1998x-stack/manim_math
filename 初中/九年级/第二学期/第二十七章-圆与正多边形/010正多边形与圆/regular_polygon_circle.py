@@ -1,11 +1,11 @@
 """九年级《正多边形与圆》：中心角、边心距、边长与面积的六段教学。"""
-from manim import *
+from manimgx import *
 import numpy as np
 from regular_polygon_math import polygon_metrics, polygon_vertices, verify_polygon
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

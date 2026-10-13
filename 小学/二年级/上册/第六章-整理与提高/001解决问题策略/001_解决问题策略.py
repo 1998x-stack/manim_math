@@ -1,9 +1,9 @@
 """解决问题策略：按上衣分类，不重不漏地列举 2×3=6 种搭配。"""
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

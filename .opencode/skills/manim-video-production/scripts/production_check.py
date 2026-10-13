@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-"""Opt-in static, render and media gate; outputs into a new directory.
+"""Opt-in ManimGX static, inspect, render and media gate.
 
-  python scripts/production_check.py /abs/lesson.py ActualScene --math-test /abs/test_math.py --render --preview
-
-This gate never deletes or replaces old media, and cannot certify visual quality.
+Outputs into a new directory and never overwrites historical media.
 """
 from __future__ import annotations
 
@@ -25,20 +23,37 @@ import audit_scene
 
 def run_command(command, log, *, cwd=None, env=None):
     try:
-        completed = subprocess.run(command, cwd=cwd, env=env, capture_output=True,
-                                   encoding="utf-8", errors="replace", check=False)
+        completed = subprocess.run(
+            command,
+            cwd=cwd,
+            env=env,
+            capture_output=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+        )
         log.write_text(completed.stdout + "\n" + completed.stderr, encoding="utf-8")
-        return {"status": "pass" if completed.returncode == 0 else "fail",
-                "exit_code": completed.returncode, "command": command, "log": str(log)}
+        return {
+            "status": "pass" if completed.returncode == 0 else "fail",
+            "exit_code": completed.returncode,
+            "command": command,
+            "log": str(log),
+        }
     except OSError as exc:
         log.write_text(str(exc), encoding="utf-8")
         return {"status": "blocked", "command": command, "log": str(log), "reason": str(exc)}
 
 
 def probe_video(path, log, width, height):
-    result = run_command(["ffprobe", "-v", "error", "-show_entries",
-                          "stream=codec_type,width,height,r_frame_rate", "-show_entries",
-                          "format=duration", "-of", "json", str(path)], log)
+    result = run_command(
+        [
+            "ffprobe", "-v", "error",
+            "-show_entries", "stream=codec_type,width,height,r_frame_rate",
+            "-show_entries", "format=duration",
+            "-of", "json", str(path),
+        ],
+        log,
+    )
     if result["status"] != "pass":
         return result
     try:
@@ -48,11 +63,16 @@ def probe_video(path, log, width, height):
         duration = float(data.get("format", {}).get("duration", 0))
         if len(videos) != 1 or not 0 < duration < float("inf"):
             raise ValueError("requires one video stream and positive finite duration")
-        if (videos[0].get("width"), videos[0].get("height")) != (width, height):
-            raise ValueError(f"actual dimensions: {videos[0].get('width')}x{videos[0].get('height')}, expected {width}x{height}")
-        result.update({"video": str(path), "duration_s": duration,
-                       "resolution": [width, height], "frame_rate": videos[0].get("r_frame_rate"),
-                       "audio_streams": sum(s.get("codec_type") == "audio" for s in streams)})
+        actual = (videos[0].get("width"), videos[0].get("height"))
+        if actual != (width, height):
+            raise ValueError(f"actual dimensions: {actual[0]}x{actual[1]}, expected {width}x{height}")
+        result.update({
+            "video": str(path),
+            "duration_s": duration,
+            "resolution": [width, height],
+            "frame_rate": videos[0].get("r_frame_rate"),
+            "audio_streams": sum(s.get("codec_type") == "audio" for s in streams),
+        })
     except (OSError, ValueError, TypeError, KeyError) as exc:
         result.update({"status": "fail", "reason": str(exc)})
     return result
@@ -65,8 +85,12 @@ def inspect_checkpoints(path):
         rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
         if not rows or any(not isinstance(row, dict) or row.get("status") != "pass" or row.get("findings") for row in rows):
             raise ValueError("checkpoint log contains failed or malformed results")
-        return {"status": "pass", "count": len(rows), "evidence": str(path),
-                "scope": "explicit checkpoints only; not an every-frame review"}
+        return {
+            "status": "pass",
+            "count": len(rows),
+            "evidence": str(path),
+            "scope": "explicit checkpoints only; not an every-frame review",
+        }
     except (OSError, ValueError, TypeError) as exc:
         return {"status": "fail", "reason": str(exc), "evidence": str(path)}
 
@@ -82,31 +106,44 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if not re.fullmatch(r"[A-Za-z_]\w*", args.scene_class, flags=re.ASCII) or args.preview and not args.render:
         parser.error("valid class name required; --preview requires --render")
+
     lesson = args.lesson.expanduser().resolve()
     math_test = args.math_test.expanduser().resolve() if args.math_test else None
     if not lesson.is_file() or math_test and not math_test.is_file():
         parser.error("lesson and optional math test must be existing files")
+
     out = args.out_dir.expanduser().resolve()
     out.mkdir(parents=True, exist_ok=True)
     run_dir = out / (datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ-") + uuid.uuid4().hex)
     run_dir.mkdir(exist_ok=False)
-    report = {"scene": str(lesson), "scene_class": args.scene_class,
-              "output_directory": str(run_dir), "checks": {}}
+    report = {
+        "runtime": "ManimGX",
+        "scene": str(lesson),
+        "scene_class": args.scene_class,
+        "output_directory": str(run_dir),
+        "checks": {},
+    }
     checks = report["checks"]
 
     def finish():
         failed = [k for k, v in checks.items() if v["status"] in {"fail", "blocked"}]
         pending = [k for k, v in checks.items() if v["status"] == "not_run"]
-        report.update({"status": "fail" if failed else ("partial" if pending else "pass"),
-                       "failed_or_blocked": failed, "not_run": pending})
+        report.update({
+            "status": "fail" if failed else ("partial" if pending else "pass"),
+            "failed_or_blocked": failed,
+            "not_run": pending,
+        })
         target = run_dir / "report.json"
         target.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
         print(json.dumps({"report": str(target), "status": report["status"]}, ensure_ascii=False))
         return 2 if failed else 0
 
-    checks["syntax"] = run_command([sys.executable, "-m", "py_compile", str(lesson)], run_dir / "syntax.log")
+    checks["syntax"] = run_command(
+        [sys.executable, "-m", "py_compile", str(lesson)], run_dir / "syntax.log"
+    )
     if checks["syntax"]["status"] != "pass":
         return finish()
+
     try:
         source = lesson.read_text(encoding="utf-8")
         tree = ast.parse(source)
@@ -116,50 +153,82 @@ def main(argv=None):
         errors = [f for f in findings if f["level"] == "ERROR"]
         evidence = run_dir / "ast.json"
         evidence.write_text(json.dumps(findings, ensure_ascii=False, indent=2), encoding="utf-8")
-        checks["ast"] = {"status": "fail" if errors else "pass", "errors": len(errors),
-                         "warnings": len(findings) - len(errors), "evidence": str(evidence)}
+        checks["ast"] = {
+            "status": "fail" if errors else "pass",
+            "errors": len(errors),
+            "warnings": len(findings) - len(errors),
+            "evidence": str(evidence),
+        }
     except (OSError, UnicodeError, SyntaxError, ValueError) as exc:
         checks["ast"] = {"status": "fail", "reason": str(exc)}
     if checks["ast"]["status"] != "pass":
         return finish()
-    checks["math_test"] = (run_command([sys.executable, str(math_test)], run_dir / "math.log", cwd=lesson.parent)
-                           if math_test else {"status": "not_run", "reason": "no course math test supplied"})
+
+    checks["typecheck"] = (
+        run_command(["ty", "check", str(lesson)], run_dir / "typecheck.log")
+        if shutil.which("ty")
+        else {"status": "not_run", "reason": "ty not installed"}
+    )
+    if checks["typecheck"]["status"] == "fail":
+        return finish()
+
+    checks["math_test"] = (
+        run_command([sys.executable, str(math_test)], run_dir / "math.log", cwd=lesson.parent)
+        if math_test
+        else {"status": "not_run", "reason": "no course math test supplied"}
+    )
     if checks["math_test"]["status"] in {"fail", "blocked"}:
         return finish()
+
     if not args.render:
-        checks["manim_render"] = {"status": "not_run", "reason": "--render not requested"}
-        checks["runtime_checkpoints"] = {"status": "not_run", "reason": "requires a real Scene"}
+        checks["manimgx_inspect"] = {"status": "not_run", "reason": "--render not requested"}
+        checks["manimgx_render"] = {"status": "not_run", "reason": "--render not requested"}
+        checks["runtime_checkpoints"] = {"status": "not_run", "reason": "requires a real Scene run"}
         checks["frame_review"] = {"status": "not_run", "reason": "human review required"}
         checks["audio_review"] = {"status": "not_run", "reason": "human review required"}
         return finish()
-    if importlib.util.find_spec("manim") is None or shutil.which("ffprobe") is None:
-        checks["manim_render"] = {"status": "blocked", "reason": "manim or ffprobe unavailable in current environment"}
+
+    if importlib.util.find_spec("manimgx") is None or shutil.which("manimgx") is None:
+        checks["manimgx_render"] = {"status": "blocked", "reason": "manimgx unavailable in current environment"}
         return finish()
-    media = run_dir / "media"
-    media.mkdir()
+    if shutil.which("ffprobe") is None:
+        checks["manimgx_render"] = {"status": "blocked", "reason": "ffprobe unavailable for final media verification"}
+        return finish()
+
     checkpoint_file = run_dir / "scene_checkpoints.jsonl"
     env = dict(os.environ, MANIM_PROBE_REPORT=str(checkpoint_file))
     env["PYTHONPATH"] = str(Path(__file__).resolve().parent) + os.pathsep + env.get("PYTHONPATH", "")
-    stages = ([("preview", 270, 480, 15)] if args.preview else []) + [("final", 1080, 1920, 30)]
+
+    storyboard = run_dir / f"{args.scene_class}.storyboard.png"
+    checks["manimgx_inspect"] = run_command(
+        ["manimgx", "inspect", str(lesson), args.scene_class, "-t", "0,end", "-o", str(storyboard)],
+        run_dir / "inspect.log",
+        env=env,
+    )
+    if checks["manimgx_inspect"]["status"] != "pass":
+        return finish()
+
+    stages = ([('preview', 270, 480, 15)] if args.preview else []) + [('final', 1080, 1920, 30)]
     for stage, width, height, fps in stages:
-        output_name = f"skill_{stage}_{uuid.uuid4().hex}"
-        command = [sys.executable, "-m", "manim", "render", "-r", f"{width},{height}",
-                   "--fps", str(fps), "--media_dir", str(media), "-o", output_name,
-                   str(lesson), args.scene_class]
+        video = run_dir / f"{args.scene_class}.{stage}.mp4"
+        command = [
+            "manimgx", "render", str(lesson), args.scene_class,
+            "-r", f"{width}x{height}", "--fps", str(fps), "-o", str(video),
+        ]
         checks[f"{stage}_render"] = run_command(command, run_dir / f"{stage}_render.log", env=env)
         if checks[f"{stage}_render"]["status"] != "pass":
             return finish()
-        videos = list(media.rglob(output_name + ".mp4"))
-        if len(videos) != 1:
-            checks[f"{stage}_ffprobe"] = {"status": "fail", "reason": "expected exactly one newly named MP4"}
+        if not video.is_file():
+            checks[f"{stage}_ffprobe"] = {"status": "fail", "reason": f"expected output missing: {video}"}
             return finish()
-        checks[f"{stage}_ffprobe"] = probe_video(videos[0], run_dir / f"{stage}_ffprobe.log", width, height)
+        checks[f"{stage}_ffprobe"] = probe_video(video, run_dir / f"{stage}_ffprobe.log", width, height)
         if checks[f"{stage}_ffprobe"]["status"] != "pass":
             return finish()
-    checks["manim_render"] = {"status": "pass", "video": checks["final_ffprobe"]["video"]}
+
+    checks["manimgx_render"] = {"status": "pass", "video": checks["final_ffprobe"]["video"]}
     checks["runtime_checkpoints"] = inspect_checkpoints(checkpoint_file)
-    checks["frame_review"] = {"status": "not_run", "reason": "visually inspect initial, middle, extremal and ending frames"}
-    checks["audio_review"] = {"status": "not_run", "reason": "listen to original narration and any mixed audio"}
+    checks["frame_review"] = {"status": "not_run", "reason": "human review of sampled and transition frames required"}
+    checks["audio_review"] = {"status": "not_run", "reason": "human listening review required"}
     return finish()
 
 

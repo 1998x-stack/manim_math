@@ -16,7 +16,7 @@
   平移后: B(2,-1), C(3.5,1.5), E(3.5,-1)  (E是B正上方C的垂足)
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 # ======================================================================
@@ -24,7 +24,7 @@ import numpy as np
 # ======================================================================
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 # ======================================================================

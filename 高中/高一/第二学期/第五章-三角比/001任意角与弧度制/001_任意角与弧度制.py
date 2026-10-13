@@ -3,13 +3,13 @@
 数学约定：弧长计量 l=r|θ|；通常扇形的面积公式限定 0≤|θ|≤2π。
 数值断言不等于最终画面包围盒或视频渲染验收。
 """
-from manim import *
+from manimgx import *
 import math
 import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 FONT = "Noto Sans CJK SC"
 BG = "#1a1a2e"

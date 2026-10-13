@@ -3,12 +3,12 @@
 数学计算统一从 arithmetic_model 读取；此文件只负责画面与动画。
 预览：manim -pql arithmetic_sequence.py ArithmeticSequenceLesson
 """
-from manim import *
+from manimgx import *
 from arithmetic_model import arithmetic_mean, first_n_sum, sample, term
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

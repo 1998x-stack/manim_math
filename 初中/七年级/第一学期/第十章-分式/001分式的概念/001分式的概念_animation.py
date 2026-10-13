@@ -1,10 +1,10 @@
 """七年级分式的概念：分母含字母、分母禁值、分式为零的条件。"""
 
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

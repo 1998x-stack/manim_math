@@ -1,9 +1,9 @@
 """7、8、9 的乘法口诀：算式、口诀与点阵数量逐条一致。"""
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 CHINESE_DIGITS = ("零", "一", "二", "三", "四", "五", "六", "七", "八", "九")

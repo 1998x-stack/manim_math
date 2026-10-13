@@ -5,7 +5,7 @@
 """
 from fractions import Fraction
 from itertools import product
-from manim import *
+from manimgx import *
 from conditional_probability_math import (
     A, B, OMEGA, binomial, conditional, fair_coin_pairs, independent,
     probability, total_from_partition,
@@ -13,7 +13,7 @@ from conditional_probability_math import (
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 FONT = "Noto Sans CJK SC"

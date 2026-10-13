@@ -3,11 +3,11 @@
 预览：manim -ql inequality_properties_full.py InequalityPropertiesFull
 正式渲染、字体、TeX 及 Mobject 边界需在有依赖的环境单独验收。
 """
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

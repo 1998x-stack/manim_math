@@ -1,7 +1,9 @@
 """鸡兔同笼：八个头的图阵中逐个加两条腿，用可见数量解释假设法。"""
-from manim import *
+from manimgx import *
 
-config.frame_width, config.frame_height = 9, 16
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
+
+config.frame_height = 16
 BG, FONT = "#101827", "Noto Sans CJK SC"
 
 

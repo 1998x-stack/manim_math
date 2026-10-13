@@ -1,4 +1,4 @@
-from manim import *
+from manimgx import *
 
 class 圆的认识Animation(Scene):
     """圆的认识的Manim动画演示"""

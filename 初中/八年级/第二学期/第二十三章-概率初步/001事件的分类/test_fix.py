@@ -3,7 +3,7 @@
 Test script to verify the LaTeX compilation fix
 """
 
-from manim import *
+from manimgx import *
 
 # Test the specific components that were causing issues
 class TestLatexFix(Scene):

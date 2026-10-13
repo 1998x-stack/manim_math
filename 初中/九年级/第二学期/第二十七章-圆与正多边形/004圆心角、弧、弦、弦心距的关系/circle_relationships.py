@@ -1,11 +1,11 @@
 """圆心角、劣弧、弦与弦心距：同圆中的可检验教学示例。"""
 import math
 import numpy as np
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

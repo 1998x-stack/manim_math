@@ -3,11 +3,11 @@
 保留 Scene 入口 LikeTerms 及六个教学镜头。
 运行：manim -pql like_terms.py LikeTerms
 """
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = "#1a1a2e"

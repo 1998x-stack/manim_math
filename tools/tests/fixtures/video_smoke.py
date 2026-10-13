@@ -2,11 +2,11 @@
 
 This deliberately tests rendering and media handling, not course mathematics or CJK/LaTeX.
 """
-from manim import *
+from manimgx import *
 
 config.pixel_width = 270
 config.pixel_height = 480
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

@@ -4,13 +4,13 @@
 回归：python -m unittest -v test_central_tendency_math.py
 """
 from fractions import Fraction
-from manim import *
+from manimgx import *
 from central_tendency_math import (AFTER, BEFORE, EVEN, MODE_DATA, ODD,
     SCORES, WEIGHTS, mean, median, modes, outlier_comparison, weighted_mean)
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 FONT = "Noto Sans CJK SC"

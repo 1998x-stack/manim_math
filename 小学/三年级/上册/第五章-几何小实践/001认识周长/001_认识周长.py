@@ -1,6 +1,6 @@
 """认识周长的简短示例；完整课程见同目录 001认识周长_animation.py。"""
 
-from manim import *
+from manimgx import *
 
 
 class PerimeterIntroductionPreview(Scene):

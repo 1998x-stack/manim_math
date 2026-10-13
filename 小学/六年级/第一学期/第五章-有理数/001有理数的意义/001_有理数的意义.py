@@ -1,6 +1,6 @@
 """有理数的意义：能写成两个整数之比且分母非零的数。"""
 
-from manim import *
+from manimgx import *
 
 
 class 有理数的意义Animation(Scene):

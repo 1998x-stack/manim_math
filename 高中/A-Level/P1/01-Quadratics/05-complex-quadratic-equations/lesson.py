@@ -5,10 +5,12 @@ Requires Manim Community, LaTeX and an installed CJK font.
 Model and all numerical example values are in math_model.py.
 """
 from math import sqrt
-from manim import *
+from manimgx import *
 from math_model import MAIN_T, MAIN_X, SURD_X, POWER_X, CHALLENGE_X, evaluate_transformed, preimages
 
-config.frame_width, config.frame_height = 9, 16
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
+
+config.frame_height = 16
 BG, CARD, GRID = '#101724', '#1A2A3E', '#34516A'
 INK, SUB = '#F0F5FC', '#AEC3D6'
 TEAL, GOLD, GREEN, PINK = '#55DCD0', '#FFD36B', '#92E5B5', '#FF8C9A'

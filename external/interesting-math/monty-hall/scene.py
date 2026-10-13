@@ -3,9 +3,9 @@
 标准规则：奖品初始等可能；主持人知道奖品，必开未选空门并提供换门机会。
 Render: manim external/interesting-math/monty-hall/scene.py MontyHallScene
 """
-from manim import *
+from manimgx import *
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 config.pixel_width = 1080
 config.pixel_height = 1920

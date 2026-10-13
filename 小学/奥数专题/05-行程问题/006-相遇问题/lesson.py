@@ -1,8 +1,10 @@
 """相遇问题：带真实路程比例的线段图；动态显示已走路程和剩余间距。"""
 from fractions import Fraction
-from manim import *
+from manimgx import *
 
-config.frame_width, config.frame_height = 9, 16
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
+
+config.frame_height = 16
 BG, FONT = "#101827", "Noto Sans CJK SC"
 
 

@@ -1,6 +1,6 @@
 """整数与整除：通过十二个点的等分与余数反例解释整除。"""
 
-from manim import *
+from manimgx import *
 
 
 class 整数与整除Animation(Scene):

@@ -1,6 +1,6 @@
 """复式条形统计图简短示例；完整课程见同目录 001复式条形统计图_animation.py。"""
 
-from manim import *
+from manimgx import *
 
 
 class GroupedBarChartPreview(Scene):
