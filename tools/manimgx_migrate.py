@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Conservative ManimCE -> ManimGX source migration.
 
-Only transformations that are mechanically safe are applied.  Ambiguous APIs are
-left intact and are reported by tools/manimgx_audit.py for manual redesign.
+Only transformations that are mechanically safe are applied. Ambiguous APIs are left
+intact and are reported by tools/manimgx_audit.py for manual redesign.
 """
 
 from __future__ import annotations
@@ -14,9 +14,12 @@ import re
 
 SKIP_DIRS = {".git", ".venv", "venv", "node_modules", "media", "__pycache__"}
 IMPORT_RULES = (
-    (re.compile(r"(?m)^(\s*)from\s+manim\s+import\s+\*\s*$"), r"\1from manimgx import *"),
+    # Keep imported names unchanged; ManimGX intentionally mirrors much of the CE API.
+    (re.compile(r"(?m)^(\s*)from\s+manim\s+import\s+(.+)$"), r"\1from manimgx import \2"),
+    # Preserve aliases used by the rest of the source file.
     (re.compile(r"(?m)^(\s*)import\s+manim\s+as\s+([A-Za-z_]\w*)\s*$"), r"\1import manimgx as \2"),
-    (re.compile(r"(?m)^(\s*)import\s+manim\s*$"), r"\1import manimgx"),
+    # Preserve existing `manim.X` references without rewriting every use site.
+    (re.compile(r"(?m)^(\s*)import\s+manim\s*$"), r"\1import manimgx as manim"),
 )
 FRAME_WIDTH_ASSIGNMENT = re.compile(
     r"(?m)^(?P<indent>\s*)config\.frame_width\s*=\s*(?P<value>[^#\n]+)(?P<comment>\s*#.*)?$"
