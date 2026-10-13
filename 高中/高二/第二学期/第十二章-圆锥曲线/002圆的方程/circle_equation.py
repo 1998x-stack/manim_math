@@ -93,7 +93,7 @@ class CircleEquation(Scene):
     def construct(self):
         self.camera.background_color = BG_COLOR
         self.author = Text("上海初高中数学直通车 @emptyandcalm", font=FONT,
-                           font_size=17, color=GRAY_B).move_to(UP*6.95)
+                           font_size=22, color=GRAY_B).move_to(UP*6.95)
         self.add(self.author)
         self.show_opening()
         self.show_definition()

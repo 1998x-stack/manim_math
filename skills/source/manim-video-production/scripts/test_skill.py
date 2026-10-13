@@ -29,8 +29,9 @@ class SceneAuditTests(unittest.TestCase):
         self.assertIn("CE_IMPORT", codes("from manim import Circle\n", "ERROR"))
         self.assertIn("CE_IMPORT", codes("import manim\n", "ERROR"))
 
-    def test_frame_width_assignment_rejected(self):
+    def test_frame_width_assignment_rejected_for_both_import_styles(self):
         self.assertIn("READONLY_FRAME_WIDTH", codes("config.frame_width = 9\n", "ERROR"))
+        self.assertIn("READONLY_FRAME_WIDTH", codes("m.config.frame_width = 9\n", "ERROR"))
 
     def test_mathtex_cjk_is_review_and_degree_rejected(self):
         self.assertIn("CJK_IN_MATHTEX_REVIEW", codes('MathTex(r"\\text{中文}")\n', "WARN"))

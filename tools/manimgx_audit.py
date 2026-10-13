@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit this repository for ManimCE-only constructs during the ManimGX migration."""
+"""Audit the repository for ManimCE debt and ManimGX migration hazards."""
 
 from __future__ import annotations
 
@@ -21,13 +21,54 @@ class Rule:
 
 
 RULES = (
-    Rule("CE_IMPORT", re.compile(r"^\s*from\s+manim\s+import\s+|^\s*import\s+manim(?:\s|$)", re.M), "error", "ManimCE import remains"),
-    Rule("FRAME_WIDTH_SET", re.compile(r"\bconfig(?:\[[\"']frame_width[\"']\]|\.frame_width)\s*="), "error", "ManimGX frame_width is derived/read-only"),
-    Rule("TEX_TEMPLATE", re.compile(r"\b(?:TexTemplate|tex_template)\b"), "warn", "Review TeX template usage; ManimGX uses mitex/Typst"),
-    Rule("LATEX_PACKAGE", re.compile(r"\\(?:usepackage|newcommand|def)\b"), "warn", "Review custom LaTeX macros/packages for mitex/Typst compatibility"),
-    Rule("RENDERER_SPECIFIC", re.compile(r"\b(?:CairoRenderer|OpenGLRenderer|OpenGLMobject|renderer=|config\.renderer)\b"), "warn", "Renderer-specific ManimCE API needs redesign for wgpu"),
-    Rule("CE_CLI", re.compile(r"(?<![\w-])manim\s+(?:-[A-Za-z]|render\b|[^g])"), "warn", "ManimCE CLI reference remains; migrate to manimgx preview/render"),
-    Rule("CE_MEDIA_INTERNAL", re.compile(r"\b(?:partial_movie_files|media_dir|write_to_movie|disable_caching|tempconfig)\b"), "warn", "Review ManimCE media/config internals"),
+    Rule(
+        "CE_IMPORT",
+        re.compile(r"^\s*from\s+manim(?:\.|\s+)|^\s*import\s+manim(?:\s|$)", re.M),
+        "error",
+        "ManimCE import remains; ManimGX does not reproduce CE module paths",
+    ),
+    Rule(
+        "FRAME_WIDTH_SET",
+        re.compile(r"\b(?:(?:[A-Za-z_]\w*)\.)?config(?:\[[\"']frame_width[\"']\]|\.frame_width)\s*="),
+        "error",
+        "ManimGX frame_width is derived/read-only",
+    ),
+    Rule(
+        "TEX_TEMPLATE",
+        re.compile(r"\b(?:TexTemplate|TexTemplateLibrary|tex_template)\b"),
+        "warn",
+        "CE TeX template usage requires a ManimGX mitex/Typst redesign",
+    ),
+    Rule(
+        "LATEX_PACKAGE",
+        re.compile(r"\\(?:usepackage|newcommand|def)\b"),
+        "warn",
+        "Custom LaTeX package/macros require mitex/Typst review",
+    ),
+    Rule(
+        "DEPRECATED_GX_ALIAS",
+        re.compile(r"\b(?:MovingCameraScene|ApplyMethod|ScaleInPlace|FadeToColor|arrange_submobjects|rotate_about_origin|get_edge_center|PGroup|add_foreground_mobject)\b"),
+        "warn",
+        "ManimGX compatibility/deprecated alias remains; use the preferred native API",
+    ),
+    Rule(
+        "RENDERER_SPECIFIC",
+        re.compile(r"\b(?:CairoRenderer|OpenGLRenderer|OpenGLMobject|renderer=|(?:[A-Za-z_]\w*\.)?config\.renderer)\b"),
+        "warn",
+        "Renderer-specific ManimCE API needs redesign for the wgpu runtime",
+    ),
+    Rule(
+        "CE_CLI",
+        re.compile(r"(?<![\w-])(?:python\s+-m\s+)?manim\s+(?:-[A-Za-z]|render\b|preview\b)"),
+        "warn",
+        "ManimCE CLI reference remains; migrate to manimgx inspect/preview/render",
+    ),
+    Rule(
+        "CE_MEDIA_INTERNAL",
+        re.compile(r"\b(?:partial_movie_files|media_dir|write_to_movie|disable_caching|tempconfig)\b"),
+        "warn",
+        "ManimCE media/config internal remains",
+    ),
 )
 
 
@@ -51,7 +92,11 @@ def audit(root: Path) -> list[tuple[Path, Rule, int, str]]:
             for match in rule.pattern.finditer(text):
                 line_no = text.count("\n", 0, match.start()) + 1
                 excerpt = lines[line_no - 1].strip() if lines else ""
-                findings.append((path, rule, line_no, excerpt))
+                # Historical/reference Markdown is migration evidence, not executable code.
+                effective = rule
+                if path.suffix.lower() == ".md" and rule.severity == "error":
+                    effective = Rule(rule.code, rule.pattern, "warn", rule.message)
+                findings.append((path, effective, line_no, excerpt))
     return findings
 
 

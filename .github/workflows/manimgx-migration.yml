@@ -52,7 +52,6 @@ jobs:
           print("ManimGX portrait profile OK", m.config.frame_width, m.config.frame_height)
           PY
       - name: Type-check representative migrated scenes
-        continue-on-error: true
         run: |
           ty check external/euler_line.py
           ty check "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py"
@@ -61,6 +60,16 @@ jobs:
           MANIM_MATH_CJK_FONT: sans-serif
         run: |
           manimgx inspect "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py" CircleEquation -t 0,end
+      - name: Render representative MP4 with ManimGX
+        env:
+          MANIM_MATH_CJK_FONT: sans-serif
+        run: |
+          output="$RUNNER_TEMP/CircleEquation.manimgx-smoke.mp4"
+          manimgx render "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py" CircleEquation \
+            -r 270x480 --fps 15 -o "$output"
+          test -s "$output"
+          ls -lh "$output"
       - name: Report remaining migration debt
+        if: always()
         continue-on-error: true
         run: python tools/manimgx_audit.py . --strict

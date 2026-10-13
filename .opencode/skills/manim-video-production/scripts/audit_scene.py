@@ -26,6 +26,22 @@ def called_name(node: ast.AST) -> str | None:
     return None
 
 
+def config_attr(node: ast.AST) -> str | None:
+    """Return the config attribute for `config.x` or `alias.config.x`."""
+    if not isinstance(node, ast.Attribute):
+        return None
+    owner = node.value
+    if isinstance(owner, ast.Name) and owner.id == "config":
+        return node.attr
+    if (
+        isinstance(owner, ast.Attribute)
+        and owner.attr == "config"
+        and isinstance(owner.value, ast.Name)
+    ):
+        return node.attr
+    return None
+
+
 def literal_strings(node: ast.AST):
     if isinstance(node, ast.Constant) and isinstance(node.value, str):
         yield node.value
@@ -81,18 +97,15 @@ def audit_source(source: str) -> list[dict]:
             if any(name.endswith("Scene") for name in base_names):
                 scene_class = True
             if "MovingCameraScene" in base_names:
-                report("ERROR", node, "LEGACY_SCENE_ALIAS", "ManimGX 迁移应改为 Scene 并使用 camera/frame 的公开 API。")
+                report("ERROR", node, "LEGACY_SCENE_ALIAS", "ManimGX 虽兼容该 deprecated 别名，项目迁移要求改为 Scene。")
 
         if isinstance(node, (ast.Assign, ast.AnnAssign)):
             targets = node.targets if isinstance(node, ast.Assign) else [node.target]
             for target in targets:
-                if (
-                    isinstance(target, ast.Attribute)
-                    and isinstance(target.value, ast.Name)
-                    and target.value.id == "config"
-                ):
-                    dimensions.add(target.attr)
-                    if target.attr == "frame_width":
+                attribute = config_attr(target)
+                if attribute:
+                    dimensions.add(attribute)
+                    if attribute == "frame_width":
                         report("ERROR", target, "READONLY_FRAME_WIDTH", "ManimGX config.frame_width 为推导只读值；设置像素宽高与 frame_height。")
 
         if not isinstance(node, ast.Call):
@@ -115,7 +128,7 @@ def audit_source(source: str) -> list[dict]:
                 report("WARN", node, "DYNAMIC_TEX", "动态公式必须对实际展开字符串和 mitex/Typst 排版逐一核验。")
 
         if name in LEGACY_ANIMATIONS:
-            report("ERROR", node, "LEGACY_ANIMATION_ALIAS", f"{name} 属于迁移遗留；新 ManimGX 代码使用 .animate/主 API。")
+            report("ERROR", node, "LEGACY_ANIMATION_ALIAS", f"{name} 是 ManimGX deprecated 兼容名；项目要求改为 .animate/主 API。")
 
         if is_self_play(node):
             for arg in node.args:
