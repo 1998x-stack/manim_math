@@ -72,7 +72,7 @@ def migrate_text(text: str) -> tuple[str, list[str]]:
             )
         )
 
-    # Tuple assignments must run before the single-assignment rule.  They were the
+    # Tuple assignments must run before the single-assignment rule. They were the
     # main hole in the v1 codemod because `config.frame_width, ... = ...` has no `=`
     # directly after frame_width.
     text = FRAME_WIDTH_HEIGHT_TUPLE.sub(drop_width_height_tuple, text)
@@ -95,7 +95,13 @@ def iter_python(root: Path):
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("root", nargs="?", type=Path, default=Path("."))
-    parser.add_argument("--write", action="store_true", help="Write changes; default is dry-run")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--write", action="store_true", help="Write mechanically safe migrations")
+    mode.add_argument(
+        "--check",
+        action="store_true",
+        help="Fail when any mechanically safe migration is still pending",
+    )
     args = parser.parse_args()
 
     touched = 0
@@ -108,13 +114,16 @@ def main() -> int:
         if after == before:
             continue
         touched += 1
-        mode = "WRITE" if args.write else "WOULD-WRITE"
-        print(f"{mode:11} {path} ({', '.join(changes)})")
+        mode_name = "WRITE" if args.write else "WOULD-WRITE"
+        print(f"{mode_name:11} {path} ({', '.join(changes)})")
         if args.write:
             path.write_text(after, encoding="utf-8")
 
     print(f"\n{touched} Python file(s) need safe mechanical migration")
-    if not args.write and touched:
+    if args.check and touched:
+        print("Codemod check failed: run with --write and commit the generated source changes.")
+        return 1
+    if not args.write and not args.check and touched:
         print("Run again with --write, then run tools/manimgx_audit.py.")
     return 0
 
