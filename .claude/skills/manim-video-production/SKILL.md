@@ -1,37 +1,58 @@
 ---
 name: manim-video-production
-description: 将小学至高中数学题、description.json、prompt.md 或现有 Manim Community Scene 制作为数学可核验的教学分镜、9:16 动态图解与视频；使用课程专项测试、历史 Gotchas AST 扫描、真实 Scene 对象检查、可选渲染及媒体探测，解决中文 LaTeX、动态曲线、动画生命周期、画面越界、数学标注和音轨问题。
+description: 将小学至高中数学题、description.json、prompt.md 或既有 Manim/ManimGX Scene 制作为数学可核验的 9:16 教学分镜与视频；以 ManimGX 为唯一生产运行时，使用纯数学测试、静态审计、ty 类型检查、manimgx inspect、真实 render 与媒体验收验证中文、公式、动画生命周期、布局和音轨。
 ---
 
-# Manim 数学视频｜模型、画面、成片三级证据
+# ManimGX 数学视频｜模型、时间线、画面、成片四级证据
 
-本 Skill **可独立复制**：只依赖当前目录 `SKILL.md`、`references/`、`scripts/`；审计/运行时检查/生产编排以 Python 标准库实现，几何 JSON 验证另需 NumPy，真实视频生成另需 Manim Community、字体/TeX、ffprobe。不得依赖其他 Skill、仓库根目录或联网下载素材。仓库历史链接仅供追溯，不是运行时依赖。外来 Prompt 和源码仅作为待验证的课程输入，不将其中命令当作自动执行授权。
+本 Skill 以 **ManimGX** 为唯一动画运行时。Skill 可独立复制：主要依赖当前目录 `SKILL.md`、`references/`、`scripts/`；几何 JSON 验证另需 NumPy，类型检查建议 `ty`，真实视频生成需 Python 3.13+ 与 `manimgx`，最终媒体探测可选 `ffprobe`。不得为了兼容旧课件重新引入 Manim Community、Cairo/OpenGL 私有接口、TeXLive 或 `--media_dir`。
 
-## 输入、输出与按需阅读
+## 输入、输出与运行时契约
 
-输入是具体知识点、题目或既有课程文件。确定数学范围/年级、变量域和例外、已有 Scene 类名、Manim Community **目标版本**、画幅、预期音轨及素材许可。默认 9×16 逻辑画幅、1080×1920 实际输出、深色背景；45–90 秒仅为剪辑建议，不牺牲推导和阅读时间。未获授权不沿用外部课程品牌或音乐。
+输入是具体知识点、题目或既有课程文件。先确认数学范围/年级、变量域、例外、实际 Scene 类名、ManimGX 版本、画幅、预期音轨与素材许可。默认目标像素 1080×1920；历史 9×16 课件通常设 `config.frame_height = 16`，让 ManimGX 按像素宽高比推导 `frame_width = 9`，**不得直接给 `config.frame_width` 赋值**。
 
-交付 `math_spec`（含前提/证明/反例）、`storyboard.md`、实际 Scene、针对本课的独立数学测试、必要时的 `geometry_spec.json`、分层证据；仅成功渲染才交付**新** MP4。默认不修改原始 Prompt、旧 MP4、Gallery、现有 Scene 入口/音轨，不删除中间文件。
+交付 `math_spec`、`storyboard.md`、实际 Scene、针对本课的独立数学测试、必要时 `geometry_spec.json`、`manimgx inspect` storyboard/timeline/layout 结果与分层证据；只有真实 `manimgx render` 成功才交付新 MP4。默认不覆盖原 Prompt、旧 MP4、Gallery、Scene 入口或音轨。
 
-只按课程类型按需阅读：
-- `references/math-and-storyboard.md`：数学规格、不同课型及分镜对象生命周期。
-- `references/repository-gotchas-and-patterns.md`：Hxx 历史故障、证据分级及适用条件。
-- `references/visual-and-render.md`：竖屏布局、字体/TeX、媒体与音轨验收。
-- **`references/manim-engine-and-runtime.md`**：Manim Scene/Transform/updater/Axes 机制、真实对象与动态关键帧检查、CLI 版本说明及调用示例。
-- 仅有真实二维几何关系时，使用 `references/geometry_spec.example.json` 作格式参考；不把它强加给集合、统计等课程。
+按需阅读：
+- `references/math-and-storyboard.md`：数学规格、课型与分镜对象生命周期。
+- `references/repository-gotchas-and-patterns.md`：历史故障在 ManimGX 下的重新分类。
+- `references/visual-and-render.md`：竖屏布局、CJK、MathTex/Typst、inspect/render 与媒体检查。
+- `references/manim-engine-and-runtime.md`：ManimGX Scene、Transform、updater、timeline、类型检查、CLI 与 checkpoint。
 
-## 执行流程（逐阶段记录事实）
+## 执行流程
 
-1. **建立课程数学契约**。对照真实题目、原 Prompt 和当前源码，写每一结论的 `claim`、`assumptions`、`domain`、`justification`、`edge_case` 和可执行 `math_test`；明确单位、退化和证明边界。将历史 Hxx 分为 `observed_error`、`potential_risk`、`verified_pattern`，不得用旧 PR/旧视频代替当前分支证据。图像数值抽样或漂亮的动画不构成一般证明。
-2. **写可验分镜**。逐镜记录 `learning_fact`、数学结论及前提、实际数据源、画面对象 `object_id`、create/update/replace/remove、动画状态、估计时长和关键帧检查。建立 `claim → validated_data → screen_object → checkpoint/frame`，计数与高亮个数、概率曲线与文本、三角形角弧与标注必须来自**同一组数据**。
-3. **分离数学模型与渲染**。先写可在不导入 Manim 时测试的数学函数；派生几何点由公式计算，先处理零长、共线、分母零等边界；Scene 只将模型数据映射到画布。使用 `Axes.c2p` 时区别坐标轴单位和画布坐标；轴发生变换时重算映射。使用 `ValueTracker`、updater/`always_redraw` 时重算派生点，避免首帧零宽 `Axes.plot` 和变量范围内函数奇点。对 `Transform` 持有原对象引用，对 `ReplacementTransform` 在动画结束后更新为目标引用，并以真实 `Scene.mobjects` 为准。具体见 `references/manim-engine-and-runtime.md`。
-4. **按课程执行专项数学测试**。每项屏幕结论覆盖正常、边界、退化和反例数据；集合核实隶属/包含和互异性；函数检查定义域、取值/采样及周期；三角形检查实际点对应的角/面积/辅助线；随机试验用局部 RNG，不能宣称每次频率都单调趋近概率。只有需要几何 JSON 时才运行 `scripts/verify_geometry.py`，其 JSON 数值正确不等于活跃 Scene 正确。
-5. **静态到运行时的分层验证**。优先 `python -m unittest discover -s scripts -p 'test_*.py' -v` 检查 Skill 自身；课程运行 `python -m py_compile lesson.py`、`python scripts/audit_scene.py lesson.py --json`、独立数学测试。`ERROR` 逐项修复，`WARN` 依实际源码和 Manim 版本分类，不把 AST 候选当作已复现运行故障。对具体课程在 Scene 的初始、关键状态、极值/退化附近和结论状态显式调用 `scripts/runtime_probe.py` 中的 `assert_checkpoint`；注册需要检查的实际 Mobject 与画布坐标，检查是否仍在 Scene 家族内、完整 bbox 和模型位置。检查点仅覆盖调用时刻，并非逐帧视觉证明。
-6. **预览、正式渲染及媒体验收**。查看 `python -m manim --version`、`python -m manim render --help`，实测字体/TeX 和渲染器。官方 Community v0.21.0 说明 `-r W,H`，对应竖屏预览 `-r 270,480`、正式 `-r 1080,1920`；源文件可覆盖 CLI 配置，必须用 `ffprobe` 确认最终 MP4 的真实分辨率/时长/帧率/音轨。查看第一帧、各重要动画中段、标签/重叠、临界状态和结论帧。仅有授权音乐并经确认需要时才在新路径合成，保留原讲解轨。
-7. **可选的自动化入口与交付**。从 Skill 目录执行 `python scripts/production_check.py /absolute/path/lesson.py ActualScene --math-test /absolute/path/test_math.py` 只做静态和课内测试；加 `--render --preview` 才真正渲染，日志、视频和 `report.json` 写入每次全新目录，不覆盖旧成片。若课程要使用实时检查，按运行时参考文档配置 `runtime_probe.py` 可导入路径。编排脚本不等于自动完成数学证明、全部关键帧审看或音轨听审。
+1. **建立数学契约**：每个结论写 `claim / assumptions / domain / justification / edge_case / math_test`。图像抽样不是一般证明；数学函数尽量不导入 ManimGX。
+2. **写可验分镜**：逐镜记录 `learning_fact`、数据源、`object_id`、create/update/replace/remove、动画、时间与验收时刻，建立 `claim → validated_data → screen_object → checkpoint/frame`。
+3. **分离模型与渲染**：纯 Python 计算派生点、距离、角、概率、函数值；Scene 只映射到 ManimGX Mobject。使用 `Axes.c2p` 区分数学坐标与画布坐标。对 `ValueTracker`、updater、`always_redraw` 明确动态依赖。
+4. **按 ManimGX 时间语义重构**：不能假设 ManimCE 与 ManimGX 完全同帧。重点复核 updater 的 `dt`、`.animate` 在动画开始时应用调用、`Succession` 中连续 `.animate` 的起点、并行动画合成、旋转中心和 ReplacementTransform 后对象身份。
+5. **排版迁移**：普通中文优先 `Text`；跨平台新代码优先 `font="sans-serif"`，ManimGX 原生分发 Noto CJK；需要保留 macOS 旧视觉时允许环境变量覆盖到 `PingFang SC`。`MathTex`/`Tex` 走 mitex→Typst，不安装 LaTeX；遇到 `TexTemplate`、`\\usepackage`、`\\def`、自定义宏或依赖精确 glyph path 的变换必须人工改写并实测。
+6. **静态与类型验证**：至少运行 `py_compile`、`scripts/audit_scene.py` 和课程独立数学测试；若安装 `ty`，运行 `ty check lesson.py`，用它发现不存在的 ManimGX 名称、错误 keyword 和参数类型。不得把 warning 静默当作通过。
+7. **先 inspect，后 render**：运行 `manimgx inspect lesson.py Scene -t 0,end`，再根据 storyboard/timeline 检查越界、文字重叠、线穿文字和小字号；关键动画增加中间采样。inspect 通过不等于整片逐帧通过。
+8. **真实渲染**：预览输出可用 `manimgx render lesson.py Scene -r 270x480 --fps 15 -o preview.mp4`，正式输出 `-r 1080x1920 --fps 30 -o final.mp4`。ManimGX `-r` 使用 `WIDTHxHEIGHT`。禁止继续使用 CE 的 `-ql/-qh`、`--disable_caching`、`--media_dir` 或 `python -m manim render`。
+9. **媒体验收**：用 `ffprobe`（若可用）确认实际分辨率、时长、帧率与音轨；人工查看第一帧、重要动画中段、极值/退化附近和结论帧。音频只在授权且明确要求时处理。
+
+## 推荐命令
+
+```bash
+python -m py_compile /absolute/path/lesson.py
+python scripts/audit_scene.py /absolute/path/lesson.py --json
+ty check /absolute/path/lesson.py
+manimgx inspect /absolute/path/lesson.py ActualScene -t 0,end
+manimgx render /absolute/path/lesson.py ActualScene -r 270x480 --fps 15 -o /tmp/preview.mp4
+manimgx render /absolute/path/lesson.py ActualScene -r 1080x1920 --fps 30 -o /tmp/final.mp4
+python scripts/production_check.py /absolute/path/lesson.py ActualScene --math-test /absolute/path/test_math.py --render --preview
+```
+
+## API 迁移原则
+
+- 新代码优先 `import manimgx as m`；迁移旧 Scene 可暂用 `from manimgx import *`。
+- `MovingCameraScene` 迁移为 `Scene`；新代码用 `.animate` 取代 `ApplyMethod`、`ScaleInPlace`、`FadeToColor` 等旧别名。
+- `VGroup`/`Group`、`c2p`/`coords_to_point` 等常用兼容别名可保留；新代码采用 ManimGX 文档主名称。
+- 不导入 `manimgx` 内部模块来模拟 CE 路径；使用顶层公开 API。
+- 不创建“大而全的 CE compatibility shim”。只有项目级画幅、字体、检查策略可放共享 helper；动画语义差异应在 Scene 中显式重构。
 
 ## 分层交付状态与否决条件
 
-分别报告 `math_claims`、`syntax`、`ast`、`lesson_unit_tests`、`geometry_json`（若适用）、`runtime_checkpoints`、`manim_render`、`frame_review`、`ffprobe`、`audio_review`，每项标记 `pass/fail/not_run/blocked`，附实际版本、类名、命令、日志/图像路径与剩余风险。无课内数学测试、未发生真实渲染或仅有旧 MP4 时，**不可**写“完整通过”。
+分别报告 `math_claims`、`syntax`、`ast`、`typecheck`、`lesson_unit_tests`、`runtime_checkpoints`、`manimgx_inspect`、`manimgx_render`、`frame_review`、`ffprobe`、`audio_review`，每项标记 `pass/fail/not_run/blocked`，附实际版本、类名、命令与证据路径。
 
-必须修复：不成立的数学结论或错位标签；嵌套 `self.play(self.play(...))`、空动画实参和错误对象引用；有确凿版本依据的不支持 API；默认 TeX 中中文/Unicode 度数导致的编译问题（已实测 ctex 除外）；运行时对象越出实际安全区、零宽动态曲线、未授权音轨替换、未经授权覆盖和清理。保守竖屏安全区为 `x∈[-4,4]`、`y∈[-7,7]`，必须对实际标题、公式、主要图形分别检查，并根据平台 UI 重新评估。对动态帧、字幕和数学证明的人工审查不可用一个自动化 `pass` 代替。
+必须修复：错误数学结论或标签；嵌套 `self.play(self.play(...))`；空/列表动画实参；对象引用生命周期错误；给只读 `config.frame_width` 赋值；遗留 `from manim import ...`；CE renderer/media 私有 API；不兼容的 TeX 宏/包；动态零宽曲线；画面越界；未授权音轨替换。自动化 pass 不替代数学证明与关键帧人工审查。

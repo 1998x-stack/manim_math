@@ -5,7 +5,14 @@ import unittest
 
 import audit_scene
 
-BASE = "config.frame_width = 9\nconfig.frame_height = 16\nclass Demo(Scene):\n    pass\n"
+BASE = (
+    "import manimgx as m\n"
+    "m.config.pixel_width = 1080\n"
+    "m.config.pixel_height = 1920\n"
+    "m.config.frame_height = 16\n"
+    "class Demo(m.Scene):\n"
+    "    pass\n"
+)
 
 
 def findings(source, level=None):
@@ -18,31 +25,41 @@ def codes(source, level=None):
 
 
 class SceneAuditTests(unittest.TestCase):
-    def test_default_mathtex_chinese_and_degree_rejected(self):
-        self.assertIn("CJK_IN_TEX", codes('MathTex(r"\\text{中文}")\n', "ERROR"))
-        self.assertIn("DEGREE_IN_TEX", codes('MathTex("90°")\n', "ERROR"))
-        self.assertIn("CJK_IN_TEX", codes('Tex("数轴")\n', "ERROR"))
+    def test_ce_import_rejected(self):
+        self.assertIn("CE_IMPORT", codes("from manim import Circle\n", "ERROR"))
+        self.assertIn("CE_IMPORT", codes("import manim\n", "ERROR"))
 
-    def test_ctex_is_review_not_confirmed_failure(self):
-        c = codes('MathTex("中文", tex_template=TexTemplateLibrary.ctex)\n')
-        self.assertIn("CTEX_REVIEW", c)
-        self.assertNotIn("CJK_IN_TEX", c)
+    def test_frame_width_assignment_rejected(self):
+        self.assertIn("READONLY_FRAME_WIDTH", codes("config.frame_width = 9\n", "ERROR"))
 
-    def test_no_ctex_inference_from_other_call(self):
-        self.assertIn("CJK_IN_TEX", codes('Tex("中文")\nTex("中文", tex_template=TexTemplateLibrary.ctex)\n', "ERROR"))
+    def test_mathtex_cjk_is_review_and_degree_rejected(self):
+        self.assertIn("CJK_IN_MATHTEX_REVIEW", codes('MathTex(r"\\text{中文}")\n', "WARN"))
+        self.assertIn("DEGREE_IN_MATHTEX", codes('MathTex("90°")\n', "ERROR"))
+        self.assertNotIn("CJK_IN_MATHTEX_REVIEW", codes('Text("中文 90°")\n'))
+
+    def test_legacy_tex_template_and_macros_rejected(self):
+        self.assertIn(
+            "LEGACY_TEX_TEMPLATE",
+            codes('MathTex("x", tex_template=TexTemplateLibrary.ctex)\n', "ERROR"),
+        )
+        self.assertIn("UNSUPPORTED_TEX_MACRO", codes(r'MathTex(r"\\def\\x{1}\\x")' + "\n", "ERROR"))
+        self.assertIn("UNSUPPORTED_TEX_MACRO", codes(r'MathTex(r"\\usepackage{amsmath}")' + "\n", "ERROR"))
 
     def test_dynamic_tex_requires_review(self):
         self.assertIn("DYNAMIC_TEX", codes('MathTex(formula)\n'))
         self.assertIn("DYNAMIC_TEX", codes('MathTex(rf"{angle}^\\circ")\n'))
-        self.assertIn("CJK_IN_TEX", codes('MathTex(rf"中文{angle}")\n', "ERROR"))
 
-    def test_normal_text_degree_and_mathtex_are_allowed(self):
+    def test_normal_text_and_mathtex_are_allowed(self):
         self.assertEqual(findings('Text("90°")\nMathTex(r"1+2=3")\n', "ERROR"), [])
 
-    def test_bad_api_keywords(self):
-        c = codes('Sector(inner_radius=1)\nRectangle(corner_radius=1)\n', "ERROR")
-        self.assertIn("UNSUPPORTED_KEYWORD", c)
-        self.assertNotIn("UNSUPPORTED_KEYWORD", codes('AnnularSector(inner_radius=1)\nRoundedRectangle(corner_radius=0.2)\n'))
+    def test_legacy_scene_and_animation_aliases(self):
+        self.assertIn("LEGACY_SCENE_ALIAS", codes("class Legacy(MovingCameraScene):\n    pass\n", "ERROR"))
+        for expression in (
+            "ApplyMethod(x.shift, RIGHT)",
+            "ScaleInPlace(x, 2)",
+            "FadeToColor(x, RED)",
+        ):
+            self.assertIn("LEGACY_ANIMATION_ALIAS", codes(expression + "\n", "ERROR"))
 
     def test_nested_play_detected_not_normal_sequential_play(self):
         self.assertIn("NESTED_SELF_PLAY", codes('self.play(self.play(FadeOut(x)))\n', "ERROR"))

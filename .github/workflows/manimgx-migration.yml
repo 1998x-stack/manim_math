@@ -10,22 +10,31 @@ on:
       - "requirements-manimgx*.txt"
       - "tools/manimgx_*.py"
       - "manim_math_gx/**"
+      - "skills/source/manim-video-production/**"
+      - ".codex/skills/manim-video-production/**"
+      - ".opencode/skills/manim-video-production/**"
+      - ".claude/skills/manim-video-production/**"
       - ".github/workflows/manimgx-migration.yml"
 
 jobs:
   runtime:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: pip
+          cache-dependency-path: requirements-manimgx-dev.txt
       - name: Install ManimGX migration toolchain
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements-manimgx-dev.txt
+      - name: Validate canonical animation skill and mirrors
+        run: |
+          python tools/sync_skills.py --check
+          (cd skills/source/manim-video-production && python -m unittest discover -s scripts -p 'test_*.py' -v)
       - name: Compile migration tooling and representative scenes
         run: |
           python -m compileall -q manim_math_gx tools/manimgx_audit.py tools/manimgx_migrate.py
