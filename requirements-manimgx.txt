@@ -1,0 +1,2 @@
+# ManimGX runtime (pinned during migration)
+manimgx==0.1.1

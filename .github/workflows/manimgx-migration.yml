@@ -1,0 +1,47 @@
+name: ManimGX migration guard
+
+on:
+  push:
+    branches:
+      - feat/manimgx-migration-v1
+  pull_request:
+    paths:
+      - "**/*.py"
+      - "requirements-manimgx.txt"
+      - "tools/manimgx_*.py"
+      - "manim_math_gx/**"
+      - ".github/workflows/manimgx-migration.yml"
+
+jobs:
+  runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install ManimGX runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-manimgx.txt
+      - name: Install portable CJK font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Compile migration tooling
+        run: python -m compileall -q manim_math_gx tools/manimgx_audit.py tools/manimgx_migrate.py
+      - name: Runtime profile smoke test
+        run: |
+          python - <<'PY'
+          import manimgx as m
+          from manim_math_gx import PORTRAIT_1080P, assert_profile, configure_render
+          configure_render()
+          assert_profile()
+          assert (m.config.pixel_width, m.config.pixel_height) == (1080, 1920)
+          assert abs(m.config.frame_width - PORTRAIT_1080P.frame_width) < 1e-9
+          print("ManimGX portrait profile OK", m.config.frame_width, m.config.frame_height)
+          PY
+      - name: Report remaining migration debt
+        continue-on-error: true
+        run: python tools/manimgx_audit.py . --strict
