@@ -13,8 +13,7 @@ formula = MathTex(r"a^2+b^2=c^2")
 line = VGroup(label, formula).arrange(RIGHT, buff=0.15)
 ```
 
-普通中文使用 `Text`/`cjk_text()`；不要把汉字塞进 `MathTex` 期待旧 LaTeX CJK package 接管。ManimGX 的 `MathTex`/`Tex` 走 mitex→Typst：`
-TexTemplate`、`\\usepackage`、`\\newcommand`、`\\def`、复杂 LaTeX environment 或依赖精确 glyph path 的公式变换必须人工重写并用实际输出验证。静态 `scan_mathtex.py` 只输出含汉字字面量的可疑行，不解析运行期拼接字符串，也不能证明 Typst 最终排版正确。
+普通中文使用 `Text`/`cjk_text()`；不要把汉字塞进 `MathTex` 期待旧 LaTeX CJK package 接管。ManimGX 的 `MathTex`/`Tex` 走 mitex→Typst；`TexTemplate`、`\\usepackage`、`\\newcommand`、`\\def`、复杂 LaTeX environment 或依赖精确 glyph path 的公式变换必须人工重写并用实际输出验证。静态 `scan_mathtex.py` 只输出含汉字字面量的可疑行，不解析运行期拼接字符串，也不能证明 Typst 最终排版正确。
 
 ## 验收顺序
 
