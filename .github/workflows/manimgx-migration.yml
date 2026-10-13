@@ -9,6 +9,7 @@ on:
       - "**/*.py"
       - "requirements-manimgx*.txt"
       - "tools/manimgx_*.py"
+      - "tools/tests/test_manimgx_*.py"
       - "manim_math_gx/**"
       - "skills/source/manim-video-production/**"
       - ".codex/skills/manim-video-production/**"
@@ -19,7 +20,7 @@ on:
 jobs:
   runtime:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,11 +36,16 @@ jobs:
         run: |
           python tools/sync_skills.py --check
           (cd skills/source/manim-video-production && python -m unittest discover -s scripts -p 'test_*.py' -v)
+      - name: Test migration tooling
+        run: python -m unittest discover -s tools/tests -p 'test_manimgx_*.py' -v
       - name: Compile migration tooling and representative scenes
         run: |
           python -m compileall -q manim_math_gx tools/manimgx_audit.py tools/manimgx_migrate.py
           python -m py_compile external/euler_line.py
           python -m py_compile "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py"
+          python -m py_compile "初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/probability_frequency.py"
+          python -m py_compile "高中/A-Level/P1/01-Quadratics/06-quadratic-extrema/lesson.py"
+          python -m py_compile "高中/高三/第一学期/第十五章-简单几何体/008球/sphere_lesson.py"
       - name: Runtime profile smoke test
         run: |
           python - <<'PY'
@@ -51,15 +57,29 @@ jobs:
           assert abs(m.config.frame_width - PORTRAIT_1080P.frame_width) < 1e-9
           print("ManimGX portrait profile OK", m.config.frame_width, m.config.frame_height)
           PY
+      - name: Block invalid GX debt in migrated families
+        run: |
+          python tools/manimgx_audit.py manim_math_gx
+          python tools/manimgx_audit.py "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py"
+          python tools/manimgx_audit.py "初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/probability_frequency.py"
       - name: Type-check representative migrated scenes
         run: |
           ty check external/euler_line.py
           ty check "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py"
-      - name: Inspect representative existing Scene with ManimGX
+          ty check "初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/probability_frequency.py"
+          (cd "高中/A-Level/P1/01-Quadratics/06-quadratic-extrema" && ty check lesson.py)
+          ty check "高中/高三/第一学期/第十五章-简单几何体/008球/sphere_lesson.py"
+      - name: Inspect formula and probability Scene families with ManimGX
         env:
           MANIM_MATH_CJK_FONT: sans-serif
         run: |
           manimgx inspect "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py" CircleEquation -t 0,end
+          manimgx inspect "初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/probability_frequency.py" ProbabilityFrequency -t 0,end
+      - name: Inspect dynamic updater Scene with ManimGX
+        env:
+          MANIM_MATH_CJK_FONT: sans-serif
+        run: |
+          (cd "高中/A-Level/P1/01-Quadratics/06-quadratic-extrema" && manimgx inspect lesson.py P1QuadraticExtrema -t 0,end)
       - name: Render representative MP4 with ManimGX
         env:
           MANIM_MATH_CJK_FONT: sans-serif
@@ -69,7 +89,7 @@ jobs:
             -r 270x480 --fps 15 -o "$output"
           test -s "$output"
           ls -lh "$output"
-      - name: Report remaining migration debt
+      - name: Report full repository migration debt
         if: always()
         continue-on-error: true
         run: python tools/manimgx_audit.py . --strict
