@@ -8,13 +8,13 @@ cuboid_animation.py  —  长方体的棱长和、表面积和体积
   manim -qh  cuboid_animation.py CuboidLesson   # 高质量 (1080p)
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 # ── 竖屏配置 ─────────────────────────────────────────
 config.pixel_width  = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 # ── 全局常量 ──────────────────────────────────────────

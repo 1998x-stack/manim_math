@@ -17,7 +17,7 @@ Plane Rectangular Coordinate System - Educational Animation
 7. 总结 + 片尾 (50-75s)
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 
@@ -25,7 +25,7 @@ import numpy as np
 # TikTok 竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

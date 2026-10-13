@@ -18,7 +18,7 @@ function_concept.py
     frame_height = 16
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 # ── 全局颜色 ──────────────────────────────────────────

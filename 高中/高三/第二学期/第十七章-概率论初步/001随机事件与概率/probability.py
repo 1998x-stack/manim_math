@@ -4,12 +4,12 @@
 课程中的数值示例由下方纯数学函数校验；旧 MP4 不由脚本自动覆盖。
 """
 
-from manim import *
+from manimgx import *
 from probability_math import union_probability, complement_probability
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = "#1a1a2e"

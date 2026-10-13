@@ -5,7 +5,7 @@ Requires Manim Community, LaTeX and an installed CJK font.
 Model and all numerical example values are in math_model.py.
 """
 from math import sqrt
-from manim import *
+from manimgx import *
 from math_model import MAIN_T, MAIN_X, SURD_X, POWER_X, CHALLENGE_X, evaluate_transformed, preimages
 
 config.frame_width, config.frame_height = 9, 16

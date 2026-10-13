@@ -4,13 +4,13 @@
 测试：python -m unittest -v test_data_dispersion_math.py
 """
 from fractions import Fraction
-from manim import *
+from manimgx import *
 from data_dispersion_math import (A, B, coefficient_of_variation, data_range,
     descriptive_variance, mean, standard_deviation, unbiased_sample_variance)
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 FONT = "Noto Sans CJK SC"

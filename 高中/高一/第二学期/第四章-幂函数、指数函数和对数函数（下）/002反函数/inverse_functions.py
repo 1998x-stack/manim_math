@@ -4,12 +4,12 @@
 运行：manim -ql inverse_functions.py InverseFunctions
 真实渲染、字体、关键帧及音轨须在目标环境另行验收。
 """
-from manim import *
+from manimgx import *
 import math
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 AUTHOR_NAME = "上海初高中数学直通车"

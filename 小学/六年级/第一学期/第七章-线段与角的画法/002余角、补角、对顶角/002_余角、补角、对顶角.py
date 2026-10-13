@@ -1,6 +1,6 @@
 """余角、补角、对顶角：和的条件与相交直线的对顶角相等。"""
 
-from manim import *
+from manimgx import *
 
 
 class 余角补角对顶角Animation(Scene):

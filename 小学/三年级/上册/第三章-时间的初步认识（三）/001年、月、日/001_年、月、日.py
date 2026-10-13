@@ -1,6 +1,6 @@
 """年、月、日的简短示例；完整课程见同目录 YearMonthDay。"""
 
-from manim import *
+from manimgx import *
 
 
 class YearMonthDayPreview(Scene):

@@ -11,12 +11,12 @@ Render (from this directory):
 Content is an original worked example using x^2-5x+6=0, NOT a reproduction
 of an exercise or worked example printed in the textbook.
 """
-from manim import *
+from manimgx import *
 from math_model import (expand_linear_factors, solve_monic_by_integer_factors,
                         square_partition, f)
 
 # Manim Community expects 9 x 16 logical units for this portrait lesson.
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = '#101724'

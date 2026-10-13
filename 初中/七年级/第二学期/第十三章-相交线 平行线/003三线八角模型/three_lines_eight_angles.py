@@ -1,11 +1,11 @@
 """三线八角：八个角弧、数字和配对从两个真实交点与同一射线序列产生。"""
 from math import atan2, cos, degrees, pi, sin
 import numpy as np
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = '#1a1a2e'

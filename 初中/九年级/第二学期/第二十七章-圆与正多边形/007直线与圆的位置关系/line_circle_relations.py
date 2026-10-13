@@ -1,11 +1,11 @@
 """九年级《直线与圆的位置关系》：用实际垂距统一生成图形、交点与字幕。"""
-from manim import *
+from manimgx import *
 import numpy as np
 from line_circle_math import horizontal_intersections, verify_case
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

@@ -1,11 +1,11 @@
 """九年级《圆与圆的位置关系》：数据驱动展示五种常见位置关系与重合退化情形。"""
-from manim import *
+from manimgx import *
 import numpy as np
 from two_circles_math import circle_relation, circle_intersections
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

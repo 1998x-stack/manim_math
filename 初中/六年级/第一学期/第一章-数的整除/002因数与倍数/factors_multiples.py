@@ -6,12 +6,12 @@ manim -qh factors_multiples.py FactorsAndMultiples
 本课将“正整数的正因数和正倍数”与“整数范围内的零倍数”分开叙述。
 """
 
-from manim import *
+from manimgx import *
 
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

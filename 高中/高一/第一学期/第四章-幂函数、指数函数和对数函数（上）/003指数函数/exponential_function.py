@@ -9,12 +9,12 @@ TikTok 竖屏格式 (1080×1920)
 坐标轴: x_range=[-3,3], y_range=[-0.5, 5.5]
 3^x 绘图范围限制到 x ≤ 1.45 (y≈4.95 不超出)
 """
-from manim import *
+from manimgx import *
 import numpy as np
 
 config.pixel_width  = 1080
 config.pixel_height = 1920
-config.frame_width  = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

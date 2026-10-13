@@ -1,6 +1,6 @@
 """复数的概念：复数的代数形式与复平面中的坐标表示。"""
 
-from manim import *
+from manimgx import *
 
 
 class 复数的概念Animation(Scene):

@@ -5,12 +5,12 @@
 短除法行、显示公式和验算均由同一组数据生成；渲染和画面检查仍需单独执行。
 """
 
-from manim import *
+from manimgx import *
 
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

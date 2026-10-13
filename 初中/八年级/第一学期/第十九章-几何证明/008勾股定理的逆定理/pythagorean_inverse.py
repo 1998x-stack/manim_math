@@ -4,11 +4,11 @@
 """
 from math import isclose, isfinite
 import numpy as np
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 BG, GOLD, GREEN, BLUE, RED = "#0D1B2A", "#FFD700", "#4CAF50", "#4FC3F7", "#EF5350"
 FONT = "PingFang SC"

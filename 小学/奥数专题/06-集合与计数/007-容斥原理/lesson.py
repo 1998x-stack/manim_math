@@ -1,5 +1,5 @@
 """容斥原理：韦恩图内真正画出 8+4+6 个独立成员，交集的四点只数一次。"""
-from manim import *
+from manimgx import *
 
 config.frame_width, config.frame_height = 9, 16
 BG, FONT = "#101827", "Noto Sans CJK SC"

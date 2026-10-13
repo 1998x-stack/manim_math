@@ -3,13 +3,13 @@
 保留 PointCirclePosition 入口及七段教学顺序。所有几何数据由同一半径与距离生成；
 动态阶段只更新数值对象和轻量几何图形，不在每帧重新构造 MathTex / Text。
 """
-from manim import *
+from manimgx import *
 import numpy as np
 from point_circle_math import classify_distance, validate_points
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

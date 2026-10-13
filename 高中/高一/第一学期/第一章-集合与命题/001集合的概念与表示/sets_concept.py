@@ -4,13 +4,13 @@
 中文使用 Text，数学公式使用 MathTex；旧视频及音轨不由此脚本修改。
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 DISPLAYED_ELEMENTS = (1, 2, 3, 4, 5)

@@ -3,13 +3,13 @@
 数学事实由单位圆上的实际坐标验证，正切公式仅在 cos(alpha)!=0 时使用。
 本源文件的 9:16 设计仍需最终 Manim/字体/TeX/逐帧/音轨验收。
 """
-from manim import *
+from manimgx import *
 import math
 import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 FONT = "Noto Sans CJK SC"
 BG_COLOR = "#1a1a2e"

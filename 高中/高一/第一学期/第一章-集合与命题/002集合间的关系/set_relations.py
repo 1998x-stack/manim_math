@@ -1,12 +1,12 @@
 """高一·集合间的关系：子集、真子集、相等、空集与有限子集计数。"""
 
 from itertools import combinations
-from manim import *
+from manimgx import *
 import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 A_MEMBERS = (1, 2, 3)

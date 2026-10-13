@@ -1,11 +1,11 @@
 """高三第十四章：平面的基本性质。所有平面多边形仅为无限平面的局部示意。"""
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG = "#1a1a2e"

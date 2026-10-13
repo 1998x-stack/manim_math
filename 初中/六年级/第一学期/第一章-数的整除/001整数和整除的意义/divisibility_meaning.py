@@ -5,12 +5,12 @@
 数学规则见同目录 verify_divisibility.py；渲染后仍需逐镜检查字体和边界。
 """
 
-from manim import *
+from manimgx import *
 
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

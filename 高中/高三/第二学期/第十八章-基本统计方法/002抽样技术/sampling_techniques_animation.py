@@ -5,13 +5,13 @@
 """
 from fractions import Fraction
 from math import comb
-from manim import *
+from manimgx import *
 from sampling_techniques_math import (ALLOCATIONS, LAYERS, POPULATION,
     allocation_rates, random_systematic, simple_random, stratified)
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 FONT = "Noto Sans CJK SC"

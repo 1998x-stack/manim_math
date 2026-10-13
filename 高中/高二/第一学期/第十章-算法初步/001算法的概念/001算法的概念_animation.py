@@ -1,10 +1,10 @@
 """高二《算法的概念》：用 1 到 n 的求和展示输入、步骤、终止及输出。"""
 
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 FONT = "PingFang SC"

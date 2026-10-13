@@ -3,10 +3,10 @@
 From this folder: python -m manim render -r 270,480 --fps 15 lesson.py P1QuadraticExtrema
 Real-render, font and frame QA are mandatory before publishing a video.
 """
-from manim import *
+from manimgx import *
 from math_model import UP as UP_QUAD, DOWN, PRACTICE
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 BG = '#101724'
 PANEL = '#1B2B40'

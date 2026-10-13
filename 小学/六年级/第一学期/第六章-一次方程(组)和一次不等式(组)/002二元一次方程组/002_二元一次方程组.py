@@ -1,6 +1,6 @@
 """二元一次方程组：用加减消元法求解并代入两式检验。"""
 
-from manim import *
+from manimgx import *
 
 
 class 二元一次方程组Animation(Scene):

@@ -1,11 +1,11 @@
 """八年级下册：一次函数的概念。保持原有的七镜教学顺序。"""
 
-from manim import *
+from manimgx import *
 
 # 竖屏教学画面。标题、曲线和总结均布置在 9 x 16 的安全范围内。
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

@@ -1,6 +1,6 @@
 """概率初步：只在有限且等可能的结果中使用有利结果数之比。"""
 
-from manim import *
+from manimgx import *
 
 
 class 可能性概率的初步Animation(Scene):

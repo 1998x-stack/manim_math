@@ -1,6 +1,6 @@
 """不等式性质：加减保持方向，乘除负数必须反向。"""
 
-from manim import *
+from manimgx import *
 
 
 class 不等式及其性质Animation(Scene):

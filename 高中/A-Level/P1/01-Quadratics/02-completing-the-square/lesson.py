@@ -7,11 +7,11 @@ python -m manim render -r 1080,1920 --fps 30 lesson.py P1CompletingTheSquare
 The geometric 5x5 picture uses x=2 ONLY. The algebraic identity holds for
 all real x. The text does not reproduce Cambridge textbook worked examples.
 """
-from manim import *
+from manimgx import *
 from math_model import (completed_square, square_completion_tiles,
                         solve_example_via_square, parabola_vertex_and_roots)
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 BG = '#101724'
 PANEL = '#1B2A3C'

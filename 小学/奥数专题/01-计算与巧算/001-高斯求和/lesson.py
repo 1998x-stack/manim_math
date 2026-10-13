@@ -1,5 +1,5 @@
 """高斯求和：三角点阵拼成长方形，再推广到首尾配对。"""
-from manim import *
+from manimgx import *
 
 config.frame_width, config.frame_height = 9, 16
 BG, FONT = "#101827", "Noto Sans CJK SC"

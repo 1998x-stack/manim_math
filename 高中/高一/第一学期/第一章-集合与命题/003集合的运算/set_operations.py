@@ -4,7 +4,7 @@
 正式渲染与逐帧验收必须在装有 Manim、TeX 和中文字体的环境执行。
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 
@@ -15,7 +15,7 @@ ELEMENTS_B = (3, 4, 5, 6)
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

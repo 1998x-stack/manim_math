@@ -1,4 +1,4 @@
-from manim import *
+from manimgx import *
 
 class 向量的数量积Animation(Scene):
     """向量的数量积的Manim动画演示"""

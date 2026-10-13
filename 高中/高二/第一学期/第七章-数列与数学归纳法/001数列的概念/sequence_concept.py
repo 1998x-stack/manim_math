@@ -1,13 +1,13 @@
 """数列的概念：七镜头竖屏 Manim 教学动画（保留原有 Scene 入口）。"""
 
-from manim import *
+from manimgx import *
 
 from sequence_data import arithmetic_terms, classification_samples, prefix_sums
 
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

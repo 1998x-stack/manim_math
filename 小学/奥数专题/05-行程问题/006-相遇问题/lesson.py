@@ -1,6 +1,6 @@
 """相遇问题：带真实路程比例的线段图；动态显示已走路程和剩余间距。"""
 from fractions import Fraction
-from manim import *
+from manimgx import *
 
 config.frame_width, config.frame_height = 9, 16
 BG, FONT = "#101827", "Noto Sans CJK SC"

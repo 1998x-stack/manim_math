@@ -13,12 +13,12 @@
   4. 正方体是长方体的特殊情况
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 BG_COLOR = "#1a1a2e"

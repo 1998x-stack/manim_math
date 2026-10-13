@@ -1,6 +1,6 @@
 """正比例：y=kx (k 为非零常数)，比值 y/x 只在 x≠0 时定义。"""
 
-from manim import *
+from manimgx import *
 
 
 class 正比例Animation(Scene):

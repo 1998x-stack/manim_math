@@ -1,6 +1,6 @@
 """最大公因数和最小公倍数：用 12 与 18 的质因数分解示范。"""
 
-from manim import *
+from manimgx import *
 
 
 class 最大公因数和最小公倍数深化Animation(Scene):

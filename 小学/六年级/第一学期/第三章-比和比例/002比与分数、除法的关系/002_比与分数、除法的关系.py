@@ -1,6 +1,6 @@
 """比与除法、分数：同一个比值的三种表达，后项不能为零。"""
 
-from manim import *
+from manimgx import *
 
 
 class 比与分数除法的关系Animation(Scene):

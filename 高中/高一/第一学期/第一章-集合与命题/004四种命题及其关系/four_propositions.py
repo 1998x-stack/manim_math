@@ -2,11 +2,11 @@
 
 预览：manim -ql four_propositions.py FourPropositions
 """
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 # 所有镜头使用同一个整数 n、同一组命题。

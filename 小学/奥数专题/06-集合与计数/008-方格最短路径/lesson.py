@@ -1,9 +1,9 @@
 """方格最短路径：主图递推与十个真实独立的五步路线，保持竖屏安全区。"""
 from itertools import combinations
 from math import comb
-from manim import *
+from manimgx import *
 
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 BG, FONT = "#101827", "Noto Sans CJK SC"
 

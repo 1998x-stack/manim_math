@@ -2,11 +2,11 @@
 
 注意 Python 标识符不能包含中文全角括号；CLI 场景名为 统计条形统计图二Animation。
 """
-from manim import *
+from manimgx import *
 
 config.pixel_width = 1080
 config.pixel_height = 1920
-config.frame_width = 9
+# ManimGX: frame_width is derived from pixel aspect ratio and frame_height (legacy value was 9).
 config.frame_height = 16
 
 

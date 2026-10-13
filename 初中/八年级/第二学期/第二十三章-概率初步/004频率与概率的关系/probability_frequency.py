@@ -3,7 +3,7 @@
 H 表示硬币正面事件；中文一律使用 Text，公式使用 MathTex。
 运行：manim -ql probability_frequency.py ProbabilityFrequency
 """
-from manim import *
+from manimgx import *
 import numpy as np
 
 config.pixel_width, config.pixel_height = 1080, 1920

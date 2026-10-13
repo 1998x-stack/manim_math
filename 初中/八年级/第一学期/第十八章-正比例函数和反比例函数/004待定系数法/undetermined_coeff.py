@@ -9,7 +9,7 @@ undetermined_coeff.py
     manim -qh --resolution 1080,1920 undetermined_coeff.py UndeterminedCoeff
 """
 
-from manim import *
+from manimgx import *
 import numpy as np
 
 BG       = "#0D1B2A"
