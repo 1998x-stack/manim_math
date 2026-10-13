@@ -21,9 +21,28 @@ IMPORT_RULES = (
     # Preserve existing `manim.X` references without rewriting every use site.
     (re.compile(r"(?m)^(\s*)import\s+manim\s*$"), r"\1import manimgx as manim"),
 )
+
+_CONFIG = r"(?:(?P<alias>[A-Za-z_]\w*)\.)?config"
 FRAME_WIDTH_ASSIGNMENT = re.compile(
-    r"(?m)^(?P<indent>\s*)config\.frame_width\s*=\s*(?P<value>[^#\n]+)(?P<comment>\s*#.*)?$"
+    rf"(?m)^(?P<indent>\s*){_CONFIG}\.frame_width\s*=\s*(?P<value>[^#\n]+)(?P<comment>\s*#.*)?$"
 )
+FRAME_WIDTH_HEIGHT_TUPLE = re.compile(
+    rf"(?m)^(?P<indent>\s*){_CONFIG}\.frame_width\s*,\s*(?:(?P=alias)\.)?config\.frame_height\s*=\s*(?P<width>[^,\n]+),\s*(?P<height>[^#\n]+?)(?P<comment>\s*#.*)?$"
+)
+FRAME_HEIGHT_WIDTH_TUPLE = re.compile(
+    rf"(?m)^(?P<indent>\s*){_CONFIG}\.frame_height\s*,\s*(?:(?P=alias)\.)?config\.frame_width\s*=\s*(?P<height>[^,\n]+),\s*(?P<width>[^#\n]+?)(?P<comment>\s*#.*)?$"
+)
+
+
+def _config_prefix(alias: str | None) -> str:
+    return f"{alias}.config" if alias else "config"
+
+
+def _legacy_comment(indent: str, width: str) -> str:
+    return (
+        f"{indent}# ManimGX: frame_width is derived from pixel aspect ratio "
+        f"and frame_height (legacy value was {width.strip()})."
+    )
 
 
 def migrate_text(text: str) -> tuple[str, list[str]]:
@@ -33,13 +52,35 @@ def migrate_text(text: str) -> tuple[str, list[str]]:
         if count:
             changes.append(f"imports:{count}")
 
-    def drop_frame_width(match: re.Match[str]) -> str:
-        value = match.group("value").strip()
-        changes.append("frame_width:1")
-        return (
-            f"{match.group('indent')}# ManimGX: frame_width is derived from pixel aspect ratio "
-            f"and frame_height (legacy value was {value})."
+    def drop_width_height_tuple(match: re.Match[str]) -> str:
+        changes.append("frame_width_tuple:1")
+        prefix = _config_prefix(match.group("alias"))
+        return "\n".join(
+            (
+                _legacy_comment(match.group("indent"), match.group("width")),
+                f"{match.group('indent')}{prefix}.frame_height = {match.group('height').strip()}",
+            )
         )
+
+    def drop_height_width_tuple(match: re.Match[str]) -> str:
+        changes.append("frame_width_tuple:1")
+        prefix = _config_prefix(match.group("alias"))
+        return "\n".join(
+            (
+                f"{match.group('indent')}{prefix}.frame_height = {match.group('height').strip()}",
+                _legacy_comment(match.group("indent"), match.group("width")),
+            )
+        )
+
+    # Tuple assignments must run before the single-assignment rule.  They were the
+    # main hole in the v1 codemod because `config.frame_width, ... = ...` has no `=`
+    # directly after frame_width.
+    text = FRAME_WIDTH_HEIGHT_TUPLE.sub(drop_width_height_tuple, text)
+    text = FRAME_HEIGHT_WIDTH_TUPLE.sub(drop_height_width_tuple, text)
+
+    def drop_frame_width(match: re.Match[str]) -> str:
+        changes.append("frame_width:1")
+        return _legacy_comment(match.group("indent"), match.group("value"))
 
     text = FRAME_WIDTH_ASSIGNMENT.sub(drop_frame_width, text)
     return text, changes
