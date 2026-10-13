@@ -2,12 +2,23 @@ name: ManimGX bulk source codemod
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - feat/manimgx-migration-v1
+    paths:
+      - "tools/manimgx_migrate.py"
+      - ".github/workflows/manimgx-bulk-codemod.yml"
 
 permissions:
   contents: write
 
+concurrency:
+  group: manimgx-bulk-codemod-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   migrate:
+    if: github.actor != 'github-actions[bot]' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +30,10 @@ jobs:
           python-version: "3.13"
       - name: Apply mechanically safe source migration
         run: python tools/manimgx_migrate.py . --write
+      - name: Verify codemod is idempotent
+        run: |
+          python tools/manimgx_migrate.py .
+          test -z "$(git diff --name-only -- tools/manimgx_migrate.py)"
       - name: Commit migrated Python sources
         shell: bash
         run: |
