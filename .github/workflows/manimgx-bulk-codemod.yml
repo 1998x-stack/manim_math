@@ -31,9 +31,7 @@ jobs:
       - name: Apply mechanically safe source migration
         run: python tools/manimgx_migrate.py . --write
       - name: Verify codemod is idempotent
-        run: |
-          python tools/manimgx_migrate.py .
-          test -z "$(git diff --name-only -- tools/manimgx_migrate.py)"
+        run: python tools/manimgx_migrate.py . --check
       - name: Commit migrated Python sources
         shell: bash
         run: |
