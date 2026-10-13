@@ -1,17 +1,18 @@
-name: Grade 11 S2 circle render smoke
+name: Grade 11 S2 circle ManimGX render smoke
 
 on:
   pull_request:
     paths:
       - '高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/circle_equation.py'
       - '.github/workflows/grade11-s2-circle-render-smoke.yml'
+      - 'requirements-manimgx.txt'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  manim-real-render:
+  manimgx-real-render:
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -20,28 +21,29 @@ jobs:
           filter: blob:none
           sparse-checkout: |
             高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
+            requirements-manimgx.txt
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - name: Install Manim, LaTeX and required DVI-to-SVG converter
+          python-version: '3.13'
+      - name: Install ManimGX, portable CJK fonts and media inspection tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends \
-            ffmpeg libcairo2-dev libpango1.0-dev pkg-config \
-            texlive-latex-base texlive-latex-extra texlive-fonts-recommended \
-            texlive-science fonts-noto-cjk dvisvgm
-          python -m pip install 'manim==0.19.2'
-          manim --version
-          command -v dvisvgm
-          fc-match 'PingFang SC'
-      - name: Render actual Scene and probe new output (never overwrite old MP4)
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk ffmpeg
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-manimgx.txt
+          manimgx --help >/dev/null
+          fc-match 'Noto Sans CJK SC'
+      - name: Render actual Scene in an isolated temp copy
         env:
           LESSON: 高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程
+          MANIM_MATH_CJK_FONT: Noto Sans CJK SC
         run: |
-          manim -ql --disable_caching --media_dir "$RUNNER_TEMP/circle-render-smoke" \
-            "$LESSON/circle_equation.py" CircleEquation
-          video="$(find "$RUNNER_TEMP/circle-render-smoke" -type f -name 'CircleEquation.mp4' -print -quit)"
-          test -n "$video" && test -s "$video"
+          mkdir -p "$RUNNER_TEMP/lesson"
+          cp -a "$LESSON/." "$RUNNER_TEMP/lesson/"
+          manimgx render "$RUNNER_TEMP/lesson/circle_equation.py" CircleEquation \
+            -r 1080x1920 --fps 30
+          video="$RUNNER_TEMP/lesson/CircleEquation.mp4"
+          test -s "$video"
           ffprobe -v error -select_streams v:0 \
             -show_entries stream=width,height,r_frame_rate,duration \
             -of default=noprint_wrappers=1 "$video"
@@ -50,12 +52,13 @@ jobs:
             -frames:v 1 "$RUNNER_TEMP/circle-frames/first.png"
           ffmpeg -hide_banner -loglevel error -y -ss 15 -i "$video" \
             -frames:v 1 "$RUNNER_TEMP/circle-frames/mid.png"
-      - name: Upload preview and sample frames for human visual review
+      - name: Upload preview, storyboard and sample frames for human visual review
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: grade11-s2-circle-render-smoke
+          name: grade11-s2-circle-manimgx-render-smoke
           path: |
-            ${{ runner.temp }}/circle-render-smoke/videos/**/*.mp4
+            ${{ runner.temp }}/lesson/CircleEquation.mp4
+            ${{ runner.temp }}/lesson/CircleEquation.storyboard*.png
             ${{ runner.temp }}/circle-frames/*.png
           if-no-files-found: warn
