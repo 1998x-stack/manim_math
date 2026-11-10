@@ -2,6 +2,8 @@
 
 > 本文件为一次性 Git 文件树基线（tree SHA: `b9e09e32eb49662fedd5ac27534e572ceac15013`，来源为 `main`）。清单只证明文件路径与大小存在于该 Git 版本，不证明 Python 可运行、数学正确或视频通过渲染。日后请运行 `tools/audit_primary_sources.py` 获取最新内容；不要把本清单当作自动发布白名单。
 
+> **后续进度（第三批）**：从此冻结基线所列的 273 个 Python 文件中删除了 4 个冗余教学 Scene，当前分支应有 269 个小学 Python 文件。详见 [第三批去重记录](primary-scene-deduplication.md) 与 [最新多源码审核队列](primary-scene-review-queue.md)。以下逐文件列表仍是基线快照，不代表现有分支文件都存在。
+
 ## 概况
 
 - `小学/` 下 **273 个 Python 文件**，分布在 **220 个含 Python 的目录**；其中 **211 个常规知识点目录**，其他目录属于奥数专题。
