@@ -26,7 +26,9 @@ python tools/audit_primary_sources.py --output /tmp/manim-primary-sources.json
 python -m unittest tests.test_audit_primary_sources -v
 ```
 
+重复教学 Scene 第三批清理：[旧到新源码完整映射](../docs/engineering/primary-scene-deduplication.md)。该批删除 4 个冗余 Scene；旧基线清单只用于历史比较。
+
 冻结的 273 文件初始基线与分批优化计划：[小学源码清单](../docs/engineering/primary-school-inventory.md)。如果报告的 `summary.complete_checkout` 为 `false`，扫描结果只代表实际检出的部分，不能当作全部课程验收。
 
-\n小学多 Scene 影子检查（只读，不更新既有作品）：\n\n```bash\npython -m tools.primary_scene_shadow --output /tmp/manim-primary-scene-shadow.json\npython -m unittest tests.test_primary_scene_shadow -v\n```\n\n审核队列：[47 个多源码知识点](../docs/engineering/primary-scene-review-queue.md)。只有完整 Python 源码检出时才可使用 `--require-complete` 作为全量检查。\n
+\n小学多 Scene 影子检查（只读，不更新既有作品）：\n\n```bash\npython -m tools.primary_scene_shadow --output /tmp/manim-primary-scene-shadow.json\npython -m unittest tests.test_primary_scene_shadow -v\n```\n\n审核队列：[多源码知识点最新审核队列](../docs/engineering/primary-scene-review-queue.md)。只有完整 Python 源码检出时才可使用 `--require-complete` 作为全量检查。\n
 详细迁移规则：[文件系统分类治理](../docs/engineering/filesystem-governance.md) · [验收门禁](../docs/engineering/quality-gates.md)。
