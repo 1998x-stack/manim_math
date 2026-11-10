@@ -43,6 +43,15 @@ FONT           = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def trial_quotient_status(dividend: int, divisor: int, trial: int):
+    """试商后校验余数：过大商要调小，余数过大商要调大。"""
+    if any(type(v) is not int for v in (dividend, divisor, trial)) or dividend < 0 or divisor <= 0 or trial < 0:
+        raise ValueError("被除数、商非负且除数必须为正整数")
+    remainder = dividend - divisor * trial
+    direction = "down" if remainder < 0 else "up" if remainder >= divisor else "correct"
+    return remainder, direction
+
+
 class WrittenDivisionLesson(Scene):
     """
     笔算除法（试商与调商）教学动画
@@ -59,6 +68,10 @@ class WrittenDivisionLesson(Scene):
     """
 
     def construct(self):
+        # 第二套简短 Scene 的 1476 ÷ 28 试商例题纳入统一数学验证。
+        assert trial_quotient_status(1476, 28, 50) == (76, "up")
+        assert trial_quotient_status(1476, 28, 52) == (20, "correct")
+        assert trial_quotient_status(1476, 28, 53) == (-8, "down")
         self.camera.background_color = BG_COLOR
         self.setup_geometry()
 
