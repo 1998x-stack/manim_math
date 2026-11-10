@@ -31,7 +31,9 @@ python tools/audit_grade3.py --json
 
 `files[]` 含所有 Python 路径与静态识别的 Scene 类；`topics[]` 含同目录入口、元数据存在状态与待确认标志。`helper-or-indirect-scene` 可能是真正的间接 Scene，需人工确认。成功的静态审计不等于数学或渲染验收。
 
-## 待补的分镜
+## 基线缺失的分镜（本批已补）
+
+以下目录在基线版本缺少分镜；本批已为它补充 `storyboard.md`，但尚未渲染验收。
 
 - `小学/二年级/上册/第三章-乘法、除法（二）/0017、8、9的乘法口诀/storyboard.md`
 
