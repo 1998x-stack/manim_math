@@ -7,6 +7,13 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+def angle_category(degrees: int) -> str:
+    """根据角的张开度判别锐角、直角、钝角。"""
+    if type(degrees) is not int or not 0 < degrees < 180:
+        raise ValueError("这里只讨论 0° 与 180° 之间的角")
+    return "锐角" if degrees < 90 else "直角" if degrees == 90 else "钝角"
+
+
 class Topic001认识角Animation(Scene):
     """用真正的角结构和两边伸长的对照实验代替泛化模板。"""
 
@@ -21,6 +28,8 @@ class Topic001认识角Animation(Scene):
         definition.move_to(UP * 4.45)
         self.play(Write(definition))
 
+        assert angle_category(60) == angle_category(35) == "锐角"
+        assert angle_category(105) == "钝角"
         first = self.make_angle(60, 2.4)
         self.play(FadeIn(first), run_time=1.1)
         vertex_label = Text("顶点", font_size=27, color=YELLOW).move_to(LEFT * 0.7 + DOWN * 0.75)
