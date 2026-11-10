@@ -19,6 +19,25 @@ assert TOTAL == CHILDREN * PER_CHILD + REMAINDER
 assert 0 <= REMAINDER < CHILDREN
 
 
+def distribution_plan(total: int, children: int):
+    """返回每个学生分到的原始物体编号和剩余物体编号。
+
+    编号一一对应原始苹果，不创建额外苹果；允许整除或没有物体。
+    """
+    if type(total) is not int or total < 0:
+        raise ValueError("物体数量必须为非负整数")
+    if type(children) is not int or children <= 0:
+        raise ValueError("分配人数必须为正整数")
+    per_child, _ = divmod(total, children)
+    assigned = tuple(
+        tuple(round_index * children + child_index
+              for round_index in range(per_child))
+        for child_index in range(children)
+    )
+    remainder = tuple(range(children * per_child, total))
+    return assigned, remainder
+
+
 class YouShuShuDeChuFa(Scene):
     """用原始 13 个对象展示逐轮平均分、余数及数学验算。"""
 
@@ -58,18 +77,20 @@ class YouShuShuDeChuFa(Scene):
         ])
         self.play(Create(self.boxes), FadeIn(self.labels), run_time=0.9)
 
-        # 第 1 轮每人 1 个，第 2 轮每人 2 个，第 3 轮每人 3 个。
-        # index = round_index * CHILDREN + child_index 确保恰好移动 12 个不同对象。
+        # 由纯数学模型统一生成每一轮的原物体编号，不再在动画里重复推导。
+        assigned, unassigned = distribution_plan(TOTAL, CHILDREN)
+        assert len(assigned) == CHILDREN
+        assert len(unassigned) == REMAINDER == 1
         for round_index in range(PER_CHILD):
             moves = []
             for child_index, center_x in enumerate(self.centers):
-                index = round_index * CHILDREN + child_index
+                index = assigned[child_index][round_index]
                 target = [center_x + (round_index - 1) * 0.43, -0.7, 0]
                 moves.append(self.apples[index].animate.move_to(target))
             self.play(*moves, run_time=0.75)
 
-        # 第 13 个对象始终没有分给任何人，即真实的余数。
-        self.leftover = self.apples[CHILDREN * PER_CHILD]
+        # 第 13 个原始对象未分配给任何人，即真实的余数。
+        self.leftover = self.apples[unassigned[0]]
         self.play(self.leftover.animate.move_to([0, -2.75, 0]).set_color(YELLOW))
         remainder_caption = Text("剩下1个，不能再给每人1个", font_size=27, color=YELLOW)
         remainder_caption.move_to(DOWN * 3.6)
