@@ -1,183 +1,132 @@
-"""
-002二元一次方程组 - Animation
-使用 Manim 创建的数学教学视频
-
-内容: 002二元一次方程组
-目标观众: 学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""六年级：二元一次方程组。加减消元与代入消元并行展示。"""
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#131a30"
+BLUE_ACCENT = "#60a5fa"
+GOLD = "#fbbf24"
+GREEN_ACCENT = "#34d399"
+
+
+def solve_linear_system(a, b, c, d, e, f):
+    """精确求解 ax+by=c, dx+ey=f；无唯一解时明确拒绝。"""
+    from fractions import Fraction
+
+    values = (a, b, c, d, e, f)
+    if any(type(value) not in (int, Fraction) for value in values):
+        raise ValueError("系数必须是整数或 Fraction")
+    determinant = a * e - b * d
+    if determinant == 0:
+        raise ValueError("行列式为零，不能得到唯一解")
+    return (
+        Fraction(c * e - b * f, determinant),
+        Fraction(a * f - c * d, determinant)
+    )
+
 
 class Topic002二元一次方程组Animation(Scene):
-    """
-    002二元一次方程组 教学动画场景
-    """
-    
+    """用相同的方程组展示加减消元和代入消元。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 强调元素
-        self.COLOR_HIGHLIGHT = "#f1c40f"    # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = "#95a5a6"    # 灰色 - 辅助元素
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
-        self.show_opening()
-        self.show_main_content()
-        self.show_examples()
-        self.show_summary()
-    
-    def setup_geometry(self):
-        """初始化几何布局"""
-        # 定义关键位置
-        self.center_pos = ORIGIN
-        self.top_pos = UP * 6
-        self.bottom_pos = DOWN * 6
-        self.left_pos = LEFT * 4
-        self.right_pos = RIGHT * 4
-        
-        # 定义网格位置用于摆放元素
-        self.grid_positions = []
-        rows, cols = 3, 3
-        start_x, start_y = -3, 2
-        spacing_x, spacing_y = 2, 2
-        
-        for row in range(rows):
-            for col in range(cols):
-                x = start_x + col * spacing_x
-                y = start_y - row * spacing_y
-                self.grid_positions.append(np.array([x, y, 0]))
-    
-    def show_opening(self):
-        """开场介绍"""
-        # 作者信息 (顶部)
-        author_info = Text(
+        assert solve_linear_system(1, 1, 5, 1, -1, 1) == (3, 2)
+        self.camera.background_color = BG
+        self.watermark = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7.5)
-        
-        self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 标题
-        title = Text(
-            "002二元一次方程组",
-            font="PingFang SC",
-            font_size=48,
-            color=GOLD
-        ).move_to(UP * 5)
-        
-        self.play(Write(title), run_time=1.0)
-        self.wait(1)
-        
-        # 清理
-        self.play(FadeOut(title), run_time=0.5)
-    
-    def show_main_content(self):
-        """主要内容展示"""
-        # 根据主题创建相应内容
-        content_text = Text(
-            "正在学习002二元一次方程组的概念...",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 3)
-        
-        self.play(Write(content_text), run_time=1.0)
-        self.wait(2)
-        
-        # 示例元素
-        example_elements = VGroup()
-        for i in range(3):
-            element = Circle(radius=0.5, color=self.COLOR_HIGHLIGHT, fill_opacity=0.7)
-            element.move_to(self.grid_positions[i])
-            example_elements.add(element)
-        
-        self.play(LaggedStart(*[Create(el) for el in example_elements], lag_ratio=0.5), run_time=2)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(content_text), *[FadeOut(el) for el in example_elements], run_time=0.8)
-    
-    def show_examples(self):
-        """示例演示"""
-        example_text = Text(
-            "让我们看一个例子:",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(example_text), run_time=0.8)
-        self.wait(1)
-        
-        # 创建示例
-        example_visual = Square(side_length=2, color=self.COLOR_AUXILIARY)
-        example_visual.move_to(ORIGIN)
-        
-        self.play(Create(example_visual), run_time=1.0)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(example_text), FadeOut(example_visual), run_time=0.8)
-    
-    def show_summary(self):
-        """总结回顾"""
-        summary_points = VGroup(
-            Text("✓ 今天我们学习了002二元一次方程组", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            font_size=17, color=GRAY_B
+        ).move_to(UP * 7)
+        self.add(self.watermark)
+        self.opening()
+        self.elimination()
+        self.substitution()
+        self.check_and_summary()
+
+    def transition(self):
+        self.play(
+            *[FadeOut(mob) for mob in list(self.mobjects) if mob is not self.watermark],
+            run_time=0.35
         )
-        summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
-        summary_points.move_to(UP * 1)
-        
-        title = Text(
-            "今天学到的知识：",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).move_to(UP * 4)
-        
-        self.play(Write(title), run_time=0.6)
-        self.play(LaggedStart(*[Write(point) for point in summary_points], lag_ratio=0.8), run_time=2.5)
-        
-        self.wait(3)
-        
-        # 鼓励话语
-        encouragement = Text(
-            "你学得真棒！\\n继续加油哦！",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 2)
-        
-        self.play(Write(encouragement), run_time=1.0)
-        self.wait(3)
-        
-        # 关注提醒
-        follow_reminder = Text(
-            "关注我，获得更多数学技巧!",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(follow_reminder, shift=UP * 0.3), run_time=0.5)
-        self.wait(3)
+
+    def heading(self, words):
+        title = Text(words, font_size=37, color=GOLD).move_to(UP * 5.6)
+        self.play(Write(title))
+        return title
+
+    def opening(self):
+        title = Text("二元一次方程组", font_size=46).move_to(UP * 4)
+        self.play(Write(title))
+        system = MathTex(
+            r"\begin{cases}x+y=5\\x-y=1\end{cases}",
+            font_size=54, color=BLUE_ACCENT
+        ).move_to(UP * 1)
+        self.play(Write(system))
+        hint = Text("两式必须同时成立", font_size=29, color=WHITE).move_to(DOWN * 2)
+        self.play(FadeIn(hint))
+        self.wait(0.7)
+        self.transition()
+
+    def elimination(self):
+        self.heading("方法一：加减消元")
+        system = MathTex(
+            r"\begin{cases}x+y=5\\x-y=1\end{cases}",
+            font_size=44
+        ).move_to(UP * 3)
+        self.play(Write(system))
+        sequence = [
+            ("左右两式相加，消去 y", r"2x=6"),
+            ("两边除以 2", r"x=3"),
+            ("代回 x+y=5", r"3+y=5"),
+            ("求出 y", r"y=2"),
+        ]
+        active = None
+        text = None
+        for label, formula in sequence:
+            if active is not None:
+                self.play(FadeOut(active), FadeOut(text), run_time=0.2)
+            text = Text(label, font_size=26, color=WHITE).move_to(UP * 0.7)
+            active = MathTex(formula, font_size=51, color=GOLD).move_to(DOWN * 0.6)
+            self.play(FadeIn(text), Write(active), run_time=0.5)
+            self.wait(0.35)
+        answer = MathTex(r"(x,y)=(3,2)", font_size=42, color=GREEN_ACCENT)
+        answer.move_to(DOWN * 3.2)
+        self.play(Write(answer))
+        self.wait(0.6)
+        self.transition()
+
+    def substitution(self):
+        self.heading("方法二：代入消元")
+        stages = [
+            ("从第一式得到", r"y=5-x"),
+            ("将 y 代入第二式", r"x-(5-x)=1"),
+            ("合并同类项", r"2x-5=1"),
+            ("求得 x，再求 y", r"x=3,\quad y=2"),
+        ]
+        explanation = None
+        formula = None
+        for message, tex in stages:
+            if formula is not None:
+                self.play(FadeOut(formula), FadeOut(explanation), run_time=0.2)
+            explanation = Text(message, font_size=28, color=BLUE_ACCENT).move_to(UP * 2.5)
+            formula = MathTex(tex, font_size=48, color=GOLD).move_to(UP * 0.8)
+            self.play(Write(formula), FadeIn(explanation), run_time=0.6)
+            self.wait(0.4)
+        remark = Text("两种方法都在消去一个未知数", font_size=27)
+        remark.move_to(DOWN * 2.7)
+        self.play(FadeIn(remark))
+        self.wait(0.8)
+        self.transition()
+
+    def check_and_summary(self):
+        self.heading("把答案代入两式")
+        check1 = MathTex(r"3+2=5", font_size=48, color=GREEN_ACCENT)
+        check2 = MathTex(r"3-2=1", font_size=48, color=GREEN_ACCENT)
+        group = VGroup(check1, check2).arrange(DOWN, buff=0.7).move_to(UP * 1)
+        self.play(LaggedStart(*(Write(item) for item in group), lag_ratio=0.4))
+        rule = Text("加减消元、代入消元，最后都要检验", font_size=26)
+        rule.move_to(DOWN * 2.5)
+        self.play(Write(rule))
+        self.wait(1)
