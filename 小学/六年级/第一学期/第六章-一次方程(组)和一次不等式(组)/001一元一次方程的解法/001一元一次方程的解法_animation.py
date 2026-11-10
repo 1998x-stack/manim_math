@@ -1,183 +1,141 @@
-"""
-001一元一次方程的解法 - Animation
-使用 Manim 创建的数学教学视频
-
-内容: 001一元一次方程的解法
-目标观众: 学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""六年级：一元一次方程的解法。去分母、去括号、移项、检验。"""
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#131a30"
+BLUE_ACCENT = "#60a5fa"
+GOLD = "#fbbf24"
+GREEN_ACCENT = "#34d399"
+
+
+def solve_fraction_equation(a, b, c):
+    """求 ax+b=c 的精确解，a、b、c 只能是整数或有理数。"""
+    from fractions import Fraction
+
+    values = (a, b, c)
+    if any(type(value) not in (int, Fraction) for value in values):
+        raise ValueError("只接受精确整数或 Fraction")
+    if a == 0:
+        raise ValueError("x 的系数不可为零")
+    return (Fraction(c) - Fraction(b)) / Fraction(a)
+
 
 class Topic001一元一次方程的解法Animation(Scene):
-    """
-    001一元一次方程的解法 教学动画场景
-    """
-    
+    """用两道分步例题解释解方程与恒等变形。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 强调元素
-        self.COLOR_HIGHLIGHT = "#f1c40f"    # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = "#95a5a6"    # 灰色 - 辅助元素
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
-        self.show_opening()
-        self.show_main_content()
-        self.show_examples()
-        self.show_summary()
-    
-    def setup_geometry(self):
-        """初始化几何布局"""
-        # 定义关键位置
-        self.center_pos = ORIGIN
-        self.top_pos = UP * 6
-        self.bottom_pos = DOWN * 6
-        self.left_pos = LEFT * 4
-        self.right_pos = RIGHT * 4
-        
-        # 定义网格位置用于摆放元素
-        self.grid_positions = []
-        rows, cols = 3, 3
-        start_x, start_y = -3, 2
-        spacing_x, spacing_y = 2, 2
-        
-        for row in range(rows):
-            for col in range(cols):
-                x = start_x + col * spacing_x
-                y = start_y - row * spacing_y
-                self.grid_positions.append(np.array([x, y, 0]))
-    
-    def show_opening(self):
-        """开场介绍"""
-        # 作者信息 (顶部)
-        author_info = Text(
-            "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
+        from fractions import Fraction
+        assert solve_fraction_equation(Fraction(1, 2), Fraction(1, 3), Fraction(5, 6)) == 1
+        assert solve_fraction_equation(2, 1, 9) == 4
+        self.camera.background_color = BG
+        self.watermark = Text(
+            "上海初高中数学直通车 @emptyandcalm", font_size=17,
             color=GRAY_B
-        ).move_to(UP * 7.5)
-        
-        self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 标题
-        title = Text(
-            "001一元一次方程的解法",
-            font="PingFang SC",
-            font_size=48,
-            color=GOLD
-        ).move_to(UP * 5)
-        
-        self.play(Write(title), run_time=1.0)
-        self.wait(1)
-        
-        # 清理
-        self.play(FadeOut(title), run_time=0.5)
-    
-    def show_main_content(self):
-        """主要内容展示"""
-        # 根据主题创建相应内容
-        content_text = Text(
-            "正在学习001一元一次方程的解法的概念...",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 3)
-        
-        self.play(Write(content_text), run_time=1.0)
-        self.wait(2)
-        
-        # 示例元素
-        example_elements = VGroup()
-        for i in range(3):
-            element = Circle(radius=0.5, color=self.COLOR_HIGHLIGHT, fill_opacity=0.7)
-            element.move_to(self.grid_positions[i])
-            example_elements.add(element)
-        
-        self.play(LaggedStart(*[Create(el) for el in example_elements], lag_ratio=0.5), run_time=2)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(content_text), *[FadeOut(el) for el in example_elements], run_time=0.8)
-    
-    def show_examples(self):
-        """示例演示"""
-        example_text = Text(
-            "让我们看一个例子:",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(example_text), run_time=0.8)
-        self.wait(1)
-        
-        # 创建示例
-        example_visual = Square(side_length=2, color=self.COLOR_AUXILIARY)
-        example_visual.move_to(ORIGIN)
-        
-        self.play(Create(example_visual), run_time=1.0)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(example_text), FadeOut(example_visual), run_time=0.8)
-    
-    def show_summary(self):
-        """总结回顾"""
-        summary_points = VGroup(
-            Text("✓ 今天我们学习了001一元一次方程的解法", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+        ).move_to(UP * 7)
+        self.add(self.watermark)
+        self.opening()
+        self.fraction_example()
+        self.bracket_example()
+        self.summary()
+
+    def transition(self):
+        self.play(
+            *[FadeOut(mob) for mob in list(self.mobjects) if mob is not self.watermark],
+            run_time=0.35
         )
-        summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
-        summary_points.move_to(UP * 1)
-        
-        title = Text(
-            "今天学到的知识：",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).move_to(UP * 4)
-        
-        self.play(Write(title), run_time=0.6)
-        self.play(LaggedStart(*[Write(point) for point in summary_points], lag_ratio=0.8), run_time=2.5)
-        
-        self.wait(3)
-        
-        # 鼓励话语
-        encouragement = Text(
-            "你学得真棒！\\n继续加油哦！",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 2)
-        
-        self.play(Write(encouragement), run_time=1.0)
-        self.wait(3)
-        
-        # 关注提醒
-        follow_reminder = Text(
-            "关注我，获得更多数学技巧!",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(follow_reminder, shift=UP * 0.3), run_time=0.5)
-        self.wait(3)
+
+    def header(self, section):
+        heading = Text(section, font_size=37, color=GOLD).move_to(UP * 5.65)
+        self.play(Write(heading), run_time=0.5)
+        return heading
+
+    def opening(self):
+        title = Text("一元一次方程的解法", font_size=45, color=WHITE).move_to(UP * 3)
+        desc = Text("目标：每步都保持等式成立", font_size=29, color=BLUE_ACCENT)
+        desc.next_to(title, DOWN, buff=0.5)
+        self.play(Write(title), FadeIn(desc, shift=UP * 0.2))
+        self.wait(0.6)
+        self.transition()
+
+    def fraction_example(self):
+        self.header("例一：去分母")
+        original = MathTex(
+            r"\frac{x}{2}+\frac{1}{3}=\frac{5}{6}",
+            font_size=48
+        ).move_to(UP * 3.7)
+        self.play(Write(original))
+        hint = Text("2、3、6 的最小公倍数是 6", font_size=27, color=BLUE_ACCENT)
+        hint.move_to(UP * 2.1)
+        self.play(FadeIn(hint))
+        steps = [
+            ("方程两边同时乘以 6", r"3x+2=5"),
+            ("两边同时减去 2", r"3x=3"),
+            ("两边同时除以 3", r"x=1"),
+        ]
+        current = None
+        reason = None
+        for message, expression in steps:
+            if current is not None:
+                self.play(FadeOut(current), FadeOut(reason), run_time=0.2)
+            reason = Text(message, font_size=27, color=WHITE).move_to(UP * 0.4)
+            current = MathTex(expression, font_size=51, color=GOLD).move_to(DOWN * 0.6)
+            self.play(FadeIn(reason), Write(current), run_time=0.6)
+            self.wait(0.35)
+        verification = MathTex(
+            r"\frac{1}{2}+\frac{1}{3}=\frac{5}{6}",
+            font_size=42, color=GREEN_ACCENT
+        ).move_to(DOWN * 3)
+        check = Text("代回原方程：左右相等", font_size=26, color=GREEN_ACCENT)
+        check.next_to(verification, UP, buff=0.3)
+        self.play(Write(verification), FadeIn(check))
+        self.wait(0.8)
+        self.transition()
+
+    def bracket_example(self):
+        self.header("例二：去括号、移项")
+        original = MathTex(r"2(x-1)+3=9", font_size=50).move_to(UP * 3.7)
+        self.play(Write(original))
+        stages = [
+            ("用分配律去括号", r"2x-2+3=9"),
+            ("合并同类项", r"2x+1=9"),
+            ("移项，等式两边减 1", r"2x=8"),
+            ("系数化为 1", r"x=4"),
+        ]
+        active = None
+        message = None
+        for label, formula in stages:
+            if active is not None:
+                self.play(FadeOut(active), FadeOut(message), run_time=0.2)
+            message = Text(label, font_size=26, color=BLUE_ACCENT).move_to(UP * 1)
+            active = MathTex(formula, font_size=48, color=GOLD).move_to(ORIGIN)
+            self.play(FadeIn(message), Write(active), run_time=0.55)
+            self.wait(0.3)
+        verification = MathTex(r"2(4-1)+3=9", font_size=44, color=GREEN_ACCENT)
+        verification.move_to(DOWN * 2.6)
+        self.play(Write(verification))
+        self.wait(0.7)
+        self.transition()
+
+    def summary(self):
+        self.header("解题顺序")
+        points = [
+            "去分母：两边同乘非零公倍数",
+            "去括号：用分配律",
+            "移项、合并同类项",
+            "系数化为 1，最后代回检验",
+        ]
+        group = VGroup(*[
+            Text(f"{i + 1}. {point}", font_size=27, color=WHITE)
+            for i, point in enumerate(points)
+        ]).arrange(DOWN, aligned_edge=LEFT, buff=0.55).move_to(UP * 0.8)
+        for row in group:
+            self.play(FadeIn(row, shift=RIGHT * 0.2), run_time=0.35)
+        result = Text("每一步都要保持等式成立", font_size=29, color=GREEN_ACCENT)
+        result.move_to(DOWN * 3.4)
+        self.play(Write(result))
+        self.wait(1)
