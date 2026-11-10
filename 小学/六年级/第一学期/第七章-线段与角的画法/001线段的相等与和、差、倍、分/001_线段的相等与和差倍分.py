@@ -48,6 +48,16 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def segment_lengths(ab: int, cd: int):
+    """线段长度的和、差、倍、中点一半：长度非负且差要求 AB≥CD。"""
+    from fractions import Fraction
+
+    if (type(ab) is not int or type(cd) is not int
+            or ab < 0 or cd < 0 or cd > ab):
+        raise ValueError("长度须为非负整数，且 AB 不小于 CD")
+    return ab + cd, ab - cd, 2 * ab, Fraction(ab, 2)
+
+
 class SegmentRelationsLesson(Scene):
     """
     线段的相等与和、差、倍、分 教学动画
@@ -624,6 +634,7 @@ class SegmentRelationsLesson(Scene):
         self.play(Write(sec_title), run_time=0.6)
 
         ab_len = 4.0
+        assert segment_lengths(4, 2) == (6, 2, 8, 2)
 
         pt_A = np.array([-3.0, 3.5, 0])
         pt_B = pt_A + RIGHT * ab_len
