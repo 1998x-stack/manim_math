@@ -52,6 +52,21 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def angle_partner(degrees: int, total: int) -> int:
+    """在 90° 互余或 180° 互补的条件下求另一角的大小。"""
+    if (type(degrees) is not int or type(total) is not int
+            or total not in (90, 180) or not 0 <= degrees <= total):
+        raise ValueError("角度须为合法整数，且总角度只允许 90 或 180")
+    return total - degrees
+
+
+def crossing_angles(degrees: int) -> tuple[int, int, int, int]:
+    """两条不重合直线交于一点时，相邻互补、对顶相等。"""
+    if type(degrees) is not int or not 0 < degrees < 180:
+        raise ValueError("两线相交形成的角须严格在 0°～180° 内")
+    return (degrees, 180 - degrees, degrees, 180 - degrees)
+
+
 class ComplementarySupplementaryVerticalLesson(Scene):
     """
     余角、补角、对顶角教学动画
@@ -70,6 +85,10 @@ class ComplementarySupplementaryVerticalLesson(Scene):
     """
 
     def construct(self):
+        # 互余、互补练习以及对顶角综合题必须遵守同一数学模型。
+        assert angle_partner(52, 90) == 38
+        assert angle_partner(75, 180) == 105
+        assert crossing_angles(70) == (70, 110, 70, 110)
         self.camera.background_color = BG_COLOR
 
         self.scene_1_opening()
