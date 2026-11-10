@@ -12,10 +12,25 @@ FONT = "PingFang SC"
 SAMPLE = (("一班", 6, 8), ("二班", 5, 7))
 
 
+def group_differences(sample):
+    """每组第二类人数减第一类人数；同一刻度下比较。"""
+    records = tuple(sample)
+    if not records:
+        raise ValueError("至少需要一组数据")
+    diffs = []
+    for name, boys, girls in records:
+        if not isinstance(name, str) or any(type(n) is not int or n < 0 for n in (boys, girls)):
+            raise ValueError("类别名需是文本且人数为非负整数")
+        diffs.append(girls - boys)
+    return tuple(diffs)
+
+
 class Topic001复式条形统计图Animation(Scene):
     """保留历史 Scene 名称，避免破坏既有课程入口。"""
 
     def construct(self):
+        differences = group_differences(SAMPLE)
+        assert differences == (2, 2)
         self.camera.background_color = BG
         author = Text("上海初高中数学直通车 @emptyandcalm",
                       font=FONT, font_size=18, color=GRAY_B).move_to(UP * 7)
@@ -61,7 +76,7 @@ class Topic001复式条形统计图Animation(Scene):
             )
             self.play(Write(name_label))
 
-        conclusion = Text("两班女生均比男生多 2 人", font=FONT,
+        conclusion = Text(f"两班女生均比男生多 {differences[0]} 人", font=FONT,
                           font_size=29, color=YELLOW).move_to(DOWN * 4.1)
         self.play(Write(conclusion))
         self.wait(1.2)
