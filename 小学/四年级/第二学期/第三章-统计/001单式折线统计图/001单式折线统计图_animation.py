@@ -1,183 +1,101 @@
-"""
-001单式折线统计图 - Animation
-使用 Manim 创建的数学教学视频
-
-内容: 001单式折线统计图
-目标观众: 学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""四年级：单式折线统计图，按描点、连线、标数观察变化趋势。"""
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+FONT = "PingFang SC"
+BG = "#1a1a2e"
+DAYS = (1, 2, 3, 4, 5)
+VALUES = (18, 20, 19, 23, 25)
+
+
+def line_chart_changes(days, values):
+    """同一量按时间排列，返回相邻差值、首尾净变化及最大涨幅。"""
+    xs, ys = tuple(days), tuple(values)
+    if (len(xs) < 2 or len(xs) != len(ys)
+            or any(type(v) is not int for v in xs + ys)
+            or any(xs[i] >= xs[i + 1] for i in range(len(xs) - 1))):
+        raise ValueError("日期必须严格递增，且两列为等长整数序列")
+    differences = tuple(ys[i + 1] - ys[i] for i in range(len(ys) - 1))
+    return differences, ys[-1] - ys[0], max(differences)
+
 
 class Topic001单式折线统计图Animation(Scene):
-    """
-    001单式折线统计图 教学动画场景
-    """
-    
+    """同一统计量的五日变化：先描点、后连线、再读趋势。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 强调元素
-        self.COLOR_HIGHLIGHT = "#f1c40f"    # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = "#95a5a6"    # 灰色 - 辅助元素
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
-        self.show_opening()
-        self.show_main_content()
-        self.show_examples()
-        self.show_summary()
-    
-    def setup_geometry(self):
-        """初始化几何布局"""
-        # 定义关键位置
-        self.center_pos = ORIGIN
-        self.top_pos = UP * 6
-        self.bottom_pos = DOWN * 6
-        self.left_pos = LEFT * 4
-        self.right_pos = RIGHT * 4
-        
-        # 定义网格位置用于摆放元素
-        self.grid_positions = []
-        rows, cols = 3, 3
-        start_x, start_y = -3, 2
-        spacing_x, spacing_y = 2, 2
-        
-        for row in range(rows):
-            for col in range(cols):
-                x = start_x + col * spacing_x
-                y = start_y - row * spacing_y
-                self.grid_positions.append(np.array([x, y, 0]))
-    
-    def show_opening(self):
-        """开场介绍"""
-        # 作者信息 (顶部)
-        author_info = Text(
+        assert line_chart_changes(DAYS, VALUES) == ((2, -1, 4, 2), 7, 4)
+        self.camera.background_color = BG
+        author = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7.5)
-        
-        self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 标题
-        title = Text(
-            "001单式折线统计图",
-            font="PingFang SC",
-            font_size=48,
-            color=GOLD
-        ).move_to(UP * 5)
-        
-        self.play(Write(title), run_time=1.0)
-        self.wait(1)
-        
-        # 清理
-        self.play(FadeOut(title), run_time=0.5)
-    
-    def show_main_content(self):
-        """主要内容展示"""
-        # 根据主题创建相应内容
-        content_text = Text(
-            "正在学习001单式折线统计图的概念...",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 3)
-        
-        self.play(Write(content_text), run_time=1.0)
-        self.wait(2)
-        
-        # 示例元素
-        example_elements = VGroup()
-        for i in range(3):
-            element = Circle(radius=0.5, color=self.COLOR_HIGHLIGHT, fill_opacity=0.7)
-            element.move_to(self.grid_positions[i])
-            example_elements.add(element)
-        
-        self.play(LaggedStart(*[Create(el) for el in example_elements], lag_ratio=0.5), run_time=2)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(content_text), *[FadeOut(el) for el in example_elements], run_time=0.8)
-    
-    def show_examples(self):
-        """示例演示"""
-        example_text = Text(
-            "让我们看一个例子:",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(example_text), run_time=0.8)
-        self.wait(1)
-        
-        # 创建示例
-        example_visual = Square(side_length=2, color=self.COLOR_AUXILIARY)
-        example_visual.move_to(ORIGIN)
-        
-        self.play(Create(example_visual), run_time=1.0)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(example_text), FadeOut(example_visual), run_time=0.8)
-    
-    def show_summary(self):
-        """总结回顾"""
-        summary_points = VGroup(
-            Text("✓ 今天我们学习了001单式折线统计图", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
-        )
-        summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
-        summary_points.move_to(UP * 1)
-        
-        title = Text(
-            "今天学到的知识：",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).move_to(UP * 4)
-        
-        self.play(Write(title), run_time=0.6)
-        self.play(LaggedStart(*[Write(point) for point in summary_points], lag_ratio=0.8), run_time=2.5)
-        
-        self.wait(3)
-        
-        # 鼓励话语
-        encouragement = Text(
-            "你学得真棒！\\n继续加油哦！",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 2)
-        
-        self.play(Write(encouragement), run_time=1.0)
-        self.wait(3)
-        
-        # 关注提醒
-        follow_reminder = Text(
-            "关注我，获得更多数学技巧!",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(follow_reminder, shift=UP * 0.3), run_time=0.5)
-        self.wait(3)
+            font=FONT, font_size=18, color=GRAY_B
+        ).move_to(UP * 7)
+        title = Text("单式折线统计图", font=FONT, font_size=44,
+                     color=YELLOW).move_to(UP * 5.6)
+        self.add(author)
+        self.play(Write(title))
+
+        question = Text(
+            "五天读书人数的变化（示例数据）",
+            font=FONT, font_size=27
+        ).move_to(UP * 4.5)
+        self.play(FadeIn(question))
+
+        axes = Axes(
+            x_range=[0, 6, 1], y_range=[0, 30, 5],
+            x_length=6.0, y_length=5.0, tips=False,
+            axis_config={"include_numbers": True}
+        ).move_to(UP * 0.5)
+        x_label = Text("日期（天）", font=FONT, font_size=22)
+        x_label.next_to(axes.x_axis, DOWN, buff=0.4)
+        y_label = Text("人数", font=FONT, font_size=22)
+        y_label.next_to(axes.y_axis, UP, buff=0.3)
+        self.play(Create(axes), FadeIn(x_label), FadeIn(y_label))
+
+        points = [axes.c2p(day, value) for day, value in zip(DAYS, VALUES)]
+        dots = VGroup(*[Dot(point, color=YELLOW, radius=0.09)
+                        for point in points])
+        values = VGroup(*[
+            Text(str(value), font=FONT, font_size=22).next_to(dot, UP, buff=0.12)
+            for value, dot in zip(VALUES, dots)
+        ])
+        # 教学顺序：逐个描点，明确每个点对应一个日期和值。
+        for dot, label in zip(dots, values):
+            self.play(FadeIn(dot), FadeIn(label), run_time=0.38)
+        segments = VGroup(*[
+            Line(points[i], points[i + 1], color=BLUE_B, stroke_width=5)
+            for i in range(len(points) - 1)
+        ])
+        for segment in segments:
+            self.play(Create(segment), run_time=0.4)
+
+        differences, net, greatest = line_chart_changes(DAYS, VALUES)
+        assert net == 7 and greatest == 4
+        notes = VGroup(
+            Text("第3天比第2天少1人", font=FONT, font_size=26),
+            Text("第3天到第4天增加4人，涨幅最大", font=FONT, font_size=24,
+                 color=YELLOW),
+            Text("第5天比第1天多7人", font=FONT, font_size=26,
+                 color=GREEN),
+        ).arrange(DOWN, buff=0.35).move_to(DOWN * 4.25)
+        self.play(LaggedStart(*(FadeIn(note) for note in notes),
+                              lag_ratio=0.3))
+        self.wait(1.0)
+        self.play(FadeOut(axes), FadeOut(dots), FadeOut(values),
+                  FadeOut(segments), FadeOut(x_label), FadeOut(y_label),
+                  FadeOut(question), FadeOut(notes))
+
+        takeaway = VGroup(
+            Text("描点 → 连线 → 标数", font=FONT, font_size=36,
+                 color=YELLOW),
+            Text("线段向上：数量增加", font=FONT, font_size=29),
+            Text("线段向下：数量减少", font=FONT, font_size=29),
+            Text("预测趋势应结合更多实际信息", font=FONT, font_size=26),
+        ).arrange(DOWN, buff=0.65).move_to(UP * 0.6)
+        self.play(LaggedStart(*(Write(row) for row in takeaway),
+                              lag_ratio=0.3))
+        self.wait(1.2)
