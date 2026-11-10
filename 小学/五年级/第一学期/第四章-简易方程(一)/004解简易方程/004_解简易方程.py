@@ -38,8 +38,19 @@ COLOR_AUTHOR = "#6b7280"
 FONT = "PingFang SC"
 
 
+def solve_linear_equation(a: int, b: int, c: int):
+    """精确求解 ax+b=c，允许非整数解；a=0 不属于本课程。"""
+    from fractions import Fraction
+
+    if any(type(value) is not int for value in (a, b, c)) or a == 0:
+        raise ValueError("系数必须为整数且 a 不能为 0")
+    return Fraction(c - b, a)
+
+
 class SolveEquationLesson(Scene):
     def construct(self):
+        assert solve_linear_equation(1, 8, 15) == 7
+        assert solve_linear_equation(3, 0, 24) == 8
         self.camera.background_color = BG_COLOR
         self.scene_1_opening()
         self.scene_2_core_idea()
