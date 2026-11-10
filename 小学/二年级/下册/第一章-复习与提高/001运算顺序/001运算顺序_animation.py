@@ -10,6 +10,21 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+def arithmetic_in_order(a: int, b: int, c: int, op1: str, op2: str, parentheses=False):
+    """三个整数的加减乘：同级从左到右，乘法优先，有括号先算括号。"""
+    if any(type(v) is not int for v in (a, b, c)) or op1 not in "+-*" or op2 not in "+-*":
+        raise ValueError("只接受整数及加减乘")
+    if type(parentheses) is not bool:
+        raise ValueError("括号开关必须是布尔值")
+    def apply(x, y, op):
+        return x + y if op == "+" else x - y if op == "-" else x * y
+    if parentheses or (op1 == "*" and op2 == "*") or (op1 != "*" and op2 != "*"):
+        return apply(apply(a, b, op1), c, op2)
+    if op1 != "*" and op2 == "*":
+        return apply(a, apply(b, c, op2), op1)
+    return apply(apply(a, b, op1), c, op2)
+
+
 class Topic001运算顺序Animation(Scene):
     """展示具体计算依据，不使用与运算无关的占位圆形或正方形。"""
 
@@ -20,6 +35,9 @@ class Topic001运算顺序Animation(Scene):
     )
 
     def construct(self):
+        assert arithmetic_in_order(5, 3, 2, "+", "-") == 6
+        assert arithmetic_in_order(5, 3, 2, "+", "*") == 11
+        assert arithmetic_in_order(5, 3, 2, "+", "*", True) == 16
         self.camera.background_color = "#1a1a2e"
         author = Text("上海初高中数学直通车 @emptyandcalm", font_size=19, color=GRAY_B)
         author.move_to(UP * 7.25)
