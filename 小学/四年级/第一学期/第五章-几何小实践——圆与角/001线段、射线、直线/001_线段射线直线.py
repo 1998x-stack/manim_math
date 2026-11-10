@@ -39,6 +39,18 @@ COLOR_RULER    = "#06b6d4"      # 青色 - 尺子
 FONT           = "PingFang SC"
 
 
+def shape_traits(kind: str) -> tuple[str, str, str]:
+    """返回线段、射线、直线的端点数、是否有限长、延伸方向。"""
+    traits = {
+        "segment": ("2 个", "有限", "不延伸"),
+        "ray": ("1 个", "无限", "一端"),
+        "line": ("0 个", "无限", "两端"),
+    }
+    if kind not in traits:
+        raise ValueError("仅支持 segment / ray / line")
+    return traits[kind]
+
+
 class LineSegmentRayLesson(Scene):
     """
     线段、射线、直线教学动画
@@ -712,7 +724,7 @@ class LineSegmentRayLesson(Scene):
         # ---- 行 1: 线段 ----
         row1 = self._make_table_row(
             name="线段", name_color=COLOR_SEGMENT,
-            values=["2 个", "有限", "不延伸"],
+            values=list(shape_traits("segment")),
             val_colors=[COLOR_ENDPOINT, COLOR_SEGMENT, GRAY_B],
             col_x=col_x, y=row_y[1], icon_type="segment",
         )
@@ -728,7 +740,7 @@ class LineSegmentRayLesson(Scene):
         # ---- 行 2: 射线 ----
         row2 = self._make_table_row(
             name="射线", name_color=COLOR_RAY,
-            values=["1 个", "无限", "一端"],
+            values=list(shape_traits("ray")),
             val_colors=[COLOR_ENDPOINT, COLOR_RAY, COLOR_ARROW],
             col_x=col_x, y=row_y[2], icon_type="ray",
         )
@@ -744,7 +756,7 @@ class LineSegmentRayLesson(Scene):
         # ---- 行 3: 直线 ----
         row3 = self._make_table_row(
             name="直线", name_color=COLOR_LINE,
-            values=["0 个", "无限", "两端"],
+            values=list(shape_traits("line")),
             val_colors=[GRAY_B, COLOR_LINE, COLOR_ARROW],
             col_x=col_x, y=row_y[3], icon_type="line",
         )
