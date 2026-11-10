@@ -5,7 +5,7 @@
   - 竖式除法算法: 从被除数最高位除起，商写在对应位上
   - 例1: 52 ÷ 4 = 13 (十位5÷4=1余1, 落下个位2得12, 12÷4=3)
   - 例2: 有余数: 57 ÷ 4 = 14…1
-  - 例3: 商中间有0: 312 ÷ 3 = 104 (十位1<3, 商0占位)
+  - 拓展例3: 商中间有0: 312 ÷ 3 = 104 (十位1<3, 商0占位)
 年级: 三年级上册
 格式: TikTok 竖屏 (1080x1920)
 作者: 上海初高中数学直通车 @emptyandcalm
@@ -44,6 +44,26 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def long_division_trace(dividend: int, divisor: int):
+    """按位从左到右执行竖式除法，返回 (部分被除数, 该位商, 当前余数)。
+
+    包括商中间为 0 的占位步骤。仅涵盖本课的两/三位数除以一位数。
+    纯 Python 算法；动画只负责解释对应的位值和步骤。
+    """
+    if type(dividend) is not int or not 10 <= dividend <= 999:
+        raise ValueError("本课被除数必须是两位或三位正整数")
+    if type(divisor) is not int or not 1 <= divisor <= 9:
+        raise ValueError("除数必须是一位正整数")
+    remainder = 0
+    trace = []
+    for digit in str(dividend):
+        partial = 10 * remainder + int(digit)
+        quotient_digit, remainder = divmod(partial, divisor)
+        assert 0 <= quotient_digit <= 9 and 0 <= remainder < divisor
+        trace.append((partial, quotient_digit, remainder))
+    return tuple(trace)
+
+
 class TwoDigitDivideOneLesson(Scene):
     """
     两位数除以一位数（竖式计算）教学动画
@@ -58,6 +78,12 @@ class TwoDigitDivideOneLesson(Scene):
     """
 
     def construct(self):
+        # 核实所有实际展示的例题；特别保留商中间为 0 的占位步骤。
+        lesson_examples = ((52, 4, 13, 0), (57, 4, 14, 1), (312, 3, 104, 0))
+        for dividend, divisor, expected_quotient, expected_remainder in lesson_examples:
+            trace = long_division_trace(dividend, divisor)
+            quotient = int("".join(str(step[1]) for step in trace))
+            assert (quotient, trace[-1][2]) == (expected_quotient, expected_remainder)
         self.camera.background_color = BG_COLOR
         self.author = self.make_author()
         self.play(FadeIn(self.author, shift=DOWN * 0.2), run_time=0.4)
