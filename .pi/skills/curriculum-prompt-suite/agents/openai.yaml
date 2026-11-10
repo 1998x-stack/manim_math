@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curriculum Prompt Suite"
+  short_description: "Inventory and adapt 522 K-12 math prompts across Codex, Pi and OpenCode"
+  default_prompt: "Use the curriculum-prompt-suite skill to inspect a specific lesson prompt.md, fill its variables, write math_spec and storyboard, and report verified Manim quality gates."
