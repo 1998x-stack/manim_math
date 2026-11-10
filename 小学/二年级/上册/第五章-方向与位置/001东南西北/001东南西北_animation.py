@@ -7,6 +7,16 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+def rotated_directions(quarter_turns: int):
+    """指北针逆时针旋转 quarter_turns 个 90° 后，四方向的屏幕向量。"""
+    if type(quarter_turns) is not int:
+        raise ValueError("旋转必须是整数个 90°")
+    positions = {"北": (0, 1), "南": (0, -1), "西": (-1, 0), "东": (1, 0)}
+    for _ in range(quarter_turns % 4):
+        positions = {name: (-y, x) for name, (x, y) in positions.items()}
+    return positions
+
+
 class Topic001东南西北Animation(Scene):
     """以指北针为基准讲解方位，避免把“上北”表述为绝对方向。"""
 
@@ -54,6 +64,7 @@ class Topic001东南西北Animation(Scene):
         self.play(Write(convention), FadeIn(reminder))
         self.wait(1.5)
         # 把整个地图坐标示意（含指北针）一起旋转，而不是孤立改变某个方向。
+        assert rotated_directions(1)["北"] == (-1, 0)
         self.play(self.compass.animate.rotate(PI / 2), run_time=1.5)
         rotated = Text("旋转后的地图，上方不一定是北方", font_size=27, color=YELLOW)
         rotated.move_to(DOWN * 6.25)
