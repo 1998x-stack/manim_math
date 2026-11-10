@@ -42,6 +42,21 @@ COLOR_ARROW = "#ec4899"         # 粉色箭头
 FONT = "PingFang SC"
 
 
+def literal_product(coefficient: int, variable: str) -> str:
+    """将整数系数与单个字母的乘积写为小学代数简写形式。"""
+    if type(coefficient) is not int or not isinstance(variable, str) or (
+        len(variable) != 1 or variable not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    ):
+        raise ValueError("需要整数系数和单个英文字母")
+    if coefficient == 0:
+        return "0"
+    if coefficient == 1:
+        return variable
+    if coefficient == -1:
+        return "-" + variable
+    return f"{coefficient}{variable}"
+
+
 class LetterRepresentLesson(Scene):
     """
     用字母表示数 教学动画
@@ -55,6 +70,8 @@ class LetterRepresentLesson(Scene):
     """
 
     def construct(self):
+        assert (literal_product(5, 'a'), literal_product(1, 'b'),
+                literal_product(2, 'a')) == ('5a', 'b', '2a')
         self.camera.background_color = BG_COLOR
 
         self.scene_1_opening()
