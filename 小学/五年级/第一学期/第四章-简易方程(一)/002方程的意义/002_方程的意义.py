@@ -40,6 +40,22 @@ COLOR_AUTHOR = "#6b7280"     # 灰色作者信息
 FONT = "PingFang SC"
 
 
+def is_equation(expression: str) -> bool:
+    """本课常见算式：有且仅有等号且含未知数字母才是方程。
+
+    排除纯数字乘法的 LaTeX 指令，避免把 \\times 中的字母误判为未知数。
+    不是一般 LaTeX 表达式分析器。
+    """
+    if type(expression) is not str:
+        raise ValueError("算式必须是字符串")
+    cleaned = expression.replace(r"\times", "").replace(r"\div", "").replace(r"\cdot", "")
+    return (
+        cleaned.count("=") == 1
+        and not any(char in cleaned for char in "<>≠≤≥")
+        and any(char in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" for char in cleaned)
+    )
+
+
 class EquationMeaningLesson(Scene):
     """
     方程的意义教学动画
@@ -237,6 +253,8 @@ class EquationMeaningLesson(Scene):
             (r"y = 4",         True,  "含未知数的等式"),
             (r"6 \times 3",    False, "不是等式(无等号)"),
         ]
+
+        assert all(is_equation(expr) == expected for expr, expected, _ in examples)
 
         start_y = 2.2
         items_group = VGroup()
