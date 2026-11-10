@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "mode": "shadow",
+  "baseline_commit": "b9e09e32eb49662fedd5ac27534e572ceac15013",
+  "review_scope": "source-entrypoints-only; no render, math-proof or media-identity verification",
+  "topics": [
+    {
+      "topic": "小学/二年级/上册/第六章-整理与提高/001解决问题策略",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/二年级/上册/第三章-乘法、除法（二）/0017、8、9的乘法口诀",
+      "status": "source-reviewed",
+      "source": "小学/二年级/上册/第三章-乘法、除法（二）/0017、8、9的乘法口诀/001_7、8、9的乘法口诀.py",
+      "scene_class": "MultiplyTableAnimation",
+      "evidence": "本课分镜已指定该主教学源码；历史替代实现和已发布视频需单独核对。"
+    },
+    {
+      "topic": "小学/二年级/上册/第三章-乘法、除法（二）/002有余数的除法",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/二年级/上册/第四章-几何小实践/001认识角",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/二年级/上册/第五章-方向与位置/001东南西北",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/二年级/下册/第七章-整理与提高/001统计（条形统计图二）",
+      "status": "source-reviewed",
+      "source": "小学/二年级/下册/第七章-整理与提高/001统计（条形统计图二）/001_统计条形统计图二.py",
+      "scene_class": "BarChartTwoLesson",
+      "evidence": "完整以一当二、以一当五的条形统计图教学 Scene；另一入口需保留兼容。"
+    },
+    {
+      "topic": "小学/二年级/下册/第一章-复习与提高/001运算顺序",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第二学期/第二章-比例/001正比例",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第二学期/第四章-统计与概率/002平均数、中位数、众数",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第二学期/第四章-统计与概率/003可能性(概率的初步)",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第二学期/第五章-整理与提高/001抽屉原理",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/001一元一次方程的解法",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/002二元一次方程组",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/003不等式及其性质",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/004一元一次不等式的解法",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第七章-线段与角的画法/001线段的相等与和、差、倍、分",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第七章-线段与角的画法/002余角、补角、对顶角",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第三章-比和比例/002比与分数、除法的关系",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第四章-圆和扇形/001圆的认识",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第五章-有理数/001有理数的意义",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第一章-数的整除/001整数与整除",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/六年级/第一学期/第一章-数的整除/003最大公因数和最小公倍数(深化)",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/三年级/上册/第二章-用一位数乘/001整十、整百数乘一位数",
+      "status": "source-reviewed",
+      "source": "小学/三年级/上册/第二章-用一位数乘/001整十、整百数乘一位数/001_整十整百数乘一位数.py",
+      "scene_class": "RoundNumberMultiplyLesson",
+      "evidence": "简短示例明确指向此完整课程 Scene。"
+    },
+    {
+      "topic": "小学/三年级/上册/第二章-用一位数乘/002两位数乘一位数（竖式计算）",
+      "status": "source-reviewed",
+      "source": "小学/三年级/上册/第二章-用一位数乘/002两位数乘一位数（竖式计算）/002_两位数乘一位数.py",
+      "scene_class": "TwoDigitTimeOneLesson",
+      "evidence": "另一文件为 TwoDigitMultiplicationPreview，完整教学文件明确包含进位说明。"
+    },
+    {
+      "topic": "小学/三年级/上册/第三章-时间的初步认识（三）/001年、月、日",
+      "status": "source-reviewed",
+      "source": "小学/三年级/上册/第三章-时间的初步认识（三）/001年、月、日/001_年月日.py",
+      "scene_class": "YearMonthDay",
+      "evidence": "简短源文件明确声明 Preview，完整源码明确声明 YearMonthDay。"
+    },
+    {
+      "topic": "小学/三年级/上册/第四章-用一位数除/001两位数除以一位数（竖式计算）",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/三年级/上册/第五章-几何小实践/001认识周长",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/三年级/下册/第二章-用两位数乘除/001两位数乘两位数（竖式计算）",
+      "status": "source-reviewed",
+      "source": "小学/三年级/下册/第二章-用两位数乘除/001两位数乘两位数（竖式计算）/001_两位数乘两位数.py",
+      "scene_class": "TwoDigitMultiplyLesson",
+      "evidence": "同目录另一文件为 TwoDigitByTwoDigitPreview，完整教学实现独立存在。"
+    },
+    {
+      "topic": "小学/三年级/下册/第二章-用两位数乘除/002两位数除两、三位数（试商）",
+      "status": "source-reviewed",
+      "source": "小学/三年级/下册/第二章-用两位数乘除/002两位数除两、三位数（试商）/002_两位数除两三位数.py",
+      "scene_class": "TwoDigitDivisionLesson",
+      "evidence": "简短试商示例明确指向完整的 TwoDigitDivisionLesson。"
+    },
+    {
+      "topic": "小学/三年级/下册/第六章-几何小实践/001认识面积",
+      "status": "source-reviewed",
+      "source": "小学/三年级/下册/第六章-几何小实践/001认识面积/001认识面积_animation.py",
+      "scene_class": "Topic001认识面积Animation",
+      "evidence": "另一文件明确为 AreaIntroductionPreview；该文件保留历史主 Scene 名称。"
+    },
+    {
+      "topic": "小学/三年级/下册/第三章-统计/001复式条形统计图",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/四年级/第二学期/第三章-统计/001单式折线统计图",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法(竖式计算)",
+      "status": "source-reviewed",
+      "source": "小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法(竖式计算)/001_笔算乘法(竖式计算).py",
+      "scene_class": "ColumnMultiplicationLesson",
+      "evidence": "另一个文件是旧场景类的继承兼容入口，数学计算与动画位于此文件。"
+    },
+    {
+      "topic": "小学/四年级/第一学期/第四章-数的运算——除数是两位数的除法/002笔算除法(试商与调商)",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/四年级/第一学期/第五章-几何小实践——圆与角/001线段、射线、直线",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/五年级/第二学期/第三章-分数的意义和性质/001单位'1'",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第三章-统计/001平均数的意义",
+      "status": "source-reviewed",
+      "source": "小学/五年级/第一学期/第三章-统计/001平均数的意义/001_平均数的意义.py",
+      "scene_class": "AverageMeaningLesson",
+      "evidence": "历史 _animation.py 使用 run_path 继承该主课程，避免复制教学逻辑。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第四章-简易方程(一)/001用字母表示数",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第四章-简易方程(一)/002方程的意义",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第四章-简易方程(一)/003等式的性质",
+      "status": "source-reviewed",
+      "source": "小学/五年级/第一学期/第四章-简易方程(一)/003等式的性质/003_等式的性质.py",
+      "scene_class": "EqualityPropertyLesson",
+      "evidence": "历史 _animation.py 使用 run_path 继承该教学 Scene。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第四章-简易方程(一)/004解简易方程",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高",
+      "status": "source-reviewed",
+      "source": "小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/lesson.py",
+      "scene_class": "EqualAreaMovingApex",
+      "evidence": "area_model.py 为纯数学模型、test_area_model.py 为单元测试，lesson.py 声明可渲染 Scene。"
+    },
+    {
+      "topic": "小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型",
+      "status": "source-reviewed",
+      "source": "小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/lesson.py",
+      "scene_class": "TrapezoidButterflyArea",
+      "evidence": "数学模型与测试文件和 lesson.py 分离，后者声明可渲染 Scene。"
+    },
+    {
+      "topic": "小学/一年级/上册/第二章-10以内数的加减法/001加法的初步认识",
+      "status": "source-reviewed",
+      "source": "小学/一年级/上册/第二章-10以内数的加减法/001加法的初步认识/addition_intro.py",
+      "scene_class": "AdditionIntro",
+      "evidence": "同目录其他 Python 为 verify_geometry.py；源文件直接声明加法教学 Scene。"
+    },
+    {
+      "topic": "小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/一年级/上册/第三章-认识图形（一）/001长方体",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    },
+    {
+      "topic": "小学/一年级/下册/第六章-几何小实践/001认识平面图形",
+      "status": "needs-review",
+      "reason": "存在多个候选教学源码或历史兼容入口；主课程和发布视频关联尚未静态确认。"
+    }
+  ]
+}

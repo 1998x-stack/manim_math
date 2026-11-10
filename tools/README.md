@@ -8,7 +8,7 @@
 | 结构与镜像 | [`check_repository.py`](check_repository.py)、[`sync_skills.py`](sync_skills.py) | 检查文档/分类/技能包一致性；技能同步不带 `--check` 时会写入镜像。 |
 | 课程及年级 | [`audit_curriculum.py`](audit_curriculum.py)、`audit_grade*.py`、`check_grade5.py` | 各自有独立的扫描范围和误报边界；合并规则前保留原工具行为。 |
 | 小学 Python/Scene 全清单 | [`audit_primary_sources.py`](audit_primary_sources.py) | 扫描一年级至六年级及奥数 Python，识别直接 Scene、兼容入口、辅助与测试文件；明确报告稀疏检出遗漏，不导入 Manim。 |
-| 画廊与兼容 | [`audit_catalog.py`](audit_catalog.py)、[`legacy_contract.py`](legacy_contract.py) | 检查索引及旧字段/旧 ID 契约；现行索引生成入口是 `assets/build_catalog.py`，会写 JSON。 |
+| 小学主 Scene 影子映射 | [`primary_scene_shadow.py`](primary_scene_shadow.py) | 对 47 个多源码知识点使用人工静态审核清单建立只读 Scene 候选；只报告与旧 Gallery 源码/视频的差异。 |\n| 画廊与兼容 | [`audit_catalog.py`](audit_catalog.py)、[`legacy_contract.py`](legacy_contract.py) | 检查索引及旧字段/旧 ID 契约；现行索引生成入口是 `assets/build_catalog.py`，会写 JSON。 |
 
 ## 全文件清单（不触碰课程内容）
 
@@ -28,4 +28,5 @@ python -m unittest tests.test_audit_primary_sources -v
 
 冻结的 273 文件初始基线与分批优化计划：[小学源码清单](../docs/engineering/primary-school-inventory.md)。如果报告的 `summary.complete_checkout` 为 `false`，扫描结果只代表实际检出的部分，不能当作全部课程验收。
 
+\n小学多 Scene 影子检查（只读，不更新既有作品）：\n\n```bash\npython -m tools.primary_scene_shadow --output /tmp/manim-primary-scene-shadow.json\npython -m unittest tests.test_primary_scene_shadow -v\n```\n\n审核队列：[47 个多源码知识点](../docs/engineering/primary-scene-review-queue.md)。只有完整 Python 源码检出时才可使用 `--require-complete` 作为全量检查。\n
 详细迁移规则：[文件系统分类治理](../docs/engineering/filesystem-governance.md) · [验收门禁](../docs/engineering/quality-gates.md)。
