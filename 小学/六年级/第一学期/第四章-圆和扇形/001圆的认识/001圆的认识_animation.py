@@ -1,183 +1,136 @@
-"""
-001圆的认识 - Animation
-使用 Manim 创建的数学教学视频
-
-内容: 001圆的认识
-目标观众: 学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""六年级圆的认识：圆心、半径、直径、圆规画法与对称轴。"""
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#131a30"
+BLUE_ACCENT = "#60a5fa"
+GOLD = "#fbbf24"
+GREEN_ACCENT = "#34d399"
+
+
+def circle_measurements(radius):
+    """半径和直径的精确关系 d=2r；要求正整数或有理数半径。"""
+    from fractions import Fraction
+
+    if type(radius) not in (int, Fraction) or radius <= 0:
+        raise ValueError("半径必须为正数且精确表示")
+    radius = Fraction(radius)
+    return radius, 2 * radius
+
 
 class Topic001圆的认识Animation(Scene):
-    """
-    001圆的认识 教学动画场景
-    """
-    
+    """从圆规的定点、定长旋转引出半径、直径及无穷多条对称轴。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 强调元素
-        self.COLOR_HIGHLIGHT = "#f1c40f"    # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = "#95a5a6"    # 灰色 - 辅助元素
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
-        self.show_opening()
-        self.show_main_content()
-        self.show_examples()
-        self.show_summary()
-    
-    def setup_geometry(self):
-        """初始化几何布局"""
-        # 定义关键位置
-        self.center_pos = ORIGIN
-        self.top_pos = UP * 6
-        self.bottom_pos = DOWN * 6
-        self.left_pos = LEFT * 4
-        self.right_pos = RIGHT * 4
-        
-        # 定义网格位置用于摆放元素
-        self.grid_positions = []
-        rows, cols = 3, 3
-        start_x, start_y = -3, 2
-        spacing_x, spacing_y = 2, 2
-        
-        for row in range(rows):
-            for col in range(cols):
-                x = start_x + col * spacing_x
-                y = start_y - row * spacing_y
-                self.grid_positions.append(np.array([x, y, 0]))
-    
-    def show_opening(self):
-        """开场介绍"""
-        # 作者信息 (顶部)
-        author_info = Text(
+        assert circle_measurements(2) == (2, 4)
+        self.camera.background_color = BG
+        self.watermark = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7.5)
-        
-        self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 标题
-        title = Text(
-            "001圆的认识",
-            font="PingFang SC",
-            font_size=48,
-            color=GOLD
-        ).move_to(UP * 5)
-        
-        self.play(Write(title), run_time=1.0)
-        self.wait(1)
-        
-        # 清理
-        self.play(FadeOut(title), run_time=0.5)
-    
-    def show_main_content(self):
-        """主要内容展示"""
-        # 根据主题创建相应内容
-        content_text = Text(
-            "正在学习001圆的认识的概念...",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 3)
-        
-        self.play(Write(content_text), run_time=1.0)
-        self.wait(2)
-        
-        # 示例元素
-        example_elements = VGroup()
-        for i in range(3):
-            element = Circle(radius=0.5, color=self.COLOR_HIGHLIGHT, fill_opacity=0.7)
-            element.move_to(self.grid_positions[i])
-            example_elements.add(element)
-        
-        self.play(LaggedStart(*[Create(el) for el in example_elements], lag_ratio=0.5), run_time=2)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(content_text), *[FadeOut(el) for el in example_elements], run_time=0.8)
-    
-    def show_examples(self):
-        """示例演示"""
-        example_text = Text(
-            "让我们看一个例子:",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(example_text), run_time=0.8)
-        self.wait(1)
-        
-        # 创建示例
-        example_visual = Square(side_length=2, color=self.COLOR_AUXILIARY)
-        example_visual.move_to(ORIGIN)
-        
-        self.play(Create(example_visual), run_time=1.0)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(example_text), FadeOut(example_visual), run_time=0.8)
-    
-    def show_summary(self):
-        """总结回顾"""
-        summary_points = VGroup(
-            Text("✓ 今天我们学习了001圆的认识", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            font_size=17, color=GRAY_B
+        ).move_to(UP * 7)
+        self.add(self.watermark)
+        self.opening()
+        self.compass_circle()
+        self.radius_and_diameter()
+        self.symmetry()
+        self.summary()
+
+    def transition(self):
+        self.play(*[
+            FadeOut(mob) for mob in list(self.mobjects) if mob is not self.watermark
+        ], run_time=0.3)
+
+    def heading(self, title):
+        text = Text(title, font_size=38, color=GOLD).move_to(UP * 5.65)
+        self.play(Write(text))
+        return text
+
+    def opening(self):
+        title = Text("圆的认识", font_size=48).move_to(UP * 3)
+        hint = Text("圆心决定位置，半径决定大小", font_size=29, color=BLUE_ACCENT)
+        hint.next_to(title, DOWN, buff=0.55)
+        self.play(Write(title), FadeIn(hint))
+        self.wait(0.7)
+        self.transition()
+
+    def compass_circle(self):
+        self.heading("圆规画圆：定点、定长")
+        center = UP * 0.2
+        center_dot = Dot(center, radius=0.10, color=GOLD)
+        r = 2.1
+        radius_line = Line(center, center + RIGHT * r, color=GOLD, stroke_width=4)
+        circle = Circle(radius=r, stroke_color=BLUE_ACCENT, stroke_width=5).move_to(center)
+        center_label = MathTex("O", font_size=29).next_to(center_dot, DOWN, buff=0.2)
+        tip_label = Text("铅笔沿固定距离旋转一周", font_size=26, color=GREEN_ACCENT)
+        tip_label.move_to(DOWN * 3.3)
+        self.play(FadeIn(center_dot), Write(center_label), Create(radius_line))
+        self.play(
+            Create(circle, run_time=2),
+            Rotate(radius_line, angle=TAU, about_point=center, rate_func=linear, run_time=2),
         )
-        summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
-        summary_points.move_to(UP * 1)
-        
-        title = Text(
-            "今天学到的知识：",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).move_to(UP * 4)
-        
-        self.play(Write(title), run_time=0.6)
-        self.play(LaggedStart(*[Write(point) for point in summary_points], lag_ratio=0.8), run_time=2.5)
-        
-        self.wait(3)
-        
-        # 鼓励话语
-        encouragement = Text(
-            "你学得真棒！\\n继续加油哦！",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 2)
-        
-        self.play(Write(encouragement), run_time=1.0)
-        self.wait(3)
-        
-        # 关注提醒
-        follow_reminder = Text(
-            "关注我，获得更多数学技巧!",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(follow_reminder, shift=UP * 0.3), run_time=0.5)
-        self.wait(3)
+        self.play(FadeIn(tip_label))
+        self.wait(0.7)
+        self.transition()
+
+    def radius_and_diameter(self):
+        self.heading("半径 r 与直径 d")
+        center = UP * 0.7
+        radius = 2.1
+        circle = Circle(radius=radius, color=BLUE_ACCENT).move_to(center)
+        left = center + LEFT * radius
+        right = center + RIGHT * radius
+        midpoint = Dot(center, color=GOLD, radius=0.09)
+        diameter = Line(left, right, color=GREEN_ACCENT, stroke_width=4)
+        radius_line = Line(center, right, color=GOLD, stroke_width=6)
+        self.play(Create(circle), FadeIn(midpoint))
+        self.play(Create(diameter))
+        self.play(Create(radius_line))
+        formula = MathTex(r"d=2r,\qquad r=\frac{d}{2}", font_size=46, color=GOLD)
+        formula.move_to(DOWN * 3.2)
+        explanation = Text("直径通过圆心，等于两条半径", font_size=26)
+        explanation.move_to(DOWN * 2.1)
+        self.play(Write(formula), FadeIn(explanation))
+        self.wait(0.7)
+        self.transition()
+
+    def symmetry(self):
+        self.heading("圆是轴对称图形")
+        circle = Circle(radius=2.0, color=BLUE_ACCENT).move_to(UP * 0.6)
+        center = circle.get_center()
+        self.play(Create(circle))
+        diameters = VGroup(
+            DashedLine(center + LEFT * 2.5, center + RIGHT * 2.5, color=GOLD),
+            DashedLine(center + UP * 2.5, center + DOWN * 2.5, color=GREEN_ACCENT),
+            DashedLine(
+                center + (UP + RIGHT) * 1.8,
+                center + (DOWN + LEFT) * 1.8,
+                color=WHITE
+            ),
+        )
+        for line in diameters:
+            self.play(Create(line), run_time=0.55)
+        words = Text("每条直径所在的直线都是对称轴", font_size=26)
+        words.move_to(DOWN * 3.1)
+        count = Text("因此圆有无数条对称轴", font_size=28, color=GOLD)
+        count.move_to(DOWN * 4.1)
+        self.play(FadeIn(words), FadeIn(count))
+        self.wait(0.7)
+        self.transition()
+
+    def summary(self):
+        self.heading("知识总结")
+        rows = VGroup(
+            Text("圆心 O：决定圆的位置", font_size=29),
+            Text("半径 r：圆心到圆上任一点", font_size=28),
+            Text("直径 d：通过圆心，两端在圆上", font_size=27),
+            MathTex(r"d=2r", font_size=45, color=GREEN_ACCENT),
+            Text("圆有无数条对称轴", font_size=28, color=GOLD),
+        ).arrange(DOWN, buff=0.5).move_to(UP * 0.4)
+        for row in rows:
+            self.play(FadeIn(row), run_time=0.4)
+        self.wait(1)
