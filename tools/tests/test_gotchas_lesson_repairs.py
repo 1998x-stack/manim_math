@@ -38,9 +38,18 @@ class LessonRepairTests(unittest.TestCase):
         tree = ast.parse(source)
         classes = {node.name for node in tree.body if isinstance(node, ast.ClassDef)}
         self.assertIn('WrittenDivisionLesson', classes)
-        self.assertIn('self.eg1_dividend = 952', source)
-        self.assertIn('self.eg1_divisor = 34', source)
-        dividend, divisor = 952, 34
+        values = {
+            node.targets[0].attr: node.value.value
+            for node in ast.walk(tree)
+            if isinstance(node, ast.Assign)
+            and len(node.targets) == 1
+            and isinstance(node.targets[0], ast.Attribute)
+            and isinstance(node.value, ast.Constant)
+            and isinstance(node.value.value, int)
+        }
+        dividend, divisor = values['eg1_dividend'], values['eg1_divisor']
+        self.assertEqual((dividend, divisor), (952, 34))
+        self.assertEqual((values['eg1_quotient'], values['eg1_remain']), (28, 0))
         quotient, remainder = divmod(dividend, divisor)
         self.assertEqual((quotient, remainder), (28, 0))
         self.assertEqual(dividend, divisor * quotient + remainder)
