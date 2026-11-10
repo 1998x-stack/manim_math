@@ -6,6 +6,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tools.sync_skills import inventory as skill_inventory
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "skills/source"
 AGENTS = (".codex", ".opencode", ".claude", ".pi")
@@ -56,9 +58,8 @@ class SkillBundles(unittest.TestCase):
                 self.assertEqual(command.returncode, 0, f"{script}: {command.stderr}")
             self.assertTrue(list((base / "references").glob("*.md")))
             for agent in AGENTS:
-                for path in base.rglob("*"):
-                    if path.is_file():
-                        self.assertEqual(path.read_bytes(), (ROOT / agent / "skills" / skill / path.relative_to(base)).read_bytes())
+                for rel, path in skill_inventory(base).items():
+                    self.assertEqual(path.read_bytes(), (ROOT / agent / "skills" / skill / rel).read_bytes())
 
     def test_prompt_extraction_is_data_only(self):
         with tempfile.TemporaryDirectory() as directory:
