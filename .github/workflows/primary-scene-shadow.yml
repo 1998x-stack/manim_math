@@ -9,6 +9,9 @@ on:
       - 'tools/primary_scene_shadow.py'
       - 'tests/test_audit_primary_sources.py'
       - 'tests/test_primary_scene_shadow.py'
+      - 'tests/test_primary_scene_deduplication.py'
+      - 'assets/catalog.json'
+      - 'assets/build_catalog.py'
       - '.github/workflows/primary-scene-shadow.yml'
   workflow_dispatch:
 
@@ -30,6 +33,8 @@ jobs:
             tools/primary_scene_shadow.py
             tests/test_audit_primary_sources.py
             tests/test_primary_scene_shadow.py
+            tests/test_primary_scene_deduplication.py
+            assets/build_catalog.py
             catalog/primary-scene-overrides.json
             assets/catalog.json
             小学/**/*.py
@@ -37,7 +42,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Unit tests (no Manim required)
-        run: python -m unittest tests.test_audit_primary_sources tests.test_primary_scene_shadow -v
+        run: python -m unittest tests.test_audit_primary_sources tests.test_primary_scene_shadow tests.test_primary_scene_deduplication -v
       - name: Read-only shadow validation; require all tracked primary Python files
         run: python -m tools.primary_scene_shadow --require-complete --output /tmp/primary-scene-shadow.json
       - name: Print summary for reviewers
