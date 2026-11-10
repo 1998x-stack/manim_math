@@ -114,8 +114,11 @@ def main() -> int:
         for issue in result["issues"]:
             print(f"{issue['severity'].upper()} {issue['file']}:{issue['line']} "
                   f"[{issue['code']}] {issue['detail']}")
-    return int(args.strict and any(issue["severity"] in {"error", "warning"}
-                                   for issue in result["issues"]))
+    # Syntax/read/directory errors are fatal even without --strict.
+    # --strict additionally makes warning-level findings fatal.
+    errors = any(issue["severity"] == "error" for issue in result["issues"])
+    warnings = any(issue["severity"] == "warning" for issue in result["issues"])
+    return int(errors or (args.strict and warnings))
 
 
 if __name__ == "__main__":
