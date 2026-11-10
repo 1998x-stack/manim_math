@@ -11,6 +11,7 @@ import ast
 from collections import Counter
 import json
 from pathlib import Path
+import subprocess
 import sys
 
 GRADE_NAMES = ("一年级", "二年级", "三年级", "四年级", "五年级", "六年级")
@@ -95,6 +96,21 @@ def inspect_source(path: Path, root: Path) -> dict:
     return record
 
 
+def tracked_python_paths(root: Path) -> list[str] | None:
+    """Read Git's index to expose incomplete sparse checkouts; never fetch blobs."""
+    command = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "--cached", "-z", "--", "小学"],
+        capture_output=True, check=False,
+    )
+    if command.returncode != 0:
+        return None
+    return sorted(
+        path.decode("utf-8", errors="surrogateescape")
+        for path in command.stdout.split(b"\0")
+        if path and path.endswith(b".py")
+    )
+
+
 def audit(root: Path) -> dict:
     """Return deterministic source and topic inventories without importing scenes."""
     root = root.resolve()
@@ -102,6 +118,11 @@ def audit(root: Path) -> dict:
     if not course.is_dir():
         raise FileNotFoundError(f"Missing primary-school directory: {course}")
 
+    tracked = tracked_python_paths(root)
+    not_checked_out = (
+        [path for path in tracked if not (root / path).is_file()]
+        if tracked is not None else []
+    )
     files = [inspect_source(path, root) for path in sorted(course.rglob("*.py"))]
     groups: dict[str, list[dict]] = {}
     for item in files:
@@ -130,7 +151,11 @@ def audit(root: Path) -> dict:
     return {
         "schema_version": 1,
         "scope": "小学",
+        "not_checked_out": not_checked_out,
         "summary": {
+            "tracked_python_files": len(tracked) if tracked is not None else None,
+            "not_checked_out": len(not_checked_out),
+            "complete_checkout": not not_checked_out if tracked is not None else None,
             "python_files": len(files),
             "source_directories": len(topics),
             "by_grade": dict(sorted(Counter(item["grade"] for item in files).items())),
