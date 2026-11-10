@@ -18,6 +18,8 @@ description: 将小学至高中数学题、description.json、prompt.md 或现�
 - `references/repository-gotchas-and-patterns.md`：Hxx 历史故障、证据分级及适用条件。
 - `references/visual-and-render.md`：竖屏布局、字体/TeX、媒体与音轨验收。
 - **`references/manim-engine-and-runtime.md`**：Manim Scene/Transform/updater/Axes 机制、真实对象与动态关键帧检查、CLI 版本说明及调用示例。
+- `references/scene-and-geometry.md`：Scene 类发现、对象生存期、角弧方向、几何退化与误差阈值。
+- `references/layout-and-media.md`：中文/公式混排、文字 bbox、安全区、ffprobe 与媒体许可清单。
 - 仅有真实二维几何关系时，使用 `references/geometry_spec.example.json` 作格式参考；不把它强加给集合、统计等课程。
 
 ## 执行流程（逐阶段记录事实）
@@ -29,6 +31,32 @@ description: 将小学至高中数学题、description.json、prompt.md 或现�
 5. **静态到运行时的分层验证**。优先 `python -m unittest discover -s scripts -p 'test_*.py' -v` 检查 Skill 自身；课程运行 `python -m py_compile lesson.py`、`python scripts/audit_scene.py lesson.py --json`、独立数学测试。`ERROR` 逐项修复，`WARN` 依实际源码和 Manim 版本分类，不把 AST 候选当作已复现运行故障。对具体课程在 Scene 的初始、关键状态、极值/退化附近和结论状态显式调用 `scripts/runtime_probe.py` 中的 `assert_checkpoint`；注册需要检查的实际 Mobject 与画布坐标，检查是否仍在 Scene 家族内、完整 bbox 和模型位置。检查点仅覆盖调用时刻，并非逐帧视觉证明。
 6. **预览、正式渲染及媒体验收**。查看 `python -m manim --version`、`python -m manim render --help`，实测字体/TeX 和渲染器。官方 Community v0.21.0 说明 `-r W,H`，对应竖屏预览 `-r 270,480`、正式 `-r 1080,1920`；源文件可覆盖 CLI 配置，必须用 `ffprobe` 确认最终 MP4 的真实分辨率/时长/帧率/音轨。查看第一帧、各重要动画中段、标签/重叠、临界状态和结论帧。仅有授权音乐并经确认需要时才在新路径合成，保留原讲解轨。
 7. **可选的自动化入口与交付**。从 Skill 目录执行 `python scripts/production_check.py /absolute/path/lesson.py ActualScene --math-test /absolute/path/test_math.py` 只做静态和课内测试；加 `--render --preview` 才真正渲染，日志、视频和 `report.json` 写入每次全新目录，不覆盖旧成片。若课程要使用实时检查，按运行时参考文档配置 `runtime_probe.py` 可导入路径。编排脚本不等于自动完成数学证明、全部关键帧审看或音轨听审。
+
+
+## 两个 Skill 的任务路由和能力合并
+
+本仓库仅保留 `curriculum-prompt-suite`（课程 Prompt、数学规格、分镜、索引）和本 `manim-video-production`（Manim Scene、几何、排版、媒体验证）两个 Skill。**本 Skill 可单独使用**：课程规格缺失时自行从题目重建命题、条件、反例与测试，不强制调用另一 Skill。课程级跨平台模板与全量索引则由 `curriculum-prompt-suite` 维护。
+
+原 `manim-scene`、`geometry-precision`、`chinese-vertical-layout`、`render-and-publish` 的精确检查能力分别通过下列包内脚本保留，并与既有 `audit_scene.py`、`verify_geometry.py`、`runtime_probe.py`、`production_check.py` 配合：
+
+- `scripts/discover_scene.py`：只读 AST 识别实际 Scene 候选，动态继承或多 Scene 时人工核对；
+- `scripts/check_triangle.py`：纯 Python 三角形外心/退化回归；非证明，尤其共线时应明确拒绝；
+- `scripts/scan_mathtex.py`：排查静态 MathTex 汉字字符串候选；不能替代实际 LaTeX 编译；
+- `scripts/check_manifest.py`：只读媒体清单结构与覆盖风险；不能替代 ffprobe/音视频审查。
+
+只在本次作品实际涉及的课型执行对应检查，避免对小学计数课强制套用几何检查；按需阅读 `references/scene-and-geometry.md` 和 `references/layout-and-media.md`。另外已有的五份生产参考保持原样，覆盖动态帧、版本、数学、竖屏、历史失败模式。
+
+### 轻量操作路径
+
+先核验知识点、数学域与 Scene 候选 → 写独立数学模型与分镜对象生命周期 → 静态脚本与课内数学测试 → 真实 Manim 关键帧 → 预览渲染 → 正式成片与媒体探测。无 Manim、字体或 FFmpeg 时不构造假阳性，分别标记 `not_run` 或 `blocked`。
+
+```bash
+python scripts/discover_scene.py path/to/scene.py
+python scripts/check_triangle.py --points '0,0;4,0;0,3'
+python scripts/scan_mathtex.py path/to/scene.py
+python scripts/check_manifest.py path/to/manifest.json
+```
+
 
 ## 分层交付状态与否决条件
 

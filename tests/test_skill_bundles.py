@@ -9,32 +9,52 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "skills/source"
 AGENTS = (".codex", ".opencode", ".claude", ".pi")
-SCRIPTS = {
-    "curriculum-prompt-suite": "prompt_suite.py",
-    "prompt-to-scene": "extract_problem.py",
-    "math-specification": "check_contract.py",
-    "manim-scene": "discover_scene.py",
-    "geometry-precision": "check_triangle.py",
-    "chinese-vertical-layout": "scan_mathtex.py",
-    "catalog-and-taxonomy": "check_catalog.py",
-    "render-and-publish": "check_manifest.py",
-    "safe-repository-migration": "check_moves.py",
+SKILL_SCRIPTS = {
+    "curriculum-prompt-suite": [
+        "prompt_suite.py", "extract_problem.py", "check_contract.py",
+        "check_catalog.py", "check_moves.py",
+    ],
+    "manim-video-production": [
+        "production_check.py", "discover_scene.py", "check_triangle.py",
+        "scan_mathtex.py", "check_manifest.py",
+    ],
+}
+ROUTES = {
+    "prompt-to-scene": ("curriculum-prompt-suite", "extract_problem.py"),
+    "math-specification": ("curriculum-prompt-suite", "check_contract.py"),
+    "catalog-and-taxonomy": ("curriculum-prompt-suite", "check_catalog.py"),
+    "safe-repository-migration": ("curriculum-prompt-suite", "check_moves.py"),
+    "manim-scene": ("manim-video-production", "discover_scene.py"),
+    "geometry-precision": ("manim-video-production", "check_triangle.py"),
+    "chinese-vertical-layout": ("manim-video-production", "scan_mathtex.py"),
+    "render-and-publish": ("manim-video-production", "check_manifest.py"),
 }
 
 
 class SkillBundles(unittest.TestCase):
     def run_script(self, skill, *args):
-        return subprocess.run([sys.executable, str(SOURCE / skill / "scripts" / SCRIPTS[skill]), *map(str, args)], cwd=ROOT, text=True, capture_output=True, check=False)
+        package, script = ROUTES.get(skill, (skill, SKILL_SCRIPTS.get(skill, ["prompt_suite.py"])[0]))
+        return subprocess.run([sys.executable, str(SOURCE / package / "scripts" / script), *map(str, args)], cwd=ROOT, text=True, capture_output=True, check=False)
 
     def test_complete_mirrors_and_local_navigation(self):
-        for skill, script in SCRIPTS.items():
+        self.assertEqual(
+            {p.name for p in SOURCE.iterdir() if p.is_dir()},
+            set(SKILL_SCRIPTS),
+            "Only two canonical Skills should remain",
+        )
+        for skill, scripts in SKILL_SCRIPTS.items():
             base = SOURCE / skill
             manifest = (base / "SKILL.md").read_text(encoding="utf-8")
             self.assertIn(f"name: {skill}\n", manifest)
             self.assertIn("description:", manifest)
-            self.assertIn(f"scripts/{script}", manifest)
+            for script in scripts:
+                self.assertIn(f"scripts/{script}", manifest)
+                command = subprocess.run(
+                    [sys.executable, str(base / "scripts" / script), "--help"],
+                    cwd=ROOT, text=True, capture_output=True, check=False,
+                )
+                self.assertEqual(command.returncode, 0, f"{script}: {command.stderr}")
             self.assertTrue(list((base / "references").glob("*.md")))
-            self.assertEqual(self.run_script(skill, "--help").returncode, 0)
             for agent in AGENTS:
                 for path in base.rglob("*"):
                     if path.is_file():

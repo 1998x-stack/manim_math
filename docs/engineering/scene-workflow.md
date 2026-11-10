@@ -4,7 +4,7 @@
 
 ## 0. 接收任务与确定知识点
 
-核对受众、单一学习目标、教材版本（如已知）、先修知识、现有 `description.json` / `prompt.md` / `storyboard.md` / Scene；历史通用模板不可凌驾于已核实的数学条件。按 `prompt-to-scene` Skill 分离课程数据、视觉偏好、当前交付要求与待核验项。记录真实源码与 Scene 类名，不以文件名或 Python 文件中第一个类作为判断依据。
+核对受众、单一学习目标、教材版本（如已知）、先修知识、现有 `description.json` / `prompt.md` / `storyboard.md` / Scene；历史通用模板不可凌驾于已核实的数学条件。按 `curriculum-prompt-suite` Skill 分离课程数据、视觉偏好、当前交付要求与待核验项。记录真实源码与 Scene 类名，不以文件名或 Python 文件中第一个类作为判断依据。
 
 ## A. 数学规格
 

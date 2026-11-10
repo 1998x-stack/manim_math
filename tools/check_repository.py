@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ("README.md", "AGENTS.md", "docs/README.md", "docs/architecture/audit.md", "docs/architecture/architecture.md", "docs/architecture/categories.md", "docs/architecture/migration.md", "docs/engineering/scene-workflow.md", "docs/engineering/quality-gates.md", "skills/README.md", "catalog/README.md")
-AGENTS = (".codex", ".opencode", ".claude")
+AGENTS = (".codex", ".opencode", ".claude", ".pi")
 
 
 def validate() -> list[str]:

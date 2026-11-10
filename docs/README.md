@@ -15,7 +15,7 @@
 | 数学 | [几何知识文档](math/geometry/README.md) | 核对定义、证明、术语及退化构型 |
 | 工程 | [场景工作流](engineering/scene-workflow.md)、[质量门禁](engineering/quality-gates.md) | 分镜、编码、测试、渲染、发布 |
 | 审阅与归档 | [审阅记录](reviews/README.md)、[历史人工路径清单](reviews/legacy/README.md) | 区分历史电脑的 `file://` 列表与当前任务及实际发布资产 |
-| Skills | [多 Agent Skills](../skills/README.md) | 根据任务路由并同步三套镜像 |
+| Skills | [多 Agent Skills](../skills/README.md) | 按课程与视频两种任务路由，并同步四套 Agent 镜像 |
 | 历史技术参考 | [旧版参考索引](engineering/references/README.md)、[旧错误记录](engineering/references/Error.md) | 排查旧场景；不能替代当前版本 API 实测 |
 
 **事实优先级**：具体作品中的数学问题与已核实教材要求 → 项目已有的明确兼容约束 → 当前工程规范和相关 Skill → 历史 Prompt/研究资料。若存在冲突，先记录冲突并核验，不静默更改教学目标或编造来源。纯数学证明、近似实验和视觉演示是不同层级的证据。
