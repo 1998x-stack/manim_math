@@ -8,7 +8,7 @@ from pathlib import Path
 from tools.commit_gotchas import ROOT, inspect_source
 
 LESSONS = {
-    "小学/四年级/第一学期/第五章-几何小实践——圆与角/001线段、射线、直线/001_线段、射线、直线.py": "SegmentRayLineLesson",
+    "小学/四年级/第一学期/第五章-几何小实践——圆与角/001线段、射线、直线/001_线段射线直线.py": "LineSegmentRayLesson",
     "小学/四年级/第一学期/第四章-数的运算——除数是两位数的除法/002笔算除法(试商与调商)/002_笔算除法(试商与调商).py": "TrialQuotientAdjustmentLesson",
     "小学/四年级/第二学期/第三章-统计/001单式折线统计图/001_单式折线统计图.py": "SingleLineChartLesson",
     "初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/tangent_properties.py": "TangentProperties",
