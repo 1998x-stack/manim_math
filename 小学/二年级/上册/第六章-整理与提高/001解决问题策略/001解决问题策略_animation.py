@@ -7,6 +7,14 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+def orderly_pairs(shirts, trousers):
+    """按上衣逐一列出搭配；输入不得重复或为空。"""
+    shirts, trousers = tuple(shirts), tuple(trousers)
+    if not shirts or not trousers or len(set(shirts)) != len(shirts) or len(set(trousers)) != len(trousers):
+        raise ValueError("每种衣物至少有一个且不能重复")
+    return tuple((shirt, trouser) for shirt in shirts for trouser in trousers)
+
+
 class Topic001解决问题策略Animation(Scene):
     """完整展示 2×3 的六个有序配对，解释分类枚举。"""
 
@@ -21,7 +29,7 @@ class Topic001解决问题策略Animation(Scene):
         self.play(FadeIn(author), Write(title), FadeIn(problem))
 
         shirts, trousers = ("甲", "乙"), ("1", "2", "3")
-        combinations = [(shirt, trouser) for shirt in shirts for trouser in trousers]
+        combinations = orderly_pairs(shirts, trousers)
         assert len(combinations) == len(set(combinations)) == 6
         heading = Text("固定上衣，分别选择第1、2、3条裤子", font_size=27)
         heading.move_to(UP * 3.25)
