@@ -8,8 +8,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "skills/source"
-AGENTS = (".codex", ".opencode", ".claude")
+AGENTS = (".codex", ".opencode", ".claude", ".pi")
 SCRIPTS = {
+    "curriculum-prompt-suite": "prompt_suite.py",
     "prompt-to-scene": "extract_problem.py",
     "math-specification": "check_contract.py",
     "manim-scene": "discover_scene.py",

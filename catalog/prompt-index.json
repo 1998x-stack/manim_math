@@ -1,0 +1,5232 @@
+{
+  "schema_version": 1,
+  "source": "git-blobs-from-original-prompt-md",
+  "count": 522,
+  "by_stage": {
+    "小学": 211,
+    "初中": 200,
+    "高中": 111
+  },
+  "entries": [
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/001代数式与整式的概念/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "001代数式与整式的概念",
+      "size_bytes": 82558,
+      "git_blob_sha": "e00d88a9490251ddd21c920a71c4712320be9249"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/002同类项与合并同类项/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "002同类项与合并同类项",
+      "size_bytes": 82515,
+      "git_blob_sha": "b872a9f7ab7ba4a044783ca4b76fc7a9742e7127"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/003整式的加减法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "003整式的加减法",
+      "size_bytes": 82493,
+      "git_blob_sha": "fb1bd1d640c746f9f6b270d91d556b79766f4acc"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/004幂的运算法则/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "004幂的运算法则",
+      "size_bytes": 82549,
+      "git_blob_sha": "ff8c72e876943b6504dfcd036135cbae435749aa"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/005整式的乘法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "005整式的乘法",
+      "size_bytes": 82474,
+      "git_blob_sha": "78c2f3308dfe0d9abaa25a29b8be054211667fe8"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/006乘法公式——平方差公式/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "006乘法公式——平方差公式",
+      "size_bytes": 82519,
+      "git_blob_sha": "a0b29310004521730cf5ab34dc86add409da4d5e"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/007乘法公式——完全平方公式/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "007乘法公式——完全平方公式",
+      "size_bytes": 82506,
+      "git_blob_sha": "16df4674abbc2e1ce17a4cdc80a4dc75943a6b17"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/008因式分解——提公因式法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "008因式分解——提公因式法",
+      "size_bytes": 82591,
+      "git_blob_sha": "9f50488b804dfa09b55ec244348c79d1a91aad8a"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/009因式分解——公式法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "009因式分解——公式法",
+      "size_bytes": 82485,
+      "git_blob_sha": "37efdb42781374ae259d11fa2e27326eea685b24"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/010因式分解——十字相乘法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "010因式分解——十字相乘法",
+      "size_bytes": 82542,
+      "git_blob_sha": "4b38e79c5e5fbf13c20a93fdee5235fed4339719"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/011因式分解——分组分解法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "011因式分解——分组分解法",
+      "size_bytes": 82549,
+      "git_blob_sha": "1a2f6cc0e656e0c4706e20d0e1c61e21dc03cc06"
+    },
+    {
+      "path": "初中/七年级/第一学期/第九章-整式/012整式的除法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第九章-整式",
+      "topic": "012整式的除法",
+      "size_bytes": 82440,
+      "git_blob_sha": "0558042c7336dd426a12d82d8c3543c7f1a50a0d"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十一章-图形的运动/001平移/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十一章-图形的运动",
+      "topic": "001平移",
+      "size_bytes": 82527,
+      "git_blob_sha": "b927c45fcee4315ace297b5150f56ed80da6e4e3"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十一章-图形的运动/002旋转/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十一章-图形的运动",
+      "topic": "002旋转",
+      "size_bytes": 82545,
+      "git_blob_sha": "81772d5ebf5e3dab2ca1e43fbd8c9190c2d243b2"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十一章-图形的运动/003中心对称/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十一章-图形的运动",
+      "topic": "003中心对称",
+      "size_bytes": 82533,
+      "git_blob_sha": "d4a8957615f737c775d430bffebc4cda8aa9aa96"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十一章-图形的运动/004翻折（轴对称）/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十一章-图形的运动",
+      "topic": "004翻折（轴对称）",
+      "size_bytes": 82558,
+      "git_blob_sha": "3547a0b67bd2776244b3e2a09b0cb7eed3306f6d"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/001分式的概念/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "001分式的概念",
+      "size_bytes": 82481,
+      "git_blob_sha": "3cd8ee748404f519a536683497ba4dd4e631e249"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/002分式的基本性质/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "002分式的基本性质",
+      "size_bytes": 82414,
+      "git_blob_sha": "fe776b4d34ef015338052e82e9858fbf8a807b82"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/003分式的约分/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "003分式的约分",
+      "size_bytes": 82451,
+      "git_blob_sha": "76971de9e648e5f29a820121d69b4f14502f5ffb"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/004分式的通分/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "004分式的通分",
+      "size_bytes": 82468,
+      "git_blob_sha": "ffd4d00b91596ab5c47c4248978e2f0084d75c7a"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/005分式的乘除法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "005分式的乘除法",
+      "size_bytes": 82455,
+      "git_blob_sha": "208beb96bd5f1a11a56f860ed1581f906635ab7e"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/006分式的加减法/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "006分式的加减法",
+      "size_bytes": 82431,
+      "git_blob_sha": "adcee853ce7f2ee5374dd0160476321c11cef84c"
+    },
+    {
+      "path": "初中/七年级/第一学期/第十章-分式/007分式方程/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第一学期",
+      "chapter": "第十章-分式",
+      "topic": "007分式方程",
+      "size_bytes": 82535,
+      "git_blob_sha": "d2a386d3d9dab920580662f7ed355abf0eedfc10"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/001对顶角与邻补角/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十三章-相交线 平行线",
+      "topic": "001对顶角与邻补角",
+      "size_bytes": 82490,
+      "git_blob_sha": "320d1f88ad1c269f42bdaf85d97e6a623b68fc4e"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/002垂线及其性质/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十三章-相交线 平行线",
+      "topic": "002垂线及其性质",
+      "size_bytes": 82563,
+      "git_blob_sha": "8103e5733fb103c3bc6ef72a4f1b071fd828936f"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/003三线八角模型/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十三章-相交线 平行线",
+      "topic": "003三线八角模型",
+      "size_bytes": 82580,
+      "git_blob_sha": "d3816d3b78b1964eaa7e90def08477b27e5e871a"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/004平行线的判定/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十三章-相交线 平行线",
+      "topic": "004平行线的判定",
+      "size_bytes": 82515,
+      "git_blob_sha": "ed0ea7a9c8bfa8a95e31ee115f485051f9c9c25e"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十三章-相交线 平行线/005平行线的性质/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十三章-相交线 平行线",
+      "topic": "005平行线的性质",
+      "size_bytes": 82512,
+      "git_blob_sha": "12e2c3f1b1407a78419e5679fae8ae5e1c92928f"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/001无理数的概念/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十二章-实数",
+      "topic": "001无理数的概念",
+      "size_bytes": 82508,
+      "git_blob_sha": "d3e684241300b8d04a80dc416033c85d1117b517"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/002平方根与算术平方根/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十二章-实数",
+      "topic": "002平方根与算术平方根",
+      "size_bytes": 82525,
+      "git_blob_sha": "d6d1ea99a50c3d37996934339a50d0ffbc175bd2"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/003立方根/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十二章-实数",
+      "topic": "003立方根",
+      "size_bytes": 82455,
+      "git_blob_sha": "d8e441ea608c4cbd1669cc9551b1410fac4f43e0"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/004实数的概念与分类/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十二章-实数",
+      "topic": "004实数的概念与分类",
+      "size_bytes": 82534,
+      "git_blob_sha": "73865849314f8cff25a95027aaa73c1b9270ce4f"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/005实数的运算/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十二章-实数",
+      "topic": "005实数的运算",
+      "size_bytes": 82455,
+      "git_blob_sha": "d04178055eae807de22791b9994ff46bd8616ed1"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十二章-实数/006分数指数幂/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十二章-实数",
+      "topic": "006分数指数幂",
+      "size_bytes": 82476,
+      "git_blob_sha": "81865441cd698c361f91cc229809658efb386021"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十五章-平面直角坐标系/001平面直角坐标系的概念/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十五章-平面直角坐标系",
+      "topic": "001平面直角坐标系的概念",
+      "size_bytes": 82525,
+      "git_blob_sha": "00f695b20552cfc6c30d49f44dbef84d12c3ec93"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十五章-平面直角坐标系/002点的坐标/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十五章-平面直角坐标系",
+      "topic": "002点的坐标",
+      "size_bytes": 82537,
+      "git_blob_sha": "bc19a8e7ce96f263397ac289588f1622e27abe3d"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十五章-平面直角坐标系/003点关于坐标轴和原点的对称/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十五章-平面直角坐标系",
+      "topic": "003点关于坐标轴和原点的对称",
+      "size_bytes": 82578,
+      "git_blob_sha": "056922d660edf6f539aa7d52fb3bdd0489560505"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十五章-平面直角坐标系/004点的平移/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十五章-平面直角坐标系",
+      "topic": "004点的平移",
+      "size_bytes": 82587,
+      "git_blob_sha": "ec1ea9dfbfb2b23ad40dc7d84db3a016c9f8a9e1"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/001三角形的基本概念/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "001三角形的基本概念",
+      "size_bytes": 82565,
+      "git_blob_sha": "2e89cd30bbefe4d7349d958782d0d8c6855d7984"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/002三角形的三边关系/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "002三角形的三边关系",
+      "size_bytes": 82478,
+      "git_blob_sha": "792c8cff74afe9a45777db2193a3af4a63026020"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/003三角形的内角和定理/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "003三角形的内角和定理",
+      "size_bytes": 82522,
+      "git_blob_sha": "c4a3b9a275aaf6288fa0074e3510999824c61e09"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/003三角形的外角/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "003三角形的外角",
+      "size_bytes": 82180,
+      "git_blob_sha": "b7fe331075cfe579ba939266c222cf6a40c19b61"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/004三角形的重要线段/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "004三角形的重要线段",
+      "size_bytes": 82552,
+      "git_blob_sha": "e9350367f6f7b34a89ccb96496552dff99576ea9"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/005全等三角形的概念与性质/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "005全等三角形的概念与性质",
+      "size_bytes": 82524,
+      "git_blob_sha": "a817da331b69cc3c0e0d661befd0f0565fea0e78"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/006全等三角形的判定——SSS/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "006全等三角形的判定——SSS",
+      "size_bytes": 82425,
+      "git_blob_sha": "5955da1c03b311c89390096935a6e39195d6dd3b"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/007全等三角形的判定——SAS/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "007全等三角形的判定——SAS",
+      "size_bytes": 82432,
+      "git_blob_sha": "e88970c08f157558aa0f779008324a0cd7c525af"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/008全等三角形的判定——ASA和AAS/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "008全等三角形的判定——ASA和AAS",
+      "size_bytes": 82560,
+      "git_blob_sha": "a91638c4f7461a8e291eb945ccd660393d767c65"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/009等腰三角形的性质/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "009等腰三角形的性质",
+      "size_bytes": 82590,
+      "git_blob_sha": "a1628c3d58529d1a76c252d85f7064eced2c9d35"
+    },
+    {
+      "path": "初中/七年级/第二学期/第十四章-三角形/010等腰三角形的判定/prompt.md",
+      "stage": "初中",
+      "grade": "七年级",
+      "semester": "第二学期",
+      "chapter": "第十四章-三角形",
+      "topic": "010等腰三角形的判定",
+      "size_bytes": 82476,
+      "git_blob_sha": "08f2aa3e1943dfff75f281c5bd02ba8342efeffb"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十五章-锐角的三角比/001锐角三角比的定义/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十五章-锐角的三角比",
+      "topic": "001锐角三角比的定义",
+      "size_bytes": 82520,
+      "git_blob_sha": "53eb9cb10b11ec95a1b60d2119f718c921c246e2"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十五章-锐角的三角比/002特殊角的三角比值/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十五章-锐角的三角比",
+      "topic": "002特殊角的三角比值",
+      "size_bytes": 82578,
+      "git_blob_sha": "e4cc63c756cced4f60769a89b85d4427430e4545"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十五章-锐角的三角比/003三角比之间的关系/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十五章-锐角的三角比",
+      "topic": "003三角比之间的关系",
+      "size_bytes": 82477,
+      "git_blob_sha": "13927af4fca673b6d8381f0b361a1b0a16e820ea"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十五章-锐角的三角比/004解直角三角形/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十五章-锐角的三角比",
+      "topic": "004解直角三角形",
+      "size_bytes": 82558,
+      "git_blob_sha": "6bc4c0bd56b3f8be313d981863b4336f8c55cf25"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十五章-锐角的三角比/005解直角三角形的应用/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十五章-锐角的三角比",
+      "topic": "005解直角三角形的应用",
+      "size_bytes": 82575,
+      "git_blob_sha": "fb7113fbff099c9ee23c44b9dc75f4f47186f45d"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/001二次函数的概念/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "001二次函数的概念",
+      "size_bytes": 82487,
+      "git_blob_sha": "c6fe9bf670d04ffe744c6ab83fafec4bbd3b1e98"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/002二次函数y=ax²的图像与性质/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "002二次函数y=ax²的图像与性质",
+      "size_bytes": 82650,
+      "git_blob_sha": "de05d151b258b54b5562c419ab9239e095a08358"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/003二次函数图像的平移/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "003二次函数图像的平移",
+      "size_bytes": 82573,
+      "git_blob_sha": "8cb6b3f08396693df5118820e23b7aecaaaa0539"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/004二次函数y=a(x-h)²+k的图像与性质/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "004二次函数y=a(x-h)²+k的图像与性质",
+      "size_bytes": 82581,
+      "git_blob_sha": "9fe69cb09128800562aa2fb2f16dc52cc717f08d"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/005二次函数y=ax²+bx+c的图像与性质/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "005二次函数y=ax²+bx+c的图像与性质",
+      "size_bytes": 82562,
+      "git_blob_sha": "9938e2181a84eb8ba2de18c654ebcdbad013e783"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/006二次函数与一元二次方程的关系/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "006二次函数与一元二次方程的关系",
+      "size_bytes": 82672,
+      "git_blob_sha": "0d7cf6ed1e42ec7d147e2bc0c1f3a8963e73f857"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/007用待定系数法求二次函数解析式/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "007用待定系数法求二次函数解析式",
+      "size_bytes": 82632,
+      "git_blob_sha": "4d8a31c3c7650e650fc86edfb274472c3e3b5dab"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十六章-二次函数/008二次函数的应用/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十六章-二次函数",
+      "topic": "008二次函数的应用",
+      "size_bytes": 82587,
+      "git_blob_sha": "ed4f914ff56df019b249b39a34a700cd875b9ff5"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/001比例线段/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "001比例线段",
+      "size_bytes": 82496,
+      "git_blob_sha": "a5e2d45d603b9336ec406019bf8c868e86c7acf9"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/002平行线分线段成比例定理/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "002平行线分线段成比例定理",
+      "size_bytes": 82551,
+      "git_blob_sha": "80b4ae72db6864c4136e2a5cf7e16d39b6775762"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/003相似三角形的概念/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "003相似三角形的概念",
+      "size_bytes": 82550,
+      "git_blob_sha": "0569cfdc71b6030ecec0568e452833167e432ce0"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/004相似三角形的判定/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "004相似三角形的判定",
+      "size_bytes": 82579,
+      "git_blob_sha": "2299b113b5c431b014ba553be407cfcf6b3470a9"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/005相似三角形的性质/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "005相似三角形的性质",
+      "size_bytes": 82485,
+      "git_blob_sha": "6400dfa9e3cb9bc0302cfa0d515e2cae2d99edf6"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/006相似三角形的应用/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "006相似三角形的应用",
+      "size_bytes": 82548,
+      "git_blob_sha": "c14b2b231a39cfa45619558d7dee64dca1638c0b"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/007向量的数乘运算/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "007向量的数乘运算",
+      "size_bytes": 82598,
+      "git_blob_sha": "cb7f0d63993a05d17b44c200700c06dba262a273"
+    },
+    {
+      "path": "初中/九年级/第一学期/第二十四章-相似三角形/008向量的线性运算/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第一学期",
+      "chapter": "第二十四章-相似三角形",
+      "topic": "008向量的线性运算",
+      "size_bytes": 82583,
+      "git_blob_sha": "3f4a81e18273584d98871384ebfaf72f6ffb800c"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/001圆的定义与基本概念/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "001圆的定义与基本概念",
+      "size_bytes": 82488,
+      "git_blob_sha": "bb90cfe526c7018725bb555311bde5ba51a0c903"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/002圆的确定/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "002圆的确定",
+      "size_bytes": 82501,
+      "git_blob_sha": "c750bcbc3f2174b313c0a3bf226f3739c55c61db"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/003垂径定理/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "003垂径定理",
+      "size_bytes": 82555,
+      "git_blob_sha": "a569c2e4bc54a5ea945fc727e8f78a6c13448d34"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/004圆心角、弧、弦、弦心距的关系/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "004圆心角、弧、弦、弦心距的关系",
+      "size_bytes": 82544,
+      "git_blob_sha": "be9a0ab5d2464e80157fa828df20e53f51bb93e2"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/005圆周角定理/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "005圆周角定理",
+      "size_bytes": 82608,
+      "git_blob_sha": "d9d559b255cb5d41f4ff86b89458f3ac767fc0ac"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/006点与圆的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "006点与圆的位置关系",
+      "size_bytes": 82461,
+      "git_blob_sha": "d59a0d349f28294f36fd1fb8af89682b55e85a0e"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/007直线与圆的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "007直线与圆的位置关系",
+      "size_bytes": 82535,
+      "git_blob_sha": "9aea7fdc108c940ebca234ca4a32e3db983906f4"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/008切线的性质与判定/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "008切线的性质与判定",
+      "size_bytes": 82651,
+      "git_blob_sha": "dcfccd0b46cc2a706b4a8ac0cc17e39fe07a07fc"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/009圆与圆的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "009圆与圆的位置关系",
+      "size_bytes": 82521,
+      "git_blob_sha": "f4b911254fe991cf48d4294bbfb2dec9f233400e"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/010正多边形与圆/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "010正多边形与圆",
+      "size_bytes": 82627,
+      "git_blob_sha": "2c3ea755faf5a3d7ddf3d814aa715625d3068704"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/011弧长与扇形面积/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "011弧长与扇形面积",
+      "size_bytes": 82484,
+      "git_blob_sha": "8f439cbbfbba3763c722b5004225b8136d4d3210"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十七章-圆与正多边形/012圆锥的侧面积与全面积/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十七章-圆与正多边形",
+      "topic": "012圆锥的侧面积与全面积",
+      "size_bytes": 82488,
+      "git_blob_sha": "9588f6a26c908ed90c8c3b6dce42a8f99746827b"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/001数据的收集与整理/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "001数据的收集与整理",
+      "size_bytes": 82496,
+      "git_blob_sha": "ca5adc377ce4764238683013645cc55b19742ddc"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/002统计图表/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "002统计图表",
+      "size_bytes": 82526,
+      "git_blob_sha": "2bca89f1488e66fcfced05fea2ab26db363bb585"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/003平均数/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "003平均数",
+      "size_bytes": 82549,
+      "git_blob_sha": "ebb9db823669e06645e2596ecace58d5b8d505fd"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/004中位数与众数/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "004中位数与众数",
+      "size_bytes": 82611,
+      "git_blob_sha": "db063f7806e3468d5c9f585f5d8656099a4143c9"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/005方差与标准差/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "005方差与标准差",
+      "size_bytes": 82595,
+      "git_blob_sha": "2f0db2db536c72cdfc9d62682934aea72cb832a5"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/006频数分布/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "006频数分布",
+      "size_bytes": 82568,
+      "git_blob_sha": "e2180a45d2cb7915d1a0d020217f462b364982d6"
+    },
+    {
+      "path": "初中/九年级/第二学期/第二十八章-统计初步/007用样本估计总体/prompt.md",
+      "stage": "初中",
+      "grade": "九年级",
+      "semester": "第二学期",
+      "chapter": "第二十八章-统计初步",
+      "topic": "007用样本估计总体",
+      "size_bytes": 82537,
+      "git_blob_sha": "590d305407dc4a63610e443339fea2c1f165009a"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/001一元二次方程的概念/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "001一元二次方程的概念",
+      "size_bytes": 82510,
+      "git_blob_sha": "764d12f4a74488677ddccad8707af14d63c033b9"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/002解法——直接开平方法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "002解法——直接开平方法",
+      "size_bytes": 82450,
+      "git_blob_sha": "e318b63e8d4798e1a810ba7b04969720c922eb28"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/003解法——配方法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "003解法——配方法",
+      "size_bytes": 82520,
+      "git_blob_sha": "d0345582193c98c322ddd8ea196a34a95d7e2882"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/004解法——公式法（求根公式）/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "004解法——公式法（求根公式）",
+      "size_bytes": 82450,
+      "git_blob_sha": "90687b6c1231b46e3d382e9afe6370c389abe322"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/005解法——因式分解法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "005解法——因式分解法",
+      "size_bytes": 82501,
+      "git_blob_sha": "d278686c69846ae234b18e49b54c7526e88dc5e3"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/006根的判别式/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "006根的判别式",
+      "size_bytes": 82496,
+      "git_blob_sha": "3ca2111fe7d8d44a420d63a81b0ac51ca1d4adf5"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十七章-一元二次方程/007根与系数的关系（韦达定理）/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十七章-一元二次方程",
+      "topic": "007根与系数的关系（韦达定理）",
+      "size_bytes": 82529,
+      "git_blob_sha": "ff72afbccf48bce2b328ad32dbed6593db1096b3"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/001命题与证明/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "001命题与证明",
+      "size_bytes": 82512,
+      "git_blob_sha": "d2ffd1fec95dad91816b337fc8922a653a377973"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/002逆命题与逆定理/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "002逆命题与逆定理",
+      "size_bytes": 82452,
+      "git_blob_sha": "861864e78878788e17556cca0b725c2a5f9dad4b"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/003反证法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "003反证法",
+      "size_bytes": 82495,
+      "git_blob_sha": "ee6cac8ce493decccc545d614a9fe123ab3e8c02"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/004线段垂直平分线的性质与判定/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "004线段垂直平分线的性质与判定",
+      "size_bytes": 82551,
+      "git_blob_sha": "5d6bd91b5491d3b47c520a1362475483cb27222f"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/005角平分线的性质与判定/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "005角平分线的性质与判定",
+      "size_bytes": 82561,
+      "git_blob_sha": "a09589b28f7d756f0080cda928baf1743f9f1a4a"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/006直角三角形的性质/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "006直角三角形的性质",
+      "size_bytes": 82529,
+      "git_blob_sha": "7fc79b85c8b007d3d90aba4aba02916c9a8dad19"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/007勾股定理/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "007勾股定理",
+      "size_bytes": 82543,
+      "git_blob_sha": "9a7853a9d13f397a764a8862ef8b9b84631d1860"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十九章-几何证明/008勾股定理的逆定理/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十九章-几何证明",
+      "topic": "008勾股定理的逆定理",
+      "size_bytes": 82398,
+      "git_blob_sha": "0cbfe8d15da38e87330143c3d7c0a8ceb4f110f4"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十八章-正比例函数和反比例函数/001函数的概念/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十八章-正比例函数和反比例函数",
+      "topic": "001函数的概念",
+      "size_bytes": 82520,
+      "git_blob_sha": "23849c37861243331ecaad118536804c29685596"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十八章-正比例函数和反比例函数/002正比例函数/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十八章-正比例函数和反比例函数",
+      "topic": "002正比例函数",
+      "size_bytes": 82531,
+      "git_blob_sha": "f2334bca925a7e7249ffeaaef0913cf7db4d4161"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十八章-正比例函数和反比例函数/003反比例函数/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十八章-正比例函数和反比例函数",
+      "topic": "003反比例函数",
+      "size_bytes": 82619,
+      "git_blob_sha": "0f51d7cf69de27a710d9d4697ed57ba812509081"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十八章-正比例函数和反比例函数/004待定系数法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十八章-正比例函数和反比例函数",
+      "topic": "004待定系数法",
+      "size_bytes": 82508,
+      "git_blob_sha": "df698680f64004a241a685a2aee9f8f6ce8ec825"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十六章-二次根式/001二次根式的概念/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十六章-二次根式",
+      "topic": "001二次根式的概念",
+      "size_bytes": 82461,
+      "git_blob_sha": "792994807e1ba609f4e780387bc52c694607dae7"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十六章-二次根式/002二次根式的性质/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十六章-二次根式",
+      "topic": "002二次根式的性质",
+      "size_bytes": 82473,
+      "git_blob_sha": "4e594709f9edab595153a37d06dab26c28b752fd"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十六章-二次根式/003最简二次根式/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十六章-二次根式",
+      "topic": "003最简二次根式",
+      "size_bytes": 82477,
+      "git_blob_sha": "75ce13186bb2271fc1049b0b68cc4676330fcfb7"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十六章-二次根式/004同类二次根式/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十六章-二次根式",
+      "topic": "004同类二次根式",
+      "size_bytes": 82505,
+      "git_blob_sha": "71dc7aec85b5cc6051a2b44880b23f2733f83798"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十六章-二次根式/005二次根式的乘除法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十六章-二次根式",
+      "topic": "005二次根式的乘除法",
+      "size_bytes": 82471,
+      "git_blob_sha": "5dcde414373071aac97f248e783fe85302e2477d"
+    },
+    {
+      "path": "初中/八年级/第一学期/第十六章-二次根式/006二次根式的加减法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第一学期",
+      "chapter": "第十六章-二次根式",
+      "topic": "006二次根式的加减法",
+      "size_bytes": 82425,
+      "git_blob_sha": "3dfe10e7b431399e5b9f9d06cbde061572595abe"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十一章-代数方程/001整式方程/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十一章-代数方程",
+      "topic": "001整式方程",
+      "size_bytes": 82528,
+      "git_blob_sha": "c49240fc279ff38fb953826606da92f5df9be8e0"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十一章-代数方程/002分式方程/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十一章-代数方程",
+      "topic": "002分式方程",
+      "size_bytes": 82570,
+      "git_blob_sha": "0180089789e3fc126dd2e2ef86ec99e39e565bfe"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十一章-代数方程/003无理方程/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十一章-代数方程",
+      "topic": "003无理方程",
+      "size_bytes": 82495,
+      "git_blob_sha": "5514604bebbda66190ccca0684964efe3d69ca14"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十一章-代数方程/004二元二次方程组/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十一章-代数方程",
+      "topic": "004二元二次方程组",
+      "size_bytes": 82589,
+      "git_blob_sha": "b330a879cbd35a44b93ea9c693b225e647f7d013"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十一章-代数方程/005代数方程的应用/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十一章-代数方程",
+      "topic": "005代数方程的应用",
+      "size_bytes": 82485,
+      "git_blob_sha": "77864f1f96ac6fde90865a5554a7a063864ad8b0"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十三章-概率初步/001事件的分类/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十三章-概率初步",
+      "topic": "001事件的分类",
+      "size_bytes": 82449,
+      "git_blob_sha": "e877f0912479e71ff71e458185a50700be6d5ff5"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十三章-概率初步/002概率的定义与计算/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十三章-概率初步",
+      "topic": "002概率的定义与计算",
+      "size_bytes": 82468,
+      "git_blob_sha": "7001cfef8dd8b07720f55b9376be5ca9df3ef384"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十三章-概率初步/003列举法求概率/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十三章-概率初步",
+      "topic": "003列举法求概率",
+      "size_bytes": 82535,
+      "git_blob_sha": "adff820f009c5add6ddce8774d857419a52c4765"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十三章-概率初步/004频率与概率的关系/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十三章-概率初步",
+      "topic": "004频率与概率的关系",
+      "size_bytes": 82490,
+      "git_blob_sha": "3d9a8798f2d6d105ca177abce74c19981d25432e"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/001多边形的内角和与外角和/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "001多边形的内角和与外角和",
+      "size_bytes": 82484,
+      "git_blob_sha": "5a5ab6338b9ae1ea380075e899da0640261b7804"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/002平行四边形的性质/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "002平行四边形的性质",
+      "size_bytes": 82533,
+      "git_blob_sha": "5682eeafd44c9d4338600d806b9a6569bfda32d8"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/003平行四边形的判定/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "003平行四边形的判定",
+      "size_bytes": 82618,
+      "git_blob_sha": "d027011c9bb662612d4dfd2fc6f42b2e4e576c3f"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/004矩形的性质与判定/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "004矩形的性质与判定",
+      "size_bytes": 82643,
+      "git_blob_sha": "a295a925340557e66491735b6366fa82178d1aa8"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/005菱形的性质与判定/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "005菱形的性质与判定",
+      "size_bytes": 82659,
+      "git_blob_sha": "5ee306bec3d234b2f2d15a290b9c5fea940e0584"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/006正方形的性质与判定/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "006正方形的性质与判定",
+      "size_bytes": 82617,
+      "git_blob_sha": "795344398f2c8336e969fa5ad3fa1f8f0cd2961b"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/007梯形/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "007梯形",
+      "size_bytes": 82559,
+      "git_blob_sha": "82181ea514b23922c0e07196732a8eb5f2097c24"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/008梯形的辅助线/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "008梯形的辅助线",
+      "size_bytes": 82542,
+      "git_blob_sha": "39c3d62638c073fbaee8173868990428e99b5845"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/009平面向量的概念/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "009平面向量的概念",
+      "size_bytes": 82570,
+      "git_blob_sha": "257b8a918868bd1ae30c1a25f1d4a50dd0c2be2e"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十二章-四边形/010向量的加法与减法/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十二章-四边形",
+      "topic": "010向量的加法与减法",
+      "size_bytes": 82603,
+      "git_blob_sha": "6098db7af7660153d2e7b5d634c59eb2ebd39244"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/001一次函数的概念/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "001一次函数的概念",
+      "size_bytes": 82496,
+      "git_blob_sha": "7cd29a32f7900e234d9bf0d35126aa095cdb2398"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/002一次函数的图像/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "002一次函数的图像",
+      "size_bytes": 82531,
+      "git_blob_sha": "628967ce16f86f179b07b368c0899b83c84e8c24"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/003一次函数的性质/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "003一次函数的性质",
+      "size_bytes": 82601,
+      "git_blob_sha": "5767f42a07576c78ac0fb2f24a61e9b7fe53d524"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/004待定系数法求一次函数解析式/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "004待定系数法求一次函数解析式",
+      "size_bytes": 82517,
+      "git_blob_sha": "e0bdd51792460c75155c5f50c4f28ac337b59d31"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/005一次函数与方程、不等式的关系/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "005一次函数与方程、不等式的关系",
+      "size_bytes": 82632,
+      "git_blob_sha": "daed8073172f8363a28c12c5632439e3d5bd7c2b"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/006两条直线的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "006两条直线的位置关系",
+      "size_bytes": 82524,
+      "git_blob_sha": "06ac579660df016c45d173658b2da9c944c1acfe"
+    },
+    {
+      "path": "初中/八年级/第二学期/第二十章-一次函数/007一次函数的应用/prompt.md",
+      "stage": "初中",
+      "grade": "八年级",
+      "semester": "第二学期",
+      "chapter": "第二十章-一次函数",
+      "topic": "007一次函数的应用",
+      "size_bytes": 82606,
+      "git_blob_sha": "e39ea41d456c1fea7825d40c321ca23fc2bd96fa"
+    },
+    {
+      "path": "初中/六年级/第一学期/第一章-数的整除/001整数和整除的意义/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "001整数和整除的意义",
+      "size_bytes": 82459,
+      "git_blob_sha": "ac155fcaaa6e475f30ea413fa17bd30e18cb1dd4"
+    },
+    {
+      "path": "初中/六年级/第一学期/第一章-数的整除/002因数与倍数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "002因数与倍数",
+      "size_bytes": 82537,
+      "git_blob_sha": "eccac0ca929a4c3d5ddc1932eb278c5c736363af"
+    },
+    {
+      "path": "初中/六年级/第一学期/第一章-数的整除/003素数与合数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "003素数与合数",
+      "size_bytes": 82563,
+      "git_blob_sha": "fa1cf38bd3eb7d589e5346f26a17df80226a6780"
+    },
+    {
+      "path": "初中/六年级/第一学期/第一章-数的整除/004分解素因数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "004分解素因数",
+      "size_bytes": 82536,
+      "git_blob_sha": "5c5630a0812617b600531b31b5c2dff0f14eb7b8"
+    },
+    {
+      "path": "初中/六年级/第一学期/第一章-数的整除/005公因数与最大公因数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "005公因数与最大公因数",
+      "size_bytes": 82588,
+      "git_blob_sha": "a49d414064c3a51de45b115de1ab94cc042811b3"
+    },
+    {
+      "path": "初中/六年级/第一学期/第一章-数的整除/006公倍数与最小公倍数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "006公倍数与最小公倍数",
+      "size_bytes": 82600,
+      "git_blob_sha": "832b1d7634518e4ff5c66c474608ef471be1e375"
+    },
+    {
+      "path": "初中/六年级/第一学期/第三章-比和比例/001比的意义/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "001比的意义",
+      "size_bytes": 82411,
+      "git_blob_sha": "8c55461ca29d29b41f050146a8a9821c9a9bbee2"
+    },
+    {
+      "path": "初中/六年级/第一学期/第三章-比和比例/002比的基本性质/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "002比的基本性质",
+      "size_bytes": 82480,
+      "git_blob_sha": "81bb16fbbd86ca6d362561817a58607d74e7613c"
+    },
+    {
+      "path": "初中/六年级/第一学期/第三章-比和比例/003比例的意义与性质/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "003比例的意义与性质",
+      "size_bytes": 82516,
+      "git_blob_sha": "bccdf193d557c40c04736b0ea7ef197c60d4a671"
+    },
+    {
+      "path": "初中/六年级/第一学期/第三章-比和比例/004百分比的意义/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "004百分比的意义",
+      "size_bytes": 82502,
+      "git_blob_sha": "d021fa24bcd1230a5fc02e96ebcbb77616cf78c8"
+    },
+    {
+      "path": "初中/六年级/第一学期/第三章-比和比例/005百分比的三类基本问题/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "005百分比的三类基本问题",
+      "size_bytes": 82551,
+      "git_blob_sha": "a39200e32488081f9338da02acff60277bb1d69f"
+    },
+    {
+      "path": "初中/六年级/第一学期/第三章-比和比例/006百分比应用/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "006百分比应用",
+      "size_bytes": 82538,
+      "git_blob_sha": "639abfc8a961525644645026c082550d3b492256"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/001分数的意义/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "001分数的意义",
+      "size_bytes": 82485,
+      "git_blob_sha": "805c12dfd4c8ae810eaffeb45a75ec17587b9781"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/002分数的基本性质/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "002分数的基本性质",
+      "size_bytes": 82534,
+      "git_blob_sha": "e05539e2ff8f264a945b2bd26997b11a84a0f647"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/003约分与最简分数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "003约分与最简分数",
+      "size_bytes": 82507,
+      "git_blob_sha": "badcbc4da37075967f89db3414ed9ffe14805f1b"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/004通分/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "004通分",
+      "size_bytes": 82497,
+      "git_blob_sha": "8953a754d675126498572ae29c5c3d1d19d5b72f"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/005分数的大小比较/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "005分数的大小比较",
+      "size_bytes": 82493,
+      "git_blob_sha": "3293e042bf1e748bea3a26c3abe8075a2103d44d"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/006分数的加减法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "006分数的加减法",
+      "size_bytes": 82456,
+      "git_blob_sha": "1e0a78f0994cae0d0d29c0e94eff0a3b20a9de52"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/007分数的乘法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "007分数的乘法",
+      "size_bytes": 82490,
+      "git_blob_sha": "50b9628882ae4dfd5c0c038192588a893495cca2"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/008分数的除法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "008分数的除法",
+      "size_bytes": 82407,
+      "git_blob_sha": "2ba65b5d530b062306d7fee3e7241c4206fc4edc"
+    },
+    {
+      "path": "初中/六年级/第一学期/第二章-分数/009分数与小数的互化/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "009分数与小数的互化",
+      "size_bytes": 82523,
+      "git_blob_sha": "8a0602865ff5651b8113249e9cf559df83e8249b"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/001圆的基本概念/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "001圆的基本概念",
+      "size_bytes": 82462,
+      "git_blob_sha": "33870ff8e2b54ff7ce8f8d7759092be0e1cb0762"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/002圆的周长/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "002圆的周长",
+      "size_bytes": 82466,
+      "git_blob_sha": "249ddbe3f7edb1e0ff6c7abd6e7f56a93d4748e2"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/003圆的面积/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "003圆的面积",
+      "size_bytes": 82490,
+      "git_blob_sha": "517920b6d33012b228c07a05b5d608dde2c73cdd"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/004圆心角与弧/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "004圆心角与弧",
+      "size_bytes": 82488,
+      "git_blob_sha": "40ab4de2d35e7ff2d1d263e44af5cf79c9f6513b"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/005弧长公式/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "005弧长公式",
+      "size_bytes": 82458,
+      "git_blob_sha": "a1ce13350549aed9ff15d4115cac1768b09f0739"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/006扇形的面积/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "006扇形的面积",
+      "size_bytes": 82450,
+      "git_blob_sha": "5f6d0e4791232b105c149c52902cba182b6a35a6"
+    },
+    {
+      "path": "初中/六年级/第一学期/第四章-圆和扇形/007组合图形面积/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "007组合图形面积",
+      "size_bytes": 82572,
+      "git_blob_sha": "a6a5bdfd98abed61cdbfb0f5dcbd7cbb40679c24"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/001线段的概念/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "001线段的概念",
+      "size_bytes": 82476,
+      "git_blob_sha": "701499cc52068cd42bfa6b27948289ede9a99afa"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/002角的概念/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "002角的概念",
+      "size_bytes": 82514,
+      "git_blob_sha": "ec08d13eedbf2030c3d44a9fd4fd15f658205088"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/003尺规作图基础/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "003尺规作图基础",
+      "size_bytes": 82487,
+      "git_blob_sha": "26a9759e513e04d5abce0816642dce376b301463"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/004线段的和差倍分/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "004线段的和差倍分",
+      "size_bytes": 82509,
+      "git_blob_sha": "73a7670ec7eea59f9f1cab7a9328b1aaed859553"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/005角的和差倍分/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "005角的和差倍分",
+      "size_bytes": 82502,
+      "git_blob_sha": "e4fd3c21bea92f4ec8bd0e25d161618583955ec1"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/006余角与补角/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "006余角与补角",
+      "size_bytes": 82591,
+      "git_blob_sha": "5b3f143579e831fd0a65317848029cc0bcf397c7"
+    },
+    {
+      "path": "初中/六年级/第二学期/第七章-线段和角的画法/007对顶角/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第七章-线段和角的画法",
+      "topic": "007对顶角",
+      "size_bytes": 82465,
+      "git_blob_sha": "a105fa3af6a87b87412fe2e691b8f4ab32aff3ec"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/001有理数的概念/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "001有理数的概念",
+      "size_bytes": 82535,
+      "git_blob_sha": "dca00bd83548908ef161e55edac8f3485ebaa8a6"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/002相反数/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "002相反数",
+      "size_bytes": 82412,
+      "git_blob_sha": "d94c3a2ce62e06127308bb8b3e76e26c0f4be1a0"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/003数轴/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "003数轴",
+      "size_bytes": 82503,
+      "git_blob_sha": "2da249ba7a8261b80b8e0e35f800298a932a5627"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/004绝对值/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "004绝对值",
+      "size_bytes": 82533,
+      "git_blob_sha": "5c0b79670cb5601c61c0fdf1b0519ee280d9f509"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/005有理数的大小比较/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "005有理数的大小比较",
+      "size_bytes": 82527,
+      "git_blob_sha": "c9b739b90905720706f3dd30c74f91894bf7b771"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/006有理数的加法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "006有理数的加法",
+      "size_bytes": 82576,
+      "git_blob_sha": "7922e564f5946022eec65649c7e0fe387389d838"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/007有理数的减法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "007有理数的减法",
+      "size_bytes": 82475,
+      "git_blob_sha": "32ef343fc4f50ad3d183e7dee93c64ee4d71f2de"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/008有理数的乘法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "008有理数的乘法",
+      "size_bytes": 82521,
+      "git_blob_sha": "694a3a81ad506263a1c472faff86c8cbebf42f48"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/009有理数的除法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "009有理数的除法",
+      "size_bytes": 82460,
+      "git_blob_sha": "368f48274ad05914e61b97b63680ef836df3f870"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/010有理数的乘方/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "010有理数的乘方",
+      "size_bytes": 82502,
+      "git_blob_sha": "c61c7c2b09930ff9e9db74589ecfc588afb52f21"
+    },
+    {
+      "path": "初中/六年级/第二学期/第五章-有理数/011有理数混合运算/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-有理数",
+      "topic": "011有理数混合运算",
+      "size_bytes": 82551,
+      "git_blob_sha": "ca4a82c85902bd8cabff79d3e57ef6cf45e89d70"
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/001长方体的基本元素/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第八章-长方体的再认识",
+      "topic": "001长方体的基本元素",
+      "size_bytes": 82554,
+      "git_blob_sha": "540a84af956239ecbcfbf0a84b9e7bbc2f870e9f"
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/002长方体的直观图画法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第八章-长方体的再认识",
+      "topic": "002长方体的直观图画法",
+      "size_bytes": 82548,
+      "git_blob_sha": "3bffc0b91c58cbdccef44e833cf0db5ae1dc4729"
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/003空间直线与直线的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第八章-长方体的再认识",
+      "topic": "003空间直线与直线的位置关系",
+      "size_bytes": 82547,
+      "git_blob_sha": "f376b17cd39f325d4c6695e728e806d9f13ed6f0"
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/004直线与平面的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第八章-长方体的再认识",
+      "topic": "004直线与平面的位置关系",
+      "size_bytes": 82606,
+      "git_blob_sha": "742ea3e7a5ad6e1e521069359178dca946596da7"
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/005平面与平面的位置关系/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第八章-长方体的再认识",
+      "topic": "005平面与平面的位置关系",
+      "size_bytes": 82536,
+      "git_blob_sha": "382305a247186b452734fb297a44e017c798e7d8"
+    },
+    {
+      "path": "初中/六年级/第二学期/第八章-长方体的再认识/006长方体的棱长和、表面积和体积/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第八章-长方体的再认识",
+      "topic": "006长方体的棱长和、表面积和体积",
+      "size_bytes": 82499,
+      "git_blob_sha": "8f118b33ab3ed4eac8f3fd4edbaef9d30ecee7db"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/001等式的性质/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "001等式的性质",
+      "size_bytes": 82528,
+      "git_blob_sha": "ba9348b10a1e81fb9734b818c549ccc229966863"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/002一元一次方程的概念/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "002一元一次方程的概念",
+      "size_bytes": 82460,
+      "git_blob_sha": "9bc80de669d3d9c42898c12aa1cd01b3aa61f6ad"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/003解一元一次方程/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "003解一元一次方程",
+      "size_bytes": 82637,
+      "git_blob_sha": "d78fae3061b9ae845dfa37b814688774b8f598fb"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/004一元一次不等式/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "004一元一次不等式",
+      "size_bytes": 82632,
+      "git_blob_sha": "b5e51f893505c03a9ba74e6f73dfa580bfac78c8"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/005一元一次不等式组/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "005一元一次不等式组",
+      "size_bytes": 82599,
+      "git_blob_sha": "fb7d75e36d3d50814337e594d6c17eb4873249f0"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/006二元一次方程组/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "006二元一次方程组",
+      "size_bytes": 82540,
+      "git_blob_sha": "0078dc0ff68b1526002f4ea18a5f9bb6b90eca4f"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/007代入消元法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "007代入消元法",
+      "size_bytes": 82614,
+      "git_blob_sha": "6ef164aac745bcb8f516c01d5da95a979d5b654c"
+    },
+    {
+      "path": "初中/六年级/第二学期/第六章-一次方程（组）和一次不等式（组）/008加减消元法/prompt.md",
+      "stage": "初中",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第六章-一次方程（组）和一次不等式（组）",
+      "topic": "008加减消元法",
+      "size_bytes": 82602,
+      "git_blob_sha": "5c210d368cfa1a80f712b91f3563f6eb3663713c"
+    },
+    {
+      "path": "小学/一年级/上册/第一章-10以内数的认识/001数一数/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第一章-10以内数的认识",
+      "topic": "001数一数",
+      "size_bytes": 82409,
+      "git_blob_sha": "a9b9e4e64cb688906c6190def3ee16b700cc142f"
+    },
+    {
+      "path": "小学/一年级/上册/第一章-10以内数的认识/002认识数字0-10/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第一章-10以内数的认识",
+      "topic": "002认识数字0-10",
+      "size_bytes": 82427,
+      "git_blob_sha": "6634ba93b1dd391c52485e9eabef817f8ee532a1"
+    },
+    {
+      "path": "小学/一年级/上册/第一章-10以内数的认识/003几和第几/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第一章-10以内数的认识",
+      "topic": "003几和第几",
+      "size_bytes": 82457,
+      "git_blob_sha": "ca03ef978644bae1f7a06136712ee968be22d1be"
+    },
+    {
+      "path": "小学/一年级/上册/第一章-10以内数的认识/004比一比/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第一章-10以内数的认识",
+      "topic": "004比一比",
+      "size_bytes": 82468,
+      "git_blob_sha": "0b325930e7bdec16f57f1781798cdea77c6af4a7"
+    },
+    {
+      "path": "小学/一年级/上册/第一章-10以内数的认识/005分与合/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第一章-10以内数的认识",
+      "topic": "005分与合",
+      "size_bytes": 82515,
+      "git_blob_sha": "7cd079f01baaece5f11b5eda23375df371997c53"
+    },
+    {
+      "path": "小学/一年级/上册/第三章-认识图形（一）/001长方体/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第三章-认识图形（一）",
+      "topic": "001长方体",
+      "size_bytes": 82327,
+      "git_blob_sha": "fca3f51815550a936d750f2d6bdb049e681ac54b"
+    },
+    {
+      "path": "小学/一年级/上册/第三章-认识图形（一）/002正方体/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第三章-认识图形（一）",
+      "topic": "002正方体",
+      "size_bytes": 82337,
+      "git_blob_sha": "c601db4bbabd6d2ebb100993fb9feb431988d9c5"
+    },
+    {
+      "path": "小学/一年级/上册/第三章-认识图形（一）/003圆柱/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第三章-认识图形（一）",
+      "topic": "003圆柱",
+      "size_bytes": 82367,
+      "git_blob_sha": "2e9b0b9446d0981139880b2f686514fdf66c3264"
+    },
+    {
+      "path": "小学/一年级/上册/第三章-认识图形（一）/004球/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第三章-认识图形（一）",
+      "topic": "004球",
+      "size_bytes": 82304,
+      "git_blob_sha": "dd8cac3408493605c5a7cb1610b1a5f22250e50c"
+    },
+    {
+      "path": "小学/一年级/上册/第二章-10以内数的加减法/001加法的初步认识/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第二章-10以内数的加减法",
+      "topic": "001加法的初步认识",
+      "size_bytes": 82440,
+      "git_blob_sha": "786c0c6823a9f3da717950b422e80ae1805ac946"
+    },
+    {
+      "path": "小学/一年级/上册/第二章-10以内数的加减法/002减法的初步认识/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第二章-10以内数的加减法",
+      "topic": "002减法的初步认识",
+      "size_bytes": 82413,
+      "git_blob_sha": "d4fc4d3ce3a59bd84c6f60ccaec7109fc5c14ee1"
+    },
+    {
+      "path": "小学/一年级/上册/第二章-10以内数的加减法/00310以内的口算/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第二章-10以内数的加减法",
+      "topic": "00310以内的口算",
+      "size_bytes": 82433,
+      "git_blob_sha": "992a8f9d0a4e99dd776a20c95d0e5f727ba53d66"
+    },
+    {
+      "path": "小学/一年级/上册/第二章-10以内数的加减法/004有关0的加减法/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第二章-10以内数的加减法",
+      "topic": "004有关0的加减法",
+      "size_bytes": 82312,
+      "git_blob_sha": "cc04b3c6c76749b7aa109e32876eec327a59388e"
+    },
+    {
+      "path": "小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第二章-10以内数的加减法",
+      "topic": "005连加、连减、加减混合",
+      "size_bytes": 82459,
+      "git_blob_sha": "afd2aee148060aaa62b14729b2cb713b29e8916f"
+    },
+    {
+      "path": "小学/一年级/上册/第五章-20以内的进位加法/001凑十法/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第五章-20以内的进位加法",
+      "topic": "001凑十法",
+      "size_bytes": 82527,
+      "git_blob_sha": "aceff0662e403c8b37150a028a5a56850a72754c"
+    },
+    {
+      "path": "小学/一年级/上册/第五章-20以内的进位加法/002加法表整理/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第五章-20以内的进位加法",
+      "topic": "002加法表整理",
+      "size_bytes": 82374,
+      "git_blob_sha": "81502daa1f0b35f3bc9c330eb673410c340887e0"
+    },
+    {
+      "path": "小学/一年级/上册/第四章-20以内数的认识/001数数与数的组成/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第四章-20以内数的认识",
+      "topic": "001数数与数的组成",
+      "size_bytes": 82472,
+      "git_blob_sha": "566e0c4134fef58d323ef937d2348f440176d6f1"
+    },
+    {
+      "path": "小学/一年级/上册/第四章-20以内数的认识/002数的顺序和大小比较/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "上册",
+      "chapter": "第四章-20以内数的认识",
+      "topic": "002数的顺序和大小比较",
+      "size_bytes": 82372,
+      "git_blob_sha": "1c00c93ddaf7f4eb07b9cfc48bafdfac111b27d8"
+    },
+    {
+      "path": "小学/一年级/下册/第七章-整理与提高/001统计初步/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第七章-整理与提高",
+      "topic": "001统计初步",
+      "size_bytes": 82361,
+      "git_blob_sha": "100e654689a0b2f6984fbd32646478e7305efc7b"
+    },
+    {
+      "path": "小学/一年级/下册/第三章-时间的初步认识（一）/001认识钟面/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第三章-时间的初步认识（一）",
+      "topic": "001认识钟面",
+      "size_bytes": 82363,
+      "git_blob_sha": "7c797581e29abdb1823c276501c90dfed24bde01"
+    },
+    {
+      "path": "小学/一年级/下册/第三章-时间的初步认识（一）/002认识整时/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第三章-时间的初步认识（一）",
+      "topic": "002认识整时",
+      "size_bytes": 82359,
+      "git_blob_sha": "241431a82dfc5625fc2fb2714e4f1ad2001f1464"
+    },
+    {
+      "path": "小学/一年级/下册/第三章-时间的初步认识（一）/003认识半时/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第三章-时间的初步认识（一）",
+      "topic": "003认识半时",
+      "size_bytes": 82402,
+      "git_blob_sha": "f580d00a043811ae57dba64bcdeb806af4675771"
+    },
+    {
+      "path": "小学/一年级/下册/第二章-100以内数的认识/001数数与拐弯数/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第二章-100以内数的认识",
+      "topic": "001数数与拐弯数",
+      "size_bytes": 82415,
+      "git_blob_sha": "bfa30ae9e3027d8d87d84c3e8e2a7ffa792bdd8a"
+    },
+    {
+      "path": "小学/一年级/下册/第二章-100以内数的认识/002数的组成与位值/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第二章-100以内数的认识",
+      "topic": "002数的组成与位值",
+      "size_bytes": 82535,
+      "git_blob_sha": "3e5f481d5506d43817402ab82ca9e3024873edbc"
+    },
+    {
+      "path": "小学/一年级/下册/第二章-100以内数的认识/003百数表/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第二章-100以内数的认识",
+      "topic": "003百数表",
+      "size_bytes": 82397,
+      "git_blob_sha": "ca074733f0a6b915a171d73a9ff21f8c94149daa"
+    },
+    {
+      "path": "小学/一年级/下册/第二章-100以内数的认识/004大小比较/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第二章-100以内数的认识",
+      "topic": "004大小比较",
+      "size_bytes": 82331,
+      "git_blob_sha": "3c5bbf9913f86cae5b931ed448bdad728f238248"
+    },
+    {
+      "path": "小学/一年级/下册/第五章-100以内数的加减法/001两位数加两位数（进位加法）/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第五章-100以内数的加减法",
+      "topic": "001两位数加两位数（进位加法）",
+      "size_bytes": 82459,
+      "git_blob_sha": "52370d5fa70fafadea7e5bbfb2ba06d79849f343"
+    },
+    {
+      "path": "小学/一年级/下册/第五章-100以内数的加减法/002两位数减两位数（退位减法）/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第五章-100以内数的加减法",
+      "topic": "002两位数减两位数（退位减法）",
+      "size_bytes": 82529,
+      "git_blob_sha": "ff3932784e821edae39b34559bbec57455b216b2"
+    },
+    {
+      "path": "小学/一年级/下册/第六章-几何小实践/001认识平面图形/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "001认识平面图形",
+      "size_bytes": 82410,
+      "git_blob_sha": "e7993e2d7c576c32eeba554fe3bc97bb50648ed0"
+    },
+    {
+      "path": "小学/一年级/下册/第六章-几何小实践/002图形的特征/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "002图形的特征",
+      "size_bytes": 82505,
+      "git_blob_sha": "599efe10a46268430faac269073012de860da7ef"
+    },
+    {
+      "path": "小学/一年级/下册/第六章-几何小实践/003图形的拼搭/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "003图形的拼搭",
+      "size_bytes": 82393,
+      "git_blob_sha": "e911d80e0151c55dc4dd69bd0ad89160b3ffad00"
+    },
+    {
+      "path": "小学/一年级/下册/第四章-人民币的认识/001认识人民币/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第四章-人民币的认识",
+      "topic": "001认识人民币",
+      "size_bytes": 82402,
+      "git_blob_sha": "cf8427b0adfe4127bd763ac034f6a1f51fd42d1a"
+    },
+    {
+      "path": "小学/一年级/下册/第四章-人民币的认识/002进率与换算/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第四章-人民币的认识",
+      "topic": "002进率与换算",
+      "size_bytes": 82365,
+      "git_blob_sha": "a8df85ec9e7ea09f141e25906a75a9203c2bdc72"
+    },
+    {
+      "path": "小学/一年级/下册/第四章-人民币的认识/003简单的计算/prompt.md",
+      "stage": "小学",
+      "grade": "一年级",
+      "semester": "下册",
+      "chapter": "第四章-人民币的认识",
+      "topic": "003简单的计算",
+      "size_bytes": 82439,
+      "git_blob_sha": "4a0993e035a970d4d7bf57e119eed4cbe88924b3"
+    },
+    {
+      "path": "小学/三年级/上册/第三章-时间的初步认识（三）/001年、月、日/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第三章-时间的初步认识（三）",
+      "topic": "001年、月、日",
+      "size_bytes": 82674,
+      "git_blob_sha": "1c4be80023b1dc4f9fe850b8669371549e8c92d1"
+    },
+    {
+      "path": "小学/三年级/上册/第三章-时间的初步认识（三）/002计算经过天数/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第三章-时间的初步认识（三）",
+      "topic": "002计算经过天数",
+      "size_bytes": 82509,
+      "git_blob_sha": "8992c0dc8b0ff4d237dd348166e0901e2c652ef4"
+    },
+    {
+      "path": "小学/三年级/上册/第二章-用一位数乘/001整十、整百数乘一位数/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第二章-用一位数乘",
+      "topic": "001整十、整百数乘一位数",
+      "size_bytes": 82383,
+      "git_blob_sha": "f2ff9ae4c7e7e0eccbb3545c857b3c01244a8ee3"
+    },
+    {
+      "path": "小学/三年级/上册/第二章-用一位数乘/002两位数乘一位数（竖式计算）/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第二章-用一位数乘",
+      "topic": "002两位数乘一位数（竖式计算）",
+      "size_bytes": 82648,
+      "git_blob_sha": "d0b707c284ebcefb4833c08c158f29bd6dc678d1"
+    },
+    {
+      "path": "小学/三年级/上册/第二章-用一位数乘/003三位数乘一位数/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第二章-用一位数乘",
+      "topic": "003三位数乘一位数",
+      "size_bytes": 82453,
+      "git_blob_sha": "416a6bedb91ddf9ce60e5babced40161340448d0"
+    },
+    {
+      "path": "小学/三年级/上册/第五章-几何小实践/001认识周长/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第五章-几何小实践",
+      "topic": "001认识周长",
+      "size_bytes": 82366,
+      "git_blob_sha": "4b5f76f0f79fcddb37cce3d7328a21e322144e10"
+    },
+    {
+      "path": "小学/三年级/上册/第五章-几何小实践/002长方形的周长/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第五章-几何小实践",
+      "topic": "002长方形的周长",
+      "size_bytes": 82469,
+      "git_blob_sha": "2b21c945205ca5dcdbb624cf2f6a5105d2944718"
+    },
+    {
+      "path": "小学/三年级/上册/第五章-几何小实践/003正方形的周长/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第五章-几何小实践",
+      "topic": "003正方形的周长",
+      "size_bytes": 82331,
+      "git_blob_sha": "7a9eb2b43ec822c8185cc6e318e8158547c4efdd"
+    },
+    {
+      "path": "小学/三年级/上册/第六章-整理与提高/001分数的初步认识/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第六章-整理与提高",
+      "topic": "001分数的初步认识",
+      "size_bytes": 82621,
+      "git_blob_sha": "828cc9fb64c4d4d25b8e086aab53c717bc5da6e6"
+    },
+    {
+      "path": "小学/三年级/上册/第六章-整理与提高/002同分母分数的加减法/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第六章-整理与提高",
+      "topic": "002同分母分数的加减法",
+      "size_bytes": 82381,
+      "git_blob_sha": "6671c7bb95ca31ed519d01390e24544554d149a7"
+    },
+    {
+      "path": "小学/三年级/上册/第四章-用一位数除/001两位数除以一位数（竖式计算）/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第四章-用一位数除",
+      "topic": "001两位数除以一位数（竖式计算）",
+      "size_bytes": 82771,
+      "git_blob_sha": "40b9e1f4a5488fe618a047a8a441d10f3daa4ad0"
+    },
+    {
+      "path": "小学/三年级/上册/第四章-用一位数除/002三位数除以一位数/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第四章-用一位数除",
+      "topic": "002三位数除以一位数",
+      "size_bytes": 82398,
+      "git_blob_sha": "6cd8889cbff86624b11e5481e0ef75e5e0dcc523"
+    },
+    {
+      "path": "小学/三年级/上册/第四章-用一位数除/003除法的验算/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "上册",
+      "chapter": "第四章-用一位数除",
+      "topic": "003除法的验算",
+      "size_bytes": 82348,
+      "git_blob_sha": "3f4b17c5f90222f0deb09081cdc78695f2bb69f6"
+    },
+    {
+      "path": "小学/三年级/下册/第七章-整理与提高/001小数的初步认识/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第七章-整理与提高",
+      "topic": "001小数的初步认识",
+      "size_bytes": 82528,
+      "git_blob_sha": "76abfae6e75c79a6b3fd07e7fe979c970f8d5db5"
+    },
+    {
+      "path": "小学/三年级/下册/第七章-整理与提高/002周长与面积的区别/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第七章-整理与提高",
+      "topic": "002周长与面积的区别",
+      "size_bytes": 82531,
+      "git_blob_sha": "df39a0f8949cdeb308ef76960947fc3f1bf68a0d"
+    },
+    {
+      "path": "小学/三年级/下册/第三章-统计/001复式条形统计图/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第三章-统计",
+      "topic": "001复式条形统计图",
+      "size_bytes": 82648,
+      "git_blob_sha": "7c82d336568a6789b6819765abf8ad61e770a529"
+    },
+    {
+      "path": "小学/三年级/下册/第二章-用两位数乘除/001两位数乘两位数（竖式计算）/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第二章-用两位数乘除",
+      "topic": "001两位数乘两位数（竖式计算）",
+      "size_bytes": 82907,
+      "git_blob_sha": "7e1e47e7075559adb949e3b4455fc4a35d253161"
+    },
+    {
+      "path": "小学/三年级/下册/第二章-用两位数乘除/002两位数除两、三位数（试商）/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第二章-用两位数乘除",
+      "topic": "002两位数除两、三位数（试商）",
+      "size_bytes": 82724,
+      "git_blob_sha": "5ef2158054af213dc3d9d98028d2d861fdd11fb7"
+    },
+    {
+      "path": "小学/三年级/下册/第六章-几何小实践/001认识面积/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "001认识面积",
+      "size_bytes": 82376,
+      "git_blob_sha": "11a05c27a751b06ceaa3b98552086429ef1bce2b"
+    },
+    {
+      "path": "小学/三年级/下册/第六章-几何小实践/002面积单位/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "002面积单位",
+      "size_bytes": 82554,
+      "git_blob_sha": "ef24256605952d3205293a232550ff085a084ab4"
+    },
+    {
+      "path": "小学/三年级/下册/第六章-几何小实践/003长方形和正方形的面积/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "003长方形和正方形的面积",
+      "size_bytes": 82430,
+      "git_blob_sha": "1165e7f36823bef416ad516a15aaa380033bc0ed"
+    },
+    {
+      "path": "小学/三年级/下册/第六章-几何小实践/004面积单位的换算/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "004面积单位的换算",
+      "size_bytes": 82377,
+      "git_blob_sha": "ba8c3d97c9973223e9f8b4b85858dcfa119c712d"
+    },
+    {
+      "path": "小学/三年级/下册/第四章-分数的初步认识（二）/001分数的再认识/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第四章-分数的初步认识（二）",
+      "topic": "001分数的再认识",
+      "size_bytes": 82408,
+      "git_blob_sha": "80dde92ce3eadb011787cc705f93fba5dec27547"
+    },
+    {
+      "path": "小学/三年级/下册/第四章-分数的初步认识（二）/002分数的大小比较/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第四章-分数的初步认识（二）",
+      "topic": "002分数的大小比较",
+      "size_bytes": 82575,
+      "git_blob_sha": "b0fbe08a202edbdb81fcb5a5bf199aa988c242cc"
+    },
+    {
+      "path": "小学/三年级/下册/第四章-分数的初步认识（二）/003分数的简单计算/prompt.md",
+      "stage": "小学",
+      "grade": "三年级",
+      "semester": "下册",
+      "chapter": "第四章-分数的初步认识（二）",
+      "topic": "003分数的简单计算",
+      "size_bytes": 82530,
+      "git_blob_sha": "9fd135d27951cd0cb6201b6460ba63db4416f0e0"
+    },
+    {
+      "path": "小学/二年级/上册/第三章-乘法、除法（二）/0017、8、9的乘法口诀/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第三章-乘法、除法（二）",
+      "topic": "0017、8、9的乘法口诀",
+      "size_bytes": 82450,
+      "git_blob_sha": "d855679b1088a894e1d4e80165bfbcadf3042813"
+    },
+    {
+      "path": "小学/二年级/上册/第三章-乘法、除法（二）/002有余数的除法/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第三章-乘法、除法（二）",
+      "topic": "002有余数的除法",
+      "size_bytes": 82550,
+      "git_blob_sha": "e5708a22fc73e20b468943ddc6060ff7d2f9167f"
+    },
+    {
+      "path": "小学/二年级/上册/第二章-乘法、除法（一）/001乘法的引入/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第二章-乘法、除法（一）",
+      "topic": "001乘法的引入",
+      "size_bytes": 82502,
+      "git_blob_sha": "4cb415c72534bd02b02960a750ed8cc9b15a6726"
+    },
+    {
+      "path": "小学/二年级/上册/第二章-乘法、除法（一）/0022-6的乘法口诀/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第二章-乘法、除法（一）",
+      "topic": "0022-6的乘法口诀",
+      "size_bytes": 82538,
+      "git_blob_sha": "b314a209def47b4e1db492ffaee6372a05cc1bf3"
+    },
+    {
+      "path": "小学/二年级/上册/第二章-乘法、除法（一）/003除法的引入/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第二章-乘法、除法（一）",
+      "topic": "003除法的引入",
+      "size_bytes": 82583,
+      "git_blob_sha": "65b4faf6eeaeb41293873d2eb4d5b17364522919"
+    },
+    {
+      "path": "小学/二年级/上册/第二章-乘法、除法（一）/004用乘法口诀求商/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第二章-乘法、除法（一）",
+      "topic": "004用乘法口诀求商",
+      "size_bytes": 82390,
+      "git_blob_sha": "e90038b9ecb3c7b2c429348dc693efe47ac39b49"
+    },
+    {
+      "path": "小学/二年级/上册/第二章-乘法、除法（一）/005倍的初步认识/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第二章-乘法、除法（一）",
+      "topic": "005倍的初步认识",
+      "size_bytes": 82536,
+      "git_blob_sha": "db7d7fc07c61045af5c1b5492514a8985d2fc8b7"
+    },
+    {
+      "path": "小学/二年级/上册/第五章-方向与位置/001东南西北/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第五章-方向与位置",
+      "topic": "001东南西北",
+      "size_bytes": 82404,
+      "git_blob_sha": "05f90fa845c57707d629057f18c0bda211dfc315"
+    },
+    {
+      "path": "小学/二年级/上册/第五章-方向与位置/002从不同方向观察物体/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第五章-方向与位置",
+      "topic": "002从不同方向观察物体",
+      "size_bytes": 82438,
+      "git_blob_sha": "94bc0bad1ab44da3df6edcde3499efe0eb835c4b"
+    },
+    {
+      "path": "小学/二年级/上册/第六章-整理与提高/001解决问题策略/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第六章-整理与提高",
+      "topic": "001解决问题策略",
+      "size_bytes": 82399,
+      "git_blob_sha": "7c57180615620b20abd4de5ad711cbcfe460fcfe"
+    },
+    {
+      "path": "小学/二年级/上册/第四章-几何小实践/001认识角/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第四章-几何小实践",
+      "topic": "001认识角",
+      "size_bytes": 82326,
+      "git_blob_sha": "6f7bcf6b677d27b7b0bfd5ace733e9e78eafa145"
+    },
+    {
+      "path": "小学/二年级/上册/第四章-几何小实践/002认识直角/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第四章-几何小实践",
+      "topic": "002认识直角",
+      "size_bytes": 82427,
+      "git_blob_sha": "78e5b0a7521d0c91576fabf7092e33ce0c2e4488"
+    },
+    {
+      "path": "小学/二年级/上册/第四章-几何小实践/003锐角和钝角/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "上册",
+      "chapter": "第四章-几何小实践",
+      "topic": "003锐角和钝角",
+      "size_bytes": 82363,
+      "git_blob_sha": "1513ed65d046595bbd50d05deb724aaa46941f89"
+    },
+    {
+      "path": "小学/二年级/下册/第一章-复习与提高/001运算顺序/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第一章-复习与提高",
+      "topic": "001运算顺序",
+      "size_bytes": 82513,
+      "git_blob_sha": "5723382752c0fb2a12ea45aa92b3118f53b8cf77"
+    },
+    {
+      "path": "小学/二年级/下册/第七章-整理与提高/001统计（条形统计图二）/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第七章-整理与提高",
+      "topic": "001统计（条形统计图二）",
+      "size_bytes": 82473,
+      "git_blob_sha": "2aedc2cde8f2ccd870d1325b9b0bdeb084bcc33f"
+    },
+    {
+      "path": "小学/二年级/下册/第三章-时间的初步认识（二）/001认识分/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第三章-时间的初步认识（二）",
+      "topic": "001认识分",
+      "size_bytes": 82371,
+      "git_blob_sha": "56dc2f6da298cec89f734f97f42ac23e656ebb68"
+    },
+    {
+      "path": "小学/二年级/下册/第三章-时间的初步认识（二）/002读写几时几分/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第三章-时间的初步认识（二）",
+      "topic": "002读写几时几分",
+      "size_bytes": 82462,
+      "git_blob_sha": "2de3d2a2606aaac248def2f4adad11ad755e9862"
+    },
+    {
+      "path": "小学/二年级/下册/第三章-时间的初步认识（二）/003认识秒/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第三章-时间的初步认识（二）",
+      "topic": "003认识秒",
+      "size_bytes": 82271,
+      "git_blob_sha": "f1135c3ce106ad31bfadf6c30fba692f4966160d"
+    },
+    {
+      "path": "小学/二年级/下册/第二章-千以内数的认识/001认识千/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第二章-千以内数的认识",
+      "topic": "001认识千",
+      "size_bytes": 82454,
+      "git_blob_sha": "ae1216b86c328d421ef4799c03a20ce674f778b9"
+    },
+    {
+      "path": "小学/二年级/下册/第二章-千以内数的认识/002数的读写与组成/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第二章-千以内数的认识",
+      "topic": "002数的读写与组成",
+      "size_bytes": 82532,
+      "git_blob_sha": "e6a21aff68f4b4d96d9ebbcf87b943be178de827"
+    },
+    {
+      "path": "小学/二年级/下册/第五章-质量的初步认识/001认识千克/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第五章-质量的初步认识",
+      "topic": "001认识千克",
+      "size_bytes": 82384,
+      "git_blob_sha": "8abfed26164526f23a83af58ca977c7d8bbbb8fc"
+    },
+    {
+      "path": "小学/二年级/下册/第五章-质量的初步认识/002认识克/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第五章-质量的初步认识",
+      "topic": "002认识克",
+      "size_bytes": 82286,
+      "git_blob_sha": "453023c41def5a4640c60d77dc71cf158f63b943"
+    },
+    {
+      "path": "小学/二年级/下册/第五章-质量的初步认识/003克与千克的进率/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第五章-质量的初步认识",
+      "topic": "003克与千克的进率",
+      "size_bytes": 82324,
+      "git_blob_sha": "09f30baba6a93789c4c6e0d78971d2e63d2ac79f"
+    },
+    {
+      "path": "小学/二年级/下册/第六章-几何小实践/001轴对称图形/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "001轴对称图形",
+      "size_bytes": 82458,
+      "git_blob_sha": "c37421ffc51b1c5f62eea1680fa0ffa3834e2ae4"
+    },
+    {
+      "path": "小学/二年级/下册/第六章-几何小实践/002平移与旋转/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第六章-几何小实践",
+      "topic": "002平移与旋转",
+      "size_bytes": 82549,
+      "git_blob_sha": "78ede1e5d5aa80dfe7f2da42d951268715dd045d"
+    },
+    {
+      "path": "小学/二年级/下册/第四章-三位数的加减法/001三位数加法（连续进位）/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第四章-三位数的加减法",
+      "topic": "001三位数加法（连续进位）",
+      "size_bytes": 82471,
+      "git_blob_sha": "8b679ee6fdaec4572e5d51a0c8af3c7c9dec1e5e"
+    },
+    {
+      "path": "小学/二年级/下册/第四章-三位数的加减法/002三位数减法（连续退位）/prompt.md",
+      "stage": "小学",
+      "grade": "二年级",
+      "semester": "下册",
+      "chapter": "第四章-三位数的加减法",
+      "topic": "002三位数减法（连续退位）",
+      "size_bytes": 82556,
+      "git_blob_sha": "6886eba6f82d44abd965f5bda383edf795dfb1ef"
+    },
+    {
+      "path": "小学/五年级/第一学期/第一章-复习与提高/001符号表示数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "001符号表示数",
+      "size_bytes": 82558,
+      "git_blob_sha": "f67f2686c6ca7a1b6ecd79d452d7ba9a17ccd0d4"
+    },
+    {
+      "path": "小学/五年级/第一学期/第三章-统计/001平均数的意义/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第三章-统计",
+      "topic": "001平均数的意义",
+      "size_bytes": 82523,
+      "git_blob_sha": "86e9f1028def5de1b7f29c4661ca6ed2a549c3c0"
+    },
+    {
+      "path": "小学/五年级/第一学期/第三章-统计/002平均数的计算/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第三章-统计",
+      "topic": "002平均数的计算",
+      "size_bytes": 82531,
+      "git_blob_sha": "83e76ed4d2b4e880708373db2a9e49a2d4e18f8f"
+    },
+    {
+      "path": "小学/五年级/第一学期/第二章-小数乘除法/001小数乘小数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第二章-小数乘除法",
+      "topic": "001小数乘小数",
+      "size_bytes": 82585,
+      "git_blob_sha": "730af8ccae0d6254c9480154585d1a15067116dc"
+    },
+    {
+      "path": "小学/五年级/第一学期/第二章-小数乘除法/002积的近似值/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第二章-小数乘除法",
+      "topic": "002积的近似值",
+      "size_bytes": 82500,
+      "git_blob_sha": "4e207a9ac715d8b20325e765d7d5cb81ac183604"
+    },
+    {
+      "path": "小学/五年级/第一学期/第二章-小数乘除法/003小数除以小数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第二章-小数乘除法",
+      "topic": "003小数除以小数",
+      "size_bytes": 82619,
+      "git_blob_sha": "99b3fcb79e8c5d564f6f81e6e691bb92af5abe57"
+    },
+    {
+      "path": "小学/五年级/第一学期/第二章-小数乘除法/004循环小数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第二章-小数乘除法",
+      "topic": "004循环小数",
+      "size_bytes": 82598,
+      "git_blob_sha": "3c9044396aa0e53bcc410e3b6c92cf84780d557b"
+    },
+    {
+      "path": "小学/五年级/第一学期/第五章-几何小实践/001平行四边形的面积/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "001平行四边形的面积",
+      "size_bytes": 82522,
+      "git_blob_sha": "46240279f430aa26e2fef5add54bdcfd5887d8fe"
+    },
+    {
+      "path": "小学/五年级/第一学期/第五章-几何小实践/002三角形的面积/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "002三角形的面积",
+      "size_bytes": 82565,
+      "git_blob_sha": "618b3a63e67468ba7d5c7792463085eef0046e0a"
+    },
+    {
+      "path": "小学/五年级/第一学期/第五章-几何小实践/003梯形的面积/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "003梯形的面积",
+      "size_bytes": 82584,
+      "git_blob_sha": "1d7a15b13d9f4536d9237ac6345ea0ba02a8b775"
+    },
+    {
+      "path": "小学/五年级/第一学期/第五章-几何小实践/004组合图形的面积/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "004组合图形的面积",
+      "size_bytes": 82574,
+      "git_blob_sha": "3ed25b81a19e537cc47cd0bdfb93d626bc86e75f"
+    },
+    {
+      "path": "小学/五年级/第一学期/第五章-几何小实践/005等面积法-同底等高/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "005等面积法-同底等高",
+      "size_bytes": 3331,
+      "git_blob_sha": "fb2c59d6d4c7b4b56083fa5615385c029b9392ea"
+    },
+    {
+      "path": "小学/五年级/第一学期/第五章-几何小实践/006等面积法-梯形蝴蝶模型/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "006等面积法-梯形蝴蝶模型",
+      "size_bytes": 3140,
+      "git_blob_sha": "25ce3d086d87228cca58d0adc971c5307287aeff"
+    },
+    {
+      "path": "小学/五年级/第一学期/第六章-整理与提高/001列方程解应用题/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第六章-整理与提高",
+      "topic": "001列方程解应用题",
+      "size_bytes": 82654,
+      "git_blob_sha": "7a5323cd64dc9a1e0698e15e15b48e3c5aee972a"
+    },
+    {
+      "path": "小学/五年级/第一学期/第四章-简易方程(一)/001用字母表示数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第四章-简易方程(一)",
+      "topic": "001用字母表示数",
+      "size_bytes": 82572,
+      "git_blob_sha": "cdb075a10515684f17700ceeaa6dcdcacefc77c9"
+    },
+    {
+      "path": "小学/五年级/第一学期/第四章-简易方程(一)/002方程的意义/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第四章-简易方程(一)",
+      "topic": "002方程的意义",
+      "size_bytes": 82513,
+      "git_blob_sha": "60cb180522ac711a23a550ef552aaef9fbfca7db"
+    },
+    {
+      "path": "小学/五年级/第一学期/第四章-简易方程(一)/003等式的性质/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第四章-简易方程(一)",
+      "topic": "003等式的性质",
+      "size_bytes": 82615,
+      "git_blob_sha": "755ce9c079210efe1afb2875ab470253c899074a"
+    },
+    {
+      "path": "小学/五年级/第一学期/第四章-简易方程(一)/004解简易方程/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第一学期",
+      "chapter": "第四章-简易方程(一)",
+      "topic": "004解简易方程",
+      "size_bytes": 82553,
+      "git_blob_sha": "84726fcc01089e9dac3418dc1eb5f01a9cb080f3"
+    },
+    {
+      "path": "小学/五年级/第二学期/第一章-复习与提高/001因数和倍数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "001因数和倍数",
+      "size_bytes": 82591,
+      "git_blob_sha": "9a2a6150b581aa65f494e3f7cec2608ee98abe79"
+    },
+    {
+      "path": "小学/五年级/第二学期/第一章-复习与提高/002质数与合数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "002质数与合数",
+      "size_bytes": 82607,
+      "git_blob_sha": "8f983b3f52b729f1571d71cf38cdd838b4bbb477"
+    },
+    {
+      "path": "小学/五年级/第二学期/第一章-复习与提高/003最大公因数与最小公倍数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "003最大公因数与最小公倍数",
+      "size_bytes": 82722,
+      "git_blob_sha": "94c9f575c0bc6db40e81cceeeccf6063e22800b0"
+    },
+    {
+      "path": "小学/五年级/第二学期/第三章-分数的意义和性质/001单位'1'/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第三章-分数的意义和性质",
+      "topic": "001单位'1'",
+      "size_bytes": 82577,
+      "git_blob_sha": "78c92989e64347a70ad3c46403a19ee0027a863f"
+    },
+    {
+      "path": "小学/五年级/第二学期/第三章-分数的意义和性质/002分数与除法/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第三章-分数的意义和性质",
+      "topic": "002分数与除法",
+      "size_bytes": 82528,
+      "git_blob_sha": "e56e3ac44bf57b4c45e3a7a5ef64202d758e7052"
+    },
+    {
+      "path": "小学/五年级/第二学期/第三章-分数的意义和性质/003真分数、假分数和带分数/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第三章-分数的意义和性质",
+      "topic": "003真分数、假分数和带分数",
+      "size_bytes": 82650,
+      "git_blob_sha": "00898268e73533be72ef1216f081f9de9eec066a"
+    },
+    {
+      "path": "小学/五年级/第二学期/第三章-分数的意义和性质/004分数的基本性质/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第三章-分数的意义和性质",
+      "topic": "004分数的基本性质",
+      "size_bytes": 82537,
+      "git_blob_sha": "b1e3594e1c149121b132c1ce6f1758afd6489933"
+    },
+    {
+      "path": "小学/五年级/第二学期/第三章-分数的意义和性质/005约分/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第三章-分数的意义和性质",
+      "topic": "005约分",
+      "size_bytes": 82547,
+      "git_blob_sha": "970abb4404489cc17411beadcaaffb94ed627dd5"
+    },
+    {
+      "path": "小学/五年级/第二学期/第三章-分数的意义和性质/006通分/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第三章-分数的意义和性质",
+      "topic": "006通分",
+      "size_bytes": 82522,
+      "git_blob_sha": "6f8b139593323ac1fb78632079c8fe97a739fd74"
+    },
+    {
+      "path": "小学/五年级/第二学期/第二章-正数和负数的初步认识/001负数的引入/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第二章-正数和负数的初步认识",
+      "topic": "001负数的引入",
+      "size_bytes": 82575,
+      "git_blob_sha": "b8c5d15a06974e61b38019ee724a422d6122ecb8"
+    },
+    {
+      "path": "小学/五年级/第二学期/第二章-正数和负数的初步认识/002数轴的初步认识/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第二章-正数和负数的初步认识",
+      "topic": "002数轴的初步认识",
+      "size_bytes": 82532,
+      "git_blob_sha": "a6629f27dc8f326987700c87534e661f5fa772b3"
+    },
+    {
+      "path": "小学/五年级/第二学期/第五章-几何小实践/001长方体与正方体的认识/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "001长方体与正方体的认识",
+      "size_bytes": 82588,
+      "git_blob_sha": "1b897b33342e95064729a3ba4b6ff2658473a639"
+    },
+    {
+      "path": "小学/五年级/第二学期/第五章-几何小实践/002长方体和正方体的表面积/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "002长方体和正方体的表面积",
+      "size_bytes": 82664,
+      "git_blob_sha": "97c8e6135f34454f91a284de2e41c3eb19169f85"
+    },
+    {
+      "path": "小学/五年级/第二学期/第五章-几何小实践/003体积与体积单位/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "003体积与体积单位",
+      "size_bytes": 82581,
+      "git_blob_sha": "96fef94e8324f649b65a4217913e259cdd332345"
+    },
+    {
+      "path": "小学/五年级/第二学期/第五章-几何小实践/004长方体和正方体的体积/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "004长方体和正方体的体积",
+      "size_bytes": 82628,
+      "git_blob_sha": "ed0c8acf1a45c409e14faca29dc6d86e37515d1d"
+    },
+    {
+      "path": "小学/五年级/第二学期/第五章-几何小实践/005容积和容积单位/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第五章-几何小实践",
+      "topic": "005容积和容积单位",
+      "size_bytes": 82571,
+      "git_blob_sha": "2114262a3560bc52e5c69969c0968f6dfc89634e"
+    },
+    {
+      "path": "小学/五年级/第二学期/第六章-总复习/001复式折线统计图/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第六章-总复习",
+      "topic": "001复式折线统计图",
+      "size_bytes": 82600,
+      "git_blob_sha": "6f42f8eb1e96c4001c05831382fd832878b5dc45"
+    },
+    {
+      "path": "小学/五年级/第二学期/第六章-总复习/002找次品/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第六章-总复习",
+      "topic": "002找次品",
+      "size_bytes": 82550,
+      "git_blob_sha": "52e70b6f673e8fcc403c9b28eba0e4d6e11d35f0"
+    },
+    {
+      "path": "小学/五年级/第二学期/第六章-总复习/003打电话/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第六章-总复习",
+      "topic": "003打电话",
+      "size_bytes": 82610,
+      "git_blob_sha": "1c2558c7d34511c42b0c93217797e4393a95fb4d"
+    },
+    {
+      "path": "小学/五年级/第二学期/第四章-分数的加减法/001同分母分数加减法/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第四章-分数的加减法",
+      "topic": "001同分母分数加减法",
+      "size_bytes": 82473,
+      "git_blob_sha": "4f1f27df667407ddd7af78a6fa4aa6ba0b4bd73a"
+    },
+    {
+      "path": "小学/五年级/第二学期/第四章-分数的加减法/002异分母分数加减法/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第四章-分数的加减法",
+      "topic": "002异分母分数加减法",
+      "size_bytes": 82504,
+      "git_blob_sha": "f0d7a19a0552e4c844538734d5ab6e89be175a9e"
+    },
+    {
+      "path": "小学/五年级/第二学期/第四章-分数的加减法/003带分数加减法/prompt.md",
+      "stage": "小学",
+      "grade": "五年级",
+      "semester": "第二学期",
+      "chapter": "第四章-分数的加减法",
+      "topic": "003带分数加减法",
+      "size_bytes": 82543,
+      "git_blob_sha": "cbeee38ffc840e668036eb31677700408368ca17"
+    },
+    {
+      "path": "小学/六年级/第一学期/第一章-数的整除/001整数与整除/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "001整数与整除",
+      "size_bytes": 82491,
+      "git_blob_sha": "77dc588db792bebd6a87399ec5efec9ecfa44e94"
+    },
+    {
+      "path": "小学/六年级/第一学期/第一章-数的整除/002分解素因数/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "002分解素因数",
+      "size_bytes": 82539,
+      "git_blob_sha": "c75f0c8231b34529f8cfdc758476a673ccf1dd28"
+    },
+    {
+      "path": "小学/六年级/第一学期/第一章-数的整除/003最大公因数和最小公倍数(深化)/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第一章-数的整除",
+      "topic": "003最大公因数和最小公倍数(深化)",
+      "size_bytes": 82698,
+      "git_blob_sha": "8dcb5cc9c513307276b1f13bd1d434a3add97304"
+    },
+    {
+      "path": "小学/六年级/第一学期/第七章-线段与角的画法/001线段的相等与和、差、倍、分/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第七章-线段与角的画法",
+      "topic": "001线段的相等与和、差、倍、分",
+      "size_bytes": 82549,
+      "git_blob_sha": "2205429f93ead53d8531c7baf53b30be6f62b690"
+    },
+    {
+      "path": "小学/六年级/第一学期/第七章-线段与角的画法/002余角、补角、对顶角/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第七章-线段与角的画法",
+      "topic": "002余角、补角、对顶角",
+      "size_bytes": 82592,
+      "git_blob_sha": "8f778a7975b44a8559e44bf20c73964aa12605a4"
+    },
+    {
+      "path": "小学/六年级/第一学期/第三章-比和比例/001比的意义和性质/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "001比的意义和性质",
+      "size_bytes": 82588,
+      "git_blob_sha": "cd0678855fa7c712a41955b96d5c3f8d89b68791"
+    },
+    {
+      "path": "小学/六年级/第一学期/第三章-比和比例/002比与分数、除法的关系/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "002比与分数、除法的关系",
+      "size_bytes": 82598,
+      "git_blob_sha": "e3507b31487fe10061ecc44a0e82a54ee9c96db4"
+    },
+    {
+      "path": "小学/六年级/第一学期/第三章-比和比例/003比例/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "003比例",
+      "size_bytes": 82593,
+      "git_blob_sha": "094f7c11ccda28cf31a6449df270529157f2f000"
+    },
+    {
+      "path": "小学/六年级/第一学期/第三章-比和比例/004按比例分配/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "004按比例分配",
+      "size_bytes": 82595,
+      "git_blob_sha": "08a87b920a32834d7d375c5dd73949fa46c154cb"
+    },
+    {
+      "path": "小学/六年级/第一学期/第三章-比和比例/005比例尺/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第三章-比和比例",
+      "topic": "005比例尺",
+      "size_bytes": 82632,
+      "git_blob_sha": "b2ed8e4b740fab0b2411eabbe16fcdcceb97d1a5"
+    },
+    {
+      "path": "小学/六年级/第一学期/第二章-分数/001分数乘整数和分数乘分数/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "001分数乘整数和分数乘分数",
+      "size_bytes": 82574,
+      "git_blob_sha": "624c7374ad75d3a4a6521fb6783a0c7244592c97"
+    },
+    {
+      "path": "小学/六年级/第一学期/第二章-分数/002分数除法/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "002分数除法",
+      "size_bytes": 82642,
+      "git_blob_sha": "8996db2cf96254981f36fa767e48ab16b1626f2b"
+    },
+    {
+      "path": "小学/六年级/第一学期/第二章-分数/003分数应用题/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第二章-分数",
+      "topic": "003分数应用题",
+      "size_bytes": 82665,
+      "git_blob_sha": "dc46a3973600d519c578ec7ffdab207a71655ef3"
+    },
+    {
+      "path": "小学/六年级/第一学期/第五章-有理数/001有理数的意义/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第五章-有理数",
+      "topic": "001有理数的意义",
+      "size_bytes": 82582,
+      "git_blob_sha": "78471896421e6f9b4e601d1b3e9736a607bfd8fc"
+    },
+    {
+      "path": "小学/六年级/第一学期/第五章-有理数/002数轴/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第五章-有理数",
+      "topic": "002数轴",
+      "size_bytes": 82605,
+      "git_blob_sha": "f2953c3e663fa3f228168006882f2a04c4dce469"
+    },
+    {
+      "path": "小学/六年级/第一学期/第五章-有理数/003绝对值/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第五章-有理数",
+      "topic": "003绝对值",
+      "size_bytes": 82516,
+      "git_blob_sha": "de328e3f85f47283052a2a169e3eb1994fff399c"
+    },
+    {
+      "path": "小学/六年级/第一学期/第五章-有理数/004有理数的大小比较/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第五章-有理数",
+      "topic": "004有理数的大小比较",
+      "size_bytes": 82531,
+      "git_blob_sha": "cb79c307d591cdf01cdfc88cb2f4daa2133eaa94"
+    },
+    {
+      "path": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/001一元一次方程的解法/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第六章-一次方程(组)和一次不等式(组)",
+      "topic": "001一元一次方程的解法",
+      "size_bytes": 82727,
+      "git_blob_sha": "4c7a37b71bb591e1438c58d0ea2ef227a0da5e13"
+    },
+    {
+      "path": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/002二元一次方程组/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第六章-一次方程(组)和一次不等式(组)",
+      "topic": "002二元一次方程组",
+      "size_bytes": 82689,
+      "git_blob_sha": "52030413c7c005b5c15c215224b6317b56d06f1e"
+    },
+    {
+      "path": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/003不等式及其性质/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第六章-一次方程(组)和一次不等式(组)",
+      "topic": "003不等式及其性质",
+      "size_bytes": 82694,
+      "git_blob_sha": "061801060578126ab9f71803da67a75d7f133070"
+    },
+    {
+      "path": "小学/六年级/第一学期/第六章-一次方程(组)和一次不等式(组)/004一元一次不等式的解法/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第六章-一次方程(组)和一次不等式(组)",
+      "topic": "004一元一次不等式的解法",
+      "size_bytes": 82653,
+      "git_blob_sha": "4301af1517c51770c52b191b6c1ad90bf053d6d3"
+    },
+    {
+      "path": "小学/六年级/第一学期/第四章-圆和扇形/001圆的认识/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "001圆的认识",
+      "size_bytes": 82563,
+      "git_blob_sha": "5039d9e368409a0d5b0bec94a13e265d047c4779"
+    },
+    {
+      "path": "小学/六年级/第一学期/第四章-圆和扇形/002圆的周长/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "002圆的周长",
+      "size_bytes": 82526,
+      "git_blob_sha": "63b365635117c0504625628b952d2b945fbe4c5d"
+    },
+    {
+      "path": "小学/六年级/第一学期/第四章-圆和扇形/003圆的面积/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "003圆的面积",
+      "size_bytes": 82590,
+      "git_blob_sha": "eeb116d59a319e1390b36fed8020185a6cbeecfc"
+    },
+    {
+      "path": "小学/六年级/第一学期/第四章-圆和扇形/004扇形/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第一学期",
+      "chapter": "第四章-圆和扇形",
+      "topic": "004扇形",
+      "size_bytes": 82586,
+      "git_blob_sha": "2bfdf95047a4583995c941358e461eddc5f24fc0"
+    },
+    {
+      "path": "小学/六年级/第二学期/第一章-负数/001负数的加法和减法/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第一章-负数",
+      "topic": "001负数的加法和减法",
+      "size_bytes": 82545,
+      "git_blob_sha": "3d1436e48ce560f41956c35a10a298c7906b5cea"
+    },
+    {
+      "path": "小学/六年级/第二学期/第一章-负数/002负数的乘除法/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第一章-负数",
+      "topic": "002负数的乘除法",
+      "size_bytes": 82574,
+      "git_blob_sha": "076314b1acf96df3927d7f61db8ca7620f3c641a"
+    },
+    {
+      "path": "小学/六年级/第二学期/第三章-圆柱与圆锥/001圆柱的认识/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第三章-圆柱与圆锥",
+      "topic": "001圆柱的认识",
+      "size_bytes": 82503,
+      "git_blob_sha": "abbaef23c97ebcf825ca8a25bb992b71028cdd70"
+    },
+    {
+      "path": "小学/六年级/第二学期/第三章-圆柱与圆锥/002圆柱的表面积/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第三章-圆柱与圆锥",
+      "topic": "002圆柱的表面积",
+      "size_bytes": 82551,
+      "git_blob_sha": "63c3568e70ee3b9ecf002b67fab01f4f414b460a"
+    },
+    {
+      "path": "小学/六年级/第二学期/第三章-圆柱与圆锥/003圆柱的体积/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第三章-圆柱与圆锥",
+      "topic": "003圆柱的体积",
+      "size_bytes": 82502,
+      "git_blob_sha": "e95bcc5f59d465dffbd80a6b6d8fe75bb0e1b291"
+    },
+    {
+      "path": "小学/六年级/第二学期/第三章-圆柱与圆锥/004圆锥的认识/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第三章-圆柱与圆锥",
+      "topic": "004圆锥的认识",
+      "size_bytes": 82573,
+      "git_blob_sha": "5415cdde30ef7b8e73ec0195bfdb1bdac86f6fce"
+    },
+    {
+      "path": "小学/六年级/第二学期/第三章-圆柱与圆锥/005圆锥的体积/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第三章-圆柱与圆锥",
+      "topic": "005圆锥的体积",
+      "size_bytes": 82565,
+      "git_blob_sha": "8228383f5b89f638750758388011575ea47daa72"
+    },
+    {
+      "path": "小学/六年级/第二学期/第二章-比例/001正比例/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第二章-比例",
+      "topic": "001正比例",
+      "size_bytes": 82626,
+      "git_blob_sha": "35dd27f8346b86caeea307cafcbc930f71d4e037"
+    },
+    {
+      "path": "小学/六年级/第二学期/第二章-比例/002反比例/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第二章-比例",
+      "topic": "002反比例",
+      "size_bytes": 82669,
+      "git_blob_sha": "e87557be372e4d4d3c036d73cd038dd3e0e96d39"
+    },
+    {
+      "path": "小学/六年级/第二学期/第二章-比例/003图形的放大与缩小/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第二章-比例",
+      "topic": "003图形的放大与缩小",
+      "size_bytes": 82573,
+      "git_blob_sha": "3993472e2c11844e9c8d80660cb8026d0067205f"
+    },
+    {
+      "path": "小学/六年级/第二学期/第五章-整理与提高/001抽屉原理/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-整理与提高",
+      "topic": "001抽屉原理",
+      "size_bytes": 82649,
+      "git_blob_sha": "6d8a2a7436de4ee44d408bc6c5e551638de24644"
+    },
+    {
+      "path": "小学/六年级/第二学期/第五章-整理与提高/002数学综合实践/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第五章-整理与提高",
+      "topic": "002数学综合实践",
+      "size_bytes": 82648,
+      "git_blob_sha": "daf31ca8f98402cf80a65c6b951dbac52b5069d9"
+    },
+    {
+      "path": "小学/六年级/第二学期/第四章-统计与概率/001扇形统计图/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第四章-统计与概率",
+      "topic": "001扇形统计图",
+      "size_bytes": 82614,
+      "git_blob_sha": "4d967d623d3e4a65f37ab9c8e25c72eac0ca01c8"
+    },
+    {
+      "path": "小学/六年级/第二学期/第四章-统计与概率/002平均数、中位数、众数/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第四章-统计与概率",
+      "topic": "002平均数、中位数、众数",
+      "size_bytes": 82693,
+      "git_blob_sha": "03922f8d797c0fa07ad9fffcd198d00f4d6b62c9"
+    },
+    {
+      "path": "小学/六年级/第二学期/第四章-统计与概率/003可能性(概率的初步)/prompt.md",
+      "stage": "小学",
+      "grade": "六年级",
+      "semester": "第二学期",
+      "chapter": "第四章-统计与概率",
+      "topic": "003可能性(概率的初步)",
+      "size_bytes": 82649,
+      "git_blob_sha": "dd4ca18fc37c1449af43160fa77bf96e363b9e90"
+    },
+    {
+      "path": "小学/四年级/第一学期/第一章-复习与提高/001四则混合运算/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "001四则混合运算",
+      "size_bytes": 82418,
+      "git_blob_sha": "5a162dffb85afd727432cd7d0cfc6aa6e508f1b5"
+    },
+    {
+      "path": "小学/四年级/第一学期/第一章-复习与提高/002运算定律的初步感知/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "002运算定律的初步感知",
+      "size_bytes": 82541,
+      "git_blob_sha": "1dcbc1c765c6f1382e2eb3f72e0291aaf3e2aea5"
+    },
+    {
+      "path": "小学/四年级/第一学期/第一章-复习与提高/003正推与逆推/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "003正推与逆推",
+      "size_bytes": 82484,
+      "git_blob_sha": "64f6d65b6264fddb00d48dcf0016e522a7814e00"
+    },
+    {
+      "path": "小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/001笔算乘法(竖式计算)/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第三章-数的运算——三位数乘两位数",
+      "topic": "001笔算乘法(竖式计算)",
+      "size_bytes": 82524,
+      "git_blob_sha": "191a8dc0c44ded384e40c265e89652474078f0dc"
+    },
+    {
+      "path": "小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/002末尾有0的乘法简便算法/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第三章-数的运算——三位数乘两位数",
+      "topic": "002末尾有0的乘法简便算法",
+      "size_bytes": 82534,
+      "git_blob_sha": "9246778b2bd1bb1d243ec9e032a6c3cd856fbb28"
+    },
+    {
+      "path": "小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/003积的变化规律/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第三章-数的运算——三位数乘两位数",
+      "topic": "003积的变化规律",
+      "size_bytes": 82525,
+      "git_blob_sha": "4ebaf94ad91dca4f38c618ff3943b67abfb64604"
+    },
+    {
+      "path": "小学/四年级/第一学期/第三章-数的运算——三位数乘两位数/004常见的数量关系/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第三章-数的运算——三位数乘两位数",
+      "topic": "004常见的数量关系",
+      "size_bytes": 82595,
+      "git_blob_sha": "b67d1a5bea1ff8f296a40dac626331f23dbd111d"
+    },
+    {
+      "path": "小学/四年级/第一学期/第二章-数与量——大数的认识/001计数单位与数位顺序表/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第二章-数与量——大数的认识",
+      "topic": "001计数单位与数位顺序表",
+      "size_bytes": 82607,
+      "git_blob_sha": "6edee3001cfb41a3cb1c2feca072b4747cac20a4"
+    },
+    {
+      "path": "小学/四年级/第一学期/第二章-数与量——大数的认识/002大数的读法/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第二章-数与量——大数的认识",
+      "topic": "002大数的读法",
+      "size_bytes": 82496,
+      "git_blob_sha": "597aea58773f8fdb1b4bc6c67eee73cc69fdc4c0"
+    },
+    {
+      "path": "小学/四年级/第一学期/第二章-数与量——大数的认识/003大数的写法/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第二章-数与量——大数的认识",
+      "topic": "003大数的写法",
+      "size_bytes": 82480,
+      "git_blob_sha": "ec61794062f07fdfc155650b32127246145593d9"
+    },
+    {
+      "path": "小学/四年级/第一学期/第二章-数与量——大数的认识/004大数的比较与改写/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第二章-数与量——大数的认识",
+      "topic": "004大数的比较与改写",
+      "size_bytes": 82517,
+      "git_blob_sha": "acb87766c76a0e81f122b6a8a3687e92ca1a2449"
+    },
+    {
+      "path": "小学/四年级/第一学期/第二章-数与量——大数的认识/005近似数与四舍五入/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第二章-数与量——大数的认识",
+      "topic": "005近似数与四舍五入",
+      "size_bytes": 82523,
+      "git_blob_sha": "8dbaa0e34cfc1ff8e5c4700d185c7be02f33d568"
+    },
+    {
+      "path": "小学/四年级/第一学期/第五章-几何小实践——圆与角/001线段、射线、直线/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践——圆与角",
+      "topic": "001线段、射线、直线",
+      "size_bytes": 82533,
+      "git_blob_sha": "f4fdc4591f1f63e654b4832246ff72decf04c4f8"
+    },
+    {
+      "path": "小学/四年级/第一学期/第五章-几何小实践——圆与角/002角的认识与度量/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践——圆与角",
+      "topic": "002角的认识与度量",
+      "size_bytes": 82607,
+      "git_blob_sha": "267d8196d1ab9c90eca18846b50bb0c5293c5156"
+    },
+    {
+      "path": "小学/四年级/第一学期/第五章-几何小实践——圆与角/003角的分类/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第五章-几何小实践——圆与角",
+      "topic": "003角的分类",
+      "size_bytes": 82569,
+      "git_blob_sha": "ad78959e1404c26627bd326fe25302a6d2c294a3"
+    },
+    {
+      "path": "小学/四年级/第一学期/第六章-整理与提高/001复式条形统计图/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第六章-整理与提高",
+      "topic": "001复式条形统计图",
+      "size_bytes": 82554,
+      "git_blob_sha": "314b98cd41d0a9e891d2056c05e46c9bc99b7165"
+    },
+    {
+      "path": "小学/四年级/第一学期/第六章-整理与提高/002平行与垂直/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第六章-整理与提高",
+      "topic": "002平行与垂直",
+      "size_bytes": 82487,
+      "git_blob_sha": "1d7e1a4c9bc79473e2527f0c7489c87e2cc5a29e"
+    },
+    {
+      "path": "小学/四年级/第一学期/第六章-整理与提高/003平行四边形/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第六章-整理与提高",
+      "topic": "003平行四边形",
+      "size_bytes": 82544,
+      "git_blob_sha": "8cb7481ab55854c5162a58eadebacf35d1021193"
+    },
+    {
+      "path": "小学/四年级/第一学期/第六章-整理与提高/004梯形/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第六章-整理与提高",
+      "topic": "004梯形",
+      "size_bytes": 82512,
+      "git_blob_sha": "62b1662af9abe1c4f3dc8db352663dec9e0ff33e"
+    },
+    {
+      "path": "小学/四年级/第一学期/第六章-整理与提高/005四边形之间的关系/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第六章-整理与提高",
+      "topic": "005四边形之间的关系",
+      "size_bytes": 82547,
+      "git_blob_sha": "890d2134423398c7dcbdb153dc25fda10f01068f"
+    },
+    {
+      "path": "小学/四年级/第一学期/第四章-数的运算——除数是两位数的除法/001口算与估算除法/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第四章-数的运算——除数是两位数的除法",
+      "topic": "001口算与估算除法",
+      "size_bytes": 82494,
+      "git_blob_sha": "3bf170a17c82dd4ce32d4f7c63ff9dae68289965"
+    },
+    {
+      "path": "小学/四年级/第一学期/第四章-数的运算——除数是两位数的除法/002笔算除法(试商与调商)/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第四章-数的运算——除数是两位数的除法",
+      "topic": "002笔算除法(试商与调商)",
+      "size_bytes": 82670,
+      "git_blob_sha": "4324d82c144b5102dd570160c532c5277775ff48"
+    },
+    {
+      "path": "小学/四年级/第一学期/第四章-数的运算——除数是两位数的除法/003商的变化规律/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第一学期",
+      "chapter": "第四章-数的运算——除数是两位数的除法",
+      "topic": "003商的变化规律",
+      "size_bytes": 82662,
+      "git_blob_sha": "84782f879fc7677915218797be6412a3b852d5aa"
+    },
+    {
+      "path": "小学/四年级/第二学期/第一章-复习与提高/001减法运算性质/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "001减法运算性质",
+      "size_bytes": 82437,
+      "git_blob_sha": "08589b5a5649c42c40897dfaf213b948c4b9b743"
+    },
+    {
+      "path": "小学/四年级/第二学期/第一章-复习与提高/002除法运算性质/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "002除法运算性质",
+      "size_bytes": 82474,
+      "git_blob_sha": "89581c7bb8a5d08ce141ba01280a00ee5a1ee09b"
+    },
+    {
+      "path": "小学/四年级/第二学期/第一章-复习与提高/003加法交换律与结合律/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "003加法交换律与结合律",
+      "size_bytes": 82547,
+      "git_blob_sha": "c7c39ea6236b7e0df57f3f41c9dba74500652a2e"
+    },
+    {
+      "path": "小学/四年级/第二学期/第一章-复习与提高/004乘法交换律与结合律/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "004乘法交换律与结合律",
+      "size_bytes": 82557,
+      "git_blob_sha": "7aa6514fce89cc7b24c388179b9cafd35a09d5b8"
+    },
+    {
+      "path": "小学/四年级/第二学期/第一章-复习与提高/005乘法分配律/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第一章-复习与提高",
+      "topic": "005乘法分配律",
+      "size_bytes": 82584,
+      "git_blob_sha": "bd480aa6b02d2d4cb609d0ab862e7e9762f6a446"
+    },
+    {
+      "path": "小学/四年级/第二学期/第三章-统计/001单式折线统计图/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第三章-统计",
+      "topic": "001单式折线统计图",
+      "size_bytes": 82597,
+      "git_blob_sha": "c17b061a8bcc35df24ffac173d3ccc09d0885d90"
+    },
+    {
+      "path": "小学/四年级/第二学期/第三章-统计/002折线统计图与条形统计图的对比/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第三章-统计",
+      "topic": "002折线统计图与条形统计图的对比",
+      "size_bytes": 82503,
+      "git_blob_sha": "76d5e06dc98901fb870536c78c0e4a2a4fd2fb14"
+    },
+    {
+      "path": "小学/四年级/第二学期/第二章-小数的认识与加减法/001小数的意义/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第二章-小数的认识与加减法",
+      "topic": "001小数的意义",
+      "size_bytes": 82553,
+      "git_blob_sha": "b1f05245789a2340064eddce786cdc7c3a249cbe"
+    },
+    {
+      "path": "小学/四年级/第二学期/第二章-小数的认识与加减法/002小数的读写/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第二章-小数的认识与加减法",
+      "topic": "002小数的读写",
+      "size_bytes": 82482,
+      "git_blob_sha": "5a50d330dacbd3e8f5da05977e863ffd591846b7"
+    },
+    {
+      "path": "小学/四年级/第二学期/第二章-小数的认识与加减法/003小数的性质/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第二章-小数的认识与加减法",
+      "topic": "003小数的性质",
+      "size_bytes": 82503,
+      "git_blob_sha": "307c82440dbd7bd436c6041583e12eb3e8902b3d"
+    },
+    {
+      "path": "小学/四年级/第二学期/第二章-小数的认识与加减法/004小数的大小比较/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第二章-小数的认识与加减法",
+      "topic": "004小数的大小比较",
+      "size_bytes": 82544,
+      "git_blob_sha": "c1ddd7ed6d9314c44ad0fe179d6a4e6672fd0ea4"
+    },
+    {
+      "path": "小学/四年级/第二学期/第二章-小数的认识与加减法/005小数点移动引起小数大小的变化/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第二章-小数的认识与加减法",
+      "topic": "005小数点移动引起小数大小的变化",
+      "size_bytes": 82645,
+      "git_blob_sha": "f0e95f123b36842ba8f546733815bc8457e4a2b1"
+    },
+    {
+      "path": "小学/四年级/第二学期/第二章-小数的认识与加减法/006小数加减法/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第二章-小数的认识与加减法",
+      "topic": "006小数加减法",
+      "size_bytes": 82574,
+      "git_blob_sha": "581b771b2890fc4d1ae36a26037d3de4d14ae4e1"
+    },
+    {
+      "path": "小学/四年级/第二学期/第五章-整理与提高/001小数乘整数/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第五章-整理与提高",
+      "topic": "001小数乘整数",
+      "size_bytes": 82588,
+      "git_blob_sha": "3f612e0105f2a41866937a9b9c3a75357ba8e1df"
+    },
+    {
+      "path": "小学/四年级/第二学期/第五章-整理与提高/002小数除以整数/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第五章-整理与提高",
+      "topic": "002小数除以整数",
+      "size_bytes": 82573,
+      "git_blob_sha": "af685623dd134b8929f7311e2b47d25e8c81b332"
+    },
+    {
+      "path": "小学/四年级/第二学期/第五章-整理与提高/003位置的表示方法(数对)/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第五章-整理与提高",
+      "topic": "003位置的表示方法(数对)",
+      "size_bytes": 82488,
+      "git_blob_sha": "f62a1eef8555ac3480b3ed50efcfba8e181f97f1"
+    },
+    {
+      "path": "小学/四年级/第二学期/第四章-几何小实践——三角形/001三角形的定义与各部分名称/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第四章-几何小实践——三角形",
+      "topic": "001三角形的定义与各部分名称",
+      "size_bytes": 82511,
+      "git_blob_sha": "9e558b79d4a748e4ec4c6a44b897fddd4cf9f81a"
+    },
+    {
+      "path": "小学/四年级/第二学期/第四章-几何小实践——三角形/002三角形的高和底/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第四章-几何小实践——三角形",
+      "topic": "002三角形的高和底",
+      "size_bytes": 82588,
+      "git_blob_sha": "d756326ea8e9bf4d6d174859e6c2548fb85d634c"
+    },
+    {
+      "path": "小学/四年级/第二学期/第四章-几何小实践——三角形/003三角形按角分类/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第四章-几何小实践——三角形",
+      "topic": "003三角形按角分类",
+      "size_bytes": 82556,
+      "git_blob_sha": "55485d94fff7621c8a6ce81fe17aea7c108650cb"
+    },
+    {
+      "path": "小学/四年级/第二学期/第四章-几何小实践——三角形/004三角形按边分类/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第四章-几何小实践——三角形",
+      "topic": "004三角形按边分类",
+      "size_bytes": 82622,
+      "git_blob_sha": "68301b71f9b017089a8ef710daed9ff73eaf1b8b"
+    },
+    {
+      "path": "小学/四年级/第二学期/第四章-几何小实践——三角形/005三角形的内角和/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第四章-几何小实践——三角形",
+      "topic": "005三角形的内角和",
+      "size_bytes": 82500,
+      "git_blob_sha": "3933d5245116a0e01fb0a98b6925010e5fab0db5"
+    },
+    {
+      "path": "小学/四年级/第二学期/第四章-几何小实践——三角形/006三角形的三边关系/prompt.md",
+      "stage": "小学",
+      "grade": "四年级",
+      "semester": "第二学期",
+      "chapter": "第四章-几何小实践——三角形",
+      "topic": "006三角形的三边关系",
+      "size_bytes": 82611,
+      "git_blob_sha": "f72580fb43138e99f84ca8518e3ffb987249732a"
+    },
+    {
+      "path": "高中/高一/第一学期/第一章-集合与命题/001集合的概念与表示/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第一章-集合与命题",
+      "topic": "001集合的概念与表示",
+      "size_bytes": 82788,
+      "git_blob_sha": "4fcb43132846069d4f854086f297e5abf1f62eaa"
+    },
+    {
+      "path": "高中/高一/第一学期/第一章-集合与命题/002集合间的关系/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第一章-集合与命题",
+      "topic": "002集合间的关系",
+      "size_bytes": 82723,
+      "git_blob_sha": "db5303f97e7e47b132245f704a49cdd6b9792bed"
+    },
+    {
+      "path": "高中/高一/第一学期/第一章-集合与命题/003集合的运算/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第一章-集合与命题",
+      "topic": "003集合的运算",
+      "size_bytes": 82839,
+      "git_blob_sha": "0f220a6234a79162c7d8fee85ce8819b2caf7181"
+    },
+    {
+      "path": "高中/高一/第一学期/第一章-集合与命题/004四种命题及其关系/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第一章-集合与命题",
+      "topic": "004四种命题及其关系",
+      "size_bytes": 82679,
+      "git_blob_sha": "e3e3920584fc0f0cea5e93a69894f3c64d1b6202"
+    },
+    {
+      "path": "高中/高一/第一学期/第一章-集合与命题/005充分条件与必要条件/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第一章-集合与命题",
+      "topic": "005充分条件与必要条件",
+      "size_bytes": 82713,
+      "git_blob_sha": "36cb6188a32386232aa84de4a2a527fb7f0d00cf"
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/001函数的概念/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第三章-函数的基本性质",
+      "topic": "001函数的概念",
+      "size_bytes": 82734,
+      "git_blob_sha": "b8295779f29e6f83265256c1153998a8cea9338e"
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/002函数的定义域与值域/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第三章-函数的基本性质",
+      "topic": "002函数的定义域与值域",
+      "size_bytes": 82751,
+      "git_blob_sha": "9a2ef6c1c9ec6f459f4e5e542c38734015dea9fc"
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/003函数的运算/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第三章-函数的基本性质",
+      "topic": "003函数的运算",
+      "size_bytes": 82677,
+      "git_blob_sha": "b690def1b2d20c7e18d8e2f4c88c0766da283da0"
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/004函数的单调性/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第三章-函数的基本性质",
+      "topic": "004函数的单调性",
+      "size_bytes": 82822,
+      "git_blob_sha": "3e545b29eaa49be9decdc1c4c27042ae41c4e467"
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/005函数的奇偶性/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第三章-函数的基本性质",
+      "topic": "005函数的奇偶性",
+      "size_bytes": 82808,
+      "git_blob_sha": "4c9c5428ad55da7f88ac6719cbac01212af97b02"
+    },
+    {
+      "path": "高中/高一/第一学期/第三章-函数的基本性质/006函数的最值/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第三章-函数的基本性质",
+      "topic": "006函数的最值",
+      "size_bytes": 82776,
+      "git_blob_sha": "77e5f670890ed8160393dd8e0a679935fff58d01"
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/001不等式的基本性质/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第二章-不等式",
+      "topic": "001不等式的基本性质",
+      "size_bytes": 82647,
+      "git_blob_sha": "d66e1184d4dbd0135f6187cca3185a50c49d7332"
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/002一元二次不等式/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第二章-不等式",
+      "topic": "002一元二次不等式",
+      "size_bytes": 82783,
+      "git_blob_sha": "ae84b9685c65ae90190c22b16cce38373eb44e7b"
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/003分式不等式/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第二章-不等式",
+      "topic": "003分式不等式",
+      "size_bytes": 82624,
+      "git_blob_sha": "ba9c66342a3eae9831b1d374df27cf07913e5bf3"
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/004含绝对值不等式/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第二章-不等式",
+      "topic": "004含绝对值不等式",
+      "size_bytes": 82722,
+      "git_blob_sha": "7d38d209ab4523491968d5ec8443e0ca01e088ea"
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/005基本不等式（均值不等式）/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第二章-不等式",
+      "topic": "005基本不等式（均值不等式）",
+      "size_bytes": 82826,
+      "git_blob_sha": "e84310342dfc01475294e1a7eed898e4b5b7f31b"
+    },
+    {
+      "path": "高中/高一/第一学期/第二章-不等式/006不等式的证明/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第二章-不等式",
+      "topic": "006不等式的证明",
+      "size_bytes": 82707,
+      "git_blob_sha": "51eabb2631dc12208b7f86081413dfd07cb441cb"
+    },
+    {
+      "path": "高中/高一/第一学期/第四章-幂函数、指数函数和对数函数（上）/001幂函数/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（上）",
+      "topic": "001幂函数",
+      "size_bytes": 82706,
+      "git_blob_sha": "33d4f81794aab8c72e4148dcb01495cccda73ab3"
+    },
+    {
+      "path": "高中/高一/第一学期/第四章-幂函数、指数函数和对数函数（上）/002指数与指数幂的运算/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（上）",
+      "topic": "002指数与指数幂的运算",
+      "size_bytes": 82737,
+      "git_blob_sha": "c82f3a8c96944fb7c8039e94b3d879e577d79391"
+    },
+    {
+      "path": "高中/高一/第一学期/第四章-幂函数、指数函数和对数函数（上）/003指数函数/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第一学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（上）",
+      "topic": "003指数函数",
+      "size_bytes": 82778,
+      "git_blob_sha": "42bec71cf22fe16923cd47dd4befa88a587a4a95"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/001任意角与弧度制/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "001任意角与弧度制",
+      "size_bytes": 82776,
+      "git_blob_sha": "bb01fba6256dea26f2dbd2307b7a67739591ea9a"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/002任意角的三角比/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "002任意角的三角比",
+      "size_bytes": 82674,
+      "git_blob_sha": "d54d7f5b11133d19229c523d51e0614783ffdaf5"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/003同角三角比的关系与诱导公式/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "003同角三角比的关系与诱导公式",
+      "size_bytes": 82850,
+      "git_blob_sha": "9d3d90dc07a1317414df0392ae7cb4bc14b17722"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/004两角和与差的三角函数/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "004两角和与差的三角函数",
+      "size_bytes": 82932,
+      "git_blob_sha": "3ff12439c686fbecb0ea1beecc01e4602ea8c64e"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/005二倍角与半角公式/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "005二倍角与半角公式",
+      "size_bytes": 82872,
+      "git_blob_sha": "e4238b0641ad787e77b2efe4f8646174a8efa3b7"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/006正弦定理/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "006正弦定理",
+      "size_bytes": 82704,
+      "git_blob_sha": "1eddc85605d7e130fd77844479ecad8f061a7b42"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/007余弦定理/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "007余弦定理",
+      "size_bytes": 82783,
+      "git_blob_sha": "b777ea979f1e935a7c2a4d7e7067369257314db9"
+    },
+    {
+      "path": "高中/高一/第二学期/第五章-三角比/008解斜三角形/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第五章-三角比",
+      "topic": "008解斜三角形",
+      "size_bytes": 82774,
+      "git_blob_sha": "8bc4466087f3fc7fd2f597beb4f32fba3545b348"
+    },
+    {
+      "path": "高中/高一/第二学期/第六章-三角函数/001正弦函数和余弦函数的图像与性质/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第六章-三角函数",
+      "topic": "001正弦函数和余弦函数的图像与性质",
+      "size_bytes": 82880,
+      "git_blob_sha": "2c6393fe5936a916d865f122abf840e79abe0d6d"
+    },
+    {
+      "path": "高中/高一/第二学期/第六章-三角函数/002正切函数的图像与性质/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第六章-三角函数",
+      "topic": "002正切函数的图像与性质",
+      "size_bytes": 82790,
+      "git_blob_sha": "a4260b75247078c2b5bd9b0c1c2149d5fc7a8124"
+    },
+    {
+      "path": "高中/高一/第二学期/第六章-三角函数/003函数y=Asin(ωx+φ)的图像与性质/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第六章-三角函数",
+      "topic": "003函数y=Asin(ωx+φ)的图像与性质",
+      "size_bytes": 82835,
+      "git_blob_sha": "5c0d0d9658c16f4f0e7d6c1f9d1de0690a772b37"
+    },
+    {
+      "path": "高中/高一/第二学期/第六章-三角函数/004反三角函数/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第六章-三角函数",
+      "topic": "004反三角函数",
+      "size_bytes": 82802,
+      "git_blob_sha": "18a8aeaa01a4ab90199abb7c53f6ecf241a22287"
+    },
+    {
+      "path": "高中/高一/第二学期/第六章-三角函数/005最简三角方程/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第六章-三角函数",
+      "topic": "005最简三角方程",
+      "size_bytes": 82791,
+      "git_blob_sha": "e5de17b0c5a3f8b9794ba9f0ed4ee8bc368c4e41"
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/001对数的概念与运算/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（下）",
+      "topic": "001对数的概念与运算",
+      "size_bytes": 82862,
+      "git_blob_sha": "da9fff7328c793a917f486ecb21be3950b0592a8"
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/002反函数/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（下）",
+      "topic": "002反函数",
+      "size_bytes": 82749,
+      "git_blob_sha": "7622af7069b7141d8ee394787801cd188e2e261c"
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/003对数函数/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（下）",
+      "topic": "003对数函数",
+      "size_bytes": 82784,
+      "git_blob_sha": "6cae5a057723d6b63b44543ccab8e4cf1f9c0714"
+    },
+    {
+      "path": "高中/高一/第二学期/第四章-幂函数、指数函数和对数函数（下）/004指数方程和对数方程/prompt.md",
+      "stage": "高中",
+      "grade": "高一",
+      "semester": "第二学期",
+      "chapter": "第四章-幂函数、指数函数和对数函数（下）",
+      "topic": "004指数方程和对数方程",
+      "size_bytes": 82801,
+      "git_blob_sha": "f4ea7acf51069a094926761c0c99a33f55758b55"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/001多面体的概念/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "001多面体的概念",
+      "size_bytes": 83016,
+      "git_blob_sha": "87b8ba16303a186361cf6bf72b31c03bbd3bc89f"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/002棱柱/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "002棱柱",
+      "size_bytes": 82792,
+      "git_blob_sha": "7a5684afabe9026f0801739fb0ff9054accbdc03"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/003棱锥/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "003棱锥",
+      "size_bytes": 82785,
+      "git_blob_sha": "60c620fe337bf36dd213ffe841fd61be31bb2c4b"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/004棱台/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "004棱台",
+      "size_bytes": 82739,
+      "git_blob_sha": "de85bdfd04daba5afcf82dea2ec86463babcea66"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/005圆柱/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "005圆柱",
+      "size_bytes": 82752,
+      "git_blob_sha": "17a9db25c806a99baa0da7a956f70c10e2330eb3"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/006圆锥/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "006圆锥",
+      "size_bytes": 82842,
+      "git_blob_sha": "a9af37cb67ad501ab27853f41dd5d3880a0d9709"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/007圆台/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "007圆台",
+      "size_bytes": 82738,
+      "git_blob_sha": "36f5f0584d33f5315a94ebfbef321023af1cb53b"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/008球/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "008球",
+      "size_bytes": 82773,
+      "git_blob_sha": "03d27f80ce14b3c958ae4f61994672e62fe85f9a"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/009球面距离/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "009球面距离",
+      "size_bytes": 82877,
+      "git_blob_sha": "8ee7db2c4581030b8fbaa96f186aefd5b78f8107"
+    },
+    {
+      "path": "高中/高三/第一学期/第十五章-简单几何体/010直观图画法/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十五章-简单几何体",
+      "topic": "010直观图画法",
+      "size_bytes": 82780,
+      "git_blob_sha": "f3ebf0d9b316521651602b869002e9ba5293a96f"
+    },
+    {
+      "path": "高中/高三/第一学期/第十六章-排列组合与二项式定理/001分类计数原理与分步计数原理/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十六章-排列组合与二项式定理",
+      "topic": "001分类计数原理与分步计数原理",
+      "size_bytes": 82772,
+      "git_blob_sha": "21dd71b06b88e4373576e93e9f3ff98cd1116491"
+    },
+    {
+      "path": "高中/高三/第一学期/第十六章-排列组合与二项式定理/002排列/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十六章-排列组合与二项式定理",
+      "topic": "002排列",
+      "size_bytes": 82721,
+      "git_blob_sha": "675272ac539cb31fd0b39e93927d4aaf3d925bf7"
+    },
+    {
+      "path": "高中/高三/第一学期/第十六章-排列组合与二项式定理/003组合/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十六章-排列组合与二项式定理",
+      "topic": "003组合",
+      "size_bytes": 82745,
+      "git_blob_sha": "c2e15cc1ec21445994501fad5e6ad1b6225e2c70"
+    },
+    {
+      "path": "高中/高三/第一学期/第十六章-排列组合与二项式定理/004排列组合应用/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十六章-排列组合与二项式定理",
+      "topic": "004排列组合应用",
+      "size_bytes": 82806,
+      "git_blob_sha": "02ffe88166ebfa303dab5a05c617ae4d33a3e929"
+    },
+    {
+      "path": "高中/高三/第一学期/第十六章-排列组合与二项式定理/005二项式定理/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十六章-排列组合与二项式定理",
+      "topic": "005二项式定理",
+      "size_bytes": 82804,
+      "git_blob_sha": "5ba34c662b7b9301a1deeb6b7785a43f246720f9"
+    },
+    {
+      "path": "高中/高三/第一学期/第十六章-排列组合与二项式定理/006二项式系数的性质/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十六章-排列组合与二项式定理",
+      "topic": "006二项式系数的性质",
+      "size_bytes": 82778,
+      "git_blob_sha": "458c168dab4c39fe79679a9f0a42f464e9695ff8"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/001平面的基本性质/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "001平面的基本性质",
+      "size_bytes": 82940,
+      "git_blob_sha": "e96adeee113c61932aeea4fc3ebfd1de091688fc"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/002空间直线的位置关系/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "002空间直线的位置关系",
+      "size_bytes": 82954,
+      "git_blob_sha": "a747ca65a9310347b3d2ca79df654a7259323907"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/003直线与平面平行/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "003直线与平面平行",
+      "size_bytes": 82839,
+      "git_blob_sha": "339475c14cce45ed495f6c2951238c40a3185c2a"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/004直线与平面垂直/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "004直线与平面垂直",
+      "size_bytes": 82894,
+      "git_blob_sha": "99d45cf3f433b9852ad48bed3a28032cd1da9368"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/005平面与平面平行/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "005平面与平面平行",
+      "size_bytes": 82885,
+      "git_blob_sha": "bd37f046ee22ce74b8ab91b0641fdbab5ce8934e"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/006平面与平面垂直/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "006平面与平面垂直",
+      "size_bytes": 82976,
+      "git_blob_sha": "6e4b2368b14a1ce80b930a3326fd0fa89f9482b6"
+    },
+    {
+      "path": "高中/高三/第一学期/第十四章-空间直线与平面/007直线与平面所成的角/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第一学期",
+      "chapter": "第十四章-空间直线与平面",
+      "topic": "007直线与平面所成的角",
+      "size_bytes": 82860,
+      "git_blob_sha": "e316c83e794e028e81b6d4ff0fde3865aea0502c"
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/001随机事件与概率/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十七章-概率论初步",
+      "topic": "001随机事件与概率",
+      "size_bytes": 82783,
+      "git_blob_sha": "ee626afb5bc0c21e493534f858fc334a201751b2"
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/002古典概型/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十七章-概率论初步",
+      "topic": "002古典概型",
+      "size_bytes": 82785,
+      "git_blob_sha": "a3b50291ad5d8e5d884195ab32b12fdf29431875"
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/003频率与概率/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十七章-概率论初步",
+      "topic": "003频率与概率",
+      "size_bytes": 82739,
+      "git_blob_sha": "690e931e094a10109bea7c0f0d6458d46de0a159"
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/004事件的关系与运算/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十七章-概率论初步",
+      "topic": "004事件的关系与运算",
+      "size_bytes": 82810,
+      "git_blob_sha": "d3a69b0d4a1ab6badaf538324c6edc0b9604a204"
+    },
+    {
+      "path": "高中/高三/第二学期/第十七章-概率论初步/005条件概率与独立事件/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十七章-概率论初步",
+      "topic": "005条件概率与独立事件",
+      "size_bytes": 82817,
+      "git_blob_sha": "25ca22f86166b451fad710776e0ef53dacd2aaba"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/001总体与样本/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "001总体与样本",
+      "size_bytes": 82744,
+      "git_blob_sha": "34ef17a53ded796569acdf5be65423bb29200cd8"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/002抽样技术/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "002抽样技术",
+      "size_bytes": 82815,
+      "git_blob_sha": "2f91a8cb6d37978584cc5d1774b9d5c445aae5cd"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/003频率分布与统计图表/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "003频率分布与统计图表",
+      "size_bytes": 82808,
+      "git_blob_sha": "1f6777b8da09ea3acea8e889b51f4ba7620c7614"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/004数据的集中趋势/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "004数据的集中趋势",
+      "size_bytes": 82837,
+      "git_blob_sha": "ffc8f0382db5130b2e6adb5dfdf4f4d0308c859f"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/005数据的离散程度/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "005数据的离散程度",
+      "size_bytes": 82790,
+      "git_blob_sha": "c26ecdf05e9a9b2e572bfaf3320d307af0465bcb"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/006统计估计/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "006统计估计",
+      "size_bytes": 82798,
+      "git_blob_sha": "e31832e3a7bf581c92d22f231bc1f4b6885852ef"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/007线性回归/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "007线性回归",
+      "size_bytes": 82854,
+      "git_blob_sha": "eadcea4f2550a14fcd5e4efc87e71178182bc9af"
+    },
+    {
+      "path": "高中/高三/第二学期/第十八章-基本统计方法/008统计案例分析/prompt.md",
+      "stage": "高中",
+      "grade": "高三",
+      "semester": "第二学期",
+      "chapter": "第十八章-基本统计方法",
+      "topic": "008统计案例分析",
+      "size_bytes": 82819,
+      "git_blob_sha": "8585bd68d9bf758703d29f621aaacc40fffdf496"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/001数列的概念/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "001数列的概念",
+      "size_bytes": 82850,
+      "git_blob_sha": "f6d12536e1d4e0b4464c20dc175a6316edf3bd08"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/002等差数列/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "002等差数列",
+      "size_bytes": 82858,
+      "git_blob_sha": "b93311773aef3c2cd717cbf0a46e5492a4b8cbbf"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/003等比数列/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "003等比数列",
+      "size_bytes": 82894,
+      "git_blob_sha": "8364f3a3dbeb5368c2121048ac33e644b4aa72a8"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/004数列求和方法/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "004数列求和方法",
+      "size_bytes": 82903,
+      "git_blob_sha": "02ba015e1a7b16b3521572eab21a8d8d8aa17d55"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/005数学归纳法/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "005数学归纳法",
+      "size_bytes": 82764,
+      "git_blob_sha": "3574abb3389239f8e9b342001ede45228df3e483"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/006数列的极限/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "006数列的极限",
+      "size_bytes": 82864,
+      "git_blob_sha": "0a73ac411cab45e37426a1b45a93f95c981d8a24"
+    },
+    {
+      "path": "高中/高二/第一学期/第七章-数列与数学归纳法/007无穷等比数列求和/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第七章-数列与数学归纳法",
+      "topic": "007无穷等比数列求和",
+      "size_bytes": 82701,
+      "git_blob_sha": "7e723140a7d7dc3da7ab95453a84a0de8d7a18b3"
+    },
+    {
+      "path": "高中/高二/第一学期/第九章-矩阵和行列式初步/001矩阵的概念/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第九章-矩阵和行列式初步",
+      "topic": "001矩阵的概念",
+      "size_bytes": 82731,
+      "git_blob_sha": "403f164eff29279b42bcc055e1fdca9d40b0211b"
+    },
+    {
+      "path": "高中/高二/第一学期/第九章-矩阵和行列式初步/002矩阵的运算/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第九章-矩阵和行列式初步",
+      "topic": "002矩阵的运算",
+      "size_bytes": 82765,
+      "git_blob_sha": "b6f9b4462463c94fac93b543966f5c489db97d97"
+    },
+    {
+      "path": "高中/高二/第一学期/第九章-矩阵和行列式初步/003二阶行列式/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第九章-矩阵和行列式初步",
+      "topic": "003二阶行列式",
+      "size_bytes": 82790,
+      "git_blob_sha": "cadcfe0f0908887c81cd272897fbbce6ba0aa219"
+    },
+    {
+      "path": "高中/高二/第一学期/第九章-矩阵和行列式初步/004三阶行列式/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第九章-矩阵和行列式初步",
+      "topic": "004三阶行列式",
+      "size_bytes": 82879,
+      "git_blob_sha": "ecda3191344b96b9959befefa79b3474a1ecb043"
+    },
+    {
+      "path": "高中/高二/第一学期/第八章-平面向量的坐标表示/001向量的坐标表示/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第八章-平面向量的坐标表示",
+      "topic": "001向量的坐标表示",
+      "size_bytes": 82848,
+      "git_blob_sha": "1284bf15b48b0713d678616e20754afa5aff79d0"
+    },
+    {
+      "path": "高中/高二/第一学期/第八章-平面向量的坐标表示/002向量的坐标运算/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第八章-平面向量的坐标表示",
+      "topic": "002向量的坐标运算",
+      "size_bytes": 82883,
+      "git_blob_sha": "58f9048bbdebec8f8d61d2827736e9b085f78522"
+    },
+    {
+      "path": "高中/高二/第一学期/第八章-平面向量的坐标表示/003向量的数量积/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第八章-平面向量的坐标表示",
+      "topic": "003向量的数量积",
+      "size_bytes": 82923,
+      "git_blob_sha": "52b1e2003e8949850cdcd574d6c4cbcd450bdade"
+    },
+    {
+      "path": "高中/高二/第一学期/第八章-平面向量的坐标表示/004平面向量分解定理/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第八章-平面向量的坐标表示",
+      "topic": "004平面向量分解定理",
+      "size_bytes": 82833,
+      "git_blob_sha": "297101fdb186d418f3d6e2cf5a8453e35e6e47ab"
+    },
+    {
+      "path": "高中/高二/第一学期/第八章-平面向量的坐标表示/005向量的应用/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第八章-平面向量的坐标表示",
+      "topic": "005向量的应用",
+      "size_bytes": 82804,
+      "git_blob_sha": "267999a838556527914c45a60a04229a5c9a7e94"
+    },
+    {
+      "path": "高中/高二/第一学期/第十章-算法初步/001算法的概念/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第十章-算法初步",
+      "topic": "001算法的概念",
+      "size_bytes": 82694,
+      "git_blob_sha": "37492a4fbae17605ebf060283a7000fbb9be152b"
+    },
+    {
+      "path": "高中/高二/第一学期/第十章-算法初步/002程序框图/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第十章-算法初步",
+      "topic": "002程序框图",
+      "size_bytes": 82779,
+      "git_blob_sha": "165398528ede54e8dec51de62c181bbdba7eac45"
+    },
+    {
+      "path": "高中/高二/第一学期/第十章-算法初步/003基本算法语句/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第十章-算法初步",
+      "topic": "003基本算法语句",
+      "size_bytes": 82726,
+      "git_blob_sha": "3459c9a0180930825048d28a0517f323aa8a3b48"
+    },
+    {
+      "path": "高中/高二/第一学期/第十章-算法初步/004经典算法案例/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第一学期",
+      "chapter": "第十章-算法初步",
+      "topic": "004经典算法案例",
+      "size_bytes": 82836,
+      "git_blob_sha": "19682307d2268e767dba9426a46946a79a549a59"
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/001直线的倾斜角与斜率/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十一章-坐标平面上的直线",
+      "topic": "001直线的倾斜角与斜率",
+      "size_bytes": 82769,
+      "git_blob_sha": "8ec11a54c0ba00e2b69b980c58e5bfbf0a9bca1a"
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/002直线的方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十一章-坐标平面上的直线",
+      "topic": "002直线的方程",
+      "size_bytes": 82800,
+      "git_blob_sha": "671d2c8c93df7ca39871bf1ae02b09906fc76e45"
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/003两直线的位置关系/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十一章-坐标平面上的直线",
+      "topic": "003两直线的位置关系",
+      "size_bytes": 82786,
+      "git_blob_sha": "23065b4794beab22af24135d0e53a44732b33722"
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/004两直线垂直与夹角/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十一章-坐标平面上的直线",
+      "topic": "004两直线垂直与夹角",
+      "size_bytes": 82703,
+      "git_blob_sha": "ef35b09f210c2feece384d315f5e7d322530d34a"
+    },
+    {
+      "path": "高中/高二/第二学期/第十一章-坐标平面上的直线/005点到直线的距离/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十一章-坐标平面上的直线",
+      "topic": "005点到直线的距离",
+      "size_bytes": 82621,
+      "git_blob_sha": "d2afde274f533ca6024794e86c188f4db5aa0e5a"
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/001复数的概念/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十三章-复数",
+      "topic": "001复数的概念",
+      "size_bytes": 82706,
+      "git_blob_sha": "08fc02c33f18c2e3e36f9bcd7b3a2f1e74451c07"
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/002复数的几何表示/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十三章-复数",
+      "topic": "002复数的几何表示",
+      "size_bytes": 82735,
+      "git_blob_sha": "8f950b65f063da593a368e0985e705abf246ce6c"
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/003复数的四则运算/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十三章-复数",
+      "topic": "003复数的四则运算",
+      "size_bytes": 82780,
+      "git_blob_sha": "1f048d01dade08949acf27d1ba7320919a52a70a"
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/004复数的平方根与立方根/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十三章-复数",
+      "topic": "004复数的平方根与立方根",
+      "size_bytes": 82787,
+      "git_blob_sha": "e249ed06bab5d1c570a7e6a457fd637dfd4c2f4c"
+    },
+    {
+      "path": "高中/高二/第二学期/第十三章-复数/005实系数一元二次方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十三章-复数",
+      "topic": "005实系数一元二次方程",
+      "size_bytes": 82794,
+      "git_blob_sha": "681764c01beb31434832cc799539472f9e89b418"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/001曲线与方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "001曲线与方程",
+      "size_bytes": 82665,
+      "git_blob_sha": "436fff9cffb401d9ca7fa16e0be13ceb6a2b6641"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/002圆的方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "002圆的方程",
+      "size_bytes": 82778,
+      "git_blob_sha": "bc6933bd0db8a04e392960baff7210cd0104dfb5"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/003椭圆的定义与标准方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "003椭圆的定义与标准方程",
+      "size_bytes": 82814,
+      "git_blob_sha": "0af0f2251661e7fe8a3581b5568dd409e98c8a06"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/004椭圆的几何性质/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "004椭圆的几何性质",
+      "size_bytes": 82776,
+      "git_blob_sha": "89f965e0707271f276bb57b799ecd45b75b7abbc"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/005双曲线的定义与标准方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "005双曲线的定义与标准方程",
+      "size_bytes": 82778,
+      "git_blob_sha": "fc00ead005dccb7bcace564788485d6e49d6246b"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/006双曲线的几何性质/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "006双曲线的几何性质",
+      "size_bytes": 82785,
+      "git_blob_sha": "5f797e29fc809d8416e2eede8c9c11550d4fcb48"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/007抛物线的定义与标准方程/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "007抛物线的定义与标准方程",
+      "size_bytes": 82818,
+      "git_blob_sha": "1b0dc3eb2af8928b339f6448ba28905855857ca3"
+    },
+    {
+      "path": "高中/高二/第二学期/第十二章-圆锥曲线/008抛物线的几何性质/prompt.md",
+      "stage": "高中",
+      "grade": "高二",
+      "semester": "第二学期",
+      "chapter": "第十二章-圆锥曲线",
+      "topic": "008抛物线的几何性质",
+      "size_bytes": 82765,
+      "git_blob_sha": "401a19517d33fc4ddf8085da7d8c3342ef7af7ca"
+    }
+  ]
+}

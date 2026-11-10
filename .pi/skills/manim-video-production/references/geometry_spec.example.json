@@ -1,0 +1,21 @@
+{
+  "description": "仅供几何课程验证器演示；集合课无需此文件。bbox 为预先测得的示例数值，并非 Manim 自动导出。",
+  "points": {
+    "A": [0, 0],
+    "B": [4, 0],
+    "C": [4, 3],
+    "D": [0, 3],
+    "M": [2, 0]
+  },
+  "safe_bounds": [-4, -7, 4, 7],
+  "checks": [
+    {"type": "midpoint", "a": "A", "b": "B", "point": "M", "label": "M is midpoint of AB"},
+    {"type": "equal_lengths", "pairs": [["A", "B"], ["C", "D"]], "label": "AB = CD"},
+    {"type": "parallel", "a": "A", "b": "B", "c": "C", "d": "D", "label": "AB parallel CD"},
+    {"type": "perpendicular", "a": "A", "b": "B", "c": "B", "d": "C", "label": "AB perpendicular BC"},
+    {"type": "angle", "a": "A", "vertex": "B", "c": "C", "kind": "minor", "expected_degrees": 90, "label": "angle ABC"}
+  ],
+  "bounding_boxes": [
+    {"label": "example main object", "bbox": [-2, -1, 2, 2]}
+  ]
+}

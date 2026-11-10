@@ -1,11 +1,12 @@
 # 自包含数学动画 Skills
 
-此目录包含八个**可单独拷贝**的技能包，结构参考 [Anthropic Skill Creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) 的渐进式加载、内置资源和测试迭代理念；未复制或依赖其代码。每个包都包含 `SKILL.md`（触发条件、入口工作流、边界与交付）、`references/*.md`（按需深入读取的内置规范与示例）、`scripts/*.py`（Python 标准库，只做可明确验证的辅助任务）。
+此目录包含九个**可单独拷贝**的技能包，结构参考 [Anthropic Skill Creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) 的渐进式加载、内置资源和测试迭代理念；未复制或依赖其代码。每个包都包含 `SKILL.md`（触发条件、入口工作流、边界与交付）、`references/*.md`（按需深入读取的内置规范与示例）、`scripts/*.py`（Python 标准库，只做可明确验证的辅助任务）。
 
 ## 任务路由
 
 | Skill | 什么时候读取 | 包内脚本 |
 | --- | --- | --- |
+| `curriculum-prompt-suite` | 盘点全课程 prompt.md，生成三平台变量模板与数据契约 | `prompt_suite.py` |
 | `prompt-to-scene` | 从教学知识点、description.json、历史 prompt.md 生成数学规格和分镜 | `extract_problem.py` |
 | `math-specification` | 审核公式、推导、定义域、证明、反例 | `check_contract.py` |
 | `manim-scene` | 实现/审查 Scene，确认类名、对象生命周期 | `discover_scene.py` |
@@ -21,10 +22,10 @@
 
 ## 维护与镜像
 
-以 `skills/source/<skill-name>/` 的**整个文件树**为唯一事实源。`tools/sync_skills.py` 将完整目录同步到 `.codex/skills/`、`.opencode/skills/`、`.claude/skills/`；禁止只同步 SKILL.md 丢失包内脚本/参考。
+以 `skills/source/<skill-name>/` 的**整个文件树**为唯一事实源。`tools/sync_skills.py` 将完整目录同步到 `.codex/skills/`、`.opencode/skills/`、`.claude/skills/`、`.pi/skills/`；禁止只同步 SKILL.md 丢失包内脚本/参考。
 
 ```bash
-python tools/sync_skills.py                # 将整个目录同步到三个 Agent；不自动删除镜像中的额外文件
+python tools/sync_skills.py                # 将整个目录同步到四个 Agent；不自动删除镜像中的额外文件
 python tools/sync_skills.py --check        # 只读逐文件检查，包括 references 和 scripts
 python -m unittest discover -s tests -p 'test_skill_bundles.py' -v
 ```

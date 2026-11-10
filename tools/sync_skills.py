@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "skills" / "source"
-TARGETS = (ROOT / ".codex" / "skills", ROOT / ".opencode" / "skills", ROOT / ".claude" / "skills")
+TARGETS = (ROOT / ".codex" / "skills", ROOT / ".opencode" / "skills", ROOT / ".claude" / "skills", ROOT / ".pi" / "skills")
 
 
 def inventory(package: Path) -> dict[str, Path]:
