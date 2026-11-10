@@ -120,8 +120,8 @@
                       "id": "5294b9fda1",
                       "number": "001",
                       "name": "长方体",
-                      "docstring": "",
-                      "pyFile": "小学/一年级/上册/第三章-认识图形（一）/001长方体/001_长方体.py",
+                      "docstring": "一年级：认识长方体，观察立体示意及三组相等的相对面。",
+                      "pyFile": "小学/一年级/上册/第三章-认识图形（一）/001长方体/001长方体_animation.py",
                       "videoFile": "小学/一年级/上册/第三章-认识图形（一）/001长方体/Topic001长方体Animation_finish.mp4",
                       "hasVideo": true
                     },
@@ -513,8 +513,8 @@
                       "id": "9eec233a9d",
                       "number": "001",
                       "name": "东南西北",
-                      "docstring": "",
-                      "pyFile": "小学/二年级/上册/第五章-方向与位置/001东南西北/001_东南西北.py",
+                      "docstring": "《东南西北》竖屏完整版：认识四个基本方向，辨别地图方向与实际朝向。",
+                      "pyFile": "小学/二年级/上册/第五章-方向与位置/001东南西北/001东南西北_animation.py",
                       "videoFile": "小学/二年级/上册/第五章-方向与位置/001东南西北/Topic001东南西北Animation_finish.mp4",
                       "hasVideo": true
                     },
@@ -825,8 +825,8 @@
                       "id": "d4b142a89d",
                       "number": "001",
                       "name": "认识周长",
-                      "docstring": "",
-                      "pyFile": "小学/三年级/上册/第五章-几何小实践/001认识周长/001_认识周长.py",
+                      "docstring": "认识周长：以闭合边界和长度加法解释周长（竖屏）。",
+                      "pyFile": "小学/三年级/上册/第五章-几何小实践/001认识周长/001认识周长_animation.py",
                       "videoFile": "小学/三年级/上册/第五章-几何小实践/001认识周长/Topic001认识周长Animation_finish.mp4",
                       "hasVideo": true
                     },
@@ -911,8 +911,8 @@
                       "id": "d80e1f90d7",
                       "number": "001",
                       "name": "复式条形统计图",
-                      "docstring": "",
-                      "pyFile": "小学/三年级/下册/第三章-统计/001复式条形统计图/001_复式条形统计图.py",
+                      "docstring": "复式条形统计图：双组数据用相同刻度、并列柱形和图例展示（竖屏）。",
+                      "pyFile": "小学/三年级/下册/第三章-统计/001复式条形统计图/001复式条形统计图_animation.py",
                       "videoFile": "小学/三年级/下册/第三章-统计/001复式条形统计图/Topic001复式条形统计图Animation_finish.mp4",
                       "hasVideo": true
                     }
