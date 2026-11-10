@@ -17,20 +17,34 @@ DOT_RADIUS = 0.14
 CENTERS = (-3.1, -1.05, 1.05, 3.1)
 
 
+def load_distribution_plan():
+    """从保留的教学源码提取纯数学函数，不导入 Manim。"""
+    scene = Path(__file__).resolve().parent / "you_shu_shu_de_chu_fa.py"
+    tree = ast.parse(scene.read_text(encoding="utf-8"), filename=str(scene))
+    functions = [
+        node for node in tree.body
+        if isinstance(node, ast.FunctionDef) and node.name == "distribution_plan"
+    ]
+    assert len(functions) == 1, "保留的教学源码必须声明一个 distribution_plan"
+    module = ast.fix_missing_locations(ast.Module(body=functions, type_ignores=[]))
+    namespace = {}
+    exec(compile(module, str(scene), "exec"), namespace)
+    return namespace["distribution_plan"]
+
+
 def verify_distribution() -> None:
-    """检查每个原始物体最多分配一次，分配数量与余数、除数一致。"""
+    """13 个原始物体恰好分配 12 个，余下 1 个；没有复制或遗漏。"""
+    groups, leftovers = load_distribution_plan()(TOTAL, CHILDREN)
+    assert len(groups) == CHILDREN
+    assert all(len(group) == 3 for group in groups)
+    assert leftovers == (12,)
+    all_indices = [index for group in groups for index in group] + list(leftovers)
+    assert sorted(all_indices) == list(range(TOTAL))
+    assert len(all_indices) == len(set(all_indices))
     quotient, remainder = divmod(TOTAL, CHILDREN)
     assert (quotient, remainder) == (3, 1)
     assert TOTAL == CHILDREN * quotient + remainder
     assert 0 <= remainder < CHILDREN
-    assigned_indices = [
-        round_index * CHILDREN + child_index
-        for round_index in range(quotient)
-        for child_index in range(CHILDREN)
-    ]
-    leftover_indices = set(range(TOTAL)) - set(assigned_indices)
-    assert len(assigned_indices) == len(set(assigned_indices)) == 12
-    assert leftover_indices == {12}
 
 
 def verify_static_positions() -> None:
@@ -55,12 +69,10 @@ def verify_static_positions() -> None:
 
 
 def verify_latex_literals() -> None:
-    """检查同一课两个 Scene 的 MathTex 字面量没有直接放入中文或 Unicode 符号。"""
+    """唯一保留的 Scene 使用纯 LaTeX 字面量；删除的旧入口不可复现。"""
     directory = Path(__file__).resolve().parent
-    scene_files = (
-        directory / "002_有余数的除法.py",
-        directory / "you_shu_shu_de_chu_fa.py",
-    )
+    assert not (directory / "002_有余数的除法.py").exists()
+    scene_files = (directory / "you_shu_shu_de_chu_fa.py",)
     for filename in scene_files:
         tree = ast.parse(filename.read_text(encoding="utf-8"), filename=str(filename))
         for node in ast.walk(tree):
