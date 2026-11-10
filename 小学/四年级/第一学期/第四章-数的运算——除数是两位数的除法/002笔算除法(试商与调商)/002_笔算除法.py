@@ -503,7 +503,7 @@ class WrittenDivisionLesson(Scene):
         r2_cond  = Text("余数 ≥ 除数", font=FONT, font_size=22, color=COLOR_GRAY_TXT).move_to(DOWN * 0.65)
         r2_act   = Text("→ 把商加大 1", font=FONT, font_size=22, color=COLOR_QUOTIENT).move_to(DOWN * 1.25)
         r2_ex = VGroup(
-            MathTex(r"45 - 34 = 11 \geq 34", font_size=28, color=WHITE),
+            MathTex(r"95 - 34 = 61 \geq 34", font_size=28, color=WHITE),
             Text("→ 调大商", font=FONT, font_size=21, color=COLOR_QUOTIENT),
         ).arrange(RIGHT, buff=0.25).move_to(DOWN * 1.95)
         r2_ex[0][0][0:2].set_color(COLOR_DIVIDEND)
@@ -615,16 +615,16 @@ class WrittenDivisionLesson(Scene):
         )
 
     # ------------------------------------------------------------------
-    # Scene 6: 同头无除商 8、9
+    # Scene 6: 估商后以乘积与余数验算
     # ------------------------------------------------------------------
 
     def scene_6_same_head_trick(self):
-        title = self.make_title("技巧：同头无除商 8、9", color=COLOR_STEP)
+        title = self.make_title("技巧：用乘积和余数验商", color=COLOR_STEP)
         self.play(Write(title), run_time=0.5)
 
         # 解释"同头"
         explain = Text(
-            "被除数前几位 与 除数 最高位相同",
+            "估商只是第一步，还要验证乘积",
             font=FONT, font_size=22, color=COLOR_GRAY_TXT,
         ).move_to(UP * 4.9)
         self.play(FadeIn(explain), run_time=0.4)
@@ -632,16 +632,16 @@ class WrittenDivisionLesson(Scene):
         line0 = Line(LEFT * 3.5, RIGHT * 3.5, color=GRAY_B, stroke_width=1).move_to(UP * 4.3)
         self.play(Create(line0), run_time=0.3)
 
-        # 例：88 ÷ 22 —— 同头，直接试商 4?
+        # 例：88 ÷ 22，先估商 4，再验乘积
         ex_title = Text("例：88 ÷ 22", font=FONT, font_size=26, color=COLOR_ARROW).move_to(UP * 3.7)
         self.play(FadeIn(ex_title), run_time=0.4)
 
-        ex_step1 = Text("88 和 22 都以 2 开头（同头）", font=FONT, font_size=20, color=COLOR_GRAY_TXT).move_to(UP * 3.0)
+        ex_step1 = Text("88 ÷ 22：先试商 4", font=FONT, font_size=20, color=COLOR_GRAY_TXT).move_to(UP * 3.0)
         self.play(FadeIn(ex_step1), run_time=0.4)
 
         ex_rule = VGroup(
-            Text("同头无除 →", font=FONT, font_size=22, color=COLOR_HL),
-            Text("商 4（直接试商接近整数倍）", font=FONT, font_size=20, color=COLOR_GRAY_TXT),
+            Text("估商后验算 →", font=FONT, font_size=22, color=COLOR_HL),
+            Text("22×4=88，余数为 0", font=FONT, font_size=20, color=COLOR_GRAY_TXT),
         ).arrange(RIGHT, buff=0.2).move_to(UP * 2.3)
         self.play(FadeIn(ex_rule), run_time=0.5)
 
@@ -667,19 +667,19 @@ class WrittenDivisionLesson(Scene):
         sep2 = Line(LEFT * 3.5, RIGHT * 3.5, color=GRAY_B, stroke_width=1).move_to(ORIGIN)
         self.play(Create(sep2), run_time=0.3)
 
-        # 例2：78 ÷ 26 —— 同头，商 3
+        # 例2：78 ÷ 26，商为 3，余数为 0
         ex2_title = Text("例：78 ÷ 26", font=FONT, font_size=26, color=COLOR_ARROW).move_to(DOWN * 0.6)
         self.play(FadeIn(ex2_title), run_time=0.4)
 
-        ex2_rule = Text("7 和 2 不同头…但 78 ÷ 26 ≈ 78 ÷ 30，试 2", font=FONT, font_size=19, color=COLOR_GRAY_TXT).move_to(DOWN * 1.35)
+        ex2_rule = Text("78 ÷ 26：试商 3，26×3=78", font=FONT, font_size=19, color=COLOR_GRAY_TXT).move_to(DOWN * 1.35)
         self.play(FadeIn(ex2_rule), run_time=0.4)
 
-        # 实际演示：同头技巧示例
+        # 检查试商是否满足余数范围
         trick_box = self.make_rounded_rect(7.6, 3.2, DOWN * 3.3, color=COLOR_HL, fill_opacity=0.10)
-        trick_t = Text("同头无除商 8、9  口诀", font=FONT, font_size=23, color=COLOR_HL).move_to(DOWN * 2.3)
-        trick_b1 = Text("被除数前几位 ÷ 除数，商≥8 时", font=FONT, font_size=19, color=COLOR_GRAY_TXT).move_to(DOWN * 2.95)
-        trick_b2 = Text("先试商 8，若余数≥除数再改为 9", font=FONT, font_size=19, color=COLOR_GRAY_TXT).move_to(DOWN * 3.55)
-        trick_b3 = Text("（两者最高位相近时常出现）", font=FONT, font_size=18, color=COLOR_GRAY_TXT).move_to(DOWN * 4.15)
+        trick_t = Text("估商必须验算", font=FONT, font_size=23, color=COLOR_HL).move_to(DOWN * 2.3)
+        trick_b1 = Text("先查 商×除数 是否过大", font=FONT, font_size=19, color=COLOR_GRAY_TXT).move_to(DOWN * 2.95)
+        trick_b2 = Text("再查 0≤余数<除数", font=FONT, font_size=19, color=COLOR_GRAY_TXT).move_to(DOWN * 3.55)
+        trick_b3 = Text("不满足时重新调整试商", font=FONT, font_size=18, color=COLOR_GRAY_TXT).move_to(DOWN * 4.15)
         self.play(FadeIn(trick_box), FadeIn(trick_t), FadeIn(trick_b1), FadeIn(trick_b2), FadeIn(trick_b3), run_time=0.7)
         self.wait(2.5)
 
@@ -708,7 +708,7 @@ class WrittenDivisionLesson(Scene):
             ("1. 试商", "把除数四舍五入为整十数，\n用被除数前几位 ÷ 整十数", COLOR_STEP),
             ("2. 调大商", "余数 ≥ 除数 → 商加 1", COLOR_QUOTIENT),
             ("3. 调小商", "乘积 > 被除数前几位 → 商减 1", COLOR_REMAIN),
-            ("4. 同头技巧", "最高位相同 → 先试商 8 或 9", COLOR_HL),
+            ("4. 试商验算", "检查乘积与余数", COLOR_HL),
             ("5. 验余数", "每次余数必须 < 除数", COLOR_ARROW),
         ]
 
