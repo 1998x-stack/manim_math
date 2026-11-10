@@ -1,0 +1,61 @@
+name: Primary Scene shadow audit
+
+on:
+  pull_request:
+    paths:
+      - '小学/**/*.py'
+      - 'catalog/primary-scene-overrides.json'
+      - 'tools/audit_primary_sources.py'
+      - 'tools/primary_scene_shadow.py'
+      - 'tests/test_audit_primary_sources.py'
+      - 'tests/test_primary_scene_shadow.py'
+      - 'tests/test_primary_scene_deduplication.py'
+      - 'assets/catalog.json'
+      - 'assets/build_catalog.py'
+      - '.github/workflows/primary-scene-shadow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shadow-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            tools/audit_primary_sources.py
+            tools/primary_scene_shadow.py
+            tests/test_audit_primary_sources.py
+            tests/test_primary_scene_shadow.py
+            tests/test_primary_scene_deduplication.py
+            assets/build_catalog.py
+            catalog/primary-scene-overrides.json
+            assets/catalog.json
+            小学/**/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests (no Manim required)
+        run: python -m unittest tests.test_audit_primary_sources tests.test_primary_scene_shadow tests.test_primary_scene_deduplication -v
+      - name: Read-only shadow validation; require all tracked primary Python files
+        run: python -m tools.primary_scene_shadow --require-complete --output /tmp/primary-scene-shadow.json
+      - name: Print summary for reviewers
+        run: |
+          python - <<'PY'
+          import json
+          report = json.load(open("/tmp/primary-scene-shadow.json", encoding="utf-8"))
+          print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
+          if report["validation_errors"]:
+              raise SystemExit("Unexpected manifest validation errors")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: primary-scene-shadow-report
+          path: /tmp/primary-scene-shadow.json
+          if-no-files-found: error

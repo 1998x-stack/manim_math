@@ -63,5 +63,28 @@ class GradeThreeAuditTests(unittest.TestCase):
         self.assertEqual(result["issues"][0]["code"], "MISSING_DIRECTORY")
 
 
+    def test_cli_fails_on_errors_without_strict_but_not_warnings(self):
+        import audit_grade3
+        from contextlib import redirect_stdout
+        from io import StringIO
+        from unittest.mock import patch
+
+        error = {"severity": "error", "file": "broken.py", "line": 1,
+                 "code": "PYTHON_SYNTAX", "detail": "bad syntax"}
+        warning = {"severity": "warning", "file": "lesson.py", "line": 2,
+                   "code": "UNICODE_MATHTEX", "detail": "unsafe tex"}
+        for issues, arguments, expected in (
+            ([error], [], 1),
+            ([warning], [], 0),
+            ([warning], ["--strict"], 1),
+        ):
+            with self.subTest(issues=issues, arguments=arguments):
+                with (patch.object(audit_grade3, "audit_tree",
+                                   return_value={"files": 1, "scene_files": 1, "issues": issues}),
+                      patch("sys.argv", ["audit_grade3.py", *arguments]),
+                      redirect_stdout(StringIO())):
+                    self.assertEqual(audit_grade3.main(), expected)
+
+
 if __name__ == "__main__":
     unittest.main()

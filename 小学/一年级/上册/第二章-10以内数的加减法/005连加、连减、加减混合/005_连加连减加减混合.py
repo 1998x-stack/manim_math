@@ -34,6 +34,23 @@ COLOR_BIRD = "#fff176"          # 黄 - 小鸟
 COLOR_RULE = "#a5d6a7"          # 绿 - 规则文字
 
 
+def calculate_steps(first, second, third, first_op, second_op):
+    """本课两个连续运算按从左到右执行，阶段数量始终为 0～10。
+
+    与 Manim 无关；保留原简短版本的边界约束，供独立数学回归测试。
+    """
+    if any(type(value) is not int or not 0 <= value <= 10
+           for value in (first, second, third)):
+        raise ValueError("每个数量必须是 0～10 的整数")
+    if first_op not in ("+", "-") or second_op not in ("+", "-"):
+        raise ValueError("本课仅支持加法和减法")
+    middle = first + second if first_op == "+" else first - second
+    final = middle + third if second_op == "+" else middle - third
+    if not 0 <= middle <= 10 or not 0 <= final <= 10:
+        raise ValueError("本课中间数量和结果必须在 0～10 内")
+    return middle, final
+
+
 def make_bird(color=COLOR_BIRD, scale=1.0):
     """创建简单小鸟图形（用圆和三角形组合）"""
     body = Ellipse(width=0.5, height=0.3, color=color, fill_opacity=1, stroke_width=0)
@@ -63,6 +80,14 @@ class ConsecutiveOperationsLesson(Scene):
     """
 
     def construct(self):
+        # 三个实际演示算式与可独立测试的分步模型保持一致。
+        examples = (
+            (2, 3, 1, "+", "+", (5, 6)),
+            (5, 2, 1, "-", "-", (3, 2)),
+            (5, 2, 3, "+", "-", (7, 4)),
+        )
+        for first, second, third, op1, op2, expected in examples:
+            assert calculate_steps(first, second, third, op1, op2) == expected
         self.camera.background_color = COLOR_BG
 
         self.scene_1_opening()

@@ -1,4 +1,4 @@
-"""Check the arithmetic used by the grade-one stepwise animation without Manim."""
+"""Check arithmetic from the single retained grade-one stepwise animation."""
 
 import ast
 from pathlib import Path
@@ -8,7 +8,7 @@ import unittest
 SOURCE = (
     Path(__file__).resolve().parents[1]
     / "小学/一年级/上册/第二章-10以内数的加减法/005连加、连减、加减混合"
-    / "005_连加、连减、加减混合.py"
+    / "005_连加连减加减混合.py"
 )
 
 
@@ -30,6 +30,14 @@ class StepwiseOperationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.calculate_steps = staticmethod(load_calculator())
+
+    def test_only_one_scene_source_is_kept(self):
+        """Short independent lesson was removed; math lives in the full Scene."""
+        self.assertTrue(SOURCE.is_file())
+        self.assertFalse(SOURCE.with_name("005_连加、连减、加减混合.py").exists())
+        tree = ast.parse(SOURCE.read_text(encoding="utf-8"))
+        scenes = [cls.name for cls in tree.body if isinstance(cls, ast.ClassDef)]
+        self.assertEqual(scenes, ["ConsecutiveOperationsLesson"])
 
     def test_three_course_examples(self):
         self.assertEqual(self.calculate_steps(2, 3, 1, "+", "+"), (5, 6))
