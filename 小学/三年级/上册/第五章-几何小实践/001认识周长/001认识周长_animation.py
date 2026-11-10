@@ -10,6 +10,13 @@ BG = "#1a1a2e"
 FONT = "PingFang SC"
 
 
+def rectangle_perimeter(length: int, width: int) -> int:
+    """沿封闭长方形四条边一周，单位始终是长度单位。"""
+    if any(type(value) is not int or value <= 0 for value in (length, width)):
+        raise ValueError("长宽均须为正整数")
+    return 2 * (length + width)
+
+
 class Topic001认识周长Animation(Scene):
     """保留历史 Scene 名称，避免破坏既有课程入口。"""
 
@@ -25,6 +32,7 @@ class Topic001认识周长Animation(Scene):
                           font_size=26).move_to(UP * 3.8)
         self.play(Write(definition))
 
+        assert rectangle_perimeter(4, 2) == 12
         # 长 4、宽 2 的长方形（示意图）；沿四条边连续描画，最终回到起点。
         vertices = [(-2, 2), (2, 2), (2, 0), (-2, 0), (-2, 2)]
         border = VGroup(*[
