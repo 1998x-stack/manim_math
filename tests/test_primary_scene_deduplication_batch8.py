@@ -67,6 +67,25 @@ class BatchEightTests(unittest.TestCase):
         self.assertIn("run_path(", bridge)
         self.assertNotIn("def construct(", bridge)
 
+    def test_long_division_examples_and_adjustment_are_consistent(self):
+        for dividend, divisor, quotient, remainder in (
+            (952, 34, 28, 0),
+            (672, 21, 32, 0),
+            (88, 22, 4, 0),
+            (78, 26, 3, 0),
+        ):
+            with self.subTest(dividend=dividend, divisor=divisor):
+                self.assertEqual(divmod(dividend, divisor), (quotient, remainder))
+        self.assertTrue(3 * 34 > 95)
+        self.assertTrue(95 - 34 >= 34)
+        self.assertTrue(95 - 2 * 34 < 34)
+        retained = LESSONS["002笔算除法(试商与调商)"]
+        source = (ROOT / retained["topic"] / retained["keep"]).read_text(encoding="utf-8")
+        self.assertNotIn("45 - 34 = 11", source)
+        self.assertNotIn("88 和 22 都以 2 开头", source)
+        self.assertNotIn("先试商 8，若余数", source)
+        self.assertIn("95 - 34 = 61", source)
+
     def test_math_models_for_rebuilt_courses(self):
         changes = pure_math("001单式折线统计图", "daily_changes")
         self.assertEqual(changes((18, 20, 19, 23, 25)), (2, -1, 4, 2))
