@@ -1,0 +1,62 @@
+name: Curriculum prompt suite quality
+
+on:
+  pull_request:
+    paths:
+      - 'skills/source/curriculum-prompt-suite/**'
+      - '.codex/prompts/curriculum/**'
+      - '.pi/**'
+      - '.opencode/prompts/curriculum/**'
+      - '.opencode/commands/manim-lesson.md'
+      - 'catalog/prompt-index.json'
+      - 'tools/prompt_suite.py'
+      - 'tools/sync_skills.py'
+      - 'tests/test_skill_bundles.py'
+      - '.github/workflows/curriculum-prompt-suite.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONPYCACHEPREFIX: /tmp/manim-prompt-suite-pycache
+
+jobs:
+  prompt-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /skills/source/**
+            /.codex/skills/**
+            /.opencode/skills/**
+            /.claude/skills/**
+            /.pi/skills/**
+            /.codex/prompts/curriculum/**
+            /.pi/prompts/**
+            /.opencode/prompts/curriculum/**
+            /.opencode/commands/manim-lesson.md
+            /catalog/prompt-index.json
+            /tools/prompt_suite.py
+            /tools/sync_skills.py
+            /tests/test_skill_bundles.py
+            /小学/**/prompt.md
+            /初中/**/prompt.md
+            /高中/**/prompt.md
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile prompt generator and regression tests
+        run: python -m py_compile tools/prompt_suite.py skills/source/curriculum-prompt-suite/scripts/prompt_suite.py skills/source/curriculum-prompt-suite/scripts/test_prompt_suite.py
+      - name: Run isolated prompt generator tests
+        run: python -m unittest discover -s skills/source/curriculum-prompt-suite/scripts -p 'test_*.py' -v
+      - name: Verify source catalog and three agent prompt mirrors
+        run: python tools/prompt_suite.py check --root .
+      - name: Verify canonical Skill mirrors including Pi
+        run: python tools/sync_skills.py --check
+      - name: Run existing skill integration checks
+        run: python -m unittest discover -s tests -p 'test_skill_bundles.py' -v

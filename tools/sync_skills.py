@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "skills" / "source"
-TARGETS = (ROOT / ".codex" / "skills", ROOT / ".opencode" / "skills", ROOT / ".claude" / "skills")
+TARGETS = (ROOT / ".codex" / "skills", ROOT / ".opencode" / "skills", ROOT / ".claude" / "skills", ROOT / ".pi" / "skills")
 
 
 def inventory(package: Path) -> dict[str, Path]:
@@ -21,6 +21,10 @@ def inventory(package: Path) -> dict[str, Path]:
     for path in sorted(package.rglob("*")):
         if path.is_symlink():
             raise ValueError(f"symlink is not allowed in skill package: {path}")
+        # Python compilers/tests produce ephemeral caches; they are not Skill assets.
+        # Keep detecting arbitrary extra source files as orphans.
+        if "__pycache__" in path.relative_to(package).parts or path.suffix in (".pyc", ".pyo"):
+            continue
         if path.is_file():
             files[path.relative_to(package).as_posix()] = path
         elif not path.is_dir():

@@ -3,12 +3,20 @@ name: Manim video production skill
 on:
   pull_request:
     paths:
+      - 'skills/source/manim-video-production/**'
       - '.codex/skills/manim-video-production/**'
+      - '.opencode/skills/manim-video-production/**'
+      - '.pi/skills/manim-video-production/**'
+      - '.claude/skills/manim-video-production/**'
       - '.github/workflows/manim-video-production-skill.yml'
   push:
     branches: [main]
     paths:
+      - 'skills/source/manim-video-production/**'
       - '.codex/skills/manim-video-production/**'
+      - '.opencode/skills/manim-video-production/**'
+      - '.pi/skills/manim-video-production/**'
+      - '.claude/skills/manim-video-production/**'
       - '.github/workflows/manim-video-production-skill.yml'
   workflow_dispatch:
 

@@ -12,7 +12,7 @@
 | 理解整个仓库的文件职责 | [文件与交付物地图](docs/engineering/repository-map.md)、[架构和数据模型](docs/architecture/architecture.md) |
 | 按年级或数学领域组织内容 | [课程章节参考](docs/curriculum/章节.md)、[分类规则](docs/architecture/categories.md)、[分类数据](catalog/categories.json) |
 | 从知识点创作一段动画 | [Prompt 使用与编写规范](docs/prompts/authoring.md)、[六阶段创作流程](docs/engineering/scene-workflow.md) |
-| 使用 Codex / OpenCode / Claude | [Skills 导航与路由](skills/README.md)、[Agent 总约定](AGENTS.md) |
+| 使用 Codex / Pi / OpenCode / Claude | [Skills 导航与路由](skills/README.md)、[Agent 总约定](AGENTS.md) |
 | 验证质量或计划调整目录 | [质量门禁](docs/engineering/quality-gates.md)、[迁移方案](docs/architecture/migration.md) |
 | 查阅全部文档 | [文档总目录](docs/README.md) |
 
@@ -28,6 +28,7 @@ skills/source/              # AI Skills 唯一维护入口
 .codex/skills/              # Codex 的独立可读取镜像
 .opencode/skills/           # OpenCode 的独立可读取镜像
 .claude/skills/             # Claude 的独立可读取镜像
+.pi/skills/                 # Pi 的独立可读取镜像
 tools/                      # 结构检查、索引审计、Skills 同步
 files/ videos/              # 历史混合文件和媒体；不等于统一的新产物目录
 ```
@@ -59,7 +60,7 @@ manim -pql external/euler_line.py EulerLineScene
 ## 从知识点到成片
 
 1. **确认教学任务**：核对教材、年级、学期、先修知识与目标；读取对应知识点的 `description.json` 及 `prompt.md`。在 [Prompt 编写规范](docs/prompts/authoring.md) 中区分历史原文、项目规范与本次具体任务。
-2. **确定数学规格**：写明定义、变量、适用条件、结论、证明依据、反例和极端/退化情形；需要时使用 [math-specification Skill](skills/source/math-specification/SKILL.md)。
+2. **确定数学规格**：写明定义、变量、适用条件、结论、证明依据、反例和极端/退化情形；需要时使用 [curriculum-prompt-suite Skill](skills/source/curriculum-prompt-suite/SKILL.md)。
 3. **形成分镜**：将每个数学事实映射到画面、字幕、对象生命周期、时长、转场及验收条件，产出可审核的 `storyboard.md`。
 4. **实现 Scene**：确认真实的 Scene 子类和类名，分离可纯 Python 测试的数学运算与 Manim 时间编排，遵循[创作流程](docs/engineering/scene-workflow.md)。
 5. **分层验收**：依次完成语法、数学与边界检查、低清渲染、关键帧视觉审核，最后做生产渲染和媒体探测；证据及未完成项见[质量门禁](docs/engineering/quality-gates.md)。
@@ -69,7 +70,7 @@ manim -pql external/euler_line.py EulerLineScene
 
 - `docs/prompts/{xiaoxue,chuzhong,gaozhong}.md` 是历史课程提示词与纲要资料；不能替代经核对的教材或数学证明。
 - 知识点目录下的 `prompt.md` 常同时包含通用模板和该课特有的 `<problem>`；保留原件，优先抽取本次任务的具体需求，避免重复粘贴或把历史建议当作已验证 API 行为。
-- 新建内容遵循[分层 Prompt 契约](docs/prompts/authoring.md)，按任务在[Skills 总览](skills/README.md)选择相应模块。`skills/source/` 为唯一维护入口，镜像使用 `python tools/sync_skills.py` 生成并检查。
+- 新建内容遵循[分层 Prompt 契约](docs/prompts/authoring.md)，按任务在[Skills 总览](skills/README.md)选择两个入口之一：课程数学/分镜使用 curriculum-prompt-suite，Scene/验证/成片使用 manim-video-production。`skills/source/` 为唯一维护入口，镜像使用 `python tools/sync_skills.py` 生成并检查。
 
 ## 贡献、兼容与发布原则
 

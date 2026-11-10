@@ -10,6 +10,7 @@ on:
       - '.codex/skills/**'
       - '.opencode/skills/**'
       - '.claude/skills/**'
+      - '.pi/skills/**'
       - 'tools/**'
       - 'tests/**'
       - 'assets/catalog.json'
@@ -37,6 +38,7 @@ jobs:
           sparse-checkout: |
             .github
             .codex/skills
+            .pi/skills
             .opencode/skills
             .claude/skills
             assets/catalog.json

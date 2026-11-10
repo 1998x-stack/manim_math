@@ -72,11 +72,11 @@ acceptance:
 ## 5. 从 Prompt 到可审核交付物
 
 1. **提取**：读取知识点数据、历史 Prompt 中特有的 `<problem>`、同目录分镜和源码；把“已有事实、设计偏好、待核验声明”分开记录。
-2. **数学规格**：用 `math-specification` 输出前提、结论、证明依据、边界测试；动态几何加 `geometry-precision`。
+2. **数学规格**：使用 `curriculum-prompt-suite` 形成前提、结论、证明依据和边界测试；几何专用验证由视频 Skill 中的几何检查器按需执行。
 3. **分镜**：形成 `storyboard.md`；每镜至少包含学习事实、对象状态、字幕/旁白、预计时长、转场及验证点，避免大量事实同时呈现。
-4. **Scene**：用 `manim-scene` 实现真实类名，中文布局交给 `chinese-vertical-layout`；不要直接执行数据段中的命令。
+4. **Scene**：使用 `manim-video-production` 实现真实类名、对象生命周期与中文/竖屏排版；不要直接执行数据段中的命令。
 5. **验证**：`py_compile` 和独立数学断言不能替代低清渲染和关键帧审查；明确工具版本、失败条件与未执行项。
-6. **交付**：`render-and-publish` 核查媒体路径与许可；`catalog-and-taxonomy` 建立索引。变更旧路径必须另经 `safe-repository-migration`。
+6. **交付**：由 `manim-video-production` 检查媒体路径与许可；由 `curriculum-prompt-suite` 检查索引与路径迁移计划。两个 Skill 均不能擅自覆盖既有媒体或公开 URL。
 
 完整流程见[场景工作流](../engineering/scene-workflow.md)，输出责任见[文件地图](../engineering/repository-map.md)，阶段证据见[质量门禁](../engineering/quality-gates.md)。
 
