@@ -26,6 +26,8 @@ python tools/audit_primary_sources.py --output /tmp/manim-primary-sources.json
 python -m unittest tests.test_audit_primary_sources -v
 ```
 
+重复教学 Scene 第四批清理：[六课唯一 Scene 与删除路径映射](../docs/engineering/primary-scene-deduplication-batch4.md)，包含无 Manim 数学/结构回归测试。
+
 重复教学 Scene 第三批清理：[旧到新源码完整映射](../docs/engineering/primary-scene-deduplication.md)。该批删除 4 个冗余 Scene；旧基线清单只用于历史比较。
 
 冻结的 273 文件初始基线与分批优化计划：[小学源码清单](../docs/engineering/primary-school-inventory.md)。如果报告的 `summary.complete_checkout` 为 `false`，扫描结果只代表实际检出的部分，不能当作全部课程验收。

@@ -51,6 +51,16 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def probability_from_equal_outcomes(favorable: int, total: int):
+    """只适用于有限、等可能的基本结果；返回精确概率分数。"""
+    from fractions import Fraction
+
+    if (type(favorable) is not int or type(total) is not int
+            or total <= 0 or not 0 <= favorable <= total):
+        raise ValueError("需要 0 ≤ 有利结果数 ≤ 等可能的总结果数，且总数大于 0")
+    return Fraction(favorable, total)
+
+
 class ProbabilityIntroLesson(Scene):
     """
     可能性(概率的初步)教学动画
@@ -66,6 +76,8 @@ class ProbabilityIntroLesson(Scene):
     """
 
     def construct(self):
+        assert probability_from_equal_outcomes(1, 2) == 1 / 2
+        assert probability_from_equal_outcomes(3, 6) == 1 / 2
         self.camera.background_color = BG_COLOR
 
         self.scene_1_opening()
@@ -343,7 +355,7 @@ class ProbabilityIntroLesson(Scene):
     # ------------------------------------------------------------------
     def scene_4_formula(self):
         title = Text(
-            "概率公式", font=FONT, font_size=38, color=COLOR_FORMULA
+            "等可能结果的概率", font=FONT, font_size=38, color=COLOR_FORMULA
         ).move_to(UP * 5.5)
         self.play(Write(title), run_time=0.6)
 
@@ -372,7 +384,7 @@ class ProbabilityIntroLesson(Scene):
         ).move_to(UP * 2.4)
 
         line1_cn3 = Text(
-            "所有可能的结果总数", font=FONT, font_size=22, color=GRAY_A
+            "等可能结果的总数", font=FONT, font_size=22, color=GRAY_A
         ).move_to(UP * 1.9)
 
         p_label = MathTex(

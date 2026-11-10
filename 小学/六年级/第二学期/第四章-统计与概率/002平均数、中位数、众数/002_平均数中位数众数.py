@@ -49,6 +49,28 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def describe_data(values):
+    """精确计算平均数、中位数、众数，全部数仅出现一次则无众数。"""
+    from collections import Counter
+    from fractions import Fraction
+
+    numbers = tuple(values)
+    if not numbers or any(type(n) is not int for n in numbers):
+        raise ValueError("需要非空整数样本")
+    sorted_values = sorted(numbers)
+    count = len(numbers)
+    mean = Fraction(sum(numbers), count)
+    median = (
+        Fraction(sorted_values[count // 2])
+        if count % 2 else
+        Fraction(sorted_values[count // 2 - 1] + sorted_values[count // 2], 2)
+    )
+    frequencies = Counter(numbers)
+    max_frequency = max(frequencies.values())
+    modes = tuple(sorted(v for v, freq in frequencies.items() if freq == max_frequency)) if max_frequency > 1 else ()
+    return mean, median, modes
+
+
 class MeanMedianModeLesson(Scene):
     """
     平均数、中位数、众数教学动画
@@ -145,6 +167,7 @@ class MeanMedianModeLesson(Scene):
 
         # 数据: 5个同学的成绩
         self.data_values = [85, 90, 78, 90, 92]
+        assert describe_data(self.data_values) == (87, 90, (90,))
         data_label = Text(
             "5位同学的数学成绩:",
             font=FONT, font_size=24, color=GRAY_A
