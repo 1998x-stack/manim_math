@@ -47,6 +47,16 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def gcd_lcm_values(*numbers: int) -> tuple[int, int]:
+    """求不少于两个正整数的最大公因数、最小公倍数。"""
+    from functools import reduce
+    from math import gcd, lcm
+
+    if len(numbers) < 2 or any(type(n) is not int or n <= 0 for n in numbers):
+        raise ValueError("至少需要两个正整数")
+    return reduce(gcd, numbers), lcm(*numbers)
+
+
 class GcfLcmLesson(Scene):
     """
     最大公因数和最小公倍数 (深化) 教学动画
@@ -62,6 +72,11 @@ class GcfLcmLesson(Scene):
     """
 
     def construct(self):
+        # 短除法、三数 GCF/LCM、互质与裁布题采用相同的数学真值。
+        assert gcd_lcm_values(12, 18) == (6, 36)
+        assert gcd_lcm_values(12, 18, 24) == (6, 72)
+        assert gcd_lcm_values(8, 15) == (1, 120)
+        assert gcd_lcm_values(36, 24) == (12, 72)
         self.camera.background_color = BG_COLOR
 
         self.scene_1_opening()

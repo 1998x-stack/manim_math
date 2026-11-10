@@ -5,6 +5,7 @@
 | 主题 | 入口 | 阅读时机 |
 | --- | --- | --- |
 | 仓库结构 | [文件与交付物地图](engineering/repository-map.md)、[文件系统分类与清理规则](engineering/filesystem-governance.md) | 分辨课程、源码、Prompt、视频和生成器的职责；确定文件能否安全迁移或删除 |
+| 小学第五批 Scene 去重 | [六年级四门课去重、旧入口映射与数学回归](engineering/primary-scene-deduplication-batch5.md) | 删除四份冗余教学 Scene，保留完整章节课程与历史视频关联 |
 | 小学第四批 Scene 去重 | [六门课删除映射与保留源码更新](engineering/primary-scene-deduplication-batch4.md) | 新增代数、统计、概率与几何不变量测试；同步保持旧视频关联 |
 | 小学重复 Scene 治理 | [第三批：四份冗余源码删除与替代映射](engineering/primary-scene-deduplication.md) | 保留较完整 Scene、同步算术验证、明确旧入口替换关系与视频兼容边界 |
 | 小学主 Scene 影子审核 | [最新多源码目录审核队列](engineering/primary-scene-review-queue.md) | 追踪已静态核对的源码入口、待复核课题及与历史 Gallery 的差异；不更改既有视频 |

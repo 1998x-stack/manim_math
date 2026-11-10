@@ -41,6 +41,16 @@ FONT = "PingFang SC"
 # 主场景
 # ======================================================================
 
+def ratio_value(numerator: int, denominator: int):
+    """精确表示比值 a:b = a÷b = a/b，要求后项不为零。"""
+    from fractions import Fraction
+
+    if (type(numerator) is not int or type(denominator) is not int
+            or denominator == 0):
+        raise ValueError("比的前后项须为整数，且后项不能为零")
+    return Fraction(numerator, denominator)
+
+
 class RatioFractionDivisionLesson(Scene):
     """
     比与分数、除法的关系 教学动画
@@ -58,6 +68,10 @@ class RatioFractionDivisionLesson(Scene):
     """
 
     def construct(self):
+        # 由与 Manim 无关的精确分数模型验证画面中三个比值例题。
+        assert ratio_value(3, 5) == ratio_value(6, 10)
+        assert ratio_value(3, 4) == ratio_value(75, 100)
+        assert ratio_value(2, 5) == ratio_value(4, 10)
         self.camera.background_color = BG_COLOR
 
         self.scene_1_opening()
