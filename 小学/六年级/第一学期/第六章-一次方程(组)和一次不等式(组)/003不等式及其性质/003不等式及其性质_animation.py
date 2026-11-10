@@ -1,183 +1,122 @@
-"""
-003不等式及其性质 - Animation
-使用 Manim 创建的数学教学视频
-
-内容: 003不等式及其性质
-目标观众: 学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""六年级：不等式的三条性质，特别强调负数乘除与零因子。"""
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#131a30"
+BLUE_ACCENT = "#60a5fa"
+GOLD = "#fbbf24"
+RED_ACCENT = "#fb7185"
+GREEN_ACCENT = "#34d399"
+
+
+def transformed_inequality(a: int, b: int, offset: int = 0, factor: int = 1):
+    """在 a>b 条件下先同加 offset 再同乘 factor，返回新两端及符号。"""
+    if any(type(v) is not int for v in (a, b, offset, factor)) or a <= b:
+        raise ValueError("要求整数 a>b；offset、factor 也须为整数")
+    lhs = (a + offset) * factor
+    rhs = (b + offset) * factor
+    relation = ">" if lhs > rhs else "<" if lhs < rhs else "="
+    return lhs, rhs, relation
+
 
 class Topic003不等式及其性质Animation(Scene):
-    """
-    003不等式及其性质 教学动画场景
-    """
-    
+    """同一个不等式分别加数、乘正数、乘负数与乘零。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 强调元素
-        self.COLOR_HIGHLIGHT = "#f1c40f"    # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = "#95a5a6"    # 灰色 - 辅助元素
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
-        self.show_opening()
-        self.show_main_content()
-        self.show_examples()
-        self.show_summary()
-    
-    def setup_geometry(self):
-        """初始化几何布局"""
-        # 定义关键位置
-        self.center_pos = ORIGIN
-        self.top_pos = UP * 6
-        self.bottom_pos = DOWN * 6
-        self.left_pos = LEFT * 4
-        self.right_pos = RIGHT * 4
-        
-        # 定义网格位置用于摆放元素
-        self.grid_positions = []
-        rows, cols = 3, 3
-        start_x, start_y = -3, 2
-        spacing_x, spacing_y = 2, 2
-        
-        for row in range(rows):
-            for col in range(cols):
-                x = start_x + col * spacing_x
-                y = start_y - row * spacing_y
-                self.grid_positions.append(np.array([x, y, 0]))
-    
-    def show_opening(self):
-        """开场介绍"""
-        # 作者信息 (顶部)
-        author_info = Text(
+        assert transformed_inequality(5, 3, -2) == (3, 1, ">")
+        assert transformed_inequality(5, 3, factor=2) == (10, 6, ">")
+        assert transformed_inequality(5, 3, factor=-2) == (-10, -6, "<")
+        assert transformed_inequality(5, 3, factor=0) == (0, 0, "=")
+        self.camera.background_color = BG
+        self.watermark = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7.5)
-        
-        self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 标题
-        title = Text(
-            "003不等式及其性质",
-            font="PingFang SC",
-            font_size=48,
-            color=GOLD
-        ).move_to(UP * 5)
-        
-        self.play(Write(title), run_time=1.0)
-        self.wait(1)
-        
-        # 清理
-        self.play(FadeOut(title), run_time=0.5)
-    
-    def show_main_content(self):
-        """主要内容展示"""
-        # 根据主题创建相应内容
-        content_text = Text(
-            "正在学习003不等式及其性质的概念...",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 3)
-        
-        self.play(Write(content_text), run_time=1.0)
-        self.wait(2)
-        
-        # 示例元素
-        example_elements = VGroup()
-        for i in range(3):
-            element = Circle(radius=0.5, color=self.COLOR_HIGHLIGHT, fill_opacity=0.7)
-            element.move_to(self.grid_positions[i])
-            example_elements.add(element)
-        
-        self.play(LaggedStart(*[Create(el) for el in example_elements], lag_ratio=0.5), run_time=2)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(content_text), *[FadeOut(el) for el in example_elements], run_time=0.8)
-    
-    def show_examples(self):
-        """示例演示"""
-        example_text = Text(
-            "让我们看一个例子:",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(example_text), run_time=0.8)
-        self.wait(1)
-        
-        # 创建示例
-        example_visual = Square(side_length=2, color=self.COLOR_AUXILIARY)
-        example_visual.move_to(ORIGIN)
-        
-        self.play(Create(example_visual), run_time=1.0)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(example_text), FadeOut(example_visual), run_time=0.8)
-    
-    def show_summary(self):
-        """总结回顾"""
-        summary_points = VGroup(
-            Text("✓ 今天我们学习了003不等式及其性质", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
+            font_size=17, color=GRAY_B
+        ).move_to(UP * 7)
+        self.add(self.watermark)
+        self.opening()
+        self.properties()
+        self.warning()
+        self.summary()
+
+    def transition(self):
+        self.play(
+            *[FadeOut(item) for item in list(self.mobjects) if item is not self.watermark],
+            run_time=0.35
         )
-        summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
-        summary_points.move_to(UP * 1)
-        
-        title = Text(
-            "今天学到的知识：",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).move_to(UP * 4)
-        
-        self.play(Write(title), run_time=0.6)
-        self.play(LaggedStart(*[Write(point) for point in summary_points], lag_ratio=0.8), run_time=2.5)
-        
-        self.wait(3)
-        
-        # 鼓励话语
-        encouragement = Text(
-            "你学得真棒！\\n继续加油哦！",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 2)
-        
-        self.play(Write(encouragement), run_time=1.0)
-        self.wait(3)
-        
-        # 关注提醒
-        follow_reminder = Text(
-            "关注我，获得更多数学技巧!",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(follow_reminder, shift=UP * 0.3), run_time=0.5)
-        self.wait(3)
+
+    def title(self, name):
+        text = Text(name, font_size=37, color=GOLD).move_to(UP * 5.7)
+        self.play(Write(text))
+        return text
+
+    def opening(self):
+        title = Text("不等式及其性质", font_size=46).move_to(UP * 3.6)
+        fact = MathTex(r"5>3", font_size=62, color=GOLD).move_to(UP * 1.6)
+        subtitle = Text("两边做相同运算，方向会变吗？", font_size=29)
+        subtitle.move_to(DOWN * 0.6)
+        self.play(Write(title), Write(fact))
+        self.play(FadeIn(subtitle))
+        self.wait(0.8)
+        self.transition()
+
+    def properties(self):
+        self.title("三条基本性质")
+        original = MathTex(r"5>3", font_size=48, color=BLUE_ACCENT).move_to(UP * 4.2)
+        self.play(Write(original))
+        examples = [
+            ("两边都减 2：方向不变", r"5-2>3-2", GREEN_ACCENT),
+            ("两边都乘 2：方向不变", r"5\times 2>3\times 2", GREEN_ACCENT),
+            ("两边都乘 -2：方向反转", r"5\times(-2)<3\times(-2)", RED_ACCENT),
+        ]
+        labels = VGroup()
+        for message, expr, color in examples:
+            text = Text(message, font_size=26, color=color)
+            equation = MathTex(expr, font_size=38, color=WHITE)
+            pair = VGroup(text, equation).arrange(DOWN, buff=0.13)
+            labels.add(pair)
+        labels.arrange(DOWN, buff=0.65).move_to(DOWN * 0.4)
+        for pair in labels:
+            self.play(FadeIn(pair[0]), Write(pair[1]), run_time=0.7)
+            self.wait(0.25)
+        self.wait(0.6)
+        self.transition()
+
+    def warning(self):
+        self.title("注意：乘以 0")
+        a = MathTex(r"5>3", font_size=55, color=GOLD).move_to(UP * 3)
+        b = MathTex(r"5\times0=3\times0", font_size=46, color=RED_ACCENT)
+        b.move_to(UP * 0.7)
+        self.play(Write(a))
+        self.play(Write(b))
+        notes = VGroup(
+            Text("乘以 0 后，两边相等", font_size=29),
+            Text("不能继续写严格的大于号", font_size=29, color=RED_ACCENT),
+        ).arrange(DOWN, buff=0.45).move_to(DOWN * 2.3)
+        self.play(FadeIn(notes))
+        self.wait(0.8)
+        self.transition()
+
+    def summary(self):
+        self.title("记住符号的方向")
+        notes = [
+            ("同加或同减一个数", "不变", GREEN_ACCENT),
+            ("同乘或同除一个正数", "不变", GREEN_ACCENT),
+            ("同乘或同除一个负数", "反向", RED_ACCENT),
+            ("同乘 0", "成为等式", GOLD),
+        ]
+        group = VGroup()
+        for statement, result, color in notes:
+            content = VGroup(
+                Text(statement, font_size=25),
+                Text(result, font_size=29, color=color),
+            ).arrange(DOWN, buff=0.12)
+            group.add(content)
+        group.arrange(DOWN, buff=0.65).move_to(UP * 0.3)
+        for row in group:
+            self.play(FadeIn(row, shift=RIGHT * 0.15), run_time=0.4)
+        self.wait(1)
