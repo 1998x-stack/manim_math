@@ -69,7 +69,7 @@ class RatioFractionDivisionLesson(Scene):
 
     def construct(self):
         # 由与 Manim 无关的精确分数模型验证画面中三个比值例题。
-        assert ratio_value(3, 5) == ratio_value(3, 5)
+        assert ratio_value(3, 5) == ratio_value(6, 10)
         assert ratio_value(3, 4) == ratio_value(75, 100)
         assert ratio_value(2, 5) == ratio_value(4, 10)
         self.camera.background_color = BG_COLOR
