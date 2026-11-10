@@ -5,7 +5,7 @@
 | 主题 | 入口 | 阅读时机 |
 | --- | --- | --- |
 | 仓库结构 | [文件与交付物地图](engineering/repository-map.md)、[文件系统分类与清理规则](engineering/filesystem-governance.md) | 分辨课程、源码、Prompt、视频和生成器的职责；确定文件能否安全迁移或删除 |
-| 全文件审计 | [工具入口与清单命令](../tools/README.md) | 运行只读 Git 已追踪文件盘点，区分缺失于检出、旧本机链接与待复核的空源码 |
+| 小学 Python 基线 | [273 文件完整索引与分批优化计划](engineering/primary-school-inventory.md) | 追踪主 Scene、兼容入口、纯数学辅助脚本及结构问题；后续请运行只读动态审计工具 |\n| 全文件审计 | [工具入口与清单命令](../tools/README.md) | 运行只读 Git 已追踪文件盘点，区分缺失于检出、旧本机链接与待复核的空源码 |
 | 现状与架构 | [审计](architecture/audit.md)、[系统架构](architecture/architecture.md) | 新增基础设施或定位历史兼容边界 |
 | 第二阶段设计 | [稳定身份 ADR](architecture/adr-0001-stable-identities.md)、[阶段二蓝图](architecture/phase-2-blueprint.md)、[数据契约](architecture/phase-2-data-contract.md) | 设计 Topic/Scene/Artifact 身份、旧索引兼容及逐步迁移；这些是设计文档而非已完成迁移的声明 |
 | 第三阶段实施 | [课程审计与修复计划](engineering/phase-3-plan.md)、[质量门禁](engineering/quality-gates.md) | 使用只读审计工具定位 Prompt、Scene 和媒体歧义，并依阶段验收核心修复 |
