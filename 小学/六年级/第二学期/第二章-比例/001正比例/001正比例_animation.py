@@ -1,183 +1,146 @@
-"""
-001正比例 - Animation
-使用 Manim 创建的数学教学视频
-
-内容: 001正比例
-目标观众: 学生
-格式: TikTok竖屏 (1080×1920)
-作者: 上海初高中数学直通车 @emptyandcalm
-"""
+"""六年级：正比例的比值判断、关系式、图像与应用。"""
 
 from manim import *
-import numpy as np
 
-
-# 全局配置 - TikTok竖屏尺寸
 config.pixel_width = 1080
 config.pixel_height = 1920
 config.frame_width = 9
 config.frame_height = 16
 
+BG = "#131a30"
+BLUE_ACCENT = "#60a5fa"
+GOLD = "#fbbf24"
+GREEN_ACCENT = "#34d399"
+
+
+def direct_proportion_rate(points):
+    """判断数据点能否满足 y=kx 且 k!=0，返回精确 k，否则返回 None。
+
+    (0,0) 是允许的数据点，但 y/x 在 x=0 时不能计算。
+    """
+    from fractions import Fraction
+
+    values = tuple(points)
+    if len(values) < 2:
+        raise ValueError("至少需要两个数据点")
+    rate = None
+    for pair in values:
+        if not isinstance(pair, (tuple, list)) or len(pair) != 2:
+            raise ValueError("每个数据点须有两个坐标")
+        x, y = pair
+        if type(x) is not int or type(y) is not int:
+            raise ValueError("只接受整数数据点")
+        if x == 0:
+            if y != 0:
+                return None
+            continue
+        candidate = Fraction(y, x)
+        if candidate == 0:
+            return None
+        if rate is None:
+            rate = candidate
+        elif candidate != rate:
+            return None
+    return rate
+
 
 class Topic001正比例Animation(Scene):
-    """
-    001正比例 教学动画场景
-    """
-    
+    """用相同速度下的路程/时间表格、图像和反例解释正比例。"""
+
     def construct(self):
-        # 设置背景色
-        self.camera.background_color = "#1a1a2e"
-        
-        # 配色方案
-        self.COLOR_PRIMARY = "#3498db"      # 蓝色 - 主要元素
-        self.COLOR_SECONDARY = "#e74c3c"    # 红色 - 强调元素
-        self.COLOR_HIGHLIGHT = "#f1c40f"    # 黄色 - 高亮元素
-        self.COLOR_AUXILIARY = "#95a5a6"    # 灰色 - 辅助元素
-        
-        # 初始化几何数据
-        self.setup_geometry()
-        
-        # 执行动画序列
-        self.show_opening()
-        self.show_main_content()
-        self.show_examples()
-        self.show_summary()
-    
-    def setup_geometry(self):
-        """初始化几何布局"""
-        # 定义关键位置
-        self.center_pos = ORIGIN
-        self.top_pos = UP * 6
-        self.bottom_pos = DOWN * 6
-        self.left_pos = LEFT * 4
-        self.right_pos = RIGHT * 4
-        
-        # 定义网格位置用于摆放元素
-        self.grid_positions = []
-        rows, cols = 3, 3
-        start_x, start_y = -3, 2
-        spacing_x, spacing_y = 2, 2
-        
-        for row in range(rows):
-            for col in range(cols):
-                x = start_x + col * spacing_x
-                y = start_y - row * spacing_y
-                self.grid_positions.append(np.array([x, y, 0]))
-    
-    def show_opening(self):
-        """开场介绍"""
-        # 作者信息 (顶部)
-        author_info = Text(
+        assert direct_proportion_rate([(1, 2), (2, 4), (3, 6)]) == 2
+        assert direct_proportion_rate([(1, 2), (2, 5)]) is None
+        self.camera.background_color = BG
+        self.watermark = Text(
             "上海初高中数学直通车 @emptyandcalm",
-            font="PingFang SC",
-            font_size=20,
-            color=GRAY_B
-        ).move_to(UP * 7.5)
-        
-        self.play(FadeIn(author_info, shift=DOWN * 0.2), run_time=0.5)
-        
-        # 标题
-        title = Text(
-            "001正比例",
-            font="PingFang SC",
-            font_size=48,
-            color=GOLD
-        ).move_to(UP * 5)
-        
-        self.play(Write(title), run_time=1.0)
+            font_size=17, color=GRAY_B
+        ).move_to(UP * 7)
+        self.add(self.watermark)
+        self.opening()
+        self.table_and_formula()
+        self.graph()
+        self.counterexample_and_summary()
+
+    def transition(self):
+        self.play(*[
+            FadeOut(mob) for mob in list(self.mobjects) if mob is not self.watermark
+        ], run_time=0.35)
+
+    def heading(self, words):
+        title = Text(words, font_size=36, color=GOLD).move_to(UP * 5.6)
+        self.play(Write(title))
+        return title
+
+    def opening(self):
+        title = Text("什么叫正比例？", font_size=46).move_to(UP * 3.5)
+        question = Text("时间增加，路程按固定速度增长", font_size=28)
+        question.move_to(UP * 1)
+        self.play(Write(title), FadeIn(question))
+        hint = Text("关键：相对应两个量的比值不变", font_size=28, color=GREEN_ACCENT)
+        hint.move_to(DOWN * 1.5)
+        self.play(Write(hint))
+        self.wait(0.7)
+        self.transition()
+
+    def table_and_formula(self):
+        self.heading("数据表与比值")
+        heading = VGroup(
+            Text("时间 x", font_size=27, color=BLUE_ACCENT),
+            Text("路程 y", font_size=27, color=GREEN_ACCENT),
+            Text("y÷x", font_size=27, color=GOLD),
+        ).arrange(RIGHT, buff=0.8).move_to(UP * 3.6)
+        self.play(FadeIn(heading))
+        rows = VGroup()
+        for x, y in [(1, 2), (2, 4), (3, 6)]:
+            cells = VGroup(*[
+                Text(value, font_size=30)
+                for value in (str(x), str(y), str(y // x))
+            ]).arrange(RIGHT, buff=1.6)
+            rows.add(cells)
+        rows.arrange(DOWN, buff=0.5).move_to(UP * 1)
+        for row in rows:
+            self.play(FadeIn(row, shift=RIGHT * 0.2), run_time=0.4)
+        rule = MathTex(r"\frac{y}{x}=k,\quad y=kx", font_size=43, color=GOLD)
+        rule.move_to(DOWN * 2.3)
+        caution = Text("只在 x 不为 0 时计算比值", font_size=24, color=BLUE_ACCENT)
+        caution.move_to(DOWN * 3.5)
+        self.play(Write(rule), FadeIn(caution))
+        self.wait(0.9)
+        self.transition()
+
+    def graph(self):
+        self.heading("图像经过原点")
+        axes = Axes(
+            x_range=[0, 4, 1], y_range=[0, 8, 2],
+            x_length=4.9, y_length=4.6,
+            tips=False, axis_config={"include_numbers": True}
+        ).move_to(DOWN * 0.5)
+        graph = axes.plot(lambda x: 2 * x, x_range=[0, 3.4], color=GREEN_ACCENT)
+        dots = VGroup(*[
+            Dot(axes.c2p(x, 2 * x), radius=0.10, color=GOLD)
+            for x in (1, 2, 3)
+        ])
+        self.play(Create(axes), Create(graph), run_time=1.2)
+        self.play(FadeIn(dots))
+        label = MathTex(r"y=2x", font_size=46, color=GOLD)
+        label.move_to(UP * 3.4)
+        self.play(Write(label))
+        note = Text("非负量的实际图像：从原点出发的射线", font_size=24)
+        note.move_to(DOWN * 4.3)
+        self.play(FadeIn(note))
+        self.wait(0.8)
+        self.transition()
+
+    def counterexample_and_summary(self):
+        self.heading("判断是否成正比例")
+        data = VGroup(
+            MathTex(r"(1,2),\quad(2,5)", font_size=42),
+            MathTex(r"\frac{2}{1}\ne\frac{5}{2}", font_size=42, color=GOLD),
+            Text("比值变化，所以不成正比例", font_size=27, color=WHITE),
+        ).arrange(DOWN, buff=0.7).move_to(UP * 1)
+        for item in data:
+            self.play(Write(item), run_time=0.6)
+        conclusion = Text("关键是比值一定，而不是都在增加", font_size=26, color=GREEN_ACCENT)
+        conclusion.move_to(DOWN * 3.2)
+        self.play(FadeIn(conclusion))
         self.wait(1)
-        
-        # 清理
-        self.play(FadeOut(title), run_time=0.5)
-    
-    def show_main_content(self):
-        """主要内容展示"""
-        # 根据主题创建相应内容
-        content_text = Text(
-            "正在学习001正比例的概念...",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_PRIMARY
-        ).move_to(UP * 3)
-        
-        self.play(Write(content_text), run_time=1.0)
-        self.wait(2)
-        
-        # 示例元素
-        example_elements = VGroup()
-        for i in range(3):
-            element = Circle(radius=0.5, color=self.COLOR_HIGHLIGHT, fill_opacity=0.7)
-            element.move_to(self.grid_positions[i])
-            example_elements.add(element)
-        
-        self.play(LaggedStart(*[Create(el) for el in example_elements], lag_ratio=0.5), run_time=2)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(content_text), *[FadeOut(el) for el in example_elements], run_time=0.8)
-    
-    def show_examples(self):
-        """示例演示"""
-        example_text = Text(
-            "让我们看一个例子:",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_SECONDARY
-        ).move_to(UP * 4)
-        
-        self.play(Write(example_text), run_time=0.8)
-        self.wait(1)
-        
-        # 创建示例
-        example_visual = Square(side_length=2, color=self.COLOR_AUXILIARY)
-        example_visual.move_to(ORIGIN)
-        
-        self.play(Create(example_visual), run_time=1.0)
-        self.wait(2)
-        
-        # 清理
-        self.play(FadeOut(example_text), FadeOut(example_visual), run_time=0.8)
-    
-    def show_summary(self):
-        """总结回顾"""
-        summary_points = VGroup(
-            Text("✓ 今天我们学习了001正比例", font="PingFang SC", font_size=28, color=self.COLOR_PRIMARY),
-            Text("✓ 这是一个重要的数学概念", font="PingFang SC", font_size=28, color=self.COLOR_SECONDARY),
-            Text("✓ 多多练习才能掌握", font="PingFang SC", font_size=28, color=self.COLOR_HIGHLIGHT)
-        )
-        summary_points.arrange(DOWN, buff=0.8, aligned_edge=LEFT)
-        summary_points.move_to(UP * 1)
-        
-        title = Text(
-            "今天学到的知识：",
-            font="PingFang SC",
-            font_size=36,
-            color=GOLD
-        ).move_to(UP * 4)
-        
-        self.play(Write(title), run_time=0.6)
-        self.play(LaggedStart(*[Write(point) for point in summary_points], lag_ratio=0.8), run_time=2.5)
-        
-        self.wait(3)
-        
-        # 鼓励话语
-        encouragement = Text(
-            "你学得真棒！\\n继续加油哦！",
-            font="PingFang SC",
-            font_size=32,
-            color=self.COLOR_HIGHLIGHT
-        ).move_to(DOWN * 2)
-        
-        self.play(Write(encouragement), run_time=1.0)
-        self.wait(3)
-        
-        # 关注提醒
-        follow_reminder = Text(
-            "关注我，获得更多数学技巧!",
-            font="PingFang SC",
-            font_size=24,
-            color=GRAY_A
-        ).move_to(DOWN * 5)
-        
-        self.play(FadeIn(follow_reminder, shift=UP * 0.3), run_time=0.5)
-        self.wait(3)
