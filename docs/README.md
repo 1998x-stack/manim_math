@@ -5,6 +5,7 @@
 | 主题 | 入口 | 阅读时机 |
 | --- | --- | --- |
 | 仓库结构 | [文件与交付物地图](engineering/repository-map.md)、[文件系统分类与清理规则](engineering/filesystem-governance.md) | 分辨课程、源码、Prompt、视频和生成器的职责；确定文件能否安全迁移或删除 |
+| 小学第六批 Scene 去重 | [五课模板重写、删除旧 Scene 与媒体兼容说明](engineering/primary-scene-deduplication-batch6.md) | 方程组、不等式、正比例、抽屉原理真实教学内容与回归验证 |
 | 小学第五批 Scene 去重 | [六年级四门课去重、旧入口映射与数学回归](engineering/primary-scene-deduplication-batch5.md) | 删除四份冗余教学 Scene，保留完整章节课程与历史视频关联 |
 | 小学第四批 Scene 去重 | [六门课删除映射与保留源码更新](engineering/primary-scene-deduplication-batch4.md) | 新增代数、统计、概率与几何不变量测试；同步保持旧视频关联 |
 | 小学重复 Scene 治理 | [第三批：四份冗余源码删除与替代映射](engineering/primary-scene-deduplication.md) | 保留较完整 Scene、同步算术验证、明确旧入口替换关系与视频兼容边界 |
