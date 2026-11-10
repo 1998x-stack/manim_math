@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+import subprocess
 from pathlib import Path
 
 from tools.audit_primary_sources import audit, main, scene_names
@@ -74,6 +75,19 @@ class PrimarySourcesAuditTests(unittest.TestCase):
         self.assertIsNone(olympiad_topic["companions"])
         self.assertFalse(olympiad_topic["needs_scene_review"])
         self.assertEqual(report["summary"]["by_grade"], {"二年级": 1, "奥数专题": 1})
+
+    def test_sparse_checkout_cannot_be_reported_as_complete(self):
+        self.make_file("tracked.py", "class Tracked(Scene): pass\n")
+        subprocess.run(["git", "init", "-q", str(self.root)], check=True)
+        subprocess.run(["git", "-C", str(self.root), "add", "."], check=True)
+        (self.topic / "tracked.py").unlink()
+        result = audit(self.root)
+        self.assertFalse(result["summary"]["complete_checkout"])
+        self.assertEqual(result["summary"]["tracked_python_files"], 1)
+        self.assertEqual(result["summary"]["not_checked_out"], 1)
+        self.assertEqual(result["summary"]["python_files"], 0)
+        self.assertIn("小学/二年级/上册/第一章/001乘法/tracked.py",
+                      result["not_checked_out"])
 
     def test_missing_school_directory_fails_loudly(self):
         with tempfile.TemporaryDirectory() as empty:
