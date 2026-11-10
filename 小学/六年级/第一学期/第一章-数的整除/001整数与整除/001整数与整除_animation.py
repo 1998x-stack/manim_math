@@ -9,11 +9,31 @@ config.frame_width = 9
 config.frame_height = 16
 
 
+def integer_division(dividend: int, divisor: int):
+    """整除关系：(商, 余数, 是否整除)，余数总在 [0, |divisor|) 内。"""
+    if (type(dividend) is not int or type(divisor) is not int
+            or divisor == 0):
+        raise ValueError("必须是整数，且除数不能为 0")
+    quotient, remainder = divmod(dividend, abs(divisor))
+    if divisor < 0:
+        quotient = -quotient
+    assert dividend == divisor * quotient + remainder
+    return quotient, remainder, remainder == 0
+
+
 class Topic001整数与整除Animation(Scene):
     """被除数、除数与商为整数，余数为零时才构成整除。"""
 
     def construct(self):
+        # 用同一算法核对 12 可被 3 整除、13 不可被 3 整除。
+        assert integer_division(12, 3) == (4, 0, True)
+        assert integer_division(13, 3) == (4, 1, False)
+        assert integer_division(-12, 3) == (-4, 0, True)
         self.camera.background_color = "#1a1a2e"
+        self.add(Text(
+            "上海初高中数学直通车 @emptyandcalm",
+            font_size=17, color=GRAY_B
+        ).move_to(UP * 7))
         title = Text("整数与整除", font_size=48, color=YELLOW).move_to(UP * 5.4)
         intro = Text("12 个点，平均分成 3 组", font_size=30).move_to(UP * 3.8)
         self.play(Write(title), FadeIn(intro))

@@ -13,6 +13,7 @@ on:
       - 'tests/test_primary_scene_deduplication_batch4.py'
       - 'tests/test_primary_scene_deduplication_batch5.py'
       - 'tests/test_primary_scene_deduplication_batch6.py'
+      - 'tests/test_primary_scene_deduplication_batch7.py'
       - 'assets/catalog.json'
       - 'assets/build_catalog.py'
       - '.github/workflows/primary-scene-shadow.yml'
@@ -40,6 +41,7 @@ jobs:
             tests/test_primary_scene_deduplication_batch4.py
             tests/test_primary_scene_deduplication_batch5.py
             tests/test_primary_scene_deduplication_batch6.py
+            tests/test_primary_scene_deduplication_batch7.py
             assets/build_catalog.py
             catalog/primary-scene-overrides.json
             assets/catalog.json
@@ -48,7 +50,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Unit tests (no Manim required)
-        run: python -m unittest tests.test_audit_primary_sources tests.test_primary_scene_shadow tests.test_primary_scene_deduplication tests.test_primary_scene_deduplication_batch4 tests.test_primary_scene_deduplication_batch5 tests.test_primary_scene_deduplication_batch6 -v
+        run: python -m unittest tests.test_audit_primary_sources tests.test_primary_scene_shadow tests.test_primary_scene_deduplication tests.test_primary_scene_deduplication_batch4 tests.test_primary_scene_deduplication_batch5 tests.test_primary_scene_deduplication_batch6 tests.test_primary_scene_deduplication_batch7 -v
       - name: Read-only shadow validation; require all tracked primary Python files
         run: python -m tools.primary_scene_shadow --require-complete --output /tmp/primary-scene-shadow.json
       - name: Print summary for reviewers

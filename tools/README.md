@@ -26,6 +26,8 @@ python tools/audit_primary_sources.py --output /tmp/manim-primary-sources.json
 python -m unittest tests.test_audit_primary_sources -v
 ```
 
+重复教学 Scene 第七批清理：[四门六年级课程真实分镜、唯一主 Scene 与去重映射](../docs/engineering/primary-scene-deduplication-batch7.md)，新增测试 `tests/test_primary_scene_deduplication_batch7.py`。
+
 重复教学 Scene 第六批清理：[五门六年级课程的教学重写与去重](../docs/engineering/primary-scene-deduplication-batch6.md)，关联测试 `tests/test_primary_scene_deduplication_batch6.py`。
 
 重复教学 Scene 第五批清理：[四门六年级课程唯一主 Scene 与删除映射](../docs/engineering/primary-scene-deduplication-batch5.md)，数学与 Gallery 回归测试包含在 `tests/test_primary_scene_deduplication_batch5.py`。

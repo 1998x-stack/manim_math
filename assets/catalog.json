@@ -2067,8 +2067,8 @@
                       "id": "df4bbd48d1",
                       "number": "001",
                       "name": "圆的认识",
-                      "docstring": "",
-                      "pyFile": "小学/六年级/第一学期/第四章-圆和扇形/001圆的认识/001_圆的认识.py",
+                      "docstring": "六年级圆的认识：圆心、半径、直径、圆规画法与对称轴。",
+                      "pyFile": "小学/六年级/第一学期/第四章-圆和扇形/001圆的认识/001圆的认识_animation.py",
                       "videoFile": "小学/六年级/第一学期/第四章-圆和扇形/001圆的认识/Topic001圆的认识Animation_finish.mp4",
                       "hasVideo": true
                     },
