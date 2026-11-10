@@ -18,6 +18,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PYTHONPYCACHEPREFIX: /tmp/manim-prompt-suite-pycache
+
 jobs:
   prompt-contract:
     runs-on: ubuntu-latest
